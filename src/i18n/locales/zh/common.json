@@ -1,0 +1,112 @@
+{
+  "appName": "Hotel OS",
+  "actions": {
+    "save": "保存",
+    "cancel": "取消",
+    "delete": "删除",
+    "edit": "编辑",
+    "view": "查看",
+    "create": "新建",
+    "search": "搜索",
+    "filter": "筛选",
+    "export": "导出",
+    "refresh": "刷新",
+    "back": "返回",
+    "next": "下一步",
+    "previous": "上一步",
+    "confirm": "确认",
+    "close": "关闭",
+    "retry": "重试",
+    "logout": "退出登录",
+    "login": "登录",
+    "clear": "清除",
+    "changeLanguage": "切换语言",
+    "openMenu": "打开菜单",
+    "showPassword": "显示密码",
+    "hidePassword": "隐藏密码"
+  },
+  "states": {
+    "loading": "加载中…",
+    "noResults": "未找到结果",
+    "errorTitle": "出错了",
+    "error": {
+      "generic": "发生意外错误，请重试。",
+      "network": "网络错误，请检查连接后重试。"
+    },
+    "success": {
+      "saved": "保存成功",
+      "deleted": "删除成功"
+    }
+  },
+  "table": {
+    "rowsPerPage": "每页行数",
+    "of": "共",
+    "page": "页",
+    "sortBy": "排序方式",
+    "actions": "操作",
+    "selectAll": "全选",
+    "selectRow": "选择此行",
+    "displayedRows": "第 {{from}}–{{to}} 条，共 {{count}} 条"
+  },
+  "validation": {
+    "required": "此字段为必填项",
+    "email": "请输入有效的电子邮箱地址",
+    "minLength": "至少需要 {{count}} 个字符",
+    "maxLength": "最多 {{count}} 个字符",
+    "passwordWeak": "密码需至少 8 个字符，包含大写字母、小写字母和数字",
+    "passwordMismatch": "两次输入的密码不一致"
+  },
+  "datetime": {
+    "today": "今天",
+    "yesterday": "昨天"
+  },
+  "status": {
+    "ACTIVE": "已激活",
+    "INACTIVE": "未激活",
+    "PENDING": "待处理",
+    "SUSPENDED": "已暂停",
+    "EXPIRED": "已过期",
+    "CANCELLED": "已取消"
+  },
+  "timeline": {
+    "resource": "资源",
+    "today": "今天",
+    "legend": "图例"
+  },
+  "wizard": {
+    "step": "第 {{current}} 步，共 {{total}} 步",
+    "finish": "完成"
+  },
+  "dateRange": {
+    "label": "日期范围",
+    "from": "开始日期",
+    "to": "结束日期",
+    "apply": "应用",
+    "presets": {
+      "last7": "过去 7 天",
+      "next7": "未来 7 天",
+      "next14": "未来 14 天",
+      "thisMonth": "本月"
+    }
+  },
+  "languages": {
+    "en": "English",
+    "si": "සිංහල",
+    "ta": "தமிழ்",
+    "es": "Español",
+    "zh": "中文",
+    "fr": "Français",
+    "de": "Deutsch"
+  },
+  "restaurant": {
+    "table": "桌号",
+    "floor": "楼层",
+    "seats": "座位",
+    "queued": "已排队",
+    "preparing": "准备中",
+    "ready": "已就绪",
+    "served": "已送达",
+    "inStock": "有现货",
+    "outOfStock": "无现货"
+  }
+}

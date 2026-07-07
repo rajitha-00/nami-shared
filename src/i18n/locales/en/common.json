@@ -1,0 +1,112 @@
+{
+  "appName": "Hotel OS",
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "create": "Create",
+    "search": "Search",
+    "filter": "Filter",
+    "export": "Export",
+    "refresh": "Refresh",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "confirm": "Confirm",
+    "close": "Close",
+    "retry": "Retry",
+    "logout": "Log out",
+    "login": "Log in",
+    "clear": "Clear",
+    "changeLanguage": "Change language",
+    "openMenu": "Open menu",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password"
+  },
+  "states": {
+    "loading": "Loading…",
+    "noResults": "No results found",
+    "errorTitle": "Something went wrong",
+    "error": {
+      "generic": "An unexpected error occurred. Please try again.",
+      "network": "Network error. Check your connection and try again."
+    },
+    "success": {
+      "saved": "Saved successfully",
+      "deleted": "Deleted successfully"
+    }
+  },
+  "table": {
+    "rowsPerPage": "Rows per page",
+    "of": "of",
+    "page": "Page",
+    "sortBy": "Sort by",
+    "actions": "Actions",
+    "selectAll": "Select all rows",
+    "selectRow": "Select row",
+    "displayedRows": "{{from}}–{{to}} of {{count}}"
+  },
+  "validation": {
+    "required": "This field is required",
+    "email": "Enter a valid email address",
+    "minLength": "Must be at least {{count}} characters",
+    "maxLength": "Must be at most {{count}} characters",
+    "passwordWeak": "Password needs 8+ characters with uppercase, lowercase and a number",
+    "passwordMismatch": "Passwords do not match"
+  },
+  "datetime": {
+    "today": "Today",
+    "yesterday": "Yesterday"
+  },
+  "status": {
+    "ACTIVE": "Active",
+    "INACTIVE": "Inactive",
+    "PENDING": "Pending",
+    "SUSPENDED": "Suspended",
+    "EXPIRED": "Expired",
+    "CANCELLED": "Cancelled"
+  },
+  "timeline": {
+    "resource": "Resource",
+    "today": "Today",
+    "legend": "Legend"
+  },
+  "wizard": {
+    "step": "Step {{current}} of {{total}}",
+    "finish": "Finish"
+  },
+  "dateRange": {
+    "label": "Date range",
+    "from": "From",
+    "to": "To",
+    "apply": "Apply",
+    "presets": {
+      "last7": "Last 7 days",
+      "next7": "Next 7 days",
+      "next14": "Next 14 days",
+      "thisMonth": "This month"
+    }
+  },
+  "languages": {
+    "en": "English",
+    "si": "සිංහල",
+    "ta": "தமிழ்",
+    "es": "Español",
+    "zh": "中文",
+    "fr": "Français",
+    "de": "Deutsch"
+  },
+  "restaurant": {
+    "table": "Table",
+    "floor": "Floor",
+    "seats": "Seats",
+    "queued": "Queued",
+    "preparing": "Preparing",
+    "ready": "Ready",
+    "served": "Served",
+    "inStock": "In Stock",
+    "outOfStock": "Out of Stock"
+  }
+}

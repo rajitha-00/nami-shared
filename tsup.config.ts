@@ -1,0 +1,34 @@
+import { defineConfig } from 'tsup';
+
+export default defineConfig({
+  entry: {
+    index: 'src/index.ts',
+    'theme/index': 'src/theme/index.ts',
+    'components/index': 'src/components/index.ts',
+    'hooks/index': 'src/hooks/index.ts',
+    'i18n/index': 'src/i18n/index.ts',
+    'types/index': 'src/types/index.ts',
+    'constants/index': 'src/constants/index.ts',
+    'utils/index': 'src/utils/index.ts',
+  },
+  format: ['esm', 'cjs'],
+  dts: true,
+  sourcemap: true,
+  clean: true,
+  treeshake: true,
+  external: [
+    'react',
+    'react-dom',
+    'react/jsx-runtime',
+    '@mui/material',
+    '@mui/icons-material',
+    '@emotion/react',
+    '@emotion/styled',
+    'react-i18next',
+    'i18next',
+    'react-hook-form',
+    'zod',
+    '@reduxjs/toolkit',
+    'react-redux',
+  ],
+});

@@ -1,0 +1,112 @@
+{
+  "appName": "Hotel OS",
+  "actions": {
+    "save": "සුරකින්න",
+    "cancel": "අවලංගු කරන්න",
+    "delete": "මකන්න",
+    "edit": "සංස්කරණය කරන්න",
+    "view": "බලන්න",
+    "create": "සාදන්න",
+    "search": "සොයන්න",
+    "filter": "පෙරහන",
+    "export": "නිර්යාත කරන්න",
+    "refresh": "නැවුම් කරන්න",
+    "back": "ආපසු",
+    "next": "ඊළඟ",
+    "previous": "පෙර",
+    "confirm": "තහවුරු කරන්න",
+    "close": "වසන්න",
+    "retry": "නැවත උත්සාහ කරන්න",
+    "logout": "පිටවන්න",
+    "login": "පිවිසෙන්න",
+    "clear": "හිස් කරන්න",
+    "changeLanguage": "භාෂාව වෙනස් කරන්න",
+    "openMenu": "මෙනුව විවෘත කරන්න",
+    "showPassword": "මුරපදය පෙන්වන්න",
+    "hidePassword": "මුරපදය සඟවන්න"
+  },
+  "states": {
+    "loading": "පූරණය වෙමින්…",
+    "noResults": "ප්‍රතිඵල හමු නොවීය",
+    "errorTitle": "යමක් වැරදී ඇත",
+    "error": {
+      "generic": "අනපේක්ෂිත දෝෂයක් සිදු විය. කරුණාකර නැවත උත්සාහ කරන්න.",
+      "network": "ජාල දෝෂයකි. සම්බන්ධතාවය පරීක්ෂා කර නැවත උත්සාහ කරන්න."
+    },
+    "success": {
+      "saved": "සාර්ථකව සුරකින ලදී",
+      "deleted": "සාර්ථකව මකා දමන ලදී"
+    }
+  },
+  "table": {
+    "rowsPerPage": "පිටුවකට පේළි",
+    "of": "කින්",
+    "page": "පිටුව",
+    "sortBy": "අනුව පෙළගස්වන්න",
+    "actions": "ක්‍රියා",
+    "selectAll": "සියලු පේළි තෝරන්න",
+    "selectRow": "පේළිය තෝරන්න",
+    "displayedRows": "{{count}} කින් {{from}}–{{to}}"
+  },
+  "validation": {
+    "required": "මෙම ක්ෂේත්‍රය අවශ්‍යයි",
+    "email": "වලංගු විද්‍යුත් තැපැල් ලිපිනයක් ඇතුළත් කරන්න",
+    "minLength": "අවම වශයෙන් අක්ෂර {{count}}ක් විය යුතුය",
+    "maxLength": "උපරිම වශයෙන් අක්ෂර {{count}}ක් විය යුතුය",
+    "passwordWeak": "මුරපදයට අවම අක්ෂර 8ක්, කැපිටල් අකුරක්, සිම්පල් අකුරක් සහ ඉලක්කමක් අවශ්‍යයි",
+    "passwordMismatch": "මුරපද නොගැලපේ"
+  },
+  "datetime": {
+    "today": "අද",
+    "yesterday": "ඊයේ"
+  },
+  "status": {
+    "ACTIVE": "සක්‍රීයයි",
+    "INACTIVE": "අක්‍රීයයි",
+    "PENDING": "පොරොත්තුවෙන්",
+    "SUSPENDED": "අත්හිටුවා ඇත",
+    "EXPIRED": "කල් ඉකුත් වී ඇත",
+    "CANCELLED": "අවලංගු කර ඇත"
+  },
+  "timeline": {
+    "resource": "සම්පත",
+    "today": "අද",
+    "legend": "සංකේත"
+  },
+  "wizard": {
+    "step": "පියවර {{total}} කින් {{current}}",
+    "finish": "අවසන් කරන්න"
+  },
+  "dateRange": {
+    "label": "දින පරාසය",
+    "from": "සිට",
+    "to": "දක්වා",
+    "apply": "යොදන්න",
+    "presets": {
+      "last7": "පසුගිය දින 7",
+      "next7": "ඉදිරි දින 7",
+      "next14": "ඉදිරි දින 14",
+      "thisMonth": "මෙම මාසය"
+    }
+  },
+  "languages": {
+    "en": "English",
+    "si": "සිංහල",
+    "ta": "தமிழ்",
+    "es": "Español",
+    "zh": "中文",
+    "fr": "Français",
+    "de": "Deutsch"
+  },
+  "restaurant": {
+    "table": "මේසය",
+    "floor": "මහල",
+    "seats": "ආසන",
+    "queued": "පෙළ ගැසූ",
+    "preparing": "සූදානම් කරමින්",
+    "ready": "සූදානම්",
+    "served": "පිළිගැන්වූ",
+    "inStock": "තොගයේ ඇත",
+    "outOfStock": "තොගයේ නැත"
+  }
+}

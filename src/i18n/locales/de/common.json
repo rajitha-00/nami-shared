@@ -1,0 +1,112 @@
+{
+  "appName": "Hotel OS",
+  "actions": {
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "view": "Ansehen",
+    "create": "Erstellen",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "export": "Exportieren",
+    "refresh": "Aktualisieren",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Vorherige",
+    "confirm": "Bestätigen",
+    "close": "Schließen",
+    "retry": "Erneut versuchen",
+    "logout": "Abmelden",
+    "login": "Anmelden",
+    "clear": "Leeren",
+    "changeLanguage": "Sprache ändern",
+    "openMenu": "Menü öffnen",
+    "showPassword": "Passwort anzeigen",
+    "hidePassword": "Passwort verbergen"
+  },
+  "states": {
+    "loading": "Wird geladen…",
+    "noResults": "Keine Ergebnisse gefunden",
+    "errorTitle": "Etwas ist schiefgelaufen",
+    "error": {
+      "generic": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+      "network": "Netzwerkfehler. Prüfen Sie Ihre Verbindung und versuchen Sie es erneut."
+    },
+    "success": {
+      "saved": "Erfolgreich gespeichert",
+      "deleted": "Erfolgreich gelöscht"
+    }
+  },
+  "table": {
+    "rowsPerPage": "Zeilen pro Seite",
+    "of": "von",
+    "page": "Seite",
+    "sortBy": "Sortieren nach",
+    "actions": "Aktionen",
+    "selectAll": "Alle Zeilen auswählen",
+    "selectRow": "Zeile auswählen",
+    "displayedRows": "{{from}}–{{to}} von {{count}}"
+  },
+  "validation": {
+    "required": "Dieses Feld ist erforderlich",
+    "email": "Geben Sie eine gültige E-Mail-Adresse ein",
+    "minLength": "Muss mindestens {{count}} Zeichen enthalten",
+    "maxLength": "Darf höchstens {{count}} Zeichen enthalten",
+    "passwordWeak": "Das Passwort benötigt 8+ Zeichen mit Groß-, Kleinbuchstaben und einer Ziffer",
+    "passwordMismatch": "Die Passwörter stimmen nicht überein"
+  },
+  "datetime": {
+    "today": "Heute",
+    "yesterday": "Gestern"
+  },
+  "status": {
+    "ACTIVE": "Aktiv",
+    "INACTIVE": "Inaktiv",
+    "PENDING": "Ausstehend",
+    "SUSPENDED": "Gesperrt",
+    "EXPIRED": "Abgelaufen",
+    "CANCELLED": "Storniert"
+  },
+  "timeline": {
+    "resource": "Ressource",
+    "today": "Heute",
+    "legend": "Legende"
+  },
+  "wizard": {
+    "step": "Schritt {{current}} von {{total}}",
+    "finish": "Fertigstellen"
+  },
+  "dateRange": {
+    "label": "Zeitraum",
+    "from": "Von",
+    "to": "Bis",
+    "apply": "Anwenden",
+    "presets": {
+      "last7": "Letzte 7 Tage",
+      "next7": "Nächste 7 Tage",
+      "next14": "Nächste 14 Tage",
+      "thisMonth": "Dieser Monat"
+    }
+  },
+  "languages": {
+    "en": "English",
+    "si": "සිංහල",
+    "ta": "தமிழ்",
+    "es": "Español",
+    "zh": "中文",
+    "fr": "Français",
+    "de": "Deutsch"
+  },
+  "restaurant": {
+    "table": "Tisch",
+    "floor": "Etage",
+    "seats": "Sitze",
+    "queued": "Warteschlange",
+    "preparing": "In Zubereitung",
+    "ready": "Bereit",
+    "served": "Serviert",
+    "inStock": "Auf Lager",
+    "outOfStock": "Nicht auf Lager"
+  }
+}
