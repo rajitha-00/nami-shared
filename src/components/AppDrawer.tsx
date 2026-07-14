@@ -8,7 +8,7 @@ import { styled } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
 import { LoadingOverlay } from './LoadingOverlay';
 
-const DRAWER_WIDTHS = { sm: 400, md: 520, lg: 680 } as const;
+const DRAWER_WIDTHS = { sm: 400, md: 520, lg: 680, xl: 900 } as const;
 export type AppDrawerWidth = keyof typeof DRAWER_WIDTHS;
 
 const DrawerHeader = styled('header')(({ theme }) => ({
@@ -47,7 +47,7 @@ export interface AppDrawerProps {
   tabs?: ReactNode;
   /** Footer action buttons (stretched full-width). */
   footer?: ReactNode;
-  width?: AppDrawerWidth;
+  width?: AppDrawerWidth | string | number;
   loading?: boolean;
   children: ReactNode;
 }
@@ -67,13 +67,18 @@ export function AppDrawer({
   children,
 }: AppDrawerProps) {
   const { t } = useTranslation();
+
+  const resolvedWidth = typeof width === 'string' && width in DRAWER_WIDTHS
+    ? DRAWER_WIDTHS[width as AppDrawerWidth]
+    : width;
+
   return (
     <Drawer
       anchor="right"
       open={open}
       onClose={onClose}
       PaperProps={{
-        sx: { width: { xs: '100%', sm: DRAWER_WIDTHS[width] }, display: 'flex' },
+        sx: { width: { xs: '100%', sm: resolvedWidth }, display: 'flex' },
       }}
     >
       <DrawerHeader>
