@@ -41,7 +41,7 @@ export function ConfirmDialog({
   const { t } = useTranslation();
 
   return (
-    <Dialog open={open} onClose={onCancel} maxWidth="xs" fullWidth>
+    <Dialog open={open} onClose={onCancel} maxWidth="xs" fullWidth sx={{ zIndex: (theme) => theme.zIndex.modal + 200 }}>
       <DialogTitle>{t(titleKey)}</DialogTitle>
       <DialogContent>
         <DialogContentText>{t(messageKey, messageParams)}</DialogContentText>
