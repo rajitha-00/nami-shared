@@ -17,6 +17,7 @@ const DrawerHeader = styled('header')(({ theme }) => ({
   gap: theme.spacing(1.5),
   padding: theme.spacing(2, 3),
   borderBottom: `1px solid ${theme.palette.divider}`,
+  backgroundColor: theme.palette.background.paper,
 }));
 
 const DrawerContent = styled('div')(({ theme }) => ({
@@ -31,6 +32,7 @@ const DrawerFooter = styled('footer')(({ theme }) => ({
   gap: theme.spacing(1.5),
   padding: theme.spacing(2, 3),
   borderTop: `1px solid ${theme.palette.divider}`,
+  backgroundColor: theme.palette.background.paper,
   '& > *': { flexGrow: 1 },
 }));
 
@@ -77,8 +79,13 @@ export function AppDrawer({
       anchor="right"
       open={open}
       onClose={onClose}
-      PaperProps={{
-        sx: { width: { xs: '100%', sm: resolvedWidth }, display: 'flex' },
+      sx={{
+        zIndex: (theme) => theme.zIndex.modal + 100,
+        '& .MuiDrawer-paper': {
+          width: { xs: '100%', sm: resolvedWidth },
+          display: 'flex',
+          backgroundColor: 'background.paper',
+        },
       }}
     >
       <DrawerHeader>
