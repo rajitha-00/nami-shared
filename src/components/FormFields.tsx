@@ -26,6 +26,7 @@ export interface FormTextFieldProps<TValues extends FieldValues>
   autoFocus?: boolean;
   autoComplete?: string;
   placeholderKey?: string;
+  disabled?: boolean;
 }
 
 /** react-hook-form bound TextField with i18n label and zod error translation. */
@@ -39,6 +40,7 @@ export function FormTextField<TValues extends FieldValues>({
   autoFocus,
   autoComplete,
   placeholderKey,
+  disabled,
 }: FormTextFieldProps<TValues>) {
   const { t } = useTranslation();
   return (
@@ -59,6 +61,7 @@ export function FormTextField<TValues extends FieldValues>({
           rows,
           autoFocus,
           autoComplete,
+          disabled,
         };
         return type === 'password' ? <PasswordField {...shared} /> : <TextField {...shared} type={type} />;
       }}

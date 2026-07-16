@@ -41,7 +41,7 @@ const HeaderRow = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
   position: 'sticky',
   top: 0,
-  zIndex: 2,
+  zIndex: 3,
 }));
 
 const ResourceCell = styled('div')(({ theme }) => ({
@@ -52,7 +52,7 @@ const ResourceCell = styled('div')(({ theme }) => ({
   alignItems: 'center',
   position: 'sticky',
   left: 0,
-  zIndex: 1,
+  zIndex: 2,
   backgroundColor: theme.palette.background.paper,
   borderRight: `1px solid ${theme.palette.divider}`,
 }));
