@@ -1,4 +1,4 @@
-import i18n, { type Resource, type i18n as I18nInstance } from 'i18next';
+import i18n, { type Resource, type ResourceLanguage, type i18n as I18nInstance } from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from '../constants/locales';
@@ -34,7 +34,22 @@ const mergeResources = (base: Resource, extra?: Resource): Resource => {
   if (!extra) return base;
   const merged: Resource = { ...base };
   for (const [lng, namespaces] of Object.entries(extra)) {
-    merged[lng] = { ...(merged[lng] ?? {}), ...namespaces };
+    const baseNs = (merged[lng] ?? {}) as Record<string, unknown>;
+    const extraNs = namespaces as Record<string, unknown>;
+    // Deep-merge each namespace so app keys EXTEND shared keys (not replace them)
+    const mergedNs: Record<string, unknown> = { ...baseNs };
+    for (const [ns, translations] of Object.entries(extraNs)) {
+      if (
+        typeof translations === 'object' && translations !== null &&
+        typeof baseNs[ns] === 'object' && baseNs[ns] !== null
+      ) {
+        // Deep merge namespace object: shared keys kept, app keys added/overridden on top
+        mergedNs[ns] = { ...(baseNs[ns] as object), ...(translations as object) };
+      } else {
+        mergedNs[ns] = translations;
+      }
+    }
+    merged[lng] = mergedNs as ResourceLanguage;
   }
   return merged;
 };
