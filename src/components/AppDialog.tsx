@@ -45,7 +45,7 @@ export function AppDialog({
   };
 
   return (
-    <Dialog open={open} onClose={handleClose} fullWidth maxWidth={size} sx={{ zIndex: (theme) => theme.zIndex.modal + 200 }}>
+    <Dialog open={open} onClose={handleClose} fullWidth maxWidth={size}>
       <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         {t(titleKey, titleParams)}
         <IconButton
