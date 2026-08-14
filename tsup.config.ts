@@ -12,7 +12,7 @@ export default defineConfig({
     'utils/index': 'src/utils/index.ts',
   },
   format: ['esm', 'cjs'],
-  dts: true,
+  dts: false,
   sourcemap: true,
   clean: true,
   treeshake: true,
@@ -30,5 +30,6 @@ export default defineConfig({
     'zod',
     '@reduxjs/toolkit',
     'react-redux',
+    'react-spinners',
   ],
 });

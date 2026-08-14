@@ -8,17 +8,19 @@ import Typography from '@mui/material/Typography';
 import { alpha, styled } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
 
-const StatCardRoot = styled(Card)(({ theme }) => ({
-  padding: theme.spacing(3),
+const StatCardRoot = styled(Card, {
+  shouldForwardProp: (prop) => prop !== 'compactSize',
+})<{ compactSize?: boolean }>(({ theme, compactSize }) => ({
+  padding: compactSize ? theme.spacing(1.5, 2) : theme.spacing(2.5),
   display: 'flex',
   flexDirection: 'column',
-  gap: theme.spacing(1),
+  gap: compactSize ? theme.spacing(0.75) : theme.spacing(1),
   height: '100%',
 }));
 
 const KpiHeaderRow = styled('div')(({ theme }) => ({
   display: 'flex',
-  alignItems: 'flex-start',
+  alignItems: 'center',
   justifyContent: 'space-between',
   gap: theme.spacing(1),
 }));
@@ -26,10 +28,10 @@ const KpiHeaderRow = styled('div')(({ theme }) => ({
 export type StatCardIconColor = 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error';
 
 const IconTile = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'colorKey',
-})<{ colorKey: StatCardIconColor }>(({ theme, colorKey }) => ({
+  shouldForwardProp: (prop) => prop !== 'colorKey' && prop !== 'compact',
+})<{ colorKey: StatCardIconColor; compact?: boolean }>(({ theme, colorKey, compact }) => ({
   display: 'inline-flex',
-  padding: theme.spacing(1.25),
+  padding: theme.spacing(compact ? 0.75 : 1.25),
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette[colorKey].main, 0.12),
   color: theme.palette[colorKey].main,
@@ -43,6 +45,7 @@ const DeltaRow = styled('div', {
   gap: theme.spacing(0.5),
   ...theme.typography.caption,
   fontWeight: 600,
+  fontSize: '0.72rem',
   color:
     trend === 'up'
       ? theme.palette.success.main
@@ -52,6 +55,7 @@ const DeltaRow = styled('div', {
 }));
 
 export type StatCardTrend = 'up' | 'down' | 'flat';
+export type StatCardSize = 'medium' | 'small' | 'mini';
 
 export interface StatCardProps {
   labelKey: string;
@@ -74,6 +78,8 @@ export interface StatCardProps {
   badge?: ReactNode;
   /** Tint of the kpi icon tile. */
   iconColor?: StatCardIconColor;
+  /** Card sizing: 'medium' (default), 'small', or 'mini'. */
+  size?: StatCardSize;
 }
 
 const TREND_ICONS = {
@@ -95,13 +101,19 @@ export function StatCard({
   subtitleParams,
   badge,
   iconColor = 'primary',
+  size = 'small',
 }: StatCardProps) {
   const { t } = useTranslation();
+  const isCompact = size === 'small' || size === 'mini';
 
   const valueNode = loading ? (
-    <Skeleton variant="text" width={120} height={40} />
+    <Skeleton variant="text" width={80} height={isCompact ? 28 : 40} />
   ) : (
-    <Typography variant="h3" component="div">
+    <Typography
+      variant={isCompact ? 'h5' : 'h4'}
+      component="div"
+      sx={isCompact ? { fontWeight: 800, fontSize: '1.2rem', lineHeight: 1.2 } : { fontWeight: 800 }}
+    >
       {value}
     </Typography>
   );
@@ -115,28 +127,28 @@ export function StatCard({
     ) : null;
 
   const subtitleNode = subtitleKey ? (
-    <Typography variant="caption" color="text.secondary">
+    <Typography variant="caption" color="text.secondary" sx={{ fontSize: '0.72rem' }}>
       {t(subtitleKey, subtitleParams)}
     </Typography>
   ) : null;
 
   if (layout === 'kpi') {
     return (
-      <StatCardRoot>
+      <StatCardRoot compactSize={isCompact}>
         <KpiHeaderRow>
-          {icon ? <IconTile colorKey={iconColor}>{icon}</IconTile> : <span />}
+          {icon ? <IconTile colorKey={iconColor} compact={isCompact}>{icon}</IconTile> : <span />}
           {badge ?? (
             <Typography
               variant="overline"
               color="text.secondary"
-              sx={{ textAlign: 'right', lineHeight: 1.4 }}
+              sx={{ textAlign: 'right', lineHeight: 1.3, fontSize: isCompact ? '0.65rem' : '0.72rem', fontWeight: 700, letterSpacing: '0.06em' }}
             >
               {t(labelKey)}
             </Typography>
           )}
         </KpiHeaderRow>
         {badge ? (
-          <Typography variant="overline" color="text.secondary">
+          <Typography variant="overline" color="text.secondary" sx={{ fontSize: isCompact ? '0.65rem' : '0.72rem', fontWeight: 700 }}>
             {t(labelKey)}
           </Typography>
         ) : null}
@@ -147,11 +159,11 @@ export function StatCard({
   }
 
   return (
-    <StatCardRoot>
+    <StatCardRoot compactSize={isCompact}>
       <Typography
         variant="body2"
         color="text.secondary"
-        sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+        sx={{ display: 'flex', alignItems: 'center', gap: 1, fontSize: isCompact ? '0.75rem' : '0.8125rem' }}
       >
         {icon}
         {t(labelKey)}

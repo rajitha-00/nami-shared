@@ -1,20 +1,23 @@
-import Skeleton from '@mui/material/Skeleton';
-import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
+import { NamiosLoader } from './NamiosLoader';
 
 export interface PageSkeletonProps {
-  /** Number of content block skeletons below the header. */
-  blocks?: number;
+  label?: string;
 }
 
-/** Suspense fallback used by lazy route modules — mimics a typical page layout. */
-export function PageSkeleton({ blocks = 3 }: PageSkeletonProps) {
+/** Suspense fallback used by lazy route modules featuring Namios HashLoader. */
+export function PageSkeleton({ label }: PageSkeletonProps) {
   return (
-    <Stack spacing={3} sx={{ p: 3 }}>
-      <Skeleton variant="text" width={280} height={40} />
-      <Skeleton variant="rounded" height={56} />
-      {Array.from({ length: blocks }, (_, i) => (
-        <Skeleton key={i} variant="rounded" height={160} />
-      ))}
-    </Stack>
+    <Box
+      sx={{
+        display: 'flex',
+        minHeight: '65vh',
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <NamiosLoader size={54} label={label} />
+    </Box>
   );
 }

@@ -7,6 +7,7 @@ import Chip from '@mui/material/Chip';
 import CardMedia from '@mui/material/CardMedia';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
+import { useLocaleFormat } from '../hooks/useLocaleFormat';
 
 export interface MenuCardProps {
   name: string;
@@ -80,7 +81,8 @@ export function MenuCard({
   activeBorderColor,
   onClick,
 }: MenuCardProps) {
-  const formattedPrice = typeof price === 'number' ? `$${price.toFixed(2)}` : price;
+  const { formatCurrency } = useLocaleFormat();
+  const formattedPrice = typeof price === 'number' ? formatCurrency(price) : price;
 
   return (
     <StyledCard

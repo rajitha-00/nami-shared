@@ -10,7 +10,7 @@ export interface UseLocaleFormatReturn {
   formatNumber: (value: number, options?: Intl.NumberFormatOptions) => string;
 }
 
-const DEFAULT_CURRENCY = 'USD';
+const DEFAULT_CURRENCY = 'LKR';
 
 /** Intl-based formatters bound to the active i18next language. */
 export function useLocaleFormat(): UseLocaleFormatReturn {

@@ -7,7 +7,11 @@ export function isoDate(value: string | number | Date): string {
 }
 
 export function todayIso(): string {
-  return isoDate(Date.now());
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
 }
 
 /** Adds n days to a YYYY-MM-DD date, returning YYYY-MM-DD. */
@@ -17,8 +21,12 @@ export function addDays(date: string, n: number): string {
 
 /** Whole days from `a` to `b` (positive when b is after a). */
 export function differenceInDays(a: string, b: string): number {
-  const start = new Date(`${isoDate(a)}T00:00:00Z`).getTime();
-  const end = new Date(`${isoDate(b)}T00:00:00Z`).getTime();
+  const isoDayPattern = /^\d{4}-\d{2}-\d{2}$/;
+  if (!isoDayPattern.test(a) || !isoDayPattern.test(b)) return 0;
+
+  const start = new Date(`${a}T00:00:00Z`).getTime();
+  const end = new Date(`${b}T00:00:00Z`).getTime();
+  if (!Number.isFinite(start) || !Number.isFinite(end)) return 0;
   return Math.round((end - start) / DAY_MS);
 }
 

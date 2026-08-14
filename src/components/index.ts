@@ -8,6 +8,7 @@ export { FormDialog, type FormDialogProps } from './FormDialog';
 export { EmptyState, type EmptyStateProps } from './EmptyState';
 export { ErrorState, type ErrorStateProps } from './ErrorState';
 export { LoadingOverlay, type LoadingOverlayProps } from './LoadingOverlay';
+export { NamiosLoader, NamiosMarkSvg, type NamiosLoaderProps } from './NamiosLoader';
 export { PageSkeleton, type PageSkeletonProps } from './PageSkeleton';
 export { StatusChip, type StatusChipProps } from './StatusChip';
 export { DataTable, type DataTableProps } from './DataTable';
@@ -16,6 +17,7 @@ export {
   type StatCardIconColor,
   type StatCardProps,
   type StatCardTrend,
+  type StatCardSize,
 } from './StatCard';
 export { SectionCard, type SectionCardProps } from './SectionCard';
 export {

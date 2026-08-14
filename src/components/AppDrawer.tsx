@@ -8,7 +8,7 @@ import { styled } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
 import { LoadingOverlay } from './LoadingOverlay';
 
-const DRAWER_WIDTHS = { sm: 400, md: 520, lg: 680, xl: 900 } as const;
+const DRAWER_WIDTHS = { sm: 400, md: 520, lg: 680, xl: 900, full: '100vw' } as const;
 export type AppDrawerWidth = keyof typeof DRAWER_WIDTHS;
 
 const DrawerHeader = styled('header')(({ theme }) => ({

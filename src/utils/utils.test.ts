@@ -3,6 +3,7 @@ import { groupBy, sortBy, uniqueBy } from './array';
 import { buildQueryString, clamp } from './misc';
 import { assertNever, isDefined, omit, pick, safeJsonParse } from './object';
 import { formatBytes, initialsFromName, truncate } from './string';
+import { differenceInDays, todayIso } from './date';
 
 describe('array utils', () => {
   const rows = [
@@ -96,5 +97,26 @@ describe('misc utils', () => {
       '?page=2&pageSize=25&search=grand&sortBy=name&sortDir=asc&status=ACTIVE&status=PENDING&plan=FREE',
     );
     expect(buildQueryString({})).toBe('');
+  });
+});
+
+describe('date utils', () => {
+  it('calculates valid date ranges without using local time offsets', () => {
+    expect(differenceInDays('2026-08-15', '2026-08-18')).toBe(3);
+  });
+
+  it('returns zero while a date field contains a partial or invalid value', () => {
+    expect(differenceInDays('', '2026-08-18')).toBe(0);
+    expect(differenceInDays('2026-08-', '2026-08-18')).toBe(0);
+    expect(differenceInDays('not-a-date', '2026-08-18')).toBe(0);
+  });
+
+  it('uses the local calendar date for booking defaults', () => {
+    expect(todayIso()).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(todayIso()).toBe(
+      `${new Date().getFullYear()}-${String(new Date().getMonth() + 1).padStart(2, '0')}-${String(
+        new Date().getDate(),
+      ).padStart(2, '0')}`,
+    );
   });
 });
