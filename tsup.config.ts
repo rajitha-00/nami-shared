@@ -12,7 +12,7 @@ export default defineConfig({
     'utils/index': 'src/utils/index.ts',
   },
   format: ['esm', 'cjs'],
-  dts: false,
+  dts: true,
   sourcemap: true,
   clean: true,
   treeshake: true,
