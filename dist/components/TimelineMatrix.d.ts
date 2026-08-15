@@ -1,0 +1,43 @@
+import type { ReactNode } from 'react';
+export type TimelineColorKey = 'success' | 'info' | 'warning' | 'error' | 'neutral' | 'primary';
+export interface TimelineResource {
+    id: string;
+}
+export interface TimelineSpan<TData = unknown> {
+    id: string;
+    resourceId: string;
+    /** Inclusive start date (YYYY-MM-DD). */
+    startDate: string;
+    /** Exclusive end date (YYYY-MM-DD) — a hotel checkout day. */
+    endDate: string;
+    label?: string;
+    labelKey?: string;
+    colorKey: TimelineColorKey;
+    data?: TData;
+}
+export interface TimelineMatrixProps<TResource extends TimelineResource, TSpanData = unknown> {
+    resources: TResource[];
+    spans: TimelineSpan<TSpanData>[];
+    /** First visible day (YYYY-MM-DD). */
+    startDate: string;
+    /** Number of day columns. */
+    days: number;
+    /** Renders the left resource column cell. */
+    renderResource: (resource: TResource) => ReactNode;
+    /** i18n key for the resource column header. */
+    resourceLabelKey: string;
+    onSpanClick?: (span: TimelineSpan<TSpanData>) => void;
+    /** Clicking an empty cell (resourceId + YYYY-MM-DD). */
+    onCellClick?: (resourceId: string, date: string) => void;
+    /** Legend rendered above the grid, right-aligned. */
+    legend?: ReactNode;
+    loading?: boolean;
+    /** Highlighted "today"; defaults to the current date. */
+    today?: string;
+}
+/**
+ * Generic resource-timeline grid (e.g. the Room Allocation Matrix): sticky
+ * resource column, N-day header with today highlight, positioned span bars.
+ * Purely presentational — no domain logic inside.
+ */
+export declare function TimelineMatrix<TResource extends TimelineResource, TSpanData = unknown>({ resources, spans, startDate, days, renderResource, resourceLabelKey, onSpanClick, onCellClick, legend, loading, today, }: TimelineMatrixProps<TResource, TSpanData>): import("react").JSX.Element;

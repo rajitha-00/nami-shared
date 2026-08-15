@@ -56,7 +56,7 @@
   },
   "scripts": {
     "build": "tsup && tsc",
-    "prepare": "tsup && tsc",
+    "prepare": "",
     "dev": "tsup --watch",
     "test": "vitest run",
     "test:watch": "vitest",
