@@ -49,7 +49,7 @@ export function FormDialog<TValues extends FieldValues>({
 }: FormDialogProps<TValues>) {
   const { t } = useTranslation();
   const form = useForm<TValues>({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(schema as any),
     defaultValues,
     mode: 'onBlur',
   });
