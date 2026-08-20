@@ -8,4 +8,4 @@ export interface EmptyStateProps {
     action?: ReactNode;
 }
 /** Matches the Figma empty-table placeholder. */
-export declare function EmptyState({ icon, titleKey, descriptionKey, descriptionParams, action, }: EmptyStateProps): import("react").JSX.Element;
+export declare function EmptyState({ icon, titleKey, descriptionKey, descriptionParams, action, }: EmptyStateProps): any;

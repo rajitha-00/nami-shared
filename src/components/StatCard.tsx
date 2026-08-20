@@ -11,18 +11,28 @@ import { useTranslation } from 'react-i18next';
 const StatCardRoot = styled(Card, {
   shouldForwardProp: (prop) => prop !== 'compactSize',
 })<{ compactSize?: boolean }>(({ theme, compactSize }) => ({
-  padding: compactSize ? theme.spacing(1.5, 2) : theme.spacing(2.5),
+  padding: compactSize ? theme.spacing(2, 2.5) : theme.spacing(2.5, 3),
   display: 'flex',
   flexDirection: 'column',
   gap: compactSize ? theme.spacing(0.75) : theme.spacing(1),
   height: '100%',
+  borderRadius: '20px',
+  boxShadow: '0 4px 18px rgba(0, 0, 0, 0.03)',
+  border: '1px solid rgba(229, 229, 234, 0.85)',
+  transition: 'all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)',
+  '&:hover': {
+    boxShadow: '0 8px 28px rgba(0, 0, 0, 0.07)',
+    borderColor: theme.palette.primary.main,
+    transform: 'translateY(-2px)',
+  },
 }));
 
 const KpiHeaderRow = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  gap: theme.spacing(1),
+  gap: theme.spacing(1.5),
+  width: '100%',
 }));
 
 export type StatCardIconColor = 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error';
@@ -31,10 +41,13 @@ const IconTile = styled('div', {
   shouldForwardProp: (prop) => prop !== 'colorKey' && prop !== 'compact',
 })<{ colorKey: StatCardIconColor; compact?: boolean }>(({ theme, colorKey, compact }) => ({
   display: 'inline-flex',
-  padding: theme.spacing(compact ? 0.75 : 1.25),
-  borderRadius: theme.shape.borderRadius,
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: theme.spacing(compact ? 1 : 1.25),
+  borderRadius: '12px',
   backgroundColor: alpha(theme.palette[colorKey].main, 0.12),
   color: theme.palette[colorKey].main,
+  flexShrink: 0,
 }));
 
 const DeltaRow = styled('div', {
@@ -44,8 +57,8 @@ const DeltaRow = styled('div', {
   alignItems: 'center',
   gap: theme.spacing(0.5),
   ...theme.typography.caption,
-  fontWeight: 600,
-  fontSize: '0.72rem',
+  fontWeight: 700,
+  fontSize: '0.75rem',
   color:
     trend === 'up'
       ? theme.palette.success.main
@@ -112,7 +125,7 @@ export function StatCard({
     <Typography
       variant={isCompact ? 'h5' : 'h4'}
       component="div"
-      sx={isCompact ? { fontWeight: 800, fontSize: '1.2rem', lineHeight: 1.2 } : { fontWeight: 800 }}
+      sx={isCompact ? { fontWeight: 800, fontSize: '1.35rem', lineHeight: 1.2 } : { fontWeight: 800 }}
     >
       {value}
     </Typography>
@@ -127,7 +140,7 @@ export function StatCard({
     ) : null;
 
   const subtitleNode = subtitleKey ? (
-    <Typography variant="caption" color="text.secondary" sx={{ fontSize: '0.72rem' }}>
+    <Typography variant="caption" color="text.secondary" sx={{ fontSize: '0.75rem', fontWeight: 500 }}>
       {t(subtitleKey, subtitleParams)}
     </Typography>
   ) : null;
@@ -141,14 +154,23 @@ export function StatCard({
             <Typography
               variant="overline"
               color="text.secondary"
-              sx={{ textAlign: 'right', lineHeight: 1.3, fontSize: isCompact ? '0.65rem' : '0.72rem', fontWeight: 700, letterSpacing: '0.06em' }}
+              noWrap
+              sx={{
+                textAlign: 'right',
+                lineHeight: 1.3,
+                fontSize: isCompact ? '0.68rem' : '0.75rem',
+                fontWeight: 700,
+                letterSpacing: '0.05em',
+                maxWidth: '70%',
+                pr: 0.5,
+              }}
             >
               {t(labelKey)}
             </Typography>
           )}
         </KpiHeaderRow>
         {badge ? (
-          <Typography variant="overline" color="text.secondary" sx={{ fontSize: isCompact ? '0.65rem' : '0.72rem', fontWeight: 700 }}>
+          <Typography variant="overline" color="text.secondary" noWrap sx={{ fontSize: isCompact ? '0.68rem' : '0.75rem', fontWeight: 700, pr: 0.5 }}>
             {t(labelKey)}
           </Typography>
         ) : null}
@@ -163,7 +185,8 @@ export function StatCard({
       <Typography
         variant="body2"
         color="text.secondary"
-        sx={{ display: 'flex', alignItems: 'center', gap: 1, fontSize: isCompact ? '0.75rem' : '0.8125rem' }}
+        noWrap
+        sx={{ display: 'flex', alignItems: 'center', gap: 1, fontSize: isCompact ? '0.75rem' : '0.8125rem', pr: 0.5 }}
       >
         {icon}
         {t(labelKey)}

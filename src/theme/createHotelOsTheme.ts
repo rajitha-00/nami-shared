@@ -30,12 +30,12 @@ const buildPalette = (mode: ThemeMode): ThemeOptions['palette'] => ({
   background:
     mode === 'light'
       ? { default: GREY[50], paper: '#FFFFFF' }
-      : { default: GREY[900], paper: GREY[800] },
+      : { default: '#0F172A', paper: GREY[800] },
   text:
     mode === 'light'
-      ? { primary: GREY[900], secondary: GREY[600] }
-      : { primary: GREY[50], secondary: GREY[400] },
-  divider: mode === 'light' ? GREY[200] : GREY[700],
+      ? { primary: GREY[900], secondary: GREY[500] }
+      : { primary: '#F8FAFC', secondary: '#94A3B8' },
+  divider: mode === 'light' ? 'rgba(229, 229, 234, 0.8)' : 'rgba(51, 65, 85, 0.8)',
 });
 
 const buildComponents = (mode: ThemeMode): ThemeOptions['components'] => ({
@@ -44,73 +44,216 @@ const buildComponents = (mode: ThemeMode): ThemeOptions['components'] => ({
     styleOverrides: {
       root: {
         textTransform: 'none',
-        borderRadius: RADII.md,
-        fontWeight: 600,
+        borderRadius: '14px',
+        fontWeight: 700,
+        fontSize: '0.875rem',
+        padding: '9px 20px',
+        transition: 'all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1)',
+      },
+      containedPrimary: {
+        backgroundColor: BRAND.primary,
+        color: '#FFFFFF',
+        boxShadow: mode === 'light' ? '0 4px 14px rgba(0, 122, 255, 0.25)' : 'none',
+        '&:hover': {
+          backgroundColor: BRAND.primaryDark,
+          boxShadow: mode === 'light' ? '0 6px 18px rgba(0, 122, 255, 0.35)' : 'none',
+        },
+      },
+      outlinedPrimary: {
+        borderRadius: '14px',
+        borderColor: mode === 'light' ? 'rgba(0, 122, 255, 0.4)' : BRAND.primaryLight,
+        fontWeight: 700,
+      },
+    },
+  },
+  MuiListItemButton: {
+    styleOverrides: {
+      root: {
+        borderRadius: '12px',
+        margin: '3px 8px',
+        paddingTop: 9,
+        paddingBottom: 9,
+        transition: 'all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1)',
+        '&.Mui-selected': {
+          backgroundColor: mode === 'light' ? BRAND.primary : 'rgba(0, 122, 255, 0.2)',
+          color: mode === 'light' ? '#FFFFFF' : '#38BDF8',
+          fontWeight: 700,
+          boxShadow: mode === 'light' ? '0 4px 14px rgba(0, 122, 255, 0.25)' : 'none',
+          '& .MuiListItemIcon-root': {
+            color: mode === 'light' ? '#FFFFFF' : '#38BDF8',
+          },
+          '&:hover': {
+            backgroundColor: mode === 'light' ? BRAND.primaryDark : 'rgba(0, 122, 255, 0.3)',
+          },
+        },
       },
     },
   },
   MuiTextField: {
     defaultProps: { size: 'small', variant: 'outlined' },
+    styleOverrides: {
+      root: {
+        '& .MuiOutlinedInput-root': {
+          borderRadius: '14px',
+          backgroundColor: mode === 'light' ? '#FFFFFF' : GREY[800],
+          fontSize: '0.875rem',
+          fontWeight: 500,
+          boxShadow: mode === 'light' ? '0 2px 8px rgba(0,0,0,0.02)' : 'none',
+          '& fieldset': {
+            borderColor: mode === 'light' ? 'rgba(229, 229, 234, 0.9)' : 'rgba(51, 65, 85, 0.8)',
+          },
+          '&:hover fieldset': {
+            borderColor: mode === 'light' ? GREY[300] : GREY[600],
+          },
+          '&.Mui-focused': {
+            boxShadow: mode === 'light' ? '0 0 0 3px rgba(0, 122, 255, 0.18)' : 'none',
+            '& fieldset': {
+              borderColor: BRAND.primary,
+              borderWidth: '1.5px',
+            },
+          },
+        },
+      },
+    },
+  },
+  MuiSelect: {
+    styleOverrides: {
+      root: {
+        borderRadius: '14px',
+        backgroundColor: mode === 'light' ? '#FFFFFF' : GREY[800],
+        fontSize: '0.875rem',
+        fontWeight: 600,
+      },
+    },
+  },
+  MuiMenu: {
+    styleOverrides: {
+      paper: {
+        borderRadius: '16px',
+        boxShadow: SHADOWS.raised,
+        border: `1px solid ${mode === 'light' ? 'rgba(229, 229, 234, 0.9)' : 'rgba(51, 65, 85, 0.8)'}`,
+        backdropFilter: 'blur(16px)',
+        padding: '6px 0',
+      },
+    },
+  },
+  MuiMenuItem: {
+    styleOverrides: {
+      root: {
+        borderRadius: '10px',
+        margin: '2px 6px',
+        fontSize: '0.875rem',
+        fontWeight: 600,
+        '&.Mui-selected': {
+          backgroundColor: mode === 'light' ? 'rgba(0, 122, 255, 0.12)' : 'rgba(0, 122, 255, 0.25)',
+          color: BRAND.primary,
+          fontWeight: 700,
+        },
+      },
+    },
   },
   MuiCard: {
     styleOverrides: {
       root: {
-        borderRadius: RADII.lg,
-        border: `1px solid ${mode === 'light' ? GREY[200] : GREY[700]}`,
-        boxShadow: SHADOWS.card,
+        borderRadius: '20px',
+        border: `1px solid ${mode === 'light' ? 'rgba(229, 229, 234, 0.85)' : 'rgba(51, 65, 85, 0.8)'}`,
+        boxShadow: mode === 'light' ? '0 4px 20px rgba(0, 0, 0, 0.03)' : '0 4px 20px rgba(0,0,0,0.3)',
         backgroundImage: 'none',
+      },
+    },
+  },
+  MuiPaper: {
+    styleOverrides: {
+      rounded: {
+        borderRadius: '20px',
       },
     },
   },
   MuiDialog: {
     styleOverrides: {
-      paper: { borderRadius: RADII.lg },
+      paper: {
+        borderRadius: '24px',
+        boxShadow: SHADOWS.overlay,
+        border: `1px solid ${mode === 'light' ? 'rgba(229, 229, 234, 0.9)' : 'rgba(51, 65, 85, 0.8)'}`,
+      },
     },
   },
   MuiChip: {
     styleOverrides: {
-      root: { borderRadius: RADII.sm, fontWeight: 500 },
+      root: {
+        borderRadius: '10px',
+        fontWeight: 700,
+        fontSize: '0.75rem',
+      },
     },
   },
   MuiTableCell: {
     styleOverrides: {
-      root: { paddingTop: SPACING_UNIT * 1.5, paddingBottom: SPACING_UNIT * 1.5 },
+      root: {
+        paddingTop: SPACING_UNIT * 0.75,   // 6px padding for high-density rows
+        paddingBottom: SPACING_UNIT * 0.75, // 6px padding for high-density rows
+        paddingLeft: SPACING_UNIT * 1.5,   // 12px horizontal padding
+        paddingRight: SPACING_UNIT * 1.5,
+        fontSize: '0.8125rem',            // 13px clean compact text
+      },
       head: {
-        fontWeight: 600,
+        paddingTop: SPACING_UNIT * 1.0,    // 8px header vertical padding
+        paddingBottom: SPACING_UNIT * 1.0,
+        fontWeight: 700,
         backgroundColor: mode === 'light' ? GREY[50] : GREY[800],
-        color: mode === 'light' ? GREY[600] : GREY[300],
+        color: mode === 'light' ? GREY[500] : GREY[400],
         whiteSpace: 'nowrap',
+        borderBottom: `1px solid ${mode === 'light' ? GREY[100] : GREY[700]}`,
+        fontSize: '0.75rem',
+        letterSpacing: '0.04em',
       },
     },
   },
   MuiTooltip: {
     defaultProps: { arrow: true },
+    styleOverrides: {
+      tooltip: {
+        borderRadius: '10px',
+        fontSize: '0.75rem',
+        fontWeight: 600,
+        backgroundColor: mode === 'light' ? 'rgba(28, 28, 30, 0.92)' : '#1E293B',
+        backdropFilter: 'blur(10px)',
+        boxShadow: '0 4px 14px rgba(0,0,0,0.15)',
+        padding: '6px 10px',
+      },
+    },
+  },
+  MuiAlert: {
+    styleOverrides: {
+      root: {
+        borderRadius: '14px',
+        fontWeight: 600,
+        fontSize: '0.85rem',
+      },
+    },
   },
 });
 
 const typography: ThemeOptions['typography'] = {
   fontFamily: FONT_FAMILY,
-  h1: { fontSize: 32, fontWeight: 600, lineHeight: 1.25 },
-  h2: { fontSize: 28, fontWeight: 600, lineHeight: 1.29 },
-  h3: { fontSize: 24, fontWeight: 600, lineHeight: 1.33 },
-  h4: { fontSize: 20, fontWeight: 600, lineHeight: 1.4 },
-  h5: { fontSize: 18, fontWeight: 600, lineHeight: 1.44 },
-  h6: { fontSize: 16, fontWeight: 600, lineHeight: 1.5 },
-  subtitle1: { fontSize: 16, fontWeight: 500 },
-  subtitle2: { fontSize: 14, fontWeight: 500 },
+  h1: { fontSize: 34, fontWeight: 800, lineHeight: 1.2, letterSpacing: '-0.5px' },
+  h2: { fontSize: 28, fontWeight: 800, lineHeight: 1.25, letterSpacing: '-0.4px' },
+  h3: { fontSize: 24, fontWeight: 800, lineHeight: 1.3, letterSpacing: '-0.3px' },
+  h4: { fontSize: 20, fontWeight: 800, lineHeight: 1.35, letterSpacing: '-0.2px' },
+  h5: { fontSize: 18, fontWeight: 700, lineHeight: 1.4 },
+  h6: { fontSize: 16, fontWeight: 700, lineHeight: 1.45 },
+  subtitle1: { fontSize: 16, fontWeight: 600 },
+  subtitle2: { fontSize: 14, fontWeight: 600 },
   body1: { fontSize: 16 },
   body2: { fontSize: 14 },
-  button: { fontSize: 14, fontWeight: 600 },
-  caption: { fontSize: 12 },
-  overline: { fontSize: 12, fontWeight: 600, letterSpacing: '0.08em' },
+  button: { fontSize: 14, fontWeight: 700 },
+  caption: { fontSize: 12, fontWeight: 500 },
+  overline: { fontSize: 12, fontWeight: 700, letterSpacing: '0.08em' },
 };
 
 /**
  * Builds the Hotel OS MUI theme for the given mode, deep-merging optional
  * per-app overrides. This is the single theming source for ALL Hotel OS apps.
- *
- * Apps without theme switching (e.g. Super Admin) call
- * `createHotelOsTheme('light')` directly and skip {@link ThemeModeProvider}.
  */
 export function createHotelOsTheme(mode: ThemeMode, overrides?: ThemeOptions): Theme {
   return createTheme(

@@ -11,6 +11,6 @@ export interface NamiosLoaderProps {
 export declare function NamiosMarkSvg({ size, color }: {
     size?: number;
     color?: string;
-}): import("react").JSX.Element;
+}): any;
 /** Pure CSS HashLoader with Namios branding — zero external dependencies. */
-export declare function NamiosLoader({ size, color, label, showLogo, }: NamiosLoaderProps): import("react").JSX.Element;
+export declare function NamiosLoader({ size, color, label, showLogo, }: NamiosLoaderProps): any;

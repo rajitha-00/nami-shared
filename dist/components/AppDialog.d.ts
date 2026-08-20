@@ -16,4 +16,4 @@ export interface AppDialogProps {
     children: ReactNode;
 }
 /** Generic dialog wrapper every feature dialog composes. */
-export declare function AppDialog({ open, titleKey, titleParams, size, actions, loading, disableClose, onClose, children, }: AppDialogProps): import("react").JSX.Element;
+export declare function AppDialog({ open, titleKey, titleParams, size, actions, loading, disableClose, onClose, children, }: AppDialogProps): any;

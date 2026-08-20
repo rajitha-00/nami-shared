@@ -36,4 +36,4 @@ export interface DataTableProps<T extends {
  */
 export declare function DataTable<T extends {
     id: ID;
-}>({ columns, data, isLoading, isError, onRetry, page, pageSize, onPageChange, onPageSizeChange, sortBy, sortDir, onSortChange, selectable, selected, onSelectedChange, rowActions, onRowClick, toolbar, emptyState, compact, }: DataTableProps<T>): import("react").JSX.Element;
+}>({ columns, data, isLoading, isError, onRetry, page, pageSize, onPageChange, onPageSizeChange, sortBy, sortDir, onSortChange, selectable, selected, onSelectedChange, rowActions, onRowClick, toolbar, emptyState, compact, }: DataTableProps<T>): any;

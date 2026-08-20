@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
-import Drawer from '@mui/material/Drawer';
+import Dialog from '@mui/material/Dialog';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -8,14 +8,11 @@ import { styled } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
 import { LoadingOverlay } from './LoadingOverlay';
 
-const DRAWER_WIDTHS = { sm: 400, md: 520, lg: 680, xl: 900, full: '100vw' } as const;
-export type AppDrawerWidth = keyof typeof DRAWER_WIDTHS;
-
 const DrawerHeader = styled('header')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   gap: theme.spacing(1.5),
-  padding: theme.spacing(2, 3),
+  padding: theme.spacing(2.5, 3),
   borderBottom: `1px solid ${theme.palette.divider}`,
   backgroundColor: theme.palette.background.paper,
 }));
@@ -25,6 +22,7 @@ const DrawerContent = styled('div')(({ theme }) => ({
   overflowY: 'auto',
   padding: theme.spacing(3),
   position: 'relative',
+  maxHeight: '75vh',
 }));
 
 const DrawerFooter = styled('footer')(({ theme }) => ({
@@ -49,12 +47,12 @@ export interface AppDrawerProps {
   tabs?: ReactNode;
   /** Footer action buttons (stretched full-width). */
   footer?: ReactNode;
-  width?: AppDrawerWidth | string | number;
+  width?: string | number;
   loading?: boolean;
   children: ReactNode;
 }
 
-/** Right-side drawer twin of AppDialog — detail views, editors, task panels. */
+/** Apple Large Dialog Modal twin of AppDrawer — all drawers present as modal dialogs with backdrop click lock. */
 export function AppDrawer({
   open,
   onClose,
@@ -64,33 +62,31 @@ export function AppDrawer({
   statusChip,
   tabs,
   footer,
-  width = 'md',
   loading = false,
   children,
 }: AppDrawerProps) {
   const { t } = useTranslation();
 
-  const resolvedWidth = typeof width === 'string' && width in DRAWER_WIDTHS
-    ? DRAWER_WIDTHS[width as AppDrawerWidth]
-    : width;
-
   return (
-    <Drawer
-      anchor="right"
+    <Dialog
       open={open}
-      onClose={onClose}
-      sx={{
-        zIndex: (theme) => theme.zIndex.modal + 100,
-        '& .MuiDrawer-paper': {
-          width: { xs: '100%', sm: resolvedWidth },
-          display: 'flex',
-          backgroundColor: 'background.paper',
+      onClose={(_event, reason) => {
+        if (reason !== 'backdropClick') onClose();
+      }}
+      maxWidth="md"
+      fullWidth
+      PaperProps={{
+        sx: {
+          borderRadius: '24px',
+          boxShadow: '0 20px 60px rgba(0, 0, 0, 0.18)',
+          border: '1px solid rgba(229, 229, 234, 0.9)',
+          overflow: 'hidden',
         },
       }}
     >
       <DrawerHeader>
         <Stack direction="row" spacing={1.5} alignItems="center" sx={{ flexGrow: 1, minWidth: 0 }}>
-          <Typography variant="h6" noWrap>
+          <Typography variant="h5" fontWeight={800} letterSpacing="-0.3px" noWrap>
             {title ?? (titleKey ? t(titleKey, titleParams) : null)}
           </Typography>
           {statusChip}
@@ -105,6 +101,6 @@ export function AppDrawer({
         <LoadingOverlay open={loading} />
       </DrawerContent>
       {footer ? <DrawerFooter>{footer}</DrawerFooter> : null}
-    </Drawer>
+    </Dialog>
   );
 }

@@ -8,4 +8,4 @@ export interface SplitPaneLayoutProps {
  * SplitPaneLayout: A master-detail framework split panel.
  * Designed for POS screen or split grids. Left side scrollable, right side sticky panel.
  */
-export declare function SplitPaneLayout({ leftPane, rightPane, rightWidth, }: SplitPaneLayoutProps): import("react").JSX.Element;
+export declare function SplitPaneLayout({ leftPane, rightPane, rightWidth, }: SplitPaneLayoutProps): any;

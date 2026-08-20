@@ -25,5 +25,5 @@ export interface AppDrawerProps {
     children: ReactNode;
 }
 /** Right-side drawer twin of AppDialog — detail views, editors, task panels. */
-export declare function AppDrawer({ open, onClose, titleKey, titleParams, title, statusChip, tabs, footer, width, loading, children, }: AppDrawerProps): import("react").JSX.Element;
+export declare function AppDrawer({ open, onClose, titleKey, titleParams, title, statusChip, tabs, footer, width, loading, children, }: AppDrawerProps): any;
 export {};

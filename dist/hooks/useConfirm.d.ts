@@ -14,7 +14,7 @@ export interface ConfirmProviderProps {
     children: ReactNode;
 }
 /** Renders ONE shared ConfirmDialog and exposes a promise-based confirm(). */
-export declare function ConfirmProvider({ children }: ConfirmProviderProps): import("react").JSX.Element;
+export declare function ConfirmProvider({ children }: ConfirmProviderProps): any;
 /**
  * Promise-based confirmation:
  * `const ok = await confirm({ titleKey, messageKey, variant: 'danger' });`

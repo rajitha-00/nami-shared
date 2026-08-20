@@ -10,4 +10,4 @@ export interface AppTopBarProps {
     onMenuClick?: () => void;
 }
 /** Fixed top app bar with logo / nav / actions slots. */
-export declare function AppTopBar({ logo, nav, actions, onMenuClick }: AppTopBarProps): import("react").JSX.Element;
+export declare function AppTopBar({ logo, nav, actions, onMenuClick }: AppTopBarProps): any;

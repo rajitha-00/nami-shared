@@ -7,4 +7,4 @@ export interface SectionCardProps {
     children: ReactNode;
 }
 /** Titled card used for detail-view sections and dashboard panels. */
-export declare function SectionCard({ titleKey, titleParams, action, children }: SectionCardProps): import("react").JSX.Element;
+export declare function SectionCard({ titleKey, titleParams, action, children }: SectionCardProps): any;

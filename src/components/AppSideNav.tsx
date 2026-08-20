@@ -22,13 +22,19 @@ export interface SideNavItem {
 
 /** Figma "Link - Active Tab" treatment: tinted background + primary text. */
 const NavItemButton = styled(ListItemButton)(({ theme }) => ({
-  borderRadius: theme.shape.borderRadius,
-  margin: theme.spacing(0.25, 1),
+  borderRadius: '12px',
+  margin: theme.spacing(0.35, 1.25),
+  paddingTop: 8,
+  paddingBottom: 8,
+  transition: 'all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1)',
   '&.Mui-selected': {
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
-    '& .MuiListItemIcon-root': { color: theme.palette.primary.contrastText },
-    '&:hover': { backgroundColor: theme.palette.primary.dark },
+    backgroundColor: theme.palette.mode === 'light' ? '#007AFF' : '#0A84FF',
+    color: '#FFFFFF',
+    fontWeight: 700,
+    boxShadow: theme.palette.mode === 'light' ? '0 4px 14px rgba(0, 122, 255, 0.25)' : 'none',
+    '& .MuiListItemIcon-root': { color: '#FFFFFF' },
+    '& .MuiTypography-root': { fontWeight: 700 },
+    '&:hover': { backgroundColor: theme.palette.mode === 'light' ? '#0062CC' : '#0051A8' },
   },
 }));
 

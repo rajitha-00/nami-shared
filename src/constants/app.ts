@@ -6,6 +6,6 @@ export const DATE_FORMATS = {
 } as const satisfies Record<string, Intl.DateTimeFormatOptions>;
 
 export const DEBOUNCE_MS = 300;
-export const DEFAULT_PAGE_SIZE = 10;
-export const PAGE_SIZE_OPTIONS = [10, 25, 50, 100] as const;
+export const DEFAULT_PAGE_SIZE = 15;
+export const PAGE_SIZE_OPTIONS = [15, 25, 50, 100] as const;
 export const SNACKBAR_AUTOHIDE_MS = 4000;
