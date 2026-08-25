@@ -18,13 +18,15 @@ import type { ID } from '../types/entities';
 import type { TableColumn } from '../types/ui';
 import { EmptyState } from './EmptyState';
 import { ErrorState } from './ErrorState';
+import { ContextMenu, type ContextMenuItem } from './ContextMenu';
+import { useContextMenu } from '../hooks/useContextMenu';
 
 const TableToolbar = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   flexWrap: 'wrap',
   gap: theme.spacing(1.5),
-  padding: theme.spacing(2),
+  padding: theme.spacing(1.5, 2),
   position: 'sticky',
   top: 0,
   zIndex: 1,
@@ -35,6 +37,7 @@ const TableToolbar = styled('div')(({ theme }) => ({
 const ClickableRow = styled(TableRow, {
   shouldForwardProp: (prop) => prop !== 'clickable',
 })<{ clickable: boolean }>(({ theme, clickable }) => ({
+  transition: 'background-color 0.15s ease',
   ...(clickable && {
     cursor: 'pointer',
     '&:hover': { backgroundColor: theme.palette.action.hover },
@@ -57,6 +60,8 @@ export interface DataTableProps<T extends { id: ID }> {
   selectable?: boolean;
   selected?: ID[];
   onSelectedChange?: (selected: ID[]) => void;
+  /** Optional row context menu generator for right-click actions (Apple motion style) */
+  getContextMenuItems?: (row: T) => ContextMenuItem[];
   /** Row actions cell renderer (icon buttons, menus). */
   rowActions?: (row: T) => ReactNode;
   onRowClick?: (row: T) => void;
@@ -88,6 +93,7 @@ export function DataTable<T extends { id: ID }>({
   selectable = false,
   selected = [],
   onSelectedChange,
+  getContextMenuItems,
   rowActions,
   onRowClick,
   toolbar,
@@ -95,6 +101,7 @@ export function DataTable<T extends { id: ID }>({
   compact = false,
 }: DataTableProps<T>) {
   const { t } = useTranslation();
+  const { contextMenu, openContextMenu, closeContextMenu } = useContextMenu();
   const rows = data?.items ?? [];
   const colSpan = columns.length + (selectable ? 1 : 0) + (rowActions ? 1 : 0);
 
@@ -119,12 +126,30 @@ export function DataTable<T extends { id: ID }>({
     return value === null || value === undefined ? '' : String(value);
   };
 
+  const handleRowContextMenu = (event: React.MouseEvent, row: T) => {
+    if (getContextMenuItems) {
+      const items = getContextMenuItems(row);
+      if (items && items.length > 0) {
+        openContextMenu(event, items);
+      }
+    }
+  };
+
   return (
-    <Paper variant="outlined" sx={{ borderRadius: 3, overflow: 'hidden' }}>
+    <Paper
+      variant="outlined"
+      sx={{
+        borderRadius: 3,
+        overflow: 'hidden',
+        border: '1px solid',
+        borderColor: 'divider',
+        backgroundColor: 'background.paper',
+      }}
+    >
       {toolbar ? <TableToolbar>{toolbar}</TableToolbar> : null}
       <TableContainer>
         <Table size="small" aria-busy={isLoading}>
-          <TableHead>
+          <TableHead sx={{ backgroundColor: 'action.hover' }}>
             <TableRow>
               {selectable ? (
                 <TableCell padding="checkbox">
@@ -140,7 +165,7 @@ export function DataTable<T extends { id: ID }>({
                 <TableCell
                   key={String(column.key)}
                   align={column.align ?? 'left'}
-                  sx={{ width: column.width }}
+                  sx={{ width: column.width, fontWeight: 700 }}
                   sortDirection={sortBy === column.key ? sortDir : false}
                 >
                   {column.sortable && onSortChange ? (
@@ -159,7 +184,9 @@ export function DataTable<T extends { id: ID }>({
                 </TableCell>
               ))}
               {rowActions ? (
-                <TableCell align="right">{t('common:table.actions')}</TableCell>
+                <TableCell align="right" sx={{ fontWeight: 700 }}>
+                  {t('common:table.actions')}
+                </TableCell>
               ) : null}
             </TableRow>
           </TableHead>
@@ -191,10 +218,11 @@ export function DataTable<T extends { id: ID }>({
               ? rows.map((row) => (
                   <ClickableRow
                     key={row.id}
-                    clickable={Boolean(onRowClick)}
-                    hover={Boolean(onRowClick)}
+                    clickable={Boolean(onRowClick || getContextMenuItems)}
+                    hover
                     selected={selected.includes(row.id)}
                     onClick={onRowClick ? () => { onRowClick(row); } : undefined}
+                    onContextMenu={(e) => handleRowContextMenu(e, row)}
                   >
                     {selectable ? (
                       <TableCell padding="checkbox" onClick={(e) => { e.stopPropagation(); }}>
@@ -240,8 +268,22 @@ export function DataTable<T extends { id: ID }>({
           labelDisplayedRows={({ from, to, count }) =>
             t('common:table.displayedRows', { from, to, count })
           }
+          sx={{
+            borderTop: '1px solid',
+            borderColor: 'divider',
+            '& .MuiTablePagination-toolbar': { minHeight: 48, px: 2 },
+          }}
         />
       ) : null}
+
+      {/* Apple Motion Context Menu */}
+      <ContextMenu
+        open={contextMenu.open}
+        x={contextMenu.x}
+        y={contextMenu.y}
+        items={contextMenu.items}
+        onClose={closeContextMenu}
+      />
     </Paper>
   );
 }

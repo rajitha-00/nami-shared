@@ -1,5 +1,5 @@
 // Apple iOS Human Interface Guidelines (HIG) Light Theme Tokens
-// Single source of design tokens for all Hotel OS applications (Stay OS, Dine OS, Super Admin, Nami Mobile)
+// Single source of design tokens for all NamiOS applications (Stay OS, Dine OS, Super Admin, Nami Mobile)
 
 export const BRAND = {
   primary: '#007AFF',        // Apple System Blue

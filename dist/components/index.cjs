@@ -1,25 +1,27 @@
 'use strict';
 
-var CloseIcon = require('@mui/icons-material/Close');
+var CloseIcon5 = require('@mui/icons-material/Close');
 var Dialog = require('@mui/material/Dialog');
 var DialogActions = require('@mui/material/DialogActions');
 var DialogContent = require('@mui/material/DialogContent');
 var DialogTitle = require('@mui/material/DialogTitle');
-var IconButton = require('@mui/material/IconButton');
+var IconButton8 = require('@mui/material/IconButton');
 var reactI18next = require('react-i18next');
-var styles = require('@mui/material/styles');
-var Box5 = require('@mui/material/Box');
-var Typography4 = require('@mui/material/Typography');
-var jsxRuntime = require('react/jsx-runtime');
-var Button5 = require('@mui/material/Button');
-var DialogContentText = require('@mui/material/DialogContentText');
 var react = require('react');
+var framerMotion = require('framer-motion');
+var jsxRuntime = require('react/jsx-runtime');
+var styles = require('@mui/material/styles');
+var Box4 = require('@mui/material/Box');
+var Typography4 = require('@mui/material/Typography');
+var Button5 = require('@mui/material/Button');
+var Popover = require('@mui/material/Popover');
+var DialogContentText = require('@mui/material/DialogContentText');
 var zod = require('@hookform/resolvers/zod');
 var reactHookForm = require('react-hook-form');
 var InboxOutlinedIcon = require('@mui/icons-material/InboxOutlined');
 var ErrorOutlineIcon = require('@mui/icons-material/ErrorOutline');
 var RefreshIcon = require('@mui/icons-material/Refresh');
-var Chip = require('@mui/material/Chip');
+var Chip5 = require('@mui/material/Chip');
 var Checkbox = require('@mui/material/Checkbox');
 var Paper = require('@mui/material/Paper');
 var Skeleton = require('@mui/material/Skeleton');
@@ -55,39 +57,51 @@ var MenuIcon = require('@mui/icons-material/Menu');
 var AppBar = require('@mui/material/AppBar');
 var Toolbar = require('@mui/material/Toolbar');
 var Stack3 = require('@mui/material/Stack');
-var Drawer2 = require('@mui/material/Drawer');
 var Step = require('@mui/material/Step');
 var StepLabel = require('@mui/material/StepLabel');
 var Stepper = require('@mui/material/Stepper');
 var CalendarMonthOutlinedIcon = require('@mui/icons-material/CalendarMonthOutlined');
-var Popover = require('@mui/material/Popover');
 var ExpandLessIcon = require('@mui/icons-material/ExpandLess');
 var ExpandMoreIcon = require('@mui/icons-material/ExpandMore');
 var Collapse = require('@mui/material/Collapse');
+var Drawer = require('@mui/material/Drawer');
 var List = require('@mui/material/List');
 var ListItemButton = require('@mui/material/ListItemButton');
 var NavigateNextIcon = require('@mui/icons-material/NavigateNext');
 var Breadcrumbs = require('@mui/material/Breadcrumbs');
 var Link = require('@mui/material/Link');
 var useMediaQuery = require('@mui/material/useMediaQuery');
+var HotelIcon = require('@mui/icons-material/Hotel');
+var RestaurantIcon = require('@mui/icons-material/Restaurant');
+var AdminPanelSettingsIcon = require('@mui/icons-material/AdminPanelSettings');
+var PublicIcon = require('@mui/icons-material/Public');
+var AutoAwesomeIcon = require('@mui/icons-material/AutoAwesome');
+var PaymentsIcon = require('@mui/icons-material/Payments');
+var PeopleIcon = require('@mui/icons-material/People');
+var InventoryIcon = require('@mui/icons-material/Inventory');
+var Tooltip = require('@mui/material/Tooltip');
+var reactDom = require('react-dom');
+var InputBase = require('@mui/material/InputBase');
 var CardMedia = require('@mui/material/CardMedia');
+var Avatar = require('@mui/material/Avatar');
 
 function _interopDefault (e) { return e && e.__esModule ? e : { default: e }; }
 
-var CloseIcon__default = /*#__PURE__*/_interopDefault(CloseIcon);
+var CloseIcon5__default = /*#__PURE__*/_interopDefault(CloseIcon5);
 var Dialog__default = /*#__PURE__*/_interopDefault(Dialog);
 var DialogActions__default = /*#__PURE__*/_interopDefault(DialogActions);
 var DialogContent__default = /*#__PURE__*/_interopDefault(DialogContent);
 var DialogTitle__default = /*#__PURE__*/_interopDefault(DialogTitle);
-var IconButton__default = /*#__PURE__*/_interopDefault(IconButton);
-var Box5__default = /*#__PURE__*/_interopDefault(Box5);
+var IconButton8__default = /*#__PURE__*/_interopDefault(IconButton8);
+var Box4__default = /*#__PURE__*/_interopDefault(Box4);
 var Typography4__default = /*#__PURE__*/_interopDefault(Typography4);
 var Button5__default = /*#__PURE__*/_interopDefault(Button5);
+var Popover__default = /*#__PURE__*/_interopDefault(Popover);
 var DialogContentText__default = /*#__PURE__*/_interopDefault(DialogContentText);
 var InboxOutlinedIcon__default = /*#__PURE__*/_interopDefault(InboxOutlinedIcon);
 var ErrorOutlineIcon__default = /*#__PURE__*/_interopDefault(ErrorOutlineIcon);
 var RefreshIcon__default = /*#__PURE__*/_interopDefault(RefreshIcon);
-var Chip__default = /*#__PURE__*/_interopDefault(Chip);
+var Chip5__default = /*#__PURE__*/_interopDefault(Chip5);
 var Checkbox__default = /*#__PURE__*/_interopDefault(Checkbox);
 var Paper__default = /*#__PURE__*/_interopDefault(Paper);
 var Skeleton__default = /*#__PURE__*/_interopDefault(Skeleton);
@@ -123,24 +137,114 @@ var MenuIcon__default = /*#__PURE__*/_interopDefault(MenuIcon);
 var AppBar__default = /*#__PURE__*/_interopDefault(AppBar);
 var Toolbar__default = /*#__PURE__*/_interopDefault(Toolbar);
 var Stack3__default = /*#__PURE__*/_interopDefault(Stack3);
-var Drawer2__default = /*#__PURE__*/_interopDefault(Drawer2);
 var Step__default = /*#__PURE__*/_interopDefault(Step);
 var StepLabel__default = /*#__PURE__*/_interopDefault(StepLabel);
 var Stepper__default = /*#__PURE__*/_interopDefault(Stepper);
 var CalendarMonthOutlinedIcon__default = /*#__PURE__*/_interopDefault(CalendarMonthOutlinedIcon);
-var Popover__default = /*#__PURE__*/_interopDefault(Popover);
 var ExpandLessIcon__default = /*#__PURE__*/_interopDefault(ExpandLessIcon);
 var ExpandMoreIcon__default = /*#__PURE__*/_interopDefault(ExpandMoreIcon);
 var Collapse__default = /*#__PURE__*/_interopDefault(Collapse);
+var Drawer__default = /*#__PURE__*/_interopDefault(Drawer);
 var List__default = /*#__PURE__*/_interopDefault(List);
 var ListItemButton__default = /*#__PURE__*/_interopDefault(ListItemButton);
 var NavigateNextIcon__default = /*#__PURE__*/_interopDefault(NavigateNextIcon);
 var Breadcrumbs__default = /*#__PURE__*/_interopDefault(Breadcrumbs);
 var Link__default = /*#__PURE__*/_interopDefault(Link);
 var useMediaQuery__default = /*#__PURE__*/_interopDefault(useMediaQuery);
+var HotelIcon__default = /*#__PURE__*/_interopDefault(HotelIcon);
+var RestaurantIcon__default = /*#__PURE__*/_interopDefault(RestaurantIcon);
+var AdminPanelSettingsIcon__default = /*#__PURE__*/_interopDefault(AdminPanelSettingsIcon);
+var PublicIcon__default = /*#__PURE__*/_interopDefault(PublicIcon);
+var AutoAwesomeIcon__default = /*#__PURE__*/_interopDefault(AutoAwesomeIcon);
+var PaymentsIcon__default = /*#__PURE__*/_interopDefault(PaymentsIcon);
+var PeopleIcon__default = /*#__PURE__*/_interopDefault(PeopleIcon);
+var InventoryIcon__default = /*#__PURE__*/_interopDefault(InventoryIcon);
+var Tooltip__default = /*#__PURE__*/_interopDefault(Tooltip);
+var InputBase__default = /*#__PURE__*/_interopDefault(InputBase);
 var CardMedia__default = /*#__PURE__*/_interopDefault(CardMedia);
+var Avatar__default = /*#__PURE__*/_interopDefault(Avatar);
 
 // src/components/AppDialog.tsx
+var AppleDialogTransition = react.forwardRef(
+  function AppleDialogTransition2(props, ref) {
+    const { in: inProp, onEnter, onEntered, onExit, onExited, children, ...other } = props;
+    return /* @__PURE__ */ jsxRuntime.jsx(
+      framerMotion.AnimatePresence,
+      {
+        mode: "wait",
+        onExitComplete: () => {
+          if (onExited) {
+            onExited(null);
+          }
+        },
+        children: inProp ? /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.div,
+          {
+            ref,
+            initial: {
+              opacity: 0,
+              filter: "blur(10px)",
+              rotateY: 25,
+              rotateX: 5,
+              z: -100,
+              transformPerspective: 500
+            },
+            animate: {
+              opacity: 1,
+              filter: "blur(0px)",
+              rotateX: 0,
+              rotateY: 0,
+              z: 0,
+              transition: {
+                duration: 0.45,
+                ease: [0.17, 0.67, 0.51, 1],
+                opacity: {
+                  duration: 0.35,
+                  ease: "easeOut"
+                }
+              }
+            },
+            exit: {
+              opacity: 0,
+              filter: "blur(10px)",
+              rotateY: 25,
+              rotateX: 5,
+              z: -100,
+              transformPerspective: 500,
+              transition: {
+                duration: 0.25,
+                ease: [0.67, 0.17, 0.62, 0.64]
+              }
+            },
+            style: {
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "100%",
+              height: "100%",
+              transformPerspective: 500,
+              transformStyle: "preserve-3d"
+            },
+            onAnimationStart: () => {
+              if (inProp) {
+                onEnter?.(null, true);
+              } else {
+                onExit?.(null);
+              }
+            },
+            onAnimationComplete: () => {
+              if (inProp) {
+                onEntered?.(null, true);
+              }
+            },
+            ...other,
+            children
+          }
+        ) : null
+      }
+    );
+  }
+);
 function NamiosMarkSvg({ size = 28, color }) {
   return /* @__PURE__ */ jsxRuntime.jsx("svg", { width: size, height: size, viewBox: "65.4 0 357 357", role: "img", "aria-label": "Namios Logo", children: /* @__PURE__ */ jsxRuntime.jsx(
     "path",
@@ -175,7 +279,7 @@ function NamiosLoader({
   const thickness = Math.max(4, Math.round(size / 5));
   const lat = Math.round((size - thickness) / 2);
   return /* @__PURE__ */ jsxRuntime.jsxs(
-    Box5__default.default,
+    Box4__default.default,
     {
       sx: {
         display: "inline-flex",
@@ -187,7 +291,7 @@ function NamiosLoader({
       },
       children: [
         showLogo && /* @__PURE__ */ jsxRuntime.jsxs(
-          Box5__default.default,
+          Box4__default.default,
           {
             sx: {
               display: "flex",
@@ -215,7 +319,7 @@ function NamiosLoader({
           }
         ),
         /* @__PURE__ */ jsxRuntime.jsx(
-          Box5__default.default,
+          Box4__default.default,
           {
             sx: {
               position: "relative",
@@ -295,32 +399,106 @@ function AppDialog({
     if (disableClose && (reason === "backdropClick" || reason === "escapeKeyDown")) return;
     onClose();
   };
-  return /* @__PURE__ */ jsxRuntime.jsxs(Dialog__default.default, { open, onClose: handleClose, fullWidth: true, maxWidth: size, children: [
-    /* @__PURE__ */ jsxRuntime.jsxs(DialogTitle__default.default, { sx: { display: "flex", alignItems: "center", justifyContent: "space-between" }, children: [
-      t(titleKey, titleParams),
-      /* @__PURE__ */ jsxRuntime.jsx(
-        IconButton__default.default,
-        {
-          "aria-label": t("common:actions.close"),
-          onClick: onClose,
-          edge: "end",
-          size: "small",
-          children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon__default.default, { fontSize: "small" })
-        }
-      )
-    ] }),
-    /* @__PURE__ */ jsxRuntime.jsxs(DialogContent__default.default, { sx: { position: "relative" }, children: [
-      children,
-      /* @__PURE__ */ jsxRuntime.jsx(LoadingOverlay, { open: loading })
-    ] }),
-    actions ? /* @__PURE__ */ jsxRuntime.jsx(DialogActions__default.default, { children: actions }) : null
-  ] });
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    Dialog__default.default,
+    {
+      open,
+      onClose: handleClose,
+      fullWidth: true,
+      maxWidth: size,
+      TransitionComponent: AppleDialogTransition,
+      children: [
+        /* @__PURE__ */ jsxRuntime.jsxs(DialogTitle__default.default, { sx: { display: "flex", alignItems: "center", justifyContent: "space-between" }, children: [
+          t(titleKey, titleParams),
+          /* @__PURE__ */ jsxRuntime.jsx(
+            IconButton8__default.default,
+            {
+              "aria-label": t("common:actions.close"),
+              onClick: onClose,
+              edge: "end",
+              size: "small",
+              children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon5__default.default, { fontSize: "small" })
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntime.jsxs(DialogContent__default.default, { sx: { position: "relative" }, children: [
+          children,
+          /* @__PURE__ */ jsxRuntime.jsx(LoadingOverlay, { open: loading })
+        ] }),
+        actions ? /* @__PURE__ */ jsxRuntime.jsx(DialogActions__default.default, { children: actions }) : null
+      ]
+    }
+  );
 }
-var VARIANT_COLOR = {
-  danger: "error",
-  warning: "warning",
-  info: "primary"
-};
+var FamilyDialogTransition = react.forwardRef(
+  function FamilyDialogTransition2(props, ref) {
+    const { in: inProp, onEnter, onEntered, onExit, onExited, children, style, ...other } = props;
+    return /* @__PURE__ */ jsxRuntime.jsx(
+      framerMotion.AnimatePresence,
+      {
+        mode: "wait",
+        onExitComplete: () => {
+          if (onExited) {
+            onExited(null);
+          }
+        },
+        children: inProp ? /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.div,
+          {
+            ref,
+            initial: {
+              opacity: 0,
+              scale: 0.92,
+              y: 12,
+              filter: "blur(8px)"
+            },
+            animate: {
+              opacity: 1,
+              scale: 1,
+              y: 0,
+              filter: "blur(0px)",
+              transition: {
+                type: "spring",
+                damping: 28,
+                stiffness: 380,
+                mass: 0.8,
+                opacity: { duration: 0.18 }
+              }
+            },
+            exit: {
+              opacity: 0,
+              scale: 0.94,
+              y: 8,
+              filter: "blur(6px)",
+              transition: {
+                duration: 0.16,
+                ease: [0.32, 0.72, 0, 1]
+              }
+            },
+            style: {
+              outline: "none",
+              ...style
+            },
+            onAnimationStart: () => {
+              if (inProp) {
+                onEnter?.(null, true);
+              } else {
+                onExit?.(null);
+              }
+            },
+            onAnimationComplete: () => {
+              if (inProp) {
+                onEntered?.(null, true);
+              }
+            },
+            ...other,
+            children
+          }
+        ) : null
+      }
+    );
+  }
+);
 function ConfirmDialog({
   open,
   titleKey,
@@ -329,18 +507,201 @@ function ConfirmDialog({
   variant = "info",
   confirmKey = "common:actions.confirm",
   cancelKey = "common:actions.cancel",
+  anchorEl,
+  disableBackdrop = false,
   onConfirm,
   onCancel
 }) {
   const { t } = reactI18next.useTranslation();
-  return /* @__PURE__ */ jsxRuntime.jsxs(Dialog__default.default, { open, onClose: onCancel, maxWidth: "xs", fullWidth: true, sx: { zIndex: (theme) => theme.zIndex.modal + 200 }, children: [
-    /* @__PURE__ */ jsxRuntime.jsx(DialogTitle__default.default, { children: t(titleKey) }),
-    /* @__PURE__ */ jsxRuntime.jsx(DialogContent__default.default, { children: /* @__PURE__ */ jsxRuntime.jsx(DialogContentText__default.default, { children: t(messageKey, messageParams) }) }),
-    /* @__PURE__ */ jsxRuntime.jsxs(DialogActions__default.default, { children: [
-      /* @__PURE__ */ jsxRuntime.jsx(Button5__default.default, { onClick: onCancel, color: "inherit", children: t(cancelKey) }),
-      /* @__PURE__ */ jsxRuntime.jsx(Button5__default.default, { onClick: onConfirm, variant: "contained", color: VARIANT_COLOR[variant], autoFocus: true, children: t(confirmKey) })
+  const content = /* @__PURE__ */ jsxRuntime.jsxs(Box4__default.default, { sx: { width: "100%", maxWidth: "380px" }, children: [
+    /* @__PURE__ */ jsxRuntime.jsxs(
+      DialogTitle__default.default,
+      {
+        sx: {
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          pt: 2.5,
+          px: 3,
+          pb: 0.5,
+          fontWeight: 800,
+          fontSize: "1.15rem",
+          letterSpacing: "-0.02em"
+        },
+        children: [
+          t(titleKey),
+          /* @__PURE__ */ jsxRuntime.jsx(
+            IconButton8__default.default,
+            {
+              "aria-label": t("common:actions.close"),
+              onClick: onCancel,
+              size: "small",
+              edge: "end",
+              sx: {
+                p: 0.6,
+                color: "text.secondary",
+                borderRadius: "50%",
+                bgcolor: (theme) => theme.palette.mode === "light" ? "rgba(0, 0, 0, 0.04)" : "rgba(255, 255, 255, 0.06)",
+                "&:hover": {
+                  bgcolor: (theme) => theme.palette.mode === "light" ? "rgba(0, 0, 0, 0.08)" : "rgba(255, 255, 255, 0.12)"
+                }
+              },
+              children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon5__default.default, { sx: { fontSize: 16 } })
+            }
+          )
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxRuntime.jsx(DialogContent__default.default, { sx: { px: 3, py: 1 }, children: /* @__PURE__ */ jsxRuntime.jsx(
+      DialogContentText__default.default,
+      {
+        sx: {
+          color: "text.secondary",
+          fontSize: "0.9375rem",
+          lineHeight: 1.5
+        },
+        children: t(messageKey, messageParams)
+      }
+    ) }),
+    /* @__PURE__ */ jsxRuntime.jsxs(DialogActions__default.default, { sx: { px: 3, pb: 2.5, pt: 1, display: "flex", justifyContent: "flex-end", gap: 1 }, children: [
+      /* @__PURE__ */ jsxRuntime.jsx(
+        Button5__default.default,
+        {
+          onClick: onCancel,
+          color: "inherit",
+          sx: {
+            borderRadius: "9999px",
+            textTransform: "none",
+            fontWeight: 600,
+            fontSize: "0.875rem",
+            px: 2.5,
+            py: 0.8,
+            color: "text.secondary",
+            "&:hover": {
+              bgcolor: (theme) => theme.palette.mode === "light" ? "rgba(0, 0, 0, 0.05)" : "rgba(255, 255, 255, 0.08)",
+              color: "text.primary"
+            }
+          },
+          children: t(cancelKey)
+        }
+      ),
+      /* @__PURE__ */ jsxRuntime.jsx(
+        Button5__default.default,
+        {
+          onClick: onConfirm,
+          variant: "contained",
+          autoFocus: true,
+          color: variant === "danger" ? "error" : variant === "warning" ? "warning" : "primary",
+          sx: {
+            borderRadius: "9999px",
+            textTransform: "none",
+            fontWeight: 700,
+            fontSize: "0.875rem",
+            px: 3,
+            py: 0.8,
+            ...variant === "info" && {
+              backgroundColor: (theme) => theme.palette.mode === "light" ? "#0F172A" : "#F8FAFC",
+              color: (theme) => theme.palette.mode === "light" ? "#FFFFFF" : "#0F172A",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+              "&:hover": {
+                backgroundColor: (theme) => theme.palette.mode === "light" ? "#000000" : "#E2E8F0",
+                boxShadow: "0 6px 16px rgba(0, 0, 0, 0.2)"
+              }
+            },
+            ...variant === "danger" && {
+              backgroundColor: "#DC2626",
+              color: "#FFFFFF",
+              boxShadow: "0 4px 12px rgba(220, 38, 38, 0.25)",
+              "&:hover": {
+                backgroundColor: "#B91C1C",
+                boxShadow: "0 6px 16px rgba(220, 38, 38, 0.35)"
+              }
+            },
+            ...variant === "warning" && {
+              backgroundColor: "#D97706",
+              color: "#FFFFFF",
+              boxShadow: "0 4px 12px rgba(217, 119, 6, 0.25)",
+              "&:hover": {
+                backgroundColor: "#B45309",
+                boxShadow: "0 6px 16px rgba(217, 119, 6, 0.35)"
+              }
+            }
+          },
+          children: t(confirmKey)
+        }
+      )
     ] })
   ] });
+  const isAnchorValid = Boolean(
+    anchorEl && typeof window !== "undefined" && document.body.contains(anchorEl) && anchorEl.getBoundingClientRect().width > 0 && anchorEl.getBoundingClientRect().height > 0 && (anchorEl.getBoundingClientRect().top > 0 || anchorEl.getBoundingClientRect().left > 0)
+  );
+  if (isAnchorValid && anchorEl) {
+    return /* @__PURE__ */ jsxRuntime.jsx(
+      Popover__default.default,
+      {
+        open,
+        anchorEl,
+        onClose: onCancel,
+        anchorOrigin: {
+          vertical: "bottom",
+          horizontal: "right"
+        },
+        transformOrigin: {
+          vertical: "top",
+          horizontal: "right"
+        },
+        TransitionComponent: FamilyDialogTransition,
+        slotProps: {
+          paper: {
+            sx: {
+              borderRadius: "28px",
+              maxWidth: "380px",
+              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.08)",
+              p: 0.5,
+              mt: 1,
+              overflow: "hidden"
+            }
+          },
+          root: {
+            sx: {
+              zIndex: (theme) => theme.zIndex.modal + 200,
+              "& .MuiBackdrop-root": {
+                backgroundColor: "transparent"
+              }
+            }
+          }
+        },
+        children: content
+      }
+    );
+  }
+  return /* @__PURE__ */ jsxRuntime.jsx(
+    Dialog__default.default,
+    {
+      open,
+      onClose: onCancel,
+      maxWidth: "xs",
+      fullWidth: true,
+      TransitionComponent: FamilyDialogTransition,
+      PaperProps: {
+        sx: {
+          borderRadius: "28px",
+          maxWidth: "380px",
+          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.05)",
+          p: 0.5
+        }
+      },
+      sx: {
+        zIndex: (theme) => theme.zIndex.modal + 200,
+        "& .MuiBackdrop-root": {
+          backgroundColor: disableBackdrop ? "transparent" : "rgba(0, 0, 0, 0.15)",
+          backdropFilter: disableBackdrop ? "none" : "blur(2px)",
+          WebkitBackdropFilter: disableBackdrop ? "none" : "blur(2px)"
+        }
+      },
+      children: content
+    }
+  );
 }
 function FormDialog({
   open,
@@ -464,7 +825,7 @@ function ErrorState({
 }
 function PageSkeleton({ label }) {
   return /* @__PURE__ */ jsxRuntime.jsx(
-    Box5__default.default,
+    Box4__default.default,
     {
       sx: {
         display: "flex",
@@ -501,7 +862,7 @@ function StatusChip({ status, size = "small" }) {
   const { t } = reactI18next.useTranslation();
   const color = STATUS_COLORS[status];
   return /* @__PURE__ */ jsxRuntime.jsx(
-    Chip__default.default,
+    Chip5__default.default,
     {
       label: t(`common:status.${status}`),
       size,
@@ -518,13 +879,367 @@ var DATE_FORMATS = {
   DATE_TIME: { year: "numeric", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" },
   MONTH_YEAR: { year: "numeric", month: "short" }
 };
-var PAGE_SIZE_OPTIONS = [10, 25, 50, 100];
+var PAGE_SIZE_OPTIONS = [15, 25, 50, 100];
+var MENU_SPRING = {
+  type: "spring",
+  stiffness: 500,
+  damping: 30,
+  mass: 0.7
+};
+var HIGHLIGHT_SPRING = {
+  type: "spring",
+  stiffness: 500,
+  damping: 35
+};
+var ContextMenu = ({
+  open,
+  x,
+  y,
+  items,
+  onClose
+}) => {
+  const [highlightedIndex, setHighlightedIndex] = react.useState(-1);
+  const [activeSubmenu, setActiveSubmenu] = react.useState(null);
+  const menuRef = react.useRef(null);
+  const [position, setPosition] = react.useState({ x, y });
+  react.useEffect(() => {
+    if (!open) {
+      setHighlightedIndex(-1);
+      setActiveSubmenu(null);
+      return;
+    }
+    const estimatedWidth = 220;
+    const estimatedHeight = items.length * 36 + 20;
+    const winWidth = window.innerWidth;
+    const winHeight = window.innerHeight;
+    let posX = x;
+    let posY = y;
+    if (posX + estimatedWidth > winWidth - 12) {
+      posX = Math.max(12, posX - estimatedWidth);
+    }
+    if (posY + estimatedHeight > winHeight - 12) {
+      posY = Math.max(12, winHeight - estimatedHeight - 12);
+    }
+    setPosition({ x: Math.max(12, posX), y: Math.max(12, posY) });
+  }, [open, x, y, items]);
+  react.useEffect(() => {
+    if (!open) return;
+    const handleMouseDown = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        onClose();
+      }
+    };
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+    const handleScroll = () => {
+      onClose();
+    };
+    document.addEventListener("mousedown", handleMouseDown);
+    document.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("scroll", handleScroll, { capture: true, passive: true });
+    return () => {
+      document.removeEventListener("mousedown", handleMouseDown);
+      document.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("scroll", handleScroll, { capture: true });
+    };
+  }, [open, onClose]);
+  const handleItemClick = react.useCallback(
+    (item) => {
+      if (item.disabled || item.separator) return;
+      if (item.children && item.children.length > 0) return;
+      onClose();
+      item.onClick?.();
+    },
+    [onClose]
+  );
+  return /* @__PURE__ */ jsxRuntime.jsx(framerMotion.AnimatePresence, { children: open && /* @__PURE__ */ jsxRuntime.jsx(
+    framerMotion.motion.div,
+    {
+      ref: menuRef,
+      initial: { opacity: 0, scale: 0.9, y: -4 },
+      animate: { opacity: 1, scale: 1, y: 0 },
+      exit: { opacity: 0, scale: 0.94, transition: { duration: 0.1 } },
+      transition: MENU_SPRING,
+      style: {
+        position: "fixed",
+        left: position.x,
+        top: position.y,
+        zIndex: 999999,
+        backgroundColor: "#11151e",
+        backdropFilter: "blur(24px) saturate(1.6)",
+        WebkitBackdropFilter: "blur(24px) saturate(1.6)",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+        borderRadius: 12,
+        padding: 5,
+        minWidth: 210,
+        maxWidth: 280,
+        boxShadow: "0 20px 48px -10px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 0.5px 0 rgba(255, 255, 255, 0.12)",
+        userSelect: "none",
+        outline: "none"
+      },
+      onContextMenu: (e) => e.preventDefault(),
+      children: items.map((item, index) => {
+        if (item.separator) {
+          return /* @__PURE__ */ jsxRuntime.jsx(
+            "div",
+            {
+              style: {
+                height: 1,
+                backgroundColor: "rgba(255, 255, 255, 0.08)",
+                margin: "4px 6px"
+              }
+            },
+            `sep-${index}`
+          );
+        }
+        const isHighlighted = highlightedIndex === index;
+        const hasChildren = Boolean(item.children && item.children.length > 0);
+        const isSubmenuOpen = activeSubmenu === item.label;
+        return /* @__PURE__ */ jsxRuntime.jsxs(
+          "div",
+          {
+            style: { position: "relative" },
+            onMouseEnter: () => {
+              if (!item.disabled) {
+                setHighlightedIndex(index);
+                if (hasChildren && item.label) {
+                  setActiveSubmenu(item.label);
+                } else {
+                  setActiveSubmenu(null);
+                }
+              }
+            },
+            onMouseLeave: () => {
+              if (!hasChildren) {
+                setHighlightedIndex(-1);
+              }
+            },
+            onClick: () => handleItemClick(item),
+            children: [
+              /* @__PURE__ */ jsxRuntime.jsxs(
+                "div",
+                {
+                  style: {
+                    position: "relative",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    padding: "6px 10px",
+                    borderRadius: 8,
+                    cursor: item.disabled ? "not-allowed" : "pointer",
+                    fontSize: "13px",
+                    fontWeight: 500,
+                    color: item.disabled ? "rgba(255, 255, 255, 0.25)" : item.danger ? "#FF453A" : "#FFFFFF",
+                    gap: 12
+                  },
+                  children: [
+                    /* @__PURE__ */ jsxRuntime.jsx(
+                      framerMotion.motion.div,
+                      {
+                        initial: false,
+                        animate: { opacity: isHighlighted || isSubmenuOpen ? 1 : 0 },
+                        transition: HIGHLIGHT_SPRING,
+                        style: {
+                          position: "absolute",
+                          inset: 0,
+                          borderRadius: 8,
+                          backgroundColor: item.danger ? "rgba(255, 69, 58, 0.18)" : "rgba(255, 255, 255, 0.1)",
+                          pointerEvents: "none"
+                        }
+                      }
+                    ),
+                    /* @__PURE__ */ jsxRuntime.jsxs(
+                      "div",
+                      {
+                        style: {
+                          position: "relative",
+                          zIndex: 1,
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 8,
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          whiteSpace: "nowrap"
+                        },
+                        children: [
+                          item.icon && /* @__PURE__ */ jsxRuntime.jsx(
+                            "span",
+                            {
+                              style: {
+                                display: "inline-flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                fontSize: 16,
+                                width: 16,
+                                height: 16,
+                                opacity: item.disabled ? 0.3 : 0.9
+                              },
+                              children: item.icon
+                            }
+                          ),
+                          /* @__PURE__ */ jsxRuntime.jsx("span", { children: item.label })
+                        ]
+                      }
+                    ),
+                    /* @__PURE__ */ jsxRuntime.jsxs(
+                      "div",
+                      {
+                        style: {
+                          position: "relative",
+                          zIndex: 1,
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 6
+                        },
+                        children: [
+                          item.shortcut && /* @__PURE__ */ jsxRuntime.jsx(
+                            "span",
+                            {
+                              style: {
+                                fontSize: "11px",
+                                fontWeight: 600,
+                                fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                                color: isHighlighted ? "rgba(255, 255, 255, 0.65)" : "rgba(255, 255, 255, 0.35)",
+                                letterSpacing: "0.04em"
+                              },
+                              children: item.shortcut
+                            }
+                          ),
+                          hasChildren && /* @__PURE__ */ jsxRuntime.jsx(
+                            "span",
+                            {
+                              style: {
+                                fontSize: "14px",
+                                color: isHighlighted ? "rgba(255, 255, 255, 0.7)" : "rgba(255, 255, 255, 0.3)"
+                              },
+                              children: "\u203A"
+                            }
+                          )
+                        ]
+                      }
+                    )
+                  ]
+                }
+              ),
+              /* @__PURE__ */ jsxRuntime.jsx(framerMotion.AnimatePresence, { children: hasChildren && isSubmenuOpen && item.children && /* @__PURE__ */ jsxRuntime.jsx(
+                framerMotion.motion.div,
+                {
+                  initial: { opacity: 0, x: -6, scale: 0.94 },
+                  animate: { opacity: 1, x: 0, scale: 1 },
+                  exit: { opacity: 0, x: -4, transition: { duration: 0.1 } },
+                  transition: MENU_SPRING,
+                  style: {
+                    position: "absolute",
+                    top: -4,
+                    left: "calc(100% + 4px)",
+                    backgroundColor: "#11151e",
+                    backdropFilter: "blur(24px) saturate(1.6)",
+                    border: "1px solid rgba(255, 255, 255, 0.1)",
+                    borderRadius: 12,
+                    padding: 5,
+                    minWidth: 180,
+                    boxShadow: "0 20px 48px -10px rgba(0, 0, 0, 0.55)",
+                    zIndex: 1e6
+                  },
+                  children: item.children.map((sub, subIdx) => {
+                    if (sub.separator) {
+                      return /* @__PURE__ */ jsxRuntime.jsx(
+                        "div",
+                        {
+                          style: {
+                            height: 1,
+                            backgroundColor: "rgba(255, 255, 255, 0.08)",
+                            margin: "4px 6px"
+                          }
+                        },
+                        `sub-sep-${subIdx}`
+                      );
+                    }
+                    return /* @__PURE__ */ jsxRuntime.jsxs(
+                      "div",
+                      {
+                        onClick: () => handleItemClick(sub),
+                        style: {
+                          position: "relative",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          padding: "6px 10px",
+                          borderRadius: 8,
+                          cursor: sub.disabled ? "not-allowed" : "pointer",
+                          fontSize: "13px",
+                          fontWeight: 500,
+                          color: sub.disabled ? "rgba(255, 255, 255, 0.25)" : sub.danger ? "#FF453A" : "#FFFFFF",
+                          gap: 12
+                        },
+                        children: [
+                          /* @__PURE__ */ jsxRuntime.jsxs("div", { style: { display: "flex", alignItems: "center", gap: 8 }, children: [
+                            sub.icon && /* @__PURE__ */ jsxRuntime.jsx("span", { children: sub.icon }),
+                            /* @__PURE__ */ jsxRuntime.jsx("span", { children: sub.label })
+                          ] }),
+                          sub.shortcut && /* @__PURE__ */ jsxRuntime.jsx(
+                            "span",
+                            {
+                              style: {
+                                fontSize: "11px",
+                                color: "rgba(255, 255, 255, 0.35)"
+                              },
+                              children: sub.shortcut
+                            }
+                          )
+                        ]
+                      },
+                      sub.key || sub.label || `sub-${subIdx}`
+                    );
+                  })
+                }
+              ) })
+            ]
+          },
+          item.key || item.label || `item-${index}`
+        );
+      })
+    }
+  ) });
+};
+function useContextMenu() {
+  const [contextMenu, setContextMenu] = react.useState({
+    open: false,
+    x: 0,
+    y: 0,
+    items: []
+  });
+  const openContextMenu = react.useCallback(
+    (event, items) => {
+      event.preventDefault();
+      event.stopPropagation();
+      setContextMenu({
+        open: true,
+        x: event.clientX,
+        y: event.clientY,
+        items
+      });
+    },
+    []
+  );
+  const closeContextMenu = react.useCallback(() => {
+    setContextMenu((prev) => prev.open ? { ...prev, open: false } : prev);
+  }, []);
+  return {
+    contextMenu,
+    openContextMenu,
+    closeContextMenu
+  };
+}
 var TableToolbar = styles.styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   flexWrap: "wrap",
   gap: theme.spacing(1.5),
-  padding: theme.spacing(2),
+  padding: theme.spacing(1.5, 2),
   position: "sticky",
   top: 0,
   zIndex: 1,
@@ -534,6 +1249,7 @@ var TableToolbar = styles.styled("div")(({ theme }) => ({
 var ClickableRow = styles.styled(TableRow__default.default, {
   shouldForwardProp: (prop) => prop !== "clickable"
 })(({ theme, clickable }) => ({
+  transition: "background-color 0.15s ease",
   ...clickable && {
     cursor: "pointer",
     "&:hover": { backgroundColor: theme.palette.action.hover }
@@ -555,6 +1271,7 @@ function DataTable({
   selectable = false,
   selected = [],
   onSelectedChange,
+  getContextMenuItems,
   rowActions,
   onRowClick,
   toolbar,
@@ -562,6 +1279,7 @@ function DataTable({
   compact = false
 }) {
   const { t } = reactI18next.useTranslation();
+  const { contextMenu, openContextMenu, closeContextMenu } = useContextMenu();
   const rows = data?.items ?? [];
   const colSpan = columns.length + (selectable ? 1 : 0) + (rowActions ? 1 : 0);
   const allSelected = rows.length > 0 && rows.every((row) => selected.includes(row.id));
@@ -581,120 +1299,170 @@ function DataTable({
     const value = row[column.key];
     return value === null || value === void 0 ? "" : String(value);
   };
-  return /* @__PURE__ */ jsxRuntime.jsxs(Paper__default.default, { variant: "outlined", sx: { borderRadius: 3, overflow: "hidden" }, children: [
-    toolbar ? /* @__PURE__ */ jsxRuntime.jsx(TableToolbar, { children: toolbar }) : null,
-    /* @__PURE__ */ jsxRuntime.jsx(TableContainer__default.default, { children: /* @__PURE__ */ jsxRuntime.jsxs(Table__default.default, { size: "small", "aria-busy": isLoading, children: [
-      /* @__PURE__ */ jsxRuntime.jsx(TableHead__default.default, { children: /* @__PURE__ */ jsxRuntime.jsxs(TableRow__default.default, { children: [
-        selectable ? /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { padding: "checkbox", children: /* @__PURE__ */ jsxRuntime.jsx(
-          Checkbox__default.default,
-          {
-            checked: allSelected,
-            indeterminate: !allSelected && someSelected,
-            onChange: toggleAll,
-            inputProps: { "aria-label": t("common:table.selectAll") }
-          }
-        ) }) : null,
-        columns.map((column) => /* @__PURE__ */ jsxRuntime.jsx(
-          TableCell__default.default,
-          {
-            align: column.align ?? "left",
-            sx: { width: column.width },
-            sortDirection: sortBy === column.key ? sortDir : false,
-            children: column.sortable && onSortChange ? /* @__PURE__ */ jsxRuntime.jsx(
-              TableSortLabel__default.default,
-              {
-                active: sortBy === column.key,
-                direction: sortBy === column.key ? sortDir : "asc",
-                onClick: () => {
-                  onSortChange(String(column.key));
-                },
-                children: t(column.labelKey)
-              }
-            ) : t(column.labelKey)
-          },
-          String(column.key)
-        )),
-        rowActions ? /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { align: "right", children: t("common:table.actions") }) : null
-      ] }) }),
-      /* @__PURE__ */ jsxRuntime.jsxs(TableBody__default.default, { children: [
-        isLoading ? Array.from({ length: compact ? 5 : pageSize }, (_, i) => /* @__PURE__ */ jsxRuntime.jsx(TableRow__default.default, { children: /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { colSpan, children: /* @__PURE__ */ jsxRuntime.jsx(Skeleton__default.default, { variant: "text", height: 28 }) }) }, i)) : null,
-        !isLoading && isError ? /* @__PURE__ */ jsxRuntime.jsx(TableRow__default.default, { children: /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { colSpan, sx: { border: 0 }, children: /* @__PURE__ */ jsxRuntime.jsx(ErrorState, { onRetry }) }) }) : null,
-        !isLoading && !isError && rows.length === 0 ? /* @__PURE__ */ jsxRuntime.jsx(TableRow__default.default, { children: /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { colSpan, sx: { border: 0 }, children: emptyState ?? /* @__PURE__ */ jsxRuntime.jsx(EmptyState, { titleKey: "common:states.noResults" }) }) }) : null,
-        !isLoading && !isError ? rows.map((row) => /* @__PURE__ */ jsxRuntime.jsxs(
-          ClickableRow,
-          {
-            clickable: Boolean(onRowClick),
-            hover: Boolean(onRowClick),
-            selected: selected.includes(row.id),
-            onClick: onRowClick ? () => {
-              onRowClick(row);
-            } : void 0,
-            children: [
-              selectable ? /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { padding: "checkbox", onClick: (e) => {
-                e.stopPropagation();
-              }, children: /* @__PURE__ */ jsxRuntime.jsx(
-                Checkbox__default.default,
-                {
-                  checked: selected.includes(row.id),
-                  onChange: () => {
-                    toggleOne(row.id);
-                  },
-                  inputProps: { "aria-label": t("common:table.selectRow") }
-                }
-              ) }) : null,
-              columns.map((column) => /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { align: column.align ?? "left", children: renderCell(row, column) }, String(column.key))),
-              rowActions ? /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { align: "right", onClick: (e) => {
-                e.stopPropagation();
-              }, children: rowActions(row) }) : null
-            ]
-          },
-          row.id
-        )) : null
-      ] })
-    ] }) }),
-    !compact ? /* @__PURE__ */ jsxRuntime.jsx(
-      TablePagination__default.default,
-      {
-        component: "div",
-        count: data?.total ?? 0,
-        page: Math.max(0, page - 1),
-        rowsPerPage: pageSize,
-        rowsPerPageOptions: [...PAGE_SIZE_OPTIONS],
-        onPageChange: (_e, newPage) => {
-          onPageChange(newPage + 1);
-        },
-        onRowsPerPageChange: (e) => {
-          onPageSizeChange(Number(e.target.value));
-        },
-        labelRowsPerPage: t("common:table.rowsPerPage"),
-        labelDisplayedRows: ({ from, to, count }) => t("common:table.displayedRows", { from, to, count })
+  const handleRowContextMenu = (event, row) => {
+    if (getContextMenuItems) {
+      const items = getContextMenuItems(row);
+      if (items && items.length > 0) {
+        openContextMenu(event, items);
       }
-    ) : null
-  ] });
+    }
+  };
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    Paper__default.default,
+    {
+      variant: "outlined",
+      sx: {
+        borderRadius: 3,
+        overflow: "hidden",
+        border: "1px solid",
+        borderColor: "divider",
+        backgroundColor: "background.paper"
+      },
+      children: [
+        toolbar ? /* @__PURE__ */ jsxRuntime.jsx(TableToolbar, { children: toolbar }) : null,
+        /* @__PURE__ */ jsxRuntime.jsx(TableContainer__default.default, { children: /* @__PURE__ */ jsxRuntime.jsxs(Table__default.default, { size: "small", "aria-busy": isLoading, children: [
+          /* @__PURE__ */ jsxRuntime.jsx(TableHead__default.default, { sx: { backgroundColor: "action.hover" }, children: /* @__PURE__ */ jsxRuntime.jsxs(TableRow__default.default, { children: [
+            selectable ? /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { padding: "checkbox", children: /* @__PURE__ */ jsxRuntime.jsx(
+              Checkbox__default.default,
+              {
+                checked: allSelected,
+                indeterminate: !allSelected && someSelected,
+                onChange: toggleAll,
+                inputProps: { "aria-label": t("common:table.selectAll") }
+              }
+            ) }) : null,
+            columns.map((column) => /* @__PURE__ */ jsxRuntime.jsx(
+              TableCell__default.default,
+              {
+                align: column.align ?? "left",
+                sx: { width: column.width, fontWeight: 700 },
+                sortDirection: sortBy === column.key ? sortDir : false,
+                children: column.sortable && onSortChange ? /* @__PURE__ */ jsxRuntime.jsx(
+                  TableSortLabel__default.default,
+                  {
+                    active: sortBy === column.key,
+                    direction: sortBy === column.key ? sortDir : "asc",
+                    onClick: () => {
+                      onSortChange(String(column.key));
+                    },
+                    children: t(column.labelKey)
+                  }
+                ) : t(column.labelKey)
+              },
+              String(column.key)
+            )),
+            rowActions ? /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { align: "right", sx: { fontWeight: 700 }, children: t("common:table.actions") }) : null
+          ] }) }),
+          /* @__PURE__ */ jsxRuntime.jsxs(TableBody__default.default, { children: [
+            isLoading ? Array.from({ length: compact ? 5 : pageSize }, (_, i) => /* @__PURE__ */ jsxRuntime.jsx(TableRow__default.default, { children: /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { colSpan, children: /* @__PURE__ */ jsxRuntime.jsx(Skeleton__default.default, { variant: "text", height: 28 }) }) }, i)) : null,
+            !isLoading && isError ? /* @__PURE__ */ jsxRuntime.jsx(TableRow__default.default, { children: /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { colSpan, sx: { border: 0 }, children: /* @__PURE__ */ jsxRuntime.jsx(ErrorState, { onRetry }) }) }) : null,
+            !isLoading && !isError && rows.length === 0 ? /* @__PURE__ */ jsxRuntime.jsx(TableRow__default.default, { children: /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { colSpan, sx: { border: 0 }, children: emptyState ?? /* @__PURE__ */ jsxRuntime.jsx(EmptyState, { titleKey: "common:states.noResults" }) }) }) : null,
+            !isLoading && !isError ? rows.map((row) => /* @__PURE__ */ jsxRuntime.jsxs(
+              ClickableRow,
+              {
+                clickable: Boolean(onRowClick || getContextMenuItems),
+                hover: true,
+                selected: selected.includes(row.id),
+                onClick: onRowClick ? () => {
+                  onRowClick(row);
+                } : void 0,
+                onContextMenu: (e) => handleRowContextMenu(e, row),
+                children: [
+                  selectable ? /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { padding: "checkbox", onClick: (e) => {
+                    e.stopPropagation();
+                  }, children: /* @__PURE__ */ jsxRuntime.jsx(
+                    Checkbox__default.default,
+                    {
+                      checked: selected.includes(row.id),
+                      onChange: () => {
+                        toggleOne(row.id);
+                      },
+                      inputProps: { "aria-label": t("common:table.selectRow") }
+                    }
+                  ) }) : null,
+                  columns.map((column) => /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { align: column.align ?? "left", children: renderCell(row, column) }, String(column.key))),
+                  rowActions ? /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { align: "right", onClick: (e) => {
+                    e.stopPropagation();
+                  }, children: rowActions(row) }) : null
+                ]
+              },
+              row.id
+            )) : null
+          ] })
+        ] }) }),
+        !compact ? /* @__PURE__ */ jsxRuntime.jsx(
+          TablePagination__default.default,
+          {
+            component: "div",
+            count: data?.total ?? 0,
+            page: Math.max(0, page - 1),
+            rowsPerPage: pageSize,
+            rowsPerPageOptions: [...PAGE_SIZE_OPTIONS],
+            onPageChange: (_e, newPage) => {
+              onPageChange(newPage + 1);
+            },
+            onRowsPerPageChange: (e) => {
+              onPageSizeChange(Number(e.target.value));
+            },
+            labelRowsPerPage: t("common:table.rowsPerPage"),
+            labelDisplayedRows: ({ from, to, count }) => t("common:table.displayedRows", { from, to, count }),
+            sx: {
+              borderTop: "1px solid",
+              borderColor: "divider",
+              "& .MuiTablePagination-toolbar": { minHeight: 48, px: 2 }
+            }
+          }
+        ) : null,
+        /* @__PURE__ */ jsxRuntime.jsx(
+          ContextMenu,
+          {
+            open: contextMenu.open,
+            x: contextMenu.x,
+            y: contextMenu.y,
+            items: contextMenu.items,
+            onClose: closeContextMenu
+          }
+        )
+      ]
+    }
+  );
 }
 var StatCardRoot = styles.styled(Card__default.default, {
   shouldForwardProp: (prop) => prop !== "compactSize"
 })(({ theme, compactSize }) => ({
-  padding: compactSize ? theme.spacing(1.5, 2) : theme.spacing(2.5),
+  padding: compactSize ? theme.spacing(2, 2.5) : theme.spacing(2.5, 3),
   display: "flex",
   flexDirection: "column",
   gap: compactSize ? theme.spacing(0.75) : theme.spacing(1),
-  height: "100%"
+  height: "100%",
+  borderRadius: "20px",
+  boxShadow: "0 4px 18px rgba(0, 0, 0, 0.03)",
+  border: "1px solid rgba(229, 229, 234, 0.85)",
+  transition: "all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)",
+  "&:hover": {
+    boxShadow: "0 8px 28px rgba(0, 0, 0, 0.07)",
+    borderColor: theme.palette.primary.main,
+    transform: "translateY(-2px)"
+  }
 }));
 var KpiHeaderRow = styles.styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  gap: theme.spacing(1)
+  gap: theme.spacing(1.5),
+  width: "100%"
 }));
 var IconTile = styles.styled("div", {
   shouldForwardProp: (prop) => prop !== "colorKey" && prop !== "compact"
 })(({ theme, colorKey, compact }) => ({
   display: "inline-flex",
-  padding: theme.spacing(compact ? 0.75 : 1.25),
-  borderRadius: theme.shape.borderRadius,
+  alignItems: "center",
+  justifyContent: "center",
+  padding: theme.spacing(compact ? 1 : 1.25),
+  borderRadius: "12px",
   backgroundColor: styles.alpha(theme.palette[colorKey].main, 0.12),
-  color: theme.palette[colorKey].main
+  color: theme.palette[colorKey].main,
+  flexShrink: 0
 }));
 var DeltaRow = styles.styled("div", {
   shouldForwardProp: (prop) => prop !== "trend"
@@ -703,8 +1471,8 @@ var DeltaRow = styles.styled("div", {
   alignItems: "center",
   gap: theme.spacing(0.5),
   ...theme.typography.caption,
-  fontWeight: 600,
-  fontSize: "0.72rem",
+  fontWeight: 700,
+  fontSize: "0.75rem",
   color: trend === "up" ? theme.palette.success.main : trend === "down" ? theme.palette.error.main : theme.palette.text.secondary
 }));
 var TREND_ICONS = {
@@ -733,7 +1501,7 @@ function StatCard({
     {
       variant: isCompact ? "h5" : "h4",
       component: "div",
-      sx: isCompact ? { fontWeight: 800, fontSize: "1.2rem", lineHeight: 1.2 } : { fontWeight: 800 },
+      sx: isCompact ? { fontWeight: 800, fontSize: "1.35rem", lineHeight: 1.2 } : { fontWeight: 800 },
       children: value
     }
   );
@@ -741,7 +1509,7 @@ function StatCard({
     TREND_ICONS[trend],
     delta
   ] }) : null;
-  const subtitleNode = subtitleKey ? /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "caption", color: "text.secondary", sx: { fontSize: "0.72rem" }, children: t(subtitleKey, subtitleParams) }) : null;
+  const subtitleNode = subtitleKey ? /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "caption", color: "text.secondary", sx: { fontSize: "0.75rem", fontWeight: 500 }, children: t(subtitleKey, subtitleParams) }) : null;
   if (layout === "kpi") {
     return /* @__PURE__ */ jsxRuntime.jsxs(StatCardRoot, { compactSize: isCompact, children: [
       /* @__PURE__ */ jsxRuntime.jsxs(KpiHeaderRow, { children: [
@@ -751,12 +1519,21 @@ function StatCard({
           {
             variant: "overline",
             color: "text.secondary",
-            sx: { textAlign: "right", lineHeight: 1.3, fontSize: isCompact ? "0.65rem" : "0.72rem", fontWeight: 700, letterSpacing: "0.06em" },
+            noWrap: true,
+            sx: {
+              textAlign: "right",
+              lineHeight: 1.3,
+              fontSize: isCompact ? "0.68rem" : "0.75rem",
+              fontWeight: 700,
+              letterSpacing: "0.05em",
+              maxWidth: "70%",
+              pr: 0.5
+            },
             children: t(labelKey)
           }
         )
       ] }),
-      badge ? /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "overline", color: "text.secondary", sx: { fontSize: isCompact ? "0.65rem" : "0.72rem", fontWeight: 700 }, children: t(labelKey) }) : null,
+      badge ? /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "overline", color: "text.secondary", noWrap: true, sx: { fontSize: isCompact ? "0.68rem" : "0.75rem", fontWeight: 700, pr: 0.5 }, children: t(labelKey) }) : null,
       valueNode,
       deltaNode ?? subtitleNode
     ] });
@@ -767,7 +1544,8 @@ function StatCard({
       {
         variant: "body2",
         color: "text.secondary",
-        sx: { display: "flex", alignItems: "center", gap: 1, fontSize: isCompact ? "0.75rem" : "0.8125rem" },
+        noWrap: true,
+        sx: { display: "flex", alignItems: "center", gap: 1, fontSize: isCompact ? "0.75rem" : "0.8125rem", pr: 0.5 },
         children: [
           icon,
           t(labelKey)
@@ -838,7 +1616,7 @@ function SearchField({
       InputProps: {
         startAdornment: /* @__PURE__ */ jsxRuntime.jsx(InputAdornment__default.default, { position: "start", children: /* @__PURE__ */ jsxRuntime.jsx(SearchIcon__default.default, { fontSize: "small" }) }),
         endAdornment: value ? /* @__PURE__ */ jsxRuntime.jsx(InputAdornment__default.default, { position: "end", children: /* @__PURE__ */ jsxRuntime.jsx(
-          IconButton__default.default,
+          IconButton8__default.default,
           {
             size: "small",
             "aria-label": t("common:actions.clear"),
@@ -898,7 +1676,7 @@ var PasswordField = react.forwardRef(
         InputProps: {
           ...props.InputProps,
           endAdornment: /* @__PURE__ */ jsxRuntime.jsx(InputAdornment__default.default, { position: "end", children: /* @__PURE__ */ jsxRuntime.jsx(
-            IconButton__default.default,
+            IconButton8__default.default,
             {
               "aria-label": t(
                 visible ? "common:actions.hidePassword" : "common:actions.showPassword"
@@ -1075,7 +1853,7 @@ var TopBarNav = styles.styled("nav")(({ theme }) => ({
   flexGrow: 1,
   justifyContent: "center"
 }));
-function AppTopBar({ logo, nav, actions, onMenuClick }) {
+function AppTopBar({ appsLauncher, logo, nav, actions, onMenuClick }) {
   const { t } = reactI18next.useTranslation();
   return /* @__PURE__ */ jsxRuntime.jsx(
     AppBar__default.default,
@@ -1091,7 +1869,7 @@ function AppTopBar({ logo, nav, actions, onMenuClick }) {
       children: /* @__PURE__ */ jsxRuntime.jsxs(Toolbar__default.default, { sx: (theme) => ({ minHeight: theme.custom.topBarHeight }), children: [
         /* @__PURE__ */ jsxRuntime.jsxs(TopBarSlot, { children: [
           onMenuClick ? /* @__PURE__ */ jsxRuntime.jsx(
-            IconButton__default.default,
+            IconButton8__default.default,
             {
               "aria-label": t("common:actions.openMenu"),
               onClick: onMenuClick,
@@ -1100,6 +1878,7 @@ function AppTopBar({ logo, nav, actions, onMenuClick }) {
               children: /* @__PURE__ */ jsxRuntime.jsx(MenuIcon__default.default, {})
             }
           ) : null,
+          appsLauncher,
           logo
         ] }),
         /* @__PURE__ */ jsxRuntime.jsx(TopBarNav, { children: nav }),
@@ -1329,7 +2108,7 @@ function StatusFilterChips({
     const active = option.value === value;
     const label = option.count !== void 0 ? `${t(option.labelKey)} (${option.count})` : t(option.labelKey);
     return /* @__PURE__ */ jsxRuntime.jsx(
-      Chip__default.default,
+      Chip5__default.default,
       {
         label,
         color: active ? "primary" : void 0,
@@ -1344,12 +2123,11 @@ function StatusFilterChips({
     );
   }) });
 }
-var DRAWER_WIDTHS = { sm: 400, md: 520, lg: 680, xl: 900, full: "100vw" };
 var DrawerHeader = styles.styled("header")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   gap: theme.spacing(1.5),
-  padding: theme.spacing(2, 3),
+  padding: theme.spacing(2.5, 3),
   borderBottom: `1px solid ${theme.palette.divider}`,
   backgroundColor: theme.palette.background.paper
 }));
@@ -1357,7 +2135,8 @@ var DrawerContent = styles.styled("div")(({ theme }) => ({
   flexGrow: 1,
   overflowY: "auto",
   padding: theme.spacing(3),
-  position: "relative"
+  position: "relative",
+  maxHeight: "75vh"
 }));
 var DrawerFooter = styles.styled("footer")(({ theme }) => ({
   display: "flex",
@@ -1376,33 +2155,58 @@ function AppDrawer({
   statusChip,
   tabs,
   footer,
-  width = "md",
+  width,
   loading = false,
   children
 }) {
   const { t } = reactI18next.useTranslation();
-  const resolvedWidth = typeof width === "string" && width in DRAWER_WIDTHS ? DRAWER_WIDTHS[width] : width;
+  const getMaxWidth = () => {
+    if (width === "full" || width === "xl") return "xl";
+    if (width === "lg") return "lg";
+    if (width === "sm") return "sm";
+    if (width === "xs") return "xs";
+    return "md";
+  };
+  const getPaperWidthSx = () => {
+    if (width === "full") {
+      return { maxWidth: "1380px", width: "95vw" };
+    }
+    if (width === "xl") {
+      return { maxWidth: "1440px", width: "95vw" };
+    }
+    if (width === "lg") {
+      return { maxWidth: "1200px", width: "92vw" };
+    }
+    if (typeof width === "number") {
+      return { maxWidth: `${width}px`, width: "95vw" };
+    }
+    return {};
+  };
   return /* @__PURE__ */ jsxRuntime.jsxs(
-    Drawer2__default.default,
+    Dialog__default.default,
     {
-      anchor: "right",
       open,
-      onClose,
-      sx: {
-        zIndex: (theme) => theme.zIndex.modal + 100,
-        "& .MuiDrawer-paper": {
-          width: { xs: "100%", sm: resolvedWidth },
-          display: "flex",
-          backgroundColor: "background.paper"
+      onClose: (_event, reason) => {
+        if (reason !== "backdropClick") onClose();
+      },
+      maxWidth: getMaxWidth(),
+      fullWidth: true,
+      PaperProps: {
+        sx: {
+          borderRadius: "24px",
+          boxShadow: "0 20px 60px rgba(0, 0, 0, 0.18)",
+          border: "1px solid rgba(229, 229, 234, 0.9)",
+          overflow: "hidden",
+          ...getPaperWidthSx()
         }
       },
       children: [
         /* @__PURE__ */ jsxRuntime.jsxs(DrawerHeader, { children: [
           /* @__PURE__ */ jsxRuntime.jsxs(Stack3__default.default, { direction: "row", spacing: 1.5, alignItems: "center", sx: { flexGrow: 1, minWidth: 0 }, children: [
-            /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "h6", noWrap: true, children: title ?? (titleKey ? t(titleKey, titleParams) : null) }),
+            /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "h5", fontWeight: 800, letterSpacing: "-0.3px", noWrap: true, children: title ?? (titleKey ? t(titleKey, titleParams) : null) }),
             statusChip
           ] }),
-          /* @__PURE__ */ jsxRuntime.jsx(IconButton__default.default, { "aria-label": t("common:actions.close"), onClick: onClose, size: "small", children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon__default.default, { fontSize: "small" }) })
+          /* @__PURE__ */ jsxRuntime.jsx(IconButton8__default.default, { "aria-label": t("common:actions.close"), onClick: onClose, size: "small", children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon5__default.default, { fontSize: "small" }) })
         ] }),
         tabs,
         /* @__PURE__ */ jsxRuntime.jsxs(DrawerContent, { children: [
@@ -1432,32 +2236,42 @@ function WizardDialog({
 }) {
   const { t } = reactI18next.useTranslation();
   const isLast = activeStep === steps.length - 1;
-  return /* @__PURE__ */ jsxRuntime.jsxs(Dialog__default.default, { open, onClose: onCancel, fullWidth: true, maxWidth: "lg", children: [
-    /* @__PURE__ */ jsxRuntime.jsxs(DialogTitle__default.default, { sx: { display: "flex", alignItems: "center", justifyContent: "space-between" }, children: [
-      t(titleKey),
-      /* @__PURE__ */ jsxRuntime.jsx(IconButton__default.default, { "aria-label": t("common:actions.close"), onClick: onCancel, size: "small", edge: "end", children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon__default.default, { fontSize: "small" }) })
-    ] }),
-    /* @__PURE__ */ jsxRuntime.jsx(Stepper__default.default, { activeStep, sx: { px: 3, pb: 2 }, children: steps.map((step) => /* @__PURE__ */ jsxRuntime.jsx(Step__default.default, { children: /* @__PURE__ */ jsxRuntime.jsx(StepLabel__default.default, { children: t(step.labelKey) }) }, step.labelKey)) }),
-    /* @__PURE__ */ jsxRuntime.jsxs(DialogContent__default.default, { dividers: true, sx: { position: "relative", minHeight: 320 }, children: [
-      children,
-      /* @__PURE__ */ jsxRuntime.jsx(LoadingOverlay, { open: submitting })
-    ] }),
-    /* @__PURE__ */ jsxRuntime.jsxs(DialogActions__default.default, { sx: { justifyContent: "space-between", px: 3 }, children: [
-      /* @__PURE__ */ jsxRuntime.jsx(Button5__default.default, { onClick: onCancel, color: "inherit", disabled: submitting, children: t("common:actions.cancel") }),
-      /* @__PURE__ */ jsxRuntime.jsxs("span", { children: [
-        /* @__PURE__ */ jsxRuntime.jsx(Button5__default.default, { onClick: onBack, color: "inherit", disabled: activeStep === 0 || submitting, sx: { mr: 1 }, children: t(backKey) }),
-        /* @__PURE__ */ jsxRuntime.jsx(
-          Button5__default.default,
-          {
-            variant: "contained",
-            onClick: isLast ? onFinish : onNext,
-            disabled: !canNext || submitting,
-            children: t(isLast ? finishKey : nextKey)
-          }
-        )
-      ] })
-    ] })
-  ] });
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    Dialog__default.default,
+    {
+      open,
+      onClose: onCancel,
+      fullWidth: true,
+      maxWidth: "lg",
+      TransitionComponent: AppleDialogTransition,
+      children: [
+        /* @__PURE__ */ jsxRuntime.jsxs(DialogTitle__default.default, { sx: { display: "flex", alignItems: "center", justifyContent: "space-between" }, children: [
+          t(titleKey),
+          /* @__PURE__ */ jsxRuntime.jsx(IconButton8__default.default, { "aria-label": t("common:actions.close"), onClick: onCancel, size: "small", edge: "end", children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon5__default.default, { fontSize: "small" }) })
+        ] }),
+        /* @__PURE__ */ jsxRuntime.jsx(Stepper__default.default, { activeStep, sx: { px: 3, pb: 2 }, children: steps.map((step) => /* @__PURE__ */ jsxRuntime.jsx(Step__default.default, { children: /* @__PURE__ */ jsxRuntime.jsx(StepLabel__default.default, { children: t(step.labelKey) }) }, step.labelKey)) }),
+        /* @__PURE__ */ jsxRuntime.jsxs(DialogContent__default.default, { dividers: true, sx: { position: "relative", minHeight: 320 }, children: [
+          children,
+          /* @__PURE__ */ jsxRuntime.jsx(LoadingOverlay, { open: submitting })
+        ] }),
+        /* @__PURE__ */ jsxRuntime.jsxs(DialogActions__default.default, { sx: { justifyContent: "space-between", px: 3 }, children: [
+          /* @__PURE__ */ jsxRuntime.jsx(Button5__default.default, { onClick: onCancel, color: "inherit", disabled: submitting, children: t("common:actions.cancel") }),
+          /* @__PURE__ */ jsxRuntime.jsxs("span", { children: [
+            /* @__PURE__ */ jsxRuntime.jsx(Button5__default.default, { onClick: onBack, color: "inherit", disabled: activeStep === 0 || submitting, sx: { mr: 1 }, children: t(backKey) }),
+            /* @__PURE__ */ jsxRuntime.jsx(
+              Button5__default.default,
+              {
+                variant: "contained",
+                onClick: isLast ? onFinish : onNext,
+                disabled: !canNext || submitting,
+                children: t(isLast ? finishKey : nextKey)
+              }
+            )
+          ] })
+        ] })
+      ]
+    }
+  );
 }
 var DateRangePreset = {
   LAST_7: "last7",
@@ -1510,7 +2324,7 @@ function DateRangeButton({ range }) {
         anchorOrigin: { vertical: "bottom", horizontal: "left" },
         children: /* @__PURE__ */ jsxRuntime.jsxs(Stack3__default.default, { spacing: 2, sx: { p: 2, width: 300 }, children: [
           /* @__PURE__ */ jsxRuntime.jsx(Stack3__default.default, { direction: "row", spacing: 1, flexWrap: "wrap", useFlexGap: true, children: Object.values(DateRangePreset).map((preset) => /* @__PURE__ */ jsxRuntime.jsx(
-            Chip__default.default,
+            Chip5__default.default,
             {
               label: t(`common:dateRange.presets.${preset}`),
               size: "small",
@@ -1565,13 +2379,19 @@ function DateRangeButton({ range }) {
   ] });
 }
 var NavItemButton = styles.styled(ListItemButton__default.default)(({ theme }) => ({
-  borderRadius: theme.shape.borderRadius,
-  margin: theme.spacing(0.25, 1),
+  borderRadius: "12px",
+  margin: theme.spacing(0.35, 1.25),
+  paddingTop: 8,
+  paddingBottom: 8,
+  transition: "all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1)",
   "&.Mui-selected": {
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
-    "& .MuiListItemIcon-root": { color: theme.palette.primary.contrastText },
-    "&:hover": { backgroundColor: theme.palette.primary.dark }
+    backgroundColor: theme.palette.mode === "light" ? "#007AFF" : "#0A84FF",
+    color: "#FFFFFF",
+    fontWeight: 700,
+    boxShadow: theme.palette.mode === "light" ? "0 4px 14px rgba(0, 122, 255, 0.25)" : "none",
+    "& .MuiListItemIcon-root": { color: "#FFFFFF" },
+    "& .MuiTypography-root": { fontWeight: 700 },
+    "&:hover": { backgroundColor: theme.palette.mode === "light" ? "#0062CC" : "#0051A8" }
   }
 }));
 function NavList({
@@ -1632,7 +2452,7 @@ function AppSideNav({
   ] });
   if (temporary) {
     return /* @__PURE__ */ jsxRuntime.jsx(
-      Drawer2__default.default,
+      Drawer__default.default,
       {
         variant: "temporary",
         open: mobileOpen,
@@ -1646,7 +2466,7 @@ function AppSideNav({
     );
   }
   return /* @__PURE__ */ jsxRuntime.jsx(
-    Drawer2__default.default,
+    Drawer__default.default,
     {
       variant: "permanent",
       sx: (theme) => ({
@@ -1745,6 +2565,843 @@ function useMediaBreakpoint() {
   const isLargeDesktop = useMediaQuery__default.default(theme.breakpoints.up("lg"));
   return { isMobile, isTablet, isDesktop, isLargeDesktop };
 }
+
+// src/components/AppLauncher/constants/animationConfig.ts
+var FOLDER_LAYOUT_SPRING = {
+  type: "spring",
+  stiffness: 300,
+  damping: 26,
+  mass: 0.8
+};
+var BACKDROP_TRANSITION = {
+  duration: 0.24,
+  ease: [0.16, 1, 0.3, 1]
+};
+var CONTAINER_VARIANTS = {
+  hidden: {
+    opacity: 0,
+    scale: 0.88,
+    y: 12
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 320,
+      damping: 26,
+      mass: 0.8,
+      staggerChildren: 0.035,
+      delayChildren: 0.06
+    }
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.86,
+    y: 10,
+    transition: {
+      duration: 0.18,
+      ease: [0.32, 0, 0.67, 0]
+    }
+  }
+};
+var APP_TILE_VARIANTS = {
+  hidden: {
+    opacity: 0,
+    scale: 0.82,
+    y: 14
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 340,
+      damping: 24
+    }
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.85,
+    transition: {
+      duration: 0.12
+    }
+  }
+};
+var DEFAULT_HOTELOS_APPS = [
+  {
+    id: "stay-os",
+    name: "Stay OS",
+    shortName: "PMS & Desk",
+    tagline: "Property Management System",
+    description: "Front desk operations, room allocation matrix grid, reservation wizard, housekeeping kanban, and folio engines.",
+    category: "operations",
+    status: "OPERATIONAL",
+    port: 5174,
+    url: "http://localhost:5174",
+    devCommand: "cd hotelos-stay-os && pnpm dev",
+    iconBg: "linear-gradient(135deg, #007AFF 0%, #00C6FF 100%)",
+    iconColor: "#007AFF",
+    gradientBorder: "from-blue-500/20 via-indigo-500/20 to-sky-500/20",
+    icon: /* @__PURE__ */ jsxRuntime.jsx(HotelIcon__default.default, { sx: { fontSize: 26, color: "#FFFFFF" } }),
+    badge: "Core",
+    badgeText: "Port 5174",
+    badgeColor: "primary",
+    shortcut: "\u23181",
+    isFavorite: true,
+    docUrl: "https://docs.stay.namios.app/",
+    lordIconSrc: "/icons/stay.gif"
+  },
+  {
+    id: "dine-os",
+    name: "Dine OS",
+    shortName: "F&B & POS",
+    tagline: "Restaurant & Kitchen Workspace",
+    description: "Interactive floor seating canvas, live dual-pane POS order cart, kitchen queue kanban with rush indicators, and room bill transfers.",
+    category: "food_beverage",
+    status: "OPERATIONAL",
+    port: 5175,
+    url: "http://localhost:5175",
+    devCommand: "cd hotelos-dine-os && pnpm dev",
+    iconBg: "linear-gradient(135deg, #FF6B00 0%, #FFA800 100%)",
+    iconColor: "#FF6B00",
+    gradientBorder: "from-rose-500/20 via-orange-500/20 to-amber-500/20",
+    icon: /* @__PURE__ */ jsxRuntime.jsx(RestaurantIcon__default.default, { sx: { fontSize: 26, color: "#FFFFFF" } }),
+    badge: "Live",
+    badgeText: "Port 5175",
+    badgeColor: "warning",
+    shortcut: "\u23182",
+    isFavorite: true,
+    docUrl: "https://docs.dine.namios.app/",
+    lordIconSrc: "/icons/dine.gif"
+  },
+  {
+    id: "people-hr",
+    name: "People (HR)",
+    shortName: "Staff & HR",
+    tagline: "Staff Roster, Attendance & Payroll",
+    description: "Shift scheduling, employee attendance tracking, payroll processing, leave management, and staff performance metrics.",
+    category: "operations",
+    status: "OPERATIONAL",
+    port: 5176,
+    url: "http://localhost:5176",
+    devCommand: "cd hotelos-stay-os && pnpm dev",
+    iconBg: "linear-gradient(135deg, #9333EA 0%, #C084FC 100%)",
+    iconColor: "#9333EA",
+    gradientBorder: "from-purple-500/20 via-fuchsia-500/20 to-violet-500/20",
+    icon: /* @__PURE__ */ jsxRuntime.jsx(PeopleIcon__default.default, { sx: { fontSize: 26, color: "#FFFFFF" } }),
+    badge: "HR",
+    badgeText: "HR Module",
+    badgeColor: "info",
+    isFavorite: true,
+    docUrl: "https://docs.people.namios.app/",
+    lordIconSrc: "/icons/people.gif"
+  },
+  {
+    id: "super-admin",
+    name: "Super Admin",
+    shortName: "Platform Control",
+    tagline: "Tenant & Subscription Control",
+    description: "Platform management dashboard tracking tenant onboarding, subscription tiers, MRR analytics, and system audit logs.",
+    category: "management",
+    status: "OPERATIONAL",
+    port: 5173,
+    url: "http://localhost:5173",
+    devCommand: "cd hotelos-super-admin && pnpm dev",
+    iconBg: "linear-gradient(135deg, #1C1C1E 0%, #3A3A3C 100%)",
+    iconColor: "#16A34A",
+    gradientBorder: "from-emerald-500/20 via-teal-500/20 to-green-500/20",
+    icon: /* @__PURE__ */ jsxRuntime.jsx(AdminPanelSettingsIcon__default.default, { sx: { fontSize: 26, color: "#FFFFFF" } }),
+    badge: "Admin",
+    badgeText: "Port 5173",
+    badgeColor: "default",
+    isFavorite: true,
+    docUrl: "https://docs.admin.namios.app/",
+    lordIconSrc: "/icons/admin.gif"
+  },
+  {
+    id: "payments-os",
+    name: "Payments OS",
+    shortName: "Billing & Gateway",
+    tagline: "Multi-Currency Terminal & Invoicing",
+    description: "Payment gateway integrations, card terminal processing, room folio billing, cash drawer reconciliations, and tax calculations.",
+    category: "operations",
+    status: "OPERATIONAL",
+    port: 4e3,
+    url: "http://localhost:4000",
+    devCommand: "cd hotel-os-be && npm run dev",
+    iconBg: "linear-gradient(135deg, #00C7BE 0%, #30B0C7 100%)",
+    iconColor: "#EA580C",
+    gradientBorder: "from-amber-500/20 via-orange-500/20 to-red-500/20",
+    icon: /* @__PURE__ */ jsxRuntime.jsx(PaymentsIcon__default.default, { sx: { fontSize: 26, color: "#FFFFFF" } }),
+    badge: "Gateway",
+    badgeText: "Gateway",
+    badgeColor: "info",
+    isFavorite: true,
+    docUrl: "https://docs.payments.namios.app/",
+    lordIconSrc: "/icons/payments.gif"
+  },
+  {
+    id: "inventory-os",
+    name: "Inventory OS",
+    shortName: "Stock & POs",
+    tagline: "F&B Stock & Supplies Control",
+    description: "Real-time stock level tracking, kitchen ingredient usage, linen inventories, low-stock alerts, and purchase order creation.",
+    category: "operations",
+    status: "OPERATIONAL",
+    port: 5175,
+    url: "http://localhost:5175",
+    devCommand: "cd hotelos-dine-os && pnpm dev",
+    iconBg: "linear-gradient(135deg, #0891B2 0%, #06B6D4 100%)",
+    iconColor: "#0891B2",
+    gradientBorder: "from-cyan-500/20 via-sky-500/20 to-blue-500/20",
+    icon: /* @__PURE__ */ jsxRuntime.jsx(InventoryIcon__default.default, { sx: { fontSize: 26, color: "#FFFFFF" } }),
+    badge: "Stock",
+    badgeText: "Stock Engine",
+    badgeColor: "default",
+    isFavorite: true,
+    docUrl: "https://docs.inventory.namios.app/",
+    lordIconSrc: "/icons/inventory.gif"
+  },
+  {
+    id: "nami-ai",
+    name: "Nami AI",
+    shortName: "AI Concierge",
+    tagline: "Smart Assistant & Messaging",
+    description: "AI Guest Concierge, Assistant & Smart Messaging across Guest Portals and Front Desk.",
+    category: "guest_experience",
+    status: "BETA",
+    port: 5176,
+    url: "http://localhost:5176",
+    iconBg: "linear-gradient(135deg, #AF52DE 0%, #FF2D55 100%)",
+    iconColor: "#AF52DE",
+    icon: /* @__PURE__ */ jsxRuntime.jsx(AutoAwesomeIcon__default.default, { sx: { fontSize: 26, color: "#FFFFFF" } }),
+    badge: "AI Beta",
+    badgeText: "Beta",
+    badgeColor: "info",
+    shortcut: "\u23184",
+    isFavorite: false
+  },
+  {
+    id: "public-web",
+    name: "Booking Engine",
+    shortName: "Guest Portal",
+    tagline: "Public Guest Direct Booking",
+    description: "Public Guest Direct Booking & Hotel Web Portal for direct room reservations.",
+    category: "marketing",
+    status: "OPERATIONAL",
+    port: 3e3,
+    url: "http://localhost:3000",
+    iconBg: "linear-gradient(135deg, #34C759 0%, #30D158 100%)",
+    iconColor: "#34C759",
+    icon: /* @__PURE__ */ jsxRuntime.jsx(PublicIcon__default.default, { sx: { fontSize: 26, color: "#FFFFFF" } }),
+    badge: "Public",
+    badgeText: "Guest Web",
+    badgeColor: "success",
+    isExternal: true
+  }
+];
+var AppFolderMiniPreview = ({
+  apps,
+  isOpen,
+  onClick,
+  tooltip = "NamiOS Apps",
+  className
+}) => {
+  const previewApps = apps.slice(0, 4);
+  return /* @__PURE__ */ jsxRuntime.jsx(Tooltip__default.default, { title: tooltip, arrow: true, placement: "bottom", children: /* @__PURE__ */ jsxRuntime.jsx(
+    framerMotion.motion.button,
+    {
+      type: "button",
+      layoutId: "hotelos-app-folder-container",
+      transition: FOLDER_LAYOUT_SPRING,
+      onClick,
+      "aria-label": tooltip,
+      "aria-expanded": isOpen,
+      "aria-haspopup": "dialog",
+      whileHover: { scale: 1.05 },
+      whileTap: { scale: 0.94 },
+      className,
+      style: {
+        width: 38,
+        height: 38,
+        borderRadius: 12,
+        padding: 4,
+        border: "1px solid rgba(229, 231, 235, 0.9)",
+        background: "rgba(255, 255, 255, 0.75)",
+        backdropFilter: "blur(12px)",
+        boxShadow: "0 2px 8px rgba(0, 0, 0, 0.05)",
+        cursor: "pointer",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        outline: "none",
+        boxSizing: "border-box"
+      },
+      children: /* @__PURE__ */ jsxRuntime.jsx(
+        "div",
+        {
+          style: {
+            display: "grid",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            gap: 2.5,
+            width: "100%",
+            height: "100%",
+            alignItems: "center",
+            justifyItems: "center"
+          },
+          children: previewApps.map((app) => /* @__PURE__ */ jsxRuntime.jsx(
+            "div",
+            {
+              style: {
+                width: "100%",
+                height: "100%",
+                borderRadius: 3.5,
+                background: app.iconBg || "#007AFF",
+                boxShadow: "0 1px 2px rgba(0, 0, 0, 0.15)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                overflow: "hidden"
+              }
+            },
+            app.id
+          ))
+        }
+      )
+    }
+  ) });
+};
+var AppTile = ({
+  app,
+  isActive = false,
+  onSelect
+}) => {
+  const [imgError, setImgError] = react.useState(false);
+  const iconSrcToUse = app.lordIconSrc || app.iconSrc;
+  const handleClick = () => {
+    if (app.disabled) return;
+    onSelect(app);
+  };
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleClick();
+    }
+  };
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    framerMotion.motion.div,
+    {
+      variants: APP_TILE_VARIANTS,
+      whileHover: { scale: 1.06, y: -2 },
+      whileTap: { scale: 0.94 },
+      transition: { type: "spring", stiffness: 380, damping: 20 },
+      onClick: handleClick,
+      onKeyDown: handleKeyDown,
+      tabIndex: app.disabled ? -1 : 0,
+      role: "button",
+      "aria-label": `${app.name}${app.description ? `: ${app.description}` : ""}`,
+      "aria-disabled": app.disabled,
+      style: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        textAlign: "center",
+        padding: "6px 4px",
+        borderRadius: 16,
+        cursor: app.disabled ? "not-allowed" : "pointer",
+        opacity: app.disabled ? 0.5 : 1,
+        position: "relative",
+        userSelect: "none",
+        outline: "none"
+      },
+      children: [
+        /* @__PURE__ */ jsxRuntime.jsxs(
+          "div",
+          {
+            style: {
+              width: 56,
+              height: 56,
+              borderRadius: 15,
+              background: app.iconBg || "linear-gradient(135deg, #007AFF 0%, #00C6FF 100%)",
+              boxShadow: isActive ? "0 6px 18px rgba(0, 122, 255, 0.45), 0 0 0 2.5px #007AFF" : "0 6px 16px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "#FFFFFF",
+              position: "relative",
+              overflow: "hidden",
+              marginBottom: 6,
+              border: "1px solid rgba(255, 255, 255, 0.3)"
+            },
+            children: [
+              /* @__PURE__ */ jsxRuntime.jsx(
+                "div",
+                {
+                  style: {
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: "45%",
+                    background: "linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%)",
+                    pointerEvents: "none"
+                  }
+                }
+              ),
+              iconSrcToUse && !imgError ? /* @__PURE__ */ jsxRuntime.jsx(
+                "img",
+                {
+                  src: iconSrcToUse,
+                  alt: app.name,
+                  onError: () => setImgError(true),
+                  style: { width: 32, height: 32, objectFit: "contain" },
+                  draggable: false
+                }
+              ) : app.icon,
+              isActive && /* @__PURE__ */ jsxRuntime.jsx(
+                "div",
+                {
+                  style: {
+                    position: "absolute",
+                    bottom: 3.5,
+                    width: 5,
+                    height: 5,
+                    borderRadius: "50%",
+                    backgroundColor: "#FFFFFF",
+                    boxShadow: "0 0 4px rgba(255, 255, 255, 0.9)"
+                  }
+                }
+              )
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          Typography4__default.default,
+          {
+            variant: "caption",
+            sx: {
+              fontWeight: 700,
+              fontSize: "0.76rem",
+              lineHeight: 1.2,
+              color: "#0F172A",
+              maxWidth: 86,
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+              letterSpacing: "-0.2px"
+            },
+            children: app.name
+          }
+        ),
+        app.badge && /* @__PURE__ */ jsxRuntime.jsx(
+          Chip5__default.default,
+          {
+            label: app.badge,
+            size: "small",
+            color: app.badgeColor || "default",
+            sx: {
+              mt: 0.4,
+              height: 16,
+              fontSize: "0.6rem",
+              fontWeight: 800,
+              borderRadius: "5px",
+              "& .MuiChip-label": { px: 0.6 }
+            }
+          }
+        )
+      ]
+    }
+  );
+};
+var AppFolderModal = ({
+  title = "NamiOS Ecosystem",
+  subtitle = "Switch between NamiOS modules & portals",
+  apps,
+  currentAppId,
+  isOpen,
+  onClose,
+  onSelectApp
+}) => {
+  const [search, setSearch] = react.useState("");
+  const [selectedCategory, setSelectedCategory] = react.useState("all");
+  const modalRef = react.useRef(null);
+  react.useEffect(() => {
+    if (!isOpen) {
+      setSearch("");
+      setSelectedCategory("all");
+    }
+  }, [isOpen]);
+  react.useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && isOpen) {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
+  const categories = react.useMemo(() => {
+    const set = /* @__PURE__ */ new Set();
+    apps.forEach((a) => {
+      if (a.category) set.add(a.category);
+    });
+    return Array.from(set);
+  }, [apps]);
+  const filteredApps = react.useMemo(() => {
+    return apps.filter((app) => {
+      const matchSearch = !search.trim() || app.name.toLowerCase().includes(search.toLowerCase()) || app.description && app.description.toLowerCase().includes(search.toLowerCase());
+      const matchCategory = selectedCategory === "all" || app.category === selectedCategory;
+      return matchSearch && matchCategory;
+    });
+  }, [apps, search, selectedCategory]);
+  const getCategoryLabel = (cat) => {
+    switch (cat) {
+      case "operations":
+        return "Operations";
+      case "food_beverage":
+        return "F&B";
+      case "platform":
+        return "Platform";
+      case "guest_experience":
+        return "Guest Hub";
+      case "management":
+        return "Management";
+      case "marketing":
+        return "Public Web";
+      default:
+        return cat.replace("_", " ");
+    }
+  };
+  if (typeof document === "undefined") return null;
+  return reactDom.createPortal(
+    /* @__PURE__ */ jsxRuntime.jsx(framerMotion.AnimatePresence, { mode: "wait", children: isOpen && /* @__PURE__ */ jsxRuntime.jsxs(
+      "div",
+      {
+        style: {
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          width: "100vw",
+          height: "100vh",
+          zIndex: 99999,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: 20,
+          boxSizing: "border-box"
+        },
+        children: [
+          /* @__PURE__ */ jsxRuntime.jsx(
+            framerMotion.motion.div,
+            {
+              initial: { opacity: 0 },
+              animate: { opacity: 1 },
+              exit: { opacity: 0 },
+              transition: BACKDROP_TRANSITION,
+              onClick: onClose,
+              style: {
+                position: "absolute",
+                inset: 0,
+                backgroundColor: "rgba(15, 23, 42, 0.18)",
+                backdropFilter: "blur(8px)",
+                WebkitBackdropFilter: "blur(8px)"
+              }
+            },
+            "backdrop"
+          ),
+          /* @__PURE__ */ jsxRuntime.jsxs(
+            framerMotion.motion.div,
+            {
+              ref: modalRef,
+              variants: CONTAINER_VARIANTS,
+              initial: "hidden",
+              animate: "visible",
+              exit: "exit",
+              style: {
+                position: "relative",
+                width: "100%",
+                maxWidth: 620,
+                maxHeight: "88vh",
+                borderRadius: 30,
+                backgroundColor: "rgba(255, 255, 255, 0.94)",
+                backdropFilter: "blur(28px) saturate(190%)",
+                WebkitBackdropFilter: "blur(28px) saturate(190%)",
+                border: "1px solid rgba(255, 255, 255, 0.8)",
+                boxShadow: "0 24px 60px -10px rgba(0, 0, 0, 0.2), 0 4px 16px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04)",
+                padding: "24px 24px 18px 24px",
+                display: "flex",
+                flexDirection: "column",
+                zIndex: 1,
+                overflow: "hidden",
+                boxSizing: "border-box",
+                margin: "auto"
+              },
+              onClick: (e) => e.stopPropagation(),
+              children: [
+                /* @__PURE__ */ jsxRuntime.jsxs(Box4__default.default, { sx: { display: "flex", alignItems: "flex-start", justifyContent: "space-between", mb: 2 }, children: [
+                  /* @__PURE__ */ jsxRuntime.jsxs(Box4__default.default, { sx: { pr: 2 }, children: [
+                    /* @__PURE__ */ jsxRuntime.jsx(
+                      Typography4__default.default,
+                      {
+                        variant: "h6",
+                        sx: {
+                          fontWeight: 800,
+                          letterSpacing: "-0.3px",
+                          fontSize: "1.25rem",
+                          color: "#0F172A",
+                          lineHeight: 1.2
+                        },
+                        children: title
+                      }
+                    ),
+                    subtitle && /* @__PURE__ */ jsxRuntime.jsx(
+                      Typography4__default.default,
+                      {
+                        variant: "caption",
+                        sx: { color: "#64748B", fontWeight: 500, display: "block", mt: 0.5, fontSize: "0.8rem" },
+                        children: subtitle
+                      }
+                    )
+                  ] }),
+                  /* @__PURE__ */ jsxRuntime.jsx(
+                    IconButton8__default.default,
+                    {
+                      size: "small",
+                      onClick: onClose,
+                      "aria-label": "Close apps directory",
+                      sx: {
+                        bgcolor: "rgba(0, 0, 0, 0.05)",
+                        "&:hover": { bgcolor: "rgba(0, 0, 0, 0.1)" },
+                        color: "#475569"
+                      },
+                      children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon5__default.default, { fontSize: "small" })
+                    }
+                  )
+                ] }),
+                apps.length > 4 && /* @__PURE__ */ jsxRuntime.jsxs(
+                  Box4__default.default,
+                  {
+                    sx: {
+                      display: "flex",
+                      alignItems: "center",
+                      bgcolor: "rgba(0, 0, 0, 0.04)",
+                      borderRadius: "12px",
+                      px: 1.5,
+                      py: 0.75,
+                      mb: 1.75,
+                      border: "1px solid rgba(0, 0, 0, 0.05)"
+                    },
+                    children: [
+                      /* @__PURE__ */ jsxRuntime.jsx(SearchIcon__default.default, { sx: { fontSize: 18, color: "#94A3B8", mr: 1 } }),
+                      /* @__PURE__ */ jsxRuntime.jsx(
+                        InputBase__default.default,
+                        {
+                          placeholder: "Search applications...",
+                          value: search,
+                          onChange: (e) => setSearch(e.target.value),
+                          fullWidth: true,
+                          autoFocus: false,
+                          inputProps: {
+                            "aria-label": "Search apps",
+                            style: { fontSize: "0.875rem", fontWeight: 500, padding: 0 }
+                          }
+                        }
+                      ),
+                      search && /* @__PURE__ */ jsxRuntime.jsx(IconButton8__default.default, { size: "small", onClick: () => setSearch(""), sx: { p: 0.25 }, children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon5__default.default, { sx: { fontSize: 14 } }) })
+                    ]
+                  }
+                ),
+                categories.length > 1 && !search && /* @__PURE__ */ jsxRuntime.jsxs(
+                  Box4__default.default,
+                  {
+                    sx: {
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: 0.75,
+                      mb: 2,
+                      alignItems: "center"
+                    },
+                    children: [
+                      /* @__PURE__ */ jsxRuntime.jsx(
+                        Chip5__default.default,
+                        {
+                          label: "All Apps",
+                          size: "small",
+                          onClick: () => setSelectedCategory("all"),
+                          variant: selectedCategory === "all" ? "filled" : "outlined",
+                          color: selectedCategory === "all" ? "primary" : "default",
+                          sx: {
+                            fontWeight: 700,
+                            fontSize: "0.72rem",
+                            height: 26,
+                            cursor: "pointer",
+                            borderRadius: "8px"
+                          }
+                        }
+                      ),
+                      categories.map((cat) => /* @__PURE__ */ jsxRuntime.jsx(
+                        Chip5__default.default,
+                        {
+                          label: getCategoryLabel(cat),
+                          size: "small",
+                          onClick: () => setSelectedCategory(cat),
+                          variant: selectedCategory === cat ? "filled" : "outlined",
+                          color: selectedCategory === cat ? "primary" : "default",
+                          sx: {
+                            fontWeight: 700,
+                            fontSize: "0.72rem",
+                            height: 26,
+                            cursor: "pointer",
+                            borderRadius: "8px"
+                          }
+                        },
+                        cat
+                      ))
+                    ]
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntime.jsx(
+                  Box4__default.default,
+                  {
+                    sx: {
+                      flexGrow: 1,
+                      overflowY: "auto",
+                      py: 0.5,
+                      pr: 0.5,
+                      minHeight: 180,
+                      "::-webkit-scrollbar": { width: 4 },
+                      "::-webkit-scrollbar-thumb": {
+                        bgcolor: "rgba(0, 0, 0, 0.12)",
+                        borderRadius: 2
+                      }
+                    },
+                    children: filteredApps.length === 0 ? /* @__PURE__ */ jsxRuntime.jsx(Box4__default.default, { sx: { py: 6, textAlign: "center" }, children: /* @__PURE__ */ jsxRuntime.jsxs(Typography4__default.default, { variant: "body2", color: "text.secondary", fontWeight: 600, children: [
+                      "No apps found matching \u201C",
+                      search,
+                      "\u201D"
+                    ] }) }) : /* @__PURE__ */ jsxRuntime.jsx(
+                      framerMotion.motion.div,
+                      {
+                        variants: CONTAINER_VARIANTS,
+                        initial: "hidden",
+                        animate: "visible",
+                        style: {
+                          display: "grid",
+                          gridTemplateColumns: "repeat(5, 1fr)",
+                          gap: "14px 8px",
+                          justifyItems: "center"
+                        },
+                        children: filteredApps.map((app) => /* @__PURE__ */ jsxRuntime.jsx(
+                          AppTile,
+                          {
+                            app,
+                            isActive: currentAppId === app.id,
+                            onSelect: (selected) => {
+                              onSelectApp(selected);
+                              onClose();
+                            }
+                          },
+                          app.id
+                        ))
+                      }
+                    )
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntime.jsxs(
+                  Box4__default.default,
+                  {
+                    sx: {
+                      pt: 1.5,
+                      mt: 1,
+                      borderTop: "1px solid rgba(0, 0, 0, 0.06)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between"
+                    },
+                    children: [
+                      /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "caption", sx: { color: "#94A3B8", fontWeight: 600 }, children: "NamiOS Suite" }),
+                      /* @__PURE__ */ jsxRuntime.jsxs(Typography4__default.default, { variant: "caption", sx: { color: "#94A3B8", fontSize: "0.7rem" }, children: [
+                        "Press ",
+                        /* @__PURE__ */ jsxRuntime.jsx("kbd", { style: { background: "rgba(0,0,0,0.06)", padding: "2px 4px", borderRadius: 4, fontWeight: 700 }, children: "Esc" }),
+                        " to close"
+                      ] })
+                    ]
+                  }
+                )
+              ]
+            },
+            "folder-modal"
+          )
+        ]
+      }
+    ) }),
+    document.body
+  );
+};
+var AppLauncher = ({
+  title = "NamiOS Ecosystem",
+  subtitle = "Switch between NamiOS modules & portals",
+  apps = DEFAULT_HOTELOS_APPS,
+  currentAppId = "stay-os",
+  onSelectApp,
+  className,
+  tooltip = "NamiOS Apps"
+}) => {
+  const [isOpen, setIsOpen] = react.useState(false);
+  const handleOpen = react.useCallback(() => {
+    setIsOpen(true);
+  }, []);
+  const handleClose = react.useCallback(() => {
+    setIsOpen(false);
+  }, []);
+  const handleSelectApp = react.useCallback(
+    (app) => {
+      if (onSelectApp) {
+        onSelectApp(app);
+        return;
+      }
+      if (app.url) {
+        if (app.isExternal) {
+          window.open(app.url, "_blank", "noopener,noreferrer");
+        } else {
+          window.location.href = app.url;
+        }
+      } else if (app.path) {
+        window.location.href = app.path;
+      }
+    },
+    [onSelectApp]
+  );
+  return /* @__PURE__ */ jsxRuntime.jsxs(framerMotion.MotionConfig, { transition: FOLDER_LAYOUT_SPRING, children: [
+    /* @__PURE__ */ jsxRuntime.jsx(
+      AppFolderMiniPreview,
+      {
+        apps,
+        isOpen,
+        onClick: handleOpen,
+        tooltip,
+        className
+      }
+    ),
+    /* @__PURE__ */ jsxRuntime.jsx(
+      AppFolderModal,
+      {
+        title,
+        subtitle,
+        apps,
+        currentAppId,
+        isOpen,
+        onClose: handleClose,
+        onSelectApp: handleSelectApp
+      }
+    )
+  ] });
+};
 var LayoutRoot = styles.styled("div")({
   display: "flex",
   minHeight: "100vh"
@@ -1759,6 +3416,7 @@ function DashboardLayout({
   navItems,
   activePath,
   onNavigate,
+  appsLauncher = /* @__PURE__ */ jsxRuntime.jsx(AppLauncher, {}),
   logo,
   topBarActions,
   children
@@ -1773,6 +3431,7 @@ function DashboardLayout({
     /* @__PURE__ */ jsxRuntime.jsx(
       AppTopBar,
       {
+        appsLauncher,
         logo,
         actions: topBarActions,
         onMenuClick: isDesktop ? void 0 : () => {
@@ -1799,7 +3458,7 @@ function DashboardLayout({
     ] })
   ] });
 }
-var LaneContainer = styles.styled(Box5__default.default)(({ theme }) => ({
+var LaneContainer = styles.styled(Box4__default.default)(({ theme }) => ({
   flex: 1,
   minWidth: 280,
   maxWidth: 360,
@@ -1813,14 +3472,14 @@ var LaneContainer = styles.styled(Box5__default.default)(({ theme }) => ({
   minHeight: 500,
   border: `1px solid ${theme.palette.mode === "light" ? "#E2E8F0" : "#1E293B"}`
 }));
-var ColumnHeader = styles.styled(Box5__default.default)(({ theme }) => ({
+var ColumnHeader = styles.styled(Box4__default.default)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
   paddingBottom: theme.spacing(1.5),
   borderBottom: `2px solid ${theme.palette.divider}`
 }));
-var ItemsScrollArea = styles.styled(Box5__default.default)(({ theme }) => ({
+var ItemsScrollArea = styles.styled(Box4__default.default)(({ theme }) => ({
   flexGrow: 1,
   overflowY: "auto",
   display: "flex",
@@ -1863,7 +3522,7 @@ function KanbanBoard({
           /* @__PURE__ */ jsxRuntime.jsxs(ColumnHeader, { children: [
             /* @__PURE__ */ jsxRuntime.jsxs(Stack3__default.default, { direction: "row", spacing: 1.5, alignItems: "center", children: [
               column.color && /* @__PURE__ */ jsxRuntime.jsx(
-                Box5__default.default,
+                Box4__default.default,
                 {
                   sx: {
                     width: 8,
@@ -1891,7 +3550,7 @@ function KanbanBoard({
               }
             )
           ] }),
-          /* @__PURE__ */ jsxRuntime.jsx(ItemsScrollArea, { children: laneItems.map((item) => /* @__PURE__ */ jsxRuntime.jsx(Box5__default.default, { sx: { position: "relative" }, children: renderItem(item) }, getItemId(item))) })
+          /* @__PURE__ */ jsxRuntime.jsx(ItemsScrollArea, { children: laneItems.map((item) => /* @__PURE__ */ jsxRuntime.jsx(Box4__default.default, { sx: { position: "relative" }, children: renderItem(item) }, getItemId(item))) })
         ] }, column.id);
       })
     }
@@ -1903,7 +3562,7 @@ function SplitPaneLayout({
   rightWidth = 400
 }) {
   return /* @__PURE__ */ jsxRuntime.jsxs(
-    Box5__default.default,
+    Box4__default.default,
     {
       sx: {
         display: "flex",
@@ -1915,7 +3574,7 @@ function SplitPaneLayout({
       },
       children: [
         /* @__PURE__ */ jsxRuntime.jsx(
-          Box5__default.default,
+          Box4__default.default,
           {
             sx: {
               flexGrow: 1,
@@ -1927,7 +3586,7 @@ function SplitPaneLayout({
           }
         ),
         /* @__PURE__ */ jsxRuntime.jsx(
-          Box5__default.default,
+          Box4__default.default,
           {
             sx: {
               width: { xs: "100%", md: rightWidth },
@@ -1982,14 +3641,14 @@ var StyledCard = styles.styled(Card__default.default, {
     borderColor: activeBorderColor || theme.palette.text.secondary
   } : {}
 }));
-var ImageContainer = styles.styled(Box5__default.default)({
+var ImageContainer = styles.styled(Box4__default.default)({
   position: "relative",
   paddingTop: "60%",
   // 5:3 Aspect Ratio
   width: "100%",
   overflow: "hidden"
 });
-var MediaOverlay = styles.styled(Box5__default.default)({
+var MediaOverlay = styles.styled(Box4__default.default)({
   position: "absolute",
   top: 0,
   left: 0,
@@ -2043,7 +3702,7 @@ function MenuCard({
               }
             }
           ) : /* @__PURE__ */ jsxRuntime.jsx(
-            Box5__default.default,
+            Box4__default.default,
             {
               sx: {
                 position: "absolute",
@@ -2083,12 +3742,12 @@ function MenuCard({
               children: description
             }
           ),
-          /* @__PURE__ */ jsxRuntime.jsx(Box5__default.default, { sx: { flexGrow: 1 } }),
+          /* @__PURE__ */ jsxRuntime.jsx(Box4__default.default, { sx: { flexGrow: 1 } }),
           /* @__PURE__ */ jsxRuntime.jsxs(Stack3__default.default, { direction: "row", spacing: 0.5, flexWrap: "wrap", useFlexGap: true, alignItems: "center", sx: { mt: 1 }, children: [
-            badges?.map((badge, idx) => /* @__PURE__ */ jsxRuntime.jsx(Box5__default.default, { children: badge }, idx)),
-            /* @__PURE__ */ jsxRuntime.jsx(Box5__default.default, { sx: { flexGrow: 1 } }),
+            badges?.map((badge, idx) => /* @__PURE__ */ jsxRuntime.jsx(Box4__default.default, { children: badge }, idx)),
+            /* @__PURE__ */ jsxRuntime.jsx(Box4__default.default, { sx: { flexGrow: 1 } }),
             stockLabel && /* @__PURE__ */ jsxRuntime.jsx(
-              Chip__default.default,
+              Chip5__default.default,
               {
                 label: stockLabel,
                 size: "small",
@@ -2103,18 +3762,121 @@ function MenuCard({
   );
 }
 
+// src/utils/string.ts
+function initialsFromName(name) {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return "";
+  if (parts.length === 1) {
+    const only = parts[0] ?? "";
+    return only.slice(0, 2).toUpperCase();
+  }
+  const first = parts[0]?.charAt(0) ?? "";
+  const last = parts[parts.length - 1]?.charAt(0) ?? "";
+  return (first + last).toUpperCase();
+}
+var DETERMINISTIC_COLORS = [
+  "#007AFF",
+  // Blue
+  "#5856D6",
+  // Purple
+  "#AF52DE",
+  // Magenta
+  "#FF2D55",
+  // Pink
+  "#FF9500",
+  // Orange
+  "#34C759",
+  // Green
+  "#00C7BE",
+  // Teal
+  "#32ADE6"
+  // Light Blue
+];
+var getAvatarBgColor = (seed) => {
+  let hash = 0;
+  for (let i = 0; i < seed.length; i += 1) {
+    hash = seed.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const index = Math.abs(hash) % DETERMINISTIC_COLORS.length;
+  return DETERMINISTIC_COLORS[index] ?? "#007AFF";
+};
+var UserAvatar = ({
+  name = "",
+  email = "",
+  avatarUrl,
+  size = 36,
+  sx,
+  fontSize,
+  className
+}) => {
+  const [imageSrc, setImageSrc] = react.useState(avatarUrl);
+  const [imageError, setImageError] = react.useState(false);
+  react.useEffect(() => {
+    if (avatarUrl) {
+      setImageSrc(avatarUrl);
+      setImageError(false);
+      return;
+    }
+    try {
+      const stored = window.localStorage.getItem("hotelos.avatar");
+      if (stored) {
+        setImageSrc(stored);
+        setImageError(false);
+      }
+    } catch {
+    }
+  }, [avatarUrl]);
+  const displayName = name.trim() || email.trim() || "User";
+  const initials = initialsFromName(displayName);
+  const bgColor = getAvatarBgColor(displayName);
+  return /* @__PURE__ */ jsxRuntime.jsx(
+    Avatar__default.default,
+    {
+      src: imageError ? void 0 : imageSrc,
+      alt: displayName,
+      imgProps: {
+        onError: () => setImageError(true)
+      },
+      className,
+      sx: {
+        width: size,
+        height: size,
+        bgcolor: bgColor,
+        color: "#FFFFFF",
+        fontWeight: 700,
+        fontSize: fontSize ?? Math.max(12, Math.floor(size * 0.4)),
+        boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+        ...sx
+      },
+      children: initials
+    }
+  );
+};
+
+exports.APP_TILE_VARIANTS = APP_TILE_VARIANTS;
 exports.AppDialog = AppDialog;
 exports.AppDrawer = AppDrawer;
+exports.AppFolderMiniPreview = AppFolderMiniPreview;
+exports.AppFolderModal = AppFolderModal;
+exports.AppLauncher = AppLauncher;
 exports.AppSideNav = AppSideNav;
+exports.AppTile = AppTile;
 exports.AppTopBar = AppTopBar;
+exports.AppleDialogTransition = AppleDialogTransition;
 exports.AuthLayout = AuthLayout;
+exports.BACKDROP_TRANSITION = BACKDROP_TRANSITION;
+exports.CONTAINER_VARIANTS = CONTAINER_VARIANTS;
 exports.ConfirmDialog = ConfirmDialog;
+exports.ContextMenu = ContextMenu;
+exports.DEFAULT_HOTELOS_APPS = DEFAULT_HOTELOS_APPS;
 exports.DashboardLayout = DashboardLayout;
 exports.DataTable = DataTable;
 exports.DateRangeButton = DateRangeButton;
 exports.DescriptionList = DescriptionList;
 exports.EmptyState = EmptyState;
 exports.ErrorState = ErrorState;
+exports.FOLDER_LAYOUT_SPRING = FOLDER_LAYOUT_SPRING;
+exports.FamilyDialogTransition = FamilyDialogTransition;
 exports.FormDialog = FormDialog;
 exports.FormSelect = FormSelect;
 exports.FormSwitch = FormSwitch;
@@ -2136,6 +3898,8 @@ exports.StatCard = StatCard;
 exports.StatusChip = StatusChip;
 exports.StatusFilterChips = StatusFilterChips;
 exports.TimelineMatrix = TimelineMatrix;
+exports.UserAvatar = UserAvatar;
 exports.WizardDialog = WizardDialog;
+exports.getAvatarBgColor = getAvatarBgColor;
 //# sourceMappingURL=index.cjs.map
 //# sourceMappingURL=index.cjs.map

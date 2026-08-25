@@ -8,13 +8,17 @@ export interface ConfirmOptions {
     variant?: ConfirmVariant;
     confirmKey?: string;
     cancelKey?: string;
+    /** Optional anchor element to open confirmation right below the clicked button */
+    anchorEl?: HTMLElement | null;
+    /** When true, removes blocking dark backdrop */
+    disableBackdrop?: boolean;
 }
 type ConfirmFn = (options: ConfirmOptions) => Promise<boolean>;
 export interface ConfirmProviderProps {
     children: ReactNode;
 }
 /** Renders ONE shared ConfirmDialog and exposes a promise-based confirm(). */
-export declare function ConfirmProvider({ children }: ConfirmProviderProps): any;
+export declare function ConfirmProvider({ children }: ConfirmProviderProps): import("react").JSX.Element;
 /**
  * Promise-based confirmation:
  * `const ok = await confirm({ titleKey, messageKey, variant: 'danger' });`

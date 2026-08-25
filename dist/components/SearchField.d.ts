@@ -9,4 +9,4 @@ export interface SearchFieldProps {
  * Search input with clear button. Debouncing lives in useTableQuery, so this
  * stays a plain controlled input.
  */
-export declare function SearchField({ value, onChange, placeholderKey, fullWidth, autoFocus, }: SearchFieldProps): any;
+export declare function SearchField({ value, onChange, placeholderKey, fullWidth, autoFocus, }: SearchFieldProps): import("react").JSX.Element;

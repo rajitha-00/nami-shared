@@ -1,4 +1,4 @@
-/** Route names shared across Hotel OS apps (each app maps these to its own paths). */
+/** Route names shared across NamiOS apps (each app maps these to its own paths). */
 export declare const SHARED_ROUTES: {
     readonly LANDING: "/";
     readonly LOGIN: "/login";

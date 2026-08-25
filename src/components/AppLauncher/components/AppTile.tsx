@@ -1,8 +1,9 @@
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
 import type { IAppItem } from '../interfaces/IAppItem';
-import { APP_TILE_VARIANTS, FOLDER_LAYOUT_SPRING } from '../constants/animationConfig';
+import { APP_TILE_VARIANTS } from '../constants/animationConfig';
 
 export interface AppTileProps {
   app: IAppItem;
@@ -15,6 +16,9 @@ export const AppTile = ({
   isActive = false,
   onSelect,
 }: AppTileProps) => {
+  const [imgError, setImgError] = useState(false);
+  const iconSrcToUse = app.lordIconSrc || app.iconSrc;
+
   const handleClick = () => {
     if (app.disabled) return;
     onSelect(app);
@@ -86,11 +90,12 @@ export const AppTile = ({
           }}
         />
 
-        {app.iconSrc ? (
+        {iconSrcToUse && !imgError ? (
           <img
-            src={app.iconSrc}
+            src={iconSrcToUse}
             alt={app.name}
-            style={{ width: 28, height: 28, objectFit: 'contain' }}
+            onError={() => setImgError(true)}
+            style={{ width: 32, height: 32, objectFit: 'contain' }}
             draggable={false}
           />
         ) : (

@@ -18,6 +18,10 @@ export interface ConfirmOptions {
   variant?: ConfirmVariant;
   confirmKey?: string;
   cancelKey?: string;
+  /** Optional anchor element to open confirmation right below the clicked button */
+  anchorEl?: HTMLElement | null;
+  /** When true, removes blocking dark backdrop */
+  disableBackdrop?: boolean;
 }
 
 type ConfirmFn = (options: ConfirmOptions) => Promise<boolean>;
@@ -51,6 +55,8 @@ export function ConfirmProvider({ children }: ConfirmProviderProps) {
       {children}
       <ConfirmDialog
         open={options !== null}
+        anchorEl={options?.anchorEl}
+        disableBackdrop={options?.disableBackdrop}
         titleKey={options?.titleKey ?? ''}
         messageKey={options?.messageKey ?? ''}
         messageParams={options?.messageParams}

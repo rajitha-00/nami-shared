@@ -9,3 +9,4 @@ export { useMediaBreakpoint, type UseMediaBreakpointReturn } from './useMediaBre
 export { SnackbarProvider, useSnackbar, type SnackbarProviderProps, type UseSnackbarReturn, } from './useSnackbar';
 export { useLocaleFormat, type UseLocaleFormatReturn } from './useLocaleFormat';
 export { DateRangePreset, useDateRange, type UseDateRangeReturn } from './useDateRange';
+export { useContextMenu, type ContextMenuState } from './useContextMenu';

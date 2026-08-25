@@ -1,4 +1,4 @@
-/** Standard envelope every Hotel OS API response is wrapped in. */
+/** Standard envelope every NamiOS API response is wrapped in. */
 export interface ApiResponse<T> {
   data: T;
   message?: string;

@@ -8,8 +8,8 @@ var DATE_FORMATS = {
   MONTH_YEAR: { year: "numeric", month: "short" }
 };
 var DEBOUNCE_MS = 300;
-var DEFAULT_PAGE_SIZE = 10;
-var PAGE_SIZE_OPTIONS = [10, 25, 50, 100];
+var DEFAULT_PAGE_SIZE = 15;
+var PAGE_SIZE_OPTIONS = [15, 25, 50, 100];
 var SNACKBAR_AUTOHIDE_MS = 4e3;
 
 // src/constants/regex.ts

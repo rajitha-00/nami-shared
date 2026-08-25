@@ -8,4 +8,4 @@ export interface DescriptionListProps {
     items: DescriptionListItem[];
 }
 /** Label/value pairs for detail views. */
-export declare function DescriptionList({ items }: DescriptionListProps): any;
+export declare function DescriptionList({ items }: DescriptionListProps): import("react").JSX.Element;

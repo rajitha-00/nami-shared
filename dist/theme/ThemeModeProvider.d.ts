@@ -19,5 +19,5 @@ export interface ThemeModeProviderProps {
  * Apps pinned to a single mode (Super Admin) skip this and use
  * `createHotelOsTheme('light')` with MUI's ThemeProvider directly.
  */
-export declare function ThemeModeProvider({ children, overrides }: ThemeModeProviderProps): any;
+export declare function ThemeModeProvider({ children, overrides }: ThemeModeProviderProps): import("react").JSX.Element;
 export declare function useThemeMode(): ThemeModeContextValue;

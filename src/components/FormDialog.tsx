@@ -31,7 +31,7 @@ export interface FormDialogProps<TValues extends FieldValues> {
 
 /**
  * react-hook-form + zod inside AppDialog. Every create/edit dialog in every
- * Hotel OS app composes this — do not hand-roll form dialogs.
+ * NamiOS app composes this — do not hand-roll form dialogs.
  */
 export function FormDialog<TValues extends FieldValues>({
   open,

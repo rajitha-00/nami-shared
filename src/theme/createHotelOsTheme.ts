@@ -1,5 +1,6 @@
 import { createTheme, type Theme, type ThemeOptions } from '@mui/material/styles';
 import './augmentation';
+import { AppleDialogTransition } from '../components/AppleDialogTransition';
 import { BRAND, FONT_FAMILY, GREY, RADII, SEMANTIC, SHADOWS, SPACING_UNIT } from './tokens';
 
 export type ThemeMode = 'light' | 'dark';
@@ -170,11 +171,22 @@ const buildComponents = (mode: ThemeMode): ThemeOptions['components'] => ({
     },
   },
   MuiDialog: {
+    defaultProps: {
+      TransitionComponent: AppleDialogTransition,
+    },
     styleOverrides: {
+      root: {
+        '& .MuiBackdrop-root': {
+          backgroundColor: mode === 'light' ? 'rgba(0, 0, 0, 0.45)' : 'rgba(0, 0, 0, 0.65)',
+          backdropFilter: 'blur(4px)',
+          WebkitBackdropFilter: 'blur(4px)',
+        },
+      },
       paper: {
         borderRadius: '24px',
         boxShadow: SHADOWS.overlay,
         border: `1px solid ${mode === 'light' ? 'rgba(229, 229, 234, 0.9)' : 'rgba(51, 65, 85, 0.8)'}`,
+        overflow: 'hidden',
       },
     },
   },
@@ -252,8 +264,8 @@ const typography: ThemeOptions['typography'] = {
 };
 
 /**
- * Builds the Hotel OS MUI theme for the given mode, deep-merging optional
- * per-app overrides. This is the single theming source for ALL Hotel OS apps.
+ * Builds the NamiOS MUI theme for the given mode, deep-merging optional
+ * per-app overrides. This is the single theming source for ALL NamiOS apps.
  */
 export function createHotelOsTheme(mode: ThemeMode, overrides?: ThemeOptions): Theme {
   return createTheme(

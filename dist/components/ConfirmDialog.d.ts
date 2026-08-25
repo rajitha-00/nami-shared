@@ -7,8 +7,12 @@ export interface ConfirmDialogProps {
     variant?: ConfirmDialogVariant;
     confirmKey?: string;
     cancelKey?: string;
+    /** Anchor element to position the popover directly below the trigger button */
+    anchorEl?: HTMLElement | null;
+    /** When true, backdrop is completely transparent */
+    disableBackdrop?: boolean;
     onConfirm: () => void;
     onCancel: () => void;
 }
-/** The single confirm dialog rendered by ConfirmProvider (via useConfirm). */
-export declare function ConfirmDialog({ open, titleKey, messageKey, messageParams, variant, confirmKey, cancelKey, onConfirm, onCancel, }: ConfirmDialogProps): any;
+/** The single confirm dialog rendered by ConfirmProvider (via useConfirm) with Family-style motion and aesthetics. */
+export declare function ConfirmDialog({ open, titleKey, messageKey, messageParams, variant, confirmKey, cancelKey, anchorEl, disableBackdrop, onConfirm, onCancel, }: ConfirmDialogProps): import("react").JSX.Element;

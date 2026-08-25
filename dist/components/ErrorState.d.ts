@@ -4,4 +4,4 @@ export interface ErrorStateProps {
     onRetry?: () => void;
 }
 /** Inline error surface for failed queries, with optional retry. */
-export declare function ErrorState({ titleKey, messageKey, onRetry, }: ErrorStateProps): any;
+export declare function ErrorState({ titleKey, messageKey, onRetry, }: ErrorStateProps): import("react").JSX.Element;

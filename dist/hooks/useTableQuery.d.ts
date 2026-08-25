@@ -20,6 +20,8 @@ export interface UseTableQueryReturn<TFilters extends TableFilters> {
     setPageSize: (pageSize: number) => void;
     /** Raw (undebounced) search input value for the text field. */
     search: string;
+    /** Debounced search value used by API calls and local filtering. */
+    debouncedSearch: string;
     setSearch: (search: string) => void;
     sortBy: string | undefined;
     sortDir: SortDir;

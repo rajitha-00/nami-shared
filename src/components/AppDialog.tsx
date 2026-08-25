@@ -7,6 +7,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import { useTranslation } from 'react-i18next';
 import type { DialogSize } from '../types/ui';
+import { AppleDialogTransition } from './AppleDialogTransition';
 import { LoadingOverlay } from './LoadingOverlay';
 
 export interface AppDialogProps {
@@ -45,7 +46,13 @@ export function AppDialog({
   };
 
   return (
-    <Dialog open={open} onClose={handleClose} fullWidth maxWidth={size}>
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      fullWidth
+      maxWidth={size}
+      TransitionComponent={AppleDialogTransition}
+    >
       <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         {t(titleKey, titleParams)}
         <IconButton

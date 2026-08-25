@@ -12,7 +12,7 @@ export interface UseMediaBreakpointReturn {
   isLargeDesktop: boolean;
 }
 
-/** Wraps useMediaQuery with the Hotel OS theme breakpoints. */
+/** Wraps useMediaQuery with the NamiOS theme breakpoints. */
 export function useMediaBreakpoint(): UseMediaBreakpointReturn {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));

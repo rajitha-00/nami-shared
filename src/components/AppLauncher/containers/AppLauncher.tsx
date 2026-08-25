@@ -7,13 +7,13 @@ import { AppFolderMiniPreview } from '../components/AppFolderMiniPreview';
 import { AppFolderModal } from '../components/AppFolderModal';
 
 export const AppLauncher = ({
-  title = 'Hotel OS Ecosystem',
-  subtitle = 'Switch between Hotel OS modules & portals',
+  title = 'NamiOS Ecosystem',
+  subtitle = 'Switch between NamiOS modules & portals',
   apps = DEFAULT_HOTELOS_APPS,
   currentAppId = 'stay-os',
   onSelectApp,
   className,
-  tooltip = 'Hotel OS Apps',
+  tooltip = 'NamiOS Apps',
 }: AppLauncherProps) => {
   const [isOpen, setIsOpen] = useState(false);
 

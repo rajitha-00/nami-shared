@@ -5,4 +5,4 @@ export interface StatusChipProps {
     size?: ChipProps['size'];
 }
 /** Colored chip for entity Status; label comes from the common namespace. */
-export declare function StatusChip({ status, size }: StatusChipProps): any;
+export declare function StatusChip({ status, size }: StatusChipProps): import("react").JSX.Element;

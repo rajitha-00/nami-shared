@@ -29,7 +29,7 @@ var STORAGE_KEYS = {
 
 // src/i18n/locales/de/common.json
 var common_default = {
-  appName: "Hotel OS",
+  appName: "NamiOS",
   actions: {
     save: "Speichern",
     cancel: "Abbrechen",
@@ -143,7 +143,7 @@ var common_default = {
 
 // src/i18n/locales/en/common.json
 var common_default2 = {
-  appName: "Hotel OS",
+  appName: "NamiOS",
   actions: {
     save: "Save",
     cancel: "Cancel",
@@ -257,7 +257,7 @@ var common_default2 = {
 
 // src/i18n/locales/es/common.json
 var common_default3 = {
-  appName: "Hotel OS",
+  appName: "NamiOS",
   actions: {
     save: "Guardar",
     cancel: "Cancelar",
@@ -371,7 +371,7 @@ var common_default3 = {
 
 // src/i18n/locales/fr/common.json
 var common_default4 = {
-  appName: "Hotel OS",
+  appName: "NamiOS",
   actions: {
     save: "Enregistrer",
     cancel: "Annuler",
@@ -485,7 +485,7 @@ var common_default4 = {
 
 // src/i18n/locales/si/common.json
 var common_default5 = {
-  appName: "Hotel OS",
+  appName: "NamiOS",
   actions: {
     save: "\u0DC3\u0DD4\u0DBB\u0D9A\u0DD2\u0DB1\u0DCA\u0DB1",
     cancel: "\u0D85\u0DC0\u0DBD\u0D82\u0D9C\u0DD4 \u0D9A\u0DBB\u0DB1\u0DCA\u0DB1",
@@ -599,7 +599,7 @@ var common_default5 = {
 
 // src/i18n/locales/ta/common.json
 var common_default6 = {
-  appName: "Hotel OS",
+  appName: "NamiOS",
   actions: {
     save: "\u0B9A\u0BC7\u0BAE\u0BBF",
     cancel: "\u0BB0\u0BA4\u0BCD\u0BA4\u0BC1\u0B9A\u0BC6\u0BAF\u0BCD",
@@ -713,7 +713,7 @@ var common_default6 = {
 
 // src/i18n/locales/zh/common.json
 var common_default7 = {
-  appName: "Hotel OS",
+  appName: "NamiOS",
   actions: {
     save: "\u4FDD\u5B58",
     cancel: "\u53D6\u6D88",

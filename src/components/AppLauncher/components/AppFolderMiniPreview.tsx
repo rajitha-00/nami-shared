@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import Tooltip from '@mui/material/Tooltip';
 import type { IAppItem } from '../interfaces/IAppItem';
@@ -16,7 +15,7 @@ export const AppFolderMiniPreview = ({
   apps,
   isOpen,
   onClick,
-  tooltip = 'Hotel OS Apps',
+  tooltip = 'NamiOS Apps',
   className,
 }: AppFolderMiniPreviewProps) => {
   // Show up to 4 preview items in 2x2 grid (or 9 in 3x3)

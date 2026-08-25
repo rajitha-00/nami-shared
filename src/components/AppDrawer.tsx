@@ -62,10 +62,35 @@ export function AppDrawer({
   statusChip,
   tabs,
   footer,
+  width,
   loading = false,
   children,
 }: AppDrawerProps) {
   const { t } = useTranslation();
+
+  const getMaxWidth = () => {
+    if (width === 'full' || width === 'xl') return 'xl';
+    if (width === 'lg') return 'lg';
+    if (width === 'sm') return 'sm';
+    if (width === 'xs') return 'xs';
+    return 'md';
+  };
+
+  const getPaperWidthSx = () => {
+    if (width === 'full') {
+      return { maxWidth: '1380px', width: '95vw' };
+    }
+    if (width === 'xl') {
+      return { maxWidth: '1440px', width: '95vw' };
+    }
+    if (width === 'lg') {
+      return { maxWidth: '1200px', width: '92vw' };
+    }
+    if (typeof width === 'number') {
+      return { maxWidth: `${width}px`, width: '95vw' };
+    }
+    return {};
+  };
 
   return (
     <Dialog
@@ -73,7 +98,7 @@ export function AppDrawer({
       onClose={(_event, reason) => {
         if (reason !== 'backdropClick') onClose();
       }}
-      maxWidth="md"
+      maxWidth={getMaxWidth()}
       fullWidth
       PaperProps={{
         sx: {
@@ -81,6 +106,7 @@ export function AppDrawer({
           boxShadow: '0 20px 60px rgba(0, 0, 0, 0.18)',
           border: '1px solid rgba(229, 229, 234, 0.9)',
           overflow: 'hidden',
+          ...getPaperWidthSx(),
         },
       }}
     >

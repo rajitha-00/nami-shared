@@ -9,4 +9,4 @@ export interface StatusFilterChipsProps<TValue extends string> {
     onChange: (value: TValue) => void;
 }
 /** "All (47) / Confirmed (23) / …" chip filter row; active chip is filled dark. */
-export declare function StatusFilterChips<TValue extends string>({ options, value, onChange, }: StatusFilterChipsProps<TValue>): any;
+export declare function StatusFilterChips<TValue extends string>({ options, value, onChange, }: StatusFilterChipsProps<TValue>): import("react").JSX.Element;

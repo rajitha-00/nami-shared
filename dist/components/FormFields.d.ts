@@ -16,13 +16,13 @@ export interface FormTextFieldProps<TValues extends FieldValues> extends FormFie
     disabled?: boolean;
 }
 /** react-hook-form bound TextField with i18n label and zod error translation. */
-export declare function FormTextField<TValues extends FieldValues>({ control, name, labelKey, type, multiline, rows, autoFocus, autoComplete, placeholderKey, disabled, }: FormTextFieldProps<TValues>): any;
+export declare function FormTextField<TValues extends FieldValues>({ control, name, labelKey, type, multiline, rows, autoFocus, autoComplete, placeholderKey, disabled, }: FormTextFieldProps<TValues>): import("react").JSX.Element;
 export interface FormSelectProps<TValues extends FieldValues, V extends string | number = string> extends FormFieldBaseProps<TValues> {
     options: SelectOption<V>[];
 }
 /** react-hook-form bound select driven by SelectOption[]. */
-export declare function FormSelect<TValues extends FieldValues, V extends string | number = string>({ control, name, labelKey, options, }: FormSelectProps<TValues, V>): any;
+export declare function FormSelect<TValues extends FieldValues, V extends string | number = string>({ control, name, labelKey, options, }: FormSelectProps<TValues, V>): import("react").JSX.Element;
 export type FormSwitchProps<TValues extends FieldValues> = FormFieldBaseProps<TValues>;
 /** react-hook-form bound Switch with i18n label. */
-export declare function FormSwitch<TValues extends FieldValues>({ control, name, labelKey, }: FormSwitchProps<TValues>): any;
+export declare function FormSwitch<TValues extends FieldValues>({ control, name, labelKey, }: FormSwitchProps<TValues>): import("react").JSX.Element;
 export {};

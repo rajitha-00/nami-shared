@@ -15,4 +15,4 @@ export interface KanbanBoardProps<TId extends string, TItem> {
  * KanbanBoard: A generic step-progression workflow board.
  * Purely presentational; delegates item rendering and column selection.
  */
-export declare function KanbanBoard<TId extends string, TItem>({ columns, items, getItemId, getItemColumnId, renderItem, }: KanbanBoardProps<TId, TItem>): any;
+export declare function KanbanBoard<TId extends string, TItem>({ columns, items, getItemId, getItemColumnId, renderItem, }: KanbanBoardProps<TId, TItem>): import("react").JSX.Element;

@@ -40,4 +40,4 @@ export interface TimelineMatrixProps<TResource extends TimelineResource, TSpanDa
  * resource column, N-day header with today highlight, positioned span bars.
  * Purely presentational — no domain logic inside.
  */
-export declare function TimelineMatrix<TResource extends TimelineResource, TSpanData = unknown>({ resources, spans, startDate, days, renderResource, resourceLabelKey, onSpanClick, onCellClick, legend, loading, today, }: TimelineMatrixProps<TResource, TSpanData>): any;
+export declare function TimelineMatrix<TResource extends TimelineResource, TSpanData = unknown>({ resources, spans, startDate, days, renderResource, resourceLabelKey, onSpanClick, onCellClick, legend, loading, today, }: TimelineMatrixProps<TResource, TSpanData>): import("react").JSX.Element;

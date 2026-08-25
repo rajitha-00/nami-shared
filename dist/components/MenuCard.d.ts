@@ -14,4 +14,4 @@ export interface MenuCardProps {
 /**
  * MenuCard: A presentational card for items in the catalog or menu.
  */
-export declare function MenuCard({ name, price, description, imageUrl, badges, stockLabel, stockColor, actionOverlay, activeBorderColor, onClick, }: MenuCardProps): any;
+export declare function MenuCard({ name, price, description, imageUrl, badges, stockLabel, stockColor, actionOverlay, activeBorderColor, onClick, }: MenuCardProps): import("react").JSX.Element;

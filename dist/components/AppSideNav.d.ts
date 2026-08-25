@@ -18,5 +18,5 @@ export interface AppSideNavProps {
     /** Force temporary variant below this breakpoint — handled by the parent layout. */
     temporary?: boolean;
 }
-/** Config-driven collapsible side navigation shared by all Hotel OS admin apps. */
-export declare function AppSideNav({ items, activePath, onNavigate, mobileOpen, onMobileClose, temporary, }: AppSideNavProps): any;
+/** Config-driven collapsible side navigation shared by all NamiOS admin apps. */
+export declare function AppSideNav({ items, activePath, onNavigate, mobileOpen, onMobileClose, temporary, }: AppSideNavProps): import("react").JSX.Element;

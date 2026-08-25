@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
 export interface AppTopBarProps {
+    /** Apps directory launcher / iOS folder slot (placed before logo). */
+    appsLauncher?: ReactNode;
     /** Logo / brand slot (left). */
     logo?: ReactNode;
     /** Center navigation slot. */
@@ -10,4 +12,4 @@ export interface AppTopBarProps {
     onMenuClick?: () => void;
 }
 /** Fixed top app bar with logo / nav / actions slots. */
-export declare function AppTopBar({ logo, nav, actions, onMenuClick }: AppTopBarProps): any;
+export declare function AppTopBar({ appsLauncher, logo, nav, actions, onMenuClick }: AppTopBarProps): import("react").JSX.Element;

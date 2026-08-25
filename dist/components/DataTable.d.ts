@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import type { Paginated, SortDir } from '../types/api';
 import type { ID } from '../types/entities';
 import type { TableColumn } from '../types/ui';
+import { type ContextMenuItem } from './ContextMenu';
 export interface DataTableProps<T extends {
     id: ID;
 }> {
@@ -20,6 +21,8 @@ export interface DataTableProps<T extends {
     selectable?: boolean;
     selected?: ID[];
     onSelectedChange?: (selected: ID[]) => void;
+    /** Optional row context menu generator for right-click actions (Apple motion style) */
+    getContextMenuItems?: (row: T) => ContextMenuItem[];
     /** Row actions cell renderer (icon buttons, menus). */
     rowActions?: (row: T) => ReactNode;
     onRowClick?: (row: T) => void;
@@ -36,4 +39,4 @@ export interface DataTableProps<T extends {
  */
 export declare function DataTable<T extends {
     id: ID;
-}>({ columns, data, isLoading, isError, onRetry, page, pageSize, onPageChange, onPageSizeChange, sortBy, sortDir, onSortChange, selectable, selected, onSelectedChange, rowActions, onRowClick, toolbar, emptyState, compact, }: DataTableProps<T>): any;
+}>({ columns, data, isLoading, isError, onRetry, page, pageSize, onPageChange, onPageSizeChange, sortBy, sortDir, onSortChange, selectable, selected, onSelectedChange, getContextMenuItems, rowActions, onRowClick, toolbar, emptyState, compact, }: DataTableProps<T>): import("react").JSX.Element;

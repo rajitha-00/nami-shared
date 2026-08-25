@@ -10,7 +10,7 @@ export interface UseDialogReturn<TData> {
 }
 
 /**
- * THE standard way to control any dialog/drawer/modal in every Hotel OS app.
+ * THE standard way to control any dialog/drawer/modal in every NamiOS app.
  *
  * @example
  * const dialog = useDialog<Client | undefined>();

@@ -21,6 +21,6 @@ export declare const DATE_FORMATS: {
     };
 };
 export declare const DEBOUNCE_MS = 300;
-export declare const DEFAULT_PAGE_SIZE = 10;
-export declare const PAGE_SIZE_OPTIONS: readonly [10, 25, 50, 100];
+export declare const DEFAULT_PAGE_SIZE = 15;
+export declare const PAGE_SIZE_OPTIONS: readonly [15, 25, 50, 100];
 export declare const SNACKBAR_AUTOHIDE_MS = 4000;

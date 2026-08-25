@@ -1,6 +1,6 @@
-# Hotel OS — Project Context
+# NamiOS — Project Context
 
-Hotel OS is a multi-tenant hotel management platform. Multiple frontend apps exist
+NamiOS is a multi-tenant hotel management platform. Multiple frontend apps exist
 (Super Admin, Hotel Admin, Front Desk, Housekeeping, Guest Portal). All apps share a
 private library `@hotelos/shared` (components, hooks, theme, i18n, types, constants).
 

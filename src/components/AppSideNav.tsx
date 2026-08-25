@@ -107,7 +107,7 @@ function NavList({
   );
 }
 
-/** Config-driven collapsible side navigation shared by all Hotel OS admin apps. */
+/** Config-driven collapsible side navigation shared by all NamiOS admin apps. */
 export function AppSideNav({
   items,
   activePath,

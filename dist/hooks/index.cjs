@@ -3,11 +3,16 @@
 var react = require('react');
 var Button = require('@mui/material/Button');
 var Dialog = require('@mui/material/Dialog');
+var Popover = require('@mui/material/Popover');
 var DialogActions = require('@mui/material/DialogActions');
 var DialogContent = require('@mui/material/DialogContent');
 var DialogContentText = require('@mui/material/DialogContentText');
 var DialogTitle = require('@mui/material/DialogTitle');
+var Box = require('@mui/material/Box');
+var IconButton = require('@mui/material/IconButton');
+var CloseIcon = require('@mui/icons-material/Close');
 var reactI18next = require('react-i18next');
+var framerMotion = require('framer-motion');
 var jsxRuntime = require('react/jsx-runtime');
 var styles = require('@mui/material/styles');
 var useMediaQuery = require('@mui/material/useMediaQuery');
@@ -18,10 +23,14 @@ function _interopDefault (e) { return e && e.__esModule ? e : { default: e }; }
 
 var Button__default = /*#__PURE__*/_interopDefault(Button);
 var Dialog__default = /*#__PURE__*/_interopDefault(Dialog);
+var Popover__default = /*#__PURE__*/_interopDefault(Popover);
 var DialogActions__default = /*#__PURE__*/_interopDefault(DialogActions);
 var DialogContent__default = /*#__PURE__*/_interopDefault(DialogContent);
 var DialogContentText__default = /*#__PURE__*/_interopDefault(DialogContentText);
 var DialogTitle__default = /*#__PURE__*/_interopDefault(DialogTitle);
+var Box__default = /*#__PURE__*/_interopDefault(Box);
+var IconButton__default = /*#__PURE__*/_interopDefault(IconButton);
+var CloseIcon__default = /*#__PURE__*/_interopDefault(CloseIcon);
 var useMediaQuery__default = /*#__PURE__*/_interopDefault(useMediaQuery);
 var Alert__default = /*#__PURE__*/_interopDefault(Alert);
 var Snackbar__default = /*#__PURE__*/_interopDefault(Snackbar);
@@ -42,11 +51,75 @@ function useDialog() {
   }, []);
   return { isOpen, data, open, close, toggle };
 }
-var VARIANT_COLOR = {
-  danger: "error",
-  warning: "warning",
-  info: "primary"
-};
+var FamilyDialogTransition = react.forwardRef(
+  function FamilyDialogTransition2(props, ref) {
+    const { in: inProp, onEnter, onEntered, onExit, onExited, children, style, ...other } = props;
+    return /* @__PURE__ */ jsxRuntime.jsx(
+      framerMotion.AnimatePresence,
+      {
+        mode: "wait",
+        onExitComplete: () => {
+          if (onExited) {
+            onExited(null);
+          }
+        },
+        children: inProp ? /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.div,
+          {
+            ref,
+            initial: {
+              opacity: 0,
+              scale: 0.92,
+              y: 12,
+              filter: "blur(8px)"
+            },
+            animate: {
+              opacity: 1,
+              scale: 1,
+              y: 0,
+              filter: "blur(0px)",
+              transition: {
+                type: "spring",
+                damping: 28,
+                stiffness: 380,
+                mass: 0.8,
+                opacity: { duration: 0.18 }
+              }
+            },
+            exit: {
+              opacity: 0,
+              scale: 0.94,
+              y: 8,
+              filter: "blur(6px)",
+              transition: {
+                duration: 0.16,
+                ease: [0.32, 0.72, 0, 1]
+              }
+            },
+            style: {
+              outline: "none",
+              ...style
+            },
+            onAnimationStart: () => {
+              if (inProp) {
+                onEnter?.(null, true);
+              } else {
+                onExit?.(null);
+              }
+            },
+            onAnimationComplete: () => {
+              if (inProp) {
+                onEntered?.(null, true);
+              }
+            },
+            ...other,
+            children
+          }
+        ) : null
+      }
+    );
+  }
+);
 function ConfirmDialog({
   open,
   titleKey,
@@ -55,18 +128,201 @@ function ConfirmDialog({
   variant = "info",
   confirmKey = "common:actions.confirm",
   cancelKey = "common:actions.cancel",
+  anchorEl,
+  disableBackdrop = false,
   onConfirm,
   onCancel
 }) {
   const { t } = reactI18next.useTranslation();
-  return /* @__PURE__ */ jsxRuntime.jsxs(Dialog__default.default, { open, onClose: onCancel, maxWidth: "xs", fullWidth: true, sx: { zIndex: (theme) => theme.zIndex.modal + 200 }, children: [
-    /* @__PURE__ */ jsxRuntime.jsx(DialogTitle__default.default, { children: t(titleKey) }),
-    /* @__PURE__ */ jsxRuntime.jsx(DialogContent__default.default, { children: /* @__PURE__ */ jsxRuntime.jsx(DialogContentText__default.default, { children: t(messageKey, messageParams) }) }),
-    /* @__PURE__ */ jsxRuntime.jsxs(DialogActions__default.default, { children: [
-      /* @__PURE__ */ jsxRuntime.jsx(Button__default.default, { onClick: onCancel, color: "inherit", children: t(cancelKey) }),
-      /* @__PURE__ */ jsxRuntime.jsx(Button__default.default, { onClick: onConfirm, variant: "contained", color: VARIANT_COLOR[variant], autoFocus: true, children: t(confirmKey) })
+  const content = /* @__PURE__ */ jsxRuntime.jsxs(Box__default.default, { sx: { width: "100%", maxWidth: "380px" }, children: [
+    /* @__PURE__ */ jsxRuntime.jsxs(
+      DialogTitle__default.default,
+      {
+        sx: {
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          pt: 2.5,
+          px: 3,
+          pb: 0.5,
+          fontWeight: 800,
+          fontSize: "1.15rem",
+          letterSpacing: "-0.02em"
+        },
+        children: [
+          t(titleKey),
+          /* @__PURE__ */ jsxRuntime.jsx(
+            IconButton__default.default,
+            {
+              "aria-label": t("common:actions.close"),
+              onClick: onCancel,
+              size: "small",
+              edge: "end",
+              sx: {
+                p: 0.6,
+                color: "text.secondary",
+                borderRadius: "50%",
+                bgcolor: (theme) => theme.palette.mode === "light" ? "rgba(0, 0, 0, 0.04)" : "rgba(255, 255, 255, 0.06)",
+                "&:hover": {
+                  bgcolor: (theme) => theme.palette.mode === "light" ? "rgba(0, 0, 0, 0.08)" : "rgba(255, 255, 255, 0.12)"
+                }
+              },
+              children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon__default.default, { sx: { fontSize: 16 } })
+            }
+          )
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxRuntime.jsx(DialogContent__default.default, { sx: { px: 3, py: 1 }, children: /* @__PURE__ */ jsxRuntime.jsx(
+      DialogContentText__default.default,
+      {
+        sx: {
+          color: "text.secondary",
+          fontSize: "0.9375rem",
+          lineHeight: 1.5
+        },
+        children: t(messageKey, messageParams)
+      }
+    ) }),
+    /* @__PURE__ */ jsxRuntime.jsxs(DialogActions__default.default, { sx: { px: 3, pb: 2.5, pt: 1, display: "flex", justifyContent: "flex-end", gap: 1 }, children: [
+      /* @__PURE__ */ jsxRuntime.jsx(
+        Button__default.default,
+        {
+          onClick: onCancel,
+          color: "inherit",
+          sx: {
+            borderRadius: "9999px",
+            textTransform: "none",
+            fontWeight: 600,
+            fontSize: "0.875rem",
+            px: 2.5,
+            py: 0.8,
+            color: "text.secondary",
+            "&:hover": {
+              bgcolor: (theme) => theme.palette.mode === "light" ? "rgba(0, 0, 0, 0.05)" : "rgba(255, 255, 255, 0.08)",
+              color: "text.primary"
+            }
+          },
+          children: t(cancelKey)
+        }
+      ),
+      /* @__PURE__ */ jsxRuntime.jsx(
+        Button__default.default,
+        {
+          onClick: onConfirm,
+          variant: "contained",
+          autoFocus: true,
+          color: variant === "danger" ? "error" : variant === "warning" ? "warning" : "primary",
+          sx: {
+            borderRadius: "9999px",
+            textTransform: "none",
+            fontWeight: 700,
+            fontSize: "0.875rem",
+            px: 3,
+            py: 0.8,
+            ...variant === "info" && {
+              backgroundColor: (theme) => theme.palette.mode === "light" ? "#0F172A" : "#F8FAFC",
+              color: (theme) => theme.palette.mode === "light" ? "#FFFFFF" : "#0F172A",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+              "&:hover": {
+                backgroundColor: (theme) => theme.palette.mode === "light" ? "#000000" : "#E2E8F0",
+                boxShadow: "0 6px 16px rgba(0, 0, 0, 0.2)"
+              }
+            },
+            ...variant === "danger" && {
+              backgroundColor: "#DC2626",
+              color: "#FFFFFF",
+              boxShadow: "0 4px 12px rgba(220, 38, 38, 0.25)",
+              "&:hover": {
+                backgroundColor: "#B91C1C",
+                boxShadow: "0 6px 16px rgba(220, 38, 38, 0.35)"
+              }
+            },
+            ...variant === "warning" && {
+              backgroundColor: "#D97706",
+              color: "#FFFFFF",
+              boxShadow: "0 4px 12px rgba(217, 119, 6, 0.25)",
+              "&:hover": {
+                backgroundColor: "#B45309",
+                boxShadow: "0 6px 16px rgba(217, 119, 6, 0.35)"
+              }
+            }
+          },
+          children: t(confirmKey)
+        }
+      )
     ] })
   ] });
+  const isAnchorValid = Boolean(
+    anchorEl && typeof window !== "undefined" && document.body.contains(anchorEl) && anchorEl.getBoundingClientRect().width > 0 && anchorEl.getBoundingClientRect().height > 0 && (anchorEl.getBoundingClientRect().top > 0 || anchorEl.getBoundingClientRect().left > 0)
+  );
+  if (isAnchorValid && anchorEl) {
+    return /* @__PURE__ */ jsxRuntime.jsx(
+      Popover__default.default,
+      {
+        open,
+        anchorEl,
+        onClose: onCancel,
+        anchorOrigin: {
+          vertical: "bottom",
+          horizontal: "right"
+        },
+        transformOrigin: {
+          vertical: "top",
+          horizontal: "right"
+        },
+        TransitionComponent: FamilyDialogTransition,
+        slotProps: {
+          paper: {
+            sx: {
+              borderRadius: "28px",
+              maxWidth: "380px",
+              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.08)",
+              p: 0.5,
+              mt: 1,
+              overflow: "hidden"
+            }
+          },
+          root: {
+            sx: {
+              zIndex: (theme) => theme.zIndex.modal + 200,
+              "& .MuiBackdrop-root": {
+                backgroundColor: "transparent"
+              }
+            }
+          }
+        },
+        children: content
+      }
+    );
+  }
+  return /* @__PURE__ */ jsxRuntime.jsx(
+    Dialog__default.default,
+    {
+      open,
+      onClose: onCancel,
+      maxWidth: "xs",
+      fullWidth: true,
+      TransitionComponent: FamilyDialogTransition,
+      PaperProps: {
+        sx: {
+          borderRadius: "28px",
+          maxWidth: "380px",
+          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.05)",
+          p: 0.5
+        }
+      },
+      sx: {
+        zIndex: (theme) => theme.zIndex.modal + 200,
+        "& .MuiBackdrop-root": {
+          backgroundColor: disableBackdrop ? "transparent" : "rgba(0, 0, 0, 0.15)",
+          backdropFilter: disableBackdrop ? "none" : "blur(2px)",
+          WebkitBackdropFilter: disableBackdrop ? "none" : "blur(2px)"
+        }
+      },
+      children: content
+    }
+  );
 }
 var ConfirmContext = react.createContext(null);
 function ConfirmProvider({ children }) {
@@ -89,6 +345,8 @@ function ConfirmProvider({ children }) {
       ConfirmDialog,
       {
         open: options !== null,
+        anchorEl: options?.anchorEl,
+        disableBackdrop: options?.disableBackdrop,
         titleKey: options?.titleKey ?? "",
         messageKey: options?.messageKey ?? "",
         messageParams: options?.messageParams,
@@ -120,7 +378,7 @@ var DATE_FORMATS = {
   MONTH_YEAR: { year: "numeric", month: "short" }
 };
 var DEBOUNCE_MS = 300;
-var DEFAULT_PAGE_SIZE = 10;
+var DEFAULT_PAGE_SIZE = 15;
 var SNACKBAR_AUTOHIDE_MS = 4e3;
 
 // src/hooks/useDebounce.ts
@@ -230,6 +488,7 @@ function useTableQuery(defaults) {
     setPage,
     setPageSize,
     search,
+    debouncedSearch,
     setSearch,
     sortBy,
     sortDir,
@@ -449,12 +708,42 @@ function useDateRange(initialPreset = DateRangePreset.NEXT_14) {
   const days = react.useMemo(() => differenceInDays(from, to) + 1, [from, to]);
   return { from, to, setRange, preset, applyPreset, days };
 }
+function useContextMenu() {
+  const [contextMenu, setContextMenu] = react.useState({
+    open: false,
+    x: 0,
+    y: 0,
+    items: []
+  });
+  const openContextMenu = react.useCallback(
+    (event, items) => {
+      event.preventDefault();
+      event.stopPropagation();
+      setContextMenu({
+        open: true,
+        x: event.clientX,
+        y: event.clientY,
+        items
+      });
+    },
+    []
+  );
+  const closeContextMenu = react.useCallback(() => {
+    setContextMenu((prev) => prev.open ? { ...prev, open: false } : prev);
+  }, []);
+  return {
+    contextMenu,
+    openContextMenu,
+    closeContextMenu
+  };
+}
 
 exports.ConfirmProvider = ConfirmProvider;
 exports.DateRangePreset = DateRangePreset;
 exports.SnackbarProvider = SnackbarProvider;
 exports.useBoolean = useBoolean;
 exports.useConfirm = useConfirm;
+exports.useContextMenu = useContextMenu;
 exports.useDateRange = useDateRange;
 exports.useDebounce = useDebounce;
 exports.useDebouncedCallback = useDebouncedCallback;

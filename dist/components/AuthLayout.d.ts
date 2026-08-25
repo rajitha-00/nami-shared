@@ -7,4 +7,4 @@ export interface AuthLayoutProps {
     topRight?: ReactNode;
 }
 /** Centered card page for login / forgot-password screens. */
-export declare function AuthLayout({ children, logo, topRight }: AuthLayoutProps): any;
+export declare function AuthLayout({ children, logo, topRight }: AuthLayoutProps): import("react").JSX.Element;

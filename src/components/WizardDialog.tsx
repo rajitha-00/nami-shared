@@ -10,6 +10,7 @@ import StepLabel from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
 import CloseIcon from '@mui/icons-material/Close';
 import { useTranslation } from 'react-i18next';
+import { AppleDialogTransition } from './AppleDialogTransition';
 import { LoadingOverlay } from './LoadingOverlay';
 
 export interface WizardStep {
@@ -57,7 +58,13 @@ export function WizardDialog({
   const isLast = activeStep === steps.length - 1;
 
   return (
-    <Dialog open={open} onClose={onCancel} fullWidth maxWidth="lg">
+    <Dialog
+      open={open}
+      onClose={onCancel}
+      fullWidth
+      maxWidth="lg"
+      TransitionComponent={AppleDialogTransition}
+    >
       <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         {t(titleKey)}
         <IconButton aria-label={t('common:actions.close')} onClick={onCancel} size="small" edge="end">

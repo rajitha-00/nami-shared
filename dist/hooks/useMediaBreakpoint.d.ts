@@ -8,5 +8,5 @@ export interface UseMediaBreakpointReturn {
     /** `lg` and up. */
     isLargeDesktop: boolean;
 }
-/** Wraps useMediaQuery with the Hotel OS theme breakpoints. */
+/** Wraps useMediaQuery with the NamiOS theme breakpoints. */
 export declare function useMediaBreakpoint(): UseMediaBreakpointReturn;

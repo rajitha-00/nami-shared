@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useRef } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Box from '@mui/material/Box';
@@ -26,8 +26,8 @@ export interface AppFolderModalProps {
 }
 
 export const AppFolderModal = ({
-  title = 'Hotel OS Ecosystem',
-  subtitle = 'Switch between Hotel OS modules & portals',
+  title = 'NamiOS Ecosystem',
+  subtitle = 'Switch between NamiOS modules & portals',
   apps,
   currentAppId,
   isOpen,
@@ -167,7 +167,7 @@ export const AppFolderModal = ({
               boxSizing: 'border-box',
               margin: 'auto',
             }}
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e: React.MouseEvent) => e.stopPropagation()}
           >
             {/* FOLDER HEADER */}
             <Box sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', mb: 2 }}>
@@ -320,11 +320,10 @@ export const AppFolderModal = ({
                     justifyItems: 'center',
                   }}
                 >
-                  {filteredApps.map((app, index) => (
+                  {filteredApps.map((app) => (
                     <AppTile
                       key={app.id}
                       app={app}
-                      isFirstFour={index < 4}
                       isActive={currentAppId === app.id}
                       onSelect={(selected) => {
                         onSelectApp(selected);
@@ -348,7 +347,7 @@ export const AppFolderModal = ({
               }}
             >
               <Typography variant="caption" sx={{ color: '#94A3B8', fontWeight: 600 }}>
-                Hotel OS Suite
+                NamiOS Suite
               </Typography>
               <Typography variant="caption" sx={{ color: '#94A3B8', fontSize: '0.7rem' }}>
                 Press <kbd style={{ background: 'rgba(0,0,0,0.06)', padding: '2px 4px', borderRadius: 4, fontWeight: 700 }}>Esc</kbd> to close

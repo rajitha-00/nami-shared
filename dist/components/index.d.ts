@@ -1,4 +1,6 @@
 export { AppDialog, type AppDialogProps } from './AppDialog';
+export { AppleDialogTransition, type AppleDialogTransitionProps, } from './AppleDialogTransition';
+export { FamilyDialogTransition, type FamilyDialogTransitionProps, } from './FamilyDialogTransition';
 export { ConfirmDialog, type ConfirmDialogProps, type ConfirmDialogVariant, } from './ConfirmDialog';
 export { FormDialog, type FormDialogProps } from './FormDialog';
 export { EmptyState, type EmptyStateProps } from './EmptyState';
@@ -19,7 +21,7 @@ export { LanguageSwitcher, type LanguageSwitcherProps } from './LanguageSwitcher
 export { AppTopBar, type AppTopBarProps } from './AppTopBar';
 export { TimelineMatrix, type TimelineColorKey, type TimelineMatrixProps, type TimelineResource, type TimelineSpan, } from './TimelineMatrix';
 export { StatusFilterChips, type StatusFilterChipsProps, type StatusFilterOption, } from './StatusFilterChips';
-export { AppDrawer, type AppDrawerProps, type AppDrawerWidth } from './AppDrawer';
+export { AppDrawer, type AppDrawerProps } from './AppDrawer';
 export { WizardDialog, type WizardDialogProps, type WizardStep } from './WizardDialog';
 export { DateRangeButton, type DateRangeButtonProps } from './DateRangeButton';
 export { AppSideNav, type AppSideNavProps, type SideNavItem } from './AppSideNav';
@@ -29,3 +31,6 @@ export { DashboardLayout, type DashboardLayoutProps } from './DashboardLayout';
 export { KanbanBoard, type KanbanBoardProps, type KanbanColumn } from './KanbanBoard';
 export { SplitPaneLayout, type SplitPaneLayoutProps } from './SplitPaneLayout';
 export { MenuCard, type MenuCardProps } from './MenuCard';
+export { ContextMenu, type ContextMenuProps, type ContextMenuItem, } from './ContextMenu';
+export { UserAvatar, type UserAvatarProps, getAvatarBgColor, } from './UserAvatar';
+export * from './AppLauncher';
