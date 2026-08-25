@@ -16,8 +16,12 @@ var IconButton8 = require('@mui/material/IconButton');
 var CloseIcon5 = require('@mui/icons-material/Close');
 var reactI18next = require('react-i18next');
 var useMediaQuery = require('@mui/material/useMediaQuery');
-var Alert = require('@mui/material/Alert');
-var Snackbar = require('@mui/material/Snackbar');
+var toast = require('@base-ui/react/toast');
+var CloseRoundedIcon = require('@mui/icons-material/CloseRounded');
+var CheckCircleRoundedIcon = require('@mui/icons-material/CheckCircleRounded');
+var ErrorRoundedIcon = require('@mui/icons-material/ErrorRounded');
+var InfoRoundedIcon = require('@mui/icons-material/InfoRounded');
+var WarningAmberRoundedIcon = require('@mui/icons-material/WarningAmberRounded');
 var Typography4 = require('@mui/material/Typography');
 var zod = require('@hookform/resolvers/zod');
 var reactHookForm = require('react-hook-form');
@@ -102,8 +106,11 @@ var Box4__default = /*#__PURE__*/_interopDefault(Box4);
 var IconButton8__default = /*#__PURE__*/_interopDefault(IconButton8);
 var CloseIcon5__default = /*#__PURE__*/_interopDefault(CloseIcon5);
 var useMediaQuery__default = /*#__PURE__*/_interopDefault(useMediaQuery);
-var Alert__default = /*#__PURE__*/_interopDefault(Alert);
-var Snackbar__default = /*#__PURE__*/_interopDefault(Snackbar);
+var CloseRoundedIcon__default = /*#__PURE__*/_interopDefault(CloseRoundedIcon);
+var CheckCircleRoundedIcon__default = /*#__PURE__*/_interopDefault(CheckCircleRoundedIcon);
+var ErrorRoundedIcon__default = /*#__PURE__*/_interopDefault(ErrorRoundedIcon);
+var InfoRoundedIcon__default = /*#__PURE__*/_interopDefault(InfoRoundedIcon);
+var WarningAmberRoundedIcon__default = /*#__PURE__*/_interopDefault(WarningAmberRoundedIcon);
 var Typography4__default = /*#__PURE__*/_interopDefault(Typography4);
 var InboxOutlinedIcon__default = /*#__PURE__*/_interopDefault(InboxOutlinedIcon);
 var ErrorOutlineIcon__default = /*#__PURE__*/_interopDefault(ErrorOutlineIcon);
@@ -1393,15 +1400,187 @@ function useMediaBreakpoint() {
   const isLargeDesktop = useMediaQuery__default.default(theme.breakpoints.up("lg"));
   return { isMobile, isTablet, isDesktop, isLargeDesktop };
 }
+var TOAST_COLORS = {
+  success: { accent: "#84f7c5", accentSoft: "rgba(132, 247, 197, 0.13)" },
+  error: { accent: "#ff8f9d", accentSoft: "rgba(255, 143, 157, 0.13)" },
+  warning: { accent: "#ffd479", accentSoft: "rgba(255, 212, 121, 0.13)" },
+  info: { accent: "#8fc7ff", accentSoft: "rgba(143, 199, 255, 0.13)" }
+};
+var TOAST_ICONS = {
+  success: CheckCircleRoundedIcon__default.default,
+  error: ErrorRoundedIcon__default.default,
+  warning: WarningAmberRoundedIcon__default.default,
+  info: InfoRoundedIcon__default.default
+};
+var ToastViewport = styles.styled(toast.Toast.Viewport)(({ theme }) => ({
+  position: "fixed",
+  right: theme.spacing(2.5),
+  bottom: theme.spacing(2.5),
+  zIndex: theme.zIndex.snackbar,
+  display: "flex",
+  width: "min(360px, calc(100vw - 32px))",
+  maxHeight: "calc(100vh - 32px)",
+  flexDirection: "column",
+  gap: theme.spacing(1),
+  margin: 0,
+  padding: 0,
+  outline: 0,
+  listStyle: "none",
+  pointerEvents: "none",
+  [theme.breakpoints.down("sm")]: {
+    right: theme.spacing(2),
+    bottom: theme.spacing(2)
+  }
+}));
+var ToastSurface = styles.styled(framerMotion.motion.div, {
+  shouldForwardProp: (prop) => prop !== "severity"
+})(({ theme, severity }) => ({
+  "--toast-accent": TOAST_COLORS[severity].accent,
+  "--toast-accent-soft": TOAST_COLORS[severity].accentSoft,
+  width: "100%",
+  overflow: "hidden",
+  border: "1px solid rgba(255, 255, 255, 0.09)",
+  borderRadius: 14,
+  background: "rgba(13, 18, 17, 0.96)",
+  boxShadow: "0 18px 48px rgba(0, 0, 0, 0.32), 0 2px 8px rgba(0, 0, 0, 0.22)",
+  color: "#f4f7f6",
+  backdropFilter: "blur(18px)",
+  WebkitBackdropFilter: "blur(18px)",
+  pointerEvents: "auto",
+  touchAction: "pan-y",
+  userSelect: "none",
+  "&:focus-visible": {
+    outline: "2px solid var(--toast-accent)",
+    outlineOffset: 2
+  },
+  [theme.breakpoints.down("sm")]: {
+    borderRadius: 12
+  }
+}));
+var ToastContent = styles.styled(toast.Toast.Content)(({ theme }) => ({
+  display: "grid",
+  gridTemplateColumns: "36px minmax(0, 1fr) 32px",
+  alignItems: "center",
+  gap: theme.spacing(1.25),
+  minHeight: 68,
+  padding: theme.spacing(1.25, 1.25, 1.25, 1.5)
+}));
+var ToastIcon = styles.styled("span")({
+  display: "grid",
+  width: 36,
+  height: 36,
+  placeItems: "center",
+  borderRadius: 10,
+  background: "var(--toast-accent-soft)",
+  color: "var(--toast-accent)"
+});
+var ToastText = styles.styled("div")({
+  minWidth: 0
+});
+var ToastTitle = styles.styled(toast.Toast.Title)({
+  margin: 0,
+  color: "#f7faf9",
+  fontSize: 14,
+  fontWeight: 750,
+  lineHeight: 1.35,
+  letterSpacing: "-0.01em"
+});
+var ToastDescription = styles.styled(toast.Toast.Description)({
+  display: "-webkit-box",
+  overflow: "hidden",
+  marginTop: 2,
+  color: "#99a6a2",
+  fontSize: 12.5,
+  lineHeight: 1.45,
+  WebkitBoxOrient: "vertical",
+  WebkitLineClamp: 3
+});
+var ToastClose = styles.styled(toast.Toast.Close)({
+  display: "grid",
+  width: 32,
+  height: 32,
+  padding: 0,
+  placeItems: "center",
+  border: 0,
+  borderRadius: 9,
+  background: "transparent",
+  color: "#80908a",
+  cursor: "pointer",
+  transition: "background-color 160ms ease, color 160ms ease",
+  "&:hover": {
+    background: "rgba(255, 255, 255, 0.07)",
+    color: "#f7faf9"
+  },
+  "&:focus-visible": {
+    outline: "2px solid var(--toast-accent)",
+    outlineOffset: 1
+  }
+});
+var getSeverity = (type) => {
+  if (type === "success" || type === "error" || type === "warning") return type;
+  return "info";
+};
+var MotionToastViewport = () => {
+  const { toasts, close } = toast.Toast.useToastManager();
+  const reduceMotion = framerMotion.useReducedMotion();
+  return /* @__PURE__ */ jsxRuntime.jsx(toast.Toast.Portal, { children: /* @__PURE__ */ jsxRuntime.jsx(ToastViewport, { children: /* @__PURE__ */ jsxRuntime.jsx(framerMotion.AnimatePresence, { initial: false, mode: "popLayout", children: toasts.map((toast$1) => {
+    const severity = getSeverity(toast$1.type);
+    const Icon = TOAST_ICONS[severity];
+    return /* @__PURE__ */ jsxRuntime.jsx(
+      toast.Toast.Root,
+      {
+        toast: toast$1,
+        swipeDirection: "right",
+        render: /* @__PURE__ */ jsxRuntime.jsx(
+          ToastSurface,
+          {
+            severity,
+            layout: !reduceMotion,
+            initial: reduceMotion ? { opacity: 0 } : { opacity: 0, y: 22, scale: 0.96 },
+            animate: { opacity: 1, y: 0, scale: 1 },
+            exit: reduceMotion ? { opacity: 0 } : { opacity: 0, x: 90, scale: 0.96 },
+            transition: { type: "spring", stiffness: 430, damping: 34, mass: 0.8 },
+            drag: reduceMotion ? false : "x",
+            dragConstraints: { left: 0, right: 0 },
+            dragElastic: { left: 0.08, right: 0.7 },
+            onDragEnd: (_, info) => {
+              if (info.offset.x > 72 || info.velocity.x > 520) close(toast$1.id);
+            }
+          }
+        ),
+        children: /* @__PURE__ */ jsxRuntime.jsxs(ToastContent, { children: [
+          /* @__PURE__ */ jsxRuntime.jsx(ToastIcon, { "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntime.jsx(Icon, { fontSize: "small" }) }),
+          /* @__PURE__ */ jsxRuntime.jsxs(ToastText, { children: [
+            /* @__PURE__ */ jsxRuntime.jsx(ToastTitle, {}),
+            /* @__PURE__ */ jsxRuntime.jsx(ToastDescription, {})
+          ] }),
+          /* @__PURE__ */ jsxRuntime.jsx(ToastClose, { "aria-label": "Dismiss notification", children: /* @__PURE__ */ jsxRuntime.jsx(CloseRoundedIcon__default.default, { fontSize: "small" }) })
+        ] })
+      },
+      toast$1.id
+    );
+  }) }) }) });
+};
 var SnackbarContext = react.createContext(null);
-function SnackbarProvider({ children }) {
-  const [current, setCurrent] = react.useState(null);
+var SEVERITY_TITLES = {
+  success: "Success",
+  error: "Something went wrong",
+  warning: "Attention needed",
+  info: "Notice"
+};
+var SnackbarBridge = ({ children }) => {
   const { t } = reactI18next.useTranslation();
+  const toastManager = toast.Toast.useToastManager();
   const show = react.useCallback(
     (severity) => (message, params) => {
-      setCurrent({ key: Date.now(), severity, message, params });
+      toastManager.add({
+        title: SEVERITY_TITLES[severity],
+        description: t(message, params),
+        type: severity,
+        priority: severity === "error" ? "high" : "low"
+      });
     },
-    []
+    [t, toastManager]
   );
   const value = react.useMemo(
     () => ({
@@ -1412,32 +1591,19 @@ function SnackbarProvider({ children }) {
     }),
     [show]
   );
-  const handleClose = react.useCallback((_event, reason) => {
-    if (reason === "clickaway") return;
-    setCurrent(null);
-  }, []);
   return /* @__PURE__ */ jsxRuntime.jsxs(SnackbarContext.Provider, { value, children: [
     children,
-    /* @__PURE__ */ jsxRuntime.jsx(
-      Snackbar__default.default,
-      {
-        open: current !== null,
-        autoHideDuration: SNACKBAR_AUTOHIDE_MS,
-        onClose: handleClose,
-        anchorOrigin: { vertical: "bottom", horizontal: "center" },
-        children: current ? /* @__PURE__ */ jsxRuntime.jsx(Alert__default.default, { severity: current.severity, variant: "filled", onClose: handleClose, children: t(current.message, current.params) }) : void 0
-      },
-      current?.key
-    )
+    /* @__PURE__ */ jsxRuntime.jsx(MotionToastViewport, {})
   ] });
-}
-function useSnackbar() {
+};
+var SnackbarProvider = ({ children }) => /* @__PURE__ */ jsxRuntime.jsx(toast.Toast.Provider, { limit: 5, timeout: SNACKBAR_AUTOHIDE_MS, children: /* @__PURE__ */ jsxRuntime.jsx(SnackbarBridge, { children }) });
+var useSnackbar = () => {
   const ctx = react.useContext(SnackbarContext);
   if (!ctx) {
     throw new Error("useSnackbar must be used within a SnackbarProvider");
   }
   return ctx;
-}
+};
 var DEFAULT_CURRENCY = "LKR";
 function useLocaleFormat() {
   const { i18n: i18n2 } = reactI18next.useTranslation();

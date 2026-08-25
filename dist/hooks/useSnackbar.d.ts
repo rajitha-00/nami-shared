@@ -8,6 +8,6 @@ export interface UseSnackbarReturn {
 export interface SnackbarProviderProps {
     children: ReactNode;
 }
-/** Lightweight app-wide snackbar host. Messages can be i18n keys or plain strings. */
-export declare function SnackbarProvider({ children }: SnackbarProviderProps): import("react").JSX.Element;
-export declare function useSnackbar(): UseSnackbarReturn;
+/** App-wide Base UI toast host with Motion spring transitions. */
+export declare const SnackbarProvider: ({ children }: SnackbarProviderProps) => import("react").JSX.Element;
+export declare const useSnackbar: () => UseSnackbarReturn;

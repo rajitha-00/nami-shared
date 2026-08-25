@@ -3,23 +3,14 @@ import {
   useCallback,
   useContext,
   useMemo,
-  useState,
   type ReactNode,
 } from 'react';
-import Alert from '@mui/material/Alert';
-import Snackbar from '@mui/material/Snackbar';
+import { Toast } from '@base-ui/react/toast';
 import { useTranslation } from 'react-i18next';
 import { SNACKBAR_AUTOHIDE_MS } from '../constants/app';
+import { MotionToastViewport, type MotionToastSeverity } from '../components/MotionToast';
 
-type SnackbarSeverity = 'success' | 'error' | 'info' | 'warning';
-
-interface SnackbarMessage {
-  key: number;
-  severity: SnackbarSeverity;
-  /** i18n key (namespace:path) or a plain, already-translated string. */
-  message: string;
-  params?: Record<string, unknown>;
-}
+type SnackbarSeverity = MotionToastSeverity;
 
 export interface UseSnackbarReturn {
   showSuccess: (message: string, params?: Record<string, unknown>) => void;
@@ -34,16 +25,27 @@ export interface SnackbarProviderProps {
   children: ReactNode;
 }
 
-/** Lightweight app-wide snackbar host. Messages can be i18n keys or plain strings. */
-export function SnackbarProvider({ children }: SnackbarProviderProps) {
-  const [current, setCurrent] = useState<SnackbarMessage | null>(null);
+const SEVERITY_TITLES: Record<SnackbarSeverity, string> = {
+  success: 'Success',
+  error: 'Something went wrong',
+  warning: 'Attention needed',
+  info: 'Notice',
+};
+
+const SnackbarBridge = ({ children }: SnackbarProviderProps) => {
   const { t } = useTranslation();
+  const toastManager = Toast.useToastManager();
 
   const show = useCallback(
     (severity: SnackbarSeverity) => (message: string, params?: Record<string, unknown>) => {
-      setCurrent({ key: Date.now(), severity, message, params });
+      toastManager.add({
+        title: SEVERITY_TITLES[severity],
+        description: t(message, params),
+        type: severity,
+        priority: severity === 'error' ? 'high' : 'low',
+      });
     },
-    [],
+    [t, toastManager],
   );
 
   const value = useMemo<UseSnackbarReturn>(
@@ -56,35 +58,25 @@ export function SnackbarProvider({ children }: SnackbarProviderProps) {
     [show],
   );
 
-  const handleClose = useCallback((_event?: unknown, reason?: string) => {
-    if (reason === 'clickaway') return;
-    setCurrent(null);
-  }, []);
-
   return (
     <SnackbarContext.Provider value={value}>
       {children}
-      <Snackbar
-        key={current?.key}
-        open={current !== null}
-        autoHideDuration={SNACKBAR_AUTOHIDE_MS}
-        onClose={handleClose}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-      >
-        {current ? (
-          <Alert severity={current.severity} variant="filled" onClose={handleClose}>
-            {t(current.message, current.params)}
-          </Alert>
-        ) : undefined}
-      </Snackbar>
+      <MotionToastViewport />
     </SnackbarContext.Provider>
   );
-}
+};
 
-export function useSnackbar(): UseSnackbarReturn {
+/** App-wide Base UI toast host with Motion spring transitions. */
+export const SnackbarProvider = ({ children }: SnackbarProviderProps) => (
+  <Toast.Provider limit={5} timeout={SNACKBAR_AUTOHIDE_MS}>
+    <SnackbarBridge>{children}</SnackbarBridge>
+  </Toast.Provider>
+);
+
+export const useSnackbar = (): UseSnackbarReturn => {
   const ctx = useContext(SnackbarContext);
   if (!ctx) {
     throw new Error('useSnackbar must be used within a SnackbarProvider');
   }
   return ctx;
-}
+};

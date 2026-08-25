@@ -3,9 +3,15 @@ import { DEBOUNCE_MS, DEFAULT_PAGE_SIZE, SNACKBAR_AUTOHIDE_MS } from './chunk-PG
 import { safeJsonParse } from './chunk-FOGQ5DCD.js';
 import { createContext, useState, useCallback, useRef, useContext, useEffect, useMemo } from 'react';
 import { jsxs, jsx } from 'react/jsx-runtime';
-import Alert from '@mui/material/Alert';
-import Snackbar from '@mui/material/Snackbar';
+import { Toast } from '@base-ui/react/toast';
 import { useTranslation } from 'react-i18next';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
+import ErrorRoundedIcon from '@mui/icons-material/ErrorRounded';
+import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
+import WarningAmberRoundedIcon from '@mui/icons-material/WarningAmberRounded';
+import { styled } from '@mui/material/styles';
+import { motion, useReducedMotion, AnimatePresence } from 'framer-motion';
 
 function useDialog() {
   const [isOpen, setIsOpen] = useState(false);
@@ -241,15 +247,187 @@ function useIsMounted() {
   }, []);
   return useCallback(() => mountedRef.current, []);
 }
+var TOAST_COLORS = {
+  success: { accent: "#84f7c5", accentSoft: "rgba(132, 247, 197, 0.13)" },
+  error: { accent: "#ff8f9d", accentSoft: "rgba(255, 143, 157, 0.13)" },
+  warning: { accent: "#ffd479", accentSoft: "rgba(255, 212, 121, 0.13)" },
+  info: { accent: "#8fc7ff", accentSoft: "rgba(143, 199, 255, 0.13)" }
+};
+var TOAST_ICONS = {
+  success: CheckCircleRoundedIcon,
+  error: ErrorRoundedIcon,
+  warning: WarningAmberRoundedIcon,
+  info: InfoRoundedIcon
+};
+var ToastViewport = styled(Toast.Viewport)(({ theme }) => ({
+  position: "fixed",
+  right: theme.spacing(2.5),
+  bottom: theme.spacing(2.5),
+  zIndex: theme.zIndex.snackbar,
+  display: "flex",
+  width: "min(360px, calc(100vw - 32px))",
+  maxHeight: "calc(100vh - 32px)",
+  flexDirection: "column",
+  gap: theme.spacing(1),
+  margin: 0,
+  padding: 0,
+  outline: 0,
+  listStyle: "none",
+  pointerEvents: "none",
+  [theme.breakpoints.down("sm")]: {
+    right: theme.spacing(2),
+    bottom: theme.spacing(2)
+  }
+}));
+var ToastSurface = styled(motion.div, {
+  shouldForwardProp: (prop) => prop !== "severity"
+})(({ theme, severity }) => ({
+  "--toast-accent": TOAST_COLORS[severity].accent,
+  "--toast-accent-soft": TOAST_COLORS[severity].accentSoft,
+  width: "100%",
+  overflow: "hidden",
+  border: "1px solid rgba(255, 255, 255, 0.09)",
+  borderRadius: 14,
+  background: "rgba(13, 18, 17, 0.96)",
+  boxShadow: "0 18px 48px rgba(0, 0, 0, 0.32), 0 2px 8px rgba(0, 0, 0, 0.22)",
+  color: "#f4f7f6",
+  backdropFilter: "blur(18px)",
+  WebkitBackdropFilter: "blur(18px)",
+  pointerEvents: "auto",
+  touchAction: "pan-y",
+  userSelect: "none",
+  "&:focus-visible": {
+    outline: "2px solid var(--toast-accent)",
+    outlineOffset: 2
+  },
+  [theme.breakpoints.down("sm")]: {
+    borderRadius: 12
+  }
+}));
+var ToastContent = styled(Toast.Content)(({ theme }) => ({
+  display: "grid",
+  gridTemplateColumns: "36px minmax(0, 1fr) 32px",
+  alignItems: "center",
+  gap: theme.spacing(1.25),
+  minHeight: 68,
+  padding: theme.spacing(1.25, 1.25, 1.25, 1.5)
+}));
+var ToastIcon = styled("span")({
+  display: "grid",
+  width: 36,
+  height: 36,
+  placeItems: "center",
+  borderRadius: 10,
+  background: "var(--toast-accent-soft)",
+  color: "var(--toast-accent)"
+});
+var ToastText = styled("div")({
+  minWidth: 0
+});
+var ToastTitle = styled(Toast.Title)({
+  margin: 0,
+  color: "#f7faf9",
+  fontSize: 14,
+  fontWeight: 750,
+  lineHeight: 1.35,
+  letterSpacing: "-0.01em"
+});
+var ToastDescription = styled(Toast.Description)({
+  display: "-webkit-box",
+  overflow: "hidden",
+  marginTop: 2,
+  color: "#99a6a2",
+  fontSize: 12.5,
+  lineHeight: 1.45,
+  WebkitBoxOrient: "vertical",
+  WebkitLineClamp: 3
+});
+var ToastClose = styled(Toast.Close)({
+  display: "grid",
+  width: 32,
+  height: 32,
+  padding: 0,
+  placeItems: "center",
+  border: 0,
+  borderRadius: 9,
+  background: "transparent",
+  color: "#80908a",
+  cursor: "pointer",
+  transition: "background-color 160ms ease, color 160ms ease",
+  "&:hover": {
+    background: "rgba(255, 255, 255, 0.07)",
+    color: "#f7faf9"
+  },
+  "&:focus-visible": {
+    outline: "2px solid var(--toast-accent)",
+    outlineOffset: 1
+  }
+});
+var getSeverity = (type) => {
+  if (type === "success" || type === "error" || type === "warning") return type;
+  return "info";
+};
+var MotionToastViewport = () => {
+  const { toasts, close } = Toast.useToastManager();
+  const reduceMotion = useReducedMotion();
+  return /* @__PURE__ */ jsx(Toast.Portal, { children: /* @__PURE__ */ jsx(ToastViewport, { children: /* @__PURE__ */ jsx(AnimatePresence, { initial: false, mode: "popLayout", children: toasts.map((toast) => {
+    const severity = getSeverity(toast.type);
+    const Icon = TOAST_ICONS[severity];
+    return /* @__PURE__ */ jsx(
+      Toast.Root,
+      {
+        toast,
+        swipeDirection: "right",
+        render: /* @__PURE__ */ jsx(
+          ToastSurface,
+          {
+            severity,
+            layout: !reduceMotion,
+            initial: reduceMotion ? { opacity: 0 } : { opacity: 0, y: 22, scale: 0.96 },
+            animate: { opacity: 1, y: 0, scale: 1 },
+            exit: reduceMotion ? { opacity: 0 } : { opacity: 0, x: 90, scale: 0.96 },
+            transition: { type: "spring", stiffness: 430, damping: 34, mass: 0.8 },
+            drag: reduceMotion ? false : "x",
+            dragConstraints: { left: 0, right: 0 },
+            dragElastic: { left: 0.08, right: 0.7 },
+            onDragEnd: (_, info) => {
+              if (info.offset.x > 72 || info.velocity.x > 520) close(toast.id);
+            }
+          }
+        ),
+        children: /* @__PURE__ */ jsxs(ToastContent, { children: [
+          /* @__PURE__ */ jsx(ToastIcon, { "aria-hidden": "true", children: /* @__PURE__ */ jsx(Icon, { fontSize: "small" }) }),
+          /* @__PURE__ */ jsxs(ToastText, { children: [
+            /* @__PURE__ */ jsx(ToastTitle, {}),
+            /* @__PURE__ */ jsx(ToastDescription, {})
+          ] }),
+          /* @__PURE__ */ jsx(ToastClose, { "aria-label": "Dismiss notification", children: /* @__PURE__ */ jsx(CloseRoundedIcon, { fontSize: "small" }) })
+        ] })
+      },
+      toast.id
+    );
+  }) }) }) });
+};
 var SnackbarContext = createContext(null);
-function SnackbarProvider({ children }) {
-  const [current, setCurrent] = useState(null);
+var SEVERITY_TITLES = {
+  success: "Success",
+  error: "Something went wrong",
+  warning: "Attention needed",
+  info: "Notice"
+};
+var SnackbarBridge = ({ children }) => {
   const { t } = useTranslation();
+  const toastManager = Toast.useToastManager();
   const show = useCallback(
     (severity) => (message, params) => {
-      setCurrent({ key: Date.now(), severity, message, params });
+      toastManager.add({
+        title: SEVERITY_TITLES[severity],
+        description: t(message, params),
+        type: severity,
+        priority: severity === "error" ? "high" : "low"
+      });
     },
-    []
+    [t, toastManager]
   );
   const value = useMemo(
     () => ({
@@ -260,33 +438,20 @@ function SnackbarProvider({ children }) {
     }),
     [show]
   );
-  const handleClose = useCallback((_event, reason) => {
-    if (reason === "clickaway") return;
-    setCurrent(null);
-  }, []);
   return /* @__PURE__ */ jsxs(SnackbarContext.Provider, { value, children: [
     children,
-    /* @__PURE__ */ jsx(
-      Snackbar,
-      {
-        open: current !== null,
-        autoHideDuration: SNACKBAR_AUTOHIDE_MS,
-        onClose: handleClose,
-        anchorOrigin: { vertical: "bottom", horizontal: "center" },
-        children: current ? /* @__PURE__ */ jsx(Alert, { severity: current.severity, variant: "filled", onClose: handleClose, children: t(current.message, current.params) }) : void 0
-      },
-      current?.key
-    )
+    /* @__PURE__ */ jsx(MotionToastViewport, {})
   ] });
-}
-function useSnackbar() {
+};
+var SnackbarProvider = ({ children }) => /* @__PURE__ */ jsx(Toast.Provider, { limit: 5, timeout: SNACKBAR_AUTOHIDE_MS, children: /* @__PURE__ */ jsx(SnackbarBridge, { children }) });
+var useSnackbar = () => {
   const ctx = useContext(SnackbarContext);
   if (!ctx) {
     throw new Error("useSnackbar must be used within a SnackbarProvider");
   }
   return ctx;
-}
+};
 
 export { ConfirmProvider, SnackbarProvider, useBoolean, useConfirm, useDebounce, useDebouncedCallback, useDialog, useIsMounted, useLocalStorage, usePagination, usePrevious, useSnackbar, useTableQuery, useToggle };
-//# sourceMappingURL=chunk-HIXAQBS6.js.map
-//# sourceMappingURL=chunk-HIXAQBS6.js.map
+//# sourceMappingURL=chunk-MS6MEMEB.js.map
+//# sourceMappingURL=chunk-MS6MEMEB.js.map
