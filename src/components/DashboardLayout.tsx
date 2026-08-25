@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import { useMediaBreakpoint } from '../hooks/useMediaBreakpoint';
 import { AppSideNav, type SideNavItem } from './AppSideNav';
 import { AppTopBar } from './AppTopBar';
+import { AppLauncher } from './AppLauncher';
 
 const LayoutRoot = styled('div')({
   display: 'flex',
@@ -21,6 +22,7 @@ export interface DashboardLayoutProps {
   navItems: SideNavItem[];
   activePath: string;
   onNavigate: (path: string) => void;
+  appsLauncher?: ReactNode;
   logo?: ReactNode;
   /** Top bar right-hand actions (search, language, avatar menu). */
   topBarActions?: ReactNode;
@@ -35,6 +37,7 @@ export function DashboardLayout({
   navItems,
   activePath,
   onNavigate,
+  appsLauncher = <AppLauncher />,
   logo,
   topBarActions,
   children,
@@ -50,6 +53,7 @@ export function DashboardLayout({
   return (
     <LayoutRoot>
       <AppTopBar
+        appsLauncher={appsLauncher}
         logo={logo}
         actions={topBarActions}
         onMenuClick={

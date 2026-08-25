@@ -60,5 +60,6 @@ export { DashboardLayout, type DashboardLayoutProps } from './DashboardLayout';
 export { KanbanBoard, type KanbanBoardProps, type KanbanColumn } from './KanbanBoard';
 export { SplitPaneLayout, type SplitPaneLayoutProps } from './SplitPaneLayout';
 export { MenuCard, type MenuCardProps } from './MenuCard';
+export * from './AppLauncher';
 
 

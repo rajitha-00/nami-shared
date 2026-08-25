@@ -21,6 +21,8 @@ const TopBarNav = styled('nav')(({ theme }) => ({
 }));
 
 export interface AppTopBarProps {
+  /** Apps directory launcher / iOS folder slot (placed before logo). */
+  appsLauncher?: ReactNode;
   /** Logo / brand slot (left). */
   logo?: ReactNode;
   /** Center navigation slot. */
@@ -32,7 +34,7 @@ export interface AppTopBarProps {
 }
 
 /** Fixed top app bar with logo / nav / actions slots. */
-export function AppTopBar({ logo, nav, actions, onMenuClick }: AppTopBarProps) {
+export function AppTopBar({ appsLauncher, logo, nav, actions, onMenuClick }: AppTopBarProps) {
   const { t } = useTranslation();
   return (
     <AppBar
@@ -57,6 +59,7 @@ export function AppTopBar({ logo, nav, actions, onMenuClick }: AppTopBarProps) {
               <MenuIcon />
             </IconButton>
           ) : null}
+          {appsLauncher}
           {logo}
         </TopBarSlot>
         <TopBarNav>{nav}</TopBarNav>
