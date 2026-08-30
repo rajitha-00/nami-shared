@@ -11,7 +11,7 @@ var DialogActions = require('@mui/material/DialogActions');
 var DialogContent = require('@mui/material/DialogContent');
 var DialogContentText = require('@mui/material/DialogContentText');
 var DialogTitle = require('@mui/material/DialogTitle');
-var Box4 = require('@mui/material/Box');
+var Box6 = require('@mui/material/Box');
 var IconButton8 = require('@mui/material/IconButton');
 var CloseIcon5 = require('@mui/icons-material/Close');
 var reactI18next = require('react-i18next');
@@ -25,12 +25,12 @@ var WarningAmberRoundedIcon = require('@mui/icons-material/WarningAmberRounded')
 var Typography4 = require('@mui/material/Typography');
 var zod = require('@hookform/resolvers/zod');
 var reactHookForm = require('react-hook-form');
-var InboxOutlinedIcon = require('@mui/icons-material/InboxOutlined');
+var Stack4 = require('@mui/material/Stack');
+var Paper = require('@mui/material/Paper');
 var ErrorOutlineIcon = require('@mui/icons-material/ErrorOutline');
 var RefreshIcon = require('@mui/icons-material/Refresh');
 var Chip5 = require('@mui/material/Chip');
 var Checkbox = require('@mui/material/Checkbox');
-var Paper = require('@mui/material/Paper');
 var Skeleton = require('@mui/material/Skeleton');
 var Table = require('@mui/material/Table');
 var TableBody = require('@mui/material/TableBody');
@@ -63,7 +63,6 @@ var Menu = require('@mui/material/Menu');
 var MenuIcon = require('@mui/icons-material/Menu');
 var AppBar = require('@mui/material/AppBar');
 var Toolbar = require('@mui/material/Toolbar');
-var Stack3 = require('@mui/material/Stack');
 var Step = require('@mui/material/Step');
 var StepLabel = require('@mui/material/StepLabel');
 var Stepper = require('@mui/material/Stepper');
@@ -102,7 +101,7 @@ var DialogActions__default = /*#__PURE__*/_interopDefault(DialogActions);
 var DialogContent__default = /*#__PURE__*/_interopDefault(DialogContent);
 var DialogContentText__default = /*#__PURE__*/_interopDefault(DialogContentText);
 var DialogTitle__default = /*#__PURE__*/_interopDefault(DialogTitle);
-var Box4__default = /*#__PURE__*/_interopDefault(Box4);
+var Box6__default = /*#__PURE__*/_interopDefault(Box6);
 var IconButton8__default = /*#__PURE__*/_interopDefault(IconButton8);
 var CloseIcon5__default = /*#__PURE__*/_interopDefault(CloseIcon5);
 var useMediaQuery__default = /*#__PURE__*/_interopDefault(useMediaQuery);
@@ -112,12 +111,12 @@ var ErrorRoundedIcon__default = /*#__PURE__*/_interopDefault(ErrorRoundedIcon);
 var InfoRoundedIcon__default = /*#__PURE__*/_interopDefault(InfoRoundedIcon);
 var WarningAmberRoundedIcon__default = /*#__PURE__*/_interopDefault(WarningAmberRoundedIcon);
 var Typography4__default = /*#__PURE__*/_interopDefault(Typography4);
-var InboxOutlinedIcon__default = /*#__PURE__*/_interopDefault(InboxOutlinedIcon);
+var Stack4__default = /*#__PURE__*/_interopDefault(Stack4);
+var Paper__default = /*#__PURE__*/_interopDefault(Paper);
 var ErrorOutlineIcon__default = /*#__PURE__*/_interopDefault(ErrorOutlineIcon);
 var RefreshIcon__default = /*#__PURE__*/_interopDefault(RefreshIcon);
 var Chip5__default = /*#__PURE__*/_interopDefault(Chip5);
 var Checkbox__default = /*#__PURE__*/_interopDefault(Checkbox);
-var Paper__default = /*#__PURE__*/_interopDefault(Paper);
 var Skeleton__default = /*#__PURE__*/_interopDefault(Skeleton);
 var Table__default = /*#__PURE__*/_interopDefault(Table);
 var TableBody__default = /*#__PURE__*/_interopDefault(TableBody);
@@ -150,7 +149,6 @@ var Menu__default = /*#__PURE__*/_interopDefault(Menu);
 var MenuIcon__default = /*#__PURE__*/_interopDefault(MenuIcon);
 var AppBar__default = /*#__PURE__*/_interopDefault(AppBar);
 var Toolbar__default = /*#__PURE__*/_interopDefault(Toolbar);
-var Stack3__default = /*#__PURE__*/_interopDefault(Stack3);
 var Step__default = /*#__PURE__*/_interopDefault(Step);
 var StepLabel__default = /*#__PURE__*/_interopDefault(StepLabel);
 var Stepper__default = /*#__PURE__*/_interopDefault(Stepper);
@@ -983,7 +981,7 @@ function ConfirmDialog({
   onCancel
 }) {
   const { t } = reactI18next.useTranslation();
-  const content = /* @__PURE__ */ jsxRuntime.jsxs(Box4__default.default, { sx: { width: "100%", maxWidth: "380px" }, children: [
+  const content = /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { width: "100%", maxWidth: "380px" }, children: [
     /* @__PURE__ */ jsxRuntime.jsxs(
       DialogTitle__default.default,
       {
@@ -1729,7 +1727,7 @@ function NamiosLoader({
   const thickness = Math.max(4, Math.round(size / 5));
   const lat = Math.round((size - thickness) / 2);
   return /* @__PURE__ */ jsxRuntime.jsxs(
-    Box4__default.default,
+    Box6__default.default,
     {
       sx: {
         display: "inline-flex",
@@ -1741,7 +1739,7 @@ function NamiosLoader({
       },
       children: [
         showLogo && /* @__PURE__ */ jsxRuntime.jsxs(
-          Box4__default.default,
+          Box6__default.default,
           {
             sx: {
               display: "flex",
@@ -1769,7 +1767,7 @@ function NamiosLoader({
           }
         ),
         /* @__PURE__ */ jsxRuntime.jsx(
-          Box4__default.default,
+          Box6__default.default,
           {
             sx: {
               position: "relative",
@@ -1945,39 +1943,148 @@ function FormDialog({
     }
   );
 }
-var EmptyStateRoot = styles.styled("div")(({ theme }) => ({
+var AnimatedInbox = ({
+  size = 48,
+  color = "currentColor",
+  isAnimated = true,
+  animateOnHover = false,
+  ...props
+}) => {
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    framerMotion.motion.svg,
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: color,
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      initial: "idle",
+      animate: isAnimated && !animateOnHover ? "animate" : "idle",
+      whileHover: animateOnHover ? "hover" : void 0,
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.polyline,
+          {
+            points: "22 12 16 12 14 15 10 15 8 12 2 12",
+            variants: {
+              idle: { y: 0 },
+              animate: {
+                y: [0, -1.5, 0],
+                transition: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { y: -2, transition: { type: "spring", stiffness: 300, damping: 15 } }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.path,
+          {
+            d: "M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z",
+            variants: {
+              idle: { scale: 1 },
+              animate: {
+                scale: [1, 1.02, 1],
+                transition: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { scale: 1.03, transition: { type: "spring", stiffness: 300, damping: 15 } }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.line,
+          {
+            x1: "12",
+            y1: "7",
+            x2: "12",
+            y2: "10",
+            variants: {
+              idle: { opacity: 0.6, y: 0 },
+              animate: {
+                opacity: [0.3, 0.9, 0.3],
+                y: [-2, 1, -2],
+                transition: { duration: 2.5, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { y: -2, opacity: 1, transition: { type: "spring" } }
+            }
+          }
+        )
+      ]
+    }
+  );
+};
+var EmptyStateContainer = styles.styled(Paper__default.default)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  gap: theme.spacing(1.5),
   padding: theme.spacing(6, 3),
   textAlign: "center",
-  color: theme.palette.text.secondary
+  borderRadius: 16,
+  border: `1px dashed ${theme.palette.divider}`,
+  backgroundColor: theme.palette.mode === "light" ? "rgba(248, 249, 250, 0.6)" : "rgba(255, 255, 255, 0.02)",
+  backdropFilter: "blur(8px)",
+  width: "100%",
+  minHeight: 280,
+  transition: "all 0.2s ease"
 }));
-var EmptyStateIcon = styles.styled("div")(({ theme }) => ({
+var IconGlowBadge = styles.styled(Box6__default.default)(({ theme }) => ({
   display: "inline-flex",
-  padding: theme.spacing(2),
-  borderRadius: "50%",
-  backgroundColor: theme.palette.action.hover,
-  color: theme.palette.text.secondary,
-  "& > svg": { fontSize: 40 }
+  alignItems: "center",
+  justifyContent: "center",
+  width: 80,
+  height: 80,
+  borderRadius: "24px",
+  background: theme.palette.mode === "light" ? "linear-gradient(135deg, rgba(0, 122, 255, 0.08) 0%, rgba(88, 86, 214, 0.08) 100%)" : "linear-gradient(135deg, rgba(0, 122, 255, 0.15) 0%, rgba(88, 86, 214, 0.15) 100%)",
+  color: theme.palette.primary.main,
+  border: `1px solid ${theme.palette.mode === "light" ? "rgba(0, 122, 255, 0.12)" : "rgba(0, 122, 255, 0.25)"}`,
+  boxShadow: "0 8px 24px rgba(0, 122, 255, 0.08)",
+  marginBottom: theme.spacing(1)
 }));
-function EmptyState({
+var EmptyState = ({
   icon,
-  titleKey,
+  titleKey = "common:states.noResults",
+  title,
   descriptionKey,
+  description,
   descriptionParams,
-  action
-}) {
+  action,
+  compact = false
+}) => {
   const { t } = reactI18next.useTranslation();
-  return /* @__PURE__ */ jsxRuntime.jsxs(EmptyStateRoot, { children: [
-    /* @__PURE__ */ jsxRuntime.jsx(EmptyStateIcon, { children: icon ?? /* @__PURE__ */ jsxRuntime.jsx(InboxOutlinedIcon__default.default, {}) }),
-    /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "h6", color: "text.primary", children: t(titleKey) }),
-    descriptionKey ? /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "body2", children: t(descriptionKey, descriptionParams) }) : null,
-    action
-  ] });
-}
+  const displayTitle = title || t(titleKey);
+  const displayDesc = description || (descriptionKey ? t(descriptionKey, descriptionParams) : void 0);
+  return /* @__PURE__ */ jsxRuntime.jsx(
+    framerMotion.motion.div,
+    {
+      initial: { opacity: 0, y: 10, scale: 0.98 },
+      animate: { opacity: 1, y: 0, scale: 1 },
+      transition: { duration: 0.35, ease: "easeOut" },
+      style: { width: "100%" },
+      children: /* @__PURE__ */ jsxRuntime.jsxs(
+        EmptyStateContainer,
+        {
+          variant: "outlined",
+          sx: {
+            py: compact ? 3.5 : 6,
+            minHeight: compact ? 180 : 280
+          },
+          children: [
+            /* @__PURE__ */ jsxRuntime.jsx(IconGlowBadge, { children: icon ?? /* @__PURE__ */ jsxRuntime.jsx(AnimatedInbox, { size: 42, isAnimated: true }) }),
+            /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { spacing: 0.75, alignItems: "center", sx: { maxWidth: 440, mt: 1, mb: action ? 2.5 : 0 }, children: [
+              /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "h6", fontWeight: 700, color: "text.primary", letterSpacing: "-0.2px", children: displayTitle }),
+              displayDesc ? /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "body2", color: "text.secondary", fontWeight: 500, lineHeight: 1.5, children: displayDesc }) : null
+            ] }),
+            action ? /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { mt: 1 }, children: action }) : null
+          ]
+        }
+      )
+    }
+  );
+};
 var ErrorStateRoot = styles.styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
@@ -2002,7 +2109,7 @@ function ErrorState({
 }
 function PageSkeleton({ label }) {
   return /* @__PURE__ */ jsxRuntime.jsx(
-    Box4__default.default,
+    Box6__default.default,
     {
       sx: {
         display: "flex",
@@ -2440,44 +2547,43 @@ function DataTable({
       },
       children: [
         toolbar ? /* @__PURE__ */ jsxRuntime.jsx(TableToolbar, { children: toolbar }) : null,
-        /* @__PURE__ */ jsxRuntime.jsx(TableContainer__default.default, { children: /* @__PURE__ */ jsxRuntime.jsxs(Table__default.default, { size: "small", "aria-busy": isLoading, children: [
-          /* @__PURE__ */ jsxRuntime.jsx(TableHead__default.default, { sx: { backgroundColor: "action.hover" }, children: /* @__PURE__ */ jsxRuntime.jsxs(TableRow__default.default, { children: [
-            selectable ? /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { padding: "checkbox", children: /* @__PURE__ */ jsxRuntime.jsx(
-              Checkbox__default.default,
-              {
-                checked: allSelected,
-                indeterminate: !allSelected && someSelected,
-                onChange: toggleAll,
-                inputProps: { "aria-label": t("common:table.selectAll") }
-              }
-            ) }) : null,
-            columns.map((column) => /* @__PURE__ */ jsxRuntime.jsx(
-              TableCell__default.default,
-              {
-                align: column.align ?? "left",
-                sx: { width: column.width, fontWeight: 700 },
-                sortDirection: sortBy2 === column.key ? sortDir : false,
-                children: column.sortable && onSortChange ? /* @__PURE__ */ jsxRuntime.jsx(
-                  TableSortLabel__default.default,
-                  {
-                    active: sortBy2 === column.key,
-                    direction: sortBy2 === column.key ? sortDir : "asc",
-                    onClick: () => {
-                      onSortChange(String(column.key));
-                    },
-                    children: t(column.labelKey)
-                  }
-                ) : t(column.labelKey)
-              },
-              String(column.key)
-            )),
-            rowActions ? /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { align: "right", sx: { fontWeight: 700 }, children: t("common:table.actions") }) : null
-          ] }) }),
-          /* @__PURE__ */ jsxRuntime.jsxs(TableBody__default.default, { children: [
-            isLoading ? Array.from({ length: compact ? 5 : pageSize }, (_, i) => /* @__PURE__ */ jsxRuntime.jsx(TableRow__default.default, { children: /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { colSpan, children: /* @__PURE__ */ jsxRuntime.jsx(Skeleton__default.default, { variant: "text", height: 28 }) }) }, i)) : null,
-            !isLoading && isError ? /* @__PURE__ */ jsxRuntime.jsx(TableRow__default.default, { children: /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { colSpan, sx: { border: 0 }, children: /* @__PURE__ */ jsxRuntime.jsx(ErrorState, { onRetry }) }) }) : null,
-            !isLoading && !isError && rows.length === 0 ? /* @__PURE__ */ jsxRuntime.jsx(TableRow__default.default, { children: /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { colSpan, sx: { border: 0 }, children: emptyState ?? /* @__PURE__ */ jsxRuntime.jsx(EmptyState, { titleKey: "common:states.noResults" }) }) }) : null,
-            !isLoading && !isError ? rows.map((row) => /* @__PURE__ */ jsxRuntime.jsxs(
+        !isLoading && isError ? /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { p: 3 }, children: /* @__PURE__ */ jsxRuntime.jsx(ErrorState, { onRetry }) }) : null,
+        !isLoading && !isError && rows.length === 0 ? /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { p: 2 }, children: emptyState ?? /* @__PURE__ */ jsxRuntime.jsx(EmptyState, { titleKey: "common:states.noResults" }) }) : null,
+        (isLoading || rows.length > 0) && /* @__PURE__ */ jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [
+          /* @__PURE__ */ jsxRuntime.jsx(TableContainer__default.default, { children: /* @__PURE__ */ jsxRuntime.jsxs(Table__default.default, { size: "small", "aria-busy": isLoading, children: [
+            /* @__PURE__ */ jsxRuntime.jsx(TableHead__default.default, { sx: { backgroundColor: "action.hover" }, children: /* @__PURE__ */ jsxRuntime.jsxs(TableRow__default.default, { children: [
+              selectable ? /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { padding: "checkbox", children: /* @__PURE__ */ jsxRuntime.jsx(
+                Checkbox__default.default,
+                {
+                  checked: allSelected,
+                  indeterminate: !allSelected && someSelected,
+                  onChange: toggleAll,
+                  inputProps: { "aria-label": t("common:table.selectAll") }
+                }
+              ) }) : null,
+              columns.map((column) => /* @__PURE__ */ jsxRuntime.jsx(
+                TableCell__default.default,
+                {
+                  align: column.align ?? "left",
+                  sx: { width: column.width, fontWeight: 700 },
+                  sortDirection: sortBy2 === column.key ? sortDir : false,
+                  children: column.sortable && onSortChange ? /* @__PURE__ */ jsxRuntime.jsx(
+                    TableSortLabel__default.default,
+                    {
+                      active: sortBy2 === column.key,
+                      direction: sortBy2 === column.key ? sortDir : "asc",
+                      onClick: () => {
+                        onSortChange(String(column.key));
+                      },
+                      children: t(column.labelKey)
+                    }
+                  ) : t(column.labelKey)
+                },
+                String(column.key)
+              )),
+              rowActions ? /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { align: "right", sx: { fontWeight: 700 }, children: t("common:table.actions") }) : null
+            ] }) }),
+            /* @__PURE__ */ jsxRuntime.jsx(TableBody__default.default, { children: isLoading ? Array.from({ length: compact ? 5 : pageSize }, (_, i) => /* @__PURE__ */ jsxRuntime.jsx(TableRow__default.default, { children: /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { colSpan, children: /* @__PURE__ */ jsxRuntime.jsx(Skeleton__default.default, { variant: "text", height: 28 }) }) }, i)) : rows.map((row) => /* @__PURE__ */ jsxRuntime.jsxs(
               ClickableRow,
               {
                 clickable: Boolean(onRowClick || getContextMenuItems),
@@ -2507,32 +2613,32 @@ function DataTable({
                 ]
               },
               row.id
-            )) : null
-          ] })
-        ] }) }),
-        !compact ? /* @__PURE__ */ jsxRuntime.jsx(
-          TablePagination__default.default,
-          {
-            component: "div",
-            count: data?.total ?? 0,
-            page: Math.max(0, page - 1),
-            rowsPerPage: pageSize,
-            rowsPerPageOptions: [...PAGE_SIZE_OPTIONS],
-            onPageChange: (_e, newPage) => {
-              onPageChange(newPage + 1);
-            },
-            onRowsPerPageChange: (e) => {
-              onPageSizeChange(Number(e.target.value));
-            },
-            labelRowsPerPage: t("common:table.rowsPerPage"),
-            labelDisplayedRows: ({ from, to, count }) => t("common:table.displayedRows", { from, to, count }),
-            sx: {
-              borderTop: "1px solid",
-              borderColor: "divider",
-              "& .MuiTablePagination-toolbar": { minHeight: 48, px: 2 }
+            )) })
+          ] }) }),
+          !compact ? /* @__PURE__ */ jsxRuntime.jsx(
+            TablePagination__default.default,
+            {
+              component: "div",
+              count: data?.total ?? 0,
+              page: Math.max(0, page - 1),
+              rowsPerPage: pageSize,
+              rowsPerPageOptions: [...PAGE_SIZE_OPTIONS],
+              onPageChange: (_e, newPage) => {
+                onPageChange(newPage + 1);
+              },
+              onRowsPerPageChange: (e) => {
+                onPageSizeChange(Number(e.target.value));
+              },
+              labelRowsPerPage: t("common:table.rowsPerPage"),
+              labelDisplayedRows: ({ from, to, count }) => t("common:table.displayedRows", { from, to, count }),
+              sx: {
+                borderTop: "1px solid",
+                borderColor: "divider",
+                "& .MuiTablePagination-toolbar": { minHeight: 48, px: 2 }
+              }
             }
-          }
-        ) : null,
+          ) : null
+        ] }),
         /* @__PURE__ */ jsxRuntime.jsx(
           ContextMenu,
           {
@@ -3185,7 +3291,7 @@ function StatusFilterChips({
   onChange
 }) {
   const { t } = reactI18next.useTranslation();
-  return /* @__PURE__ */ jsxRuntime.jsx(Stack3__default.default, { direction: "row", spacing: 1, flexWrap: "wrap", useFlexGap: true, role: "tablist", children: options.map((option) => {
+  return /* @__PURE__ */ jsxRuntime.jsx(Stack4__default.default, { direction: "row", spacing: 1, flexWrap: "wrap", useFlexGap: true, role: "tablist", children: options.map((option) => {
     const active = option.value === value;
     const label = option.count !== void 0 ? `${t(option.labelKey)} (${option.count})` : t(option.labelKey);
     return /* @__PURE__ */ jsxRuntime.jsx(
@@ -3283,7 +3389,7 @@ function AppDrawer({
       },
       children: [
         /* @__PURE__ */ jsxRuntime.jsxs(DrawerHeader, { children: [
-          /* @__PURE__ */ jsxRuntime.jsxs(Stack3__default.default, { direction: "row", spacing: 1.5, alignItems: "center", sx: { flexGrow: 1, minWidth: 0 }, children: [
+          /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", spacing: 1.5, alignItems: "center", sx: { flexGrow: 1, minWidth: 0 }, children: [
             /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "h5", fontWeight: 800, letterSpacing: "-0.3px", noWrap: true, children: title ?? (titleKey ? t(titleKey, titleParams) : null) }),
             statusChip
           ] }),
@@ -3397,8 +3503,8 @@ function DateRangeButton({ range }) {
           setAnchorEl(null);
         },
         anchorOrigin: { vertical: "bottom", horizontal: "left" },
-        children: /* @__PURE__ */ jsxRuntime.jsxs(Stack3__default.default, { spacing: 2, sx: { p: 2, width: 300 }, children: [
-          /* @__PURE__ */ jsxRuntime.jsx(Stack3__default.default, { direction: "row", spacing: 1, flexWrap: "wrap", useFlexGap: true, children: Object.values(DateRangePreset).map((preset) => /* @__PURE__ */ jsxRuntime.jsx(
+        children: /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { spacing: 2, sx: { p: 2, width: 300 }, children: [
+          /* @__PURE__ */ jsxRuntime.jsx(Stack4__default.default, { direction: "row", spacing: 1, flexWrap: "wrap", useFlexGap: true, children: Object.values(DateRangePreset).map((preset) => /* @__PURE__ */ jsxRuntime.jsx(
             Chip5__default.default,
             {
               label: t(`common:dateRange.presets.${preset}`),
@@ -4210,8 +4316,8 @@ var AppFolderModal = ({
               },
               onClick: (e) => e.stopPropagation(),
               children: [
-                /* @__PURE__ */ jsxRuntime.jsxs(Box4__default.default, { sx: { display: "flex", alignItems: "flex-start", justifyContent: "space-between", mb: 2 }, children: [
-                  /* @__PURE__ */ jsxRuntime.jsxs(Box4__default.default, { sx: { pr: 2 }, children: [
+                /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { display: "flex", alignItems: "flex-start", justifyContent: "space-between", mb: 2 }, children: [
+                  /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { pr: 2 }, children: [
                     /* @__PURE__ */ jsxRuntime.jsx(
                       Typography4__default.default,
                       {
@@ -4251,7 +4357,7 @@ var AppFolderModal = ({
                   )
                 ] }),
                 apps.length > 4 && /* @__PURE__ */ jsxRuntime.jsxs(
-                  Box4__default.default,
+                  Box6__default.default,
                   {
                     sx: {
                       display: "flex",
@@ -4284,7 +4390,7 @@ var AppFolderModal = ({
                   }
                 ),
                 categories.length > 1 && !search && /* @__PURE__ */ jsxRuntime.jsxs(
-                  Box4__default.default,
+                  Box6__default.default,
                   {
                     sx: {
                       display: "flex",
@@ -4333,7 +4439,7 @@ var AppFolderModal = ({
                   }
                 ),
                 /* @__PURE__ */ jsxRuntime.jsx(
-                  Box4__default.default,
+                  Box6__default.default,
                   {
                     sx: {
                       flexGrow: 1,
@@ -4347,7 +4453,7 @@ var AppFolderModal = ({
                         borderRadius: 2
                       }
                     },
-                    children: filteredApps.length === 0 ? /* @__PURE__ */ jsxRuntime.jsx(Box4__default.default, { sx: { py: 6, textAlign: "center" }, children: /* @__PURE__ */ jsxRuntime.jsxs(Typography4__default.default, { variant: "body2", color: "text.secondary", fontWeight: 600, children: [
+                    children: filteredApps.length === 0 ? /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { py: 6, textAlign: "center" }, children: /* @__PURE__ */ jsxRuntime.jsxs(Typography4__default.default, { variant: "body2", color: "text.secondary", fontWeight: 600, children: [
                       "No apps found matching \u201C",
                       search,
                       "\u201D"
@@ -4380,7 +4486,7 @@ var AppFolderModal = ({
                   }
                 ),
                 /* @__PURE__ */ jsxRuntime.jsxs(
-                  Box4__default.default,
+                  Box6__default.default,
                   {
                     sx: {
                       pt: 1.5,
@@ -4525,7 +4631,7 @@ function DashboardLayout({
     ] })
   ] });
 }
-var LaneContainer = styles.styled(Box4__default.default)(({ theme }) => ({
+var LaneContainer = styles.styled(Box6__default.default)(({ theme }) => ({
   flex: 1,
   minWidth: 280,
   maxWidth: 360,
@@ -4539,14 +4645,14 @@ var LaneContainer = styles.styled(Box4__default.default)(({ theme }) => ({
   minHeight: 500,
   border: `1px solid ${theme.palette.mode === "light" ? "#E2E8F0" : "#1E293B"}`
 }));
-var ColumnHeader = styles.styled(Box4__default.default)(({ theme }) => ({
+var ColumnHeader = styles.styled(Box6__default.default)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
   paddingBottom: theme.spacing(1.5),
   borderBottom: `2px solid ${theme.palette.divider}`
 }));
-var ItemsScrollArea = styles.styled(Box4__default.default)(({ theme }) => ({
+var ItemsScrollArea = styles.styled(Box6__default.default)(({ theme }) => ({
   flexGrow: 1,
   overflowY: "auto",
   display: "flex",
@@ -4572,7 +4678,7 @@ function KanbanBoard({
   renderItem
 }) {
   return /* @__PURE__ */ jsxRuntime.jsx(
-    Stack3__default.default,
+    Stack4__default.default,
     {
       direction: "row",
       spacing: 2.5,
@@ -4587,9 +4693,9 @@ function KanbanBoard({
         const laneItems = items.filter((item) => getItemColumnId(item) === column.id);
         return /* @__PURE__ */ jsxRuntime.jsxs(LaneContainer, { children: [
           /* @__PURE__ */ jsxRuntime.jsxs(ColumnHeader, { children: [
-            /* @__PURE__ */ jsxRuntime.jsxs(Stack3__default.default, { direction: "row", spacing: 1.5, alignItems: "center", children: [
+            /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", spacing: 1.5, alignItems: "center", children: [
               column.color && /* @__PURE__ */ jsxRuntime.jsx(
-                Box4__default.default,
+                Box6__default.default,
                 {
                   sx: {
                     width: 8,
@@ -4617,7 +4723,7 @@ function KanbanBoard({
               }
             )
           ] }),
-          /* @__PURE__ */ jsxRuntime.jsx(ItemsScrollArea, { children: laneItems.map((item) => /* @__PURE__ */ jsxRuntime.jsx(Box4__default.default, { sx: { position: "relative" }, children: renderItem(item) }, getItemId(item))) })
+          /* @__PURE__ */ jsxRuntime.jsx(ItemsScrollArea, { children: laneItems.map((item) => /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { position: "relative" }, children: renderItem(item) }, getItemId(item))) })
         ] }, column.id);
       })
     }
@@ -4629,7 +4735,7 @@ function SplitPaneLayout({
   rightWidth = 400
 }) {
   return /* @__PURE__ */ jsxRuntime.jsxs(
-    Box4__default.default,
+    Box6__default.default,
     {
       sx: {
         display: "flex",
@@ -4641,7 +4747,7 @@ function SplitPaneLayout({
       },
       children: [
         /* @__PURE__ */ jsxRuntime.jsx(
-          Box4__default.default,
+          Box6__default.default,
           {
             sx: {
               flexGrow: 1,
@@ -4653,7 +4759,7 @@ function SplitPaneLayout({
           }
         ),
         /* @__PURE__ */ jsxRuntime.jsx(
-          Box4__default.default,
+          Box6__default.default,
           {
             sx: {
               width: { xs: "100%", md: rightWidth },
@@ -4689,14 +4795,14 @@ var StyledCard = styles.styled(Card__default.default, {
     borderColor: activeBorderColor || theme.palette.text.secondary
   } : {}
 }));
-var ImageContainer = styles.styled(Box4__default.default)({
+var ImageContainer = styles.styled(Box6__default.default)({
   position: "relative",
   paddingTop: "60%",
   // 5:3 Aspect Ratio
   width: "100%",
   overflow: "hidden"
 });
-var MediaOverlay = styles.styled(Box4__default.default)({
+var MediaOverlay = styles.styled(Box6__default.default)({
   position: "absolute",
   top: 0,
   left: 0,
@@ -4750,7 +4856,7 @@ function MenuCard({
               }
             }
           ) : /* @__PURE__ */ jsxRuntime.jsx(
-            Box4__default.default,
+            Box6__default.default,
             {
               sx: {
                 position: "absolute",
@@ -4769,7 +4875,7 @@ function MenuCard({
           actionOverlay && /* @__PURE__ */ jsxRuntime.jsx(MediaOverlay, { children: actionOverlay })
         ] }),
         /* @__PURE__ */ jsxRuntime.jsxs(CardContent__default.default, { sx: { p: 2, flexGrow: 1, display: "flex", flexDirection: "column", gap: 1 }, children: [
-          /* @__PURE__ */ jsxRuntime.jsxs(Stack3__default.default, { direction: "row", justifyContent: "space-between", alignItems: "flex-start", spacing: 1, children: [
+          /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", justifyContent: "space-between", alignItems: "flex-start", spacing: 1, children: [
             /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "subtitle1", sx: { fontWeight: 700, lineHeight: 1.2 }, noWrap: true, children: name }),
             /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "subtitle1", color: "primary", sx: { fontWeight: 700 }, children: formattedPrice })
           ] }),
@@ -4790,10 +4896,10 @@ function MenuCard({
               children: description
             }
           ),
-          /* @__PURE__ */ jsxRuntime.jsx(Box4__default.default, { sx: { flexGrow: 1 } }),
-          /* @__PURE__ */ jsxRuntime.jsxs(Stack3__default.default, { direction: "row", spacing: 0.5, flexWrap: "wrap", useFlexGap: true, alignItems: "center", sx: { mt: 1 }, children: [
-            badges?.map((badge, idx) => /* @__PURE__ */ jsxRuntime.jsx(Box4__default.default, { children: badge }, idx)),
-            /* @__PURE__ */ jsxRuntime.jsx(Box4__default.default, { sx: { flexGrow: 1 } }),
+          /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { flexGrow: 1 } }),
+          /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", spacing: 0.5, flexWrap: "wrap", useFlexGap: true, alignItems: "center", sx: { mt: 1 }, children: [
+            badges?.map((badge, idx) => /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { children: badge }, idx)),
+            /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { flexGrow: 1 } }),
             stockLabel && /* @__PURE__ */ jsxRuntime.jsx(
               Chip5__default.default,
               {
@@ -4884,6 +4990,1022 @@ var UserAvatar = ({
         ...sx
       },
       children: initials
+    }
+  );
+};
+var AnimatedBed = ({
+  size = 48,
+  color = "currentColor",
+  isAnimated = true,
+  animateOnHover = false,
+  ...props
+}) => {
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    framerMotion.motion.svg,
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: color,
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      initial: "idle",
+      animate: isAnimated && !animateOnHover ? "animate" : "idle",
+      whileHover: animateOnHover ? "hover" : void 0,
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxRuntime.jsx("path", { d: "M2 4v16" }),
+        /* @__PURE__ */ jsxRuntime.jsx("path", { d: "M2 8h18a2 2 0 0 1 2 2v10" }),
+        /* @__PURE__ */ jsxRuntime.jsx("path", { d: "M2 17h20" }),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.path,
+          {
+            d: "M6 8v9",
+            variants: {
+              idle: { y: 0 },
+              animate: {
+                y: [0, -1.5, 0],
+                transition: { duration: 2.2, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { y: -2, transition: { type: "spring", stiffness: 300 } }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.path,
+          {
+            d: "M6 11a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1H6v-1z",
+            variants: {
+              idle: { y: 0, scale: 1 },
+              animate: {
+                y: [0, -1, 0],
+                scale: [1, 1.05, 1],
+                transition: { duration: 2.2, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { scale: 1.1, y: -1.5, transition: { type: "spring" } }
+            }
+          }
+        )
+      ]
+    }
+  );
+};
+var AnimatedUsers = ({
+  size = 48,
+  color = "currentColor",
+  isAnimated = true,
+  animateOnHover = false,
+  ...props
+}) => {
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    framerMotion.motion.svg,
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: color,
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      initial: "idle",
+      animate: isAnimated && !animateOnHover ? "animate" : "idle",
+      whileHover: animateOnHover ? "hover" : void 0,
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.circle,
+          {
+            cx: "9",
+            cy: "7",
+            r: "4",
+            variants: {
+              idle: { y: 0 },
+              animate: {
+                y: [0, -1.5, 0],
+                transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { y: -3, transition: { type: "spring", stiffness: 400, damping: 10 } }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.path,
+          {
+            d: "M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2",
+            variants: {
+              idle: { scale: 1 },
+              animate: {
+                scale: [1, 1.02, 1],
+                transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { scale: 1.05, transition: { type: "spring" } }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.path,
+          {
+            d: "M16 3.13a4 4 0 0 1 0 7.75",
+            variants: {
+              idle: { y: 0 },
+              animate: {
+                y: [0, -1, 0],
+                transition: { duration: 2.4, repeat: Infinity, ease: "easeInOut", delay: 0.3 }
+              },
+              hover: { y: -2, transition: { type: "spring" } }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.path,
+          {
+            d: "M21 21v-2a4 4 0 0 0-3-3.87",
+            variants: {
+              idle: { opacity: 0.8 },
+              animate: {
+                opacity: [0.7, 1, 0.7],
+                transition: { duration: 2.4, repeat: Infinity, ease: "easeInOut", delay: 0.3 }
+              },
+              hover: { opacity: 1 }
+            }
+          }
+        )
+      ]
+    }
+  );
+};
+var AnimatedCalendar = ({
+  size = 48,
+  color = "currentColor",
+  isAnimated = true,
+  animateOnHover = false,
+  ...props
+}) => {
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    framerMotion.motion.svg,
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: color,
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      initial: "idle",
+      animate: isAnimated && !animateOnHover ? "animate" : "idle",
+      whileHover: animateOnHover ? "hover" : void 0,
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxRuntime.jsx("rect", { x: "3", y: "4", width: "18", height: "18", rx: "2", ry: "2" }),
+        /* @__PURE__ */ jsxRuntime.jsx("line", { x1: "3", y1: "10", x2: "21", y2: "10" }),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.line,
+          {
+            x1: "8",
+            y1: "2",
+            x2: "8",
+            y2: "6",
+            variants: {
+              idle: { y: 0 },
+              animate: {
+                y: [0, -1.5, 0],
+                transition: { duration: 1.8, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { y: -2, transition: { type: "spring" } }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.line,
+          {
+            x1: "16",
+            y1: "2",
+            x2: "16",
+            y2: "6",
+            variants: {
+              idle: { y: 0 },
+              animate: {
+                y: [0, -1.5, 0],
+                transition: { duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: 0.2 }
+              },
+              hover: { y: -2, transition: { type: "spring", delay: 0.05 } }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.circle,
+          {
+            cx: "8",
+            cy: "14",
+            r: "1",
+            fill: color,
+            variants: {
+              idle: { opacity: 0.7 },
+              animate: {
+                opacity: [0.3, 1, 0.3],
+                transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { scale: 1.3 }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.circle,
+          {
+            cx: "12",
+            cy: "14",
+            r: "1",
+            fill: color,
+            variants: {
+              idle: { opacity: 0.7 },
+              animate: {
+                opacity: [0.3, 1, 0.3],
+                transition: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.3 }
+              },
+              hover: { scale: 1.3 }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.circle,
+          {
+            cx: "16",
+            cy: "14",
+            r: "1",
+            fill: color,
+            variants: {
+              idle: { opacity: 0.7 },
+              animate: {
+                opacity: [0.3, 1, 0.3],
+                transition: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.6 }
+              },
+              hover: { scale: 1.3 }
+            }
+          }
+        )
+      ]
+    }
+  );
+};
+var AnimatedFolderOpen = ({
+  size = 48,
+  color = "currentColor",
+  isAnimated = true,
+  animateOnHover = false,
+  ...props
+}) => {
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    framerMotion.motion.svg,
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: color,
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      initial: "idle",
+      animate: isAnimated && !animateOnHover ? "animate" : "idle",
+      whileHover: animateOnHover ? "hover" : void 0,
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.path,
+          {
+            d: "M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z",
+            variants: {
+              idle: { scale: 1 },
+              animate: {
+                scale: [1, 1.02, 1],
+                transition: { duration: 2.5, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { scale: 1.03, transition: { type: "spring" } }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.path,
+          {
+            d: "M2 10h20l-2 10H4L2 10z",
+            variants: {
+              idle: { y: 0, skewX: 0 },
+              animate: {
+                y: [0, 1.5, 0],
+                skewX: [0, -3, 0],
+                transition: { duration: 2.5, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { y: 2, skewX: -6, transition: { type: "spring", stiffness: 300 } }
+            }
+          }
+        )
+      ]
+    }
+  );
+};
+var AnimatedLayers = ({
+  size = 48,
+  color = "currentColor",
+  isAnimated = true,
+  animateOnHover = false,
+  ...props
+}) => {
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    framerMotion.motion.svg,
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: color,
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      initial: "idle",
+      animate: isAnimated && !animateOnHover ? "animate" : "idle",
+      whileHover: animateOnHover ? "hover" : void 0,
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.polygon,
+          {
+            points: "12 2 2 7 12 12 22 7 12 2",
+            variants: {
+              idle: { y: 0 },
+              animate: {
+                y: [0, -3, 0],
+                transition: { duration: 2.2, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { y: -5, transition: { type: "spring", stiffness: 400, damping: 12 } }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.polyline,
+          {
+            points: "2 12 12 17 22 12",
+            variants: {
+              idle: { y: 0 },
+              animate: {
+                y: [0, -1, 0],
+                transition: { duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 0.15 }
+              },
+              hover: { y: -2, transition: { type: "spring" } }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.polyline,
+          {
+            points: "2 17 12 22 22 17",
+            variants: {
+              idle: { y: 0 },
+              animate: {
+                y: [0, 0, 0]
+              },
+              hover: { y: 0 }
+            }
+          }
+        )
+      ]
+    }
+  );
+};
+var AnimatedCreditCard = ({
+  size = 48,
+  color = "currentColor",
+  isAnimated = true,
+  animateOnHover = false,
+  ...props
+}) => {
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    framerMotion.motion.svg,
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: color,
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      initial: "idle",
+      animate: isAnimated && !animateOnHover ? "animate" : "idle",
+      whileHover: animateOnHover ? "hover" : void 0,
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.rect,
+          {
+            x: "2",
+            y: "5",
+            width: "20",
+            height: "14",
+            rx: "2",
+            variants: {
+              idle: { y: 0, rotate: 0 },
+              animate: {
+                y: [0, -1.5, 0],
+                rotate: [0, -1, 0, 1, 0],
+                transition: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { y: -3, rotate: -2, transition: { type: "spring" } }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.line,
+          {
+            x1: "2",
+            y1: "10",
+            x2: "22",
+            y2: "10",
+            variants: {
+              idle: { opacity: 0.8 },
+              animate: {
+                opacity: [0.6, 1, 0.6],
+                transition: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+              }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.rect,
+          {
+            x: "5",
+            y: "13",
+            width: "3",
+            height: "2.5",
+            rx: "0.5",
+            fill: color,
+            variants: {
+              idle: { opacity: 0.8 },
+              animate: {
+                opacity: [0.5, 1, 0.5],
+                transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { scale: 1.2 }
+            }
+          }
+        )
+      ]
+    }
+  );
+};
+var AnimatedBrush = ({
+  size = 48,
+  color = "currentColor",
+  isAnimated = true,
+  animateOnHover = false,
+  ...props
+}) => {
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    framerMotion.motion.svg,
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: color,
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      initial: "idle",
+      animate: isAnimated && !animateOnHover ? "animate" : "idle",
+      whileHover: animateOnHover ? "hover" : void 0,
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxRuntime.jsxs(
+          framerMotion.motion.g,
+          {
+            variants: {
+              idle: { rotate: 0, originX: "18px", originY: "6px" },
+              animate: {
+                rotate: [0, -12, 6, 0],
+                transition: { duration: 2.5, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { rotate: -18, transition: { type: "spring", stiffness: 300 } }
+            },
+            children: [
+              /* @__PURE__ */ jsxRuntime.jsx("path", { d: "m14 12-8.5 8.5a2.12 2.12 0 1 1-3-3L11 9" }),
+              /* @__PURE__ */ jsxRuntime.jsx("path", { d: "M15 13 9 7l4-4 6 6z" })
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.path,
+          {
+            d: "M19 2v3",
+            variants: {
+              idle: { opacity: 0.5, scale: 1 },
+              animate: {
+                opacity: [0.2, 1, 0.2],
+                scale: [0.8, 1.2, 0.8],
+                transition: { duration: 1.8, repeat: Infinity, ease: "easeInOut" }
+              }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.path,
+          {
+            d: "M22 5h-3",
+            variants: {
+              idle: { opacity: 0.5, scale: 1 },
+              animate: {
+                opacity: [0.2, 1, 0.2],
+                scale: [0.8, 1.2, 0.8],
+                transition: { duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: 0.2 }
+              }
+            }
+          }
+        )
+      ]
+    }
+  );
+};
+var AnimatedSparkles = ({
+  size = 48,
+  color = "currentColor",
+  isAnimated = true,
+  animateOnHover = false,
+  ...props
+}) => {
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    framerMotion.motion.svg,
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: color,
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      initial: "idle",
+      animate: isAnimated && !animateOnHover ? "animate" : "idle",
+      whileHover: animateOnHover ? "hover" : void 0,
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.path,
+          {
+            d: "m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z",
+            variants: {
+              idle: { scale: 1, rotate: 0, originX: "12px", originY: "12px" },
+              animate: {
+                scale: [1, 1.1, 1],
+                rotate: [0, 15, -10, 0],
+                transition: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { scale: 1.2, rotate: 45, transition: { type: "spring", stiffness: 300 } }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.path,
+          {
+            d: "M5 3v4",
+            variants: {
+              idle: { opacity: 0.6 },
+              animate: {
+                opacity: [0.2, 1, 0.2],
+                transition: { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
+              }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.path,
+          {
+            d: "M7 5H3",
+            variants: {
+              idle: { opacity: 0.6 },
+              animate: {
+                opacity: [0.2, 1, 0.2],
+                transition: { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
+              }
+            }
+          }
+        )
+      ]
+    }
+  );
+};
+var AnimatedShieldCheck = ({
+  size = 48,
+  color = "currentColor",
+  isAnimated = true,
+  animateOnHover = false,
+  ...props
+}) => {
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    framerMotion.motion.svg,
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: color,
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      initial: "idle",
+      animate: isAnimated && !animateOnHover ? "animate" : "idle",
+      whileHover: animateOnHover ? "hover" : void 0,
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.path,
+          {
+            d: "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",
+            variants: {
+              idle: { scale: 1 },
+              animate: {
+                scale: [1, 1.03, 1],
+                transition: { duration: 2.8, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { scale: 1.05, transition: { type: "spring" } }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.path,
+          {
+            d: "m9 12 2 2 4-4",
+            variants: {
+              idle: { pathLength: 1 },
+              animate: {
+                pathLength: [0.8, 1, 0.8],
+                transition: { duration: 2.8, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { pathLength: 1, scale: 1.1, originX: "12px", originY: "12px" }
+            }
+          }
+        )
+      ]
+    }
+  );
+};
+var AnimatedTrendingUp = ({
+  size = 48,
+  color = "currentColor",
+  isAnimated = true,
+  animateOnHover = false,
+  ...props
+}) => {
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    framerMotion.motion.svg,
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: color,
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      initial: "idle",
+      animate: isAnimated && !animateOnHover ? "animate" : "idle",
+      whileHover: animateOnHover ? "hover" : void 0,
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.polyline,
+          {
+            points: "22 7 13.5 15.5 8.5 10.5 2 17",
+            variants: {
+              idle: { pathLength: 1 },
+              animate: {
+                pathLength: [0.7, 1, 0.7],
+                transition: { duration: 2.5, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { pathLength: 1 }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.polyline,
+          {
+            points: "16 7 22 7 22 13",
+            variants: {
+              idle: { x: 0, y: 0 },
+              animate: {
+                x: [0, 2, 0],
+                y: [0, -2, 0],
+                transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { x: 3, y: -3, transition: { type: "spring", stiffness: 400 } }
+            }
+          }
+        )
+      ]
+    }
+  );
+};
+var AnimatedRadio = ({
+  size = 48,
+  color = "currentColor",
+  isAnimated = true,
+  animateOnHover = false,
+  ...props
+}) => {
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    framerMotion.motion.svg,
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: color,
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      initial: "idle",
+      animate: isAnimated && !animateOnHover ? "animate" : "idle",
+      whileHover: animateOnHover ? "hover" : void 0,
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.circle,
+          {
+            cx: "12",
+            cy: "12",
+            r: "2",
+            fill: color,
+            variants: {
+              idle: { scale: 1 },
+              animate: {
+                scale: [1, 1.3, 1],
+                transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { scale: 1.4 }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.path,
+          {
+            d: "M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14",
+            variants: {
+              idle: { opacity: 0.7 },
+              animate: {
+                opacity: [0.3, 1, 0.3],
+                transition: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { opacity: 1, scale: 1.05, originX: "12px", originY: "12px" }
+            }
+          }
+        )
+      ]
+    }
+  );
+};
+var AnimatedSettings = ({
+  size = 48,
+  color = "currentColor",
+  isAnimated = true,
+  animateOnHover = false,
+  ...props
+}) => {
+  return /* @__PURE__ */ jsxRuntime.jsx(
+    framerMotion.motion.svg,
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: color,
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      initial: "idle",
+      animate: isAnimated && !animateOnHover ? "animate" : "idle",
+      whileHover: animateOnHover ? "hover" : void 0,
+      ...props,
+      children: /* @__PURE__ */ jsxRuntime.jsxs(
+        framerMotion.motion.g,
+        {
+          variants: {
+            idle: { rotate: 0, originX: "12.5px", originY: "12.5px" },
+            animate: {
+              rotate: [0, 90, 180, 270, 360],
+              transition: { duration: 12, repeat: Infinity, ease: "linear" }
+            },
+            hover: { rotate: 90, transition: { type: "spring", stiffness: 300, damping: 15 } }
+          },
+          children: [
+            /* @__PURE__ */ jsxRuntime.jsx("path", { d: "M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" }),
+            /* @__PURE__ */ jsxRuntime.jsx("circle", { cx: "12", cy: "12", r: "3" })
+          ]
+        }
+      )
+    }
+  );
+};
+var AnimatedDashboard = ({
+  size = 48,
+  color = "currentColor",
+  isAnimated = true,
+  animateOnHover = false,
+  ...props
+}) => {
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    framerMotion.motion.svg,
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: color,
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      initial: "idle",
+      animate: isAnimated && !animateOnHover ? "animate" : "idle",
+      whileHover: animateOnHover ? "hover" : void 0,
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.rect,
+          {
+            x: "3",
+            y: "3",
+            width: "7",
+            height: "9",
+            rx: "1",
+            variants: {
+              idle: { scale: 1 },
+              animate: {
+                scale: [1, 1.05, 1],
+                transition: { duration: 2.5, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { scale: 1.1, transition: { type: "spring" } }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.rect,
+          {
+            x: "14",
+            y: "3",
+            width: "7",
+            height: "5",
+            rx: "1",
+            variants: {
+              idle: { scale: 1 },
+              animate: {
+                scale: [1, 1.05, 1],
+                transition: { duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }
+              },
+              hover: { scale: 1.1, transition: { type: "spring" } }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.rect,
+          {
+            x: "14",
+            y: "12",
+            width: "7",
+            height: "9",
+            rx: "1",
+            variants: {
+              idle: { scale: 1 },
+              animate: {
+                scale: [1, 1.05, 1],
+                transition: { duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.4 }
+              },
+              hover: { scale: 1.1, transition: { type: "spring" } }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.rect,
+          {
+            x: "3",
+            y: "16",
+            width: "7",
+            height: "5",
+            rx: "1",
+            variants: {
+              idle: { scale: 1 },
+              animate: {
+                scale: [1, 1.05, 1],
+                transition: { duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.6 }
+              },
+              hover: { scale: 1.1, transition: { type: "spring" } }
+            }
+          }
+        )
+      ]
+    }
+  );
+};
+var AnimatedSearch = ({
+  size = 48,
+  color = "currentColor",
+  isAnimated = true,
+  animateOnHover = false,
+  ...props
+}) => {
+  return /* @__PURE__ */ jsxRuntime.jsx(
+    framerMotion.motion.svg,
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: color,
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      initial: "idle",
+      animate: isAnimated && !animateOnHover ? "animate" : "idle",
+      whileHover: animateOnHover ? "hover" : void 0,
+      ...props,
+      children: /* @__PURE__ */ jsxRuntime.jsxs(
+        framerMotion.motion.g,
+        {
+          variants: {
+            idle: { rotate: 0, x: 0, y: 0, originX: "11px", originY: "11px" },
+            animate: {
+              rotate: [0, -8, 8, 0],
+              x: [0, -1, 1, 0],
+              y: [0, -1, 0, 0],
+              transition: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+            },
+            hover: { rotate: -15, scale: 1.1, transition: { type: "spring", stiffness: 300 } }
+          },
+          children: [
+            /* @__PURE__ */ jsxRuntime.jsx("circle", { cx: "11", cy: "11", r: "8" }),
+            /* @__PURE__ */ jsxRuntime.jsx("line", { x1: "21", y1: "21", x2: "16.65", y2: "16.65" })
+          ]
+        }
+      )
+    }
+  );
+};
+var AnimatedDoorOpen = ({
+  size = 48,
+  color = "currentColor",
+  isAnimated = true,
+  animateOnHover = false,
+  ...props
+}) => {
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    framerMotion.motion.svg,
+    {
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: color,
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      initial: "idle",
+      animate: isAnimated && !animateOnHover ? "animate" : "idle",
+      whileHover: animateOnHover ? "hover" : void 0,
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxRuntime.jsx("path", { d: "M13 4h3a2 2 0 0 1 2 2v14" }),
+        /* @__PURE__ */ jsxRuntime.jsx("path", { d: "M2 20h20" }),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.path,
+          {
+            d: "M13 20V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v16",
+            variants: {
+              idle: { skewY: 0, originX: "4px", originY: "12px" },
+              animate: {
+                skewY: [0, -6, 0],
+                transition: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+              },
+              hover: { skewY: -12, transition: { type: "spring", stiffness: 300 } }
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          framerMotion.motion.circle,
+          {
+            cx: "10",
+            cy: "12",
+            r: "1",
+            fill: color,
+            variants: {
+              idle: { x: 0 },
+              animate: {
+                x: [0, -1, 0],
+                transition: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+              }
+            }
+          }
+        )
+      ]
     }
   );
 };
@@ -5761,6 +6883,22 @@ function diffTranslationKeys(reference, candidate) {
 }
 
 exports.APP_TILE_VARIANTS = APP_TILE_VARIANTS;
+exports.AnimatedBed = AnimatedBed;
+exports.AnimatedBrush = AnimatedBrush;
+exports.AnimatedCalendar = AnimatedCalendar;
+exports.AnimatedCreditCard = AnimatedCreditCard;
+exports.AnimatedDashboard = AnimatedDashboard;
+exports.AnimatedDoorOpen = AnimatedDoorOpen;
+exports.AnimatedFolderOpen = AnimatedFolderOpen;
+exports.AnimatedInbox = AnimatedInbox;
+exports.AnimatedLayers = AnimatedLayers;
+exports.AnimatedRadio = AnimatedRadio;
+exports.AnimatedSearch = AnimatedSearch;
+exports.AnimatedSettings = AnimatedSettings;
+exports.AnimatedShieldCheck = AnimatedShieldCheck;
+exports.AnimatedSparkles = AnimatedSparkles;
+exports.AnimatedTrendingUp = AnimatedTrendingUp;
+exports.AnimatedUsers = AnimatedUsers;
 exports.AppDialog = AppDialog;
 exports.AppDrawer = AppDrawer;
 exports.AppFolderMiniPreview = AppFolderMiniPreview;

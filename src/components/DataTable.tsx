@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
 import Paper from '@mui/material/Paper';
 import Skeleton from '@mui/material/Skeleton';
@@ -147,134 +148,133 @@ export function DataTable<T extends { id: ID }>({
       }}
     >
       {toolbar ? <TableToolbar>{toolbar}</TableToolbar> : null}
-      <TableContainer>
-        <Table size="small" aria-busy={isLoading}>
-          <TableHead sx={{ backgroundColor: 'action.hover' }}>
-            <TableRow>
-              {selectable ? (
-                <TableCell padding="checkbox">
-                  <Checkbox
-                    checked={allSelected}
-                    indeterminate={!allSelected && someSelected}
-                    onChange={toggleAll}
-                    inputProps={{ 'aria-label': t('common:table.selectAll') }}
-                  />
-                </TableCell>
-              ) : null}
-              {columns.map((column) => (
-                <TableCell
-                  key={String(column.key)}
-                  align={column.align ?? 'left'}
-                  sx={{ width: column.width, fontWeight: 700 }}
-                  sortDirection={sortBy === column.key ? sortDir : false}
-                >
-                  {column.sortable && onSortChange ? (
-                    <TableSortLabel
-                      active={sortBy === column.key}
-                      direction={sortBy === column.key ? sortDir : 'asc'}
-                      onClick={() => {
-                        onSortChange(String(column.key));
-                      }}
-                    >
-                      {t(column.labelKey)}
-                    </TableSortLabel>
-                  ) : (
-                    t(column.labelKey)
-                  )}
-                </TableCell>
-              ))}
-              {rowActions ? (
-                <TableCell align="right" sx={{ fontWeight: 700 }}>
-                  {t('common:table.actions')}
-                </TableCell>
-              ) : null}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {isLoading
-              ? Array.from({ length: compact ? 5 : pageSize }, (_, i) => (
-                  <TableRow key={i}>
-                    <TableCell colSpan={colSpan}>
-                      <Skeleton variant="text" height={28} />
-                    </TableCell>
-                  </TableRow>
-                ))
-              : null}
-            {!isLoading && isError ? (
-              <TableRow>
-                <TableCell colSpan={colSpan} sx={{ border: 0 }}>
-                  <ErrorState onRetry={onRetry} />
-                </TableCell>
-              </TableRow>
-            ) : null}
-            {!isLoading && !isError && rows.length === 0 ? (
-              <TableRow>
-                <TableCell colSpan={colSpan} sx={{ border: 0 }}>
-                  {emptyState ?? <EmptyState titleKey="common:states.noResults" />}
-                </TableCell>
-              </TableRow>
-            ) : null}
-            {!isLoading && !isError
-              ? rows.map((row) => (
-                  <ClickableRow
-                    key={row.id}
-                    clickable={Boolean(onRowClick || getContextMenuItems)}
-                    hover
-                    selected={selected.includes(row.id)}
-                    onClick={onRowClick ? () => { onRowClick(row); } : undefined}
-                    onContextMenu={(e) => handleRowContextMenu(e, row)}
-                  >
-                    {selectable ? (
-                      <TableCell padding="checkbox" onClick={(e) => { e.stopPropagation(); }}>
-                        <Checkbox
-                          checked={selected.includes(row.id)}
-                          onChange={() => {
-                            toggleOne(row.id);
-                          }}
-                          inputProps={{ 'aria-label': t('common:table.selectRow') }}
-                        />
-                      </TableCell>
-                    ) : null}
-                    {columns.map((column) => (
-                      <TableCell key={String(column.key)} align={column.align ?? 'left'}>
-                        {renderCell(row, column)}
-                      </TableCell>
-                    ))}
-                    {rowActions ? (
-                      <TableCell align="right" onClick={(e) => { e.stopPropagation(); }}>
-                        {rowActions(row)}
-                      </TableCell>
-                    ) : null}
-                  </ClickableRow>
-                ))
-              : null}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      {!compact ? (
-        <TablePagination
-          component="div"
-          count={data?.total ?? 0}
-          page={Math.max(0, page - 1)}
-          rowsPerPage={pageSize}
-          rowsPerPageOptions={[...PAGE_SIZE_OPTIONS]}
-          onPageChange={(_e, newPage) => {
-            onPageChange(newPage + 1);
-          }}
-          onRowsPerPageChange={(e) => {
-            onPageSizeChange(Number(e.target.value));
-          }}
-          labelRowsPerPage={t('common:table.rowsPerPage')}
-          labelDisplayedRows={({ from, to, count }) =>
-            t('common:table.displayedRows', { from, to, count })
-          }
-          sx={{
-            borderTop: '1px solid',
-            borderColor: 'divider',
-            '& .MuiTablePagination-toolbar': { minHeight: 48, px: 2 },
-          }}
-        />
+      {!isLoading && isError ? (
+        <Box sx={{ p: 3 }}>
+          <ErrorState onRetry={onRetry} />
+        </Box>
       ) : null}
+
+      {!isLoading && !isError && rows.length === 0 ? (
+        <Box sx={{ p: 2 }}>
+          {emptyState ?? <EmptyState titleKey="common:states.noResults" />}
+        </Box>
+      ) : null}
+
+      {(isLoading || rows.length > 0) && (
+        <>
+          <TableContainer>
+            <Table size="small" aria-busy={isLoading}>
+              <TableHead sx={{ backgroundColor: 'action.hover' }}>
+                <TableRow>
+                  {selectable ? (
+                    <TableCell padding="checkbox">
+                      <Checkbox
+                        checked={allSelected}
+                        indeterminate={!allSelected && someSelected}
+                        onChange={toggleAll}
+                        inputProps={{ 'aria-label': t('common:table.selectAll') }}
+                      />
+                    </TableCell>
+                  ) : null}
+                  {columns.map((column) => (
+                    <TableCell
+                      key={String(column.key)}
+                      align={column.align ?? 'left'}
+                      sx={{ width: column.width, fontWeight: 700 }}
+                      sortDirection={sortBy === column.key ? sortDir : false}
+                    >
+                      {column.sortable && onSortChange ? (
+                        <TableSortLabel
+                          active={sortBy === column.key}
+                          direction={sortBy === column.key ? sortDir : 'asc'}
+                          onClick={() => {
+                            onSortChange(String(column.key));
+                          }}
+                        >
+                          {t(column.labelKey)}
+                        </TableSortLabel>
+                      ) : (
+                        t(column.labelKey)
+                      )}
+                    </TableCell>
+                  ))}
+                  {rowActions ? (
+                    <TableCell align="right" sx={{ fontWeight: 700 }}>
+                      {t('common:table.actions')}
+                    </TableCell>
+                  ) : null}
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {isLoading
+                  ? Array.from({ length: compact ? 5 : pageSize }, (_, i) => (
+                      <TableRow key={i}>
+                        <TableCell colSpan={colSpan}>
+                          <Skeleton variant="text" height={28} />
+                        </TableCell>
+                      </TableRow>
+                    ))
+                  : rows.map((row) => (
+                      <ClickableRow
+                        key={row.id}
+                        clickable={Boolean(onRowClick || getContextMenuItems)}
+                        hover
+                        selected={selected.includes(row.id)}
+                        onClick={onRowClick ? () => { onRowClick(row); } : undefined}
+                        onContextMenu={(e) => handleRowContextMenu(e, row)}
+                      >
+                        {selectable ? (
+                          <TableCell padding="checkbox" onClick={(e) => { e.stopPropagation(); }}>
+                            <Checkbox
+                              checked={selected.includes(row.id)}
+                              onChange={() => {
+                                toggleOne(row.id);
+                              }}
+                              inputProps={{ 'aria-label': t('common:table.selectRow') }}
+                            />
+                          </TableCell>
+                        ) : null}
+                        {columns.map((column) => (
+                          <TableCell key={String(column.key)} align={column.align ?? 'left'}>
+                            {renderCell(row, column)}
+                          </TableCell>
+                        ))}
+                        {rowActions ? (
+                          <TableCell align="right" onClick={(e) => { e.stopPropagation(); }}>
+                            {rowActions(row)}
+                          </TableCell>
+                        ) : null}
+                      </ClickableRow>
+                    ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+          {!compact ? (
+            <TablePagination
+              component="div"
+              count={data?.total ?? 0}
+              page={Math.max(0, page - 1)}
+              rowsPerPage={pageSize}
+              rowsPerPageOptions={[...PAGE_SIZE_OPTIONS]}
+              onPageChange={(_e, newPage) => {
+                onPageChange(newPage + 1);
+              }}
+              onRowsPerPageChange={(e) => {
+                onPageSizeChange(Number(e.target.value));
+              }}
+              labelRowsPerPage={t('common:table.rowsPerPage')}
+              labelDisplayedRows={({ from, to, count }) =>
+                t('common:table.displayedRows', { from, to, count })
+              }
+              sx={{
+                borderTop: '1px solid',
+                borderColor: 'divider',
+                '& .MuiTablePagination-toolbar': { minHeight: 48, px: 2 },
+              }}
+            />
+          ) : null}
+        </>
+      )}
 
       {/* Apple Motion Context Menu */}
       <ContextMenu

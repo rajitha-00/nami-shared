@@ -34,3 +34,4 @@ export { MenuCard, type MenuCardProps } from './MenuCard';
 export { ContextMenu, type ContextMenuProps, type ContextMenuItem, } from './ContextMenu';
 export { UserAvatar, type UserAvatarProps, getAvatarBgColor, } from './UserAvatar';
 export * from './AppLauncher';
+export * from './animated-icons';

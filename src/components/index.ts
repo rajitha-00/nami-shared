@@ -79,5 +79,6 @@ export {
   getAvatarBgColor,
 } from './UserAvatar';
 export * from './AppLauncher';
+export * from './animated-icons';
 
 

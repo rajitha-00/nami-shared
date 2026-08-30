@@ -1,11 +1,16 @@
 import type { ReactNode } from 'react';
 export interface EmptyStateProps {
     icon?: ReactNode;
-    titleKey: string;
+    titleKey?: string;
+    title?: string;
     descriptionKey?: string;
+    description?: string;
     descriptionParams?: Record<string, unknown>;
-    /** Optional CTA (e.g. an "Add client" button). */
+    /** Optional CTA (e.g. an "Add Room" button). */
     action?: ReactNode;
+    compact?: boolean;
 }
-/** Matches the Figma empty-table placeholder. */
-export declare function EmptyState({ icon, titleKey, descriptionKey, descriptionParams, action, }: EmptyStateProps): import("react").JSX.Element;
+/**
+ * Modern Empty State with Lucide-Animated icon, soft glassmorphism & optional CTA.
+ */
+export declare const EmptyState: ({ icon, titleKey, title, descriptionKey, description, descriptionParams, action, compact, }: EmptyStateProps) => import("react").JSX.Element;
