@@ -16,7 +16,7 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   treeshake: true,
-  noExternal: ['@base-ui/react'],
+  noExternal: [/^@base-ui\/react/],
   external: [
     'react',
     'react-dom',

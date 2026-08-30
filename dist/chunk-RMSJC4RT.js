@@ -59,6 +59,28 @@ function buildQueryString(params) {
   return qs ? `?${qs}` : "";
 }
 
-export { buildQueryString, clamp, groupBy, sleep, sortBy, uniqueBy };
-//# sourceMappingURL=chunk-KOOBDHAB.js.map
-//# sourceMappingURL=chunk-KOOBDHAB.js.map
+// src/utils/file-security.ts
+var MAX_IMAGE_BYTES = 5 * 1024 * 1024;
+var MAX_VIDEO_BYTES = 50 * 1024 * 1024;
+var readHeader = async (file, length = 12) => new Uint8Array(await file.slice(0, length).arrayBuffer());
+var validateImageFile = async (file, maxBytes = MAX_IMAGE_BYTES) => {
+  if (file.size === 0 || file.size > maxBytes) return false;
+  const bytes = await readHeader(file);
+  const png = [137, 80, 78, 71, 13, 10, 26, 10].every(
+    (value, index) => bytes[index] === value
+  );
+  const jpeg = bytes[0] === 255 && bytes[1] === 216 && bytes[2] === 255;
+  const webp = bytes.length >= 12 && String.fromCharCode(...bytes.slice(0, 4)) === "RIFF" && String.fromCharCode(...bytes.slice(8, 12)) === "WEBP";
+  return png || jpeg || webp;
+};
+var validateVideoFile = async (file, maxBytes = MAX_VIDEO_BYTES) => {
+  if (file.size === 0 || file.size > maxBytes) return false;
+  const bytes = await readHeader(file);
+  const mp4 = bytes.length >= 8 && String.fromCharCode(...bytes.slice(4, 8)) === "ftyp";
+  const webm = bytes.length >= 4 && bytes[0] === 26 && bytes[1] === 69 && bytes[2] === 223 && bytes[3] === 163;
+  return mp4 || webm;
+};
+
+export { MAX_IMAGE_BYTES, MAX_VIDEO_BYTES, buildQueryString, clamp, groupBy, sleep, sortBy, uniqueBy, validateImageFile, validateVideoFile };
+//# sourceMappingURL=chunk-RMSJC4RT.js.map
+//# sourceMappingURL=chunk-RMSJC4RT.js.map
