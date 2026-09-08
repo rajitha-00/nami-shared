@@ -15,7 +15,7 @@ describe('useTableQuery', () => {
 
     expect(result.current.params).toEqual({
       page: 1,
-      pageSize: 10,
+      pageSize: 15,
       search: undefined,
       sortBy: undefined,
       sortDir: undefined,

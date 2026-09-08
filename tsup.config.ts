@@ -21,6 +21,8 @@ export default defineConfig({
     'react',
     'react-dom',
     'react/jsx-runtime',
+    'use-sync-external-store',
+    /^use-sync-external-store(\/.*)?$/,
     '@mui/material',
     '@mui/icons-material',
     '@emotion/react',

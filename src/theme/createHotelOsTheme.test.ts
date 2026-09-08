@@ -24,6 +24,6 @@ describe('createHotelOsTheme', () => {
     expect(theme.custom.sidebarWidth).toBe(300);
     // untouched tokens survive the merge
     expect(theme.custom.topBarHeight).toBe(64);
-    expect(theme.palette.success.main).toBe('#16A34A');
+    expect(theme.palette.success.main).toBe('#34C759');
   });
 });

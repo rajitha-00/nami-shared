@@ -4,6 +4,6 @@ export { DATE_FORMATS, DEBOUNCE_MS, DEFAULT_PAGE_SIZE, PAGE_SIZE_OPTIONS, SNACKB
 export { STORAGE_KEYS } from '../chunk-3XYH3GIR.js';
 export { DEFAULT_LOCALE, SUPPORTED_LOCALES } from '../chunk-TSLK7DRZ.js';
 import '../chunk-VHJBQ5IQ.js';
-import '../chunk-2TUXWMP5.js';
+import '../chunk-UVKRO5ER.js';
 //# sourceMappingURL=index.js.map
 //# sourceMappingURL=index.js.map
