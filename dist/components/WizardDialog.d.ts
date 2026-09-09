@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import type { SxProps, Theme } from '@mui/material/styles';
 export interface WizardStep {
     labelKey: string;
 }
@@ -19,7 +20,9 @@ export interface WizardDialogProps {
     nextKey?: string;
     backKey?: string;
     finishKey?: string;
+    maxWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | false;
+    paperSx?: SxProps<Theme>;
     children: ReactNode;
 }
 /** Numbered-stepper dialog for multi-step flows (e.g. the booking wizard). */
-export declare function WizardDialog({ open, titleKey, steps, activeStep, canNext, onNext, onBack, onCancel, onFinish, submitting, nextKey, backKey, finishKey, children, }: WizardDialogProps): import("react").JSX.Element;
+export declare function WizardDialog({ open, titleKey, steps, activeStep, canNext, onNext, onBack, onCancel, onFinish, submitting, nextKey, backKey, finishKey, maxWidth, paperSx, children, }: WizardDialogProps): import("react").JSX.Element;

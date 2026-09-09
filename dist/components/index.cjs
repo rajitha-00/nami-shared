@@ -22,7 +22,7 @@ var Stack4 = require('@mui/material/Stack');
 var Paper = require('@mui/material/Paper');
 var ErrorOutlineIcon = require('@mui/icons-material/ErrorOutline');
 var RefreshIcon = require('@mui/icons-material/Refresh');
-var Chip5 = require('@mui/material/Chip');
+var Chip6 = require('@mui/material/Chip');
 var Checkbox = require('@mui/material/Checkbox');
 var Skeleton = require('@mui/material/Skeleton');
 var Table = require('@mui/material/Table');
@@ -101,7 +101,7 @@ var Stack4__default = /*#__PURE__*/_interopDefault(Stack4);
 var Paper__default = /*#__PURE__*/_interopDefault(Paper);
 var ErrorOutlineIcon__default = /*#__PURE__*/_interopDefault(ErrorOutlineIcon);
 var RefreshIcon__default = /*#__PURE__*/_interopDefault(RefreshIcon);
-var Chip5__default = /*#__PURE__*/_interopDefault(Chip5);
+var Chip6__default = /*#__PURE__*/_interopDefault(Chip6);
 var Checkbox__default = /*#__PURE__*/_interopDefault(Checkbox);
 var Skeleton__default = /*#__PURE__*/_interopDefault(Skeleton);
 var Table__default = /*#__PURE__*/_interopDefault(Table);
@@ -969,7 +969,7 @@ function StatusChip({ status, size = "small" }) {
   const { t } = reactI18next.useTranslation();
   const color = STATUS_COLORS[status];
   return /* @__PURE__ */ jsxRuntime.jsx(
-    Chip5__default.default,
+    Chip6__default.default,
     {
       label: t(`common:status.${status}`),
       size,
@@ -2214,7 +2214,7 @@ function StatusFilterChips({
     const active = option.value === value;
     const label = option.count !== void 0 ? `${t(option.labelKey)} (${option.count})` : t(option.labelKey);
     return /* @__PURE__ */ jsxRuntime.jsx(
-      Chip5__default.default,
+      Chip6__default.default,
       {
         label,
         color: active ? "primary" : void 0,
@@ -2338,6 +2338,8 @@ function WizardDialog({
   nextKey = "common:actions.next",
   backKey = "common:actions.back",
   finishKey = "common:wizard.finish",
+  maxWidth = "md",
+  paperSx,
   children
 }) {
   const { t } = reactI18next.useTranslation();
@@ -2348,28 +2350,95 @@ function WizardDialog({
       open,
       onClose: onCancel,
       fullWidth: true,
-      maxWidth: "lg",
+      maxWidth,
       TransitionComponent: AppleDialogTransition,
+      PaperProps: {
+        sx: {
+          maxWidth: { xs: "calc(100vw - 32px)", sm: 780, md: 960 },
+          width: "100%",
+          borderRadius: "24px",
+          boxShadow: "0 24px 60px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(0, 0, 0, 0.08)",
+          ...paperSx
+        }
+      },
       children: [
-        /* @__PURE__ */ jsxRuntime.jsxs(DialogTitle__default.default, { sx: { display: "flex", alignItems: "center", justifyContent: "space-between" }, children: [
-          t(titleKey),
+        /* @__PURE__ */ jsxRuntime.jsxs(DialogTitle__default.default, { sx: { display: "flex", alignItems: "center", justifyContent: "space-between", pb: 2, pt: 2.5, px: 3 }, children: [
+          /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", alignItems: "center", spacing: 1.5, children: [
+            /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "h6", sx: { fontWeight: 700, letterSpacing: "-0.01em" }, children: t(titleKey) }),
+            /* @__PURE__ */ jsxRuntime.jsx(
+              Chip6__default.default,
+              {
+                label: `${activeStep + 1} / ${steps.length}`,
+                size: "small",
+                color: "primary",
+                variant: "outlined",
+                sx: { fontWeight: 700, fontSize: "0.75rem", height: 22 }
+              }
+            )
+          ] }),
           /* @__PURE__ */ jsxRuntime.jsx(IconButton8__default.default, { "aria-label": t("common:actions.close"), onClick: onCancel, size: "small", edge: "end", children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon5__default.default, { fontSize: "small" }) })
         ] }),
-        /* @__PURE__ */ jsxRuntime.jsx(Stepper__default.default, { activeStep, sx: { px: 3, pb: 2 }, children: steps.map((step) => /* @__PURE__ */ jsxRuntime.jsx(Step__default.default, { children: /* @__PURE__ */ jsxRuntime.jsx(StepLabel__default.default, { children: t(step.labelKey) }) }, step.labelKey)) }),
-        /* @__PURE__ */ jsxRuntime.jsxs(DialogContent__default.default, { dividers: true, sx: { position: "relative", minHeight: 320 }, children: [
+        /* @__PURE__ */ jsxRuntime.jsx(
+          Stepper__default.default,
+          {
+            activeStep,
+            sx: {
+              px: 3,
+              pb: 2.5,
+              "& .MuiStepLabel-label": {
+                fontSize: "0.8125rem",
+                fontWeight: 500,
+                "&.Mui-active": {
+                  fontWeight: 700,
+                  color: "primary.main"
+                },
+                "&.Mui-completed": {
+                  fontWeight: 600,
+                  color: "text.primary"
+                }
+              },
+              "& .MuiStepIcon-root": {
+                width: 26,
+                height: 26,
+                "&.Mui-active": {
+                  color: "primary.main"
+                },
+                "&.Mui-completed": {
+                  color: "success.main"
+                }
+              }
+            },
+            children: steps.map((step) => /* @__PURE__ */ jsxRuntime.jsx(Step__default.default, { children: /* @__PURE__ */ jsxRuntime.jsx(StepLabel__default.default, { children: t(step.labelKey) }) }, step.labelKey))
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsxs(DialogContent__default.default, { dividers: true, sx: { position: "relative", minHeight: 320, p: 3 }, children: [
           children,
           /* @__PURE__ */ jsxRuntime.jsx(LoadingOverlay, { open: submitting })
         ] }),
-        /* @__PURE__ */ jsxRuntime.jsxs(DialogActions__default.default, { sx: { justifyContent: "space-between", px: 3 }, children: [
-          /* @__PURE__ */ jsxRuntime.jsx(Button5__default.default, { onClick: onCancel, color: "inherit", disabled: submitting, children: t("common:actions.cancel") }),
-          /* @__PURE__ */ jsxRuntime.jsxs("span", { children: [
-            /* @__PURE__ */ jsxRuntime.jsx(Button5__default.default, { onClick: onBack, color: "inherit", disabled: activeStep === 0 || submitting, sx: { mr: 1 }, children: t(backKey) }),
+        /* @__PURE__ */ jsxRuntime.jsxs(DialogActions__default.default, { sx: { justifyContent: "space-between", px: 3, py: 2 }, children: [
+          /* @__PURE__ */ jsxRuntime.jsx(Button5__default.default, { onClick: onCancel, color: "inherit", disabled: submitting, sx: { borderRadius: "12px" }, children: t("common:actions.cancel") }),
+          /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", spacing: 1.5, alignItems: "center", children: [
+            /* @__PURE__ */ jsxRuntime.jsx(
+              Button5__default.default,
+              {
+                onClick: onBack,
+                color: "inherit",
+                disabled: activeStep === 0 || submitting,
+                sx: { borderRadius: "12px" },
+                children: t(backKey)
+              }
+            ),
             /* @__PURE__ */ jsxRuntime.jsx(
               Button5__default.default,
               {
                 variant: "contained",
                 onClick: isLast ? onFinish : onNext,
                 disabled: !canNext || submitting,
+                sx: {
+                  borderRadius: "12px",
+                  px: 3,
+                  fontWeight: 700
+                },
                 children: t(isLast ? finishKey : nextKey)
               }
             )
@@ -2430,7 +2499,7 @@ function DateRangeButton({ range }) {
         anchorOrigin: { vertical: "bottom", horizontal: "left" },
         children: /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { spacing: 2, sx: { p: 2, width: 300 }, children: [
           /* @__PURE__ */ jsxRuntime.jsx(Stack4__default.default, { direction: "row", spacing: 1, flexWrap: "wrap", useFlexGap: true, children: Object.values(DateRangePreset).map((preset) => /* @__PURE__ */ jsxRuntime.jsx(
-            Chip5__default.default,
+            Chip6__default.default,
             {
               label: t(`common:dateRange.presets.${preset}`),
               size: "small",
@@ -3137,7 +3206,7 @@ var AppTile = ({
           }
         ),
         app.badge && /* @__PURE__ */ jsxRuntime.jsx(
-          Chip5__default.default,
+          Chip6__default.default,
           {
             label: app.badge,
             size: "small",
@@ -3368,7 +3437,7 @@ var AppFolderModal = ({
                     },
                     children: [
                       /* @__PURE__ */ jsxRuntime.jsx(
-                        Chip5__default.default,
+                        Chip6__default.default,
                         {
                           label: "All Apps",
                           size: "small",
@@ -3385,7 +3454,7 @@ var AppFolderModal = ({
                         }
                       ),
                       categories.map((cat) => /* @__PURE__ */ jsxRuntime.jsx(
-                        Chip5__default.default,
+                        Chip6__default.default,
                         {
                           label: getCategoryLabel(cat),
                           size: "small",
@@ -3929,7 +3998,7 @@ function MenuCard({
             badges?.map((badge, idx) => /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { children: badge }, idx)),
             /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { flexGrow: 1 } }),
             stockLabel && /* @__PURE__ */ jsxRuntime.jsx(
-              Chip5__default.default,
+              Chip6__default.default,
               {
                 label: stockLabel,
                 size: "small",
