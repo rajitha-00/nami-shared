@@ -3,11 +3,16 @@ export interface NavigateAppOptions {
     app: IAppItem;
     currentAppId?: string;
     onSelectApp?: (app: IAppItem) => void;
-    isPwaMode?: boolean;
 }
 /**
  * Handles navigation when an app is selected in the AppLauncher.
- * In PWA mode (standalone), apps other than the active one open in a separate window
- * so the user's active PWA session is not overwritten.
+ *
+ * Rules:
+ * - If a custom `onSelectApp` callback is provided, delegates to it.
+ * - Clicking the currently active app does nothing (prevents duplicate windows).
+ * - Apps with no reachable URL, or marked `disabled`, redirect the current page
+ *   to `/404` so users see a themed error page instead of a broken navigation.
+ * - All other apps always open in a new browser tab / window so the current
+ *   app session is never replaced (works for both PWA and regular browser tabs).
  */
-export declare const navigateApp: ({ app, currentAppId, onSelectApp, isPwaMode, }: NavigateAppOptions) => void;
+export declare const navigateApp: ({ app, currentAppId, onSelectApp, }: NavigateAppOptions) => void;

@@ -1,52 +1,63 @@
 import type { IAppItem } from '../interfaces/IAppItem';
-import { isPwa } from './isPwa';
+
+/**
+ * Checks whether a resolved URL is a real reachable address (not a localhost
+ * placeholder that leaked into a deployed build).
+ */
+const isReachableUrl = (url: string): boolean => {
+  if (!url) return false;
+  try {
+    const { hostname } = new URL(url);
+    return hostname !== 'localhost' && hostname !== '127.0.0.1';
+  } catch {
+    return false;
+  }
+};
 
 export interface NavigateAppOptions {
   app: IAppItem;
   currentAppId?: string;
   onSelectApp?: (app: IAppItem) => void;
-  isPwaMode?: boolean;
 }
 
 /**
  * Handles navigation when an app is selected in the AppLauncher.
- * In PWA mode (standalone), apps other than the active one open in a separate window
- * so the user's active PWA session is not overwritten.
+ *
+ * Rules:
+ * - If a custom `onSelectApp` callback is provided, delegates to it.
+ * - Clicking the currently active app does nothing (prevents duplicate windows).
+ * - Apps with no reachable URL, or marked `disabled`, redirect the current page
+ *   to `/404` so users see a themed error page instead of a broken navigation.
+ * - All other apps always open in a new browser tab / window so the current
+ *   app session is never replaced (works for both PWA and regular browser tabs).
  */
 export const navigateApp = ({
   app,
   currentAppId,
   onSelectApp,
-  isPwaMode = isPwa(),
 }: NavigateAppOptions): void => {
   if (onSelectApp) {
     onSelectApp(app);
     return;
   }
 
-  const targetUrl = app.url || app.path;
-  if (!targetUrl) return;
-
   const isCurrentApp = Boolean(currentAppId && app.id === currentAppId);
 
-  // If already inside the current app, avoid opening a duplicate window
-  if (isCurrentApp) {
-    if (app.path && typeof window !== 'undefined' && window.location.pathname !== app.path) {
-      window.location.href = app.path;
-    }
+  // Do not open a new window for the currently active app
+  if (isCurrentApp) return;
+
+  const targetUrl = app.url;
+
+  // Redirect to 404 for disabled apps, or apps whose URL is not reachable
+  // (e.g. a localhost URL that wasn't replaced in production, or no URL at all)
+  if (app.disabled || !isReachableUrl(targetUrl ?? '')) {
+    window.location.href = '/404';
     return;
   }
 
-  // In PWA mode or when external, open in a new window instead of navigating in-place
-  if (isPwaMode || app.isExternal) {
-    const windowFeatures = 'popup=yes,noopener,noreferrer';
-    const newWindow = window.open(targetUrl, '_blank', windowFeatures);
-    if (!newWindow) {
-      window.open(targetUrl, '_blank', 'noopener,noreferrer');
-    }
-    return;
-  }
-
-  // Standard in-place navigation for regular browser tabs
-  window.location.href = targetUrl;
+  // Always open external / other apps in a new tab so the current session is preserved.
+  // Use noopener,noreferrer for security. We intentionally avoid popup=yes so that
+  // the browser treats it as a regular new tab rather than a popup window.
+  window.open(targetUrl, '_blank', 'noopener,noreferrer');
 };
+

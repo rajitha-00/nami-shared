@@ -2945,46 +2945,33 @@ var AppFolderModal = ({
   );
 };
 
-// src/components/AppLauncher/functions/isPwa.ts
-var isPwa = () => {
-  if (typeof window === "undefined") return false;
-  const isStandaloneMedia = window.matchMedia?.("(display-mode: standalone)")?.matches || window.matchMedia?.("(display-mode: window-controls-overlay)")?.matches || window.matchMedia?.("(display-mode: minimal-ui)")?.matches || window.matchMedia?.("(display-mode: fullscreen)")?.matches;
-  const isIosStandalone = Boolean(
-    window.navigator?.standalone
-  );
-  const isAndroidTwa = Boolean(document.referrer?.startsWith("android-app://"));
-  return Boolean(isStandaloneMedia || isIosStandalone || isAndroidTwa);
-};
-
 // src/components/AppLauncher/functions/navigateApp.ts
+var isReachableUrl = (url) => {
+  if (!url) return false;
+  try {
+    const { hostname } = new URL(url);
+    return hostname !== "localhost" && hostname !== "127.0.0.1";
+  } catch {
+    return false;
+  }
+};
 var navigateApp = ({
   app,
   currentAppId,
-  onSelectApp,
-  isPwaMode = isPwa()
+  onSelectApp
 }) => {
   if (onSelectApp) {
     onSelectApp(app);
     return;
   }
-  const targetUrl = app.url || app.path;
-  if (!targetUrl) return;
   const isCurrentApp = Boolean(currentAppId && app.id === currentAppId);
-  if (isCurrentApp) {
-    if (app.path && typeof window !== "undefined" && window.location.pathname !== app.path) {
-      window.location.href = app.path;
-    }
+  if (isCurrentApp) return;
+  const targetUrl = app.url;
+  if (app.disabled || !isReachableUrl(targetUrl ?? "")) {
+    window.location.href = "/404";
     return;
   }
-  if (isPwaMode || app.isExternal) {
-    const windowFeatures = "popup=yes,noopener,noreferrer";
-    const newWindow = window.open(targetUrl, "_blank", windowFeatures);
-    if (!newWindow) {
-      window.open(targetUrl, "_blank", "noopener,noreferrer");
-    }
-    return;
-  }
-  window.location.href = targetUrl;
+  window.open(targetUrl, "_blank", "noopener,noreferrer");
 };
 var AppLauncher = ({
   title = "NamiOS Ecosystem",
@@ -3046,6 +3033,17 @@ var AppLauncher = ({
       }
     )
   ] });
+};
+
+// src/components/AppLauncher/functions/isPwa.ts
+var isPwa = () => {
+  if (typeof window === "undefined") return false;
+  const isStandaloneMedia = window.matchMedia?.("(display-mode: standalone)")?.matches || window.matchMedia?.("(display-mode: window-controls-overlay)")?.matches || window.matchMedia?.("(display-mode: minimal-ui)")?.matches || window.matchMedia?.("(display-mode: fullscreen)")?.matches;
+  const isIosStandalone = Boolean(
+    window.navigator?.standalone
+  );
+  const isAndroidTwa = Boolean(document.referrer?.startsWith("android-app://"));
+  return Boolean(isStandaloneMedia || isIosStandalone || isAndroidTwa);
 };
 var LayoutRoot = styled("div")({
   display: "flex",
@@ -4483,5 +4481,5 @@ var AnimatedDoorOpen = ({
 };
 
 export { APP_TILE_VARIANTS, AnimatedBed, AnimatedBrush, AnimatedCalendar, AnimatedCreditCard, AnimatedDashboard, AnimatedDoorOpen, AnimatedFolderOpen, AnimatedInbox, AnimatedLayers, AnimatedRadio, AnimatedSearch, AnimatedSettings, AnimatedShieldCheck, AnimatedSparkles, AnimatedTrendingUp, AnimatedUsers, AppDialog, AppDrawer, AppFolderMiniPreview, AppFolderModal, AppLauncher, AppSideNav, AppTile, AppTopBar, AuthLayout, BACKDROP_TRANSITION, CONTAINER_VARIANTS, ContextMenu, DEFAULT_HOTELOS_APPS, DashboardLayout, DataTable, DateRangeButton, DescriptionList, EmptyState, ErrorState, FOLDER_LAYOUT_SPRING, FormDialog, FormSelect, FormSwitch, FormTextField, KanbanBoard, LanguageSwitcher, LoadingOverlay, MenuCard, NamiosLoader, NamiosMarkSvg, PRODUCTION_APP_URLS, PageHeader, PageSkeleton, PasswordField, SearchField, SectionCard, SelectField, SplitPaneLayout, StatCard, StatusChip, StatusFilterChips, TimelineMatrix, UserAvatar, VERCEL_APP_URLS, WizardDialog, getAvatarBgColor, isPwa, navigateApp, resolveAppUrl };
-//# sourceMappingURL=chunk-WJZPE6PM.js.map
-//# sourceMappingURL=chunk-WJZPE6PM.js.map
+//# sourceMappingURL=chunk-7JYFAWUT.js.map
+//# sourceMappingURL=chunk-7JYFAWUT.js.map
