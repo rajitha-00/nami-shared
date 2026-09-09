@@ -10028,6 +10028,40 @@ var APP_TILE_VARIANTS = {
     }
   }
 };
+var PRODUCTION_APP_URLS = {
+  "stay-os": "https://stay.namios.app",
+  "dine-os": "https://dine.namios.app",
+  "people-hr": "https://people.namios.app",
+  "super-admin": "https://admin.namios.app",
+  "payments-os": "https://payments.namios.app",
+  "inventory-os": "https://inventory.namios.app",
+  "nami-ai": "https://ai.namios.app",
+  "public-web": "https://booking.namios.app"
+};
+var VERCEL_APP_URLS = {
+  "stay-os": "https://hotelos-stay-os.vercel.app",
+  "dine-os": "https://hotelos-dine-os.vercel.app",
+  "super-admin": "https://hotelos-super-admin.vercel.app"
+};
+function resolveAppUrl(app) {
+  if (typeof window === "undefined") {
+    return app.url || PRODUCTION_APP_URLS[app.id] || "";
+  }
+  const hostname = window.location.hostname;
+  const isLocalhost = hostname === "localhost" || hostname === "127.0.0.1" || hostname.endsWith(".local");
+  if (isLocalhost && app.url) {
+    return app.url;
+  }
+  const isLocalhostUrl = !app.url || app.url.includes("localhost") || app.url.includes("127.0.0.1");
+  if (isLocalhostUrl) {
+    const vercelUrl = VERCEL_APP_URLS[app.id];
+    if (hostname.endsWith(".vercel.app") && vercelUrl) {
+      return vercelUrl;
+    }
+    return PRODUCTION_APP_URLS[app.id] || app.url || "";
+  }
+  return app.url || "";
+}
 var DEFAULT_HOTELOS_APPS = [
   {
     id: "stay-os",
@@ -10751,6 +10785,12 @@ var AppLauncher = ({
   tooltip = "NamiOS Apps"
 }) => {
   const [isOpen, setIsOpen] = React18.useState(false);
+  const resolvedApps = React18.useMemo(() => {
+    return apps.map((app) => ({
+      ...app,
+      url: resolveAppUrl(app)
+    }));
+  }, [apps]);
   const handleOpen = React18.useCallback(() => {
     setIsOpen(true);
   }, []);
@@ -10759,18 +10799,22 @@ var AppLauncher = ({
   }, []);
   const handleSelectApp = React18.useCallback(
     (app) => {
+      const resolvedApp = {
+        ...app,
+        url: resolveAppUrl(app)
+      };
       if (onSelectApp) {
-        onSelectApp(app);
+        onSelectApp(resolvedApp);
         return;
       }
-      if (app.url) {
-        if (app.isExternal) {
-          window.open(app.url, "_blank", "noopener,noreferrer");
+      if (resolvedApp.url) {
+        if (resolvedApp.isExternal) {
+          window.open(resolvedApp.url, "_blank", "noopener,noreferrer");
         } else {
-          window.location.href = app.url;
+          window.location.href = resolvedApp.url;
         }
-      } else if (app.path) {
-        window.location.href = app.path;
+      } else if (resolvedApp.path) {
+        window.location.href = resolvedApp.path;
       }
     },
     [onSelectApp]
@@ -10779,7 +10823,7 @@ var AppLauncher = ({
     /* @__PURE__ */ jsxRuntime.jsx(
       AppFolderMiniPreview,
       {
-        apps,
+        apps: resolvedApps,
         isOpen,
         onClick: handleOpen,
         tooltip,
@@ -10791,7 +10835,7 @@ var AppLauncher = ({
       {
         title,
         subtitle,
-        apps,
+        apps: resolvedApps,
         currentAppId,
         isOpen,
         onClose: handleClose,
@@ -13176,6 +13220,7 @@ exports.NamiosMarkSvg = NamiosMarkSvg;
 exports.PAGE_SIZE_OPTIONS = PAGE_SIZE_OPTIONS;
 exports.PASSWORD_REGEX = PASSWORD_REGEX;
 exports.PHONE_REGEX = PHONE_REGEX;
+exports.PRODUCTION_APP_URLS = PRODUCTION_APP_URLS;
 exports.PageHeader = PageHeader;
 exports.PageSkeleton = PageSkeleton;
 exports.PasswordField = PasswordField;
@@ -13202,6 +13247,7 @@ exports.ThemeModeProvider = ThemeModeProvider;
 exports.TimelineMatrix = TimelineMatrix;
 exports.UserAvatar = UserAvatar;
 exports.UserRole = UserRole;
+exports.VERCEL_APP_URLS = VERCEL_APP_URLS;
 exports.WizardDialog = WizardDialog;
 exports.addDays = addDays;
 exports.assertNever = assertNever;
@@ -13222,6 +13268,7 @@ exports.isDefined = isDefined;
 exports.isoDate = isoDate;
 exports.omit = omit;
 exports.pick = pick;
+exports.resolveAppUrl = resolveAppUrl;
 exports.safeJsonParse = safeJsonParse;
 exports.sleep = sleep;
 exports.sortBy = sortBy;

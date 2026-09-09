@@ -8,6 +8,58 @@ import PaymentsIcon from '@mui/icons-material/Payments';
 import PeopleIcon from '@mui/icons-material/People';
 import InventoryIcon from '@mui/icons-material/Inventory';
 
+export const PRODUCTION_APP_URLS: Record<string, string> = {
+  'stay-os': 'https://stay.namios.app',
+  'dine-os': 'https://dine.namios.app',
+  'people-hr': 'https://people.namios.app',
+  'super-admin': 'https://admin.namios.app',
+  'payments-os': 'https://payments.namios.app',
+  'inventory-os': 'https://inventory.namios.app',
+  'nami-ai': 'https://ai.namios.app',
+  'public-web': 'https://booking.namios.app',
+};
+
+export const VERCEL_APP_URLS: Record<string, string> = {
+  'stay-os': 'https://hotelos-stay-os.vercel.app',
+  'dine-os': 'https://hotelos-dine-os.vercel.app',
+  'super-admin': 'https://hotelos-super-admin.vercel.app',
+};
+
+/**
+ * Resolves an app's URL depending on the current environment.
+ * Prevents deployed environments (e.g. *.namios.app or *.vercel.app) from redirecting to localhost.
+ */
+export function resolveAppUrl(app: { id: string; url?: string }): string {
+  if (typeof window === 'undefined') {
+    return app.url || PRODUCTION_APP_URLS[app.id] || '';
+  }
+
+  const hostname = window.location.hostname;
+  const isLocalhost =
+    hostname === 'localhost' ||
+    hostname === '127.0.0.1' ||
+    hostname.endsWith('.local');
+
+  if (isLocalhost && app.url) {
+    return app.url;
+  }
+
+  const isLocalhostUrl =
+    !app.url ||
+    app.url.includes('localhost') ||
+    app.url.includes('127.0.0.1');
+
+  if (isLocalhostUrl) {
+    const vercelUrl = VERCEL_APP_URLS[app.id];
+    if (hostname.endsWith('.vercel.app') && vercelUrl) {
+      return vercelUrl;
+    }
+    return PRODUCTION_APP_URLS[app.id] || app.url || '';
+  }
+
+  return app.url || '';
+}
+
 export const DEFAULT_HOTELOS_APPS: IAppItem[] = [
   {
     id: 'stay-os',

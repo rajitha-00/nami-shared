@@ -1,7 +1,7 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { MotionConfig } from 'framer-motion';
 import type { AppLauncherProps, IAppItem } from '../interfaces/IAppItem';
-import { DEFAULT_HOTELOS_APPS } from '../constants/defaultApps';
+import { DEFAULT_HOTELOS_APPS, resolveAppUrl } from '../constants/defaultApps';
 import { FOLDER_LAYOUT_SPRING } from '../constants/animationConfig';
 import { AppFolderMiniPreview } from '../components/AppFolderMiniPreview';
 import { AppFolderModal } from '../components/AppFolderModal';
@@ -17,6 +17,14 @@ export const AppLauncher = ({
 }: AppLauncherProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  // Dynamically resolve app URLs so deployed environments never point to localhost
+  const resolvedApps = useMemo(() => {
+    return apps.map((app) => ({
+      ...app,
+      url: resolveAppUrl(app),
+    }));
+  }, [apps]);
+
   const handleOpen = useCallback(() => {
     setIsOpen(true);
   }, []);
@@ -27,20 +35,25 @@ export const AppLauncher = ({
 
   const handleSelectApp = useCallback(
     (app: IAppItem) => {
+      const resolvedApp = {
+        ...app,
+        url: resolveAppUrl(app),
+      };
+
       if (onSelectApp) {
-        onSelectApp(app);
+        onSelectApp(resolvedApp);
         return;
       }
 
       // Default navigation logic if no custom handler is passed
-      if (app.url) {
-        if (app.isExternal) {
-          window.open(app.url, '_blank', 'noopener,noreferrer');
+      if (resolvedApp.url) {
+        if (resolvedApp.isExternal) {
+          window.open(resolvedApp.url, '_blank', 'noopener,noreferrer');
         } else {
-          window.location.href = app.url;
+          window.location.href = resolvedApp.url;
         }
-      } else if (app.path) {
-        window.location.href = app.path;
+      } else if (resolvedApp.path) {
+        window.location.href = resolvedApp.path;
       }
     },
     [onSelectApp],
@@ -49,7 +62,7 @@ export const AppLauncher = ({
   return (
     <MotionConfig transition={FOLDER_LAYOUT_SPRING}>
       <AppFolderMiniPreview
-        apps={apps}
+        apps={resolvedApps}
         isOpen={isOpen}
         onClick={handleOpen}
         tooltip={tooltip}
@@ -58,7 +71,7 @@ export const AppLauncher = ({
       <AppFolderModal
         title={title}
         subtitle={subtitle}
-        apps={apps}
+        apps={resolvedApps}
         currentAppId={currentAppId}
         isOpen={isOpen}
         onClose={handleClose}

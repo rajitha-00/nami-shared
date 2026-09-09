@@ -2197,6 +2197,40 @@ var APP_TILE_VARIANTS = {
     }
   }
 };
+var PRODUCTION_APP_URLS = {
+  "stay-os": "https://stay.namios.app",
+  "dine-os": "https://dine.namios.app",
+  "people-hr": "https://people.namios.app",
+  "super-admin": "https://admin.namios.app",
+  "payments-os": "https://payments.namios.app",
+  "inventory-os": "https://inventory.namios.app",
+  "nami-ai": "https://ai.namios.app",
+  "public-web": "https://booking.namios.app"
+};
+var VERCEL_APP_URLS = {
+  "stay-os": "https://hotelos-stay-os.vercel.app",
+  "dine-os": "https://hotelos-dine-os.vercel.app",
+  "super-admin": "https://hotelos-super-admin.vercel.app"
+};
+function resolveAppUrl(app) {
+  if (typeof window === "undefined") {
+    return app.url || PRODUCTION_APP_URLS[app.id] || "";
+  }
+  const hostname = window.location.hostname;
+  const isLocalhost = hostname === "localhost" || hostname === "127.0.0.1" || hostname.endsWith(".local");
+  if (isLocalhost && app.url) {
+    return app.url;
+  }
+  const isLocalhostUrl = !app.url || app.url.includes("localhost") || app.url.includes("127.0.0.1");
+  if (isLocalhostUrl) {
+    const vercelUrl = VERCEL_APP_URLS[app.id];
+    if (hostname.endsWith(".vercel.app") && vercelUrl) {
+      return vercelUrl;
+    }
+    return PRODUCTION_APP_URLS[app.id] || app.url || "";
+  }
+  return app.url || "";
+}
 var DEFAULT_HOTELOS_APPS = [
   {
     id: "stay-os",
@@ -2920,6 +2954,12 @@ var AppLauncher = ({
   tooltip = "NamiOS Apps"
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const resolvedApps = useMemo(() => {
+    return apps.map((app) => ({
+      ...app,
+      url: resolveAppUrl(app)
+    }));
+  }, [apps]);
   const handleOpen = useCallback(() => {
     setIsOpen(true);
   }, []);
@@ -2928,18 +2968,22 @@ var AppLauncher = ({
   }, []);
   const handleSelectApp = useCallback(
     (app) => {
+      const resolvedApp = {
+        ...app,
+        url: resolveAppUrl(app)
+      };
       if (onSelectApp) {
-        onSelectApp(app);
+        onSelectApp(resolvedApp);
         return;
       }
-      if (app.url) {
-        if (app.isExternal) {
-          window.open(app.url, "_blank", "noopener,noreferrer");
+      if (resolvedApp.url) {
+        if (resolvedApp.isExternal) {
+          window.open(resolvedApp.url, "_blank", "noopener,noreferrer");
         } else {
-          window.location.href = app.url;
+          window.location.href = resolvedApp.url;
         }
-      } else if (app.path) {
-        window.location.href = app.path;
+      } else if (resolvedApp.path) {
+        window.location.href = resolvedApp.path;
       }
     },
     [onSelectApp]
@@ -2948,7 +2992,7 @@ var AppLauncher = ({
     /* @__PURE__ */ jsx(
       AppFolderMiniPreview,
       {
-        apps,
+        apps: resolvedApps,
         isOpen,
         onClick: handleOpen,
         tooltip,
@@ -2960,7 +3004,7 @@ var AppLauncher = ({
       {
         title,
         subtitle,
-        apps,
+        apps: resolvedApps,
         currentAppId,
         isOpen,
         onClose: handleClose,
@@ -4404,6 +4448,6 @@ var AnimatedDoorOpen = ({
   );
 };
 
-export { APP_TILE_VARIANTS, AnimatedBed, AnimatedBrush, AnimatedCalendar, AnimatedCreditCard, AnimatedDashboard, AnimatedDoorOpen, AnimatedFolderOpen, AnimatedInbox, AnimatedLayers, AnimatedRadio, AnimatedSearch, AnimatedSettings, AnimatedShieldCheck, AnimatedSparkles, AnimatedTrendingUp, AnimatedUsers, AppDialog, AppDrawer, AppFolderMiniPreview, AppFolderModal, AppLauncher, AppSideNav, AppTile, AppTopBar, AuthLayout, BACKDROP_TRANSITION, CONTAINER_VARIANTS, ContextMenu, DEFAULT_HOTELOS_APPS, DashboardLayout, DataTable, DateRangeButton, DescriptionList, EmptyState, ErrorState, FOLDER_LAYOUT_SPRING, FormDialog, FormSelect, FormSwitch, FormTextField, KanbanBoard, LanguageSwitcher, LoadingOverlay, MenuCard, NamiosLoader, NamiosMarkSvg, PageHeader, PageSkeleton, PasswordField, SearchField, SectionCard, SelectField, SplitPaneLayout, StatCard, StatusChip, StatusFilterChips, TimelineMatrix, UserAvatar, WizardDialog, getAvatarBgColor };
-//# sourceMappingURL=chunk-5IEDXO22.js.map
-//# sourceMappingURL=chunk-5IEDXO22.js.map
+export { APP_TILE_VARIANTS, AnimatedBed, AnimatedBrush, AnimatedCalendar, AnimatedCreditCard, AnimatedDashboard, AnimatedDoorOpen, AnimatedFolderOpen, AnimatedInbox, AnimatedLayers, AnimatedRadio, AnimatedSearch, AnimatedSettings, AnimatedShieldCheck, AnimatedSparkles, AnimatedTrendingUp, AnimatedUsers, AppDialog, AppDrawer, AppFolderMiniPreview, AppFolderModal, AppLauncher, AppSideNav, AppTile, AppTopBar, AuthLayout, BACKDROP_TRANSITION, CONTAINER_VARIANTS, ContextMenu, DEFAULT_HOTELOS_APPS, DashboardLayout, DataTable, DateRangeButton, DescriptionList, EmptyState, ErrorState, FOLDER_LAYOUT_SPRING, FormDialog, FormSelect, FormSwitch, FormTextField, KanbanBoard, LanguageSwitcher, LoadingOverlay, MenuCard, NamiosLoader, NamiosMarkSvg, PRODUCTION_APP_URLS, PageHeader, PageSkeleton, PasswordField, SearchField, SectionCard, SelectField, SplitPaneLayout, StatCard, StatusChip, StatusFilterChips, TimelineMatrix, UserAvatar, VERCEL_APP_URLS, WizardDialog, getAvatarBgColor, resolveAppUrl };
+//# sourceMappingURL=chunk-LT52OTC3.js.map
+//# sourceMappingURL=chunk-LT52OTC3.js.map
