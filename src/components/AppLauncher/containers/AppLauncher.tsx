@@ -5,6 +5,7 @@ import { DEFAULT_HOTELOS_APPS, resolveAppUrl } from '../constants/defaultApps';
 import { FOLDER_LAYOUT_SPRING } from '../constants/animationConfig';
 import { AppFolderMiniPreview } from '../components/AppFolderMiniPreview';
 import { AppFolderModal } from '../components/AppFolderModal';
+import { navigateApp } from '../functions/navigateApp';
 
 export const AppLauncher = ({
   title = 'NamiOS Ecosystem',
@@ -40,23 +41,13 @@ export const AppLauncher = ({
         url: resolveAppUrl(app),
       };
 
-      if (onSelectApp) {
-        onSelectApp(resolvedApp);
-        return;
-      }
-
-      // Default navigation logic if no custom handler is passed
-      if (resolvedApp.url) {
-        if (resolvedApp.isExternal) {
-          window.open(resolvedApp.url, '_blank', 'noopener,noreferrer');
-        } else {
-          window.location.href = resolvedApp.url;
-        }
-      } else if (resolvedApp.path) {
-        window.location.href = resolvedApp.path;
-      }
+      navigateApp({
+        app: resolvedApp,
+        currentAppId,
+        onSelectApp,
+      });
     },
-    [onSelectApp],
+    [currentAppId, onSelectApp],
   );
 
   return (

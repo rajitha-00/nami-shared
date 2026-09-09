@@ -10775,6 +10775,48 @@ var AppFolderModal = ({
     document.body
   );
 };
+
+// src/components/AppLauncher/functions/isPwa.ts
+var isPwa = () => {
+  if (typeof window === "undefined") return false;
+  const isStandaloneMedia = window.matchMedia?.("(display-mode: standalone)")?.matches || window.matchMedia?.("(display-mode: window-controls-overlay)")?.matches || window.matchMedia?.("(display-mode: minimal-ui)")?.matches || window.matchMedia?.("(display-mode: fullscreen)")?.matches;
+  const isIosStandalone = Boolean(
+    window.navigator?.standalone
+  );
+  const isAndroidTwa = Boolean(document.referrer?.startsWith("android-app://"));
+  return Boolean(isStandaloneMedia || isIosStandalone || isAndroidTwa);
+};
+
+// src/components/AppLauncher/functions/navigateApp.ts
+var navigateApp = ({
+  app,
+  currentAppId,
+  onSelectApp,
+  isPwaMode = isPwa()
+}) => {
+  if (onSelectApp) {
+    onSelectApp(app);
+    return;
+  }
+  const targetUrl = app.url || app.path;
+  if (!targetUrl) return;
+  const isCurrentApp = Boolean(currentAppId && app.id === currentAppId);
+  if (isCurrentApp) {
+    if (app.path && typeof window !== "undefined" && window.location.pathname !== app.path) {
+      window.location.href = app.path;
+    }
+    return;
+  }
+  if (isPwaMode || app.isExternal) {
+    const windowFeatures = "popup=yes,noopener,noreferrer";
+    const newWindow = window.open(targetUrl, "_blank", windowFeatures);
+    if (!newWindow) {
+      window.open(targetUrl, "_blank", "noopener,noreferrer");
+    }
+    return;
+  }
+  window.location.href = targetUrl;
+};
 var AppLauncher = ({
   title = "NamiOS Ecosystem",
   subtitle = "Switch between NamiOS modules & portals",
@@ -10803,21 +10845,13 @@ var AppLauncher = ({
         ...app,
         url: resolveAppUrl(app)
       };
-      if (onSelectApp) {
-        onSelectApp(resolvedApp);
-        return;
-      }
-      if (resolvedApp.url) {
-        if (resolvedApp.isExternal) {
-          window.open(resolvedApp.url, "_blank", "noopener,noreferrer");
-        } else {
-          window.location.href = resolvedApp.url;
-        }
-      } else if (resolvedApp.path) {
-        window.location.href = resolvedApp.path;
-      }
+      navigateApp({
+        app: resolvedApp,
+        currentAppId,
+        onSelectApp
+      });
     },
-    [onSelectApp]
+    [currentAppId, onSelectApp]
   );
   return /* @__PURE__ */ jsxRuntime.jsxs(framerMotion.MotionConfig, { transition: FOLDER_LAYOUT_SPRING, children: [
     /* @__PURE__ */ jsxRuntime.jsx(
@@ -13265,7 +13299,9 @@ exports.groupBy = groupBy;
 exports.initI18n = initI18n;
 exports.initialsFromName = initialsFromName;
 exports.isDefined = isDefined;
+exports.isPwa = isPwa;
 exports.isoDate = isoDate;
+exports.navigateApp = navigateApp;
 exports.omit = omit;
 exports.pick = pick;
 exports.resolveAppUrl = resolveAppUrl;

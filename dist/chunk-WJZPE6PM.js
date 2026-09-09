@@ -2944,6 +2944,48 @@ var AppFolderModal = ({
     document.body
   );
 };
+
+// src/components/AppLauncher/functions/isPwa.ts
+var isPwa = () => {
+  if (typeof window === "undefined") return false;
+  const isStandaloneMedia = window.matchMedia?.("(display-mode: standalone)")?.matches || window.matchMedia?.("(display-mode: window-controls-overlay)")?.matches || window.matchMedia?.("(display-mode: minimal-ui)")?.matches || window.matchMedia?.("(display-mode: fullscreen)")?.matches;
+  const isIosStandalone = Boolean(
+    window.navigator?.standalone
+  );
+  const isAndroidTwa = Boolean(document.referrer?.startsWith("android-app://"));
+  return Boolean(isStandaloneMedia || isIosStandalone || isAndroidTwa);
+};
+
+// src/components/AppLauncher/functions/navigateApp.ts
+var navigateApp = ({
+  app,
+  currentAppId,
+  onSelectApp,
+  isPwaMode = isPwa()
+}) => {
+  if (onSelectApp) {
+    onSelectApp(app);
+    return;
+  }
+  const targetUrl = app.url || app.path;
+  if (!targetUrl) return;
+  const isCurrentApp = Boolean(currentAppId && app.id === currentAppId);
+  if (isCurrentApp) {
+    if (app.path && typeof window !== "undefined" && window.location.pathname !== app.path) {
+      window.location.href = app.path;
+    }
+    return;
+  }
+  if (isPwaMode || app.isExternal) {
+    const windowFeatures = "popup=yes,noopener,noreferrer";
+    const newWindow = window.open(targetUrl, "_blank", windowFeatures);
+    if (!newWindow) {
+      window.open(targetUrl, "_blank", "noopener,noreferrer");
+    }
+    return;
+  }
+  window.location.href = targetUrl;
+};
 var AppLauncher = ({
   title = "NamiOS Ecosystem",
   subtitle = "Switch between NamiOS modules & portals",
@@ -2972,21 +3014,13 @@ var AppLauncher = ({
         ...app,
         url: resolveAppUrl(app)
       };
-      if (onSelectApp) {
-        onSelectApp(resolvedApp);
-        return;
-      }
-      if (resolvedApp.url) {
-        if (resolvedApp.isExternal) {
-          window.open(resolvedApp.url, "_blank", "noopener,noreferrer");
-        } else {
-          window.location.href = resolvedApp.url;
-        }
-      } else if (resolvedApp.path) {
-        window.location.href = resolvedApp.path;
-      }
+      navigateApp({
+        app: resolvedApp,
+        currentAppId,
+        onSelectApp
+      });
     },
-    [onSelectApp]
+    [currentAppId, onSelectApp]
   );
   return /* @__PURE__ */ jsxs(MotionConfig, { transition: FOLDER_LAYOUT_SPRING, children: [
     /* @__PURE__ */ jsx(
@@ -4448,6 +4482,6 @@ var AnimatedDoorOpen = ({
   );
 };
 
-export { APP_TILE_VARIANTS, AnimatedBed, AnimatedBrush, AnimatedCalendar, AnimatedCreditCard, AnimatedDashboard, AnimatedDoorOpen, AnimatedFolderOpen, AnimatedInbox, AnimatedLayers, AnimatedRadio, AnimatedSearch, AnimatedSettings, AnimatedShieldCheck, AnimatedSparkles, AnimatedTrendingUp, AnimatedUsers, AppDialog, AppDrawer, AppFolderMiniPreview, AppFolderModal, AppLauncher, AppSideNav, AppTile, AppTopBar, AuthLayout, BACKDROP_TRANSITION, CONTAINER_VARIANTS, ContextMenu, DEFAULT_HOTELOS_APPS, DashboardLayout, DataTable, DateRangeButton, DescriptionList, EmptyState, ErrorState, FOLDER_LAYOUT_SPRING, FormDialog, FormSelect, FormSwitch, FormTextField, KanbanBoard, LanguageSwitcher, LoadingOverlay, MenuCard, NamiosLoader, NamiosMarkSvg, PRODUCTION_APP_URLS, PageHeader, PageSkeleton, PasswordField, SearchField, SectionCard, SelectField, SplitPaneLayout, StatCard, StatusChip, StatusFilterChips, TimelineMatrix, UserAvatar, VERCEL_APP_URLS, WizardDialog, getAvatarBgColor, resolveAppUrl };
-//# sourceMappingURL=chunk-LT52OTC3.js.map
-//# sourceMappingURL=chunk-LT52OTC3.js.map
+export { APP_TILE_VARIANTS, AnimatedBed, AnimatedBrush, AnimatedCalendar, AnimatedCreditCard, AnimatedDashboard, AnimatedDoorOpen, AnimatedFolderOpen, AnimatedInbox, AnimatedLayers, AnimatedRadio, AnimatedSearch, AnimatedSettings, AnimatedShieldCheck, AnimatedSparkles, AnimatedTrendingUp, AnimatedUsers, AppDialog, AppDrawer, AppFolderMiniPreview, AppFolderModal, AppLauncher, AppSideNav, AppTile, AppTopBar, AuthLayout, BACKDROP_TRANSITION, CONTAINER_VARIANTS, ContextMenu, DEFAULT_HOTELOS_APPS, DashboardLayout, DataTable, DateRangeButton, DescriptionList, EmptyState, ErrorState, FOLDER_LAYOUT_SPRING, FormDialog, FormSelect, FormSwitch, FormTextField, KanbanBoard, LanguageSwitcher, LoadingOverlay, MenuCard, NamiosLoader, NamiosMarkSvg, PRODUCTION_APP_URLS, PageHeader, PageSkeleton, PasswordField, SearchField, SectionCard, SelectField, SplitPaneLayout, StatCard, StatusChip, StatusFilterChips, TimelineMatrix, UserAvatar, VERCEL_APP_URLS, WizardDialog, getAvatarBgColor, isPwa, navigateApp, resolveAppUrl };
+//# sourceMappingURL=chunk-WJZPE6PM.js.map
+//# sourceMappingURL=chunk-WJZPE6PM.js.map
