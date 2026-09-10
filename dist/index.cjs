@@ -11,7 +11,7 @@ var DialogActions = require('@mui/material/DialogActions');
 var DialogContent = require('@mui/material/DialogContent');
 var DialogContentText = require('@mui/material/DialogContentText');
 var DialogTitle = require('@mui/material/DialogTitle');
-var Box6 = require('@mui/material/Box');
+var Box7 = require('@mui/material/Box');
 var IconButton8 = require('@mui/material/IconButton');
 var CloseIcon5 = require('@mui/icons-material/Close');
 var reactI18next = require('react-i18next');
@@ -24,7 +24,7 @@ var CheckCircleRoundedIcon = require('@mui/icons-material/CheckCircleRounded');
 var ErrorRoundedIcon = require('@mui/icons-material/ErrorRounded');
 var InfoRoundedIcon = require('@mui/icons-material/InfoRounded');
 var WarningAmberRoundedIcon = require('@mui/icons-material/WarningAmberRounded');
-var Typography4 = require('@mui/material/Typography');
+var Typography9 = require('@mui/material/Typography');
 var zod = require('@hookform/resolvers/zod');
 var reactHookForm = require('react-hook-form');
 var Stack4 = require('@mui/material/Stack');
@@ -121,7 +121,7 @@ var DialogActions__default = /*#__PURE__*/_interopDefault(DialogActions);
 var DialogContent__default = /*#__PURE__*/_interopDefault(DialogContent);
 var DialogContentText__default = /*#__PURE__*/_interopDefault(DialogContentText);
 var DialogTitle__default = /*#__PURE__*/_interopDefault(DialogTitle);
-var Box6__default = /*#__PURE__*/_interopDefault(Box6);
+var Box7__default = /*#__PURE__*/_interopDefault(Box7);
 var IconButton8__default = /*#__PURE__*/_interopDefault(IconButton8);
 var CloseIcon5__default = /*#__PURE__*/_interopDefault(CloseIcon5);
 var useMediaQuery__default = /*#__PURE__*/_interopDefault(useMediaQuery);
@@ -131,7 +131,7 @@ var CheckCircleRoundedIcon__default = /*#__PURE__*/_interopDefault(CheckCircleRo
 var ErrorRoundedIcon__default = /*#__PURE__*/_interopDefault(ErrorRoundedIcon);
 var InfoRoundedIcon__default = /*#__PURE__*/_interopDefault(InfoRoundedIcon);
 var WarningAmberRoundedIcon__default = /*#__PURE__*/_interopDefault(WarningAmberRoundedIcon);
-var Typography4__default = /*#__PURE__*/_interopDefault(Typography4);
+var Typography9__default = /*#__PURE__*/_interopDefault(Typography9);
 var Stack4__default = /*#__PURE__*/_interopDefault(Stack4);
 var Paper__default = /*#__PURE__*/_interopDefault(Paper);
 var ErrorOutlineIcon__default = /*#__PURE__*/_interopDefault(ErrorOutlineIcon);
@@ -1032,7 +1032,7 @@ function ConfirmDialog({
   onCancel
 }) {
   const { t } = reactI18next.useTranslation();
-  const content = /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { width: "100%", maxWidth: "380px" }, children: [
+  const content = /* @__PURE__ */ jsxRuntime.jsxs(Box7__default.default, { sx: { width: "100%", maxWidth: "380px" }, children: [
     /* @__PURE__ */ jsxRuntime.jsxs(
       DialogTitle__default.default,
       {
@@ -7952,7 +7952,7 @@ function NamiosLoader({
   const thickness = Math.max(4, Math.round(size4 / 5));
   const lat = Math.round((size4 - thickness) / 2);
   return /* @__PURE__ */ jsxRuntime.jsxs(
-    Box6__default.default,
+    Box7__default.default,
     {
       sx: {
         display: "inline-flex",
@@ -7964,7 +7964,7 @@ function NamiosLoader({
       },
       children: [
         showLogo && /* @__PURE__ */ jsxRuntime.jsxs(
-          Box6__default.default,
+          Box7__default.default,
           {
             sx: {
               display: "flex",
@@ -7975,7 +7975,7 @@ function NamiosLoader({
             children: [
               /* @__PURE__ */ jsxRuntime.jsx(NamiosMarkSvg, { size: 26, color: loaderColor }),
               /* @__PURE__ */ jsxRuntime.jsx(
-                Typography4__default.default,
+                Typography9__default.default,
                 {
                   variant: "subtitle2",
                   sx: {
@@ -7992,7 +7992,7 @@ function NamiosLoader({
           }
         ),
         /* @__PURE__ */ jsxRuntime.jsx(
-          Box6__default.default,
+          Box7__default.default,
           {
             sx: {
               position: "relative",
@@ -8024,7 +8024,7 @@ function NamiosLoader({
           }
         ),
         label && /* @__PURE__ */ jsxRuntime.jsx(
-          Typography4__default.default,
+          Typography9__default.default,
           {
             variant: "caption",
             color: "text.secondary",
@@ -8256,7 +8256,7 @@ var EmptyStateContainer = styles.styled(Paper__default.default)(({ theme }) => (
   minHeight: 280,
   transition: "all 0.2s ease"
 }));
-var IconGlowBadge = styles.styled(Box6__default.default)(({ theme }) => ({
+var IconGlowBadge = styles.styled(Box7__default.default)(({ theme }) => ({
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
@@ -8300,10 +8300,10 @@ var EmptyState = ({
           children: [
             /* @__PURE__ */ jsxRuntime.jsx(IconGlowBadge, { children: icon ?? /* @__PURE__ */ jsxRuntime.jsx(AnimatedInbox, { size: 42, isAnimated: true }) }),
             /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { spacing: 0.75, alignItems: "center", sx: { maxWidth: 440, mt: 1, mb: action ? 2.5 : 0 }, children: [
-              /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "h6", fontWeight: 700, color: "text.primary", letterSpacing: "-0.2px", children: displayTitle }),
-              displayDesc ? /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "body2", color: "text.secondary", fontWeight: 500, lineHeight: 1.5, children: displayDesc }) : null
+              /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h6", fontWeight: 700, color: "text.primary", letterSpacing: "-0.2px", children: displayTitle }),
+              displayDesc ? /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "text.secondary", fontWeight: 500, lineHeight: 1.5, children: displayDesc }) : null
             ] }),
-            action ? /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { mt: 1 }, children: action }) : null
+            action ? /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { mt: 1 }, children: action }) : null
           ]
         }
       )
@@ -8327,14 +8327,14 @@ function ErrorState({
   const { t } = reactI18next.useTranslation();
   return /* @__PURE__ */ jsxRuntime.jsxs(ErrorStateRoot, { role: "alert", children: [
     /* @__PURE__ */ jsxRuntime.jsx(ErrorOutlineIcon__default.default, { color: "error", sx: { fontSize: 40 } }),
-    /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "h6", children: t(titleKey) }),
-    /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "body2", color: "text.secondary", children: t(messageKey) }),
+    /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h6", children: t(titleKey) }),
+    /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "text.secondary", children: t(messageKey) }),
     onRetry ? /* @__PURE__ */ jsxRuntime.jsx(Button5__default.default, { onClick: onRetry, startIcon: /* @__PURE__ */ jsxRuntime.jsx(RefreshIcon__default.default, {}), variant: "outlined", children: t("common:actions.retry") }) : null
   ] });
 }
 function PageSkeleton({ label }) {
   return /* @__PURE__ */ jsxRuntime.jsx(
-    Box6__default.default,
+    Box7__default.default,
     {
       sx: {
         display: "flex",
@@ -8772,8 +8772,8 @@ function DataTable({
       },
       children: [
         toolbar ? /* @__PURE__ */ jsxRuntime.jsx(TableToolbar, { children: toolbar }) : null,
-        !isLoading && isError ? /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { p: 3 }, children: /* @__PURE__ */ jsxRuntime.jsx(ErrorState, { onRetry }) }) : null,
-        !isLoading && !isError && rows.length === 0 ? /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { p: 2 }, children: emptyState ?? /* @__PURE__ */ jsxRuntime.jsx(EmptyState, { titleKey: "common:states.noResults" }) }) : null,
+        !isLoading && isError ? /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { p: 3 }, children: /* @__PURE__ */ jsxRuntime.jsx(ErrorState, { onRetry }) }) : null,
+        !isLoading && !isError && rows.length === 0 ? /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { p: 2 }, children: emptyState ?? /* @__PURE__ */ jsxRuntime.jsx(EmptyState, { titleKey: "common:states.noResults" }) }) : null,
         (isLoading || rows.length > 0) && /* @__PURE__ */ jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [
           /* @__PURE__ */ jsxRuntime.jsx(TableContainer__default.default, { children: /* @__PURE__ */ jsxRuntime.jsxs(Table__default.default, { size: "small", "aria-busy": isLoading, children: [
             /* @__PURE__ */ jsxRuntime.jsx(TableHead__default.default, { sx: { backgroundColor: "action.hover" }, children: /* @__PURE__ */ jsxRuntime.jsxs(TableRow__default.default, { children: [
@@ -8948,7 +8948,7 @@ function StatCard({
   const { t } = reactI18next.useTranslation();
   const isCompact = size4 === "small" || size4 === "mini";
   const valueNode = loading ? /* @__PURE__ */ jsxRuntime.jsx(Skeleton__default.default, { variant: "text", width: 80, height: isCompact ? 28 : 40 }) : /* @__PURE__ */ jsxRuntime.jsx(
-    Typography4__default.default,
+    Typography9__default.default,
     {
       variant: isCompact ? "h5" : "h4",
       component: "div",
@@ -8960,13 +8960,13 @@ function StatCard({
     TREND_ICONS[trend],
     delta
   ] }) : null;
-  const subtitleNode = subtitleKey ? /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "caption", color: "text.secondary", sx: { fontSize: "0.75rem", fontWeight: 500 }, children: t(subtitleKey, subtitleParams) }) : null;
+  const subtitleNode = subtitleKey ? /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "caption", color: "text.secondary", sx: { fontSize: "0.75rem", fontWeight: 500 }, children: t(subtitleKey, subtitleParams) }) : null;
   if (layout === "kpi") {
     return /* @__PURE__ */ jsxRuntime.jsxs(StatCardRoot, { compactSize: isCompact, children: [
       /* @__PURE__ */ jsxRuntime.jsxs(KpiHeaderRow, { children: [
         icon ? /* @__PURE__ */ jsxRuntime.jsx(IconTile, { colorKey: iconColor, compact: isCompact, children: icon }) : /* @__PURE__ */ jsxRuntime.jsx("span", {}),
         badge ?? /* @__PURE__ */ jsxRuntime.jsx(
-          Typography4__default.default,
+          Typography9__default.default,
           {
             variant: "overline",
             color: "text.secondary",
@@ -8984,14 +8984,14 @@ function StatCard({
           }
         )
       ] }),
-      badge ? /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "overline", color: "text.secondary", noWrap: true, sx: { fontSize: isCompact ? "0.68rem" : "0.75rem", fontWeight: 700, pr: 0.5 }, children: t(labelKey) }) : null,
+      badge ? /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "overline", color: "text.secondary", noWrap: true, sx: { fontSize: isCompact ? "0.68rem" : "0.75rem", fontWeight: 700, pr: 0.5 }, children: t(labelKey) }) : null,
       valueNode,
       deltaNode ?? subtitleNode
     ] });
   }
   return /* @__PURE__ */ jsxRuntime.jsxs(StatCardRoot, { compactSize: isCompact, children: [
     /* @__PURE__ */ jsxRuntime.jsxs(
-      Typography4__default.default,
+      Typography9__default.default,
       {
         variant: "body2",
         color: "text.secondary",
@@ -9451,16 +9451,16 @@ function TimelineMatrix({
     return /* @__PURE__ */ jsxRuntime.jsx("div", { children: /* @__PURE__ */ jsxRuntime.jsx(Skeleton__default.default, { variant: "rounded", height: ROW_HEIGHT * 6 }) });
   }
   return /* @__PURE__ */ jsxRuntime.jsxs("div", { children: [
-    legend ? /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { component: "div", variant: "body2", sx: { display: "flex", justifyContent: "flex-end", mb: 1 }, children: legend }) : null,
+    legend ? /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { component: "div", variant: "body2", sx: { display: "flex", justifyContent: "flex-end", mb: 1 }, children: legend }) : null,
     /* @__PURE__ */ jsxRuntime.jsx(MatrixRoot, { children: /* @__PURE__ */ jsxRuntime.jsxs("div", { style: { width: RESOURCE_COL_WIDTH + days * DAY_COL_WIDTH }, children: [
       /* @__PURE__ */ jsxRuntime.jsxs(HeaderRow, { children: [
-        /* @__PURE__ */ jsxRuntime.jsx(ResourceCell, { children: /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "overline", color: "text.secondary", children: t(resourceLabelKey) }) }),
+        /* @__PURE__ */ jsxRuntime.jsx(ResourceCell, { children: /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "overline", color: "text.secondary", children: t(resourceLabelKey) }) }),
         dayList.map((date) => {
           const isToday = date === todayDate;
           const dateObj = /* @__PURE__ */ new Date(`${date}T00:00:00Z`);
           return /* @__PURE__ */ jsxRuntime.jsxs(DayHeaderCell, { "aria-current": isToday ? "date" : void 0, children: [
-            /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "caption", color: "text.secondary", sx: { textTransform: "uppercase" }, children: monthFormat.format(dateObj) }),
-            isToday ? /* @__PURE__ */ jsxRuntime.jsx(TodayBubble, { "aria-label": t("common:timeline.today"), children: dayFormat.format(dateObj) }) : /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "body2", children: dayFormat.format(dateObj) })
+            /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "caption", color: "text.secondary", sx: { textTransform: "uppercase" }, children: monthFormat.format(dateObj) }),
+            isToday ? /* @__PURE__ */ jsxRuntime.jsx(TodayBubble, { "aria-label": t("common:timeline.today"), children: dayFormat.format(dateObj) }) : /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", children: dayFormat.format(dateObj) })
           ] }, date);
         })
       ] }),
@@ -9615,7 +9615,7 @@ function AppDrawer({
       children: [
         /* @__PURE__ */ jsxRuntime.jsxs(DrawerHeader, { children: [
           /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", spacing: 1.5, alignItems: "center", sx: { flexGrow: 1, minWidth: 0 }, children: [
-            /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "h5", fontWeight: 800, letterSpacing: "-0.3px", noWrap: true, children: title ?? (titleKey ? t(titleKey, titleParams) : null) }),
+            /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h5", fontWeight: 800, letterSpacing: "-0.3px", noWrap: true, children: title ?? (titleKey ? t(titleKey, titleParams) : null) }),
             statusChip
           ] }),
           /* @__PURE__ */ jsxRuntime.jsx(IconButton8__default.default, { "aria-label": t("common:actions.close"), onClick: onClose, size: "small", children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon5__default.default, { fontSize: "small" }) })
@@ -9670,7 +9670,7 @@ function WizardDialog({
       children: [
         /* @__PURE__ */ jsxRuntime.jsxs(DialogTitle__default.default, { sx: { display: "flex", alignItems: "center", justifyContent: "space-between", pb: 2, pt: 2.5, px: 3 }, children: [
           /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", alignItems: "center", spacing: 1.5, children: [
-            /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "h6", sx: { fontWeight: 700, letterSpacing: "-0.01em" }, children: t(titleKey) }),
+            /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h6", sx: { fontWeight: 700, letterSpacing: "-0.01em" }, children: t(titleKey) }),
             /* @__PURE__ */ jsxRuntime.jsx(
               Chip6__default.default,
               {
@@ -9993,43 +9993,502 @@ function PageHeader({
             children: t(crumb.labelKey)
           },
           crumb.labelKey
-        ) : /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "body2", color: "text.primary", children: t(crumb.labelKey) }, crumb.labelKey)
+        ) : /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "text.primary", children: t(crumb.labelKey) }, crumb.labelKey)
       ) }) : null,
-      /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "h4", component: "h1", children: title ?? t(titleKey, titleParams) }),
-      subtitleKey ? /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "body2", color: "text.secondary", sx: { mt: 0.5 }, children: t(subtitleKey, subtitleParams) }) : null
+      /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h4", component: "h1", children: title ?? t(titleKey, titleParams) }),
+      subtitleKey ? /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "text.secondary", sx: { mt: 0.5 }, children: t(subtitleKey, subtitleParams) }) : null
     ] }),
     actions ? /* @__PURE__ */ jsxRuntime.jsx("div", { children: actions }) : null
   ] });
 }
-var AuthRoot = styles.styled("div")(({ theme }) => ({
+var FALLOFF_CURVES = {
+  linear: (t) => t,
+  smooth: (t) => t * t * (3 - 2 * t),
+  sharp: (t) => t * t * t
+};
+var hexToRgb = (hex) => {
+  const h = hex.replace("#", "");
+  const v = h.length === 3 ? h.split("").map((c) => c + c).join("") : h;
+  const num = parseInt(v.slice(0, 6), 16);
+  return [num >> 16 & 255, num >> 8 & 255, num & 255];
+};
+var CursorGrid = ({
+  cellSize = 70,
+  color = "#231924",
+  radius = 140,
+  falloff = "smooth",
+  holdTime = 400,
+  fadeDuration = 800,
+  lineWidth = 1.2,
+  maxOpacity = 1,
+  fillOpacity = 0,
+  gridOpacity = 0,
+  cellRadius = 0,
+  clickPulse = true,
+  pulseSpeed = 600,
+  className = ""
+}) => {
+  const containerRef = React18.useRef(null);
+  const canvasRef = React18.useRef(null);
+  const propsRef = React18.useRef({});
+  const wakeRef = React18.useRef(null);
+  propsRef.current = {
+    cellSize,
+    color,
+    radius,
+    falloff,
+    holdTime,
+    fadeDuration,
+    lineWidth,
+    maxOpacity,
+    fillOpacity,
+    gridOpacity,
+    cellRadius,
+    clickPulse,
+    pulseSpeed
+  };
+  React18.useEffect(() => {
+    const container = containerRef.current;
+    const canvas = canvasRef.current;
+    if (!container || !canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    const dpr = Math.min(typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1, 2);
+    let cols = 0;
+    let rows = 0;
+    let offX = 0;
+    let offY = 0;
+    let alphas = new Float32Array(0);
+    let touched = new Float64Array(0);
+    let w = 0;
+    let h = 0;
+    const pulses = [];
+    let raf = 0;
+    let running = false;
+    let lastFrame = 0;
+    const rebuild = () => {
+      const p = propsRef.current;
+      w = container.offsetWidth;
+      h = container.offsetHeight;
+      canvas.width = Math.max(1, Math.round(w * dpr));
+      canvas.height = Math.max(1, Math.round(h * dpr));
+      canvas.style.width = `${w}px`;
+      canvas.style.height = `${h}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cols = Math.ceil(w / p.cellSize) + 1;
+      rows = Math.ceil(h / p.cellSize) + 1;
+      offX = (w - cols * p.cellSize) / 2;
+      offY = (h - rows * p.cellSize) / 2;
+      alphas = new Float32Array(cols * rows);
+      touched = new Float64Array(cols * rows);
+    };
+    const cellCenter = (i) => {
+      const p = propsRef.current;
+      const cx = offX + i % cols * p.cellSize + p.cellSize / 2;
+      const cy = offY + Math.floor(i / cols) * p.cellSize + p.cellSize / 2;
+      return [cx, cy];
+    };
+    const energize = (x, y, boost) => {
+      const p = propsRef.current;
+      const r = Math.max(p.radius, 1);
+      const ease = FALLOFF_CURVES[p.falloff] ?? FALLOFF_CURVES.linear;
+      const now = performance.now();
+      const minCol = Math.max(0, Math.floor((x - r - offX) / p.cellSize));
+      const maxCol = Math.min(cols - 1, Math.floor((x + r - offX) / p.cellSize));
+      const minRow = Math.max(0, Math.floor((y - r - offY) / p.cellSize));
+      const maxRow = Math.min(rows - 1, Math.floor((y + r - offY) / p.cellSize));
+      for (let cRow = minRow; cRow <= maxRow; cRow++) {
+        for (let cCol = minCol; cCol <= maxCol; cCol++) {
+          const i = cRow * cols + cCol;
+          const [cx, cy] = cellCenter(i);
+          const dist = Math.hypot(cx - x, cy - y);
+          if (dist > r) continue;
+          const level = ease(1 - dist / r) * p.maxOpacity * (1);
+          const currentAlpha = alphas[i] ?? 0;
+          if (level > currentAlpha) {
+            alphas[i] = level;
+            touched[i] = now;
+          } else if (level > 0) {
+            touched[i] = now;
+          }
+        }
+      }
+    };
+    const draw = (now) => {
+      const p = propsRef.current;
+      const dt = Math.min(now - lastFrame, 50);
+      lastFrame = now;
+      ctx.clearRect(0, 0, w, h);
+      const [cr, cg, cb] = hexToRgb(p.color);
+      if (p.gridOpacity > 0) {
+        ctx.strokeStyle = `rgba(${cr}, ${cg}, ${cb}, ${p.gridOpacity})`;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        for (let cCol = 0; cCol <= cols; cCol++) {
+          const x = Math.round(offX + cCol * p.cellSize) + 0.5;
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, h);
+        }
+        for (let cRow = 0; cRow <= rows; cRow++) {
+          const y = Math.round(offY + cRow * p.cellSize) + 0.5;
+          ctx.moveTo(0, y);
+          ctx.lineTo(w, y);
+        }
+        ctx.stroke();
+      }
+      for (let pi = pulses.length - 1; pi >= 0; pi--) {
+        const pulse = pulses[pi];
+        if (!pulse) continue;
+        const age = (now - pulse.t0) / 1e3;
+        const ringR = age * p.pulseSpeed;
+        if (ringR > Math.hypot(w, h)) {
+          pulses.splice(pi, 1);
+          continue;
+        }
+        const band = p.cellSize;
+        const minCol = Math.max(0, Math.floor((pulse.x - ringR - band - offX) / p.cellSize));
+        const maxCol = Math.min(cols - 1, Math.floor((pulse.x + ringR + band - offX) / p.cellSize));
+        const minRow = Math.max(0, Math.floor((pulse.y - ringR - band - offY) / p.cellSize));
+        const maxRow = Math.min(rows - 1, Math.floor((pulse.y + ringR + band - offY) / p.cellSize));
+        for (let cRow = minRow; cRow <= maxRow; cRow++) {
+          for (let cCol = minCol; cCol <= maxCol; cCol++) {
+            const i = cRow * cols + cCol;
+            const [cx, cy] = cellCenter(i);
+            const dist = Math.hypot(cx - pulse.x, cy - pulse.y);
+            const currentAlpha = alphas[i] ?? 0;
+            if (Math.abs(dist - ringR) < band / 2 && p.maxOpacity > currentAlpha) {
+              alphas[i] = p.maxOpacity;
+              touched[i] = now;
+            }
+          }
+        }
+      }
+      let anyVisible = pulses.length > 0;
+      const fadeStep = dt / Math.max(p.fadeDuration, 16);
+      const half = p.cellSize / 2;
+      for (let i = 0; i < alphas.length; i++) {
+        let a = alphas[i] ?? 0;
+        if (a <= 0) continue;
+        const lastTouch = touched[i] ?? 0;
+        if (now - lastTouch > p.holdTime) {
+          a = Math.max(0, a - fadeStep);
+          alphas[i] = a;
+          if (a <= 0) continue;
+        }
+        anyVisible = true;
+        const [cx, cy] = cellCenter(i);
+        const gradient = ctx.createRadialGradient(cx, cy, half * 0.1, cx, cy, p.cellSize);
+        gradient.addColorStop(0, `rgba(${cr}, ${cg}, ${cb}, ${a})`);
+        gradient.addColorStop(1, `rgba(${cr}, ${cg}, ${cb}, 0)`);
+        const x = cx - half + 0.5;
+        const y = cy - half + 0.5;
+        const s = p.cellSize - 1;
+        ctx.beginPath();
+        if (p.cellRadius > 0) {
+          ctx.roundRect(x, y, s, s, p.cellRadius);
+        } else {
+          ctx.rect(x, y, s, s);
+        }
+        if (p.fillOpacity > 0) {
+          ctx.fillStyle = `rgba(${cr}, ${cg}, ${cb}, ${a * p.fillOpacity})`;
+          ctx.fill();
+        }
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = p.lineWidth;
+        ctx.stroke();
+      }
+      if (anyVisible) {
+        raf = requestAnimationFrame(draw);
+      } else {
+        running = false;
+        if (propsRef.current.gridOpacity <= 0) ctx.clearRect(0, 0, w, h);
+      }
+    };
+    const wake = () => {
+      if (running) return;
+      running = true;
+      lastFrame = performance.now();
+      raf = requestAnimationFrame(draw);
+    };
+    wakeRef.current = wake;
+    const toLocal = (e) => {
+      const rect = canvas.getBoundingClientRect();
+      return [e.clientX - rect.left, e.clientY - rect.top];
+    };
+    const onPointerMove = (e) => {
+      const [x, y] = toLocal(e);
+      energize(x, y);
+      wake();
+    };
+    const onPointerDown = (e) => {
+      if (!propsRef.current.clickPulse) return;
+      const [x, y] = toLocal(e);
+      pulses.push({ x, y, t0: performance.now() });
+      wake();
+    };
+    const ro = typeof ResizeObserver !== "undefined" ? new ResizeObserver(() => {
+      rebuild();
+      wake();
+    }) : null;
+    if (ro) ro.observe(container);
+    rebuild();
+    wake();
+    container.addEventListener("pointermove", onPointerMove);
+    container.addEventListener("pointerdown", onPointerDown);
+    return () => {
+      cancelAnimationFrame(raf);
+      if (ro) ro.disconnect();
+      container.removeEventListener("pointermove", onPointerMove);
+      container.removeEventListener("pointerdown", onPointerDown);
+    };
+  }, [cellSize]);
+  React18.useEffect(() => {
+    wakeRef.current?.();
+  }, [gridOpacity, color, lineWidth, maxOpacity, fillOpacity, cellRadius]);
+  return /* @__PURE__ */ jsxRuntime.jsx("div", { ref: containerRef, className: `cursor-grid${className ? ` ${className}` : ""}`, children: /* @__PURE__ */ jsxRuntime.jsx("canvas", { ref: canvasRef, className: "cursor-grid__canvas" }) });
+};
+var AuthPageRoot = styles.styled("main", {
+  shouldForwardProp: (prop) => prop !== "hasSplitBrand"
+})(({ theme, hasSplitBrand }) => ({
   minHeight: "100vh",
-  display: "flex",
-  flexDirection: "column",
+  display: "grid",
+  gridTemplateColumns: "minmax(0, 1fr)",
+  backgroundColor: theme.palette.background.default,
+  ...hasSplitBrand && {
+    [theme.breakpoints.up("md")]: {
+      gridTemplateColumns: "minmax(0, 5fr) minmax(0, 7fr)"
+    },
+    [theme.breakpoints.up("lg")]: {
+      gridTemplateColumns: "minmax(0, 5.2fr) minmax(0, 6.8fr)"
+    }
+  }
+}));
+var AuthBrandPanel = styles.styled("section", {
+  shouldForwardProp: (prop) => prop !== "customGradient"
+})(({ theme, customGradient }) => ({
+  display: "none",
+  position: "relative",
+  overflow: "hidden",
+  padding: theme.spacing(6, 6, 5),
+  color: theme.palette.common.white,
+  background: customGradient || `linear-gradient(145deg, #090e17 0%, #0f172a 45%, ${theme.palette.primary.dark || "#1e3a8a"} 100%)`,
+  [theme.breakpoints.up("md")]: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between"
+  },
+  "&::before": {
+    content: '""',
+    position: "absolute",
+    width: theme.spacing(52),
+    height: theme.spacing(52),
+    top: theme.spacing(-14),
+    right: theme.spacing(-14),
+    borderRadius: "50%",
+    border: `${theme.spacing(5)} solid ${styles.alpha(theme.palette.common.white, 0.04)}`,
+    pointerEvents: "none"
+  },
+  "&::after": {
+    content: '""',
+    position: "absolute",
+    width: theme.spacing(40),
+    height: theme.spacing(40),
+    bottom: theme.spacing(-14),
+    left: theme.spacing(-12),
+    borderRadius: "50%",
+    backgroundColor: styles.alpha(theme.palette.common.white, 0.03),
+    pointerEvents: "none"
+  }
+}));
+var BrandPanelContent = styles.styled("div")({
+  position: "relative",
+  zIndex: 1
+});
+var BrandMarkTile = styles.styled("div")(({ theme }) => ({
+  display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
-  padding: theme.spacing(3),
-  backgroundColor: theme.palette.background.default
+  width: theme.spacing(6),
+  height: theme.spacing(6),
+  borderRadius: theme.shape.borderRadius * 1.5,
+  color: theme.palette.grey[900],
+  backgroundColor: theme.palette.common.white,
+  boxShadow: "0 8px 24px rgba(0, 0, 0, 0.25)"
 }));
-var AuthTopRight = styles.styled("div")(({ theme }) => ({
-  position: "absolute",
-  top: theme.spacing(2),
-  right: theme.spacing(3)
+var FeatureList = styles.styled("div")(({ theme }) => ({
+  display: "grid",
+  gap: theme.spacing(2.25),
+  marginTop: theme.spacing(4.5)
 }));
-var AuthCard = styles.styled(Card__default.default)(({ theme }) => ({
-  width: "100%",
-  maxWidth: 420,
-  boxShadow: theme.custom.raisedShadow
-}));
-var AuthLogo = styles.styled("div")(({ theme }) => ({
-  marginBottom: theme.spacing(3),
+var FeatureItem = styles.styled("div")(({ theme }) => ({
   display: "flex",
-  justifyContent: "center"
+  gap: theme.spacing(1.75),
+  alignItems: "center",
+  color: styles.alpha(theme.palette.common.white, 0.88)
 }));
-function AuthLayout({ children, logo, topRight }) {
-  return /* @__PURE__ */ jsxRuntime.jsxs(AuthRoot, { children: [
-    topRight ? /* @__PURE__ */ jsxRuntime.jsx(AuthTopRight, { children: topRight }) : null,
-    logo ? /* @__PURE__ */ jsxRuntime.jsx(AuthLogo, { children: logo }) : null,
-    /* @__PURE__ */ jsxRuntime.jsx(AuthCard, { children: /* @__PURE__ */ jsxRuntime.jsx(CardContent__default.default, { sx: { p: 4 }, children }) })
+var AuthFormPanel = styles.styled("section")(({ theme }) => ({
+  minWidth: 0,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  padding: theme.spacing(9, 3, 4),
+  position: "relative",
+  overflow: "hidden",
+  backgroundColor: "#f8fafc",
+  backgroundImage: "radial-gradient(circle at 50% 25%, rgba(255, 255, 255, 0.9) 0%, rgba(241, 245, 249, 0.7) 100%)",
+  [theme.breakpoints.up("sm")]: {
+    padding: theme.spacing(10, 5, 5)
+  }
+}));
+var StyledPaper = styles.styled(Paper__default.default)(({ theme }) => ({
+  position: "relative",
+  zIndex: 1,
+  width: "100%",
+  maxWidth: 450,
+  padding: theme.spacing(4.25),
+  borderRadius: 20,
+  border: "1px solid rgba(226, 232, 240, 0.9)",
+  boxShadow: "0 20px 45px -15px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(15, 23, 42, 0.04)",
+  backgroundImage: "none",
+  backgroundColor: "rgba(255, 255, 255, 0.96)",
+  backdropFilter: "blur(10px)",
+  [theme.breakpoints.up("sm")]: {
+    padding: theme.spacing(5)
+  }
+}));
+function AuthFormShell({ children, sx, ...props }) {
+  return /* @__PURE__ */ jsxRuntime.jsx(StyledPaper, { elevation: 0, sx, ...props, children });
+}
+var AuthTopBar = styles.styled(Box7__default.default)(({ theme }) => ({
+  position: "absolute",
+  zIndex: 2,
+  top: theme.spacing(2.5),
+  left: theme.spacing(2.5),
+  right: theme.spacing(2.5),
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  [theme.breakpoints.up("md")]: {
+    justifyContent: "flex-end",
+    top: theme.spacing(3),
+    right: theme.spacing(3)
+  }
+}));
+var MobileBrand = styles.styled("div")(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  [theme.breakpoints.up("md")]: {
+    display: "none"
+  }
+}));
+function AuthLayout({
+  children,
+  logo,
+  topRight,
+  appName,
+  tagline,
+  headline,
+  description,
+  features,
+  footer,
+  brandGradient,
+  centeredOnly = false
+}) {
+  const hasSplitBrand = !centeredOnly && Boolean(appName || headline);
+  return /* @__PURE__ */ jsxRuntime.jsxs(AuthPageRoot, { hasSplitBrand, children: [
+    hasSplitBrand ? /* @__PURE__ */ jsxRuntime.jsxs(AuthBrandPanel, { customGradient: brandGradient, children: [
+      /* @__PURE__ */ jsxRuntime.jsx(BrandPanelContent, { children: /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", spacing: 2, alignItems: "center", children: [
+        /* @__PURE__ */ jsxRuntime.jsx(BrandMarkTile, { children: /* @__PURE__ */ jsxRuntime.jsx(NamiosMarkSvg, { size: 28, color: "#0f172a" }) }),
+        /* @__PURE__ */ jsxRuntime.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h5", component: "p", sx: { fontWeight: 800, letterSpacing: "-0.01em" }, children: appName }),
+          tagline ? /* @__PURE__ */ jsxRuntime.jsx(
+            Typography9__default.default,
+            {
+              variant: "caption",
+              sx: {
+                textTransform: "uppercase",
+                letterSpacing: "0.08em",
+                color: "inherit",
+                opacity: 0.72,
+                fontWeight: 600
+              },
+              children: tagline
+            }
+          ) : null
+        ] })
+      ] }) }),
+      /* @__PURE__ */ jsxRuntime.jsxs(BrandPanelContent, { children: [
+        headline ? /* @__PURE__ */ jsxRuntime.jsx(
+          Typography9__default.default,
+          {
+            variant: "h3",
+            component: "h1",
+            sx: {
+              fontWeight: 750,
+              letterSpacing: "-0.025em",
+              lineHeight: 1.15,
+              maxWidth: (theme) => theme.spacing(60)
+            },
+            children: headline
+          }
+        ) : null,
+        description ? /* @__PURE__ */ jsxRuntime.jsx(
+          Typography9__default.default,
+          {
+            variant: "body1",
+            sx: {
+              mt: 2,
+              maxWidth: (theme) => theme.spacing(58),
+              color: "inherit",
+              opacity: 0.76,
+              lineHeight: 1.6
+            },
+            children: description
+          }
+        ) : null,
+        features && features.length > 0 ? /* @__PURE__ */ jsxRuntime.jsx(FeatureList, { children: features.map((feature, idx) => {
+          const text = typeof feature === "string" ? feature : feature.text;
+          const icon = typeof feature === "object" && feature.icon ? feature.icon : /* @__PURE__ */ jsxRuntime.jsx(CheckCircleRoundedIcon__default.default, { sx: { fontSize: 20, color: "#38bdf8" } });
+          return /* @__PURE__ */ jsxRuntime.jsxs(FeatureItem, { children: [
+            icon,
+            /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "inherit", sx: { fontWeight: 500, fontSize: "0.9rem" }, children: text })
+          ] }, idx);
+        }) }) : null
+      ] }),
+      /* @__PURE__ */ jsxRuntime.jsx(BrandPanelContent, { children: /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "caption", sx: { opacity: 0.6, fontSize: "0.75rem" }, children: footer || "Hotel operations, thoughtfully connected." }) })
+    ] }) : null,
+    /* @__PURE__ */ jsxRuntime.jsxs(AuthFormPanel, { children: [
+      /* @__PURE__ */ jsxRuntime.jsx(
+        CursorGrid,
+        {
+          cellSize: 64,
+          color: "#334155",
+          radius: 160,
+          falloff: "smooth",
+          holdTime: 350,
+          fadeDuration: 750,
+          lineWidth: 1.2,
+          maxOpacity: 0.45,
+          fillOpacity: 0.03,
+          gridOpacity: 0.05,
+          cellRadius: 6,
+          clickPulse: true,
+          pulseSpeed: 550
+        }
+      ),
+      /* @__PURE__ */ jsxRuntime.jsxs(AuthTopBar, { children: [
+        /* @__PURE__ */ jsxRuntime.jsx(MobileBrand, { children: logo }),
+        topRight
+      ] }),
+      /* @__PURE__ */ jsxRuntime.jsx(AuthFormShell, { elevation: 0, children: /* @__PURE__ */ jsxRuntime.jsx(Stack4__default.default, { spacing: 3, children }) })
+    ] })
+  ] });
+}
+function AuthFormHeader({ title, subtitle, badge }) {
+  return /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { spacing: 0.75, sx: { mb: 1 }, children: [
+    badge ? /* @__PURE__ */ jsxRuntime.jsx("div", { children: badge }) : null,
+    /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h4", component: "h1", sx: { fontWeight: 700, letterSpacing: "-0.02em" }, children: title }),
+    subtitle ? /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "text.secondary", sx: { fontSize: "0.875rem" }, children: subtitle }) : null
   ] });
 }
 
@@ -10480,7 +10939,7 @@ var AppTile = ({
           }
         ),
         /* @__PURE__ */ jsxRuntime.jsx(
-          Typography4__default.default,
+          Typography9__default.default,
           {
             variant: "caption",
             sx: {
@@ -10644,10 +11103,10 @@ var AppFolderModal = ({
               },
               onClick: (e) => e.stopPropagation(),
               children: [
-                /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { display: "flex", alignItems: "flex-start", justifyContent: "space-between", mb: 2 }, children: [
-                  /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { pr: 2 }, children: [
+                /* @__PURE__ */ jsxRuntime.jsxs(Box7__default.default, { sx: { display: "flex", alignItems: "flex-start", justifyContent: "space-between", mb: 2 }, children: [
+                  /* @__PURE__ */ jsxRuntime.jsxs(Box7__default.default, { sx: { pr: 2 }, children: [
                     /* @__PURE__ */ jsxRuntime.jsx(
-                      Typography4__default.default,
+                      Typography9__default.default,
                       {
                         variant: "h6",
                         sx: {
@@ -10661,7 +11120,7 @@ var AppFolderModal = ({
                       }
                     ),
                     subtitle && /* @__PURE__ */ jsxRuntime.jsx(
-                      Typography4__default.default,
+                      Typography9__default.default,
                       {
                         variant: "caption",
                         sx: { color: "#64748B", fontWeight: 500, display: "block", mt: 0.5, fontSize: "0.8rem" },
@@ -10685,7 +11144,7 @@ var AppFolderModal = ({
                   )
                 ] }),
                 apps.length > 4 && /* @__PURE__ */ jsxRuntime.jsxs(
-                  Box6__default.default,
+                  Box7__default.default,
                   {
                     sx: {
                       display: "flex",
@@ -10718,7 +11177,7 @@ var AppFolderModal = ({
                   }
                 ),
                 categories.length > 1 && !search && /* @__PURE__ */ jsxRuntime.jsxs(
-                  Box6__default.default,
+                  Box7__default.default,
                   {
                     sx: {
                       display: "flex",
@@ -10767,7 +11226,7 @@ var AppFolderModal = ({
                   }
                 ),
                 /* @__PURE__ */ jsxRuntime.jsx(
-                  Box6__default.default,
+                  Box7__default.default,
                   {
                     sx: {
                       flexGrow: 1,
@@ -10781,7 +11240,7 @@ var AppFolderModal = ({
                         borderRadius: 2
                       }
                     },
-                    children: filteredApps.length === 0 ? /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { py: 6, textAlign: "center" }, children: /* @__PURE__ */ jsxRuntime.jsxs(Typography4__default.default, { variant: "body2", color: "text.secondary", fontWeight: 600, children: [
+                    children: filteredApps.length === 0 ? /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { py: 6, textAlign: "center" }, children: /* @__PURE__ */ jsxRuntime.jsxs(Typography9__default.default, { variant: "body2", color: "text.secondary", fontWeight: 600, children: [
                       "No apps found matching \u201C",
                       search,
                       "\u201D"
@@ -10814,7 +11273,7 @@ var AppFolderModal = ({
                   }
                 ),
                 /* @__PURE__ */ jsxRuntime.jsxs(
-                  Box6__default.default,
+                  Box7__default.default,
                   {
                     sx: {
                       pt: 1.5,
@@ -10825,8 +11284,8 @@ var AppFolderModal = ({
                       justifyContent: "space-between"
                     },
                     children: [
-                      /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "caption", sx: { color: "#94A3B8", fontWeight: 600 }, children: "NamiOS Suite" }),
-                      /* @__PURE__ */ jsxRuntime.jsxs(Typography4__default.default, { variant: "caption", sx: { color: "#94A3B8", fontSize: "0.7rem" }, children: [
+                      /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "caption", sx: { color: "#94A3B8", fontWeight: 600 }, children: "NamiOS Suite" }),
+                      /* @__PURE__ */ jsxRuntime.jsxs(Typography9__default.default, { variant: "caption", sx: { color: "#94A3B8", fontSize: "0.7rem" }, children: [
                         "Press ",
                         /* @__PURE__ */ jsxRuntime.jsx("kbd", { style: { background: "rgba(0,0,0,0.06)", padding: "2px 4px", borderRadius: 4, fontWeight: 700 }, children: "Esc" }),
                         " to close"
@@ -11001,7 +11460,7 @@ function DashboardLayout({
     ] })
   ] });
 }
-var LaneContainer = styles.styled(Box6__default.default)(({ theme }) => ({
+var LaneContainer = styles.styled(Box7__default.default)(({ theme }) => ({
   flex: 1,
   minWidth: 280,
   maxWidth: 360,
@@ -11015,14 +11474,14 @@ var LaneContainer = styles.styled(Box6__default.default)(({ theme }) => ({
   minHeight: 500,
   border: `1px solid ${theme.palette.mode === "light" ? "#E2E8F0" : "#1E293B"}`
 }));
-var ColumnHeader = styles.styled(Box6__default.default)(({ theme }) => ({
+var ColumnHeader = styles.styled(Box7__default.default)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
   paddingBottom: theme.spacing(1.5),
   borderBottom: `2px solid ${theme.palette.divider}`
 }));
-var ItemsScrollArea = styles.styled(Box6__default.default)(({ theme }) => ({
+var ItemsScrollArea = styles.styled(Box7__default.default)(({ theme }) => ({
   flexGrow: 1,
   overflowY: "auto",
   display: "flex",
@@ -11065,7 +11524,7 @@ function KanbanBoard({
           /* @__PURE__ */ jsxRuntime.jsxs(ColumnHeader, { children: [
             /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", spacing: 1.5, alignItems: "center", children: [
               column.color && /* @__PURE__ */ jsxRuntime.jsx(
-                Box6__default.default,
+                Box7__default.default,
                 {
                   sx: {
                     width: 8,
@@ -11075,7 +11534,7 @@ function KanbanBoard({
                   }
                 }
               ),
-              /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "subtitle2", sx: { fontWeight: 700, letterSpacing: "0.05em" }, children: column.title })
+              /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "subtitle2", sx: { fontWeight: 700, letterSpacing: "0.05em" }, children: column.title })
             ] }),
             /* @__PURE__ */ jsxRuntime.jsx(
               Card__default.default,
@@ -11089,11 +11548,11 @@ function KanbanBoard({
                   borderColor: "divider",
                   boxShadow: "none"
                 },
-                children: /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "caption", sx: { fontWeight: 700 }, children: laneItems.length })
+                children: /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "caption", sx: { fontWeight: 700 }, children: laneItems.length })
               }
             )
           ] }),
-          /* @__PURE__ */ jsxRuntime.jsx(ItemsScrollArea, { children: laneItems.map((item) => /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { position: "relative" }, children: renderItem(item) }, getItemId(item))) })
+          /* @__PURE__ */ jsxRuntime.jsx(ItemsScrollArea, { children: laneItems.map((item) => /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { position: "relative" }, children: renderItem(item) }, getItemId(item))) })
         ] }, column.id);
       })
     }
@@ -11105,7 +11564,7 @@ function SplitPaneLayout({
   rightWidth = 400
 }) {
   return /* @__PURE__ */ jsxRuntime.jsxs(
-    Box6__default.default,
+    Box7__default.default,
     {
       sx: {
         display: "flex",
@@ -11117,7 +11576,7 @@ function SplitPaneLayout({
       },
       children: [
         /* @__PURE__ */ jsxRuntime.jsx(
-          Box6__default.default,
+          Box7__default.default,
           {
             sx: {
               flexGrow: 1,
@@ -11129,7 +11588,7 @@ function SplitPaneLayout({
           }
         ),
         /* @__PURE__ */ jsxRuntime.jsx(
-          Box6__default.default,
+          Box7__default.default,
           {
             sx: {
               width: { xs: "100%", md: rightWidth },
@@ -11165,14 +11624,14 @@ var StyledCard = styles.styled(Card__default.default, {
     borderColor: activeBorderColor || theme.palette.text.secondary
   } : {}
 }));
-var ImageContainer = styles.styled(Box6__default.default)({
+var ImageContainer = styles.styled(Box7__default.default)({
   position: "relative",
   paddingTop: "60%",
   // 5:3 Aspect Ratio
   width: "100%",
   overflow: "hidden"
 });
-var MediaOverlay = styles.styled(Box6__default.default)({
+var MediaOverlay = styles.styled(Box7__default.default)({
   position: "absolute",
   top: 0,
   left: 0,
@@ -11226,7 +11685,7 @@ function MenuCard({
               }
             }
           ) : /* @__PURE__ */ jsxRuntime.jsx(
-            Box6__default.default,
+            Box7__default.default,
             {
               sx: {
                 position: "absolute",
@@ -11239,18 +11698,18 @@ function MenuCard({
                 justifyContent: "center",
                 bgcolor: "action.hover"
               },
-              children: /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "body2", color: "text.secondary", sx: { fontWeight: 600 }, children: "No Image" })
+              children: /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "text.secondary", sx: { fontWeight: 600 }, children: "No Image" })
             }
           ),
           actionOverlay && /* @__PURE__ */ jsxRuntime.jsx(MediaOverlay, { children: actionOverlay })
         ] }),
         /* @__PURE__ */ jsxRuntime.jsxs(CardContent__default.default, { sx: { p: 2, flexGrow: 1, display: "flex", flexDirection: "column", gap: 1 }, children: [
           /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", justifyContent: "space-between", alignItems: "flex-start", spacing: 1, children: [
-            /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "subtitle1", sx: { fontWeight: 700, lineHeight: 1.2 }, noWrap: true, children: name }),
-            /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "subtitle1", color: "primary", sx: { fontWeight: 700 }, children: formattedPrice })
+            /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "subtitle1", sx: { fontWeight: 700, lineHeight: 1.2 }, noWrap: true, children: name }),
+            /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "subtitle1", color: "primary", sx: { fontWeight: 700 }, children: formattedPrice })
           ] }),
           description && /* @__PURE__ */ jsxRuntime.jsx(
-            Typography4__default.default,
+            Typography9__default.default,
             {
               variant: "body2",
               color: "text.secondary",
@@ -11266,10 +11725,10 @@ function MenuCard({
               children: description
             }
           ),
-          /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { flexGrow: 1 } }),
+          /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { flexGrow: 1 } }),
           /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", spacing: 0.5, flexWrap: "wrap", useFlexGap: true, alignItems: "center", sx: { mt: 1 }, children: [
-            badges?.map((badge, idx) => /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { children: badge }, idx)),
-            /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { flexGrow: 1 } }),
+            badges?.map((badge, idx) => /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { children: badge }, idx)),
+            /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { flexGrow: 1 } }),
             stockLabel && /* @__PURE__ */ jsxRuntime.jsx(
               Chip6__default.default,
               {
@@ -13278,6 +13737,8 @@ exports.AppSideNav = AppSideNav;
 exports.AppTile = AppTile;
 exports.AppTopBar = AppTopBar;
 exports.AppleDialogTransition = AppleDialogTransition;
+exports.AuthFormHeader = AuthFormHeader;
+exports.AuthFormShell = AuthFormShell;
 exports.AuthLayout = AuthLayout;
 exports.BACKDROP_TRANSITION = BACKDROP_TRANSITION;
 exports.BRAND = BRAND;
@@ -13287,6 +13748,7 @@ exports.CONTAINER_VARIANTS = CONTAINER_VARIANTS;
 exports.ConfirmDialog = ConfirmDialog;
 exports.ConfirmProvider = ConfirmProvider;
 exports.ContextMenu = ContextMenu;
+exports.CursorGrid = CursorGrid;
 exports.DATE_FORMATS = DATE_FORMATS;
 exports.DEBOUNCE_MS = DEBOUNCE_MS;
 exports.DEFAULT_HOTELOS_APPS = DEFAULT_HOTELOS_APPS;

@@ -63,7 +63,14 @@ export { WizardDialog, type WizardDialogProps, type WizardStep } from './WizardD
 export { DateRangeButton, type DateRangeButtonProps } from './DateRangeButton';
 export { AppSideNav, type AppSideNavProps, type SideNavItem } from './AppSideNav';
 export { PageHeader, type PageBreadcrumb, type PageHeaderProps } from './PageHeader';
-export { AuthLayout, type AuthLayoutProps } from './AuthLayout';
+export {
+  AuthLayout,
+  AuthFormShell,
+  type AuthLayoutProps,
+  type AuthLayoutFeatureItem,
+} from './AuthLayout';
+export { AuthFormHeader, type AuthFormHeaderProps } from './AuthFormHeader';
+export * from './CursorGrid';
 export { DashboardLayout, type DashboardLayoutProps } from './DashboardLayout';
 export { KanbanBoard, type KanbanBoardProps, type KanbanColumn } from './KanbanBoard';
 export { SplitPaneLayout, type SplitPaneLayoutProps } from './SplitPaneLayout';
