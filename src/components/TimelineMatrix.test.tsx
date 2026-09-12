@@ -56,4 +56,23 @@ describe('TimelineMatrix', () => {
     await user.click(screen.getByRole('button', { name: 'r102 2026-07-04' }));
     expect(onCellClick).toHaveBeenCalledWith('r102', '2026-07-04');
   });
+
+  it('positions an in-range initial date as the first visible day column', () => {
+    renderWithProviders(
+      <TimelineMatrix<Room>
+        resources={resources}
+        spans={[]}
+        startDate="2026-07-01"
+        days={31}
+        initialScrollDate="2026-07-12"
+        resourceLabelKey="common:timeline.resource"
+        renderResource={(room) => <span>{room.number}</span>}
+      />,
+    );
+
+    expect(screen.getByTestId('timeline-matrix-scroll-container')).toHaveProperty(
+      'scrollLeft',
+      11 * 76,
+    );
+  });
 });

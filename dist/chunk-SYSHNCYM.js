@@ -1,5 +1,5 @@
 import { AppleDialogTransition } from './chunk-WIZSQCHM.js';
-import { useContextMenu, DateRangePreset, useMediaBreakpoint, useLocaleFormat } from './chunk-2AA7TM6P.js';
+import { useContextMenu, DateRangePreset, useMediaBreakpoint, useLocaleFormat } from './chunk-47Z2FB7C.js';
 import { STATUS_COLORS } from './chunk-PIXANAT2.js';
 import { PAGE_SIZE_OPTIONS } from './chunk-PGMOSXPC.js';
 import { SUPPORTED_LOCALES } from './chunk-TSLK7DRZ.js';
@@ -18,6 +18,7 @@ import Typography9 from '@mui/material/Typography';
 import { jsx, jsxs, Fragment } from 'react/jsx-runtime';
 import { forwardRef, useState, useEffect, useRef, useCallback, Fragment as Fragment$1, useMemo } from 'react';
 import Button4 from '@mui/material/Button';
+import CircularProgress from '@mui/material/CircularProgress';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, Controller } from 'react-hook-form';
 import Stack4 from '@mui/material/Stack';
@@ -320,7 +321,8 @@ function FormDialog({
             },
             variant: "contained",
             disabled: submitting,
-            children: t(submitKey)
+            startIcon: submitting ? /* @__PURE__ */ jsx(CircularProgress, { size: 16, color: "inherit" }) : void 0,
+            children: submitting ? t("common:actions.saving", { defaultValue: "Saving..." }) : t(submitKey)
           }
         )
       ] }),
@@ -1589,7 +1591,7 @@ var SpanBar = styled("button")(({ theme }) => ({
   textAlign: "left",
   zIndex: 1
 }));
-function TimelineMatrix({
+var TimelineMatrix = ({
   resources,
   spans,
   startDate,
@@ -1600,13 +1602,21 @@ function TimelineMatrix({
   onCellClick,
   legend,
   loading = false,
-  today
-}) {
+  today,
+  initialScrollDate
+}) => {
   const { t, i18n } = useTranslation();
   const theme = useTheme();
+  const scrollContainerRef = useRef(null);
   const dayList = dateRangeDays(startDate, days);
   const todayDate = today ?? todayIso();
   const endDate = addDays(startDate, days);
+  useEffect(() => {
+    if (!initialScrollDate || !scrollContainerRef.current) return;
+    const dayIndex = differenceInDays(startDate, initialScrollDate);
+    if (dayIndex < 0 || dayIndex >= days) return;
+    scrollContainerRef.current.scrollLeft = dayIndex * DAY_COL_WIDTH;
+  }, [days, initialScrollDate, startDate]);
   const spanColor = (key) => {
     const paletteColor = key === "neutral" ? theme.palette.neutral : theme.palette[key];
     return {
@@ -1622,7 +1632,7 @@ function TimelineMatrix({
   }
   return /* @__PURE__ */ jsxs("div", { children: [
     legend ? /* @__PURE__ */ jsx(Typography9, { component: "div", variant: "body2", sx: { display: "flex", justifyContent: "flex-end", mb: 1 }, children: legend }) : null,
-    /* @__PURE__ */ jsx(MatrixRoot, { children: /* @__PURE__ */ jsxs("div", { style: { width: RESOURCE_COL_WIDTH + days * DAY_COL_WIDTH }, children: [
+    /* @__PURE__ */ jsx(MatrixRoot, { ref: scrollContainerRef, "data-testid": "timeline-matrix-scroll-container", children: /* @__PURE__ */ jsxs("div", { style: { width: RESOURCE_COL_WIDTH + days * DAY_COL_WIDTH }, children: [
       /* @__PURE__ */ jsxs(HeaderRow, { children: [
         /* @__PURE__ */ jsx(ResourceCell, { children: /* @__PURE__ */ jsx(Typography9, { variant: "overline", color: "text.secondary", children: t(resourceLabelKey) }) }),
         dayList.map((date) => {
@@ -1679,7 +1689,7 @@ function TimelineMatrix({
       })
     ] }) })
   ] });
-}
+};
 function StatusFilterChips({
   options,
   value,
@@ -1910,12 +1920,13 @@ function WizardDialog({
                 variant: "contained",
                 onClick: isLast ? onFinish : onNext,
                 disabled: !canNext || submitting,
+                startIcon: submitting && isLast ? /* @__PURE__ */ jsx(CircularProgress, { size: 16, color: "inherit" }) : void 0,
                 sx: {
                   borderRadius: "12px",
                   px: 3,
                   fontWeight: 700
                 },
-                children: t(isLast ? finishKey : nextKey)
+                children: submitting && isLast ? t("common:actions.saving", { defaultValue: "Saving..." }) : t(isLast ? finishKey : nextKey)
               }
             )
           ] })
@@ -5010,5 +5021,5 @@ var AnimatedDoorOpen = ({
 };
 
 export { APP_TILE_VARIANTS, AnimatedBed, AnimatedBrush, AnimatedCalendar, AnimatedCreditCard, AnimatedDashboard, AnimatedDoorOpen, AnimatedFolderOpen, AnimatedInbox, AnimatedLayers, AnimatedRadio, AnimatedSearch, AnimatedSettings, AnimatedShieldCheck, AnimatedSparkles, AnimatedTrendingUp, AnimatedUsers, AppDialog, AppDrawer, AppFolderMiniPreview, AppFolderModal, AppLauncher, AppSideNav, AppTile, AppTopBar, AuthFormHeader, AuthFormShell, AuthLayout, BACKDROP_TRANSITION, CONTAINER_VARIANTS, ContextMenu, CursorGrid, DEFAULT_HOTELOS_APPS, DashboardLayout, DataTable, DateRangeButton, DescriptionList, EmptyState, ErrorState, FOLDER_LAYOUT_SPRING, FormDialog, FormSelect, FormSwitch, FormTextField, KanbanBoard, LanguageSwitcher, LoadingOverlay, MenuCard, NamiosLoader, NamiosMarkSvg, PRODUCTION_APP_URLS, PageHeader, PageSkeleton, PasswordField, SearchField, SectionCard, SelectField, SplitPaneLayout, StatCard, StatusChip, StatusFilterChips, TimelineMatrix, UserAvatar, VERCEL_APP_URLS, WizardDialog, getAvatarBgColor, isPwa, navigateApp, resolveAppUrl };
-//# sourceMappingURL=chunk-LMQ74XWX.js.map
-//# sourceMappingURL=chunk-LMQ74XWX.js.map
+//# sourceMappingURL=chunk-SYSHNCYM.js.map
+//# sourceMappingURL=chunk-SYSHNCYM.js.map

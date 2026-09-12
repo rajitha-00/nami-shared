@@ -1,5 +1,6 @@
 import { useEffect, type ReactNode } from 'react';
 import Button from '@mui/material/Button';
+import CircularProgress from '@mui/material/CircularProgress';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {
   useForm,
@@ -84,8 +85,9 @@ export function FormDialog<TValues extends FieldValues>({
             }}
             variant="contained"
             disabled={submitting}
+            startIcon={submitting ? <CircularProgress size={16} color="inherit" /> : undefined}
           >
-            {t(submitKey)}
+            {submitting ? t('common:actions.saving', { defaultValue: 'Saving...' }) : t(submitKey)}
           </Button>
         </>
       }

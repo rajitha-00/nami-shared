@@ -1,4 +1,5 @@
 import Button from '@mui/material/Button';
+import CircularProgress from '@mui/material/CircularProgress';
 import Dialog from '@mui/material/Dialog';
 import Popover from '@mui/material/Popover';
 import DialogActions from '@mui/material/DialogActions';
@@ -21,6 +22,7 @@ export interface ConfirmDialogProps {
   variant?: ConfirmDialogVariant;
   confirmKey?: string;
   cancelKey?: string;
+  loading?: boolean;
   /** Anchor element to position the popover directly below the trigger button */
   anchorEl?: HTMLElement | null;
   /** When true, backdrop is completely transparent */
@@ -38,6 +40,7 @@ export function ConfirmDialog({
   variant = 'info',
   confirmKey = 'common:actions.confirm',
   cancelKey = 'common:actions.cancel',
+  loading = false,
   anchorEl,
   disableBackdrop = false,
   onConfirm,
@@ -96,6 +99,7 @@ export function ConfirmDialog({
         <Button
           onClick={onCancel}
           color="inherit"
+          disabled={loading}
           sx={{
             borderRadius: '9999px',
             textTransform: 'none',
@@ -117,6 +121,8 @@ export function ConfirmDialog({
           onClick={onConfirm}
           variant="contained"
           autoFocus
+          disabled={loading}
+          startIcon={loading ? <CircularProgress size={16} color="inherit" /> : undefined}
           color={variant === 'danger' ? 'error' : variant === 'warning' ? 'warning' : 'primary'}
           sx={{
             borderRadius: '9999px',

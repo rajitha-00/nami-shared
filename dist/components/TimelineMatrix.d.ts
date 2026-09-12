@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 export type TimelineColorKey = 'success' | 'info' | 'warning' | 'error' | 'neutral' | 'primary';
 export interface TimelineResource {
     id: string;
@@ -34,10 +34,12 @@ export interface TimelineMatrixProps<TResource extends TimelineResource, TSpanDa
     loading?: boolean;
     /** Highlighted "today"; defaults to the current date. */
     today?: string;
+    /** Date positioned as the first visible day column when the matrix opens. */
+    initialScrollDate?: string;
 }
 /**
  * Generic resource-timeline grid (e.g. the Room Allocation Matrix): sticky
  * resource column, N-day header with today highlight, positioned span bars.
  * Purely presentational — no domain logic inside.
  */
-export declare function TimelineMatrix<TResource extends TimelineResource, TSpanData = unknown>({ resources, spans, startDate, days, renderResource, resourceLabelKey, onSpanClick, onCellClick, legend, loading, today, }: TimelineMatrixProps<TResource, TSpanData>): import("react").JSX.Element;
+export declare const TimelineMatrix: <TResource extends TimelineResource, TSpanData = unknown>({ resources, spans, startDate, days, renderResource, resourceLabelKey, onSpanClick, onCellClick, legend, loading, today, initialScrollDate, }: TimelineMatrixProps<TResource, TSpanData>) => import("react").JSX.Element;

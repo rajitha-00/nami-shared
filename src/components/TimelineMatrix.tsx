@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
 import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import { alpha, styled, useTheme } from '@mui/material/styles';
@@ -145,6 +145,8 @@ export interface TimelineMatrixProps<TResource extends TimelineResource, TSpanDa
   loading?: boolean;
   /** Highlighted "today"; defaults to the current date. */
   today?: string;
+  /** Date positioned as the first visible day column when the matrix opens. */
+  initialScrollDate?: string;
 }
 
 /**
@@ -152,7 +154,7 @@ export interface TimelineMatrixProps<TResource extends TimelineResource, TSpanDa
  * resource column, N-day header with today highlight, positioned span bars.
  * Purely presentational — no domain logic inside.
  */
-export function TimelineMatrix<TResource extends TimelineResource, TSpanData = unknown>({
+export const TimelineMatrix = <TResource extends TimelineResource, TSpanData = unknown,>({
   resources,
   spans,
   startDate,
@@ -164,12 +166,23 @@ export function TimelineMatrix<TResource extends TimelineResource, TSpanData = u
   legend,
   loading = false,
   today,
-}: TimelineMatrixProps<TResource, TSpanData>) {
+  initialScrollDate,
+}: TimelineMatrixProps<TResource, TSpanData>) => {
   const { t, i18n } = useTranslation();
   const theme = useTheme();
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const dayList = dateRangeDays(startDate, days);
   const todayDate = today ?? todayIso();
   const endDate = addDays(startDate, days);
+
+  useEffect(() => {
+    if (!initialScrollDate || !scrollContainerRef.current) return;
+
+    const dayIndex = differenceInDays(startDate, initialScrollDate);
+    if (dayIndex < 0 || dayIndex >= days) return;
+
+    scrollContainerRef.current.scrollLeft = dayIndex * DAY_COL_WIDTH;
+  }, [days, initialScrollDate, startDate]);
 
   const spanColor = (key: TimelineColorKey) => {
     const paletteColor =
@@ -199,7 +212,7 @@ export function TimelineMatrix<TResource extends TimelineResource, TSpanData = u
           {legend}
         </Typography>
       ) : null}
-      <MatrixRoot>
+      <MatrixRoot ref={scrollContainerRef} data-testid="timeline-matrix-scroll-container">
         <div style={{ width: RESOURCE_COL_WIDTH + days * DAY_COL_WIDTH }}>
           <HeaderRow>
             <ResourceCell>
@@ -278,4 +291,4 @@ export function TimelineMatrix<TResource extends TimelineResource, TSpanData = u
       </MatrixRoot>
     </div>
   );
-}
+};

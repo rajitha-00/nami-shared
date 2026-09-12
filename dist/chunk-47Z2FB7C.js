@@ -4,6 +4,7 @@ import { forwardRef, useMemo, useState, useCallback } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { jsx, jsxs } from 'react/jsx-runtime';
 import Button from '@mui/material/Button';
+import CircularProgress from '@mui/material/CircularProgress';
 import Dialog from '@mui/material/Dialog';
 import Popover from '@mui/material/Popover';
 import DialogActions from '@mui/material/DialogActions';
@@ -94,6 +95,7 @@ function ConfirmDialog({
   variant = "info",
   confirmKey = "common:actions.confirm",
   cancelKey = "common:actions.cancel",
+  loading = false,
   anchorEl,
   disableBackdrop = false,
   onConfirm,
@@ -156,6 +158,7 @@ function ConfirmDialog({
         {
           onClick: onCancel,
           color: "inherit",
+          disabled: loading,
           sx: {
             borderRadius: "9999px",
             textTransform: "none",
@@ -178,6 +181,8 @@ function ConfirmDialog({
           onClick: onConfirm,
           variant: "contained",
           autoFocus: true,
+          disabled: loading,
+          startIcon: loading ? /* @__PURE__ */ jsx(CircularProgress, { size: 16, color: "inherit" }) : void 0,
           color: variant === "danger" ? "error" : variant === "warning" ? "warning" : "primary",
           sx: {
             borderRadius: "9999px",
@@ -391,5 +396,5 @@ function useContextMenu() {
 }
 
 export { ConfirmDialog, DateRangePreset, FamilyDialogTransition, useContextMenu, useDateRange, useLocaleFormat, useMediaBreakpoint };
-//# sourceMappingURL=chunk-2AA7TM6P.js.map
-//# sourceMappingURL=chunk-2AA7TM6P.js.map
+//# sourceMappingURL=chunk-47Z2FB7C.js.map
+//# sourceMappingURL=chunk-47Z2FB7C.js.map

@@ -2,6 +2,7 @@
 
 var React18 = require('react');
 var Button = require('@mui/material/Button');
+var CircularProgress = require('@mui/material/CircularProgress');
 var Dialog = require('@mui/material/Dialog');
 var Popover = require('@mui/material/Popover');
 var DialogActions = require('@mui/material/DialogActions');
@@ -47,6 +48,7 @@ function _interopNamespace(e) {
 
 var React18__namespace = /*#__PURE__*/_interopNamespace(React18);
 var Button__default = /*#__PURE__*/_interopDefault(Button);
+var CircularProgress__default = /*#__PURE__*/_interopDefault(CircularProgress);
 var Dialog__default = /*#__PURE__*/_interopDefault(Dialog);
 var Popover__default = /*#__PURE__*/_interopDefault(Popover);
 var DialogActions__default = /*#__PURE__*/_interopDefault(DialogActions);
@@ -163,6 +165,7 @@ function ConfirmDialog({
   variant = "info",
   confirmKey = "common:actions.confirm",
   cancelKey = "common:actions.cancel",
+  loading = false,
   anchorEl,
   disableBackdrop = false,
   onConfirm,
@@ -225,6 +228,7 @@ function ConfirmDialog({
         {
           onClick: onCancel,
           color: "inherit",
+          disabled: loading,
           sx: {
             borderRadius: "9999px",
             textTransform: "none",
@@ -247,6 +251,8 @@ function ConfirmDialog({
           onClick: onConfirm,
           variant: "contained",
           autoFocus: true,
+          disabled: loading,
+          startIcon: loading ? /* @__PURE__ */ jsxRuntime.jsx(CircularProgress__default.default, { size: 16, color: "inherit" }) : void 0,
           color: variant === "danger" ? "error" : variant === "warning" ? "warning" : "primary",
           sx: {
             borderRadius: "9999px",

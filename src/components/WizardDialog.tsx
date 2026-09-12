@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import Button from '@mui/material/Button';
+import CircularProgress from '@mui/material/CircularProgress';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -155,13 +156,16 @@ export function WizardDialog({
             variant="contained"
             onClick={isLast ? onFinish : onNext}
             disabled={!canNext || submitting}
+            startIcon={submitting && isLast ? <CircularProgress size={16} color="inherit" /> : undefined}
             sx={{
               borderRadius: '12px',
               px: 3,
               fontWeight: 700,
             }}
           >
-            {t(isLast ? finishKey : nextKey)}
+            {submitting && isLast
+              ? t('common:actions.saving', { defaultValue: 'Saving...' })
+              : t(isLast ? finishKey : nextKey)}
           </Button>
         </Stack>
       </DialogActions>

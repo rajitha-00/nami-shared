@@ -14,6 +14,7 @@ var styles = require('@mui/material/styles');
 var Box7 = require('@mui/material/Box');
 var Typography9 = require('@mui/material/Typography');
 var Button5 = require('@mui/material/Button');
+var CircularProgress = require('@mui/material/CircularProgress');
 var Popover = require('@mui/material/Popover');
 var DialogContentText = require('@mui/material/DialogContentText');
 var zod = require('@hookform/resolvers/zod');
@@ -96,6 +97,7 @@ var IconButton8__default = /*#__PURE__*/_interopDefault(IconButton8);
 var Box7__default = /*#__PURE__*/_interopDefault(Box7);
 var Typography9__default = /*#__PURE__*/_interopDefault(Typography9);
 var Button5__default = /*#__PURE__*/_interopDefault(Button5);
+var CircularProgress__default = /*#__PURE__*/_interopDefault(CircularProgress);
 var Popover__default = /*#__PURE__*/_interopDefault(Popover);
 var DialogContentText__default = /*#__PURE__*/_interopDefault(DialogContentText);
 var Stack4__default = /*#__PURE__*/_interopDefault(Stack4);
@@ -507,6 +509,7 @@ function ConfirmDialog({
   variant = "info",
   confirmKey = "common:actions.confirm",
   cancelKey = "common:actions.cancel",
+  loading = false,
   anchorEl,
   disableBackdrop = false,
   onConfirm,
@@ -569,6 +572,7 @@ function ConfirmDialog({
         {
           onClick: onCancel,
           color: "inherit",
+          disabled: loading,
           sx: {
             borderRadius: "9999px",
             textTransform: "none",
@@ -591,6 +595,8 @@ function ConfirmDialog({
           onClick: onConfirm,
           variant: "contained",
           autoFocus: true,
+          disabled: loading,
+          startIcon: loading ? /* @__PURE__ */ jsxRuntime.jsx(CircularProgress__default.default, { size: 16, color: "inherit" }) : void 0,
           color: variant === "danger" ? "error" : variant === "warning" ? "warning" : "primary",
           sx: {
             borderRadius: "9999px",
@@ -750,7 +756,8 @@ function FormDialog({
             },
             variant: "contained",
             disabled: submitting,
-            children: t(submitKey)
+            startIcon: submitting ? /* @__PURE__ */ jsxRuntime.jsx(CircularProgress__default.default, { size: 16, color: "inherit" }) : void 0,
+            children: submitting ? t("common:actions.saving", { defaultValue: "Saving..." }) : t(submitKey)
           }
         )
       ] }),
@@ -2115,7 +2122,7 @@ var SpanBar = styles.styled("button")(({ theme }) => ({
   textAlign: "left",
   zIndex: 1
 }));
-function TimelineMatrix({
+var TimelineMatrix = ({
   resources,
   spans,
   startDate,
@@ -2126,13 +2133,21 @@ function TimelineMatrix({
   onCellClick,
   legend,
   loading = false,
-  today
-}) {
+  today,
+  initialScrollDate
+}) => {
   const { t, i18n } = reactI18next.useTranslation();
   const theme = styles.useTheme();
+  const scrollContainerRef = react.useRef(null);
   const dayList = dateRangeDays(startDate, days);
   const todayDate = today ?? todayIso();
   const endDate = addDays(startDate, days);
+  react.useEffect(() => {
+    if (!initialScrollDate || !scrollContainerRef.current) return;
+    const dayIndex = differenceInDays(startDate, initialScrollDate);
+    if (dayIndex < 0 || dayIndex >= days) return;
+    scrollContainerRef.current.scrollLeft = dayIndex * DAY_COL_WIDTH;
+  }, [days, initialScrollDate, startDate]);
   const spanColor = (key) => {
     const paletteColor = key === "neutral" ? theme.palette.neutral : theme.palette[key];
     return {
@@ -2148,7 +2163,7 @@ function TimelineMatrix({
   }
   return /* @__PURE__ */ jsxRuntime.jsxs("div", { children: [
     legend ? /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { component: "div", variant: "body2", sx: { display: "flex", justifyContent: "flex-end", mb: 1 }, children: legend }) : null,
-    /* @__PURE__ */ jsxRuntime.jsx(MatrixRoot, { children: /* @__PURE__ */ jsxRuntime.jsxs("div", { style: { width: RESOURCE_COL_WIDTH + days * DAY_COL_WIDTH }, children: [
+    /* @__PURE__ */ jsxRuntime.jsx(MatrixRoot, { ref: scrollContainerRef, "data-testid": "timeline-matrix-scroll-container", children: /* @__PURE__ */ jsxRuntime.jsxs("div", { style: { width: RESOURCE_COL_WIDTH + days * DAY_COL_WIDTH }, children: [
       /* @__PURE__ */ jsxRuntime.jsxs(HeaderRow, { children: [
         /* @__PURE__ */ jsxRuntime.jsx(ResourceCell, { children: /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "overline", color: "text.secondary", children: t(resourceLabelKey) }) }),
         dayList.map((date) => {
@@ -2205,7 +2220,7 @@ function TimelineMatrix({
       })
     ] }) })
   ] });
-}
+};
 function StatusFilterChips({
   options,
   value,
@@ -2436,12 +2451,13 @@ function WizardDialog({
                 variant: "contained",
                 onClick: isLast ? onFinish : onNext,
                 disabled: !canNext || submitting,
+                startIcon: submitting && isLast ? /* @__PURE__ */ jsxRuntime.jsx(CircularProgress__default.default, { size: 16, color: "inherit" }) : void 0,
                 sx: {
                   borderRadius: "12px",
                   px: 3,
                   fontWeight: 700
                 },
-                children: t(isLast ? finishKey : nextKey)
+                children: submitting && isLast ? t("common:actions.saving", { defaultValue: "Saving..." }) : t(isLast ? finishKey : nextKey)
               }
             )
           ] })
