@@ -2446,6 +2446,10 @@ var AuthPageRoot = styled("main", {
   backgroundColor: theme.palette.background.default,
   [theme.breakpoints.up("md")]: {
     display: "grid",
+    height: "100vh",
+    minHeight: "100vh",
+    maxHeight: "100vh",
+    overflow: "hidden",
     gridTemplateColumns: hasSplitBrand ? "minmax(0, 5fr) minmax(0, 7fr)" : "minmax(0, 1fr)"
   },
   ...hasSplitBrand && {
@@ -2466,7 +2470,9 @@ var AuthBrandPanel = styled("section", {
   [theme.breakpoints.up("md")]: {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    height: "100%",
+    overflow: "hidden"
   },
   "&::before": {
     content: '""',
@@ -2525,7 +2531,7 @@ var AuthFormPanel = styled("section")(({ theme }) => ({
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  padding: theme.spacing(9, 2, 4),
+  padding: theme.spacing(3, 2),
   position: "relative",
   overflowY: "auto",
   overflowX: "hidden",
@@ -2539,11 +2545,12 @@ var AuthFormPanel = styled("section")(({ theme }) => ({
     }
   },
   [theme.breakpoints.up("sm")]: {
-    padding: theme.spacing(10, 4, 4)
+    padding: theme.spacing(4, 4)
   },
   [theme.breakpoints.up("md")]: {
+    height: "100%",
     minHeight: "100vh",
-    padding: theme.spacing(10, 5, 5)
+    padding: theme.spacing(4, 5)
   }
 }));
 var StyledPaper = styled(Paper)(({ theme }) => ({
@@ -2562,7 +2569,7 @@ var StyledPaper = styled(Paper)(({ theme }) => ({
   boxSizing: "border-box",
   [theme.breakpoints.up("sm")]: {
     padding: theme.spacing(5),
-    margin: 0
+    margin: "auto 0"
   }
 }));
 function AuthFormShell({ children, sx, ...props }) {
@@ -2581,7 +2588,8 @@ var AuthTopBar = styled(Box6)(({ theme }) => ({
   [theme.breakpoints.up("md")]: {
     justifyContent: "flex-end",
     top: theme.spacing(3),
-    right: theme.spacing(3)
+    right: theme.spacing(3),
+    left: "auto"
   }
 }));
 var MobileBrand = styled("div")(({ theme }) => ({
@@ -5050,5 +5058,5 @@ var AnimatedDoorOpen = ({
 };
 
 export { APP_TILE_VARIANTS, AnimatedBed, AnimatedBrush, AnimatedCalendar, AnimatedCreditCard, AnimatedDashboard, AnimatedDoorOpen, AnimatedFolderOpen, AnimatedInbox, AnimatedLayers, AnimatedRadio, AnimatedSearch, AnimatedSettings, AnimatedShieldCheck, AnimatedSparkles, AnimatedTrendingUp, AnimatedUsers, AppDialog, AppDrawer, AppFolderMiniPreview, AppFolderModal, AppLauncher, AppSideNav, AppTile, AppTopBar, AuthFormHeader, AuthFormShell, AuthLayout, BACKDROP_TRANSITION, CONTAINER_VARIANTS, ContextMenu, CursorGrid, DEFAULT_HOTELOS_APPS, DashboardLayout, DataTable, DateRangeButton, DescriptionList, EmptyState, ErrorState, FOLDER_LAYOUT_SPRING, FormDialog, FormSelect, FormSwitch, FormTextField, KanbanBoard, LanguageSwitcher, LoadingOverlay, MenuCard, NamiosLoader, NamiosMarkSvg, PRODUCTION_APP_URLS, PageHeader, PageSkeleton, PasswordField, SearchField, SectionCard, SelectField, SplitPaneLayout, StatCard, StatusChip, StatusFilterChips, TimelineMatrix, UserAvatar, VERCEL_APP_URLS, WizardDialog, getAvatarBgColor, isPwa, navigateApp, resolveAppUrl };
-//# sourceMappingURL=chunk-YVK6N55R.js.map
-//# sourceMappingURL=chunk-YVK6N55R.js.map
+//# sourceMappingURL=chunk-EPCNAZJJ.js.map
+//# sourceMappingURL=chunk-EPCNAZJJ.js.map

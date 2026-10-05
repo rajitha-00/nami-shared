@@ -10281,6 +10281,10 @@ var AuthPageRoot = styles.styled("main", {
   backgroundColor: theme.palette.background.default,
   [theme.breakpoints.up("md")]: {
     display: "grid",
+    height: "100vh",
+    minHeight: "100vh",
+    maxHeight: "100vh",
+    overflow: "hidden",
     gridTemplateColumns: hasSplitBrand ? "minmax(0, 5fr) minmax(0, 7fr)" : "minmax(0, 1fr)"
   },
   ...hasSplitBrand && {
@@ -10301,7 +10305,9 @@ var AuthBrandPanel = styles.styled("section", {
   [theme.breakpoints.up("md")]: {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    height: "100%",
+    overflow: "hidden"
   },
   "&::before": {
     content: '""',
@@ -10360,7 +10366,7 @@ var AuthFormPanel = styles.styled("section")(({ theme }) => ({
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  padding: theme.spacing(9, 2, 4),
+  padding: theme.spacing(3, 2),
   position: "relative",
   overflowY: "auto",
   overflowX: "hidden",
@@ -10374,11 +10380,12 @@ var AuthFormPanel = styles.styled("section")(({ theme }) => ({
     }
   },
   [theme.breakpoints.up("sm")]: {
-    padding: theme.spacing(10, 4, 4)
+    padding: theme.spacing(4, 4)
   },
   [theme.breakpoints.up("md")]: {
+    height: "100%",
     minHeight: "100vh",
-    padding: theme.spacing(10, 5, 5)
+    padding: theme.spacing(4, 5)
   }
 }));
 var StyledPaper = styles.styled(Paper__default.default)(({ theme }) => ({
@@ -10397,7 +10404,7 @@ var StyledPaper = styles.styled(Paper__default.default)(({ theme }) => ({
   boxSizing: "border-box",
   [theme.breakpoints.up("sm")]: {
     padding: theme.spacing(5),
-    margin: 0
+    margin: "auto 0"
   }
 }));
 function AuthFormShell({ children, sx, ...props }) {
@@ -10416,7 +10423,8 @@ var AuthTopBar = styles.styled(Box7__default.default)(({ theme }) => ({
   [theme.breakpoints.up("md")]: {
     justifyContent: "flex-end",
     top: theme.spacing(3),
-    right: theme.spacing(3)
+    right: theme.spacing(3),
+    left: "auto"
   }
 }));
 var MobileBrand = styles.styled("div")(({ theme }) => ({

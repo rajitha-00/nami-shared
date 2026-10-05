@@ -46,6 +46,10 @@ const AuthPageRoot = styled('main', {
   backgroundColor: theme.palette.background.default,
   [theme.breakpoints.up('md')]: {
     display: 'grid',
+    height: '100vh',
+    minHeight: '100vh',
+    maxHeight: '100vh',
+    overflow: 'hidden',
     gridTemplateColumns: hasSplitBrand ? 'minmax(0, 5fr) minmax(0, 7fr)' : 'minmax(0, 1fr)',
   },
   ...(hasSplitBrand && {
@@ -70,6 +74,8 @@ const AuthBrandPanel = styled('section', {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
+    height: '100%',
+    overflow: 'hidden',
   },
   '&::before': {
     content: '""',
@@ -136,7 +142,7 @@ const AuthFormPanel = styled('section')(({ theme }) => ({
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  padding: theme.spacing(9, 2, 4),
+  padding: theme.spacing(3, 2),
   position: 'relative',
   overflowY: 'auto',
   overflowX: 'hidden',
@@ -151,11 +157,12 @@ const AuthFormPanel = styled('section')(({ theme }) => ({
     },
   },
   [theme.breakpoints.up('sm')]: {
-    padding: theme.spacing(10, 4, 4),
+    padding: theme.spacing(4, 4),
   },
   [theme.breakpoints.up('md')]: {
+    height: '100%',
     minHeight: '100vh',
-    padding: theme.spacing(10, 5, 5),
+    padding: theme.spacing(4, 5),
   },
 }));
 
@@ -175,7 +182,7 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   boxSizing: 'border-box',
   [theme.breakpoints.up('sm')]: {
     padding: theme.spacing(5),
-    margin: 0,
+    margin: 'auto 0',
   },
 }));
 
@@ -205,6 +212,7 @@ const AuthTopBar = styled(Box)(({ theme }) => ({
     justifyContent: 'flex-end',
     top: theme.spacing(3),
     right: theme.spacing(3),
+    left: 'auto',
   },
 }));
 
