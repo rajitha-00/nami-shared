@@ -97,6 +97,12 @@ export const CursorGrid = ({
     const canvas = canvasRef.current;
     if (!container || !canvas) return;
 
+    // Completely disable interactive cursor grid on mobile/touch screens
+    const isTouch =
+      typeof window !== 'undefined' &&
+      (window.matchMedia('(hover: none) and (pointer: coarse)').matches || window.innerWidth < 900);
+    if (isTouch) return;
+
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
     const dpr = Math.min(typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1, 2);
@@ -118,10 +124,9 @@ export const CursorGrid = ({
       const p = propsRef.current;
       w = container.offsetWidth;
       h = container.offsetHeight;
+      if (w <= 0 || h <= 0) return;
       canvas.width = Math.max(1, Math.round(w * dpr));
       canvas.height = Math.max(1, Math.round(h * dpr));
-      canvas.style.width = `${w}px`;
-      canvas.style.height = `${h}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       cols = Math.ceil(w / p.cellSize) + 1;
       rows = Math.ceil(h / p.cellSize) + 1;
@@ -292,25 +297,33 @@ export const CursorGrid = ({
       wake();
     };
 
-    const ro = typeof ResizeObserver !== 'undefined'
-      ? new ResizeObserver(() => {
-          rebuild();
-          wake();
-        })
-      : null;
+    const ro =
+      typeof ResizeObserver !== 'undefined'
+        ? new ResizeObserver((entries) => {
+            const entry = entries[0];
+            if (!entry) return;
+            const newW = entry.contentRect.width;
+            const newH = entry.contentRect.height;
+            if (Math.abs(newW - w) >= 2 || Math.abs(newH - h) >= 2) {
+              rebuild();
+              wake();
+            }
+          })
+        : null;
 
     if (ro) ro.observe(container);
     rebuild();
     wake();
 
-    container.addEventListener('pointermove', onPointerMove);
-    container.addEventListener('pointerdown', onPointerDown);
+    const target = container.parentElement || container;
+    target.addEventListener('pointermove', onPointerMove, { passive: true });
+    target.addEventListener('pointerdown', onPointerDown, { passive: true });
 
     return () => {
       cancelAnimationFrame(raf);
       if (ro) ro.disconnect();
-      container.removeEventListener('pointermove', onPointerMove);
-      container.removeEventListener('pointerdown', onPointerDown);
+      target.removeEventListener('pointermove', onPointerMove);
+      target.removeEventListener('pointerdown', onPointerDown);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cellSize]);

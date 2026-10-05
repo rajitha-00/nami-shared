@@ -39,14 +39,16 @@ export interface AuthLayoutProps {
 const AuthPageRoot = styled('main', {
   shouldForwardProp: (prop) => prop !== 'hasSplitBrand',
 })<{ hasSplitBrand?: boolean }>(({ theme, hasSplitBrand }) => ({
-  minHeight: '100vh',
-  display: 'grid',
-  gridTemplateColumns: 'minmax(0, 1fr)',
+  minHeight: '100dvh',
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'column',
   backgroundColor: theme.palette.background.default,
+  [theme.breakpoints.up('md')]: {
+    display: 'grid',
+    gridTemplateColumns: hasSplitBrand ? 'minmax(0, 5fr) minmax(0, 7fr)' : 'minmax(0, 1fr)',
+  },
   ...(hasSplitBrand && {
-    [theme.breakpoints.up('md')]: {
-      gridTemplateColumns: 'minmax(0, 5fr) minmax(0, 7fr)',
-    },
     [theme.breakpoints.up('lg')]: {
       gridTemplateColumns: 'minmax(0, 5.2fr) minmax(0, 6.8fr)',
     },
@@ -127,17 +129,32 @@ import type { PaperProps } from '@mui/material/Paper';
 import { CursorGrid } from './CursorGrid';
 
 const AuthFormPanel = styled('section')(({ theme }) => ({
+  flex: 1,
   minWidth: 0,
+  minHeight: '100dvh',
   display: 'flex',
+  flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  padding: theme.spacing(9, 3, 4),
+  padding: theme.spacing(9, 2, 4),
   position: 'relative',
-  overflow: 'hidden',
+  overflowY: 'auto',
+  overflowX: 'hidden',
+  boxSizing: 'border-box',
+  WebkitOverflowScrolling: 'touch',
   backgroundColor: '#f8fafc',
   backgroundImage:
     'radial-gradient(circle at 50% 25%, rgba(255, 255, 255, 0.9) 0%, rgba(241, 245, 249, 0.7) 100%)',
+  '& .MuiInputBase-input': {
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '16px',
+    },
+  },
   [theme.breakpoints.up('sm')]: {
+    padding: theme.spacing(10, 4, 4),
+  },
+  [theme.breakpoints.up('md')]: {
+    minHeight: '100vh',
     padding: theme.spacing(10, 5, 5),
   },
 }));
@@ -147,15 +164,18 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   zIndex: 1,
   width: '100%',
   maxWidth: 450,
-  padding: theme.spacing(4.25),
+  margin: 'auto 0',
+  padding: theme.spacing(3.5, 2.5),
   borderRadius: 20,
   border: '1px solid rgba(226, 232, 240, 0.9)',
   boxShadow: '0 20px 45px -15px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(15, 23, 42, 0.04)',
   backgroundImage: 'none',
   backgroundColor: 'rgba(255, 255, 255, 0.96)',
   backdropFilter: 'blur(10px)',
+  boxSizing: 'border-box',
   [theme.breakpoints.up('sm')]: {
     padding: theme.spacing(5),
+    margin: 0,
   },
 }));
 
@@ -174,12 +194,13 @@ export function AuthFormShell({ children, sx, ...props }: AuthFormShellProps) {
 const AuthTopBar = styled(Box)(({ theme }) => ({
   position: 'absolute',
   zIndex: 2,
-  top: theme.spacing(2.5),
-  left: theme.spacing(2.5),
-  right: theme.spacing(2.5),
+  top: theme.spacing(2),
+  left: theme.spacing(2),
+  right: theme.spacing(2),
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+  pointerEvents: 'auto',
   [theme.breakpoints.up('md')]: {
     justifyContent: 'flex-end',
     top: theme.spacing(3),

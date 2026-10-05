@@ -2232,6 +2232,8 @@ var CursorGrid = ({
     const container = containerRef.current;
     const canvas = canvasRef.current;
     if (!container || !canvas) return;
+    const isTouch = typeof window !== "undefined" && (window.matchMedia("(hover: none) and (pointer: coarse)").matches || window.innerWidth < 900);
+    if (isTouch) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     const dpr = Math.min(typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1, 2);
@@ -2251,10 +2253,9 @@ var CursorGrid = ({
       const p = propsRef.current;
       w = container.offsetWidth;
       h = container.offsetHeight;
+      if (w <= 0 || h <= 0) return;
       canvas.width = Math.max(1, Math.round(w * dpr));
       canvas.height = Math.max(1, Math.round(h * dpr));
-      canvas.style.width = `${w}px`;
-      canvas.style.height = `${h}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       cols = Math.ceil(w / p.cellSize) + 1;
       rows = Math.ceil(h / p.cellSize) + 1;
@@ -2407,20 +2408,27 @@ var CursorGrid = ({
       pulses.push({ x, y, t0: performance.now() });
       wake();
     };
-    const ro = typeof ResizeObserver !== "undefined" ? new ResizeObserver(() => {
-      rebuild();
-      wake();
+    const ro = typeof ResizeObserver !== "undefined" ? new ResizeObserver((entries) => {
+      const entry = entries[0];
+      if (!entry) return;
+      const newW = entry.contentRect.width;
+      const newH = entry.contentRect.height;
+      if (Math.abs(newW - w) >= 2 || Math.abs(newH - h) >= 2) {
+        rebuild();
+        wake();
+      }
     }) : null;
     if (ro) ro.observe(container);
     rebuild();
     wake();
-    container.addEventListener("pointermove", onPointerMove);
-    container.addEventListener("pointerdown", onPointerDown);
+    const target = container.parentElement || container;
+    target.addEventListener("pointermove", onPointerMove, { passive: true });
+    target.addEventListener("pointerdown", onPointerDown, { passive: true });
     return () => {
       cancelAnimationFrame(raf);
       if (ro) ro.disconnect();
-      container.removeEventListener("pointermove", onPointerMove);
-      container.removeEventListener("pointerdown", onPointerDown);
+      target.removeEventListener("pointermove", onPointerMove);
+      target.removeEventListener("pointerdown", onPointerDown);
     };
   }, [cellSize]);
   useEffect(() => {
@@ -2431,14 +2439,16 @@ var CursorGrid = ({
 var AuthPageRoot = styled("main", {
   shouldForwardProp: (prop) => prop !== "hasSplitBrand"
 })(({ theme, hasSplitBrand }) => ({
-  minHeight: "100vh",
-  display: "grid",
-  gridTemplateColumns: "minmax(0, 1fr)",
+  minHeight: "100dvh",
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
   backgroundColor: theme.palette.background.default,
+  [theme.breakpoints.up("md")]: {
+    display: "grid",
+    gridTemplateColumns: hasSplitBrand ? "minmax(0, 5fr) minmax(0, 7fr)" : "minmax(0, 1fr)"
+  },
   ...hasSplitBrand && {
-    [theme.breakpoints.up("md")]: {
-      gridTemplateColumns: "minmax(0, 5fr) minmax(0, 7fr)"
-    },
     [theme.breakpoints.up("lg")]: {
       gridTemplateColumns: "minmax(0, 5.2fr) minmax(0, 6.8fr)"
     }
@@ -2508,16 +2518,31 @@ var FeatureItem = styled("div")(({ theme }) => ({
   color: alpha(theme.palette.common.white, 0.88)
 }));
 var AuthFormPanel = styled("section")(({ theme }) => ({
+  flex: 1,
   minWidth: 0,
+  minHeight: "100dvh",
   display: "flex",
+  flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  padding: theme.spacing(9, 3, 4),
+  padding: theme.spacing(9, 2, 4),
   position: "relative",
-  overflow: "hidden",
+  overflowY: "auto",
+  overflowX: "hidden",
+  boxSizing: "border-box",
+  WebkitOverflowScrolling: "touch",
   backgroundColor: "#f8fafc",
   backgroundImage: "radial-gradient(circle at 50% 25%, rgba(255, 255, 255, 0.9) 0%, rgba(241, 245, 249, 0.7) 100%)",
+  "& .MuiInputBase-input": {
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "16px"
+    }
+  },
   [theme.breakpoints.up("sm")]: {
+    padding: theme.spacing(10, 4, 4)
+  },
+  [theme.breakpoints.up("md")]: {
+    minHeight: "100vh",
     padding: theme.spacing(10, 5, 5)
   }
 }));
@@ -2526,15 +2551,18 @@ var StyledPaper = styled(Paper)(({ theme }) => ({
   zIndex: 1,
   width: "100%",
   maxWidth: 450,
-  padding: theme.spacing(4.25),
+  margin: "auto 0",
+  padding: theme.spacing(3.5, 2.5),
   borderRadius: 20,
   border: "1px solid rgba(226, 232, 240, 0.9)",
   boxShadow: "0 20px 45px -15px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(15, 23, 42, 0.04)",
   backgroundImage: "none",
   backgroundColor: "rgba(255, 255, 255, 0.96)",
   backdropFilter: "blur(10px)",
+  boxSizing: "border-box",
   [theme.breakpoints.up("sm")]: {
-    padding: theme.spacing(5)
+    padding: theme.spacing(5),
+    margin: 0
   }
 }));
 function AuthFormShell({ children, sx, ...props }) {
@@ -2543,12 +2571,13 @@ function AuthFormShell({ children, sx, ...props }) {
 var AuthTopBar = styled(Box6)(({ theme }) => ({
   position: "absolute",
   zIndex: 2,
-  top: theme.spacing(2.5),
-  left: theme.spacing(2.5),
-  right: theme.spacing(2.5),
+  top: theme.spacing(2),
+  left: theme.spacing(2),
+  right: theme.spacing(2),
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
+  pointerEvents: "auto",
   [theme.breakpoints.up("md")]: {
     justifyContent: "flex-end",
     top: theme.spacing(3),
@@ -5021,5 +5050,5 @@ var AnimatedDoorOpen = ({
 };
 
 export { APP_TILE_VARIANTS, AnimatedBed, AnimatedBrush, AnimatedCalendar, AnimatedCreditCard, AnimatedDashboard, AnimatedDoorOpen, AnimatedFolderOpen, AnimatedInbox, AnimatedLayers, AnimatedRadio, AnimatedSearch, AnimatedSettings, AnimatedShieldCheck, AnimatedSparkles, AnimatedTrendingUp, AnimatedUsers, AppDialog, AppDrawer, AppFolderMiniPreview, AppFolderModal, AppLauncher, AppSideNav, AppTile, AppTopBar, AuthFormHeader, AuthFormShell, AuthLayout, BACKDROP_TRANSITION, CONTAINER_VARIANTS, ContextMenu, CursorGrid, DEFAULT_HOTELOS_APPS, DashboardLayout, DataTable, DateRangeButton, DescriptionList, EmptyState, ErrorState, FOLDER_LAYOUT_SPRING, FormDialog, FormSelect, FormSwitch, FormTextField, KanbanBoard, LanguageSwitcher, LoadingOverlay, MenuCard, NamiosLoader, NamiosMarkSvg, PRODUCTION_APP_URLS, PageHeader, PageSkeleton, PasswordField, SearchField, SectionCard, SelectField, SplitPaneLayout, StatCard, StatusChip, StatusFilterChips, TimelineMatrix, UserAvatar, VERCEL_APP_URLS, WizardDialog, getAvatarBgColor, isPwa, navigateApp, resolveAppUrl };
-//# sourceMappingURL=chunk-SYSHNCYM.js.map
-//# sourceMappingURL=chunk-SYSHNCYM.js.map
+//# sourceMappingURL=chunk-YVK6N55R.js.map
+//# sourceMappingURL=chunk-YVK6N55R.js.map
