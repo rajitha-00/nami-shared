@@ -46,9 +46,9 @@ const AuthPageRoot = styled('main', {
   backgroundColor: theme.palette.background.default,
   [theme.breakpoints.up('md')]: {
     display: 'grid',
-    height: '100vh',
-    minHeight: '100vh',
-    maxHeight: '100vh',
+    height: '100dvh',
+    minHeight: '100dvh',
+    maxHeight: '100dvh',
     overflow: 'hidden',
     gridTemplateColumns: hasSplitBrand ? 'minmax(0, 5fr) minmax(0, 7fr)' : 'minmax(0, 1fr)',
   },
@@ -161,7 +161,7 @@ const AuthFormPanel = styled('section')(({ theme }) => ({
   },
   [theme.breakpoints.up('md')]: {
     height: '100%',
-    minHeight: '100vh',
+    minHeight: 0,
     padding: theme.spacing(4, 5),
   },
 }));
@@ -171,7 +171,7 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   zIndex: 1,
   width: '100%',
   maxWidth: 450,
-  margin: 'auto 0',
+  margin: 0,
   padding: theme.spacing(3.5, 2.5),
   borderRadius: 20,
   border: '1px solid rgba(226, 232, 240, 0.9)',
@@ -182,7 +182,6 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   boxSizing: 'border-box',
   [theme.breakpoints.up('sm')]: {
     padding: theme.spacing(5),
-    margin: 'auto 0',
   },
 }));
 
