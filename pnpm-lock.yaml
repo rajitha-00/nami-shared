@@ -17,6 +17,9 @@ importers:
       react-spinners:
         specifier: ^0.17.0
         version: 0.17.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      use-sync-external-store:
+        specifier: ^1.2.0 || ^1.4.0 || ^1.6.0
+        version: 1.6.0(react@18.3.1)
     devDependencies:
       '@changesets/cli':
         specifier: ^2.27.10
