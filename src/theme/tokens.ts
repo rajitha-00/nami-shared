@@ -1,5 +1,5 @@
-// Apple iOS Human Interface Guidelines (HIG) Light Theme Tokens
-// Single source of design tokens for all NamiOS applications (Stay OS, Dine OS, Super Admin, Nami Mobile)
+// NamiOS visual-system tokens. Product accent colours can vary by application;
+// geometry, typography and elevation must not.
 
 export const BRAND = {
   primary: '#007AFF',        // Apple System Blue
@@ -33,16 +33,24 @@ export const SEMANTIC = {
 export const SPACING_UNIT = 8;
 
 export const RADII = {
-  sm: 10,   // Pills, Chips, Badges
-  md: 14,   // Buttons, Input Fields
-  lg: 20,   // Apple Continuous Cards, Containers
-  xl: 24,   // Modals, Drawers
+  xs: 6,    // compact controls and inner elements
+  sm: 10,   // buttons, fields and menu rows
+  md: 12,   // grouped controls and table containers
+  lg: 16,   // cards and primary surfaces
+  xl: 20,   // dialogs and drawers
+  pill: 999,
 } as const;
 
 export const SHADOWS = {
-  card: '0 4px 20px rgba(0, 0, 0, 0.04)',
-  raised: '0 8px 30px rgba(0, 0, 0, 0.06)',
-  overlay: '0 16px 40px rgba(0, 0, 0, 0.12)',
+  card: '0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.03)',
+  raised: '0 8px 24px rgba(15, 23, 42, 0.10)',
+  overlay: '0 20px 48px rgba(15, 23, 42, 0.18)',
+} as const;
+
+export const MOTION = {
+  micro: '150ms cubic-bezier(0.16, 1, 0.3, 1)',
+  surface: '200ms cubic-bezier(0.16, 1, 0.3, 1)',
+  overlay: '240ms cubic-bezier(0.16, 1, 0.3, 1)',
 } as const;
 
 /** San Francisco first, with Inter & Noto fallbacks for Sinhala, Tamil, and Chinese. */

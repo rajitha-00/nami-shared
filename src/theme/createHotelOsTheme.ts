@@ -45,7 +45,7 @@ const buildComponents = (mode: ThemeMode): ThemeOptions['components'] => ({
     styleOverrides: {
       root: {
         textTransform: 'none',
-        borderRadius: '14px',
+        borderRadius: `${RADII.sm}px`,
         fontWeight: 700,
         fontSize: '0.875rem',
         padding: '9px 20px',
@@ -61,7 +61,7 @@ const buildComponents = (mode: ThemeMode): ThemeOptions['components'] => ({
         },
       },
       outlinedPrimary: {
-        borderRadius: '14px',
+        borderRadius: `${RADII.sm}px`,
         borderColor: mode === 'light' ? 'rgba(0, 122, 255, 0.4)' : BRAND.primaryLight,
         fontWeight: 700,
       },
@@ -70,7 +70,7 @@ const buildComponents = (mode: ThemeMode): ThemeOptions['components'] => ({
   MuiListItemButton: {
     styleOverrides: {
       root: {
-        borderRadius: '12px',
+        borderRadius: `${RADII.md}px`,
         margin: '3px 8px',
         paddingTop: 9,
         paddingBottom: 9,
@@ -95,7 +95,7 @@ const buildComponents = (mode: ThemeMode): ThemeOptions['components'] => ({
     styleOverrides: {
       root: {
         '& .MuiOutlinedInput-root': {
-          borderRadius: '14px',
+          borderRadius: `${RADII.sm}px`,
           backgroundColor: mode === 'light' ? '#FFFFFF' : GREY[800],
           fontSize: '0.875rem',
           fontWeight: 500,
@@ -120,7 +120,7 @@ const buildComponents = (mode: ThemeMode): ThemeOptions['components'] => ({
   MuiSelect: {
     styleOverrides: {
       root: {
-        borderRadius: '14px',
+        borderRadius: `${RADII.sm}px`,
         backgroundColor: mode === 'light' ? '#FFFFFF' : GREY[800],
         fontSize: '0.875rem',
         fontWeight: 600,
@@ -130,7 +130,7 @@ const buildComponents = (mode: ThemeMode): ThemeOptions['components'] => ({
   MuiMenu: {
     styleOverrides: {
       paper: {
-        borderRadius: '16px',
+        borderRadius: `${RADII.md}px`,
         boxShadow: SHADOWS.raised,
         border: `1px solid ${mode === 'light' ? 'rgba(229, 229, 234, 0.9)' : 'rgba(51, 65, 85, 0.8)'}`,
         backdropFilter: 'blur(16px)',
@@ -141,7 +141,7 @@ const buildComponents = (mode: ThemeMode): ThemeOptions['components'] => ({
   MuiMenuItem: {
     styleOverrides: {
       root: {
-        borderRadius: '10px',
+        borderRadius: `${RADII.sm}px`,
         margin: '2px 6px',
         fontSize: '0.875rem',
         fontWeight: 600,
@@ -156,7 +156,7 @@ const buildComponents = (mode: ThemeMode): ThemeOptions['components'] => ({
   MuiCard: {
     styleOverrides: {
       root: {
-        borderRadius: '20px',
+        borderRadius: `${RADII.lg}px`,
         border: `1px solid ${mode === 'light' ? 'rgba(229, 229, 234, 0.85)' : 'rgba(51, 65, 85, 0.8)'}`,
         boxShadow: mode === 'light' ? '0 4px 20px rgba(0, 0, 0, 0.03)' : '0 4px 20px rgba(0,0,0,0.3)',
         backgroundImage: 'none',
@@ -166,7 +166,7 @@ const buildComponents = (mode: ThemeMode): ThemeOptions['components'] => ({
   MuiPaper: {
     styleOverrides: {
       rounded: {
-        borderRadius: '20px',
+        borderRadius: `${RADII.lg}px`,
       },
     },
   },
@@ -183,7 +183,7 @@ const buildComponents = (mode: ThemeMode): ThemeOptions['components'] => ({
         },
       },
       paper: {
-        borderRadius: '24px',
+        borderRadius: `${RADII.xl}px`,
         boxShadow: SHADOWS.overlay,
         border: `1px solid ${mode === 'light' ? 'rgba(229, 229, 234, 0.9)' : 'rgba(51, 65, 85, 0.8)'}`,
         overflow: 'hidden',
@@ -193,7 +193,7 @@ const buildComponents = (mode: ThemeMode): ThemeOptions['components'] => ({
   MuiChip: {
     styleOverrides: {
       root: {
-        borderRadius: '10px',
+        borderRadius: `${RADII.sm}px`,
         fontWeight: 700,
         fontSize: '0.75rem',
       },
@@ -238,7 +238,7 @@ const buildComponents = (mode: ThemeMode): ThemeOptions['components'] => ({
   MuiAlert: {
     styleOverrides: {
       root: {
-        borderRadius: '14px',
+        borderRadius: `${RADII.md}px`,
         fontWeight: 600,
         fontSize: '0.85rem',
       },
