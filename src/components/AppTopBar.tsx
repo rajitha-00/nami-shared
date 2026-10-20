@@ -34,7 +34,7 @@ export interface AppTopBarProps {
 }
 
 /** Fixed top app bar with logo / nav / actions slots. */
-export function AppTopBar({ appsLauncher, logo, nav, actions, onMenuClick }: AppTopBarProps) {
+export const AppTopBar = ({ appsLauncher, logo, nav, actions, onMenuClick }: AppTopBarProps) => {
   const { t } = useTranslation();
   return (
     <AppBar
@@ -67,4 +67,4 @@ export function AppTopBar({ appsLauncher, logo, nav, actions, onMenuClick }: App
       </Toolbar>
     </AppBar>
   );
-}
+};

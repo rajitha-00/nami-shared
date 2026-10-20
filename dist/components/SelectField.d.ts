@@ -11,4 +11,4 @@ export interface SelectFieldProps<V extends string | number = string> {
     disabled?: boolean;
 }
 /** SelectOption-driven dropdown (used for table filters and simple selects). */
-export declare function SelectField<V extends string | number = string>({ value, onChange, options, labelKey, emptyOptionKey, fullWidth, minWidth, disabled, }: SelectFieldProps<V>): import("react").JSX.Element;
+export declare const SelectField: <V extends string | number = string>({ value, onChange, options, labelKey, emptyOptionKey, fullWidth, minWidth, disabled, }: SelectFieldProps<V>) => import("react").JSX.Element;

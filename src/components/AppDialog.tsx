@@ -27,7 +27,7 @@ export interface AppDialogProps {
 }
 
 /** Generic dialog wrapper every feature dialog composes. */
-export function AppDialog({
+export const AppDialog = ({
   open,
   titleKey,
   titleParams,
@@ -37,7 +37,7 @@ export function AppDialog({
   disableClose = false,
   onClose,
   children,
-}: AppDialogProps) {
+}: AppDialogProps) => {
   const { t } = useTranslation();
 
   const handleClose = (_event: unknown, reason?: string) => {

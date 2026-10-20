@@ -30,7 +30,7 @@ export interface FormTextFieldProps<TValues extends FieldValues>
 }
 
 /** react-hook-form bound TextField with i18n label and zod error translation. */
-export function FormTextField<TValues extends FieldValues>({
+export const FormTextField = <TValues extends FieldValues>({
   control,
   name,
   labelKey,
@@ -41,7 +41,7 @@ export function FormTextField<TValues extends FieldValues>({
   autoComplete,
   placeholderKey,
   disabled,
-}: FormTextFieldProps<TValues>) {
+}: FormTextFieldProps<TValues>) => {
   const { t } = useTranslation();
   return (
     <Controller
@@ -75,12 +75,12 @@ export interface FormSelectProps<TValues extends FieldValues, V extends string |
 }
 
 /** react-hook-form bound select driven by SelectOption[]. */
-export function FormSelect<TValues extends FieldValues, V extends string | number = string>({
+export const FormSelect = <TValues extends FieldValues, V extends string | number = string>({
   control,
   name,
   labelKey,
   options,
-}: FormSelectProps<TValues, V>) {
+}: FormSelectProps<TValues, V>) => {
   const { t } = useTranslation();
   return (
     <Controller
@@ -110,11 +110,11 @@ export function FormSelect<TValues extends FieldValues, V extends string | numbe
 export type FormSwitchProps<TValues extends FieldValues> = FormFieldBaseProps<TValues>;
 
 /** react-hook-form bound Switch with i18n label. */
-export function FormSwitch<TValues extends FieldValues>({
+export const FormSwitch = <TValues extends FieldValues>({
   control,
   name,
   labelKey,
-}: FormSwitchProps<TValues>) {
+}: FormSwitchProps<TValues>) => {
   const { t } = useTranslation();
   return (
     <Controller

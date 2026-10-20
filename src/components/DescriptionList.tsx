@@ -29,13 +29,14 @@ export interface DescriptionListItem {
 
 export interface DescriptionListProps {
   items: DescriptionListItem[];
+  className?: string;
 }
 
-/** Label/value pairs for detail views. */
-export function DescriptionList({ items }: DescriptionListProps) {
+/** Label/value pairs for detail views with strictly typed arrow function architecture. */
+export const DescriptionList = ({ items, className }: DescriptionListProps) => {
   const { t } = useTranslation();
   return (
-    <ListRoot>
+    <ListRoot className={className}>
       {items.map((item) => (
         <Fragment key={item.labelKey}>
           <Term>{t(item.labelKey, item.labelParams)}</Term>
@@ -44,4 +45,4 @@ export function DescriptionList({ items }: DescriptionListProps) {
       ))}
     </ListRoot>
   );
-}
+};

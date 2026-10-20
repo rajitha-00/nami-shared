@@ -17,4 +17,4 @@ export interface AppDrawerProps {
     children: ReactNode;
 }
 /** Apple Large Dialog Modal twin of AppDrawer — all drawers present as modal dialogs with backdrop click lock. */
-export declare function AppDrawer({ open, onClose, titleKey, titleParams, title, statusChip, tabs, footer, width, loading, children, }: AppDrawerProps): import("react").JSX.Element;
+export declare const AppDrawer: ({ open, onClose, titleKey, titleParams, title, statusChip, tabs, footer, width, loading, children, }: AppDrawerProps) => import("react").JSX.Element;

@@ -53,7 +53,7 @@ export interface AppDrawerProps {
 }
 
 /** Apple Large Dialog Modal twin of AppDrawer — all drawers present as modal dialogs with backdrop click lock. */
-export function AppDrawer({
+export const AppDrawer = ({
   open,
   onClose,
   titleKey,
@@ -65,7 +65,7 @@ export function AppDrawer({
   width,
   loading = false,
   children,
-}: AppDrawerProps) {
+}: AppDrawerProps) => {
   const { t } = useTranslation();
 
   const getMaxWidth = () => {
@@ -129,4 +129,4 @@ export function AppDrawer({
       {footer ? <DrawerFooter>{footer}</DrawerFooter> : null}
     </Dialog>
   );
-}
+};

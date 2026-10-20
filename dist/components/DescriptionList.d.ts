@@ -6,6 +6,7 @@ export interface DescriptionListItem {
 }
 export interface DescriptionListProps {
     items: DescriptionListItem[];
+    className?: string;
 }
-/** Label/value pairs for detail views. */
-export declare function DescriptionList({ items }: DescriptionListProps): import("react").JSX.Element;
+/** Label/value pairs for detail views with strictly typed arrow function architecture. */
+export declare const DescriptionList: ({ items, className }: DescriptionListProps) => import("react").JSX.Element;

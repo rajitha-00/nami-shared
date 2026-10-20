@@ -20,11 +20,11 @@ export interface LoadingOverlayProps {
 }
 
 /** Absolute overlay spinner using Namios HashLoader; parent must be position: relative. */
-export function LoadingOverlay({ open, label, size = 48 }: LoadingOverlayProps) {
+export const LoadingOverlay = ({ open, label, size = 48 }: LoadingOverlayProps) => {
   if (!open) return null;
   return (
     <OverlayRoot>
       <NamiosLoader size={size} label={label} />
     </OverlayRoot>
   );
-}
+};

@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react';
 import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
+import { Chip } from '@namios/motionui-react';
 
 export interface KanbanColumn<TId extends string> {
   id: TId;
@@ -65,13 +65,13 @@ const ItemsScrollArea = styled(Box)(({ theme }) => ({
  * KanbanBoard: A generic step-progression workflow board.
  * Purely presentational; delegates item rendering and column selection.
  */
-export function KanbanBoard<TId extends string, TItem>({
+export const KanbanBoard = <TId extends string, TItem>({
   columns,
   items,
   getItemId,
   getItemColumnId,
   renderItem,
-}: KanbanBoardProps<TId, TItem>) {
+}: KanbanBoardProps<TId, TItem>) => {
   return (
     <Stack
       direction="row"
@@ -105,21 +105,12 @@ export function KanbanBoard<TId extends string, TItem>({
                   {column.title}
                 </Typography>
               </Stack>
-              <Card
+              <Chip
+                label={String(laneItems.length)}
+                size="small"
                 variant="outlined"
-                sx={{
-                  px: 1,
-                  py: 0.25,
-                  borderRadius: 2,
-                  bgcolor: 'background.paper',
-                  borderColor: 'divider',
-                  boxShadow: 'none',
-                }}
-              >
-                <Typography variant="caption" sx={{ fontWeight: 700 }}>
-                  {laneItems.length}
-                </Typography>
-              </Card>
+                style={{ height: 22, fontSize: '0.75rem', fontWeight: 700 }}
+              />
             </ColumnHeader>
 
             <ItemsScrollArea>
@@ -134,4 +125,4 @@ export function KanbanBoard<TId extends string, TItem>({
       })}
     </Stack>
   );
-}
+};

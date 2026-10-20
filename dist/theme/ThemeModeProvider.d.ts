@@ -16,8 +16,9 @@ export interface ThemeModeProviderProps {
 }
 /**
  * Provides light/dark switching backed by localStorage and prefers-color-scheme.
+ * Automatically synchronizes `data-theme` attribute for MotionUI design tokens.
  * Apps pinned to a single mode (Super Admin) skip this and use
  * `createHotelOsTheme('light')` with MUI's ThemeProvider directly.
  */
-export declare function ThemeModeProvider({ children, overrides }: ThemeModeProviderProps): import("react").JSX.Element;
-export declare function useThemeMode(): ThemeModeContextValue;
+export declare const ThemeModeProvider: ({ children, overrides }: ThemeModeProviderProps) => import("react").JSX.Element;
+export declare const useThemeMode: () => ThemeModeContextValue;

@@ -37,6 +37,6 @@ export interface DataTableProps<T extends {
  * Server-side paginated table driven by TableColumn<T>[]. Pairs directly with
  * useTableQuery + a Paginated<T> RTK Query endpoint.
  */
-export declare function DataTable<T extends {
+export declare const DataTable: <T extends {
     id: ID;
-}>({ columns, data, isLoading, isError, onRetry, page, pageSize, onPageChange, onPageSizeChange, sortBy, sortDir, onSortChange, selectable, selected, onSelectedChange, getContextMenuItems, rowActions, onRowClick, toolbar, emptyState, compact, }: DataTableProps<T>): import("react").JSX.Element;
+}>({ columns, data, isLoading, isError, onRetry, page, pageSize, onPageChange, onPageSizeChange, sortBy, sortDir, onSortChange, selectable, selected, onSelectedChange, getContextMenuItems, rowActions, onRowClick, toolbar, emptyState, compact, }: DataTableProps<T>) => import("react").JSX.Element;

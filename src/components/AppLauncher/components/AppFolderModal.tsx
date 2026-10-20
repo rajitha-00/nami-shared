@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
-import Chip from '@mui/material/Chip';
+import { Chip } from '@namios/motionui-react';
 import CloseIcon from '@mui/icons-material/Close';
 import SearchIcon from '@mui/icons-material/Search';
 import type { IAppItem } from '../interfaces/IAppItem';
@@ -258,13 +258,13 @@ export const AppFolderModal = ({
                   size="small"
                   onClick={() => setSelectedCategory('all')}
                   variant={selectedCategory === 'all' ? 'filled' : 'outlined'}
-                  color={selectedCategory === 'all' ? 'primary' : 'default'}
-                  sx={{
+                  color={selectedCategory === 'all' ? 'primary' : undefined}
+                  style={{
                     fontWeight: 700,
                     fontSize: '0.72rem',
                     height: 26,
                     cursor: 'pointer',
-                    borderRadius: '8px',
+                    borderRadius: 8,
                   }}
                 />
                 {categories.map((cat) => (
@@ -274,13 +274,13 @@ export const AppFolderModal = ({
                     size="small"
                     onClick={() => setSelectedCategory(cat)}
                     variant={selectedCategory === cat ? 'filled' : 'outlined'}
-                    color={selectedCategory === cat ? 'primary' : 'default'}
-                    sx={{
+                    color={selectedCategory === cat ? 'primary' : undefined}
+                    style={{
                       fontWeight: 700,
                       fontSize: '0.72rem',
                       height: 26,
                       cursor: 'pointer',
-                      borderRadius: '8px',
+                      borderRadius: 8,
                     }}
                   />
                 ))}

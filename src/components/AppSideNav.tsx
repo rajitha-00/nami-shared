@@ -50,7 +50,7 @@ export interface AppSideNavProps {
   temporary?: boolean;
 }
 
-function NavList({
+const NavList = ({
   items,
   activePath,
   onNavigate,
@@ -60,7 +60,7 @@ function NavList({
   activePath: string;
   onNavigate: (path: string) => void;
   depth?: number;
-}) {
+}) => {
   const { t } = useTranslation();
   const [openMap, setOpenMap] = useState<Record<string, boolean>>({});
 
@@ -105,17 +105,17 @@ function NavList({
       })}
     </List>
   );
-}
+};
 
 /** Config-driven collapsible side navigation shared by all NamiOS admin apps. */
-export function AppSideNav({
+export const AppSideNav = ({
   items,
   activePath,
   onNavigate,
   mobileOpen = false,
   onMobileClose,
   temporary = false,
-}: AppSideNavProps) {
+}: AppSideNavProps) => {
   const content = (
     <>
       <Toolbar sx={(theme) => ({ minHeight: theme.custom.topBarHeight })} />
@@ -155,4 +155,4 @@ export function AppSideNav({
       {content}
     </Drawer>
   );
-}
+};

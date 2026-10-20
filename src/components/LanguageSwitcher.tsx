@@ -15,7 +15,7 @@ export interface LanguageSwitcherProps {
 }
 
 /** Menu of SUPPORTED_LOCALES; persists selection via the i18next detector cache. */
-export function LanguageSwitcher({ variant = 'text' }: LanguageSwitcherProps) {
+export const LanguageSwitcher = ({ variant = 'text' }: LanguageSwitcherProps) => {
   const { i18n, t } = useTranslation();
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
@@ -65,4 +65,4 @@ export function LanguageSwitcher({ variant = 'text' }: LanguageSwitcherProps) {
       </Menu>
     </>
   );
-}
+};

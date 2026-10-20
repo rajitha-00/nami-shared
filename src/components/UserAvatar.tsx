@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Avatar from '@mui/material/Avatar';
+import { Avatar } from '@namios/motionui-react';
 import type { SxProps, Theme } from '@mui/material/styles';
 import { initialsFromName } from '../utils/string';
 
@@ -9,6 +9,7 @@ export interface UserAvatarProps {
   avatarUrl?: string;
   size?: number;
   sx?: SxProps<Theme>;
+  style?: React.CSSProperties;
   fontSize?: number | string;
   className?: string;
 }
@@ -39,16 +40,15 @@ export const UserAvatar: React.FC<UserAvatarProps> = ({
   avatarUrl,
   size = 36,
   sx,
+  style,
   fontSize,
   className,
 }) => {
   const [imageSrc, setImageSrc] = useState<string | undefined>(avatarUrl);
-  const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
     if (avatarUrl) {
       setImageSrc(avatarUrl);
-      setImageError(false);
       return;
     }
 
@@ -56,7 +56,6 @@ export const UserAvatar: React.FC<UserAvatarProps> = ({
       const stored = window.localStorage.getItem('hotelos.avatar');
       if (stored) {
         setImageSrc(stored);
-        setImageError(false);
       }
     } catch {
       // localStorage read failed or sandboxed
@@ -67,24 +66,31 @@ export const UserAvatar: React.FC<UserAvatarProps> = ({
   const initials = initialsFromName(displayName);
   const bgColor = getAvatarBgColor(displayName);
 
+  const sxStyle =
+    sx && typeof sx === 'object' && !Array.isArray(sx)
+      ? (sx as React.CSSProperties)
+      : undefined;
+
+  const combinedStyle: React.CSSProperties = {
+    width: size,
+    height: size,
+    backgroundColor: bgColor,
+    color: '#FFFFFF',
+    fontWeight: 700,
+    fontSize: fontSize ?? Math.max(12, Math.floor(size * 0.4)),
+    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
+    ...sxStyle,
+    ...style,
+  };
+
   return (
     <Avatar
-      src={imageError ? undefined : imageSrc}
+      src={imageSrc}
       alt={displayName}
-      imgProps={{
-        onError: () => setImageError(true),
-      }}
+      size={size}
+      variant="circular"
       className={className}
-      sx={{
-        width: size,
-        height: size,
-        bgcolor: bgColor,
-        color: '#FFFFFF',
-        fontWeight: 700,
-        fontSize: fontSize ?? Math.max(12, Math.floor(size * 0.4)),
-        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
-        ...sx,
-      }}
+      style={combinedStyle}
     >
       {initials}
     </Avatar>

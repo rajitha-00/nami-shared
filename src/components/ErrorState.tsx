@@ -1,7 +1,6 @@
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import RefreshIcon from '@mui/icons-material/Refresh';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { Button, Typography } from '@namios/motionui-react';
 import { styled } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
 
@@ -19,20 +18,22 @@ export interface ErrorStateProps {
   titleKey?: string;
   messageKey?: string;
   onRetry?: () => void;
+  className?: string;
 }
 
-/** Inline error surface for failed queries, with optional retry. */
-export function ErrorState({
+/** Inline error surface for failed queries, with optional retry, powered by MotionUI. */
+export const ErrorState = ({
   titleKey = 'common:states.errorTitle',
   messageKey = 'common:states.errorGeneric',
   onRetry,
-}: ErrorStateProps) {
+  className,
+}: ErrorStateProps) => {
   const { t } = useTranslation();
   return (
-    <ErrorStateRoot role="alert">
+    <ErrorStateRoot role="alert" className={className}>
       <ErrorOutlineIcon color="error" sx={{ fontSize: 40 }} />
       <Typography variant="h6">{t(titleKey)}</Typography>
-      <Typography variant="body2" color="text.secondary">
+      <Typography variant="body2" color="textSecondary">
         {t(messageKey)}
       </Typography>
       {onRetry ? (
@@ -42,4 +43,4 @@ export function ErrorState({
       ) : null}
     </ErrorStateRoot>
   );
-}
+};

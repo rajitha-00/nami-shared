@@ -3,7 +3,7 @@ import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import Card from '@mui/material/Card';
-import Skeleton from '@mui/material/Skeleton';
+import { Skeleton } from '@namios/motionui-react';
 import Typography from '@mui/material/Typography';
 import { alpha, styled } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
@@ -102,7 +102,7 @@ const TREND_ICONS = {
 } as const;
 
 /** Dashboard KPI card with loading skeleton, trend indicator and two layouts. */
-export function StatCard({
+export const StatCard = ({
   labelKey,
   value,
   delta,
@@ -115,7 +115,7 @@ export function StatCard({
   badge,
   iconColor = 'primary',
   size = 'small',
-}: StatCardProps) {
+}: StatCardProps) => {
   const { t } = useTranslation();
   const isCompact = size === 'small' || size === 'mini';
 

@@ -18,7 +18,7 @@ export interface AuthLayoutProps {
     /** Hero description below headline. */
     description?: string;
     /** Value proposition bullet points with checkmark icons. */
-    features?: Array<AuthLayoutFeatureItem | string>;
+    features?: (AuthLayoutFeatureItem | string)[];
     /** Brand panel footer text. */
     footer?: string;
     /** Optional custom gradient for brand panel. */
@@ -30,9 +30,9 @@ import type { PaperProps } from '@mui/material/Paper';
 export interface AuthFormShellProps extends PaperProps {
     children: ReactNode;
 }
-export declare function AuthFormShell({ children, sx, ...props }: AuthFormShellProps): import("react").JSX.Element;
+export declare const AuthFormShell: ({ children, sx, ...props }: AuthFormShellProps) => import("react").JSX.Element;
 /**
  * Standard NamiOS Auth Layout with responsive split brand panel
  * and elevated form shell.
  */
-export declare function AuthLayout({ children, logo, topRight, appName, tagline, headline, description, features, footer, brandGradient, centeredOnly, }: AuthLayoutProps): import("react").JSX.Element;
+export declare const AuthLayout: ({ children, logo, topRight, appName, tagline, headline, description, features, footer, brandGradient, centeredOnly, }: AuthLayoutProps) => import("react").JSX.Element;

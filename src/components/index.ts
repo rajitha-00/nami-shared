@@ -88,4 +88,7 @@ export {
 export * from './AppLauncher';
 export * from './animated-icons';
 
+// MotionUI design system & components powered by @namios/motionui-react
+export * from '@namios/motionui-react';
+
 

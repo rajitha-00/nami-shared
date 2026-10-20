@@ -22,4 +22,4 @@ export interface FormDialogProps<TValues extends FieldValues> {
  * react-hook-form + zod inside AppDialog. Every create/edit dialog in every
  * NamiOS app composes this — do not hand-roll form dialogs.
  */
-export declare function FormDialog<TValues extends FieldValues>({ open, titleKey, titleParams, size, schema, defaultValues, onSubmit, onClose, submitting, submitKey, cancelKey, children, }: FormDialogProps<TValues>): import("react").JSX.Element;
+export declare const FormDialog: <TValues extends FieldValues>({ open, titleKey, titleParams, size, schema, defaultValues, onSubmit, onClose, submitting, submitKey, cancelKey, children, }: FormDialogProps<TValues>) => import("react").JSX.Element;

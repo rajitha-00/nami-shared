@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Typography from '@mui/material/Typography';
-import Chip from '@mui/material/Chip';
+import { Chip } from '@namios/motionui-react';
 import type { IAppItem } from '../interfaces/IAppItem';
 import { APP_TILE_VARIANTS } from '../constants/animationConfig';
 
@@ -141,14 +141,14 @@ export const AppTile = ({
         <Chip
           label={app.badge}
           size="small"
-          color={app.badgeColor || 'default'}
-          sx={{
-            mt: 0.4,
+          color={app.badgeColor === 'default' ? undefined : app.badgeColor}
+          variant={app.badgeColor === 'default' ? 'outlined' : 'filled'}
+          style={{
+            marginTop: 4,
             height: 16,
             fontSize: '0.6rem',
             fontWeight: 800,
-            borderRadius: '5px',
-            '& .MuiChip-label': { px: 0.6 },
+            borderRadius: 5,
           }}
         />
       )}

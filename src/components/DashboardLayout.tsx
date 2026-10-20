@@ -33,7 +33,7 @@ export interface DashboardLayoutProps {
  * TopBar + SideNav + content shell. The side nav collapses to a temporary
  * drawer below the `md` breakpoint.
  */
-export function DashboardLayout({
+export const DashboardLayout = ({
   navItems,
   activePath,
   onNavigate,
@@ -41,7 +41,7 @@ export function DashboardLayout({
   logo,
   topBarActions,
   children,
-}: DashboardLayoutProps) {
+}: DashboardLayoutProps) => {
   const { isDesktop } = useMediaBreakpoint();
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -80,4 +80,4 @@ export function DashboardLayout({
       </ContentArea>
     </LayoutRoot>
   );
-}
+};

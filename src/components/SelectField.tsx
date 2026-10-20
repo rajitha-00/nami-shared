@@ -16,7 +16,7 @@ export interface SelectFieldProps<V extends string | number = string> {
 }
 
 /** SelectOption-driven dropdown (used for table filters and simple selects). */
-export function SelectField<V extends string | number = string>({
+export const SelectField = <V extends string | number = string>({
   value,
   onChange,
   options,
@@ -25,7 +25,7 @@ export function SelectField<V extends string | number = string>({
   fullWidth = false,
   minWidth = 160,
   disabled = false,
-}: SelectFieldProps<V>) {
+}: SelectFieldProps<V>) => {
   const { t } = useTranslation();
   return (
     <TextField
@@ -48,4 +48,4 @@ export function SelectField<V extends string | number = string>({
       ))}
     </TextField>
   );
-}
+};

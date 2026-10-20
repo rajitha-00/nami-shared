@@ -1,7 +1,7 @@
 'use strict';
 
 var styles = require('@mui/material/styles');
-var React18 = require('react');
+var React19 = require('react');
 var framerMotion = require('framer-motion');
 var jsxRuntime = require('react/jsx-runtime');
 var Button5 = require('@mui/material/Button');
@@ -13,13 +13,13 @@ var DialogContent = require('@mui/material/DialogContent');
 var DialogContentText = require('@mui/material/DialogContentText');
 var DialogTitle = require('@mui/material/DialogTitle');
 var Box7 = require('@mui/material/Box');
-var IconButton8 = require('@mui/material/IconButton');
+var IconButton9 = require('@mui/material/IconButton');
 var CloseIcon5 = require('@mui/icons-material/Close');
 var reactI18next = require('react-i18next');
 var useMediaQuery = require('@mui/material/useMediaQuery');
 var shim = require('use-sync-external-store/shim');
 var withSelector = require('use-sync-external-store/shim/with-selector');
-var ReactDOM3 = require('react-dom');
+var ReactDOM = require('react-dom');
 var CloseRoundedIcon = require('@mui/icons-material/CloseRounded');
 var CheckCircleRoundedIcon = require('@mui/icons-material/CheckCircleRounded');
 var ErrorRoundedIcon = require('@mui/icons-material/ErrorRounded');
@@ -32,9 +32,7 @@ var Stack4 = require('@mui/material/Stack');
 var Paper = require('@mui/material/Paper');
 var ErrorOutlineIcon = require('@mui/icons-material/ErrorOutline');
 var RefreshIcon = require('@mui/icons-material/Refresh');
-var Chip6 = require('@mui/material/Chip');
-var Checkbox = require('@mui/material/Checkbox');
-var Skeleton = require('@mui/material/Skeleton');
+var Checkbox2 = require('@mui/material/Checkbox');
 var Table = require('@mui/material/Table');
 var TableBody = require('@mui/material/TableBody');
 var TableCell = require('@mui/material/TableCell');
@@ -46,18 +44,16 @@ var TableSortLabel = require('@mui/material/TableSortLabel');
 var TrendingDownIcon = require('@mui/icons-material/TrendingDown');
 var TrendingFlatIcon = require('@mui/icons-material/TrendingFlat');
 var TrendingUpIcon = require('@mui/icons-material/TrendingUp');
-var Card = require('@mui/material/Card');
-var CardContent = require('@mui/material/CardContent');
-var CardHeader = require('@mui/material/CardHeader');
+var Card2 = require('@mui/material/Card');
 var ClearIcon = require('@mui/icons-material/Clear');
 var SearchIcon = require('@mui/icons-material/Search');
 var InputAdornment = require('@mui/material/InputAdornment');
-var TextField4 = require('@mui/material/TextField');
+var TextField5 = require('@mui/material/TextField');
 var MenuItem = require('@mui/material/MenuItem');
 var VisibilityIcon = require('@mui/icons-material/Visibility');
 var VisibilityOffIcon = require('@mui/icons-material/VisibilityOff');
 var FormControlLabel = require('@mui/material/FormControlLabel');
-var Switch = require('@mui/material/Switch');
+var Switch2 = require('@mui/material/Switch');
 var CheckIcon = require('@mui/icons-material/Check');
 var TranslateIcon = require('@mui/icons-material/Translate');
 var ListItemIcon = require('@mui/material/ListItemIcon');
@@ -66,6 +62,7 @@ var Menu = require('@mui/material/Menu');
 var MenuIcon = require('@mui/icons-material/Menu');
 var AppBar = require('@mui/material/AppBar');
 var Toolbar = require('@mui/material/Toolbar');
+var Skeleton2 = require('@mui/material/Skeleton');
 var Step = require('@mui/material/Step');
 var StepLabel = require('@mui/material/StepLabel');
 var Stepper = require('@mui/material/Stepper');
@@ -73,7 +70,7 @@ var CalendarMonthOutlinedIcon = require('@mui/icons-material/CalendarMonthOutlin
 var ExpandLessIcon = require('@mui/icons-material/ExpandLess');
 var ExpandMoreIcon = require('@mui/icons-material/ExpandMore');
 var Collapse = require('@mui/material/Collapse');
-var Drawer = require('@mui/material/Drawer');
+var Drawer2 = require('@mui/material/Drawer');
 var List = require('@mui/material/List');
 var ListItemButton = require('@mui/material/ListItemButton');
 var NavigateNextIcon = require('@mui/icons-material/NavigateNext');
@@ -87,10 +84,10 @@ var AutoAwesomeIcon = require('@mui/icons-material/AutoAwesome');
 var PaymentsIcon = require('@mui/icons-material/Payments');
 var PeopleIcon = require('@mui/icons-material/People');
 var InventoryIcon = require('@mui/icons-material/Inventory');
-var Tooltip = require('@mui/material/Tooltip');
+var Tooltip2 = require('@mui/material/Tooltip');
 var InputBase = require('@mui/material/InputBase');
-var CardMedia = require('@mui/material/CardMedia');
-var Avatar = require('@mui/material/Avatar');
+var CardContent2 = require('@mui/material/CardContent');
+var CardMedia2 = require('@mui/material/CardMedia');
 var i18n = require('i18next');
 var LanguageDetector = require('i18next-browser-languagedetector');
 
@@ -114,7 +111,7 @@ function _interopNamespace(e) {
   return Object.freeze(n);
 }
 
-var React18__namespace = /*#__PURE__*/_interopNamespace(React18);
+var React19__namespace = /*#__PURE__*/_interopNamespace(React19);
 var Button5__default = /*#__PURE__*/_interopDefault(Button5);
 var CircularProgress__default = /*#__PURE__*/_interopDefault(CircularProgress);
 var Dialog__default = /*#__PURE__*/_interopDefault(Dialog);
@@ -124,10 +121,10 @@ var DialogContent__default = /*#__PURE__*/_interopDefault(DialogContent);
 var DialogContentText__default = /*#__PURE__*/_interopDefault(DialogContentText);
 var DialogTitle__default = /*#__PURE__*/_interopDefault(DialogTitle);
 var Box7__default = /*#__PURE__*/_interopDefault(Box7);
-var IconButton8__default = /*#__PURE__*/_interopDefault(IconButton8);
+var IconButton9__default = /*#__PURE__*/_interopDefault(IconButton9);
 var CloseIcon5__default = /*#__PURE__*/_interopDefault(CloseIcon5);
 var useMediaQuery__default = /*#__PURE__*/_interopDefault(useMediaQuery);
-var ReactDOM3__namespace = /*#__PURE__*/_interopNamespace(ReactDOM3);
+var ReactDOM__namespace = /*#__PURE__*/_interopNamespace(ReactDOM);
 var CloseRoundedIcon__default = /*#__PURE__*/_interopDefault(CloseRoundedIcon);
 var CheckCircleRoundedIcon__default = /*#__PURE__*/_interopDefault(CheckCircleRoundedIcon);
 var ErrorRoundedIcon__default = /*#__PURE__*/_interopDefault(ErrorRoundedIcon);
@@ -138,9 +135,7 @@ var Stack4__default = /*#__PURE__*/_interopDefault(Stack4);
 var Paper__default = /*#__PURE__*/_interopDefault(Paper);
 var ErrorOutlineIcon__default = /*#__PURE__*/_interopDefault(ErrorOutlineIcon);
 var RefreshIcon__default = /*#__PURE__*/_interopDefault(RefreshIcon);
-var Chip6__default = /*#__PURE__*/_interopDefault(Chip6);
-var Checkbox__default = /*#__PURE__*/_interopDefault(Checkbox);
-var Skeleton__default = /*#__PURE__*/_interopDefault(Skeleton);
+var Checkbox2__default = /*#__PURE__*/_interopDefault(Checkbox2);
 var Table__default = /*#__PURE__*/_interopDefault(Table);
 var TableBody__default = /*#__PURE__*/_interopDefault(TableBody);
 var TableCell__default = /*#__PURE__*/_interopDefault(TableCell);
@@ -152,18 +147,16 @@ var TableSortLabel__default = /*#__PURE__*/_interopDefault(TableSortLabel);
 var TrendingDownIcon__default = /*#__PURE__*/_interopDefault(TrendingDownIcon);
 var TrendingFlatIcon__default = /*#__PURE__*/_interopDefault(TrendingFlatIcon);
 var TrendingUpIcon__default = /*#__PURE__*/_interopDefault(TrendingUpIcon);
-var Card__default = /*#__PURE__*/_interopDefault(Card);
-var CardContent__default = /*#__PURE__*/_interopDefault(CardContent);
-var CardHeader__default = /*#__PURE__*/_interopDefault(CardHeader);
+var Card2__default = /*#__PURE__*/_interopDefault(Card2);
 var ClearIcon__default = /*#__PURE__*/_interopDefault(ClearIcon);
 var SearchIcon__default = /*#__PURE__*/_interopDefault(SearchIcon);
 var InputAdornment__default = /*#__PURE__*/_interopDefault(InputAdornment);
-var TextField4__default = /*#__PURE__*/_interopDefault(TextField4);
+var TextField5__default = /*#__PURE__*/_interopDefault(TextField5);
 var MenuItem__default = /*#__PURE__*/_interopDefault(MenuItem);
 var VisibilityIcon__default = /*#__PURE__*/_interopDefault(VisibilityIcon);
 var VisibilityOffIcon__default = /*#__PURE__*/_interopDefault(VisibilityOffIcon);
 var FormControlLabel__default = /*#__PURE__*/_interopDefault(FormControlLabel);
-var Switch__default = /*#__PURE__*/_interopDefault(Switch);
+var Switch2__default = /*#__PURE__*/_interopDefault(Switch2);
 var CheckIcon__default = /*#__PURE__*/_interopDefault(CheckIcon);
 var TranslateIcon__default = /*#__PURE__*/_interopDefault(TranslateIcon);
 var ListItemIcon__default = /*#__PURE__*/_interopDefault(ListItemIcon);
@@ -172,6 +165,7 @@ var Menu__default = /*#__PURE__*/_interopDefault(Menu);
 var MenuIcon__default = /*#__PURE__*/_interopDefault(MenuIcon);
 var AppBar__default = /*#__PURE__*/_interopDefault(AppBar);
 var Toolbar__default = /*#__PURE__*/_interopDefault(Toolbar);
+var Skeleton2__default = /*#__PURE__*/_interopDefault(Skeleton2);
 var Step__default = /*#__PURE__*/_interopDefault(Step);
 var StepLabel__default = /*#__PURE__*/_interopDefault(StepLabel);
 var Stepper__default = /*#__PURE__*/_interopDefault(Stepper);
@@ -179,7 +173,7 @@ var CalendarMonthOutlinedIcon__default = /*#__PURE__*/_interopDefault(CalendarMo
 var ExpandLessIcon__default = /*#__PURE__*/_interopDefault(ExpandLessIcon);
 var ExpandMoreIcon__default = /*#__PURE__*/_interopDefault(ExpandMoreIcon);
 var Collapse__default = /*#__PURE__*/_interopDefault(Collapse);
-var Drawer__default = /*#__PURE__*/_interopDefault(Drawer);
+var Drawer2__default = /*#__PURE__*/_interopDefault(Drawer2);
 var List__default = /*#__PURE__*/_interopDefault(List);
 var ListItemButton__default = /*#__PURE__*/_interopDefault(ListItemButton);
 var NavigateNextIcon__default = /*#__PURE__*/_interopDefault(NavigateNextIcon);
@@ -193,10 +187,10 @@ var AutoAwesomeIcon__default = /*#__PURE__*/_interopDefault(AutoAwesomeIcon);
 var PaymentsIcon__default = /*#__PURE__*/_interopDefault(PaymentsIcon);
 var PeopleIcon__default = /*#__PURE__*/_interopDefault(PeopleIcon);
 var InventoryIcon__default = /*#__PURE__*/_interopDefault(InventoryIcon);
-var Tooltip__default = /*#__PURE__*/_interopDefault(Tooltip);
+var Tooltip2__default = /*#__PURE__*/_interopDefault(Tooltip2);
 var InputBase__default = /*#__PURE__*/_interopDefault(InputBase);
-var CardMedia__default = /*#__PURE__*/_interopDefault(CardMedia);
-var Avatar__default = /*#__PURE__*/_interopDefault(Avatar);
+var CardContent2__default = /*#__PURE__*/_interopDefault(CardContent2);
+var CardMedia2__default = /*#__PURE__*/_interopDefault(CardMedia2);
 var i18n__default = /*#__PURE__*/_interopDefault(i18n);
 var LanguageDetector__default = /*#__PURE__*/_interopDefault(LanguageDetector);
 
@@ -461,7 +455,7 @@ var validateImageFile = async (file, maxBytes = MAX_IMAGE_BYTES) => {
   if (file.size === 0 || file.size > maxBytes) return false;
   const bytes = await readHeader(file);
   const png = [137, 80, 78, 71, 13, 10, 26, 10].every(
-    (value, index2) => bytes[index2] === value
+    (value, index3) => bytes[index3] === value
   );
   const jpeg = bytes[0] === 255 && bytes[1] === 216 && bytes[2] === 255;
   const webp = bytes.length >= 12 && String.fromCharCode(...bytes.slice(0, 4)) === "RIFF" && String.fromCharCode(...bytes.slice(8, 12)) === "WEBP";
@@ -547,7 +541,7 @@ var FONT_FAMILY = [
   "Roboto",
   "sans-serif"
 ].join(", ");
-var AppleDialogTransition = React18.forwardRef(
+var AppleDialogTransition = React19.forwardRef(
   function AppleDialogTransition2(props, ref) {
     const { in: inProp, onEnter, onEntered, onExit, onExited, children, ...other } = props;
     return /* @__PURE__ */ jsxRuntime.jsx(
@@ -902,56 +896,66 @@ function createHotelOsTheme(mode, overrides) {
     overrides ?? {}
   );
 }
-var ThemeModeContext = React18.createContext(null);
+var ThemeModeContext = React19.createContext(null);
 var readInitialMode = () => {
   if (typeof window === "undefined") return "light";
   const stored = window.localStorage.getItem(STORAGE_KEYS.THEME_MODE);
   if (stored === "light" || stored === "dark") return stored;
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 };
-function ThemeModeProvider({ children, overrides }) {
-  const [mode, setModeState] = React18.useState(readInitialMode);
-  const setMode = React18.useCallback((next) => {
+var ThemeModeProvider = ({ children, overrides }) => {
+  const [mode, setModeState] = React19.useState(readInitialMode);
+  React19.useEffect(() => {
+    if (typeof document !== "undefined") {
+      document.documentElement.setAttribute("data-theme", mode);
+      if (mode === "dark") {
+        document.documentElement.classList.add("mui-dark");
+      } else {
+        document.documentElement.classList.remove("mui-dark");
+      }
+    }
+  }, [mode]);
+  const setMode = React19.useCallback((next) => {
     setModeState(next);
     window.localStorage.setItem(STORAGE_KEYS.THEME_MODE, next);
   }, []);
-  const toggleMode = React18.useCallback(() => {
+  const toggleMode = React19.useCallback(() => {
     setModeState((prev) => {
       const next = prev === "light" ? "dark" : "light";
       window.localStorage.setItem(STORAGE_KEYS.THEME_MODE, next);
       return next;
     });
   }, []);
-  const value = React18.useMemo(() => ({ mode, toggleMode, setMode }), [mode, toggleMode, setMode]);
-  const theme = React18.useMemo(
+  const value = React19.useMemo(() => ({ mode, toggleMode, setMode }), [mode, toggleMode, setMode]);
+  const theme = React19.useMemo(
     () => createHotelOsTheme(mode, typeof overrides === "function" ? overrides(mode) : overrides),
     [mode, overrides]
   );
   return /* @__PURE__ */ jsxRuntime.jsx(ThemeModeContext.Provider, { value, children: /* @__PURE__ */ jsxRuntime.jsx(styles.ThemeProvider, { theme, children }) });
-}
-function useThemeMode() {
-  const ctx = React18.useContext(ThemeModeContext);
+};
+var useThemeMode = () => {
+  const ctx = React19.useContext(ThemeModeContext);
   if (!ctx) {
     throw new Error("useThemeMode must be used within a ThemeModeProvider");
   }
   return ctx;
-}
+};
 function useDialog() {
-  const [isOpen, setIsOpen] = React18.useState(false);
-  const [data, setData] = React18.useState(void 0);
-  const open = React18.useCallback((next) => {
+  const [isOpen, setIsOpen] = React19.useState(false);
+  const [data, setData] = React19.useState(void 0);
+  const open2 = React19.useCallback((next) => {
     setData(next);
     setIsOpen(true);
   }, []);
-  const close = React18.useCallback(() => {
+  const close = React19.useCallback(() => {
     setIsOpen(false);
   }, []);
-  const toggle = React18.useCallback(() => {
+  const toggle = React19.useCallback(() => {
     setIsOpen((prev) => !prev);
   }, []);
-  return { isOpen, data, open, close, toggle };
+  return { isOpen, data, open: open2, close, toggle };
 }
-var FamilyDialogTransition = React18.forwardRef(
+var FamilyDialogTransition = React19.forwardRef(
   function FamilyDialogTransition2(props, ref) {
     const { in: inProp, onEnter, onEntered, onExit, onExited, children, style, ...other } = props;
     return /* @__PURE__ */ jsxRuntime.jsx(
@@ -1020,8 +1024,8 @@ var FamilyDialogTransition = React18.forwardRef(
     );
   }
 );
-function ConfirmDialog({
-  open,
+var ConfirmDialog = ({
+  open: open2,
   titleKey,
   messageKey,
   messageParams,
@@ -1033,7 +1037,7 @@ function ConfirmDialog({
   disableBackdrop = false,
   onConfirm,
   onCancel
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   const content = /* @__PURE__ */ jsxRuntime.jsxs(Box7__default.default, { sx: { width: "100%", maxWidth: "380px" }, children: [
     /* @__PURE__ */ jsxRuntime.jsxs(
@@ -1053,7 +1057,7 @@ function ConfirmDialog({
         children: [
           t(titleKey),
           /* @__PURE__ */ jsxRuntime.jsx(
-            IconButton8__default.default,
+            IconButton9__default.default,
             {
               "aria-label": t("common:actions.close"),
               onClick: onCancel,
@@ -1164,7 +1168,7 @@ function ConfirmDialog({
     return /* @__PURE__ */ jsxRuntime.jsx(
       Popover__default.default,
       {
-        open,
+        open: open2,
         anchorEl,
         onClose: onCancel,
         anchorOrigin: {
@@ -1203,7 +1207,7 @@ function ConfirmDialog({
   return /* @__PURE__ */ jsxRuntime.jsx(
     Dialog__default.default,
     {
-      open,
+      open: open2,
       onClose: onCancel,
       maxWidth: "xs",
       fullWidth: true,
@@ -1227,18 +1231,18 @@ function ConfirmDialog({
       children: content
     }
   );
-}
-var ConfirmContext = React18.createContext(null);
+};
+var ConfirmContext = React19.createContext(null);
 function ConfirmProvider({ children }) {
-  const [options, setOptions] = React18.useState(null);
-  const resolverRef = React18.useRef(null);
-  const confirm = React18.useCallback((next) => {
+  const [options, setOptions] = React19.useState(null);
+  const resolverRef = React19.useRef(null);
+  const confirm = React19.useCallback((next) => {
     setOptions(next);
     return new Promise((resolve) => {
       resolverRef.current = resolve;
     });
   }, []);
-  const settle = React18.useCallback((confirmed) => {
+  const settle = React19.useCallback((confirmed) => {
     resolverRef.current?.(confirmed);
     resolverRef.current = null;
     setOptions(null);
@@ -1268,15 +1272,15 @@ function ConfirmProvider({ children }) {
   ] });
 }
 function useConfirm() {
-  const ctx = React18.useContext(ConfirmContext);
+  const ctx = React19.useContext(ConfirmContext);
   if (!ctx) {
     throw new Error("useConfirm must be used within a ConfirmProvider");
   }
   return ctx;
 }
 function useDebounce(value, delay = DEBOUNCE_MS) {
-  const [debounced, setDebounced] = React18.useState(value);
-  React18.useEffect(() => {
+  const [debounced, setDebounced] = React19.useState(value);
+  React19.useEffect(() => {
     const timer = window.setTimeout(() => {
       setDebounced(value);
     }, delay);
@@ -1287,16 +1291,16 @@ function useDebounce(value, delay = DEBOUNCE_MS) {
   return debounced;
 }
 function useDebouncedCallback(callback, delay = DEBOUNCE_MS) {
-  const callbackRef = React18.useRef(callback);
+  const callbackRef = React19.useRef(callback);
   callbackRef.current = callback;
-  const timerRef = React18.useRef(void 0);
-  React18.useEffect(
+  const timerRef = React19.useRef(void 0);
+  React19.useEffect(
     () => () => {
       window.clearTimeout(timerRef.current);
     },
     []
   );
-  return React18.useMemo(
+  return React19.useMemo(
     () => (...args) => {
       window.clearTimeout(timerRef.current);
       timerRef.current = window.setTimeout(() => {
@@ -1309,58 +1313,58 @@ function useDebouncedCallback(callback, delay = DEBOUNCE_MS) {
 function usePagination(initial2) {
   const initialPage = initial2?.page ?? 1;
   const initialPageSize = initial2?.pageSize ?? DEFAULT_PAGE_SIZE;
-  const [page, setPage] = React18.useState(initialPage);
-  const [pageSize, setPageSizeState] = React18.useState(initialPageSize);
-  const setPageSize = React18.useCallback((next) => {
+  const [page, setPage] = React19.useState(initialPage);
+  const [pageSize, setPageSizeState] = React19.useState(initialPageSize);
+  const setPageSize = React19.useCallback((next) => {
     setPageSizeState(next);
     setPage(1);
   }, []);
-  const reset = React18.useCallback(() => {
+  const reset = React19.useCallback(() => {
     setPage(initialPage);
     setPageSizeState(initialPageSize);
   }, [initialPage, initialPageSize]);
   return { page, pageSize, setPage, setPageSize, reset, offset: (page - 1) * pageSize };
 }
 function useTableQuery(defaults) {
-  const defaultFilters = React18.useMemo(() => defaults?.filters ?? {}, [defaults?.filters]);
-  const [page, setPage] = React18.useState(defaults?.initial?.page ?? 1);
-  const [pageSize, setPageSizeState] = React18.useState(defaults?.pageSize ?? DEFAULT_PAGE_SIZE);
-  const [search, setSearchState] = React18.useState(defaults?.initial?.search ?? "");
-  const [sortBy2, setSortBy] = React18.useState(defaults?.sortBy);
-  const [sortDir, setSortDir] = React18.useState(defaults?.sortDir ?? "asc");
-  const [filters, setFilters] = React18.useState(defaultFilters);
+  const defaultFilters = React19.useMemo(() => defaults?.filters ?? {}, [defaults?.filters]);
+  const [page, setPage] = React19.useState(defaults?.initial?.page ?? 1);
+  const [pageSize, setPageSizeState] = React19.useState(defaults?.pageSize ?? DEFAULT_PAGE_SIZE);
+  const [search, setSearchState] = React19.useState(defaults?.initial?.search ?? "");
+  const [sortBy2, setSortBy] = React19.useState(defaults?.sortBy);
+  const [sortDir, setSortDir] = React19.useState(defaults?.sortDir ?? "asc");
+  const [filters, setFilters] = React19.useState(defaultFilters);
   const debouncedSearch = useDebounce(search);
-  const setSearch = React18.useCallback((next) => {
+  const setSearch = React19.useCallback((next) => {
     setSearchState(next);
     setPage(1);
   }, []);
-  const setPageSize = React18.useCallback((next) => {
+  const setPageSize = React19.useCallback((next) => {
     setPageSizeState(next);
     setPage(1);
   }, []);
-  const onSortChange = React18.useCallback((key) => {
+  const onSortChange = React19.useCallback((key) => {
     setSortBy((prevKey) => {
       setSortDir((prevDir) => prevKey === key && prevDir === "asc" ? "desc" : "asc");
       return key;
     });
   }, []);
-  const setFilter = React18.useCallback((key, value) => {
+  const setFilter = React19.useCallback((key, value) => {
     setFilters((prev) => ({ ...prev, [key]: value }));
     setPage(1);
   }, []);
-  const clearFilters = React18.useCallback(() => {
+  const clearFilters = React19.useCallback(() => {
     setFilters(defaultFilters);
     setSearchState("");
     setPage(1);
   }, [defaultFilters]);
-  const reset = React18.useCallback(() => {
+  const reset = React19.useCallback(() => {
     setPage(1);
     setSearchState("");
     setSortBy(defaults?.sortBy);
     setSortDir(defaults?.sortDir ?? "asc");
     setFilters(defaultFilters);
   }, [defaultFilters, defaults?.sortBy, defaults?.sortDir]);
-  const params = React18.useMemo(() => {
+  const params = React19.useMemo(() => {
     const activeFilters = Object.fromEntries(
       Object.entries(filters).filter(([, v]) => Array.isArray(v) ? v.length > 0 : v !== "")
     );
@@ -1392,13 +1396,13 @@ function useTableQuery(defaults) {
   };
 }
 function useLocalStorage(key, initial2) {
-  const [value, setValueState] = React18.useState(() => {
+  const [value, setValueState] = React19.useState(() => {
     if (typeof window === "undefined") return initial2;
     const raw = window.localStorage.getItem(key);
     if (raw === null) return initial2;
     return safeJsonParse(raw) ?? initial2;
   });
-  const setValue = React18.useCallback(
+  const setValue = React19.useCallback(
     (next) => {
       setValueState((prev) => {
         const resolved = typeof next === "function" ? next(prev) : next;
@@ -1408,20 +1412,20 @@ function useLocalStorage(key, initial2) {
     },
     [key]
   );
-  const remove = React18.useCallback(() => {
+  const remove = React19.useCallback(() => {
     window.localStorage.removeItem(key);
   }, [key]);
   return { value, setValue, remove };
 }
 function useBoolean(initial2 = false) {
-  const [value, setValue] = React18.useState(initial2);
-  const setTrue = React18.useCallback(() => {
+  const [value, setValue] = React19.useState(initial2);
+  const setTrue = React19.useCallback(() => {
     setValue(true);
   }, []);
-  const setFalse = React18.useCallback(() => {
+  const setFalse = React19.useCallback(() => {
     setValue(false);
   }, []);
-  const toggle = React18.useCallback(() => {
+  const toggle = React19.useCallback(() => {
     setValue((prev) => !prev);
   }, []);
   return { value, setTrue, setFalse, toggle, setValue };
@@ -1431,21 +1435,21 @@ function useToggle(initial2 = false) {
   return { value, toggle, setValue };
 }
 function usePrevious(value) {
-  const ref = React18.useRef(void 0);
-  React18.useEffect(() => {
+  const ref = React19.useRef(void 0);
+  React19.useEffect(() => {
     ref.current = value;
   }, [value]);
   return ref.current;
 }
 function useIsMounted() {
-  const mountedRef = React18.useRef(false);
-  React18.useEffect(() => {
+  const mountedRef = React19.useRef(false);
+  React19.useEffect(() => {
     mountedRef.current = true;
     return () => {
       mountedRef.current = false;
     };
   }, []);
-  return React18.useCallback(() => mountedRef.current, []);
+  return React19.useCallback(() => mountedRef.current, []);
 }
 function useMediaBreakpoint() {
   const theme = styles.useTheme();
@@ -1456,7 +1460,7 @@ function useMediaBreakpoint() {
   return { isMobile, isTablet, isDesktop, isLargeDesktop };
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/toast/index.parts.mjs
+// node_modules/@base-ui/react/toast/index.parts.mjs
 var index_parts_exports = {};
 __export(index_parts_exports, {
   Action: () => ToastAction,
@@ -1474,19 +1478,19 @@ __export(index_parts_exports, {
   useToastManager: () => useToastManager
 });
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/empty.mjs
+// node_modules/@base-ui/utils/empty.mjs
 function NOOP() {
 }
 var EMPTY_ARRAY = Object.freeze([]);
 var EMPTY_OBJECT = Object.freeze({});
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/useOnMount.mjs
+// node_modules/@base-ui/utils/useOnMount.mjs
 function useOnMount(fn) {
-  React18__namespace.useEffect(fn, EMPTY_ARRAY);
+  React19__namespace.useEffect(fn, EMPTY_ARRAY);
 }
 var UNINITIALIZED = {};
 function useRefWithInit(init, initArg) {
-  const ref = React18__namespace.useRef(UNINITIALIZED);
+  const ref = React19__namespace.useRef(UNINITIALIZED);
   if (ref.current === UNINITIALIZED) {
     ref.current = init(initArg);
   }
@@ -1494,9 +1498,9 @@ function useRefWithInit(init, initArg) {
 }
 var noop = () => {
 };
-var useIsoLayoutEffect = typeof document !== "undefined" ? React18__namespace.useLayoutEffect : noop;
+var useIsoLayoutEffect = typeof document !== "undefined" ? React19__namespace.useLayoutEffect : noop;
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/formatErrorMessage.mjs
+// node_modules/@base-ui/utils/formatErrorMessage.mjs
 function createFormatErrorMessage(baseUrl, prefix) {
   return function formatErrorMessage2(code, ...args) {
     const url = new URL(baseUrl);
@@ -1507,28 +1511,28 @@ function createFormatErrorMessage(baseUrl, prefix) {
 }
 var formatErrorMessage = createFormatErrorMessage("https://base-ui.com/production-error", "Base UI");
 var formatErrorMessage_default = formatErrorMessage;
-var ToastContext = /* @__PURE__ */ React18__namespace.createContext(void 0);
+var ToastContext = /* @__PURE__ */ React19__namespace.createContext(void 0);
 if (process.env.NODE_ENV !== "production") ToastContext.displayName = "ToastContext";
 function useToastProviderContext() {
-  const context = React18__namespace.useContext(ToastContext);
+  const context = React19__namespace.useContext(ToastContext);
   if (!context) {
     throw new Error(process.env.NODE_ENV !== "production" ? "Base UI: useToastManager must be used within <Toast.Provider>." : formatErrorMessage_default(73));
   }
   return context;
 }
-var majorVersion = parseInt(React18__namespace.version, 10);
+var majorVersion = parseInt(React19__namespace.version, 10);
 function isReactVersionAtLeast(reactVersionToCheck) {
   return majorVersion >= reactVersionToCheck;
 }
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/store/useStore.mjs
+// node_modules/@base-ui/utils/store/useStore.mjs
 var canUseRawUseSyncExternalStore = isReactVersionAtLeast(19);
 var useStoreImplementation = canUseRawUseSyncExternalStore ? useStoreFast : useStoreLegacy;
 function useStore(store, selector, a1, a2, a3) {
   return useStoreImplementation(store, selector, a1, a2, a3);
 }
 function useStoreR19(store, selector, a1, a2, a3) {
-  const getSelection = React18__namespace.useCallback(() => selector(store.getSnapshot(), a1, a2, a3), [store, selector, a1, a2, a3]);
+  const getSelection = React19__namespace.useCallback(() => selector(store.getSnapshot(), a1, a2, a3), [store, selector, a1, a2, a3]);
   return shim.useSyncExternalStore(store.subscribe, getSelection, getSelection);
 }
 function useStoreFast(store, selector, a1, a2, a3) {
@@ -1540,7 +1544,7 @@ function useStoreLegacy(store, selector, a1, a2, a3) {
   return withSelector.useSyncExternalStoreWithSelector(store.subscribe, store.getSnapshot, store.getSnapshot, (state) => selector(state, a1, a2, a3));
 }
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/store/Store.mjs
+// node_modules/@base-ui/utils/store/Store.mjs
 var Store = class {
   /**
    * The current state of the store.
@@ -1575,6 +1579,14 @@ var Store = class {
     this.updateTick = 0;
   }
   /**
+   * Creates a store with the given initial state, constructing the class it is called on.
+   * Calling it on a generic base class (e.g. `ReactStore.create(...)`) constructs that
+   * class but degrades the inferred instance type to `Store`; use `new` there instead.
+   */
+  static create(state) {
+    return new this(state);
+  }
+  /**
    * Updates the entire store's state and notifies all registered listeners.
    *
    * @param newState The new state to set for the store.
@@ -1595,6 +1607,8 @@ var Store = class {
   }
   /**
    * Merges the provided changes into the current state and notifies listeners if there are changes.
+   * Each value must match its state key. Pass an exact known subset rather than a broad
+   * `Partial<State>`, which may contain `undefined` for required state fields.
    *
    * @param changes An object containing the changes to apply to the current state.
    */
@@ -1637,10 +1651,10 @@ var Store = class {
   }
 };
 var SafeReact = {
-  ...React18__namespace
+  ...React19__namespace
 };
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/useStableCallback.mjs
+// node_modules/@base-ui/utils/useStableCallback.mjs
 var useInsertionEffect = SafeReact.useInsertionEffect;
 var useSafeInsertionEffect = (
   // React 17 doesn't have useInsertionEffect.
@@ -1673,7 +1687,7 @@ function assertNotCalled() {
   }
 }
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/store/ReactStore.mjs
+// node_modules/@base-ui/utils/store/ReactStore.mjs
 var ReactStore = class extends Store {
   /**
    * Creates a new ReactStore instance.
@@ -1697,7 +1711,7 @@ var ReactStore = class extends Store {
    * by `useState` is updated before the next render (similarly to React's `useState`).
    */
   useSyncedValue(key, value) {
-    React18__namespace.useDebugValue(key);
+    React19__namespace.useDebugValue(key);
     const store = this;
     useIsoLayoutEffect(() => {
       if (store.state[key] !== value) {
@@ -1725,17 +1739,21 @@ var ReactStore = class extends Store {
   }
   /**
    * Synchronizes multiple external values into the store.
+   * Each value must match its state key. Pass an exact known subset rather than a broad
+   * `Partial<State>`, which may contain `undefined` for required state fields.
    *
    * Note that the while the values in `state` are updated immediately, the values returned
    * by `useState` are updated before the next render (similarly to React's `useState`).
+   *
+   * @param statePart An exact subset of state fields to synchronize. Unknown keys are not accepted.
    */
   useSyncedValues(statePart) {
     const store = this;
     if (process.env.NODE_ENV !== "production") {
-      React18__namespace.useDebugValue(statePart, (p) => Object.keys(p));
-      const keys = React18__namespace.useRef(Object.keys(statePart)).current;
+      React19__namespace.useDebugValue(statePart, (p) => Object.keys(p));
+      const keys = React19__namespace.useRef(Object.keys(statePart)).current;
       const nextKeys = Object.keys(statePart);
-      if (keys.length !== nextKeys.length || keys.some((key, index2) => key !== nextKeys[index2])) {
+      if (keys.length !== nextKeys.length || keys.some((key, index3) => key !== nextKeys[index3])) {
         console.error("ReactStore.useSyncedValues expects the same prop keys on every render. Keys should be stable.");
       }
     }
@@ -1749,7 +1767,7 @@ var ReactStore = class extends Store {
    * is non-undefined, the store's state at `key` is updated to match `controlled`.
    */
   useControlledProp(key, controlled) {
-    React18__namespace.useDebugValue(key);
+    React19__namespace.useDebugValue(key);
     const store = this;
     const isControlled = controlled !== void 0;
     useIsoLayoutEffect(() => {
@@ -1767,7 +1785,7 @@ var ReactStore = class extends Store {
       }
       const previouslyControlled = cache.get(key);
       if (previouslyControlled !== void 0 && previouslyControlled !== isControlled) {
-        console.error(`A component is changing the ${isControlled ? "" : "un"}controlled state of ${key.toString()} to be ${isControlled ? "un" : ""}controlled. Elements should not switch from uncontrolled to controlled (or vice versa).`);
+        console.error(`A component is changing the ${previouslyControlled ? "" : "un"}controlled state of ${key.toString()} to be ${previouslyControlled ? "un" : ""}controlled. Elements should not switch from uncontrolled to controlled (or vice versa).`);
       }
     }
   }
@@ -1787,7 +1805,7 @@ var ReactStore = class extends Store {
    * @param key Key of the selector to use.
    */
   useState(key, a1, a2, a3) {
-    React18__namespace.useDebugValue(key);
+    React19__namespace.useDebugValue(key);
     return useStore(this, this.selectors[key], a1, a2, a3);
   }
   /**
@@ -1798,7 +1816,7 @@ var ReactStore = class extends Store {
    * @param fn Function to assign.
    */
   useContextCallback(key, fn) {
-    React18__namespace.useDebugValue(key);
+    React19__namespace.useDebugValue(key);
     const stableFunction = useStableCallback(fn ?? NOOP);
     this.context[key] = stableFunction;
   }
@@ -1809,7 +1827,7 @@ var ReactStore = class extends Store {
    * @param key Key of the state to set.
    */
   useStateSetter(key) {
-    const ref = React18__namespace.useRef(void 0);
+    const ref = React19__namespace.useRef(void 0);
     if (ref.current === void 0) {
       ref.current = (value) => {
         this.set(key, value);
@@ -1843,7 +1861,7 @@ var ReactStore = class extends Store {
   }
 };
 
-// node_modules/.pnpm/@floating-ui+utils@0.2.12/node_modules/@floating-ui/utils/dist/floating-ui.utils.dom.mjs
+// node_modules/@floating-ui/utils/dist/floating-ui.utils.dom.mjs
 function hasWindow() {
   return typeof window !== "undefined";
 }
@@ -1999,7 +2017,7 @@ function getFrameElement(win) {
   return win.parent && Object.getPrototypeOf(win.parent) ? win.frameElement : null;
 }
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/mergeCleanups.mjs
+// node_modules/@base-ui/utils/mergeCleanups.mjs
 function mergeCleanups(...cleanups) {
   return () => {
     for (let i = 0; i < cleanups.length; i += 1) {
@@ -2011,20 +2029,26 @@ function mergeCleanups(...cleanups) {
   };
 }
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/owner.mjs
+// node_modules/@base-ui/utils/owner.mjs
 function ownerDocument(node) {
   return node?.ownerDocument || document;
 }
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/addEventListener.mjs
+// node_modules/@base-ui/utils/addEventListener.mjs
 function addEventListener(target, type, listener, options) {
   target.addEventListener(type, listener, options);
   return () => {
     target.removeEventListener(type, listener, options);
   };
 }
+function useForcedRerendering() {
+  const [, setState] = React19__namespace.useState({});
+  return React19__namespace.useCallback(() => {
+    setState({});
+  }, []);
+}
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/useAnimationFrame.mjs
+// node_modules/@base-ui/utils/useAnimationFrame.mjs
 var EMPTY = null;
 var LAST_RAF = globalThis.requestAnimationFrame;
 var Scheduler = class {
@@ -2068,11 +2092,14 @@ var Scheduler = class {
     return id;
   }
   cancel(id) {
-    const index2 = id - this.startId;
-    if (index2 < 0 || index2 >= this.callbacks.length) {
+    const index3 = id - this.startId;
+    if (index3 < 0 || index3 >= this.callbacks.length) {
       return;
     }
-    this.callbacks[index2] = null;
+    if (this.callbacks[index3] === null) {
+      return;
+    }
+    this.callbacks[index3] = null;
     this.callbacksCount -= 1;
   }
 };
@@ -2116,7 +2143,7 @@ function useAnimationFrame() {
   return timeout;
 }
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/useTimeout.mjs
+// node_modules/@base-ui/utils/useTimeout.mjs
 var EMPTY2 = 0;
 var Timeout = class _Timeout {
   constructor() {
@@ -2154,14 +2181,14 @@ function useTimeout() {
   return timeout;
 }
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/generateId.mjs
+// node_modules/@base-ui/utils/generateId.mjs
 var counter = 0;
 function generateId(prefix) {
   counter += 1;
   return `${prefix}-${Math.random().toString(36).slice(2, 6)}-${counter}`;
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/toast/utils/resolvePromiseOptions.mjs
+// node_modules/@base-ui/react/toast/utils/resolvePromiseOptions.mjs
 function resolvePromiseOptions(options, result) {
   if (typeof options === "string") {
     return {
@@ -2177,16 +2204,17 @@ function resolvePromiseOptions(options, result) {
   return options;
 }
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/platform/parts.mjs
+// node_modules/@base-ui/utils/platform/parts.mjs
 var parts_exports = {};
 __export(parts_exports, {
   engine: () => engine_exports,
   env: () => env_exports,
+  mediaQuery: () => media_query_exports,
   os: () => os_exports,
   screenReader: () => screen_reader_exports
 });
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/platform/os.mjs
+// node_modules/@base-ui/utils/platform/os.mjs
 var os_exports = {};
 __export(os_exports, {
   android: () => android,
@@ -2197,7 +2225,7 @@ __export(os_exports, {
   windows: () => windows
 });
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/platform/shared.mjs
+// node_modules/@base-ui/utils/platform/shared.mjs
 function readRawData() {
   if (typeof navigator === "undefined") {
     return {
@@ -2233,7 +2261,7 @@ var {
 var lowerUserAgent = userAgent.toLowerCase();
 var lowerPlatform = platform.toLowerCase();
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/platform/os.mjs
+// node_modules/@base-ui/utils/platform/os.mjs
 var ios = /^i(os$|p)/.test(lowerPlatform) || lowerPlatform === "macintel" && maxTouchPoints > 1;
 var ANDROID_STRING = "android";
 var android = lowerPlatform === ANDROID_STRING || lowerUserAgent.includes(ANDROID_STRING);
@@ -2242,7 +2270,7 @@ var windows = lowerPlatform.startsWith("win");
 var linux = !android && /^(linux|chrome os)/.test(lowerPlatform);
 var apple = mac || ios;
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/platform/engine.mjs
+// node_modules/@base-ui/utils/platform/engine.mjs
 var engine_exports = {};
 __export(engine_exports, {
   blink: () => blink,
@@ -2253,21 +2281,28 @@ var webkit = typeof CSS !== "undefined" && !!CSS.supports?.("-webkit-backdrop-fi
 var gecko = !webkit && lowerUserAgent.includes("firefox");
 var blink = !webkit && lowerUserAgent.includes("chrom");
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/platform/screen-reader.mjs
+// node_modules/@base-ui/utils/platform/screen-reader.mjs
 var screen_reader_exports = {};
 __export(screen_reader_exports, {
   voiceOver: () => voiceOver
 });
 var voiceOver = apple;
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/platform/env.mjs
+// node_modules/@base-ui/utils/platform/env.mjs
 var env_exports = {};
 __export(env_exports, {
   jsdom: () => jsdom
 });
 var jsdom = /jsdom|happydom/.test(lowerUserAgent);
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/internals/shadowDom.mjs
+// node_modules/@base-ui/utils/platform/media-query.mjs
+var media_query_exports = {};
+__export(media_query_exports, {
+  iOS: () => iOS
+});
+var iOS = "@supports (-webkit-touch-callout: none)";
+
+// node_modules/@base-ui/utils/shadowDom.mjs
 function activeElement(doc) {
   let element = doc.activeElement;
   while (element?.shadowRoot?.activeElement != null) {
@@ -2294,14 +2329,82 @@ function contains(parent, child) {
   }
   return false;
 }
+function closest(node, selector) {
+  let current = node;
+  while (current) {
+    if (isElement(current) && current.matches(selector)) {
+      return current;
+    }
+    current = current.assignedSlot ?? current.parentNode ?? (isShadowRoot(current) ? current.host : null);
+  }
+  return null;
+}
 function getTarget(event) {
   if ("composedPath" in event) {
-    return event.composedPath()[0];
+    return event.composedPath()[0] ?? event.target;
   }
   return event.target;
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/floating-ui-react/utils/element.mjs
+// node_modules/@base-ui/react/internals/TransitionStatusDataAttributes.mjs
+var TransitionStatusDataAttributes_exports = {};
+__export(TransitionStatusDataAttributes_exports, {
+  endingStyle: () => endingStyle,
+  startingStyle: () => startingStyle
+});
+var startingStyle = "data-starting-style";
+var endingStyle = "data-ending-style";
+
+// node_modules/@base-ui/react/internals/stateAttributesMapping.mjs
+var STARTING_HOOK = {
+  [startingStyle]: ""
+};
+var ENDING_HOOK = {
+  [endingStyle]: ""
+};
+var transitionStatusMapping = {
+  transitionStatus(value) {
+    if (value === "starting") {
+      return STARTING_HOOK;
+    }
+    if (value === "ending") {
+      return ENDING_HOOK;
+    }
+    return null;
+  }
+};
+
+// node_modules/@base-ui/react/utils/CommonPopupDataAttributes.mjs
+var open = "data-open";
+var closed = "data-closed";
+var anchorHidden = "data-anchor-hidden";
+var POPUP_OPEN_HOOK = {
+  [open]: ""
+};
+var POPUP_CLOSED_HOOK = {
+  [closed]: ""
+};
+var ANCHOR_HIDDEN_HOOK = {
+  [anchorHidden]: ""
+};
+var popupStateMapping = {
+  open(value) {
+    if (value) {
+      return POPUP_OPEN_HOOK;
+    }
+    return POPUP_CLOSED_HOOK;
+  },
+  anchorHidden(value) {
+    if (value) {
+      return ANCHOR_HIDDEN_HOOK;
+    }
+    return null;
+  }
+};
+({
+  ...popupStateMapping});
+
+// node_modules/@base-ui/react/floating-ui-react/utils/element.mjs
 function matchesFocusVisible(element) {
   if (!element || parts_exports.env.jsdom) {
     return true;
@@ -2313,13 +2416,13 @@ function matchesFocusVisible(element) {
   }
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/floating-ui-react/utils/event.mjs
+// node_modules/@base-ui/react/floating-ui-react/utils/event.mjs
 function isClickLikeEvent(event) {
   const type = event.type;
   return type === "click" || type === "mousedown" || type === "keydown" || type === "keyup";
 }
 
-// node_modules/.pnpm/@floating-ui+utils@0.2.12/node_modules/@floating-ui/utils/dist/floating-ui.utils.mjs
+// node_modules/@floating-ui/utils/dist/floating-ui.utils.mjs
 var min = Math.min;
 var max = Math.max;
 var round = Math.round;
@@ -2433,21 +2536,21 @@ function rectToClientRect(rect) {
     x,
     y,
     width,
-    height
+    height: height2
   } = rect;
   return {
     width,
-    height,
+    height: height2,
     top: y,
     left: x,
     right: x + width,
-    bottom: y + height,
+    bottom: y + height2,
     x,
     y
   };
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/floating-ui-react/utils/composite.mjs
+// node_modules/@base-ui/react/floating-ui-react/utils/composite.mjs
 function isHiddenByStyles(styles) {
   return styles.visibility === "hidden" || styles.visibility === "collapse";
 }
@@ -2461,7 +2564,7 @@ function isElementVisible(element, styles = element ? getComputedStyle2(element)
   return styles.display !== "none" && styles.display !== "contents";
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/floating-ui-react/utils/tabbable.mjs
+// node_modules/@base-ui/react/floating-ui-react/utils/tabbable.mjs
 var CANDIDATE_SELECTOR = 'a[href],button,input,select,textarea,summary,details,iframe,object,embed,[tabindex],[contenteditable]:not([contenteditable="false"]),audio[controls],video[controls]';
 function getParentElement(element) {
   const assignedSlot = element.assignedSlot;
@@ -2593,8 +2696,8 @@ function getTabbableIn(container, dir) {
     return void 0;
   }
   const active = activeElement(ownerDocument(container));
-  const index2 = list.indexOf(active);
-  const nextIndex = index2 === -1 ? dir === 1 ? 0 : len - 1 : index2 + dir;
+  const index3 = list.indexOf(active);
+  const nextIndex = index3 === -1 ? dir === 1 ? 0 : len - 1 : index3 + dir;
   return list[nextIndex];
 }
 function getNextTabbable(referenceElement) {
@@ -2629,20 +2732,20 @@ function enableFocusInside(container) {
   });
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/toast/store.mjs
+// node_modules/@base-ui/react/toast/store.mjs
 function createToastMetadata(toasts) {
   const metadata = /* @__PURE__ */ new Map();
   let visibleIndex = 0;
-  let offsetY = 0;
+  let offsetY2 = 0;
   toasts.forEach((toast, toastIndex) => {
     const isEnding = toast.transitionStatus === "ending";
     metadata.set(toast.id, {
       value: toast,
       domIndex: toastIndex,
       visibleIndex: isEnding ? -1 : visibleIndex,
-      offsetY
+      offsetY: offsetY2
     });
-    offsetY += toast.height || 0;
+    offsetY2 += toast.height || 0;
     if (!isEnding) {
       visibleIndex += 1;
     }
@@ -2734,7 +2837,11 @@ var ToastStore = class extends ReactStore {
       return id;
     });
     __publicField(this, "updateToast", (id, updates) => {
-      this.updateToastInternal(id, updates, false, true);
+      const prevToast = selectors.toast(this.state, id);
+      if (!prevToast || prevToast.transitionStatus === "ending") {
+        return;
+      }
+      this.updateToastInternal(id, typeof updates === "function" ? updates(prevToast) : updates, false, true);
     });
     __publicField(this, "updateToastInternal", (id, updates, resetTimer = false, markUpdated = false) => {
       const {
@@ -2867,16 +2974,16 @@ var ToastStore = class extends ReactStore {
     this.update(updates);
   }
   removeToast(toastId, skipOnRemove = false) {
-    const index2 = selectors.toastIndex(this.state, toastId);
-    if (index2 === -1) {
+    const index3 = selectors.toastIndex(this.state, toastId);
+    if (index3 === -1) {
       return;
     }
-    const toast = this.state.toasts[index2];
+    const toast = this.state.toasts[index3];
     if (!skipOnRemove) {
       toast?.onRemove?.();
     }
     const newToasts = [...this.state.toasts];
-    newToasts.splice(index2, 1);
+    newToasts.splice(index3, 1);
     this.setToasts(newToasts);
   }
   pauseTimers() {
@@ -2972,9 +3079,9 @@ var ToastStore = class extends ReactStore {
     const toasts = selectors.toasts(this.state);
     const currentIndex = selectors.toastIndex(this.state, toastId);
     const scan = (from, step) => {
-      for (let index2 = from; index2 >= 0 && index2 < toasts.length; index2 += step) {
-        if (toasts[index2].transitionStatus !== "ending") {
-          return toasts[index2];
+      for (let index3 = from; index3 >= 0 && index3 < toasts.length; index3 += step) {
+        if (toasts[index3].transitionStatus !== "ending") {
+          return toasts[index3];
         }
       }
       return null;
@@ -3005,7 +3112,7 @@ var ToastProvider = function ToastProvider2(props) {
     prevFocusElement: null
   })).current;
   useOnMount(store.disposeEffect);
-  React18__namespace.useEffect(function subscribeToToastManager() {
+  React19__namespace.useEffect(function subscribeToToastManager() {
     if (!toastManager) {
       return void 0;
     }
@@ -3017,7 +3124,7 @@ var ToastProvider = function ToastProvider2(props) {
       if (action === "promise" && options.promise) {
         store.promiseToast(options.promise, options);
       } else if (action === "update" && id) {
-        store.updateToast(id, options);
+        store.updateToast(id, options.updates);
       } else if (action === "close") {
         store.closeToast(id);
       } else {
@@ -3048,7 +3155,7 @@ function ToastProviderPropsSynchronizer(props) {
   return null;
 }
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/visuallyHidden.mjs
+// node_modules/@base-ui/utils/visuallyHidden.mjs
 var visuallyHiddenBase = {
   clipPath: "inset(50%)",
   overflow: "hidden",
@@ -3062,11 +3169,12 @@ var visuallyHiddenBase = {
 var visuallyHidden = {
   ...visuallyHiddenBase,
   position: "fixed",
+  margin: 0,
   top: 0,
   left: 0
 };
-var FocusGuard = /* @__PURE__ */ React18__namespace.forwardRef(function FocusGuard2(props, ref) {
-  const [role, setRole] = React18__namespace.useState();
+var FocusGuard = /* @__PURE__ */ React19__namespace.forwardRef(function FocusGuard2(props, ref) {
+  const [role, setRole] = React19__namespace.useState();
   useIsoLayoutEffect(() => {
     if (parts_exports.screenReader.voiceOver && parts_exports.engine.webkit) {
       setRole("button");
@@ -3088,7 +3196,7 @@ var FocusGuard = /* @__PURE__ */ React18__namespace.forwardRef(function FocusGua
 });
 if (process.env.NODE_ENV !== "production") FocusGuard.displayName = "FocusGuard";
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/useMergedRefs.mjs
+// node_modules/@base-ui/utils/useMergedRefs.mjs
 function useMergedRefs(a, b, c, d) {
   const forkRef = useRefWithInit(createForkRef).current;
   if (didChange(forkRef, a, b, c, d)) {
@@ -3114,7 +3222,7 @@ function didChange(forkRef, a, b, c, d) {
   return forkRef.refs[0] !== a || forkRef.refs[1] !== b || forkRef.refs[2] !== c || forkRef.refs[3] !== d;
 }
 function didChangeN(forkRef, newRefs) {
-  return forkRef.refs.length !== newRefs.length || forkRef.refs.some((ref, index2) => ref !== newRefs[index2]);
+  return forkRef.refs.length !== newRefs.length || forkRef.refs.some((ref, index3) => ref !== newRefs[index3]);
 }
 function update(forkRef, refs) {
   forkRef.refs = refs;
@@ -3175,7 +3283,7 @@ function update(forkRef, refs) {
   };
 }
 function getReactElementRef(element) {
-  if (!/* @__PURE__ */ React18__namespace.isValidElement(element)) {
+  if (!/* @__PURE__ */ React19__namespace.isValidElement(element)) {
     return null;
   }
   const reactElement = element;
@@ -3183,7 +3291,7 @@ function getReactElementRef(element) {
   return (isReactVersionAtLeast(19) ? propsWithRef?.ref : reactElement.ref) ?? null;
 }
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/mergeObjects.mjs
+// node_modules/@base-ui/utils/mergeObjects.mjs
 function mergeObjects(a, b) {
   if (a && !b) {
     return a;
@@ -3200,22 +3308,33 @@ function mergeObjects(a, b) {
   return void 0;
 }
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/warn.mjs
-var set;
+// node_modules/@base-ui/utils/createLogOnce.mjs
+var loggedMessages;
 if (process.env.NODE_ENV !== "production") {
-  set = /* @__PURE__ */ new Set();
+  loggedMessages = /* @__PURE__ */ new Set();
 }
-function warn(...messages) {
-  if (process.env.NODE_ENV !== "production") {
-    const messageKey = messages.join(" ");
-    if (!set.has(messageKey)) {
-      set.add(messageKey);
-      console.warn(`Base UI: ${messageKey}`);
+function createLogOnce(severity, prefix) {
+  return function logOnce(...messages) {
+    if (process.env.NODE_ENV !== "production") {
+      const message = messages.join(" ");
+      const output = `${prefix}: ${message}` ;
+      const key = `${severity}:${output}`;
+      if (!loggedMessages.has(key)) {
+        loggedMessages.add(key);
+        if (severity === "warn") {
+          console.warn(output);
+        } else {
+          console.error(output);
+        }
+      }
     }
-  }
+  };
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/internals/getStateAttributesProps.mjs
+// node_modules/@base-ui/utils/warn.mjs
+var warn = createLogOnce("warn", "Base UI");
+
+// node_modules/@base-ui/react/internals/getStateAttributesProps.mjs
 function getStateAttributesProps(state, customMapping) {
   const props = {};
   for (const key in state) {
@@ -3236,17 +3355,17 @@ function getStateAttributesProps(state, customMapping) {
   return props;
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/utils/resolveClassName.mjs
+// node_modules/@base-ui/react/utils/resolveClassName.mjs
 function resolveClassName(className, state) {
   return typeof className === "function" ? className(state) : className;
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/utils/resolveStyle.mjs
+// node_modules/@base-ui/react/utils/resolveStyle.mjs
 function resolveStyle(style, state) {
   return typeof style === "function" ? style(state) : style;
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/merge-props/mergeProps.mjs
+// node_modules/@base-ui/react/merge-props/mergeProps.mjs
 var EMPTY_PROPS = {};
 function mergeProps(a, b, c, d, e) {
   if (!c && !d && true && !a) {
@@ -3280,14 +3399,14 @@ function mergePropsN(props) {
 function createInitialMergedProps(inputProps) {
   if (isPropsGetter(inputProps)) {
     return {
-      ...resolvePropsGetter(inputProps, EMPTY_PROPS)
+      ...inputProps(EMPTY_PROPS)
     };
   }
   return copyInitialProps(inputProps);
 }
 function mergeInto(merged, inputProps) {
   if (isPropsGetter(inputProps)) {
-    return resolvePropsGetter(inputProps, merged);
+    return inputProps(merged);
   }
   return mutablyMergeInto(merged, inputProps);
 }
@@ -3337,12 +3456,6 @@ function isEventHandler(key, value) {
 }
 function isPropsGetter(inputProps) {
   return typeof inputProps === "function";
-}
-function resolvePropsGetter(inputProps, previousProps) {
-  if (isPropsGetter(inputProps)) {
-    return inputProps(previousProps);
-  }
-  return inputProps ?? EMPTY_PROPS;
 }
 function mergeEventHandlers(ourHandler, theirHandler) {
   if (!theirHandler) {
@@ -3398,19 +3511,21 @@ function isSyntheticEvent(event) {
   return event != null && typeof event === "object" && "nativeEvent" in event;
 }
 function useRenderElement(element, componentProps, params = {}) {
-  const renderProp = componentProps.render;
-  const outProps = useRenderElementProps(componentProps, params);
+  let renderProp = componentProps.render;
+  if (params.enabled !== false) {
+    renderProp = unwrapLazyRenderProp(renderProp);
+  }
+  const outProps = useRenderElementProps(componentProps, params, renderProp);
   if (params.enabled === false) {
     return null;
   }
   const state = params.state ?? EMPTY_OBJECT;
   return evaluateRenderProp(element, renderProp, outProps, state);
 }
-function useRenderElementProps(componentProps, params = {}) {
+function useRenderElementProps(componentProps, params, renderProp) {
   const {
     className: classNameProp,
-    style: styleProp,
-    render: renderProp
+    style: styleProp
   } = componentProps;
   const {
     state = EMPTY_OBJECT,
@@ -3453,6 +3568,13 @@ function resolveRenderFunctionProps(props) {
 var REACT_LAZY_TYPE = /* @__PURE__ */ Symbol.for("react.lazy");
 var COMPONENT_IDENTIFIER_PATTERN = /^[A-Z][A-Za-z0-9$]*$/;
 var LOWERCASE_CHARACTER_PATTERN = /[a-z]/;
+function unwrapLazyRenderProp(render) {
+  if (render?.$$typeof !== REACT_LAZY_TYPE) {
+    return render;
+  }
+  const unwrapped = React19__namespace.Children.toArray(render)[0];
+  return /* @__PURE__ */ React19__namespace.isValidElement(unwrapped) ? unwrapped : render;
+}
 function evaluateRenderProp(element, render, props, state) {
   if (render) {
     if (typeof render === "function") {
@@ -3463,24 +3585,14 @@ function evaluateRenderProp(element, render, props, state) {
     }
     const mergedProps = mergeProps(props, render.props);
     mergedProps.ref = props.ref;
-    let newElement = render;
-    if (newElement?.$$typeof === REACT_LAZY_TYPE) {
-      const children = React18__namespace.Children.toArray(render);
-      newElement = children[0];
-    }
     if (process.env.NODE_ENV !== "production") {
-      if (!/* @__PURE__ */ React18__namespace.isValidElement(newElement)) {
+      if (!/* @__PURE__ */ React19__namespace.isValidElement(render)) {
         throw new Error(["Base UI: The `render` prop was provided an invalid React element as `React.isValidElement(render)` is `false`.", "A valid React element must be provided to the `render` prop because it is cloned with props to replace the default element.", "https://base-ui.com/r/invalid-render-prop"].join("\n"));
       }
     }
-    return /* @__PURE__ */ React18__namespace.cloneElement(newElement, mergedProps);
+    return /* @__PURE__ */ React19__namespace.cloneElement(render, mergedProps);
   }
-  if (element) {
-    if (typeof element === "string") {
-      return renderTag(element, props);
-    }
-  }
-  throw new Error(process.env.NODE_ENV !== "production" ? "Base UI: Render element or function are not defined." : formatErrorMessage_default(8));
+  return renderTag(element, props);
 }
 function warnIfRenderPropLooksLikeComponent(renderFn) {
   const functionName = renderFn.name;
@@ -3497,22 +3609,25 @@ function warnIfRenderPropLooksLikeComponent(renderFn) {
 }
 function renderTag(Tag, props) {
   if (Tag === "button") {
-    return /* @__PURE__ */ React18.createElement("button", {
+    return /* @__PURE__ */ React19.createElement("button", {
       type: "button",
       ...props,
       key: props.key
     });
   }
   if (Tag === "img") {
-    return /* @__PURE__ */ React18.createElement("img", {
+    return /* @__PURE__ */ React19.createElement("img", {
       alt: "",
       ...props,
       key: props.key
     });
   }
-  return /* @__PURE__ */ React18__namespace.createElement(Tag, props);
+  return /* @__PURE__ */ React19__namespace.createElement(Tag, props);
 }
-var ToastViewport = /* @__PURE__ */ React18__namespace.forwardRef(function ToastViewport2(componentProps, forwardedRef) {
+
+// node_modules/@base-ui/react/toast/viewport/ToastViewportCssVars.mjs
+var frontmostHeight = "--toast-frontmost-height";
+var ToastViewport = /* @__PURE__ */ React19__namespace.forwardRef(function ToastViewport2(componentProps, forwardedRef) {
   const {
     render,
     className,
@@ -3522,18 +3637,18 @@ var ToastViewport = /* @__PURE__ */ React18__namespace.forwardRef(function Toast
   } = componentProps;
   const store = useToastProviderContext();
   const windowFocusTimeout = useTimeout();
-  const handlingFocusGuardRef = React18__namespace.useRef(false);
-  const markedReadyForMouseLeaveRef = React18__namespace.useRef(false);
-  const touchActiveRef = React18__namespace.useRef(false);
+  const handlingFocusGuardRef = React19__namespace.useRef(false);
+  const markedReadyForMouseLeaveRef = React19__namespace.useRef(false);
+  const touchActiveRef = React19__namespace.useRef(false);
   const isEmpty = store.useState("isEmpty");
   const toasts = store.useState("toasts");
   const focused = store.useState("focused");
   const expanded = store.useState("expanded");
   const prevFocusElement = store.useState("prevFocusElement");
-  const frontmostHeight = toasts[0]?.height;
+  const frontmostHeight2 = toasts[0]?.height;
   const hasTransitioningToasts = toasts.some((toast) => toast.transitionStatus === "ending");
   const highPriorityToasts = toasts.filter((toast) => toast.priority === "high");
-  React18__namespace.useEffect(() => {
+  React19__namespace.useEffect(() => {
     const viewport = store.state.viewport;
     if (!viewport || isEmpty) {
       return void 0;
@@ -3591,22 +3706,17 @@ var ToastViewport = /* @__PURE__ */ React18__namespace.forwardRef(function Toast
     if (hasEndingToasts || touchActiveRef.current || !markedReadyForMouseLeaveRef.current) {
       return;
     }
-    if (store.state.isWindowFocused) {
+    store.set("hovering", false);
+    if (!store.select("expandedOrOutOfFocus")) {
       store.resumeTimers();
     }
-    store.set("hovering", false);
     markedReadyForMouseLeaveRef.current = false;
   }
-  React18__namespace.useEffect(flushMouseLeave, [hasTransitioningToasts, store]);
+  React19__namespace.useEffect(flushMouseLeave, [hasTransitioningToasts, store]);
   function handleMouseEnter() {
     store.pauseTimers();
     store.set("hovering", true);
     markedReadyForMouseLeaveRef.current = false;
-  }
-  function resumeTimersIfWindowFocused() {
-    if (store.state.isWindowFocused) {
-      store.resumeTimers();
-    }
   }
   function handleMouseLeave() {
     markedReadyForMouseLeaveRef.current = true;
@@ -3642,7 +3752,9 @@ var ToastViewport = /* @__PURE__ */ React18__namespace.forwardRef(function Toast
       return;
     }
     store.set("focused", false);
-    resumeTimersIfWindowFocused();
+    if (!store.select("expandedOrOutOfFocus")) {
+      store.resumeTimers();
+    }
   }
   const defaultProps = {
     tabIndex: -1,
@@ -3662,7 +3774,7 @@ var ToastViewport = /* @__PURE__ */ React18__namespace.forwardRef(function Toast
     onPointerUp: handlePointerEnd,
     onPointerCancel: handlePointerEnd,
     style: {
-      ["--toast-frontmost-height"]: frontmostHeight ? `${frontmostHeight}px` : void 0
+      [frontmostHeight]: frontmostHeight2 ? `${frontmostHeight2}px` : void 0
     }
   };
   const state = {
@@ -3675,12 +3787,12 @@ var ToastViewport = /* @__PURE__ */ React18__namespace.forwardRef(function Toast
     ref: [forwardedRef, store.setViewport],
     state,
     props: [defaultProps, elementProps, {
-      children: /* @__PURE__ */ jsxRuntime.jsxs(React18__namespace.Fragment, {
+      children: /* @__PURE__ */ jsxRuntime.jsxs(React19__namespace.Fragment, {
         children: [focusGuard, children, focusGuard]
       })
     }]
   });
-  return /* @__PURE__ */ jsxRuntime.jsxs(React18__namespace.Fragment, {
+  return /* @__PURE__ */ jsxRuntime.jsxs(React19__namespace.Fragment, {
     children: [focusGuard, element, !focused && highPriorityToasts.length > 0 && /* @__PURE__ */ jsxRuntime.jsx("div", {
       style: visuallyHidden,
       children: highPriorityToasts.map((toast) => /* @__PURE__ */ jsxRuntime.jsxs("div", {
@@ -3697,48 +3809,24 @@ var ToastViewport = /* @__PURE__ */ React18__namespace.forwardRef(function Toast
 });
 if (process.env.NODE_ENV !== "production") ToastViewport.displayName = "ToastViewport";
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/inertValue.mjs
+// node_modules/@base-ui/utils/inertValue.mjs
 function inertValue(value) {
   if (isReactVersionAtLeast(19)) {
     return value;
   }
   return value ? "true" : void 0;
 }
-var ToastRootContext = /* @__PURE__ */ React18__namespace.createContext(void 0);
+var ToastRootContext = /* @__PURE__ */ React19__namespace.createContext(void 0);
 if (process.env.NODE_ENV !== "production") ToastRootContext.displayName = "ToastRootContext";
 function useToastRootContext() {
-  const context = React18__namespace.useContext(ToastRootContext);
+  const context = React19__namespace.useContext(ToastRootContext);
   if (!context) {
     throw new Error(process.env.NODE_ENV !== "production" ? "Base UI: ToastRootContext is missing. Toast parts must be used within <Toast.Root>." : formatErrorMessage_default(66));
   }
   return context;
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/internals/stateAttributesMapping.mjs
-var TransitionStatusDataAttributes = /* @__PURE__ */ (function(TransitionStatusDataAttributes2) {
-  TransitionStatusDataAttributes2["startingStyle"] = "data-starting-style";
-  TransitionStatusDataAttributes2["endingStyle"] = "data-ending-style";
-  return TransitionStatusDataAttributes2;
-})({});
-var STARTING_HOOK = {
-  "data-starting-style": ""
-};
-var ENDING_HOOK = {
-  "data-ending-style": ""
-};
-var transitionStatusMapping = {
-  transitionStatus(value) {
-    if (value === "starting") {
-      return STARTING_HOOK;
-    }
-    if (value === "ending") {
-      return ENDING_HOOK;
-    }
-    return null;
-  }
-};
-
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/utils/resolveRef.mjs
+// node_modules/@base-ui/react/utils/resolveRef.mjs
 function resolveRef(maybeRef) {
   if (maybeRef == null) {
     return maybeRef;
@@ -3746,8 +3834,32 @@ function resolveRef(maybeRef) {
   return "current" in maybeRef ? maybeRef.current : maybeRef;
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/internals/useAnimationsFinished.mjs
-function useAnimationsFinished(elementOrRef, waitForStartingStyleRemoved = false) {
+// node_modules/@base-ui/react/utils/getFiniteAnimations.mjs
+function getFiniteAnimations(element, options) {
+  return element.getAnimations(options).filter((animation) => {
+    const timing = animation.effect?.getTiming();
+    return timing?.duration !== Infinity && timing?.iterations !== Infinity;
+  });
+}
+
+// node_modules/@base-ui/react/internals/useAnimationsFinished.mjs
+var pendingCallbacks = null;
+function flushBeforePaint(fn) {
+  if (!pendingCallbacks) {
+    const callbacks = [];
+    pendingCallbacks = callbacks;
+    queueMicrotask(() => {
+      pendingCallbacks = null;
+      ReactDOM__namespace.flushSync(() => {
+        for (const callback of callbacks) {
+          callback();
+        }
+      });
+    });
+  }
+  pendingCallbacks.push(fn);
+}
+function useAnimationsFinished(elementOrRef, waitForStartingStyleRemoved = false, batch = false) {
   const frame = useAnimationFrame();
   return useStableCallback((fnToExecute, signal = null) => {
     frame.cancel();
@@ -3757,14 +3869,22 @@ function useAnimationsFinished(elementOrRef, waitForStartingStyleRemoved = false
     }
     const resolvedElement = element;
     const done = () => {
-      ReactDOM3__namespace.flushSync(fnToExecute);
+      if (!batch) {
+        ReactDOM__namespace.flushSync(fnToExecute);
+        return;
+      }
+      flushBeforePaint(() => {
+        if (!signal?.aborted) {
+          fnToExecute();
+        }
+      });
     };
     if (typeof resolvedElement.getAnimations !== "function" || globalThis.BASE_UI_ANIMATIONS_DISABLED) {
       fnToExecute();
       return;
     }
     function exec() {
-      Promise.all(resolvedElement.getAnimations().map((animation) => animation.finished)).then(() => {
+      Promise.all(getFiniteAnimations(resolvedElement).map((animation) => animation.finished.then(NOOP))).then(() => {
         if (!signal?.aborted) {
           done();
         }
@@ -3772,7 +3892,7 @@ function useAnimationsFinished(elementOrRef, waitForStartingStyleRemoved = false
         if (signal?.aborted) {
           return;
         }
-        const currentAnimations = resolvedElement.getAnimations();
+        const currentAnimations = getFiniteAnimations(resolvedElement);
         if (currentAnimations.some((animation) => animation.pending || animation.playState !== "finished")) {
           exec();
           return;
@@ -3781,7 +3901,7 @@ function useAnimationsFinished(elementOrRef, waitForStartingStyleRemoved = false
       });
     }
     if (waitForStartingStyleRemoved) {
-      const startingStyleAttribute = "data-starting-style";
+      const startingStyleAttribute = startingStyle;
       if (!resolvedElement.hasAttribute(startingStyleAttribute)) {
         frame.request(exec);
         return;
@@ -3805,17 +3925,18 @@ function useAnimationsFinished(elementOrRef, waitForStartingStyleRemoved = false
   });
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/internals/useOpenChangeComplete.mjs
+// node_modules/@base-ui/react/internals/useOpenChangeComplete.mjs
 function useOpenChangeComplete(parameters) {
   const {
     enabled = true,
-    open,
+    open: open2,
     ref,
+    batch = false,
     onComplete: onCompleteParam
   } = parameters;
   const onComplete = useStableCallback(onCompleteParam);
-  const runOnceAnimationsFinish = useAnimationsFinished(ref, open);
-  React18__namespace.useEffect(() => {
+  const runOnceAnimationsFinish = useAnimationsFinished(ref, open2, batch);
+  React19__namespace.useEffect(() => {
     if (!enabled) {
       return void 0;
     }
@@ -3824,10 +3945,10 @@ function useOpenChangeComplete(parameters) {
     return () => {
       abortController.abort();
     };
-  }, [enabled, open, onComplete, runOnceAnimationsFinish]);
+  }, [enabled, open2, onComplete, runOnceAnimationsFinish]);
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/internals/constants.mjs
+// node_modules/@base-ui/react/internals/constants.mjs
 var DISABLED_TRANSITIONS_STYLE = {
   style: {
     transition: "none"
@@ -3846,23 +3967,10 @@ var ownerVisuallyHidden = {
   top: 0,
   left: 0
 };
-function getDisplacement(direction, deltaX, deltaY) {
-  switch (direction) {
-    case "up":
-      return -deltaY;
-    case "down":
-      return deltaY;
-    case "left":
-      return -deltaX;
-    case "right":
-      return deltaX;
-    default:
-      return 0;
-  }
-}
-function getElementTransform(element) {
-  const computedStyle = getWindow(element).getComputedStyle(element);
-  const transform = computedStyle.transform;
+
+// node_modules/@base-ui/react/utils/getElementTransform.mjs
+function getElementTransform(element, computedStyle) {
+  const transform = (getWindow(element).getComputedStyle(element)).transform;
   let translateX = 0;
   let translateY = 0;
   let scale = 1;
@@ -3887,11 +3995,39 @@ function getElementTransform(element) {
     scale
   };
 }
+
+// node_modules/@base-ui/react/utils/useSwipeDismiss.mjs
+function getDisplacement(direction, deltaX, deltaY) {
+  switch (direction) {
+    case "up":
+      return -deltaY;
+    case "down":
+      return deltaY;
+    case "left":
+      return -deltaX;
+    case "right":
+      return deltaX;
+    default:
+      return 0;
+  }
+}
+
+// node_modules/@base-ui/react/toast/root/ToastRootCssVars.mjs
+var index = "--toast-index";
+var offsetY = "--toast-offset-y";
+var height = "--toast-height";
+var swipeMovementX = "--toast-swipe-movement-x";
+var swipeMovementY = "--toast-swipe-movement-y";
+
+// node_modules/@base-ui/react/toast/root/ToastRootDataAttributes.mjs
+var swipeDirection = "data-swipe-direction";
+TransitionStatusDataAttributes_exports.startingStyle;
+TransitionStatusDataAttributes_exports.endingStyle;
 var toastRootStateAttributesMapping = {
   ...transitionStatusMapping,
   swipeDirection(value) {
     return value ? {
-      "data-swipe-direction": value
+      [swipeDirection]: value
     } : null;
   }
 };
@@ -3900,65 +4036,65 @@ var REVERSE_CANCEL_THRESHOLD = 10;
 var OPPOSITE_DIRECTION_DAMPING_FACTOR = 0.5;
 var MIN_DRAG_THRESHOLD = 1;
 var TOAST_SWIPE_IGNORE_SELECTOR = `${BASE_UI_SWIPE_IGNORE_SELECTOR},${LEGACY_SWIPE_IGNORE_SELECTOR}`;
-var ToastRoot = /* @__PURE__ */ React18__namespace.forwardRef(function ToastRoot2(componentProps, forwardedRef) {
+var ToastRoot = /* @__PURE__ */ React19__namespace.forwardRef(function ToastRoot2(componentProps, forwardedRef) {
   const {
     toast,
     render,
     className,
-    swipeDirection = ["down", "right"],
+    swipeDirection: swipeDirection2 = ["down", "right"],
     style,
     ...elementProps
   } = componentProps;
   const isAnchored = toast.positionerProps?.anchor !== void 0;
   let swipeDirections = [];
   if (!isAnchored) {
-    swipeDirections = Array.isArray(swipeDirection) ? swipeDirection : [swipeDirection];
+    swipeDirections = Array.isArray(swipeDirection2) ? swipeDirection2 : [swipeDirection2];
   }
   const swipeEnabled = swipeDirections.length > 0;
   const store = useToastProviderContext();
-  const [currentSwipeDirection, setCurrentSwipeDirection] = React18__namespace.useState(void 0);
-  const [isSwiping, setIsSwiping] = React18__namespace.useState(false);
-  const [isRealSwipe, setIsRealSwipe] = React18__namespace.useState(false);
-  const [dragOffset, setDragOffset] = React18__namespace.useState({
+  const [currentSwipeDirection, setCurrentSwipeDirection] = React19__namespace.useState(void 0);
+  const [isSwiping, setIsSwiping] = React19__namespace.useState(false);
+  const [isRealSwipe, setIsRealSwipe] = React19__namespace.useState(false);
+  const [dragOffset, setDragOffset] = React19__namespace.useState({
     x: 0,
     y: 0
   });
-  const [initialTransform, setInitialTransform] = React18__namespace.useState({
+  const [initialTransform, setInitialTransform] = React19__namespace.useState({
     x: 0,
     y: 0,
     scale: 1
   });
-  const [titleId, setTitleId] = React18__namespace.useState();
-  const [descriptionId, setDescriptionId] = React18__namespace.useState();
-  const [lockedDirection, setLockedDirection] = React18__namespace.useState(null);
-  const rootRef = React18__namespace.useRef(null);
-  const lastToastIdRef = React18__namespace.useRef(void 0);
-  const dragStartPosRef = React18__namespace.useRef({
+  const [titleId, setTitleId] = React19__namespace.useState();
+  const [descriptionId, setDescriptionId] = React19__namespace.useState();
+  const [lockedDirection, setLockedDirection] = React19__namespace.useState(null);
+  const rootRef = React19__namespace.useRef(null);
+  const lastToastIdRef = React19__namespace.useRef(void 0);
+  const dragStartPosRef = React19__namespace.useRef({
     x: 0,
     y: 0
   });
-  const initialTransformRef = React18__namespace.useRef({
+  const initialTransformRef = React19__namespace.useRef({
     x: 0,
     y: 0,
     scale: 1
   });
-  const intendedSwipeDirectionRef = React18__namespace.useRef(void 0);
-  const maxSwipeDisplacementRef = React18__namespace.useRef(0);
-  const cancelledSwipeRef = React18__namespace.useRef(false);
-  const swipeCancelBaselineRef = React18__namespace.useRef({
+  const intendedSwipeDirectionRef = React19__namespace.useRef(void 0);
+  const maxSwipeDisplacementRef = React19__namespace.useRef(0);
+  const cancelledSwipeRef = React19__namespace.useRef(false);
+  const swipeCancelBaselineRef = React19__namespace.useRef({
     x: 0,
     y: 0
   });
-  const isFirstPointerMoveRef = React18__namespace.useRef(false);
-  const dragOffsetRef = React18__namespace.useRef({
+  const isFirstPointerMoveRef = React19__namespace.useRef(false);
+  const dragOffsetRef = React19__namespace.useRef({
     x: 0,
     y: 0
   });
-  const activePointerIdRef = React18__namespace.useRef(null);
-  const dragAbortControllerRef = React18__namespace.useRef(null);
+  const activePointerIdRef = React19__namespace.useRef(null);
+  const dragAbortControllerRef = React19__namespace.useRef(null);
   const domIndex = store.useState("toastIndex", toast.id);
   const visibleIndex = store.useState("toastVisibleIndex", toast.id);
-  const offsetY = store.useState("toastOffsetY", toast.id);
+  const offsetY2 = store.useState("toastOffsetY", toast.id);
   const focused = store.useState("focused");
   const expanded = store.useState("expanded");
   useOpenChangeComplete({
@@ -3977,17 +4113,17 @@ var ToastRoot = /* @__PURE__ */ React18__namespace.forwardRef(function ToastRoot
     }
     const previousHeight = element2.style.height;
     element2.style.height = "auto";
-    const height = element2.offsetHeight;
+    const height2 = element2.offsetHeight;
     element2.style.height = previousHeight;
     function update2() {
       store.updateToastInternal(toast.id, {
         ref: rootRef,
-        height,
+        height: height2,
         transitionStatus: void 0
       });
     }
     if (flushSync4) {
-      ReactDOM3__namespace.flushSync(update2);
+      ReactDOM__namespace.flushSync(update2);
     } else {
       update2();
     }
@@ -4078,7 +4214,7 @@ var ToastRoot = /* @__PURE__ */ React18__namespace.forwardRef(function ToastRoot
       store.pauseTimers();
     }
     const target = getTarget(event.nativeEvent);
-    const isInteractiveElement = target?.closest(`button,a,input,textarea,[role="button"],${TOAST_SWIPE_IGNORE_SELECTOR}`);
+    const isInteractiveElement = closest(target, `button,a,input,textarea,[role="button"],${TOAST_SWIPE_IGNORE_SELECTOR}`);
     if (isInteractiveElement) {
       return;
     }
@@ -4223,7 +4359,7 @@ var ToastRoot = /* @__PURE__ */ React18__namespace.forwardRef(function ToastRoot
       store.closeToast(toast.id);
     }
   }
-  React18__namespace.useEffect(() => {
+  React19__namespace.useEffect(() => {
     const element2 = rootRef.current;
     if (!swipeEnabled || !element2) {
       return void 0;
@@ -4246,8 +4382,8 @@ var ToastRoot = /* @__PURE__ */ React18__namespace.forwardRef(function ToastRoot
       // While swiping, freeze the element at its current visual transform so it doesn't snap to the
       // end position.
       transform: isSwiping ? `translateX(${dragOffset.x}px) translateY(${dragOffset.y}px) scale(${initialTransform.scale})` : void 0,
-      ["--toast-swipe-movement-x"]: `${deltaX}px`,
-      ["--toast-swipe-movement-y"]: `${deltaY}px`
+      [swipeMovementX]: `${deltaX}px`,
+      [swipeMovementY]: `${deltaY}px`
     };
   }
   const isHighPriority = toast.priority === "high";
@@ -4266,12 +4402,12 @@ var ToastRoot = /* @__PURE__ */ React18__namespace.forwardRef(function ToastRoot
     inert: inertValue(toast.limited),
     style: {
       ...getDragStyles(),
-      ["--toast-index"]: toast.transitionStatus === "ending" ? domIndex : visibleIndex,
-      ["--toast-offset-y"]: `${offsetY}px`,
-      ["--toast-height"]: toast.height ? `${toast.height}px` : void 0
+      [index]: toast.transitionStatus === "ending" ? domIndex : visibleIndex,
+      [offsetY]: `${offsetY2}px`,
+      [height]: toast.height ? `${toast.height}px` : void 0
     }
   };
-  const toastRoot = React18__namespace.useMemo(() => ({
+  const toastRoot = React19__namespace.useMemo(() => ({
     toast,
     setTitleId,
     setDescriptionId,
@@ -4299,7 +4435,7 @@ var ToastRoot = /* @__PURE__ */ React18__namespace.forwardRef(function ToastRoot
   });
 });
 if (process.env.NODE_ENV !== "production") ToastRoot.displayName = "ToastRoot";
-var ToastContent = /* @__PURE__ */ React18__namespace.forwardRef(function ToastContent2(componentProps, forwardedRef) {
+var ToastContent = /* @__PURE__ */ React19__namespace.forwardRef(function ToastContent2(componentProps, forwardedRef) {
   const {
     render,
     className,
@@ -4311,7 +4447,7 @@ var ToastContent = /* @__PURE__ */ React18__namespace.forwardRef(function ToastC
     expanded,
     recalculateHeight
   } = useToastRootContext();
-  const contentRef = React18__namespace.useRef(null);
+  const contentRef = React19__namespace.useRef(null);
   useIsoLayoutEffect(() => {
     recalculateHeight();
     const node = contentRef.current;
@@ -4345,14 +4481,18 @@ var ToastContent = /* @__PURE__ */ React18__namespace.forwardRef(function ToastC
 if (process.env.NODE_ENV !== "production") ToastContent.displayName = "ToastContent";
 var globalId = 0;
 function useGlobalId(idOverride, prefix = "mui") {
-  const [defaultId, setDefaultId] = React18__namespace.useState(idOverride);
-  const id = idOverride || defaultId;
-  React18__namespace.useEffect(() => {
-    if (defaultId == null) {
+  const defaultId = React19__namespace.useRef(void 0);
+  const forceRerender = useForcedRerendering();
+  const id = idOverride ?? defaultId.current;
+  React19__namespace.useEffect(() => {
+    if (defaultId.current == null) {
       globalId += 1;
-      setDefaultId(`${prefix}-${globalId}`);
+      defaultId.current = `${prefix}-${globalId}`;
+      if (idOverride == null) {
+        forceRerender();
+      }
     }
-  }, [defaultId, prefix]);
+  }, [idOverride, prefix, forceRerender]);
   return id;
 }
 var maybeReactUseId = SafeReact.useId;
@@ -4373,10 +4513,10 @@ function isRenderableNode(node) {
   return true;
 }
 function hasRenderableChildren(element) {
-  return /* @__PURE__ */ React18__namespace.isValidElement(element) && isRenderableNode(element.props.children);
+  return /* @__PURE__ */ React19__namespace.isValidElement(element) && isRenderableNode(element.props.children);
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/toast/utils/useToastLabelPart.mjs
+// node_modules/@base-ui/react/toast/utils/useToastLabelPart.mjs
 function useToastLabelPart(idProp, childrenProp, part) {
   const {
     toast,
@@ -4407,8 +4547,8 @@ function useToastLabelElement(element, id, setId) {
   return shouldRender ? element : null;
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/toast/description/ToastDescription.mjs
-var ToastDescription = /* @__PURE__ */ React18__namespace.forwardRef(function ToastDescription2(componentProps, forwardedRef) {
+// node_modules/@base-ui/react/toast/description/ToastDescription.mjs
+var ToastDescription = /* @__PURE__ */ React19__namespace.forwardRef(function ToastDescription2(componentProps, forwardedRef) {
   const {
     render,
     className,
@@ -4438,7 +4578,7 @@ var ToastDescription = /* @__PURE__ */ React18__namespace.forwardRef(function To
   return useToastLabelElement(element, id, setId);
 });
 if (process.env.NODE_ENV !== "production") ToastDescription.displayName = "ToastDescription";
-var ToastTitle = /* @__PURE__ */ React18__namespace.forwardRef(function ToastTitle2(componentProps, forwardedRef) {
+var ToastTitle = /* @__PURE__ */ React19__namespace.forwardRef(function ToastTitle2(componentProps, forwardedRef) {
   const {
     render,
     className,
@@ -4469,24 +4609,12 @@ var ToastTitle = /* @__PURE__ */ React18__namespace.forwardRef(function ToastTit
 });
 if (process.env.NODE_ENV !== "production") ToastTitle.displayName = "ToastTitle";
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/error.mjs
-var set2;
-if (process.env.NODE_ENV !== "production") {
-  set2 = /* @__PURE__ */ new Set();
-}
-function error(...messages) {
-  if (process.env.NODE_ENV !== "production") {
-    const messageKey = messages.join(" ");
-    if (!set2.has(messageKey)) {
-      set2.add(messageKey);
-      console.error(`Base UI: ${messageKey}`);
-    }
-  }
-}
-var CompositeRootContext = /* @__PURE__ */ React18__namespace.createContext(void 0);
+// node_modules/@base-ui/utils/error.mjs
+var error = createLogOnce("error", "Base UI");
+var CompositeRootContext = /* @__PURE__ */ React19__namespace.createContext(void 0);
 if (process.env.NODE_ENV !== "production") CompositeRootContext.displayName = "CompositeRootContext";
 function useCompositeRootContext(optional = false) {
-  const context = React18__namespace.useContext(CompositeRootContext);
+  const context = React19__namespace.useContext(CompositeRootContext);
   if (context === void 0 && !optional) {
     throw new Error(process.env.NODE_ENV !== "production" ? "Base UI: CompositeRootContext is missing. Composite parts must be placed within <Composite.Root>." : formatErrorMessage_default(16));
   }
@@ -4502,7 +4630,7 @@ function useFocusableWhenDisabled(parameters) {
   } = parameters;
   const isFocusableComposite = composite && focusableWhenDisabled !== false;
   const isNonFocusableComposite = composite && focusableWhenDisabled === false;
-  const props = React18__namespace.useMemo(() => {
+  const props = React19__namespace.useMemo(() => {
     const additionalProps = {
       // allow Tabbing away from focusableWhenDisabled elements
       onKeyDown(event) {
@@ -4530,15 +4658,17 @@ function useFocusableWhenDisabled(parameters) {
   };
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/utils/dispatchClickWithModifiers.mjs
+// node_modules/@base-ui/react/utils/dispatchClickWithModifiers.mjs
 function dispatchClickWithModifiers(target, sourceEvent, {
-  detail = 0
+  detail = 0,
+  pointerType = ""
 } = {}) {
   target.dispatchEvent(new (getWindow(target)).PointerEvent("click", {
     bubbles: true,
     cancelable: true,
     composed: true,
     detail,
+    pointerType,
     shiftKey: sourceEvent.shiftKey,
     ctrlKey: sourceEvent.ctrlKey,
     altKey: sourceEvent.altKey,
@@ -4546,7 +4676,7 @@ function dispatchClickWithModifiers(target, sourceEvent, {
   }));
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/internals/use-button/useButton.mjs
+// node_modules/@base-ui/react/internals/use-button/useButton.mjs
 function useButton(parameters = {}) {
   const {
     disabled: disabled2 = false,
@@ -4555,7 +4685,7 @@ function useButton(parameters = {}) {
     native: isNativeButton = true,
     composite: compositeProp
   } = parameters;
-  const elementRef = React18__namespace.useRef(null);
+  const elementRef = React19__namespace.useRef(null);
   const compositeRootContext = useCompositeRootContext(true);
   const isCompositeItem = compositeProp ?? compositeRootContext !== void 0;
   const {
@@ -4568,7 +4698,7 @@ function useButton(parameters = {}) {
     isNativeButton
   });
   if (process.env.NODE_ENV !== "production") {
-    React18__namespace.useEffect(() => {
+    React19__namespace.useEffect(() => {
       if (!elementRef.current) {
         return;
       }
@@ -4586,7 +4716,7 @@ function useButton(parameters = {}) {
       }
     }, [isNativeButton]);
   }
-  const updateDisabled = React18__namespace.useCallback(() => {
+  const updateDisabled = React19__namespace.useCallback(() => {
     const element = elementRef.current;
     if (!isButtonElement(element)) {
       return;
@@ -4596,7 +4726,7 @@ function useButton(parameters = {}) {
     }
   }, [disabled2, focusableWhenDisabledProps.disabled, isCompositeItem]);
   useIsoLayoutEffect(updateDisabled, [updateDisabled]);
-  const getButtonProps = React18__namespace.useCallback((externalProps = {}) => {
+  const getButtonProps = React19__namespace.useCallback((externalProps = {}) => {
     const {
       onClick: externalOnClick,
       onMouseDown: externalOnMouseDown,
@@ -4709,8 +4839,8 @@ function isValidLinkElement(elem) {
   return isHTMLElement(elem) && elem.tagName === "A" && Boolean(elem.href);
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/toast/close/ToastClose.mjs
-var ToastClose = /* @__PURE__ */ React18__namespace.forwardRef(function ToastClose2(componentProps, forwardedRef) {
+// node_modules/@base-ui/react/toast/close/ToastClose.mjs
+var ToastClose = /* @__PURE__ */ React19__namespace.forwardRef(function ToastClose2(componentProps, forwardedRef) {
   const {
     render,
     className,
@@ -4724,7 +4854,7 @@ var ToastClose = /* @__PURE__ */ React18__namespace.forwardRef(function ToastClo
     toast,
     expanded
   } = useToastRootContext();
-  const [hasFocus, setHasFocus] = React18__namespace.useState(false);
+  const [hasFocus, setHasFocus] = React19__namespace.useState(false);
   const {
     getButtonProps,
     buttonRef
@@ -4753,7 +4883,7 @@ var ToastClose = /* @__PURE__ */ React18__namespace.forwardRef(function ToastClo
   });
 });
 if (process.env.NODE_ENV !== "production") ToastClose.displayName = "ToastClose";
-var ToastAction = /* @__PURE__ */ React18__namespace.forwardRef(function ToastAction2(componentProps, forwardedRef) {
+var ToastAction = /* @__PURE__ */ React19__namespace.forwardRef(function ToastAction2(componentProps, forwardedRef) {
   const {
     render,
     className,
@@ -4787,7 +4917,33 @@ var ToastAction = /* @__PURE__ */ React18__namespace.forwardRef(function ToastAc
 });
 if (process.env.NODE_ENV !== "production") ToastAction.displayName = "ToastAction";
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/internals/reason-parts.mjs
+// node_modules/@base-ui/react/internals/createBaseUIEventDetails.mjs
+function createChangeEventDetails(reason, event, trigger, customProperties) {
+  let canceled = false;
+  let allowPropagation = false;
+  const custom = EMPTY_OBJECT;
+  const details = {
+    reason,
+    event: event ?? new Event("base-ui"),
+    cancel() {
+      canceled = true;
+    },
+    allowPropagation() {
+      allowPropagation = true;
+    },
+    get isCanceled() {
+      return canceled;
+    },
+    get isPropagationAllowed() {
+      return allowPropagation;
+    },
+    trigger,
+    ...custom
+  };
+  return details;
+}
+
+// node_modules/@base-ui/react/internals/reason-parts.mjs
 var reason_parts_exports = {};
 __export(reason_parts_exports, {
   cancelOpen: () => cancelOpen,
@@ -4816,6 +4972,7 @@ __export(reason_parts_exports, {
   none: () => none,
   outsidePress: () => outsidePress,
   pointer: () => pointer,
+  popupClose: () => popupClose,
   scrub: () => scrub,
   siblingOpen: () => siblingOpen,
   swipe: () => swipe,
@@ -4853,6 +5010,7 @@ var pointer = "pointer";
 var drag = "drag";
 var wheel = "wheel";
 var scrub = "scrub";
+var popupClose = "popup-close";
 var cancelOpen = "cancel-open";
 var siblingOpen = "sibling-open";
 var disabled = "disabled";
@@ -4862,39 +5020,13 @@ var imperativeAction = "imperative-action";
 var swipe = "swipe";
 var windowResize = "window-resize";
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/internals/createBaseUIEventDetails.mjs
-function createChangeEventDetails(reason, event, trigger, customProperties) {
-  let canceled = false;
-  let allowPropagation = false;
-  const custom = EMPTY_OBJECT;
-  const details = {
-    reason,
-    event: event ?? new Event("base-ui"),
-    cancel() {
-      canceled = true;
-    },
-    allowPropagation() {
-      allowPropagation = true;
-    },
-    get isCanceled() {
-      return canceled;
-    },
-    get isPropagationAllowed() {
-      return allowPropagation;
-    },
-    trigger,
-    ...custom
-  };
-  return details;
-}
-
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/floating-ui-react/utils/createAttribute.mjs
+// node_modules/@base-ui/react/floating-ui-react/utils/createAttribute.mjs
 function createAttribute(name) {
   return `data-base-ui-${name}`;
 }
-var PortalContext = /* @__PURE__ */ React18__namespace.createContext(null);
+var PortalContext = /* @__PURE__ */ React19__namespace.createContext(null);
 if (process.env.NODE_ENV !== "production") PortalContext.displayName = "PortalContext";
-var usePortalContext = () => React18__namespace.useContext(PortalContext);
+var usePortalContext = () => React19__namespace.useContext(PortalContext);
 var attr = createAttribute("portal");
 function useFloatingPortalNode(props = {}) {
   const {
@@ -4906,14 +5038,14 @@ function useFloatingPortalNode(props = {}) {
   const uniqueId = useId();
   const portalContext = usePortalContext();
   const parentPortalNode = portalContext?.portalNode;
-  const [containerElement, setContainerElement] = React18__namespace.useState(null);
-  const [portalNode, setPortalNode] = React18__namespace.useState(null);
+  const [containerElement, setContainerElement] = React19__namespace.useState(null);
+  const [portalNode, setPortalNode] = React19__namespace.useState(null);
   const setPortalNodeRef = useStableCallback((node) => {
     if (node !== null) {
       setPortalNode(node);
     }
   });
-  const containerRef = React18__namespace.useRef(null);
+  const containerRef = React19__namespace.useRef(null);
   useIsoLayoutEffect(() => {
     if (containerProp === null) {
       if (containerRef.current) {
@@ -4945,22 +5077,23 @@ function useFloatingPortalNode(props = {}) {
       [attr]: ""
     }, elementProps]
   });
-  const portalSubtree = containerElement && portalElement ? /* @__PURE__ */ ReactDOM3__namespace.createPortal(portalElement, containerElement) : null;
+  const portalSubtree = containerElement && portalElement ? /* @__PURE__ */ ReactDOM__namespace.createPortal(portalElement, containerElement) : null;
   return {
     node: portalNode,
     // `id` and `render` props can override or remove the generated ID. Use the exact
     // rendered value so `aria-owns` never points at an ID absent from the DOM.
-    nodeId: /* @__PURE__ */ React18__namespace.isValidElement(portalElement) ? portalElement.props.id : void 0,
+    nodeId: /* @__PURE__ */ React19__namespace.isValidElement(portalElement) ? portalElement.props.id : void 0,
     subtree: portalSubtree
   };
 }
-var FloatingPortal = /* @__PURE__ */ React18__namespace.forwardRef(function FloatingPortal2(componentProps, forwardedRef) {
+var FloatingPortal = /* @__PURE__ */ React19__namespace.forwardRef(function FloatingPortal2(componentProps, forwardedRef) {
   const {
     render,
     className,
     style,
     children,
     container,
+    portalOwnerRole,
     ...elementProps
   } = componentProps;
   const {
@@ -4973,16 +5106,16 @@ var FloatingPortal = /* @__PURE__ */ React18__namespace.forwardRef(function Floa
     componentProps,
     elementProps
   });
-  const beforeOutsideRef = React18__namespace.useRef(null);
-  const afterOutsideRef = React18__namespace.useRef(null);
-  const beforeInsideRef = React18__namespace.useRef(null);
-  const afterInsideRef = React18__namespace.useRef(null);
-  const [focusManagerState, setFocusManagerState] = React18__namespace.useState(null);
-  const focusInsideDisabledRef = React18__namespace.useRef(false);
+  const beforeOutsideRef = React19__namespace.useRef(null);
+  const afterOutsideRef = React19__namespace.useRef(null);
+  const beforeInsideRef = React19__namespace.useRef(null);
+  const afterInsideRef = React19__namespace.useRef(null);
+  const [focusManagerState, setFocusManagerState] = React19__namespace.useState(null);
+  const focusInsideDisabledRef = React19__namespace.useRef(false);
   const modal = focusManagerState?.modal;
-  const open = focusManagerState?.open;
+  const open2 = focusManagerState?.open;
   const shouldRenderGuards = !!focusManagerState && !focusManagerState.modal && focusManagerState.open && !!portalNode;
-  React18__namespace.useEffect(() => {
+  React19__namespace.useEffect(() => {
     if (!portalNode || modal) {
       return void 0;
     }
@@ -5002,13 +5135,13 @@ var FloatingPortal = /* @__PURE__ */ React18__namespace.forwardRef(function Floa
     return mergeCleanups(addEventListener(portalNode, "focusin", onFocus, true), addEventListener(portalNode, "focusout", onFocus, true));
   }, [portalNode, modal]);
   useIsoLayoutEffect(() => {
-    if (!portalNode || open !== true || !focusInsideDisabledRef.current) {
+    if (!portalNode || open2 !== true || !focusInsideDisabledRef.current) {
       return;
     }
     enableFocusInside(portalNode);
     focusInsideDisabledRef.current = false;
-  }, [open, portalNode]);
-  const portalContextValue = React18__namespace.useMemo(() => ({
+  }, [open2, portalNode]);
+  const portalContextValue = React19__namespace.useMemo(() => ({
     beforeOutsideRef,
     afterOutsideRef,
     beforeInsideRef,
@@ -5016,7 +5149,7 @@ var FloatingPortal = /* @__PURE__ */ React18__namespace.forwardRef(function Floa
     portalNode,
     setFocusManagerState
   }), [portalNode]);
-  return /* @__PURE__ */ jsxRuntime.jsxs(React18__namespace.Fragment, {
+  return /* @__PURE__ */ jsxRuntime.jsxs(React19__namespace.Fragment, {
     children: [portalSubtree, /* @__PURE__ */ jsxRuntime.jsxs(PortalContext.Provider, {
       value: portalContextValue,
       children: [shouldRenderGuards && portalNode && /* @__PURE__ */ jsxRuntime.jsx(FocusGuard, {
@@ -5032,9 +5165,10 @@ var FloatingPortal = /* @__PURE__ */ React18__namespace.forwardRef(function Floa
           }
         }
       }), shouldRenderGuards && portalNode && /* @__PURE__ */ jsxRuntime.jsx("span", {
+        role: portalOwnerRole,
         "aria-owns": portalNodeId,
         style: ownerVisuallyHidden
-      }), portalNode && /* @__PURE__ */ ReactDOM3__namespace.createPortal(children, portalNode), shouldRenderGuards && portalNode && /* @__PURE__ */ jsxRuntime.jsx(FocusGuard, {
+      }), portalNode && /* @__PURE__ */ ReactDOM__namespace.createPortal(children, portalNode), shouldRenderGuards && portalNode && /* @__PURE__ */ jsxRuntime.jsx(FocusGuard, {
         "data-type": "outside",
         ref: afterOutsideRef,
         onFocus: (event) => {
@@ -5054,7 +5188,7 @@ var FloatingPortal = /* @__PURE__ */ React18__namespace.forwardRef(function Floa
   });
 });
 if (process.env.NODE_ENV !== "production") FloatingPortal.displayName = "FloatingPortal";
-var FloatingPortalLite = /* @__PURE__ */ React18__namespace.forwardRef(function FloatingPortalLite2(componentProps, forwardedRef) {
+var FloatingPortalLite = /* @__PURE__ */ React19__namespace.forwardRef(function FloatingPortalLite2(componentProps, forwardedRef) {
   const {
     children,
     container,
@@ -5075,12 +5209,12 @@ var FloatingPortalLite = /* @__PURE__ */ React18__namespace.forwardRef(function 
   if (!portalSubtree && !portalNode) {
     return null;
   }
-  return /* @__PURE__ */ jsxRuntime.jsxs(React18__namespace.Fragment, {
-    children: [portalSubtree, portalNode && /* @__PURE__ */ ReactDOM3__namespace.createPortal(children, portalNode)]
+  return /* @__PURE__ */ jsxRuntime.jsxs(React19__namespace.Fragment, {
+    children: [portalSubtree, portalNode && /* @__PURE__ */ ReactDOM__namespace.createPortal(children, portalNode)]
   });
 });
 if (process.env.NODE_ENV !== "production") FloatingPortalLite.displayName = "FloatingPortalLite";
-var ToastPortal = /* @__PURE__ */ React18__namespace.forwardRef(function ToastPortal2(props, forwardedRef) {
+var ToastPortal = /* @__PURE__ */ React19__namespace.forwardRef(function ToastPortal2(props, forwardedRef) {
   return /* @__PURE__ */ jsxRuntime.jsx(FloatingPortalLite, {
     ref: forwardedRef,
     ...props
@@ -5088,7 +5222,7 @@ var ToastPortal = /* @__PURE__ */ React18__namespace.forwardRef(function ToastPo
 });
 if (process.env.NODE_ENV !== "production") ToastPortal.displayName = "ToastPortal";
 
-// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/useValueAsRef.mjs
+// node_modules/@base-ui/utils/useValueAsRef.mjs
 function useValueAsRef(value) {
   const latest = useRefWithInit(createLatestRef, value).current;
   latest.next = value;
@@ -5106,7 +5240,7 @@ function createLatestRef(value) {
   return latest;
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/floating-ui-react/utils/createEventEmitter.mjs
+// node_modules/@base-ui/react/floating-ui-react/utils/createEventEmitter.mjs
 function createEventEmitter() {
   const map = /* @__PURE__ */ new Map();
   return {
@@ -5124,17 +5258,230 @@ function createEventEmitter() {
     }
   };
 }
-var FloatingNodeContext = /* @__PURE__ */ React18__namespace.createContext(null);
+var FloatingNodeContext = /* @__PURE__ */ React19__namespace.createContext(null);
 if (process.env.NODE_ENV !== "production") FloatingNodeContext.displayName = "FloatingNodeContext";
-var FloatingTreeContext = /* @__PURE__ */ React18__namespace.createContext(null);
+var FloatingTreeContext = /* @__PURE__ */ React19__namespace.createContext(null);
 if (process.env.NODE_ENV !== "production") FloatingTreeContext.displayName = "FloatingTreeContext";
-var useFloatingParentNodeId = () => React18__namespace.useContext(FloatingNodeContext)?.id || null;
+var useFloatingParentNodeId = () => React19__namespace.useContext(FloatingNodeContext)?.id || null;
 var useFloatingTree = (externalTree) => {
-  const contextTree = React18__namespace.useContext(FloatingTreeContext);
+  const contextTree = React19__namespace.useContext(FloatingTreeContext);
   return externalTree ?? contextTree;
 };
 
-// node_modules/.pnpm/@floating-ui+core@1.8.0/node_modules/@floating-ui/core/dist/floating-ui.core.mjs
+// node_modules/@base-ui/react/utils/popups/popupTriggerMap.mjs
+var devElementIdsByMap;
+function getDevElementIds(map) {
+  devElementIdsByMap ?? (devElementIdsByMap = /* @__PURE__ */ new WeakMap());
+  let elementIds = devElementIdsByMap.get(map);
+  if (!elementIds) {
+    elementIds = /* @__PURE__ */ new WeakMap();
+    devElementIdsByMap.set(map, elementIds);
+  }
+  return elementIds;
+}
+var PopupTriggerMap = class {
+  constructor() {
+    __publicField(this, "idMap", /* @__PURE__ */ new Map());
+  }
+  /**
+   * Adds a trigger element with the given ID.
+   *
+   * Note: The provided element is assumed to not be registered under multiple IDs.
+   */
+  add(id, element) {
+    if (process.env.NODE_ENV !== "production") {
+      const elementIds = getDevElementIds(this);
+      const existingId = elementIds.get(element);
+      if (existingId !== void 0 && existingId !== id) {
+        throw new Error("Base UI: A trigger element cannot be registered under multiple IDs in PopupTriggerMap.");
+      }
+      const previousElement = this.idMap.get(id);
+      if (previousElement !== void 0 && previousElement !== element) {
+        elementIds.delete(previousElement);
+      }
+      elementIds.set(element, id);
+    }
+    this.idMap.set(id, element);
+  }
+  /**
+   * Removes the trigger element with the given ID.
+   */
+  delete(id) {
+    if (process.env.NODE_ENV !== "production") {
+      const element = this.idMap.get(id);
+      if (element !== void 0) {
+        devElementIdsByMap?.get(this)?.delete(element);
+      }
+    }
+    this.idMap.delete(id);
+  }
+  /**
+   * Whether the given element is registered as a trigger.
+   */
+  hasElement(element) {
+    for (const registered of this.idMap.values()) {
+      if (registered === element) {
+        return true;
+      }
+    }
+    return false;
+  }
+  /**
+   * Whether there is a registered trigger element matching the given predicate.
+   */
+  hasMatchingElement(predicate) {
+    for (const element of this.idMap.values()) {
+      if (predicate(element)) {
+        return true;
+      }
+    }
+    return false;
+  }
+  /**
+   * Returns the trigger element associated with the given ID, or undefined if no such element exists.
+   */
+  getById(id) {
+    return this.idMap.get(id);
+  }
+  /**
+   * Returns an iterable of all registered trigger entries, where each entry is a tuple of [id, element].
+   */
+  entries() {
+    return this.idMap.entries();
+  }
+  /**
+   * Returns an iterable of all registered trigger elements.
+   */
+  elements() {
+    return this.idMap.values();
+  }
+  /**
+   * Returns the number of registered trigger elements.
+   */
+  get size() {
+    return this.idMap.size;
+  }
+};
+
+// node_modules/@base-ui/react/floating-ui-react/components/FloatingRootStore.mjs
+var selectors2 = {
+  open: (state) => state.open,
+  transitionStatus: (state) => state.transitionStatus,
+  domReferenceElement: (state) => state.domReferenceElement,
+  referenceElement: (state) => state.positionReference ?? state.referenceElement,
+  floatingElement: (state) => state.floatingElement,
+  floatingId: (state) => state.floatingId
+};
+var FloatingRootStore = class extends ReactStore {
+  constructor(options) {
+    const {
+      syncOnly,
+      nested,
+      onOpenChange,
+      triggerElements,
+      ...initialState
+    } = options;
+    super({
+      ...initialState,
+      positionReference: initialState.referenceElement,
+      domReferenceElement: initialState.referenceElement
+    }, {
+      onOpenChange,
+      dataRef: {
+        current: {}
+      },
+      events: createEventEmitter(),
+      nested,
+      triggerElements
+    }, selectors2);
+    /**
+     * Syncs the event used by hover logic to distinguish hover-open from click-like interaction.
+     */
+    __publicField(this, "syncOpenEvent", (newOpen, event) => {
+      if (!newOpen || !this.state.open || // Prevent a pending hover-open from overwriting a click-open event, while allowing
+      // click events to upgrade a hover-open.
+      event != null && isClickLikeEvent(event)) {
+        this.context.dataRef.current.openEvent = newOpen ? event : void 0;
+      }
+    });
+    /**
+     * Runs the root-owned side effects for an open state change.
+     */
+    __publicField(this, "dispatchOpenChange", (newOpen, eventDetails) => {
+      this.syncOpenEvent(newOpen, eventDetails.event);
+      const details = {
+        open: newOpen,
+        reason: eventDetails.reason,
+        nativeEvent: eventDetails.event,
+        nested: this.context.nested,
+        triggerElement: eventDetails.trigger
+      };
+      this.context.events.emit("openchange", details);
+    });
+    /**
+     * Emits the `openchange` event through the internal event emitter and calls the `onOpenChange` handler with the provided arguments.
+     *
+     * @param newOpen The new open state.
+     * @param eventDetails Details about the event that triggered the open state change.
+     */
+    __publicField(this, "setOpen", (newOpen, eventDetails) => {
+      if (this.syncOnly) {
+        this.context.onOpenChange?.(newOpen, eventDetails);
+        return;
+      }
+      this.dispatchOpenChange(newOpen, eventDetails);
+      this.context.onOpenChange?.(newOpen, eventDetails);
+    });
+    this.syncOnly = syncOnly;
+  }
+};
+
+// node_modules/@base-ui/react/floating-ui-react/hooks/useFloatingRootContext.mjs
+function useFloatingRootContext(options) {
+  const {
+    open: open2 = false,
+    onOpenChange,
+    elements = {}
+  } = options;
+  const floatingId = useId();
+  const nested = useFloatingParentNodeId() != null;
+  if (process.env.NODE_ENV !== "production") {
+    const optionDomReference = elements.reference;
+    if (optionDomReference && !isElement(optionDomReference)) {
+      console.error("Cannot pass a virtual element to the `elements.reference` option,", "as it must be a real DOM element. Use `context.setPositionReference()`", "instead.");
+    }
+  }
+  const store = useRefWithInit(() => new FloatingRootStore({
+    open: open2,
+    transitionStatus: void 0,
+    onOpenChange,
+    referenceElement: elements.reference ?? null,
+    floatingElement: elements.floating ?? null,
+    triggerElements: new PopupTriggerMap(),
+    floatingId,
+    syncOnly: false,
+    nested
+  })).current;
+  useIsoLayoutEffect(() => {
+    const valuesToSync = {
+      open: open2,
+      floatingId
+    };
+    if (elements.reference !== void 0) {
+      valuesToSync.referenceElement = elements.reference;
+      valuesToSync.domReferenceElement = isElement(elements.reference) ? elements.reference : null;
+    }
+    if (elements.floating !== void 0) {
+      valuesToSync.floatingElement = elements.floating;
+    }
+    store.update(valuesToSync);
+  }, [open2, floatingId, elements.reference, elements.floating, store]);
+  store.context.onOpenChange = onOpenChange;
+  store.context.nested = nested;
+  return store;
+}
+
+// node_modules/@floating-ui/core/dist/floating-ui.core.mjs
 function computeCoordsFromPlacement(_ref, placement, rtl) {
   let {
     reference,
@@ -5660,7 +6007,7 @@ var size = function(options) {
       const isYAxis = getSideAxis(placement) === "y";
       const {
         width,
-        height
+        height: height2
       } = rects.floating;
       let heightSide;
       let widthSide;
@@ -5671,34 +6018,34 @@ var size = function(options) {
         widthSide = side;
         heightSide = alignment === "end" ? "top" : "bottom";
       }
-      const maximumClippingHeight = height - overflow.top - overflow.bottom;
+      const maximumClippingHeight = height2 - overflow.top - overflow.bottom;
       const maximumClippingWidth = width - overflow.left - overflow.right;
-      const overflowAvailableHeight = min(height - overflow[heightSide], maximumClippingHeight);
+      const overflowAvailableHeight = min(height2 - overflow[heightSide], maximumClippingHeight);
       const overflowAvailableWidth = min(width - overflow[widthSide], maximumClippingWidth);
       const shiftData = state.middlewareData.shift;
       const noShift = !shiftData;
-      let availableHeight = overflowAvailableHeight;
-      let availableWidth = overflowAvailableWidth;
+      let availableHeight2 = overflowAvailableHeight;
+      let availableWidth2 = overflowAvailableWidth;
       if (shiftData != null && shiftData.enabled.x) {
-        availableWidth = maximumClippingWidth;
+        availableWidth2 = maximumClippingWidth;
       }
       if (shiftData != null && shiftData.enabled.y) {
-        availableHeight = maximumClippingHeight;
+        availableHeight2 = maximumClippingHeight;
       }
       if (noShift && !alignment) {
         if (isYAxis) {
-          availableWidth = width - 2 * max(overflow.left, overflow.right);
+          availableWidth2 = width - 2 * max(overflow.left, overflow.right);
         } else {
-          availableHeight = height - 2 * max(overflow.top, overflow.bottom);
+          availableHeight2 = height2 - 2 * max(overflow.top, overflow.bottom);
         }
       }
       await apply({
         ...state,
-        availableWidth,
-        availableHeight
+        availableWidth: availableWidth2,
+        availableHeight: availableHeight2
       });
       const nextDimensions = await platform3.getDimensions(elements.floating);
-      if (width !== nextDimensions.width || height !== nextDimensions.height) {
+      if (width !== nextDimensions.width || height2 !== nextDimensions.height) {
         return {
           reset: {
             rects: true
@@ -5710,22 +6057,22 @@ var size = function(options) {
   };
 };
 
-// node_modules/.pnpm/@floating-ui+dom@1.8.0/node_modules/@floating-ui/dom/dist/floating-ui.dom.mjs
+// node_modules/@floating-ui/dom/dist/floating-ui.dom.mjs
 function getCssDimensions(element) {
   const css = getComputedStyle2(element);
   let width = parseFloat(css.width) || 0;
-  let height = parseFloat(css.height) || 0;
+  let height2 = parseFloat(css.height) || 0;
   const hasOffset = isHTMLElement(element);
   const offsetWidth = hasOffset ? element.offsetWidth : width;
-  const offsetHeight = hasOffset ? element.offsetHeight : height;
-  const shouldFallback = round(width) !== offsetWidth || round(height) !== offsetHeight;
+  const offsetHeight = hasOffset ? element.offsetHeight : height2;
+  const shouldFallback = round(width) !== offsetWidth || round(height2) !== offsetHeight;
   if (shouldFallback) {
     width = offsetWidth;
-    height = offsetHeight;
+    height2 = offsetHeight;
   }
   return {
     width,
-    height,
+    height: height2,
     $: shouldFallback
   };
 }
@@ -5740,11 +6087,11 @@ function getScale(element) {
   const rect = domElement.getBoundingClientRect();
   const {
     width,
-    height,
+    height: height2,
     $
   } = getCssDimensions(domElement);
   let x = ($ ? round(rect.width) : rect.width) / width;
-  let y = ($ ? round(rect.height) : rect.height) / height;
+  let y = ($ ? round(rect.height) : rect.height) / height2;
   if (!x || !Number.isFinite(x)) {
     x = 1;
   }
@@ -5796,7 +6143,7 @@ function getBoundingClientRect(element, includeScale, isFixedStrategy, offsetPar
   let x = (clientRect.left + visualOffsets.x) / scale.x;
   let y = (clientRect.top + visualOffsets.y) / scale.y;
   let width = clientRect.width / scale.x;
-  let height = clientRect.height / scale.y;
+  let height2 = clientRect.height / scale.y;
   if (domElement && offsetParent) {
     const win = getWindow(domElement);
     const offsetWin = isElement(offsetParent) ? getWindow(offsetParent) : offsetParent;
@@ -5811,7 +6158,7 @@ function getBoundingClientRect(element, includeScale, isFixedStrategy, offsetPar
       x *= iframeScale.x;
       y *= iframeScale.y;
       width *= iframeScale.x;
-      height *= iframeScale.y;
+      height2 *= iframeScale.y;
       x += left;
       y += top;
       currentWin = getWindow(currentIFrame);
@@ -5820,7 +6167,7 @@ function getBoundingClientRect(element, includeScale, isFixedStrategy, offsetPar
   }
   return rectToClientRect({
     width,
-    height,
+    height: height2,
     x,
     y
   });
@@ -5887,7 +6234,7 @@ function getDocumentRect(html) {
   const scroll = getNodeScroll(html);
   const body = html.ownerDocument.body;
   const width = max(html.scrollWidth, html.clientWidth, body.scrollWidth, body.clientWidth);
-  const height = max(html.scrollHeight, html.clientHeight, body.scrollHeight, body.clientHeight);
+  const height2 = max(html.scrollHeight, html.clientHeight, body.scrollHeight, body.clientHeight);
   let x = -scroll.scrollLeft + getWindowScrollBarX(html);
   const y = -scroll.scrollTop;
   if (getComputedStyle2(body).direction === "rtl") {
@@ -5895,7 +6242,7 @@ function getDocumentRect(html) {
   }
   return {
     width,
-    height,
+    height: height2,
     x,
     y
   };
@@ -5910,7 +6257,7 @@ function getViewportRect(element, strategy, rootBoundary) {
   const html = getDocumentElement(element);
   const visualViewport = win.visualViewport;
   let width = html.clientWidth;
-  let height = html.clientHeight;
+  let height2 = html.clientHeight;
   let x = 0;
   let y = 0;
   if (visualViewport) {
@@ -5922,7 +6269,7 @@ function getViewportRect(element, strategy, rootBoundary) {
       }
     } else {
       width = visualViewport.width;
-      height = visualViewport.height;
+      height2 = visualViewport.height;
       if (layoutRelativeClientCoords) {
         x = visualViewport.offsetLeft;
         y = visualViewport.offsetTop;
@@ -5943,7 +6290,7 @@ function getViewportRect(element, strategy, rootBoundary) {
   }
   return {
     width,
-    height,
+    height: height2,
     x,
     y
   };
@@ -5954,12 +6301,12 @@ function getInnerBoundingClientRect(element, strategy) {
   const left = clientRect.left + element.clientLeft;
   const scale = getScale(element);
   const width = element.clientWidth * scale.x;
-  const height = element.clientHeight * scale.y;
+  const height2 = element.clientHeight * scale.y;
   const x = left * scale.x;
   const y = top * scale.y;
   return {
     width,
-    height,
+    height: height2,
     x,
     y
   };
@@ -6038,11 +6385,11 @@ function getClippingRect(_ref) {
 function getDimensions(element) {
   const {
     width,
-    height
+    height: height2
   } = getCssDimensions(element);
   return {
     width,
-    height
+    height: height2
   };
 }
 function getRectRelativeToOffsetParent(element, offsetParent, strategy) {
@@ -6173,17 +6520,17 @@ function observeMove(element, onMove, ancestorResize) {
       left,
       top,
       width,
-      height
+      height: height2
     } = elementRectForRootMargin;
     if (!skip) {
       onMove();
     }
-    if (!width || !height) {
+    if (!width || !height2) {
       return;
     }
     const insetTop = floor(top);
     const insetRight = floor(root.clientWidth - (left + width));
-    const insetBottom = floor(root.clientHeight - (top + height));
+    const insetBottom = floor(root.clientHeight - (top + height2));
     const insetLeft = floor(left);
     const rootMargin = -insetTop + "px " + -insetRight + "px " + -insetBottom + "px " + -insetLeft + "px";
     const options = {
@@ -6319,7 +6666,7 @@ var computePosition2 = (reference, floating, options) => {
 var isClient = typeof document !== "undefined";
 var noop2 = function noop3() {
 };
-var index = isClient ? React18.useLayoutEffect : noop2;
+var index2 = isClient ? React19.useLayoutEffect : noop2;
 function deepEqual(a, b) {
   if (a === b) {
     return true;
@@ -6379,8 +6726,8 @@ function roundByDPR(element, value) {
   return Math.round(value * dpr) / dpr;
 }
 function useLatestRef(value) {
-  const ref = React18__namespace.useRef(value);
-  index(() => {
+  const ref = React19__namespace.useRef(value);
+  index2(() => {
     ref.current = value;
   });
   return ref;
@@ -6400,9 +6747,9 @@ function useFloating(options) {
     } = {},
     transform = true,
     whileElementsMounted,
-    open
+    open: open2
   } = options;
-  const [data, setData] = React18__namespace.useState({
+  const [data, setData] = React19__namespace.useState({
     x: 0,
     y: 0,
     strategy,
@@ -6410,19 +6757,19 @@ function useFloating(options) {
     middlewareData: {},
     isPositioned: false
   });
-  const [latestMiddleware, setLatestMiddleware] = React18__namespace.useState(middleware);
+  const [latestMiddleware, setLatestMiddleware] = React19__namespace.useState(middleware);
   if (!deepEqual(latestMiddleware, middleware)) {
     setLatestMiddleware(middleware);
   }
-  const [_reference, _setReference] = React18__namespace.useState(null);
-  const [_floating, _setFloating] = React18__namespace.useState(null);
-  const setReference = React18__namespace.useCallback((node) => {
+  const [_reference, _setReference] = React19__namespace.useState(null);
+  const [_floating, _setFloating] = React19__namespace.useState(null);
+  const setReference = React19__namespace.useCallback((node) => {
     if (node !== referenceRef.current) {
       referenceRef.current = node;
       _setReference(node);
     }
   }, []);
-  const setFloating = React18__namespace.useCallback((node) => {
+  const setFloating = React19__namespace.useCallback((node) => {
     if (node !== floatingRef.current) {
       floatingRef.current = node;
       _setFloating(node);
@@ -6430,14 +6777,14 @@ function useFloating(options) {
   }, []);
   const referenceEl = externalReference || _reference;
   const floatingEl = externalFloating || _floating;
-  const referenceRef = React18__namespace.useRef(null);
-  const floatingRef = React18__namespace.useRef(null);
-  const dataRef = React18__namespace.useRef(data);
+  const referenceRef = React19__namespace.useRef(null);
+  const floatingRef = React19__namespace.useRef(null);
+  const dataRef = React19__namespace.useRef(data);
   const hasWhileElementsMounted = whileElementsMounted != null;
   const whileElementsMountedRef = useLatestRef(whileElementsMounted);
   const platformRef = useLatestRef(platform3);
-  const openRef = useLatestRef(open);
-  const update2 = React18__namespace.useCallback(() => {
+  const openRef = useLatestRef(open2);
+  const update2 = React19__namespace.useCallback(() => {
     if (!referenceRef.current || !floatingRef.current) {
       return;
     }
@@ -6460,29 +6807,29 @@ function useFloating(options) {
       };
       if (isMountedRef.current && !deepEqual(dataRef.current, fullData)) {
         dataRef.current = fullData;
-        ReactDOM3__namespace.flushSync(() => {
+        ReactDOM__namespace.flushSync(() => {
           setData(fullData);
         });
       }
     });
   }, [latestMiddleware, placement, strategy, platformRef, openRef]);
-  index(() => {
-    if (open === false && dataRef.current.isPositioned) {
+  index2(() => {
+    if (open2 === false && dataRef.current.isPositioned) {
       dataRef.current.isPositioned = false;
       setData((data2) => ({
         ...data2,
         isPositioned: false
       }));
     }
-  }, [open]);
-  const isMountedRef = React18__namespace.useRef(false);
-  index(() => {
+  }, [open2]);
+  const isMountedRef = React19__namespace.useRef(false);
+  index2(() => {
     isMountedRef.current = true;
     return () => {
       isMountedRef.current = false;
     };
   }, []);
-  index(() => {
+  index2(() => {
     if (referenceEl) referenceRef.current = referenceEl;
     if (floatingEl) floatingRef.current = floatingEl;
     if (referenceEl && floatingEl) {
@@ -6492,17 +6839,17 @@ function useFloating(options) {
       update2();
     }
   }, [referenceEl, floatingEl, update2, whileElementsMountedRef, hasWhileElementsMounted]);
-  const refs = React18__namespace.useMemo(() => ({
+  const refs = React19__namespace.useMemo(() => ({
     reference: referenceRef,
     floating: floatingRef,
     setReference,
     setFloating
   }), [setReference, setFloating]);
-  const elements = React18__namespace.useMemo(() => ({
+  const elements = React19__namespace.useMemo(() => ({
     reference: referenceEl,
     floating: floatingEl
   }), [referenceEl, floatingEl]);
-  const floatingStyles = React18__namespace.useMemo(() => {
+  const floatingStyles = React19__namespace.useMemo(() => {
     const initialStyles = {
       position: strategy,
       left: 0,
@@ -6528,7 +6875,7 @@ function useFloating(options) {
       top: y
     };
   }, [strategy, transform, elements.floating, data.x, data.y]);
-  return React18__namespace.useMemo(() => ({
+  return React19__namespace.useMemo(() => ({
     ...data,
     update: update2,
     refs,
@@ -6575,240 +6922,21 @@ var size3 = (options, deps) => {
     options: [options, deps]
   };
 };
-
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/floating-ui-react/components/FloatingRootStore.mjs
-var selectors2 = {
-  open: (state) => state.open,
-  transitionStatus: (state) => state.transitionStatus,
-  domReferenceElement: (state) => state.domReferenceElement,
-  referenceElement: (state) => state.positionReference ?? state.referenceElement,
-  floatingElement: (state) => state.floatingElement,
-  floatingId: (state) => state.floatingId
-};
-var FloatingRootStore = class extends ReactStore {
-  constructor(options) {
-    const {
-      syncOnly,
-      nested,
-      onOpenChange,
-      triggerElements,
-      ...initialState
-    } = options;
-    super({
-      ...initialState,
-      positionReference: initialState.referenceElement,
-      domReferenceElement: initialState.referenceElement
-    }, {
-      onOpenChange,
-      dataRef: {
-        current: {}
-      },
-      events: createEventEmitter(),
-      nested,
-      triggerElements
-    }, selectors2);
-    /**
-     * Syncs the event used by hover logic to distinguish hover-open from click-like interaction.
-     */
-    __publicField(this, "syncOpenEvent", (newOpen, event) => {
-      if (!newOpen || !this.state.open || // Prevent a pending hover-open from overwriting a click-open event, while allowing
-      // click events to upgrade a hover-open.
-      event != null && isClickLikeEvent(event)) {
-        this.context.dataRef.current.openEvent = newOpen ? event : void 0;
-      }
-    });
-    /**
-     * Runs the root-owned side effects for an open state change.
-     */
-    __publicField(this, "dispatchOpenChange", (newOpen, eventDetails) => {
-      this.syncOpenEvent(newOpen, eventDetails.event);
-      const details = {
-        open: newOpen,
-        reason: eventDetails.reason,
-        nativeEvent: eventDetails.event,
-        nested: this.context.nested,
-        triggerElement: eventDetails.trigger
-      };
-      this.context.events.emit("openchange", details);
-    });
-    /**
-     * Emits the `openchange` event through the internal event emitter and calls the `onOpenChange` handler with the provided arguments.
-     *
-     * @param newOpen The new open state.
-     * @param eventDetails Details about the event that triggered the open state change.
-     */
-    __publicField(this, "setOpen", (newOpen, eventDetails) => {
-      if (this.syncOnly) {
-        this.context.onOpenChange?.(newOpen, eventDetails);
-        return;
-      }
-      this.dispatchOpenChange(newOpen, eventDetails);
-      this.context.onOpenChange?.(newOpen, eventDetails);
-    });
-    this.syncOnly = syncOnly;
-  }
-};
-
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/utils/popups/popupTriggerMap.mjs
-var devElementIdsByMap;
-function getDevElementIds(map) {
-  devElementIdsByMap ?? (devElementIdsByMap = /* @__PURE__ */ new WeakMap());
-  let elementIds = devElementIdsByMap.get(map);
-  if (!elementIds) {
-    elementIds = /* @__PURE__ */ new WeakMap();
-    devElementIdsByMap.set(map, elementIds);
-  }
-  return elementIds;
-}
-var PopupTriggerMap = class {
-  constructor() {
-    this.idMap = /* @__PURE__ */ new Map();
-  }
-  /**
-   * Adds a trigger element with the given ID.
-   *
-   * Note: The provided element is assumed to not be registered under multiple IDs.
-   */
-  add(id, element) {
-    if (process.env.NODE_ENV !== "production") {
-      const elementIds = getDevElementIds(this);
-      const existingId = elementIds.get(element);
-      if (existingId !== void 0 && existingId !== id) {
-        throw new Error("Base UI: A trigger element cannot be registered under multiple IDs in PopupTriggerMap.");
-      }
-      const previousElement = this.idMap.get(id);
-      if (previousElement !== void 0 && previousElement !== element) {
-        elementIds.delete(previousElement);
-      }
-      elementIds.set(element, id);
-    }
-    this.idMap.set(id, element);
-  }
-  /**
-   * Removes the trigger element with the given ID.
-   */
-  delete(id) {
-    if (process.env.NODE_ENV !== "production") {
-      const element = this.idMap.get(id);
-      if (element !== void 0) {
-        devElementIdsByMap?.get(this)?.delete(element);
-      }
-    }
-    this.idMap.delete(id);
-  }
-  /**
-   * Whether the given element is registered as a trigger.
-   */
-  hasElement(element) {
-    for (const registered of this.idMap.values()) {
-      if (registered === element) {
-        return true;
-      }
-    }
-    return false;
-  }
-  /**
-   * Whether there is a registered trigger element matching the given predicate.
-   */
-  hasMatchingElement(predicate) {
-    for (const element of this.idMap.values()) {
-      if (predicate(element)) {
-        return true;
-      }
-    }
-    return false;
-  }
-  /**
-   * Returns the trigger element associated with the given ID, or undefined if no such element exists.
-   */
-  getById(id) {
-    return this.idMap.get(id);
-  }
-  /**
-   * Returns an iterable of all registered trigger entries, where each entry is a tuple of [id, element].
-   */
-  entries() {
-    return this.idMap.entries();
-  }
-  /**
-   * Returns an iterable of all registered trigger elements.
-   */
-  elements() {
-    return this.idMap.values();
-  }
-  /**
-   * Returns the number of registered trigger elements.
-   */
-  get size() {
-    return this.idMap.size;
-  }
-};
-
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/floating-ui-react/hooks/useFloatingRootContext.mjs
-function useFloatingRootContext(options) {
-  const {
-    open = false,
-    onOpenChange,
-    elements = {}
-  } = options;
-  const floatingId = useId();
-  const nested = useFloatingParentNodeId() != null;
-  if (process.env.NODE_ENV !== "production") {
-    const optionDomReference = elements.reference;
-    if (optionDomReference && !isElement(optionDomReference)) {
-      console.error("Cannot pass a virtual element to the `elements.reference` option,", "as it must be a real DOM element. Use `context.setPositionReference()`", "instead.");
-    }
-  }
-  const store = useRefWithInit(() => new FloatingRootStore({
-    open,
-    transitionStatus: void 0,
-    onOpenChange,
-    referenceElement: elements.reference ?? null,
-    floatingElement: elements.floating ?? null,
-    triggerElements: new PopupTriggerMap(),
-    floatingId,
-    syncOnly: false,
-    nested
-  })).current;
-  useIsoLayoutEffect(() => {
-    const valuesToSync = {
-      open,
-      floatingId
-    };
-    if (elements.reference !== void 0) {
-      valuesToSync.referenceElement = elements.reference;
-      valuesToSync.domReferenceElement = isElement(elements.reference) ? elements.reference : null;
-    }
-    if (elements.floating !== void 0) {
-      valuesToSync.floatingElement = elements.floating;
-    }
-    store.update(valuesToSync);
-  }, [open, floatingId, elements.reference, elements.floating, store]);
-  store.context.onOpenChange = onOpenChange;
-  store.context.nested = nested;
-  return store;
-}
-
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/floating-ui-react/hooks/useFloating.mjs
 function useBaseUIFloating(options) {
-  return useFloatingWithStore(options, options.rootContext);
-}
-function useFloatingWithStore(options, store) {
   const {
     nodeId,
-    externalTree
+    externalTree,
+    rootContext: store
   } = options;
   const referenceElement = store.useState("referenceElement");
   const floatingElement = store.useState("floatingElement");
   const domReferenceElement = store.useState("domReferenceElement");
-  const open = store.useState("open");
+  const open2 = store.useState("open");
   const floatingId = store.useState("floatingId");
-  const [positionReference, setPositionReferenceRaw] = React18__namespace.useState(null);
-  const [localDomReference, setLocalDomReference] = React18__namespace.useState(void 0);
-  const [localFloatingElement, setLocalFloatingElement] = React18__namespace.useState(void 0);
-  const domReferenceRef = React18__namespace.useRef(null);
+  const [positionReference, setPositionReferenceRaw] = React19__namespace.useState(null);
+  const domReferenceRef = React19__namespace.useRef(null);
   const tree = useFloatingTree(externalTree);
-  const storeElements = React18__namespace.useMemo(() => ({
+  const storeElements = React19__namespace.useMemo(() => ({
     reference: referenceElement,
     floating: floatingElement,
     domReference: domReferenceElement
@@ -6822,12 +6950,7 @@ function useFloatingWithStore(options, store) {
       }
     }
   });
-  const localDomReferenceElement = isElement(localDomReference) ? localDomReference : null;
-  const syncedFloatingElement = localFloatingElement === void 0 ? store.state.floatingElement : localFloatingElement;
-  store.useSyncedValue("referenceElement", localDomReference ?? null);
-  store.useSyncedValue("domReferenceElement", localDomReference === void 0 ? domReferenceElement : localDomReferenceElement);
-  store.useSyncedValue("floatingElement", syncedFloatingElement);
-  const setPositionReference = React18__namespace.useCallback((node) => {
+  const setPositionReference = React19__namespace.useCallback((node) => {
     const computedPositionReference = isElement(node) ? {
       getBoundingClientRect: () => node.getBoundingClientRect(),
       getClientRects: () => node.getClientRects(),
@@ -6836,37 +6959,19 @@ function useFloatingWithStore(options, store) {
     setPositionReferenceRaw(computedPositionReference);
     position.refs.setReference(computedPositionReference);
   }, [position.refs]);
-  const setReference = React18__namespace.useCallback((node) => {
-    if (isElement(node) || node === null) {
-      domReferenceRef.current = node;
-      setLocalDomReference(node);
-    }
-    if (isElement(position.refs.reference.current) || position.refs.reference.current === null || // Don't allow setting virtual elements using the old technique back to
-    // `null` to support `positionReference` + an unstable `reference`
-    // callback ref.
-    node !== null && !isElement(node)) {
-      position.refs.setReference(node);
-    }
-  }, [position.refs, setLocalDomReference]);
-  const setFloating = React18__namespace.useCallback((node) => {
-    setLocalFloatingElement(node);
-    position.refs.setFloating(node);
-  }, [position.refs]);
-  const refs = React18__namespace.useMemo(() => ({
+  const refs = React19__namespace.useMemo(() => ({
     ...position.refs,
-    setReference,
-    setFloating,
     setPositionReference,
     domReference: domReferenceRef
-  }), [position.refs, setReference, setFloating, setPositionReference]);
-  const elements = React18__namespace.useMemo(() => ({
+  }), [position.refs, setPositionReference]);
+  const elements = React19__namespace.useMemo(() => ({
     ...position.elements,
     domReference: domReferenceElement
   }), [position.elements, domReferenceElement]);
-  const context = React18__namespace.useMemo(() => ({
+  const context = React19__namespace.useMemo(() => ({
     ...position,
     dataRef: store.context.dataRef,
-    open,
+    open: open2,
     onOpenChange: store.setOpen,
     events: store.context.events,
     floatingId,
@@ -6874,7 +6979,7 @@ function useFloatingWithStore(options, store) {
     elements,
     nodeId,
     rootStore: store
-  }), [position, refs, elements, nodeId, store, open, floatingId]);
+  }), [position, refs, elements, nodeId, store, open2, floatingId]);
   useIsoLayoutEffect(() => {
     if (domReferenceElement) {
       domReferenceRef.current = domReferenceElement;
@@ -6887,7 +6992,7 @@ function useFloatingWithStore(options, store) {
       node.context = context;
     }
   });
-  return React18__namespace.useMemo(() => ({
+  return React19__namespace.useMemo(() => ({
     ...position,
     context,
     refs,
@@ -6895,14 +7000,14 @@ function useFloatingWithStore(options, store) {
     rootStore: store
   }), [position, refs, elements, context, store]);
 }
-var DirectionContext = /* @__PURE__ */ React18__namespace.createContext(void 0);
+var DirectionContext = /* @__PURE__ */ React19__namespace.createContext(void 0);
 if (process.env.NODE_ENV !== "production") DirectionContext.displayName = "DirectionContext";
 function useDirection() {
-  const context = React18__namespace.useContext(DirectionContext);
+  const context = React19__namespace.useContext(DirectionContext);
   return context?.direction ?? "ltr";
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/floating-ui-react/middleware/arrow.mjs
+// node_modules/@base-ui/react/floating-ui-react/middleware/arrow.mjs
 var baseArrow = (options) => ({
   name: "arrow",
   options,
@@ -6918,8 +7023,7 @@ var baseArrow = (options) => ({
     } = state;
     const {
       element,
-      padding = 0,
-      offsetParent = "real"
+      padding = 0
     } = evaluate(options, state) || {};
     if (element == null) {
       return {};
@@ -6938,11 +7042,7 @@ var baseArrow = (options) => ({
     const clientProp = isYAxis ? "clientHeight" : "clientWidth";
     const endDiff = rects.reference[length] + rects.reference[axis] - coords[axis] - rects.floating[length];
     const startDiff = coords[axis] - rects.reference[axis];
-    const arrowOffsetParent = offsetParent === "real" ? await platform3.getOffsetParent?.(element) : elements.floating;
-    let clientSize = elements.floating[clientProp] || rects.floating[length];
-    if (!clientSize || !await platform3.isElement?.(arrowOffsetParent)) {
-      clientSize = elements.floating[clientProp] || rects.floating[length];
-    }
+    const clientSize = elements.floating[clientProp] || rects.floating[length];
     const centerToReference = endDiff / 2 - startDiff / 2;
     const largestPossiblePadding = clientSize / 2 - arrowDimensions[length] / 2 - 1;
     const minPadding = Math.min(paddingObject[minProp], largestPossiblePadding);
@@ -6966,43 +7066,57 @@ var baseArrow = (options) => ({
     };
   }
 });
-var arrow4 = (options, deps) => ({
-  ...baseArrow(options),
-  options: [options, deps]
-});
+var arrow4 = (options, deps) => {
+  const {
+    name,
+    fn
+  } = baseArrow(options);
+  return {
+    name,
+    fn,
+    options: [options, deps]
+  };
+};
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/utils/hideMiddleware.mjs
+// node_modules/@base-ui/react/utils/hideMiddleware.mjs
 var hide4 = {
   name: "hide",
   async fn(state) {
     const {
       width,
-      height,
+      height: height2,
       x,
       y
     } = state.rects.reference;
-    const anchorHidden = width === 0 && height === 0 && x === 0 && y === 0;
+    const anchorHidden2 = width === 0 && height2 === 0 && x === 0 && y === 0;
     const overflow = await state.platform.detectOverflow(state, {
       elementContext: "reference"
     });
-    const referenceHidden = overflow.top - height >= 0 || overflow.right - width >= 0 || overflow.bottom - height >= 0 || overflow.left - width >= 0;
+    const referenceHidden = overflow.top - height2 >= 0 || overflow.right - width >= 0 || overflow.bottom - height2 >= 0 || overflow.left - width >= 0;
     return {
       data: {
-        referenceHidden: referenceHidden || anchorHidden
+        referenceHidden: referenceHidden || anchorHidden2
       }
     };
   }
 };
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/utils/adaptiveOriginConstants.mjs
+// node_modules/@base-ui/react/utils/adaptiveOriginConstants.mjs
 var DEFAULT_SIDES = {
   sideX: "left",
   sideY: "top"
 };
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/internals/useAnchorPositioning.mjs
-var AVAILABLE_WIDTH_VAR = "--available-width";
-var AVAILABLE_HEIGHT_VAR = "--available-height";
+// node_modules/@base-ui/react/utils/CommonPositionerCssVars.mjs
+var availableWidth = "--available-width";
+var availableHeight = "--available-height";
+var anchorWidth = "--anchor-width";
+var anchorHeight = "--anchor-height";
+var transformOrigin = "--transform-origin";
+
+// node_modules/@base-ui/react/internals/useAnchorPositioning.mjs
+var AVAILABLE_WIDTH_VAR = availableWidth;
+var AVAILABLE_HEIGHT_VAR = availableHeight;
 function getLogicalSide(sideParam, renderedSide, isRtl) {
   const isLogicalSideParam = sideParam === "inline-start" || sideParam === "inline-end";
   const logicalRight = isRtl ? "inline-start" : "inline-end";
@@ -7062,10 +7176,6 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
     lazyFlip = false,
     externalTree
   } = params;
-  const [mountSide, setMountSide] = React18__namespace.useState(null);
-  if (!mounted && mountSide !== null) {
-    setMountSide(null);
-  }
   const collisionAvoidanceSide = collisionAvoidance.side || "flip";
   const collisionAvoidanceAlign = collisionAvoidance.align || "flip";
   const collisionAvoidanceFallbackAxisSide = collisionAvoidance.fallbackAxisSide || "end";
@@ -7078,6 +7188,13 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
   const mountedRef = useValueAsRef(mounted);
   const direction = useDirection();
   const isRtl = direction === "rtl";
+  const [mountPlacement, setMountPlacement] = React19__namespace.useState(null);
+  if (!mounted && mountPlacement !== null) {
+    setMountPlacement(null);
+  }
+  const lockAlign = lazyFlip === "placement";
+  const mountSide = mountPlacement ? getSide(mountPlacement) : null;
+  const mountAlign = mountPlacement && lockAlign ? getAlignment(mountPlacement) || "center" : null;
   const side = mountSide || {
     top: "top",
     right: "right",
@@ -7086,7 +7203,8 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
     "inline-end": isRtl ? "left" : "right",
     "inline-start": isRtl ? "right" : "left"
   }[sideParam];
-  const placement = align === "center" ? side : `${side}-${align}`;
+  const placementAlign = mountAlign || align;
+  const placement = placementAlign === "center" ? side : `${side}-${placementAlign}`;
   let collisionPadding = collisionPaddingParam;
   if (typeof collisionPadding === "number") {
     collisionPadding = {
@@ -7112,7 +7230,7 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
     boundary: collisionBoundary === "clipping-ancestors" ? "clippingAncestors" : collisionBoundary,
     padding: collisionPadding
   };
-  const arrowRef = React18__namespace.useRef(null);
+  const arrowRef = React19__namespace.useRef(null);
   const sideOffsetRef = useValueAsRef(sideOffset);
   const alignOffsetRef = useValueAsRef(alignOffset);
   const sideOffsetDep = typeof sideOffset !== "function" ? sideOffset : 0;
@@ -7159,17 +7277,17 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
       }
       const {
         width,
-        height
+        height: height2
       } = arrowRef.current.getBoundingClientRect();
       const sideAxis = getSideAxis(getSide(limitData.placement));
-      const arrowSize = sideAxis === "y" ? width : height;
+      const arrowSize = sideAxis === "y" ? width : height2;
       const offsetAmount = sideAxis === "y" ? collisionPadding.left + collisionPadding.right : collisionPadding.top + collisionPadding.bottom;
       return {
         offset: arrowSize / 2 + offsetAmount / 2
       };
     })
   }, [commonCollisionProps, sticky, shiftCrossAxis, shiftRootBoundary, collisionPadding, collisionAvoidanceAlign]);
-  if (collisionAvoidanceSide === "shift" || collisionAvoidanceAlign === "shift" || align === "center") {
+  if (collisionAvoidanceSide === "shift" || collisionAvoidanceAlign === "shift" || placementAlign === "center") {
     middleware.push(shiftMiddleware, flipMiddleware);
   } else {
     middleware.push(flipMiddleware, shiftMiddleware);
@@ -7180,65 +7298,65 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
       elements: {
         floating
       },
-      availableWidth,
-      availableHeight,
+      availableWidth: availableWidth2,
+      availableHeight: availableHeight2,
       rects
     }) {
       if (!mountedRef.current) {
         return;
       }
       const floatingStyle = floating.style;
-      floatingStyle.setProperty(AVAILABLE_WIDTH_VAR, `${availableWidth}px`);
-      floatingStyle.setProperty(AVAILABLE_HEIGHT_VAR, `${availableHeight}px`);
+      floatingStyle.setProperty(AVAILABLE_WIDTH_VAR, `${availableWidth2}px`);
+      floatingStyle.setProperty(AVAILABLE_HEIGHT_VAR, `${availableHeight2}px`);
       const dpr = getWindow(floating).devicePixelRatio || 1;
       const {
         x: x2,
         y: y2,
         width,
-        height
+        height: height2
       } = rects.reference;
-      const anchorWidth = (Math.round((x2 + width) * dpr) - Math.round(x2 * dpr)) / dpr;
-      const anchorHeight = (Math.round((y2 + height) * dpr) - Math.round(y2 * dpr)) / dpr;
-      floatingStyle.setProperty("--anchor-width", `${anchorWidth}px`);
-      floatingStyle.setProperty("--anchor-height", `${anchorHeight}px`);
+      const anchorWidth2 = (Math.round((x2 + width) * dpr) - Math.round(x2 * dpr)) / dpr;
+      const anchorHeight2 = (Math.round((y2 + height2) * dpr) - Math.round(y2 * dpr)) / dpr;
+      floatingStyle.setProperty(anchorWidth, `${anchorWidth2}px`);
+      floatingStyle.setProperty(anchorHeight, `${anchorHeight2}px`);
     }
   }), arrow4((state) => ({
     // `transform-origin` calculations rely on an element existing. If the arrow hasn't been set,
     // we'll create a fake element.
     element: arrowRef.current || ownerDocument(state.elements.floating).createElement("div"),
-    padding: arrowPadding,
-    offsetParent: "floating"
+    // No padding for the fake arrow: it would displace aligned popups on narrow anchors.
+    padding: arrowRef.current ? arrowPadding : 0
   }), [arrowPadding]), {
     name: "transformOrigin",
     fn(state) {
       const {
-        elements: elements2,
+        elements: {
+          floating
+        },
         middlewareData: middlewareData2,
         placement: renderedPlacement2,
+        platform: platform3,
         rects,
         y: y2
       } = state;
-      const currentRenderedSide = getSide(renderedPlacement2);
-      const currentRenderedAxis = getSideAxis(currentRenderedSide);
+      const renderedSide2 = getSide(renderedPlacement2);
+      const renderedAlign2 = getAlignment(renderedPlacement2);
+      const isVertical = getSideAxis(renderedSide2) === "y";
       const arrowEl = arrowRef.current;
-      const arrowX = middlewareData2.arrow?.x || 0;
-      const arrowY = middlewareData2.arrow?.y || 0;
-      const arrowWidth = arrowEl?.clientWidth || 0;
-      const arrowHeight = arrowEl?.clientHeight || 0;
-      const transformX = arrowX + arrowWidth / 2;
-      const transformY = arrowY + arrowHeight / 2;
-      const shiftY = Math.abs(middlewareData2.shift?.y || 0);
-      const halfAnchorHeight = rects.reference.height / 2;
       const sideOffsetValue = typeof sideOffset === "function" ? sideOffset(getOffsetData(state, sideParam, isRtl)) : sideOffset;
-      const isOverlappingAnchor = shiftY > sideOffsetValue;
-      const adjacentTransformOrigin = {
-        top: `${transformX}px calc(100% + ${sideOffsetValue}px)`,
-        bottom: `${transformX}px ${-sideOffsetValue}px`,
-        left: `calc(100% + ${sideOffsetValue}px) ${transformY}px`,
-        right: `${-sideOffsetValue}px ${transformY}px`
-      }[currentRenderedSide];
-      const overlapTransformOrigin = `${transformX}px ${rects.reference.y + halfAnchorHeight - y2}px`;
-      elements2.floating.style.setProperty("--transform-origin", crossAxisShiftEnabled && currentRenderedAxis === "y" && isOverlappingAnchor ? overlapTransformOrigin : adjacentTransformOrigin);
+      let crossOrigin;
+      if (!arrowEl && renderedAlign2 && Math.abs(isVertical ? middlewareData2.shift?.x || 0 : middlewareData2.shift?.y || 0) <= 1) {
+        crossOrigin = renderedAlign2 === "start" === (isVertical && platform3.isRTL?.(floating) === true) ? "100%" : "0%";
+      } else {
+        const arrowOffset = isVertical ? middlewareData2.arrow?.x || 0 : middlewareData2.arrow?.y || 0;
+        const arrowSize = isVertical ? arrowEl?.clientWidth || 0 : arrowEl?.clientHeight || 0;
+        crossOrigin = `${arrowOffset + arrowSize / 2}px`;
+      }
+      let sideOrigin = renderedSide2 === "top" || renderedSide2 === "left" ? `calc(100% + ${sideOffsetValue}px)` : `${-sideOffsetValue}px`;
+      if (crossAxisShiftEnabled && isVertical && Math.abs(middlewareData2.shift?.y || 0) > sideOffsetValue) {
+        sideOrigin = `${rects.reference.y + rects.reference.height / 2 - y2}px`;
+      }
+      floating.style.setProperty(transformOrigin, isVertical ? `${crossOrigin} ${sideOrigin}` : `${sideOrigin} ${crossOrigin}`);
       return {};
     }
   }, hide4, adaptiveOrigin);
@@ -7252,7 +7370,8 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
       });
     }
   }, [mounted, floatingRootContext]);
-  const autoUpdateOptions = React18__namespace.useMemo(() => ({
+  const autoUpdateOptions = React19__namespace.useMemo(() => ({
+    ancestorScroll: !disableAnchorTracking,
     elementResize: !disableAnchorTracking && typeof ResizeObserver !== "undefined",
     layoutShift: !disableAnchorTracking && typeof IntersectionObserver !== "undefined"
   }), [disableAnchorTracking]);
@@ -7282,7 +7401,7 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
     sideY
   } = middlewareData.adaptiveOrigin || DEFAULT_SIDES;
   const resolvedPosition = isPositioned ? positionMethod : "fixed";
-  const floatingStyles = React18__namespace.useMemo(() => {
+  const floatingStyles = React19__namespace.useMemo(() => {
     let base;
     if (!isPositioned) {
       base = {
@@ -7309,7 +7428,7 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
     }
     return base;
   }, [adaptiveOrigin, resolvedPosition, sideX, x, sideY, y, originalFloatingStyles, isPositioned]);
-  const registeredPositionReferenceRef = React18__namespace.useRef(null);
+  const registeredPositionReferenceRef = React19__namespace.useRef(null);
   useIsoLayoutEffect(() => {
     if (!mounted) {
       return;
@@ -7323,7 +7442,7 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
       registeredPositionReferenceRef.current = finalAnchor;
     }
   }, [mounted, refs, anchorDep, anchorValueRef]);
-  React18__namespace.useEffect(() => {
+  React19__namespace.useEffect(() => {
     if (!mounted) {
       return;
     }
@@ -7336,7 +7455,7 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
       registeredPositionReferenceRef.current = anchorValue.current;
     }
   }, [mounted, refs, anchorDep, anchorValueRef]);
-  React18__namespace.useEffect(() => {
+  React19__namespace.useEffect(() => {
     if (keepMounted && mounted && elements.reference && elements.floating) {
       return autoUpdate(elements.reference, elements.floating, update2, autoUpdateOptions);
     }
@@ -7345,19 +7464,19 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
   const renderedSide = getSide(renderedPlacement);
   const logicalRenderedSide = getLogicalSide(sideParam, renderedSide, isRtl);
   const renderedAlign = getAlignment(renderedPlacement) || "center";
-  const anchorHidden = Boolean(middlewareData.hide?.referenceHidden);
+  const anchorHidden2 = Boolean(middlewareData.hide?.referenceHidden);
   useIsoLayoutEffect(() => {
-    if (lazyFlip && mounted && isPositioned && renderedSide !== side) {
-      setMountSide(renderedSide);
+    if (lazyFlip && mounted && isPositioned && (renderedSide !== side || lockAlign && renderedAlign !== placementAlign)) {
+      setMountPlacement(renderedPlacement);
     }
-  }, [lazyFlip, mounted, isPositioned, renderedSide, side]);
-  const arrowStyles = React18__namespace.useMemo(() => ({
+  }, [lazyFlip, lockAlign, mounted, isPositioned, renderedPlacement, renderedSide, renderedAlign, side, placementAlign]);
+  const arrowStyles = React19__namespace.useMemo(() => ({
     position: "absolute",
     top: middlewareData.arrow?.y,
     left: middlewareData.arrow?.x
   }), [middlewareData.arrow]);
   const arrowUncentered = middlewareData.arrow?.centerOffset !== 0;
-  return React18__namespace.useMemo(() => ({
+  return React19__namespace.useMemo(() => ({
     positionerStyles: floatingStyles,
     arrowStyles,
     arrowRef,
@@ -7365,69 +7484,32 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
     side: logicalRenderedSide,
     align: renderedAlign,
     physicalSide: renderedSide,
-    anchorHidden,
+    anchorHidden: anchorHidden2,
     refs,
     context,
     isPositioned,
     update: update2
-  }), [floatingStyles, arrowStyles, arrowRef, arrowUncentered, logicalRenderedSide, renderedAlign, renderedSide, anchorHidden, refs, context, isPositioned, update2]);
+  }), [floatingStyles, arrowStyles, arrowRef, arrowUncentered, logicalRenderedSide, renderedAlign, renderedSide, anchorHidden2, refs, context, isPositioned, update2]);
 }
 function isRef(param) {
   return param != null && "current" in param;
 }
-var ToastPositionerContext = /* @__PURE__ */ React18__namespace.createContext(void 0);
+var ToastPositionerContext = /* @__PURE__ */ React19__namespace.createContext(void 0);
 if (process.env.NODE_ENV !== "production") ToastPositionerContext.displayName = "ToastPositionerContext";
 function useToastPositionerContext() {
-  const context = React18__namespace.useContext(ToastPositionerContext);
+  const context = React19__namespace.useContext(ToastPositionerContext);
   if (context === void 0) {
     throw new Error(process.env.NODE_ENV !== "production" ? "Base UI: ToastPositionerContext is missing. ToastPositioner parts must be placed within <Toast.Positioner>." : formatErrorMessage_default(84));
   }
   return context;
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/utils/popupStateMapping.mjs
-((function(CommonPopupDataAttributes2) {
-  CommonPopupDataAttributes2["open"] = "data-open";
-  CommonPopupDataAttributes2["closed"] = "data-closed";
-  CommonPopupDataAttributes2[CommonPopupDataAttributes2["startingStyle"] = TransitionStatusDataAttributes.startingStyle] = "startingStyle";
-  CommonPopupDataAttributes2[CommonPopupDataAttributes2["endingStyle"] = TransitionStatusDataAttributes.endingStyle] = "endingStyle";
-  CommonPopupDataAttributes2["anchorHidden"] = "data-anchor-hidden";
-  CommonPopupDataAttributes2["side"] = "data-side";
-  CommonPopupDataAttributes2["align"] = "data-align";
-  return CommonPopupDataAttributes2;
-}))({});
-var POPUP_OPEN_HOOK = {
-  "data-open": ""
-};
-var POPUP_CLOSED_HOOK = {
-  "data-closed": ""
-};
-var ANCHOR_HIDDEN_HOOK = {
-  "data-anchor-hidden": ""
-};
-var popupStateMapping = {
-  open(value) {
-    if (value) {
-      return POPUP_OPEN_HOOK;
-    }
-    return POPUP_CLOSED_HOOK;
-  },
-  anchorHidden(value) {
-    if (value) {
-      return ANCHOR_HIDDEN_HOOK;
-    }
-    return null;
-  }
-};
-({
-  ...popupStateMapping});
-
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/internals/getDisabledMountTransitionStyles.mjs
+// node_modules/@base-ui/react/internals/getDisabledMountTransitionStyles.mjs
 function getDisabledMountTransitionStyles(transitionStatus) {
   return transitionStatus === "starting" ? DISABLED_TRANSITIONS_STYLE : EMPTY_OBJECT;
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/utils/usePositioner.mjs
+// node_modules/@base-ui/react/utils/usePositioner.mjs
 function usePositioner(componentProps, state, {
   styles,
   transitionStatus,
@@ -7453,7 +7535,7 @@ function usePositioner(componentProps, state, {
     stateAttributesMapping: popupStateMapping
   });
 }
-var ToastPositioner = /* @__PURE__ */ React18__namespace.forwardRef(function ToastPositioner2(componentProps, forwardedRef) {
+var ToastPositioner = /* @__PURE__ */ React19__namespace.forwardRef(function ToastPositioner2(componentProps, forwardedRef) {
   const {
     toast,
     ...props
@@ -7478,7 +7560,7 @@ var ToastPositioner = /* @__PURE__ */ React18__namespace.forwardRef(function Toa
     style,
     ...elementProps
   } = props;
-  const [positionerElement, setPositionerElement] = React18__namespace.useState(null);
+  const [positionerElement, setPositionerElement] = React19__namespace.useState(null);
   const domIndex = store.useState("toastIndex", toast.id);
   const visibleIndex = store.useState("toastVisibleIndex", toast.id);
   const anchor = isElement(anchorProp) ? anchorProp : null;
@@ -7515,7 +7597,7 @@ var ToastPositioner = /* @__PURE__ */ React18__namespace.forwardRef(function Toa
   const element = usePositioner(componentProps, state, {
     styles: {
       ...positioning.positionerStyles,
-      ["--toast-index"]: toast.transitionStatus === "ending" ? domIndex : visibleIndex
+      [index]: toast.transitionStatus === "ending" ? domIndex : visibleIndex
     },
     transitionStatus: toast.transitionStatus,
     props: elementProps,
@@ -7527,7 +7609,7 @@ var ToastPositioner = /* @__PURE__ */ React18__namespace.forwardRef(function Toa
   });
 });
 if (process.env.NODE_ENV !== "production") ToastPositioner.displayName = "ToastPositioner";
-var ToastArrow = /* @__PURE__ */ React18__namespace.forwardRef(function ToastArrow2(componentProps, forwardedRef) {
+var ToastArrow = /* @__PURE__ */ React19__namespace.forwardRef(function ToastArrow2(componentProps, forwardedRef) {
   const {
     className,
     render,
@@ -7559,7 +7641,7 @@ if (process.env.NODE_ENV !== "production") ToastArrow.displayName = "ToastArrow"
 function useToastManager() {
   const store = useToastProviderContext();
   const toasts = store.useState("toasts");
-  return React18__namespace.useMemo(() => ({
+  return React19__namespace.useMemo(() => ({
     toasts,
     add: store.addToast,
     close: store.closeToast,
@@ -7568,7 +7650,7 @@ function useToastManager() {
   }), [toasts, store]);
 }
 
-// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/toast/createToastManager.mjs
+// node_modules/@base-ui/react/toast/createToastManager.mjs
 function createToastManager() {
   const listeners = /* @__PURE__ */ new Set();
   function emit(data) {
@@ -7608,8 +7690,8 @@ function createToastManager() {
       emit({
         action: "update",
         options: {
-          ...updates,
-          id
+          id,
+          updates
         }
       });
     },
@@ -7790,7 +7872,7 @@ var MotionToastViewport = () => {
     );
   }) }) }) });
 };
-var SnackbarContext = React18.createContext(null);
+var SnackbarContext = React19.createContext(null);
 var SEVERITY_TITLES = {
   success: "Success",
   error: "Something went wrong",
@@ -7800,7 +7882,7 @@ var SEVERITY_TITLES = {
 var SnackbarBridge = ({ children }) => {
   const { t } = reactI18next.useTranslation();
   const toastManager = index_parts_exports.useToastManager();
-  const show = React18.useCallback(
+  const show = React19.useCallback(
     (severity) => (message, params) => {
       toastManager.add({
         title: SEVERITY_TITLES[severity],
@@ -7811,7 +7893,7 @@ var SnackbarBridge = ({ children }) => {
     },
     [t, toastManager]
   );
-  const value = React18.useMemo(
+  const value = React19.useMemo(
     () => ({
       showSuccess: show("success"),
       showError: show("error"),
@@ -7827,7 +7909,7 @@ var SnackbarBridge = ({ children }) => {
 };
 var SnackbarProvider = ({ children }) => /* @__PURE__ */ jsxRuntime.jsx(index_parts_exports.Provider, { limit: 5, timeout: SNACKBAR_AUTOHIDE_MS, children: /* @__PURE__ */ jsxRuntime.jsx(SnackbarBridge, { children }) });
 var useSnackbar = () => {
-  const ctx = React18.useContext(SnackbarContext);
+  const ctx = React19.useContext(SnackbarContext);
   if (!ctx) {
     throw new Error("useSnackbar must be used within a SnackbarProvider");
   }
@@ -7837,7 +7919,7 @@ var DEFAULT_CURRENCY = "LKR";
 function useLocaleFormat() {
   const { i18n: i18n2 } = reactI18next.useTranslation();
   const locale = i18n2.language;
-  return React18.useMemo(
+  return React19.useMemo(
     () => ({
       formatDate: (value) => new Intl.DateTimeFormat(locale, DATE_FORMATS.DATE).format(new Date(value)),
       formatDateTime: (value) => new Intl.DateTimeFormat(locale, DATE_FORMATS.DATE_TIME).format(new Date(value)),
@@ -7878,31 +7960,31 @@ var presetRange = (preset) => {
 };
 function useDateRange(initialPreset = DateRangePreset.NEXT_14) {
   const initial2 = presetRange(initialPreset);
-  const [from, setFrom] = React18.useState(initial2.from);
-  const [to, setTo] = React18.useState(initial2.to);
-  const [preset, setPreset] = React18.useState(initialPreset);
-  const setRange = React18.useCallback((nextFrom, nextTo) => {
+  const [from, setFrom] = React19.useState(initial2.from);
+  const [to, setTo] = React19.useState(initial2.to);
+  const [preset, setPreset] = React19.useState(initialPreset);
+  const setRange = React19.useCallback((nextFrom, nextTo) => {
     setFrom(nextFrom);
     setTo(nextTo);
     setPreset(null);
   }, []);
-  const applyPreset = React18.useCallback((next) => {
+  const applyPreset = React19.useCallback((next) => {
     const range = presetRange(next);
     setFrom(range.from);
     setTo(range.to);
     setPreset(next);
   }, []);
-  const days = React18.useMemo(() => differenceInDays(from, to) + 1, [from, to]);
+  const days = React19.useMemo(() => differenceInDays(from, to) + 1, [from, to]);
   return { from, to, setRange, preset, applyPreset, days };
 }
 function useContextMenu() {
-  const [contextMenu, setContextMenu] = React18.useState({
+  const [contextMenu, setContextMenu] = React19.useState({
     open: false,
     x: 0,
     y: 0,
     items: []
   });
-  const openContextMenu = React18.useCallback(
+  const openContextMenu = React19.useCallback(
     (event, items) => {
       event.preventDefault();
       event.stopPropagation();
@@ -7915,7 +7997,7 @@ function useContextMenu() {
     },
     []
   );
-  const closeContextMenu = React18.useCallback(() => {
+  const closeContextMenu = React19.useCallback(() => {
     setContextMenu((prev) => prev.open ? { ...prev, open: false } : prev);
   }, []);
   return {
@@ -8058,12 +8140,12 @@ var OverlayRoot = styles.styled("div")(({ theme }) => ({
   backdropFilter: "blur(4px)",
   zIndex: theme.zIndex.modal
 }));
-function LoadingOverlay({ open, label, size: size4 = 48 }) {
-  if (!open) return null;
+var LoadingOverlay = ({ open: open2, label, size: size4 = 48 }) => {
+  if (!open2) return null;
   return /* @__PURE__ */ jsxRuntime.jsx(OverlayRoot, { children: /* @__PURE__ */ jsxRuntime.jsx(NamiosLoader, { size: size4, label }) });
-}
-function AppDialog({
-  open,
+};
+var AppDialog = ({
+  open: open2,
   titleKey,
   titleParams,
   size: size4 = "sm",
@@ -8072,7 +8154,7 @@ function AppDialog({
   disableClose = false,
   onClose,
   children
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   const handleClose = (_event, reason) => {
     if (disableClose && (reason === "backdropClick" || reason === "escapeKeyDown")) return;
@@ -8081,7 +8163,7 @@ function AppDialog({
   return /* @__PURE__ */ jsxRuntime.jsxs(
     Dialog__default.default,
     {
-      open,
+      open: open2,
       onClose: handleClose,
       fullWidth: true,
       maxWidth: size4,
@@ -8090,7 +8172,7 @@ function AppDialog({
         /* @__PURE__ */ jsxRuntime.jsxs(DialogTitle__default.default, { sx: { display: "flex", alignItems: "center", justifyContent: "space-between" }, children: [
           t(titleKey, titleParams),
           /* @__PURE__ */ jsxRuntime.jsx(
-            IconButton8__default.default,
+            IconButton9__default.default,
             {
               "aria-label": t("common:actions.close"),
               onClick: onClose,
@@ -8108,9 +8190,9 @@ function AppDialog({
       ]
     }
   );
-}
-function FormDialog({
-  open,
+};
+var FormDialog = ({
+  open: open2,
   titleKey,
   titleParams,
   size: size4 = "sm",
@@ -8122,7 +8204,7 @@ function FormDialog({
   submitKey = "common:actions.save",
   cancelKey = "common:actions.cancel",
   children
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   const form = reactHookForm.useForm({
     resolver: zod.zodResolver(schema),
@@ -8130,16 +8212,16 @@ function FormDialog({
     mode: "onBlur"
   });
   const { reset } = form;
-  React18.useEffect(() => {
-    if (open) reset(defaultValues);
-  }, [open, defaultValues, reset]);
+  React19.useEffect(() => {
+    if (open2) reset(defaultValues);
+  }, [open2, defaultValues, reset]);
   const handleSubmit = form.handleSubmit(async (values) => {
     await onSubmit(values);
   });
   return /* @__PURE__ */ jsxRuntime.jsx(
     AppDialog,
     {
-      open,
+      open: open2,
       titleKey,
       titleParams,
       size: size4,
@@ -8174,7 +8256,7 @@ function FormDialog({
       )
     }
   );
-}
+};
 var AnimatedInbox = ({
   size: size4 = 48,
   color = "currentColor",
@@ -8317,6 +8399,891 @@ var EmptyState = ({
     }
   );
 };
+function cn(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+var idCounter = 0;
+function generateId2(prefix = "mui") {
+  idCounter += 1;
+  return `${prefix}-${idCounter}`;
+}
+function forwardRef17(component) {
+  return React19__namespace.default.forwardRef(component);
+}
+function isInteractive(element) {
+  const tag = element.tagName.toLowerCase();
+  return tag === "button" || tag === "a" || tag === "input" || tag === "select" || tag === "textarea" || element.getAttribute("tabindex") !== null;
+}
+function clamp3(value, min2, max2) {
+  return Math.min(Math.max(value, min2), max2);
+}
+function mapRange(value, inMin, inMax, outMin, outMax) {
+  return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+}
+
+// node_modules/@namios/motionui-react/dist/esm/components/Accordion/Accordion.js
+var AccordionSummary = ({ expandIcon, children, className, ...props }) => {
+  return jsxRuntime.jsxs("button", { type: "button", className: cn("mui-accordion__summary", className), ...props, children: [jsxRuntime.jsx("div", { className: "mui-accordion__summary-content", children }), jsxRuntime.jsx("div", { className: "mui-accordion__expand-icon", children: expandIcon || jsxRuntime.jsx("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", children: jsxRuntime.jsx("polyline", { points: "6 9 12 15 18 9" }) }) })] });
+};
+var AccordionDetails = ({ children, className, ...props }) => {
+  return jsxRuntime.jsx("div", { className: cn("mui-accordion__details", className), ...props, children: jsxRuntime.jsx("div", { className: "mui-accordion__details-inner", children }) });
+};
+var Accordion = ({ expanded: controlledExpanded, defaultExpanded = false, onChange, className, children, ...props }) => {
+  const [uncontrolledExpanded, setUncontrolledExpanded] = React19.useState(defaultExpanded);
+  const isExpanded = controlledExpanded !== void 0 ? controlledExpanded : uncontrolledExpanded;
+  const toggle = () => {
+    const next = !isExpanded;
+    if (controlledExpanded === void 0) {
+      setUncontrolledExpanded(next);
+    }
+    onChange === null || onChange === void 0 ? void 0 : onChange(next);
+  };
+  return jsxRuntime.jsx("div", { className: cn("mui-accordion", isExpanded && "mui-accordion--expanded", className), ...props, children: React19__namespace.default.Children.map(children, (child) => {
+    if (!React19__namespace.default.isValidElement(child))
+      return child;
+    if (child.type === AccordionSummary) {
+      return React19__namespace.default.cloneElement(child, {
+        onClick: toggle,
+        role: "button",
+        "aria-expanded": isExpanded
+      });
+    }
+    return child;
+  }) });
+};
+var AlertTitle = ({ className, children, ...props }) => {
+  return jsxRuntime.jsx("h5", { className: cn("mui-alert__title", className), ...props, children });
+};
+var defaultIcons = {
+  success: jsxRuntime.jsxs("svg", { className: "mui-alert__icon-svg", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: [jsxRuntime.jsx("path", { d: "M22 11.08V12a10 10 0 1 1-5.93-9.14" }), jsxRuntime.jsx("polyline", { points: "22 4 12 14.01 9 11.01" })] }),
+  info: jsxRuntime.jsxs("svg", { className: "mui-alert__icon-svg", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: [jsxRuntime.jsx("circle", { cx: "12", cy: "12", r: "10" }), jsxRuntime.jsx("line", { x1: "12", y1: "16", x2: "12", y2: "12" }), jsxRuntime.jsx("line", { x1: "12", y1: "8", x2: "12.01", y2: "8" })] }),
+  warning: jsxRuntime.jsxs("svg", { className: "mui-alert__icon-svg", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: [jsxRuntime.jsx("path", { d: "m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" }), jsxRuntime.jsx("line", { x1: "12", y1: "9", x2: "12", y2: "13" }), jsxRuntime.jsx("line", { x1: "12", y1: "17", x2: "12.01", y2: "17" })] }),
+  error: jsxRuntime.jsxs("svg", { className: "mui-alert__icon-svg", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: [jsxRuntime.jsx("circle", { cx: "12", cy: "12", r: "10" }), jsxRuntime.jsx("line", { x1: "15", y1: "9", x2: "9", y2: "15" }), jsxRuntime.jsx("line", { x1: "9", y1: "9", x2: "15", y2: "15" })] })
+};
+var Alert = React19__namespace.default.forwardRef(({ severity = "success", variant = "standard", icon, action, onClose, closeText = "Close", className, children, ...props }, ref) => {
+  const renderIcon = () => {
+    if (icon === false)
+      return null;
+    if (icon !== void 0)
+      return jsxRuntime.jsx("div", { className: "mui-alert__icon", children: icon });
+    return jsxRuntime.jsx("div", { className: "mui-alert__icon", children: defaultIcons[severity] });
+  };
+  return jsxRuntime.jsxs("div", { ref, role: "alert", className: cn("mui-alert", `mui-alert--${severity}`, `mui-alert--${variant}`, className), ...props, children: [renderIcon(), jsxRuntime.jsx("div", { className: "mui-alert__message", children }), action && jsxRuntime.jsx("div", { className: "mui-alert__action", children: action }), onClose && !action && jsxRuntime.jsx("div", { className: "mui-alert__action", children: jsxRuntime.jsx("button", { type: "button", className: "mui-alert__close-btn", "aria-label": closeText, onClick: onClose, children: jsxRuntime.jsxs("svg", { viewBox: "0 0 24 24", width: "18", height: "18", stroke: "currentColor", strokeWidth: "2", fill: "none", children: [jsxRuntime.jsx("line", { x1: "18", y1: "6", x2: "6", y2: "18" }), jsxRuntime.jsx("line", { x1: "6", y1: "6", x2: "18", y2: "18" })] }) }) })] });
+});
+Alert.displayName = "Alert";
+var Avatar = React19__namespace.default.forwardRef(({ src, alt, size: size4 = "medium", variant = "circular", children, className, ...props }, ref) => {
+  const sizeStyle = typeof size4 === "number" ? { width: size4, height: size4 } : {};
+  return jsxRuntime.jsx("div", { ref, className: cn("mui-avatar", `mui-avatar--${variant}`, typeof size4 === "string" && `mui-avatar--${size4}`, className), style: sizeStyle, ...props, children: src ? jsxRuntime.jsx("img", { src, alt: alt || "", className: "mui-avatar__img" }) : children || (alt ? alt.charAt(0).toUpperCase() : "?") });
+});
+Avatar.displayName = "Avatar";
+var AvatarGroup = React19__namespace.default.forwardRef(({ max: max2 = 5, spacing = "medium", children, className, ...props }, ref) => {
+  const childArray = React19__namespace.default.Children.toArray(children);
+  const excess = childArray.length - max2;
+  const visible = excess > 0 ? childArray.slice(0, max2) : childArray;
+  return jsxRuntime.jsxs("div", { ref, className: cn("mui-avatar-group", `mui-avatar-group--${spacing}`, className), ...props, children: [visible, excess > 0 && jsxRuntime.jsxs("div", { className: "mui-avatar mui-avatar--circular mui-avatar--medium mui-avatar-group__excess", children: ["+", excess] })] });
+});
+AvatarGroup.displayName = "AvatarGroup";
+var Badge = React19__namespace.default.forwardRef(({ badgeContent, color = "error", variant = "standard", invisible = false, max: max2 = 99, overlap = "rectangular", anchorOrigin = { vertical: "top", horizontal: "right" }, children, className, ...props }, ref) => {
+  const displayContent = variant === "dot" ? null : typeof badgeContent === "number" && badgeContent > max2 ? `${max2}+` : badgeContent;
+  const shouldHide = invisible || variant === "standard" && badgeContent == null;
+  return jsxRuntime.jsxs("span", { ref, className: cn("mui-badge", className), ...props, children: [children, !shouldHide && jsxRuntime.jsx("span", { className: cn("mui-badge__badge", `mui-badge--${color}`, `mui-badge--${variant}`, `mui-badge--${overlap}`, `mui-badge--${anchorOrigin.vertical}-${anchorOrigin.horizontal}`), children: displayContent })] });
+});
+Badge.displayName = "Badge";
+var Box4 = React19__namespace.default.forwardRef(({ component = "div", display, flexDirection, alignItems, justifyContent, gap, padding, margin, width, height: height2, minWidth, maxWidth, minHeight, maxHeight, overflow, position, className, children, style, ...props }, ref) => {
+  const inlineStyle = {
+    ...style,
+    display,
+    flexDirection,
+    alignItems,
+    justifyContent,
+    gap: typeof gap === "number" ? `${gap * 0.25}rem` : gap,
+    padding: typeof padding === "number" ? `${padding * 0.25}rem` : padding,
+    margin: typeof margin === "number" ? `${margin * 0.25}rem` : margin,
+    width,
+    height: height2,
+    minWidth,
+    maxWidth,
+    minHeight,
+    maxHeight,
+    overflow,
+    position
+  };
+  Object.keys(inlineStyle).forEach((key) => {
+    if (inlineStyle[key] === void 0)
+      delete inlineStyle[key];
+  });
+  return React19__namespace.default.createElement(component, { ref, className: cn("mui-box", className), style: inlineStyle, ...props }, children);
+});
+Box4.displayName = "Box";
+var Button3 = React19__namespace.default.forwardRef(({ variant = "contained", color = "primary", size: size4 = "medium", fullWidth = false, disabled: disabled2 = false, loading = false, disableRipple = false, disableElevation = false, startIcon, endIcon, rounded = false, className, children, onClick, href, ...props }, ref) => {
+  const buttonRef = React19.useRef(null);
+  const [ripples, setRipples] = React19.useState([]);
+  const handleClick = (e) => {
+    if (disabled2 || loading)
+      return;
+    if (!disableRipple) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const id = Date.now();
+      setRipples((prev) => [...prev, { x, y, id }]);
+      setTimeout(() => {
+        setRipples((prev) => prev.filter((r) => r.id !== id));
+      }, 600);
+    }
+    onClick === null || onClick === void 0 ? void 0 : onClick(e);
+  };
+  const classes = cn("mui-button", `mui-button--${variant}`, `mui-button--${color}`, `mui-button--${size4}`, fullWidth && "mui-button--full-width", disabled2 && "mui-button--disabled", loading && "mui-button--loading", disableElevation && "mui-button--flat", rounded && "mui-button--rounded", className);
+  const content = jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [loading && jsxRuntime.jsx("span", { className: "mui-button__spinner", "aria-hidden": "true", children: jsxRuntime.jsx("svg", { viewBox: "0 0 24 24", className: "mui-button__spinner-svg", children: jsxRuntime.jsx("circle", { cx: "12", cy: "12", r: "10", fill: "none", strokeWidth: "3" }) }) }), startIcon && jsxRuntime.jsx("span", { className: "mui-button__start-icon", children: startIcon }), jsxRuntime.jsx("span", { className: cn("mui-button__label", loading && "mui-button__label--hidden"), children }), endIcon && jsxRuntime.jsx("span", { className: "mui-button__end-icon", children: endIcon }), !disableRipple && ripples.map((ripple) => jsxRuntime.jsx("span", { className: "mui-button__ripple", style: { left: ripple.x, top: ripple.y } }, ripple.id))] });
+  if (href && !disabled2) {
+    return jsxRuntime.jsx("a", { className: classes, href, role: "button", tabIndex: 0, children: content });
+  }
+  return jsxRuntime.jsx("button", { ref: ref || buttonRef, className: classes, disabled: disabled2 || loading, onClick: handleClick, "aria-busy": loading, "aria-disabled": disabled2 || loading, ...props, children: content });
+});
+Button3.displayName = "Button";
+var Card = React19__namespace.default.forwardRef(({ elevation = 1, variant = "elevation", interactive = false, className, children, ...props }, ref) => jsxRuntime.jsx("div", { ref, className: cn("mui-card", variant === "elevation" && `mui-card--elevation-${elevation}`, variant === "outlined" && "mui-card--outlined", interactive && "mui-card--interactive", className), ...props, children }));
+Card.displayName = "Card";
+var CardHeader = ({ avatar, title, subheader, action, className, ...props }) => jsxRuntime.jsxs("div", { className: cn("mui-card__header", className), ...props, children: [avatar && jsxRuntime.jsx("div", { className: "mui-card__header-avatar", children: avatar }), jsxRuntime.jsxs("div", { className: "mui-card__header-content", children: [title && jsxRuntime.jsx("div", { className: "mui-card__header-title", children: title }), subheader && jsxRuntime.jsx("div", { className: "mui-card__header-subheader", children: subheader })] }), action && jsxRuntime.jsx("div", { className: "mui-card__header-action", children: action })] });
+var CardContent = ({ className, children, ...props }) => jsxRuntime.jsx("div", { className: cn("mui-card__content", className), ...props, children });
+var CardMedia = ({ component = "img", className, ...props }) => React19__namespace.default.createElement(component, { className: cn("mui-card__media", className), ...props });
+var CardActions = ({ disableSpacing, className, children, ...props }) => jsxRuntime.jsx("div", { className: cn("mui-card__actions", !disableSpacing && "mui-card__actions--spaced", className), ...props, children });
+var Checkbox = React19__namespace.default.forwardRef(({ color = "primary", size: size4 = "medium", label, indeterminate, className, id, ...props }, ref) => {
+  const inputId = id || `checkbox-${Math.random().toString(36).slice(2)}`;
+  const inputRef = React19__namespace.default.useRef(null);
+  React19__namespace.default.useEffect(() => {
+    const el = (ref === null || ref === void 0 ? void 0 : ref.current) || inputRef.current;
+    if (el)
+      el.indeterminate = !!indeterminate;
+  }, [indeterminate, ref]);
+  return jsxRuntime.jsxs("label", { className: cn("mui-checkbox", `mui-checkbox--${color}`, `mui-checkbox--${size4}`, props.disabled && "mui-checkbox--disabled", className), htmlFor: inputId, children: [jsxRuntime.jsxs("span", { className: "mui-checkbox__box", children: [jsxRuntime.jsx("input", { ref: ref || inputRef, type: "checkbox", id: inputId, className: "mui-checkbox__input", ...props }), jsxRuntime.jsx("svg", { className: "mui-checkbox__icon", viewBox: "0 0 24 24", "aria-hidden": "true", children: indeterminate ? jsxRuntime.jsx("path", { d: "M6 12h12", fill: "none", stroke: "currentColor", strokeWidth: "2.5", strokeLinecap: "round" }) : jsxRuntime.jsx("path", { d: "M5 13l4 4L19 7", fill: "none", stroke: "currentColor", strokeWidth: "2.5", strokeLinecap: "round", strokeLinejoin: "round" }) })] }), label && jsxRuntime.jsx("span", { className: "mui-checkbox__label", children: label })] });
+});
+Checkbox.displayName = "Checkbox";
+var Chip = React19__namespace.default.forwardRef(({ label, variant = "filled", color = "primary", size: size4 = "medium", icon, avatar, deleteIcon, onDelete, clickable, disabled: disabled2, className, onClick, ...props }, ref) => {
+  const isClickable = clickable || !!onClick;
+  return jsxRuntime.jsxs("div", { ref, className: cn("mui-chip", `mui-chip--${variant}`, `mui-chip--${color}`, `mui-chip--${size4}`, isClickable && "mui-chip--clickable", disabled2 && "mui-chip--disabled", className), role: isClickable ? "button" : void 0, tabIndex: isClickable && !disabled2 ? 0 : void 0, onClick: !disabled2 ? onClick : void 0, ...props, children: [avatar && jsxRuntime.jsx("span", { className: "mui-chip__avatar", children: avatar }), icon && !avatar && jsxRuntime.jsx("span", { className: "mui-chip__icon", children: icon }), jsxRuntime.jsx("span", { className: "mui-chip__label", children: label }), onDelete && jsxRuntime.jsx("button", { className: "mui-chip__delete", onClick: (e) => {
+    e.stopPropagation();
+    onDelete();
+  }, "aria-label": `Remove ${label}`, tabIndex: -1, children: deleteIcon || jsxRuntime.jsx("svg", { viewBox: "0 0 24 24", width: "18", height: "18", children: jsxRuntime.jsx("path", { d: "M18 6L6 18M6 6l12 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", fill: "none" }) }) })] });
+});
+Chip.displayName = "Chip";
+var Container = React19__namespace.default.forwardRef(({ maxWidth = "lg", fixed = false, disableGutters = false, className, children, ...props }, ref) => {
+  const classes = cn("mui-container", maxWidth && `mui-container--${maxWidth}`, fixed && "mui-container--fixed", !disableGutters && "mui-container--gutters", className);
+  return jsxRuntime.jsx("div", { ref, className: classes, ...props, children });
+});
+Container.displayName = "Container";
+var DialogTitle3 = ({ className, children, ...props }) => jsxRuntime.jsx("h2", { className: cn("mui-dialog__title", className), ...props, children });
+var DialogContent3 = ({ className, children, ...props }) => jsxRuntime.jsx("div", { className: cn("mui-dialog__content", className), ...props, children });
+var DialogActions3 = ({ className, children, ...props }) => jsxRuntime.jsx("div", { className: cn("mui-dialog__actions", className), ...props, children });
+var Dialog3 = ({ open: open2, onClose, maxWidth = "sm", fullWidth = true, className, children, ...props }) => {
+  React19.useEffect(() => {
+    if (!open2)
+      return;
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && onClose) {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [open2, onClose]);
+  if (!open2)
+    return null;
+  return jsxRuntime.jsxs("div", { className: "mui-dialog__root", children: [jsxRuntime.jsx("div", { className: "mui-dialog__backdrop", onClick: onClose }), jsxRuntime.jsx("div", { className: "mui-dialog__container", children: jsxRuntime.jsx("div", { role: "dialog", "aria-modal": "true", className: cn("mui-dialog__paper", maxWidth && `mui-dialog--max-${maxWidth}`, fullWidth && "mui-dialog--full-width", className), ...props, children }) })] });
+};
+var Divider = React19__namespace.default.forwardRef(({ orientation = "horizontal", variant = "fullWidth", textAlign = "center", light = false, className, children, ...props }, ref) => {
+  const hasContent = !!children;
+  const classes = cn("mui-divider", `mui-divider--${orientation}`, `mui-divider--${variant}`, light && "mui-divider--light", hasContent && "mui-divider--with-content", hasContent && `mui-divider--text-${textAlign}`, className);
+  if (hasContent) {
+    return jsxRuntime.jsx("div", { ref, className: classes, role: "separator", ...props, children: jsxRuntime.jsx("span", { className: "mui-divider__content", children }) });
+  }
+  return jsxRuntime.jsx("hr", { ref, className: classes, role: "separator", ...props });
+});
+Divider.displayName = "Divider";
+var Drawer = ({ open: open2, onClose, anchor = "bottom", className, children, ...props }) => {
+  React19.useEffect(() => {
+    if (!open2)
+      return;
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && onClose) {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [open2, onClose]);
+  if (!open2)
+    return null;
+  return jsxRuntime.jsxs("div", { className: "mui-drawer-root", children: [jsxRuntime.jsx("div", { className: "mui-drawer-backdrop", onClick: onClose }), jsxRuntime.jsxs("div", { role: "dialog", "aria-modal": "true", className: cn("mui-drawer-paper", `mui-drawer-paper--${anchor}`, className), ...props, children: [anchor === "bottom" && jsxRuntime.jsx("div", { className: "mui-drawer-handle-bar", children: jsxRuntime.jsx("div", { className: "mui-drawer-handle" }) }), jsxRuntime.jsx("div", { className: "mui-drawer-content", children })] })] });
+};
+var Grid = React19__namespace.default.forwardRef(({ container, item, spacing = 2, columns = 12, xs, sm, md, lg, xl, direction, alignItems, justifyContent, wrap = "wrap", component = "div", className, children, style, ...props }, ref) => {
+  const classes = cn("mui-grid", container && "mui-grid--container", item && "mui-grid--item", typeof xs === "number" && `mui-grid--xs-${xs}`, xs === true && "mui-grid--xs-auto", typeof sm === "number" && `mui-grid--sm-${sm}`, typeof md === "number" && `mui-grid--md-${md}`, typeof lg === "number" && `mui-grid--lg-${lg}`, typeof xl === "number" && `mui-grid--xl-${xl}`, className);
+  const inlineStyle = {
+    ...style,
+    ...container ? {
+      "--grid-spacing": `${spacing * 0.25}rem`,
+      "--grid-columns": columns,
+      flexDirection: direction,
+      alignItems,
+      justifyContent,
+      flexWrap: wrap
+    } : {}
+  };
+  return React19__namespace.default.createElement(component, { ref, className: classes, style: inlineStyle, ...props }, children);
+});
+Grid.displayName = "Grid";
+var IconButton3 = React19__namespace.default.forwardRef(({ color = "default", size: size4 = "medium", edge = false, className, disabled: disabled2 = false, children, ...props }, ref) => {
+  return jsxRuntime.jsxs("button", { ref, type: "button", disabled: disabled2, className: cn("mui-icon-button", `mui-icon-button--${color}`, `mui-icon-button--${size4}`, edge && `mui-icon-button--edge-${edge}`, className), ...props, children: [jsxRuntime.jsx("span", { className: "mui-icon-button__content", children }), jsxRuntime.jsx("span", { className: "mui-icon-button__ripple" })] });
+});
+IconButton3.displayName = "IconButton";
+var OtpInput = ({ length = 6, value: controlledValue, defaultValue = "", onChange, onComplete, disabled: disabled2 = false, error: error2 = false, autoFocus = false, className }) => {
+  const [internalValue, setInternalValue] = React19.useState((controlledValue !== null && controlledValue !== void 0 ? controlledValue : defaultValue).padEnd(length, " ").slice(0, length));
+  const inputsRef = React19.useRef([]);
+  const digits = (controlledValue !== null && controlledValue !== void 0 ? controlledValue : internalValue).split("");
+  React19.useEffect(() => {
+    if (autoFocus && inputsRef.current[0]) {
+      inputsRef.current[0].focus();
+    }
+  }, [autoFocus]);
+  const updateValue = (newDigits) => {
+    const code = newDigits.join("").trimEnd();
+    if (controlledValue === void 0) {
+      setInternalValue(newDigits.join(""));
+    }
+    onChange === null || onChange === void 0 ? void 0 : onChange(code);
+    if (code.length === length) {
+      onComplete === null || onComplete === void 0 ? void 0 : onComplete(code);
+    }
+  };
+  const handleKeyDown = (index3, e) => {
+    var _a, _b, _c;
+    if (e.key === "Backspace") {
+      e.preventDefault();
+      const next = [...digits];
+      if (next[index3] && next[index3] !== " ") {
+        next[index3] = " ";
+        updateValue(next);
+      } else if (index3 > 0) {
+        next[index3 - 1] = " ";
+        updateValue(next);
+        (_a = inputsRef.current[index3 - 1]) === null || _a === void 0 ? void 0 : _a.focus();
+      }
+    } else if (e.key === "ArrowLeft" && index3 > 0) {
+      (_b = inputsRef.current[index3 - 1]) === null || _b === void 0 ? void 0 : _b.focus();
+    } else if (e.key === "ArrowRight" && index3 < length - 1) {
+      (_c = inputsRef.current[index3 + 1]) === null || _c === void 0 ? void 0 : _c.focus();
+    }
+  };
+  const handleChange = (index3, e) => {
+    var _a;
+    const inputVal = e.target.value.replace(/\D/g, "");
+    if (!inputVal)
+      return;
+    const char = inputVal.slice(-1);
+    const next = [...digits];
+    next[index3] = char;
+    updateValue(next);
+    if (index3 < length - 1) {
+      (_a = inputsRef.current[index3 + 1]) === null || _a === void 0 ? void 0 : _a.focus();
+    }
+  };
+  const handlePaste = (e) => {
+    var _a;
+    e.preventDefault();
+    const pasted = e.clipboardData.getData("text").replace(/\D/g, "").slice(0, length);
+    if (!pasted)
+      return;
+    const next = pasted.padEnd(length, " ").split("");
+    updateValue(next);
+    const focusIndex = Math.min(pasted.length, length - 1);
+    (_a = inputsRef.current[focusIndex]) === null || _a === void 0 ? void 0 : _a.focus();
+  };
+  return jsxRuntime.jsx("div", { className: cn("mui-otp-input", error2 && "mui-otp-input--error", disabled2 && "mui-otp-input--disabled", className), onPaste: handlePaste, children: Array.from({ length }).map((_, i) => jsxRuntime.jsx("input", { ref: (el) => inputsRef.current[i] = el, type: "text", inputMode: "numeric", pattern: "[0-9]*", maxLength: 1, value: digits[i] === " " ? "" : digits[i] || "", disabled: disabled2, onKeyDown: (e) => handleKeyDown(i, e), onChange: (e) => handleChange(i, e), onFocus: (e) => e.target.select(), className: "mui-otp-input__slot", "aria-label": `Digit ${i + 1} of ${length}` }, i)) });
+};
+var Paper2 = React19__namespace.default.forwardRef(({ elevation = 1, variant = "elevation", square = false, className, children, ...props }, ref) => {
+  const classes = cn("mui-paper", variant === "elevation" && `mui-paper--elevation-${elevation}`, variant === "outlined" && "mui-paper--outlined", !square && "mui-paper--rounded", className);
+  return jsxRuntime.jsx("div", { ref, className: classes, ...props, children });
+});
+Paper2.displayName = "Paper";
+var CircularProgress3 = React19__namespace.default.forwardRef(({ size: size4 = 40, thickness = 3.6, value = 0, variant = "indeterminate", color = "primary", className, style, ...props }, ref) => {
+  const numericSize = typeof size4 === "number" ? size4 : 40;
+  const radius = (numericSize - thickness) / 2;
+  const circumference = 2 * Math.PI * radius;
+  const strokeDashoffset = variant === "determinate" ? circumference - circumference * Math.min(100, Math.max(0, value)) / 100 : void 0;
+  return jsxRuntime.jsx("div", { ref, role: "progressbar", "aria-valuenow": variant === "determinate" ? Math.round(value) : void 0, className: cn("mui-circular-progress", `mui-circular-progress--${variant}`, `mui-circular-progress--${color}`, className), style: {
+    width: size4,
+    height: size4,
+    ...style
+  }, ...props, children: jsxRuntime.jsx("svg", { className: "mui-circular-progress__svg", viewBox: `0 0 ${numericSize} ${numericSize}`, children: jsxRuntime.jsx("circle", { className: "mui-circular-progress__circle", cx: numericSize / 2, cy: numericSize / 2, r: radius, fill: "none", strokeWidth: thickness, strokeDasharray: variant === "determinate" ? circumference : void 0, strokeDashoffset }) }) });
+});
+CircularProgress3.displayName = "CircularProgress";
+var LinearProgress = React19__namespace.default.forwardRef(({ value = 0, variant = "indeterminate", color = "primary", className, style, ...props }, ref) => {
+  return jsxRuntime.jsx("div", { ref, role: "progressbar", "aria-valuenow": variant === "determinate" ? Math.round(value) : void 0, className: cn("mui-linear-progress", `mui-linear-progress--${variant}`, `mui-linear-progress--${color}`, className), style, ...props, children: variant === "determinate" ? jsxRuntime.jsx("div", { className: "mui-linear-progress__bar", style: { width: `${Math.min(100, Math.max(0, value))}%` } }) : jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { className: "mui-linear-progress__bar mui-linear-progress__bar--1" }), jsxRuntime.jsx("div", { className: "mui-linear-progress__bar mui-linear-progress__bar--2" })] }) });
+});
+LinearProgress.displayName = "LinearProgress";
+var Radio = React19__namespace.default.forwardRef(({ color = "primary", size: size4 = "medium", label, className, ...props }, ref) => jsxRuntime.jsxs("label", { className: cn("mui-radio", `mui-radio--${color}`, `mui-radio--${size4}`, props.disabled && "mui-radio--disabled", className), children: [jsxRuntime.jsxs("span", { className: "mui-radio__circle", children: [jsxRuntime.jsx("input", { ref, type: "radio", className: "mui-radio__input", ...props }), jsxRuntime.jsx("span", { className: "mui-radio__dot" })] }), label && jsxRuntime.jsx("span", { className: "mui-radio__label", children: label })] }));
+Radio.displayName = "Radio";
+var RadioGroup = React19__namespace.default.forwardRef(({ name, value, defaultValue, onChange, row = false, children, className, ...props }, ref) => jsxRuntime.jsx("div", { ref, role: "radiogroup", className: cn("mui-radio-group", row && "mui-radio-group--row", className), ...props, children: React19__namespace.default.Children.map(children, (child) => {
+  if (React19__namespace.default.isValidElement(child)) {
+    return React19__namespace.default.cloneElement(child, { name, onChange, ...value !== void 0 ? { checked: child.props.value === value } : {} });
+  }
+  return child;
+}) }));
+RadioGroup.displayName = "RadioGroup";
+var Rating = ({ value: controlledValue, defaultValue = 0, max: max2 = 5, onChange, readOnly = false, disabled: disabled2 = false, size: size4 = "medium", className }) => {
+  const [internalValue, setInternalValue] = React19.useState(defaultValue);
+  const [hoverValue, setHoverValue] = React19.useState(null);
+  const activeValue = hoverValue !== null ? hoverValue : controlledValue !== null && controlledValue !== void 0 ? controlledValue : internalValue;
+  const handleClick = (rating) => {
+    if (readOnly || disabled2)
+      return;
+    if (controlledValue === void 0) {
+      setInternalValue(rating);
+    }
+    onChange === null || onChange === void 0 ? void 0 : onChange(rating);
+  };
+  return jsxRuntime.jsx("div", { className: cn("mui-rating", `mui-rating--${size4}`, readOnly && "mui-rating--readonly", disabled2 && "mui-rating--disabled", className), onMouseLeave: () => setHoverValue(null), role: "radiogroup", children: Array.from({ length: max2 }).map((_, i) => {
+    const starNumber = i + 1;
+    const isFilled = starNumber <= activeValue;
+    return jsxRuntime.jsx("button", { type: "button", disabled: disabled2 || readOnly, className: cn("mui-rating__star", isFilled && "mui-rating__star--filled"), onClick: () => handleClick(starNumber), onMouseEnter: () => !readOnly && !disabled2 && setHoverValue(starNumber), "aria-label": `${starNumber} Star${starNumber > 1 ? "s" : ""}`, children: jsxRuntime.jsx("svg", { viewBox: "0 0 24 24", className: "mui-rating__star-icon", fill: isFilled ? "currentColor" : "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: jsxRuntime.jsx("polygon", { points: "12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" }) }) }, i);
+  }) });
+};
+var Select = React19__namespace.default.forwardRef(({ label, options = [], variant = "outlined", fullWidth = false, helperText, error: error2 = false, className, children, value, defaultValue, onChange, disabled: disabled2, ...props }, ref) => {
+  const [isFocused, setIsFocused] = React19.useState(false);
+  return jsxRuntime.jsxs("div", { className: cn("mui-select-field", `mui-select-field--${variant}`, fullWidth && "mui-select-field--full-width", error2 && "mui-select-field--error", disabled2 && "mui-select-field--disabled", isFocused && "mui-select-field--focused", className), children: [label && jsxRuntime.jsx("label", { className: "mui-select-field__label", children: label }), jsxRuntime.jsxs("div", { className: "mui-select-field__wrapper", children: [jsxRuntime.jsx("select", { ref, value, defaultValue, disabled: disabled2, onChange, onFocus: () => setIsFocused(true), onBlur: () => setIsFocused(false), className: "mui-select-field__input", ...props, children: options.length > 0 ? options.map((opt) => jsxRuntime.jsx("option", { value: opt.value, disabled: opt.disabled, children: opt.label }, opt.value)) : children }), jsxRuntime.jsx("div", { className: "mui-select-field__arrow", children: jsxRuntime.jsx("svg", { viewBox: "0 0 24 24", width: "20", height: "20", fill: "currentColor", children: jsxRuntime.jsx("path", { d: "M7 10l5 5 5-5z" }) }) })] }), helperText && jsxRuntime.jsx("p", { className: "mui-select-field__helper", children: helperText })] });
+});
+Select.displayName = "Select";
+var Skeleton = React19__namespace.default.forwardRef(({ variant = "text", animation = "wave", width, height: height2, className, style, ...props }, ref) => {
+  return jsxRuntime.jsx("div", { ref, className: cn("mui-skeleton", `mui-skeleton--${variant}`, animation && `mui-skeleton--${animation}`, className), style: {
+    width,
+    height: height2,
+    ...style
+  }, ...props });
+});
+Skeleton.displayName = "Skeleton";
+var Slider = React19__namespace.default.forwardRef(({ value: propValue, defaultValue = 50, min: min2 = 0, max: max2 = 100, step = 1, color = "primary", size: size4 = "medium", disabled: disabled2 = false, marks = false, valueLabelDisplay = "auto", onChange, onChangeCommitted, className, ...props }, ref) => {
+  const [internalValue, setInternalValue] = React19.useState(defaultValue);
+  const [dragging, setDragging] = React19.useState(false);
+  const [hovering, setHovering] = React19.useState(false);
+  const trackRef = React19.useRef(null);
+  const val = propValue !== void 0 ? propValue : internalValue;
+  const percent = (val - min2) / (max2 - min2) * 100;
+  const updateValue = React19.useCallback((clientX) => {
+    if (!trackRef.current || disabled2)
+      return;
+    const rect = trackRef.current.getBoundingClientRect();
+    const ratio = clamp3((clientX - rect.left) / rect.width, 0, 1);
+    const rawValue = min2 + ratio * (max2 - min2);
+    const stepped = Math.round(rawValue / step) * step;
+    const clamped = clamp3(stepped, min2, max2);
+    setInternalValue(clamped);
+    onChange === null || onChange === void 0 ? void 0 : onChange(clamped);
+  }, [min2, max2, step, disabled2, onChange]);
+  const handleMouseDown = (e) => {
+    if (disabled2)
+      return;
+    setDragging(true);
+    updateValue(e.clientX);
+    const handleMouseMove = (ev) => updateValue(ev.clientX);
+    const handleMouseUp = (ev) => {
+      setDragging(false);
+      updateValue(ev.clientX);
+      onChangeCommitted === null || onChangeCommitted === void 0 ? void 0 : onChangeCommitted(val);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", handleMouseUp);
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseup", handleMouseUp);
+  };
+  const showLabel = valueLabelDisplay === "on" || valueLabelDisplay === "auto" && (dragging || hovering);
+  return jsxRuntime.jsxs("div", { ref, className: cn("mui-slider", `mui-slider--${color}`, `mui-slider--${size4}`, disabled2 && "mui-slider--disabled", dragging && "mui-slider--active", className), onMouseDown: handleMouseDown, role: "slider", "aria-valuemin": min2, "aria-valuemax": max2, "aria-valuenow": val, "aria-disabled": disabled2, tabIndex: disabled2 ? -1 : 0, ...props, children: [jsxRuntime.jsxs("div", { ref: trackRef, className: "mui-slider__track-container", children: [jsxRuntime.jsx("div", { className: "mui-slider__rail" }), jsxRuntime.jsx("div", { className: "mui-slider__track", style: { width: `${percent}%` } }), jsxRuntime.jsx("div", { className: "mui-slider__thumb", style: { left: `${percent}%` }, onMouseEnter: () => setHovering(true), onMouseLeave: () => setHovering(false), children: showLabel && jsxRuntime.jsx("span", { className: "mui-slider__value-label", children: Math.round(val) }) })] }), marks && Array.isArray(marks) && jsxRuntime.jsx("div", { className: "mui-slider__marks", children: marks.map((m) => jsxRuntime.jsx("span", { className: "mui-slider__mark", style: { left: `${(m.value - min2) / (max2 - min2) * 100}%` }, children: m.label && jsxRuntime.jsx("span", { className: "mui-slider__mark-label", children: m.label }) }, m.value)) })] });
+});
+Slider.displayName = "Slider";
+var Stack2 = React19__namespace.default.forwardRef(({ direction = "column", spacing = 2, alignItems, justifyContent, flexWrap, divider, component = "div", className, children, style, ...props }, ref) => {
+  const classes = cn("mui-stack", `mui-stack--${direction}`, className);
+  const inlineStyle = {
+    ...style,
+    gap: `${spacing * 0.25}rem`,
+    alignItems,
+    justifyContent,
+    flexWrap
+  };
+  Object.keys(inlineStyle).forEach((k) => {
+    if (inlineStyle[k] === void 0)
+      delete inlineStyle[k];
+  });
+  let content = children;
+  if (divider && React19__namespace.default.Children.count(children) > 1) {
+    const childArray = React19__namespace.default.Children.toArray(children);
+    const withDividers = [];
+    childArray.forEach((child, i) => {
+      withDividers.push(child);
+      if (i < childArray.length - 1) {
+        withDividers.push(React19__namespace.default.cloneElement(divider, { key: `divider-${i}` }));
+      }
+    });
+    content = withDividers;
+  }
+  return React19__namespace.default.createElement(component, { ref, className: classes, style: inlineStyle, ...props }, content);
+});
+Stack2.displayName = "Stack";
+var Switch = React19__namespace.default.forwardRef(({ color = "primary", size: size4 = "medium", label, labelPlacement = "end", className, ...props }, ref) => {
+  return jsxRuntime.jsxs("label", { className: cn("mui-switch", `mui-switch--${color}`, `mui-switch--${size4}`, `mui-switch--label-${labelPlacement}`, props.disabled && "mui-switch--disabled", className), children: [label && labelPlacement === "start" && jsxRuntime.jsx("span", { className: "mui-switch__label", children: label }), jsxRuntime.jsxs("span", { className: "mui-switch__track", children: [jsxRuntime.jsx("input", { ref, type: "checkbox", className: "mui-switch__input", role: "switch", ...props }), jsxRuntime.jsx("span", { className: "mui-switch__thumb" })] }), label && labelPlacement === "end" && jsxRuntime.jsx("span", { className: "mui-switch__label", children: label })] });
+});
+Switch.displayName = "Switch";
+var Tab = ({ value, label, icon, selected = false, className, children, ...props }) => {
+  return jsxRuntime.jsxs("button", { type: "button", role: "tab", "aria-selected": selected, className: cn("mui-tab", selected && "mui-tab--selected", className), ...props, children: [icon && jsxRuntime.jsx("span", { className: "mui-tab__icon", children: icon }), jsxRuntime.jsx("span", { className: "mui-tab__label", children: label !== null && label !== void 0 ? label : children })] });
+};
+var Tabs = ({ value, onChange, items, variant = "line", fullWidth = false, className, children }) => {
+  return jsxRuntime.jsx("div", { role: "tablist", className: cn("mui-tabs", `mui-tabs--${variant}`, fullWidth && "mui-tabs--full-width", className), children: items ? items.map((item) => jsxRuntime.jsx(Tab, { value: item.id, label: item.label, icon: item.icon, disabled: item.disabled, selected: value === item.id, onClick: () => onChange(item.id) }, item.id)) : React19__namespace.default.Children.map(children, (child) => {
+    if (!React19__namespace.default.isValidElement(child))
+      return child;
+    const isSelected = child.props.value === value;
+    return React19__namespace.default.cloneElement(child, {
+      selected: isSelected,
+      onClick: () => onChange(child.props.value)
+    });
+  }) });
+};
+var TextField = React19__namespace.default.forwardRef(({ variant = "outlined", color = "primary", size: size4 = "medium", label, helperText, error: error2 = false, fullWidth = false, multiline = false, rows = 4, startAdornment, endAdornment, inputRef, className, disabled: disabled2, value, defaultValue, onChange, onFocus, onBlur, id: propId, ...props }, ref) => {
+  const autoId = React19.useId();
+  const id = propId || autoId;
+  const [focused, setFocused] = React19.useState(false);
+  const [hasValue, setHasValue] = React19.useState(!!(value || defaultValue));
+  const internalRef = React19.useRef(null);
+  const handleFocus = (e) => {
+    setFocused(true);
+    onFocus === null || onFocus === void 0 ? void 0 : onFocus(e);
+  };
+  const handleBlur = (e) => {
+    setFocused(false);
+    onBlur === null || onBlur === void 0 ? void 0 : onBlur(e);
+  };
+  const handleChange = (e) => {
+    setHasValue(!!e.target.value);
+    onChange === null || onChange === void 0 ? void 0 : onChange(e);
+  };
+  const isFloating = focused || (value !== void 0 ? Boolean(value) : hasValue) || Boolean(defaultValue) || !!startAdornment;
+  const wrapperClasses = cn("mui-textfield", `mui-textfield--${variant}`, `mui-textfield--${size4}`, `mui-textfield--${error2 ? "error" : color}`, focused && "mui-textfield--focused", error2 && "mui-textfield--error", disabled2 && "mui-textfield--disabled", fullWidth && "mui-textfield--full-width", isFloating && "mui-textfield--floating", className);
+  const inputProps = {
+    ref: inputRef || internalRef,
+    id,
+    className: "mui-textfield__input",
+    disabled: disabled2,
+    value,
+    defaultValue,
+    onChange: handleChange,
+    onFocus: handleFocus,
+    onBlur: handleBlur,
+    "aria-invalid": error2,
+    "aria-describedby": helperText ? `${id}-helper` : void 0,
+    ...props
+  };
+  return jsxRuntime.jsxs("div", { ref, className: wrapperClasses, children: [jsxRuntime.jsxs("div", { className: "mui-textfield__wrapper", children: [startAdornment && jsxRuntime.jsx("span", { className: "mui-textfield__adornment mui-textfield__adornment--start", children: startAdornment }), multiline ? jsxRuntime.jsx("textarea", { ...inputProps, rows, className: "mui-textfield__input mui-textfield__textarea" }) : jsxRuntime.jsx("input", { ...inputProps }), label && jsxRuntime.jsx("label", { htmlFor: id, className: "mui-textfield__label", children: label }), endAdornment && jsxRuntime.jsx("span", { className: "mui-textfield__adornment mui-textfield__adornment--end", children: endAdornment }), variant === "filled" && jsxRuntime.jsx("div", { className: "mui-textfield__fill-bg" }), variant === "standard" && jsxRuntime.jsx("div", { className: "mui-textfield__underline" })] }), helperText && jsxRuntime.jsx("p", { id: `${id}-helper`, className: cn("mui-textfield__helper", error2 && "mui-textfield__helper--error"), children: helperText })] });
+});
+TextField.displayName = "TextField";
+var Tooltip = ({ title, children, placement = "top", arrow: arrow5 = true, enterDelay = 150, leaveDelay = 100, className }) => {
+  const [open2, setOpen] = React19.useState(false);
+  const enterTimer = React19.useRef(null);
+  const leaveTimer = React19.useRef(null);
+  const handleMouseEnter = () => {
+    if (leaveTimer.current)
+      clearTimeout(leaveTimer.current);
+    enterTimer.current = window.setTimeout(() => {
+      setOpen(true);
+    }, enterDelay);
+  };
+  const handleMouseLeave = () => {
+    if (enterTimer.current)
+      clearTimeout(enterTimer.current);
+    leaveTimer.current = window.setTimeout(() => {
+      setOpen(false);
+    }, leaveDelay);
+  };
+  React19.useEffect(() => {
+    return () => {
+      if (enterTimer.current)
+        clearTimeout(enterTimer.current);
+      if (leaveTimer.current)
+        clearTimeout(leaveTimer.current);
+    };
+  }, []);
+  return jsxRuntime.jsxs("div", { className: "mui-tooltip-wrapper", onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave, onFocus: handleMouseEnter, onBlur: handleMouseLeave, children: [children, open2 && title && jsxRuntime.jsxs("div", { role: "tooltip", className: cn("mui-tooltip", `mui-tooltip--${placement}`, arrow5 && "mui-tooltip--arrow", className), children: [title, arrow5 && jsxRuntime.jsx("span", { className: "mui-tooltip__arrow" })] })] });
+};
+var variantMapping = {
+  h1: "h1",
+  h2: "h2",
+  h3: "h3",
+  h4: "h4",
+  h5: "h5",
+  h6: "h6",
+  subtitle1: "h6",
+  subtitle2: "h6",
+  body1: "p",
+  body2: "p",
+  caption: "span",
+  overline: "span",
+  inherit: "span"
+};
+var Typography3 = React19__namespace.default.forwardRef(({ variant = "body1", component, align = "inherit", color = "inherit", gutterBottom = false, noWrap = false, paragraph = false, className, children, ...props }, ref) => {
+  const Component = component || (paragraph ? "p" : variantMapping[variant] || "span");
+  const classes = cn("mui-typography", `mui-typography--${variant}`, align !== "inherit" && `mui-typography--align-${align}`, `mui-typography--color-${color}`, gutterBottom && "mui-typography--gutter-bottom", noWrap && "mui-typography--no-wrap", className);
+  return React19__namespace.default.createElement(Component, { ref, className: classes, ...props }, children);
+});
+Typography3.displayName = "Typography";
+
+// node_modules/@namios/motionui-react/dist/esm/utils/colorEngine.js
+function hexToRgb(color) {
+  if (!color)
+    return { r: 99, g: 102, b: 241 };
+  const clean = color.trim().replace("#", "");
+  if (clean.length === 3) {
+    const r = parseInt(clean[0] + clean[0], 16);
+    const g = parseInt(clean[1] + clean[1], 16);
+    const b = parseInt(clean[2] + clean[2], 16);
+    return { r, g, b };
+  }
+  if (clean.length >= 6) {
+    const num = parseInt(clean.slice(0, 6), 16);
+    return {
+      r: num >> 16 & 255,
+      g: num >> 8 & 255,
+      b: num & 255
+    };
+  }
+  const rgbMatch = color.match(/\d+/g);
+  if (rgbMatch && rgbMatch.length >= 3) {
+    return {
+      r: parseInt(rgbMatch[0], 10),
+      g: parseInt(rgbMatch[1], 10),
+      b: parseInt(rgbMatch[2], 10)
+    };
+  }
+  return { r: 99, g: 102, b: 241 };
+}
+function rgbToHex({ r, g, b }) {
+  const clamp4 = (n) => Math.min(255, Math.max(0, Math.round(n)));
+  const toHex = (n) => clamp4(n).toString(16).padStart(2, "0");
+  return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+}
+function getRelativeLuminance(r, g, b) {
+  const [rl, gl, bl] = [r, g, b].map((val) => {
+    const s = val / 255;
+    return s <= 0.04045 ? s / 12.92 : Math.pow((s + 0.055) / 1.055, 2.4);
+  });
+  return 0.2126 * rl + 0.7152 * gl + 0.0722 * bl;
+}
+function getContrastRatio(lumA, lumB) {
+  const lighter = Math.max(lumA, lumB);
+  const darker = Math.min(lumA, lumB);
+  return (lighter + 0.05) / (darker + 0.05);
+}
+function getContrastText(backgroundColor, darkTextColor = "#0f172a", lightTextColor = "#ffffff") {
+  const { r, g, b } = hexToRgb(backgroundColor);
+  const bgLum = getRelativeLuminance(r, g, b);
+  return bgLum >= 0.5 ? darkTextColor : lightTextColor;
+}
+function adjustLightness(hex, percent) {
+  const { r, g, b } = hexToRgb(hex);
+  const factor = percent / 100;
+  let nr, ng, nb;
+  if (percent > 0) {
+    nr = r + (255 - r) * factor;
+    ng = g + (255 - g) * factor;
+    nb = b + (255 - b) * factor;
+  } else {
+    const darkFactor = 1 + factor;
+    nr = r * darkFactor;
+    ng = g * darkFactor;
+    nb = b * darkFactor;
+  }
+  return rgbToHex({ r: nr, g: ng, b: nb });
+}
+function buildColorRole(color) {
+  const rgb = hexToRgb(color);
+  const main = rgbToHex(rgb);
+  const lum = getRelativeLuminance(rgb.r, rgb.g, rgb.b);
+  const isLight = lum >= 0.5;
+  const contrastText = getContrastText(main);
+  return {
+    main,
+    light: adjustLightness(main, isLight ? -15 : 20),
+    dark: adjustLightness(main, isLight ? -30 : -20),
+    contrastText,
+    rgb: `${rgb.r}, ${rgb.g}, ${rgb.b}`,
+    luminance: lum,
+    isLight
+  };
+}
+function injectThemeTokens(tokens, target = typeof document !== "undefined" ? document.documentElement : null) {
+  if (!target)
+    return;
+  const applyRole = (prefix, colorHex) => {
+    if (!colorHex)
+      return;
+    const role = buildColorRole(colorHex);
+    target.style.setProperty(`--mui-color-${prefix}`, role.main);
+    target.style.setProperty(`--mui-color-${prefix}-main`, role.main);
+    target.style.setProperty(`--mui-color-${prefix}-light`, role.light);
+    target.style.setProperty(`--mui-color-${prefix}-dark`, role.dark);
+    target.style.setProperty(`--mui-color-${prefix}-contrast`, role.contrastText);
+    target.style.setProperty(`--mui-color-${prefix}-rgb`, role.rgb);
+  };
+  if (tokens.primary)
+    applyRole("primary", tokens.primary);
+  if (tokens.secondary)
+    applyRole("secondary", tokens.secondary);
+  if (tokens.success)
+    applyRole("success", tokens.success);
+  if (tokens.warning)
+    applyRole("warning", tokens.warning);
+  if (tokens.error)
+    applyRole("error", tokens.error);
+  if (tokens.info)
+    applyRole("info", tokens.info);
+  if (tokens.mode) {
+    target.setAttribute("data-theme", tokens.mode);
+  }
+  if (tokens.fontFamily) {
+    target.style.setProperty("--mui-font-family", tokens.fontFamily);
+  }
+  if (tokens.borderRadius !== void 0) {
+    target.style.setProperty("--mui-radius-md", `${tokens.borderRadius}px`);
+  }
+}
+
+// node_modules/@namios/motionui-react/dist/esm/theme/ThemeProvider.js
+function resolvePaletteColor(input, fallback) {
+  if (!input)
+    return fallback;
+  if (typeof input === "string") {
+    const role = buildColorRole(input);
+    return {
+      main: role.main,
+      light: role.light,
+      dark: role.dark,
+      contrastText: role.contrastText,
+      rgb: role.rgb
+    };
+  }
+  if (input.main && (!input.contrastText || !input.light || !input.dark)) {
+    const role = buildColorRole(input.main);
+    return {
+      main: input.main,
+      light: input.light || role.light,
+      dark: input.dark || role.dark,
+      contrastText: input.contrastText || role.contrastText,
+      rgb: input.rgb || role.rgb
+    };
+  }
+  return { ...fallback, ...input };
+}
+var defaultPalette = {
+  primary: {
+    main: "#6366f1",
+    light: "#818cf8",
+    dark: "#4f46e5",
+    contrastText: "#ffffff",
+    rgb: "99, 102, 241"
+  },
+  secondary: {
+    main: "#ec4899",
+    light: "#f472b6",
+    dark: "#db2777",
+    contrastText: "#ffffff",
+    rgb: "236, 72, 153"
+  },
+  success: {
+    main: "#10b981",
+    light: "#34d399",
+    dark: "#059669",
+    contrastText: "#ffffff",
+    rgb: "16, 185, 129"
+  },
+  warning: {
+    main: "#f59e0b",
+    light: "#fbbf24",
+    dark: "#d97706",
+    contrastText: "#0f172a",
+    // WCAG auto-contrast on amber
+    rgb: "245, 158, 11"
+  },
+  error: {
+    main: "#ef4444",
+    light: "#f87171",
+    dark: "#dc2626",
+    contrastText: "#ffffff",
+    rgb: "239, 68, 68"
+  },
+  info: {
+    main: "#3b82f6",
+    light: "#60a5fa",
+    dark: "#2563eb",
+    contrastText: "#ffffff",
+    rgb: "59, 130, 246"
+  }
+};
+function createTheme2(options = {}) {
+  var _a;
+  const p = options.palette;
+  const palette = {
+    mode: (_a = p === null || p === void 0 ? void 0 : p.mode) !== null && _a !== void 0 ? _a : "light",
+    primary: resolvePaletteColor(p === null || p === void 0 ? void 0 : p.primary, defaultPalette.primary),
+    secondary: resolvePaletteColor(p === null || p === void 0 ? void 0 : p.secondary, defaultPalette.secondary),
+    success: resolvePaletteColor(p === null || p === void 0 ? void 0 : p.success, defaultPalette.success),
+    warning: resolvePaletteColor(p === null || p === void 0 ? void 0 : p.warning, defaultPalette.warning),
+    error: resolvePaletteColor(p === null || p === void 0 ? void 0 : p.error, defaultPalette.error),
+    info: resolvePaletteColor(p === null || p === void 0 ? void 0 : p.info, defaultPalette.info)
+  };
+  const typography2 = {
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    fontFamilyMono: "'JetBrains Mono', 'Fira Code', monospace",
+    fontSize: 16,
+    ...options.typography
+  };
+  const shape = {
+    borderRadius: 8,
+    ...options.shape
+  };
+  return {
+    palette,
+    typography: typography2,
+    shape,
+    spacing: (factor) => `${factor * 0.25}rem`
+  };
+}
+var defaultTheme = createTheme2();
+var ThemeContext = React19.createContext({
+  theme: defaultTheme,
+  mode: "light",
+  toggleMode: () => {
+  },
+  setMode: () => {
+  },
+  setDynamicBrand: () => {
+  }
+});
+function useTheme3() {
+  return React19.useContext(ThemeContext);
+}
+var ThemeProvider2 = ({ theme: initialTheme = defaultTheme, children, defaultMode = "light" }) => {
+  const [activeTheme, setActiveTheme] = React19.useState(initialTheme);
+  const [mode, setModeState] = React19.useState(() => {
+    if (defaultMode === "auto") {
+      if (typeof window !== "undefined") {
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      return "light";
+    }
+    return defaultMode;
+  });
+  React19.useEffect(() => {
+    setActiveTheme(initialTheme);
+  }, [initialTheme]);
+  React19.useEffect(() => {
+    if (defaultMode !== "auto" || typeof window === "undefined")
+      return;
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handler = (e) => {
+      setModeState(e.matches ? "dark" : "light");
+    };
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, [defaultMode]);
+  React19.useEffect(() => {
+    if (typeof document === "undefined")
+      return;
+    document.documentElement.setAttribute("data-theme", mode);
+  }, [mode]);
+  React19.useEffect(() => {
+    if (typeof document === "undefined")
+      return;
+    injectThemeTokens({
+      primary: activeTheme.palette.primary.main,
+      secondary: activeTheme.palette.secondary.main,
+      success: activeTheme.palette.success.main,
+      warning: activeTheme.palette.warning.main,
+      error: activeTheme.palette.error.main,
+      info: activeTheme.palette.info.main,
+      mode,
+      fontFamily: activeTheme.typography.fontFamily,
+      borderRadius: activeTheme.shape.borderRadius
+    }, document.documentElement);
+  }, [activeTheme, mode]);
+  const toggleMode = React19.useCallback(() => {
+    setModeState((prev) => prev === "light" ? "dark" : "light");
+  }, []);
+  const setMode = React19.useCallback((newMode) => {
+    setModeState(newMode);
+  }, []);
+  const setDynamicBrand = React19.useCallback((colors) => {
+    setActiveTheme((prev) => createTheme2({
+      palette: {
+        ...prev.palette,
+        primary: colors.primary || prev.palette.primary,
+        secondary: colors.secondary || prev.palette.secondary
+      },
+      typography: prev.typography,
+      shape: prev.shape
+    }));
+  }, []);
+  const contextValue = React19.useMemo(() => ({ theme: activeTheme, mode, toggleMode, setMode, setDynamicBrand }), [activeTheme, mode, toggleMode, setMode, setDynamicBrand]);
+  return React19__namespace.default.createElement(ThemeContext.Provider, { value: contextValue }, children);
+};
+var AdaptiveThemeProvider = ({ remoteConfig = {}, children }) => {
+  const customTheme = React19.useMemo(() => {
+    return createTheme2({
+      palette: {
+        primary: remoteConfig.primaryColor,
+        secondary: remoteConfig.secondaryColor,
+        mode: remoteConfig.mode || "light"
+      },
+      typography: remoteConfig.fontFamily ? { fontFamily: remoteConfig.fontFamily } : void 0,
+      shape: remoteConfig.borderRadius !== void 0 ? { borderRadius: remoteConfig.borderRadius } : void 0
+    });
+  }, [remoteConfig.primaryColor, remoteConfig.secondaryColor, remoteConfig.mode, remoteConfig.fontFamily, remoteConfig.borderRadius]);
+  return jsxRuntime.jsx(ThemeProvider2, { theme: customTheme, defaultMode: remoteConfig.mode || "light", children });
+};
+function createMuiCompatiblePalette(theme) {
+  return {
+    mode: theme.palette.mode,
+    primary: {
+      main: theme.palette.primary.main,
+      light: theme.palette.primary.light,
+      dark: theme.palette.primary.dark,
+      contrastText: theme.palette.primary.contrastText
+    },
+    secondary: {
+      main: theme.palette.secondary.main,
+      light: theme.palette.secondary.light,
+      dark: theme.palette.secondary.dark,
+      contrastText: theme.palette.secondary.contrastText
+    },
+    success: theme.palette.success,
+    warning: theme.palette.warning,
+    error: theme.palette.error,
+    info: theme.palette.info
+  };
+}
+function useMediaQuery2(query) {
+  const [matches, setMatches] = React19.useState(() => {
+    if (typeof window !== "undefined") {
+      return window.matchMedia(query).matches;
+    }
+    return false;
+  });
+  React19.useEffect(() => {
+    if (typeof window === "undefined")
+      return;
+    const mediaQuery = window.matchMedia(query);
+    setMatches(mediaQuery.matches);
+    const handler = (event) => {
+      setMatches(event.matches);
+    };
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, [query]);
+  return matches;
+}
 var ErrorStateRoot = styles.styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
@@ -8326,48 +9293,49 @@ var ErrorStateRoot = styles.styled("div")(({ theme }) => ({
   padding: theme.spacing(6, 3),
   textAlign: "center"
 }));
-function ErrorState({
+var ErrorState = ({
   titleKey = "common:states.errorTitle",
   messageKey = "common:states.errorGeneric",
-  onRetry
-}) {
+  onRetry,
+  className
+}) => {
   const { t } = reactI18next.useTranslation();
-  return /* @__PURE__ */ jsxRuntime.jsxs(ErrorStateRoot, { role: "alert", children: [
+  return /* @__PURE__ */ jsxRuntime.jsxs(ErrorStateRoot, { role: "alert", className, children: [
     /* @__PURE__ */ jsxRuntime.jsx(ErrorOutlineIcon__default.default, { color: "error", sx: { fontSize: 40 } }),
-    /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h6", children: t(titleKey) }),
-    /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "text.secondary", children: t(messageKey) }),
-    onRetry ? /* @__PURE__ */ jsxRuntime.jsx(Button5__default.default, { onClick: onRetry, startIcon: /* @__PURE__ */ jsxRuntime.jsx(RefreshIcon__default.default, {}), variant: "outlined", children: t("common:actions.retry") }) : null
+    /* @__PURE__ */ jsxRuntime.jsx(Typography3, { variant: "h6", children: t(titleKey) }),
+    /* @__PURE__ */ jsxRuntime.jsx(Typography3, { variant: "body2", color: "textSecondary", children: t(messageKey) }),
+    onRetry ? /* @__PURE__ */ jsxRuntime.jsx(Button3, { onClick: onRetry, startIcon: /* @__PURE__ */ jsxRuntime.jsx(RefreshIcon__default.default, {}), variant: "outlined", children: t("common:actions.retry") }) : null
   ] });
-}
-function PageSkeleton({ label }) {
+};
+var PageSkeleton = ({ label, className }) => {
   return /* @__PURE__ */ jsxRuntime.jsx(
-    Box7__default.default,
+    Box4,
     {
-      sx: {
-        display: "flex",
-        minHeight: "65vh",
-        width: "100%",
-        alignItems: "center",
-        justifyContent: "center"
-      },
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      minHeight: "65vh",
+      width: "100%",
+      className,
       children: /* @__PURE__ */ jsxRuntime.jsx(NamiosLoader, { size: 54, label })
     }
   );
-}
-function StatusChip({ status, size: size4 = "small" }) {
+};
+var StatusChip = ({ status, size: size4 = "small", className }) => {
   const { t } = reactI18next.useTranslation();
   const color = STATUS_COLORS[status];
+  const muiColor = color === "default" ? void 0 : color;
   return /* @__PURE__ */ jsxRuntime.jsx(
-    Chip6__default.default,
+    Chip,
     {
       label: t(`common:status.${status}`),
       size: size4,
-      color: color === "default" ? void 0 : color,
+      color: muiColor,
       variant: color === "default" ? "outlined" : "filled",
-      sx: color === "default" ? void 0 : { color: "#fff" }
+      className
     }
   );
-}
+};
 var MENU_SPRING = {
   type: "spring",
   stiffness: 500,
@@ -8380,18 +9348,18 @@ var HIGHLIGHT_SPRING = {
   damping: 35
 };
 var ContextMenu = ({
-  open,
+  open: open2,
   x,
   y,
   items,
   onClose
 }) => {
-  const [highlightedIndex, setHighlightedIndex] = React18.useState(-1);
-  const [activeSubmenu, setActiveSubmenu] = React18.useState(null);
-  const menuRef = React18.useRef(null);
-  const [position, setPosition] = React18.useState({ x, y });
-  React18.useEffect(() => {
-    if (!open) {
+  const [highlightedIndex, setHighlightedIndex] = React19.useState(-1);
+  const [activeSubmenu, setActiveSubmenu] = React19.useState(null);
+  const menuRef = React19.useRef(null);
+  const [position, setPosition] = React19.useState({ x, y });
+  React19.useEffect(() => {
+    if (!open2) {
       setHighlightedIndex(-1);
       setActiveSubmenu(null);
       return;
@@ -8409,9 +9377,9 @@ var ContextMenu = ({
       posY = Math.max(12, winHeight - estimatedHeight - 12);
     }
     setPosition({ x: Math.max(12, posX), y: Math.max(12, posY) });
-  }, [open, x, y, items]);
-  React18.useEffect(() => {
-    if (!open) return;
+  }, [open2, x, y, items]);
+  React19.useEffect(() => {
+    if (!open2) return;
     const handleMouseDown = (e) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
         onClose();
@@ -8433,8 +9401,8 @@ var ContextMenu = ({
       document.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("scroll", handleScroll, { capture: true });
     };
-  }, [open, onClose]);
-  const handleItemClick = React18.useCallback(
+  }, [open2, onClose]);
+  const handleItemClick = React19.useCallback(
     (item) => {
       if (item.disabled || item.separator) return;
       if (item.children && item.children.length > 0) return;
@@ -8443,7 +9411,7 @@ var ContextMenu = ({
     },
     [onClose]
   );
-  return /* @__PURE__ */ jsxRuntime.jsx(framerMotion.AnimatePresence, { children: open && /* @__PURE__ */ jsxRuntime.jsx(
+  return /* @__PURE__ */ jsxRuntime.jsx(framerMotion.AnimatePresence, { children: open2 && /* @__PURE__ */ jsxRuntime.jsx(
     framerMotion.motion.div,
     {
       ref: menuRef,
@@ -8469,7 +9437,7 @@ var ContextMenu = ({
         outline: "none"
       },
       onContextMenu: (e) => e.preventDefault(),
-      children: items.map((item, index2) => {
+      children: items.map((item, index3) => {
         if (item.separator) {
           return /* @__PURE__ */ jsxRuntime.jsx(
             "div",
@@ -8480,10 +9448,10 @@ var ContextMenu = ({
                 margin: "4px 6px"
               }
             },
-            `sep-${index2}`
+            `sep-${index3}`
           );
         }
-        const isHighlighted = highlightedIndex === index2;
+        const isHighlighted = highlightedIndex === index3;
         const hasChildren = Boolean(item.children && item.children.length > 0);
         const isSubmenuOpen = activeSubmenu === item.label;
         return /* @__PURE__ */ jsxRuntime.jsxs(
@@ -8492,7 +9460,7 @@ var ContextMenu = ({
             style: { position: "relative" },
             onMouseEnter: () => {
               if (!item.disabled) {
-                setHighlightedIndex(index2);
+                setHighlightedIndex(index3);
                 if (hasChildren && item.label) {
                   setActiveSubmenu(item.label);
                 } else {
@@ -8687,7 +9655,7 @@ var ContextMenu = ({
               ) })
             ]
           },
-          item.key || item.label || `item-${index2}`
+          item.key || item.label || `item-${index3}`
         );
       })
     }
@@ -8714,7 +9682,7 @@ var ClickableRow = styles.styled(TableRow__default.default, {
     "&:hover": { backgroundColor: theme.palette.action.hover }
   }
 }));
-function DataTable({
+var DataTable = ({
   columns,
   data,
   isLoading = false,
@@ -8736,7 +9704,7 @@ function DataTable({
   toolbar,
   emptyState,
   compact = false
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   const { contextMenu, openContextMenu, closeContextMenu } = useContextMenu();
   const rows = data?.items ?? [];
@@ -8785,7 +9753,7 @@ function DataTable({
           /* @__PURE__ */ jsxRuntime.jsx(TableContainer__default.default, { children: /* @__PURE__ */ jsxRuntime.jsxs(Table__default.default, { size: "small", "aria-busy": isLoading, children: [
             /* @__PURE__ */ jsxRuntime.jsx(TableHead__default.default, { sx: { backgroundColor: "action.hover" }, children: /* @__PURE__ */ jsxRuntime.jsxs(TableRow__default.default, { children: [
               selectable ? /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { padding: "checkbox", children: /* @__PURE__ */ jsxRuntime.jsx(
-                Checkbox__default.default,
+                Checkbox2__default.default,
                 {
                   checked: allSelected,
                   indeterminate: !allSelected && someSelected,
@@ -8815,7 +9783,7 @@ function DataTable({
               )),
               rowActions ? /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { align: "right", sx: { fontWeight: 700 }, children: t("common:table.actions") }) : null
             ] }) }),
-            /* @__PURE__ */ jsxRuntime.jsx(TableBody__default.default, { children: isLoading ? Array.from({ length: compact ? 5 : pageSize }, (_, i) => /* @__PURE__ */ jsxRuntime.jsx(TableRow__default.default, { children: /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { colSpan, children: /* @__PURE__ */ jsxRuntime.jsx(Skeleton__default.default, { variant: "text", height: 28 }) }) }, i)) : rows.map((row) => /* @__PURE__ */ jsxRuntime.jsxs(
+            /* @__PURE__ */ jsxRuntime.jsx(TableBody__default.default, { children: isLoading ? Array.from({ length: compact ? 5 : pageSize }, (_, i) => /* @__PURE__ */ jsxRuntime.jsx(TableRow__default.default, { children: /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { colSpan, children: /* @__PURE__ */ jsxRuntime.jsx(Skeleton, { variant: "text", height: 28 }) }) }, i)) : rows.map((row) => /* @__PURE__ */ jsxRuntime.jsxs(
               ClickableRow,
               {
                 clickable: Boolean(onRowClick || getContextMenuItems),
@@ -8829,7 +9797,7 @@ function DataTable({
                   selectable ? /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { padding: "checkbox", onClick: (e) => {
                     e.stopPropagation();
                   }, children: /* @__PURE__ */ jsxRuntime.jsx(
-                    Checkbox__default.default,
+                    Checkbox2__default.default,
                     {
                       checked: selected.includes(row.id),
                       onChange: () => {
@@ -8884,8 +9852,8 @@ function DataTable({
       ]
     }
   );
-}
-var StatCardRoot = styles.styled(Card__default.default, {
+};
+var StatCardRoot = styles.styled(Card2__default.default, {
   shouldForwardProp: (prop) => prop !== "compactSize"
 })(({ theme, compactSize }) => ({
   padding: compactSize ? theme.spacing(2, 2.5) : theme.spacing(2.5, 3),
@@ -8938,7 +9906,7 @@ var TREND_ICONS = {
   down: /* @__PURE__ */ jsxRuntime.jsx(TrendingDownIcon__default.default, { fontSize: "inherit" }),
   flat: /* @__PURE__ */ jsxRuntime.jsx(TrendingFlatIcon__default.default, { fontSize: "inherit" })
 };
-function StatCard({
+var StatCard = ({
   labelKey,
   value,
   delta,
@@ -8951,10 +9919,10 @@ function StatCard({
   badge,
   iconColor = "primary",
   size: size4 = "small"
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   const isCompact = size4 === "small" || size4 === "mini";
-  const valueNode = loading ? /* @__PURE__ */ jsxRuntime.jsx(Skeleton__default.default, { variant: "text", width: 80, height: isCompact ? 28 : 40 }) : /* @__PURE__ */ jsxRuntime.jsx(
+  const valueNode = loading ? /* @__PURE__ */ jsxRuntime.jsx(Skeleton, { variant: "text", width: 80, height: isCompact ? 28 : 40 }) : /* @__PURE__ */ jsxRuntime.jsx(
     Typography9__default.default,
     {
       variant: isCompact ? "h5" : "h4",
@@ -9014,21 +9982,26 @@ function StatCard({
     deltaNode,
     subtitleNode
   ] });
-}
-function SectionCard({ titleKey, titleParams, action, children }) {
+};
+var SectionCard = ({
+  titleKey,
+  titleParams,
+  action,
+  children,
+  className
+}) => {
   const { t } = reactI18next.useTranslation();
-  return /* @__PURE__ */ jsxRuntime.jsxs(Card__default.default, { children: [
+  return /* @__PURE__ */ jsxRuntime.jsxs(Card, { elevation: 1, className, children: [
     /* @__PURE__ */ jsxRuntime.jsx(
-      CardHeader__default.default,
+      CardHeader,
       {
-        title: t(titleKey, titleParams),
-        titleTypographyProps: { variant: "h6" },
+        title: /* @__PURE__ */ jsxRuntime.jsx("span", { style: { fontWeight: 600, fontSize: "1.125rem" }, children: t(titleKey, titleParams) }),
         action
       }
     ),
-    /* @__PURE__ */ jsxRuntime.jsx(CardContent__default.default, { sx: { pt: 0 }, children })
+    /* @__PURE__ */ jsxRuntime.jsx(CardContent, { style: { paddingTop: 0 }, children })
   ] });
-}
+};
 var ListRoot = styles.styled("dl")(({ theme }) => ({
   display: "grid",
   gridTemplateColumns: "minmax(140px, auto) 1fr",
@@ -9045,23 +10018,23 @@ var Detail = styles.styled("dd")(({ theme }) => ({
   color: theme.palette.text.primary,
   margin: 0
 }));
-function DescriptionList({ items }) {
+var DescriptionList = ({ items, className }) => {
   const { t } = reactI18next.useTranslation();
-  return /* @__PURE__ */ jsxRuntime.jsx(ListRoot, { children: items.map((item) => /* @__PURE__ */ jsxRuntime.jsxs(React18.Fragment, { children: [
+  return /* @__PURE__ */ jsxRuntime.jsx(ListRoot, { className, children: items.map((item) => /* @__PURE__ */ jsxRuntime.jsxs(React19.Fragment, { children: [
     /* @__PURE__ */ jsxRuntime.jsx(Term, { children: t(item.labelKey, item.labelParams) }),
     /* @__PURE__ */ jsxRuntime.jsx(Detail, { children: item.value })
   ] }, item.labelKey)) });
-}
-function SearchField({
+};
+var SearchField = ({
   value,
   onChange,
   placeholderKey = "common:actions.search",
   fullWidth = false,
   autoFocus = false
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   return /* @__PURE__ */ jsxRuntime.jsx(
-    TextField4__default.default,
+    TextField5__default.default,
     {
       value,
       onChange: (e) => {
@@ -9074,7 +10047,7 @@ function SearchField({
       InputProps: {
         startAdornment: /* @__PURE__ */ jsxRuntime.jsx(InputAdornment__default.default, { position: "start", children: /* @__PURE__ */ jsxRuntime.jsx(SearchIcon__default.default, { fontSize: "small" }) }),
         endAdornment: value ? /* @__PURE__ */ jsxRuntime.jsx(InputAdornment__default.default, { position: "end", children: /* @__PURE__ */ jsxRuntime.jsx(
-          IconButton8__default.default,
+          IconButton9__default.default,
           {
             size: "small",
             "aria-label": t("common:actions.clear"),
@@ -9087,8 +10060,8 @@ function SearchField({
       }
     }
   );
-}
-function SelectField({
+};
+var SelectField = ({
   value,
   onChange,
   options,
@@ -9097,10 +10070,10 @@ function SelectField({
   fullWidth = false,
   minWidth = 160,
   disabled: disabled2 = false
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   return /* @__PURE__ */ jsxRuntime.jsxs(
-    TextField4__default.default,
+    TextField5__default.default,
     {
       select: true,
       value,
@@ -9120,13 +10093,13 @@ function SelectField({
       ]
     }
   );
-}
-var PasswordField = React18.forwardRef(
+};
+var PasswordField = React19.forwardRef(
   function PasswordField2(props, ref) {
     const { t } = reactI18next.useTranslation();
-    const [visible, setVisible] = React18.useState(false);
+    const [visible, setVisible] = React19.useState(false);
     return /* @__PURE__ */ jsxRuntime.jsx(
-      TextField4__default.default,
+      TextField5__default.default,
       {
         ...props,
         inputRef: ref ?? props.inputRef,
@@ -9134,7 +10107,7 @@ var PasswordField = React18.forwardRef(
         InputProps: {
           ...props.InputProps,
           endAdornment: /* @__PURE__ */ jsxRuntime.jsx(InputAdornment__default.default, { position: "end", children: /* @__PURE__ */ jsxRuntime.jsx(
-            IconButton8__default.default,
+            IconButton9__default.default,
             {
               "aria-label": t(
                 visible ? "common:actions.hidePassword" : "common:actions.showPassword"
@@ -9152,7 +10125,7 @@ var PasswordField = React18.forwardRef(
     );
   }
 );
-function FormTextField({
+var FormTextField = ({
   control,
   name,
   labelKey,
@@ -9163,7 +10136,7 @@ function FormTextField({
   autoComplete,
   placeholderKey,
   disabled: disabled2
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   return /* @__PURE__ */ jsxRuntime.jsx(
     reactHookForm.Controller,
@@ -9186,17 +10159,17 @@ function FormTextField({
           autoComplete,
           disabled: disabled2
         };
-        return type === "password" ? /* @__PURE__ */ jsxRuntime.jsx(PasswordField, { ...shared }) : /* @__PURE__ */ jsxRuntime.jsx(TextField4__default.default, { ...shared, type });
+        return type === "password" ? /* @__PURE__ */ jsxRuntime.jsx(PasswordField, { ...shared }) : /* @__PURE__ */ jsxRuntime.jsx(TextField5__default.default, { ...shared, type });
       }
     }
   );
-}
-function FormSelect({
+};
+var FormSelect = ({
   control,
   name,
   labelKey,
   options
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   return /* @__PURE__ */ jsxRuntime.jsx(
     reactHookForm.Controller,
@@ -9204,7 +10177,7 @@ function FormSelect({
       control,
       name,
       render: ({ field, fieldState }) => /* @__PURE__ */ jsxRuntime.jsx(
-        TextField4__default.default,
+        TextField5__default.default,
         {
           ...field,
           select: true,
@@ -9218,12 +10191,12 @@ function FormSelect({
       )
     }
   );
-}
-function FormSwitch({
+};
+var FormSwitch = ({
   control,
   name,
   labelKey
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   return /* @__PURE__ */ jsxRuntime.jsx(
     reactHookForm.Controller,
@@ -9233,16 +10206,16 @@ function FormSwitch({
       render: ({ field }) => /* @__PURE__ */ jsxRuntime.jsx(
         FormControlLabel__default.default,
         {
-          control: /* @__PURE__ */ jsxRuntime.jsx(Switch__default.default, { checked: Boolean(field.value), onChange: field.onChange }),
+          control: /* @__PURE__ */ jsxRuntime.jsx(Switch2__default.default, { checked: Boolean(field.value), onChange: field.onChange }),
           label: t(labelKey)
         }
       )
     }
   );
-}
-function LanguageSwitcher({ variant = "text" }) {
+};
+var LanguageSwitcher = ({ variant = "text" }) => {
   const { i18n: i18n2, t } = reactI18next.useTranslation();
-  const [anchorEl, setAnchorEl] = React18.useState(null);
+  const [anchorEl, setAnchorEl] = React19.useState(null);
   const current = SUPPORTED_LOCALES.find((locale) => i18n2.language.startsWith(locale.code)) ?? SUPPORTED_LOCALES[0];
   const handleSelect = (code) => {
     void i18n2.changeLanguage(code);
@@ -9287,7 +10260,7 @@ function LanguageSwitcher({ variant = "text" }) {
       }
     )
   ] });
-}
+};
 var TopBarSlot = styles.styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
@@ -9300,7 +10273,7 @@ var TopBarNav = styles.styled("nav")(({ theme }) => ({
   flexGrow: 1,
   justifyContent: "center"
 }));
-function AppTopBar({ appsLauncher, logo, nav, actions, onMenuClick }) {
+var AppTopBar = ({ appsLauncher, logo, nav, actions, onMenuClick }) => {
   const { t } = reactI18next.useTranslation();
   return /* @__PURE__ */ jsxRuntime.jsx(
     AppBar__default.default,
@@ -9316,7 +10289,7 @@ function AppTopBar({ appsLauncher, logo, nav, actions, onMenuClick }) {
       children: /* @__PURE__ */ jsxRuntime.jsxs(Toolbar__default.default, { sx: (theme) => ({ minHeight: theme.custom.topBarHeight }), children: [
         /* @__PURE__ */ jsxRuntime.jsxs(TopBarSlot, { children: [
           onMenuClick ? /* @__PURE__ */ jsxRuntime.jsx(
-            IconButton8__default.default,
+            IconButton9__default.default,
             {
               "aria-label": t("common:actions.openMenu"),
               onClick: onMenuClick,
@@ -9333,7 +10306,7 @@ function AppTopBar({ appsLauncher, logo, nav, actions, onMenuClick }) {
       ] })
     }
   );
-}
+};
 var RESOURCE_COL_WIDTH = 148;
 var DAY_COL_WIDTH = 76;
 var ROW_HEIGHT = 52;
@@ -9442,11 +10415,11 @@ var TimelineMatrix = ({
 }) => {
   const { t, i18n: i18n2 } = reactI18next.useTranslation();
   const theme = styles.useTheme();
-  const scrollContainerRef = React18.useRef(null);
+  const scrollContainerRef = React19.useRef(null);
   const dayList = dateRangeDays(startDate, days);
   const todayDate = today ?? todayIso();
   const endDate = addDays(startDate, days);
-  React18.useEffect(() => {
+  React19.useEffect(() => {
     if (!initialScrollDate || !scrollContainerRef.current) return;
     const dayIndex = differenceInDays(startDate, initialScrollDate);
     if (dayIndex < 0 || dayIndex >= days) return;
@@ -9463,7 +10436,7 @@ var TimelineMatrix = ({
   const monthFormat = new Intl.DateTimeFormat(i18n2.language, { month: "short" });
   const dayFormat = new Intl.DateTimeFormat(i18n2.language, { day: "numeric" });
   if (loading) {
-    return /* @__PURE__ */ jsxRuntime.jsx("div", { children: /* @__PURE__ */ jsxRuntime.jsx(Skeleton__default.default, { variant: "rounded", height: ROW_HEIGHT * 6 }) });
+    return /* @__PURE__ */ jsxRuntime.jsx("div", { children: /* @__PURE__ */ jsxRuntime.jsx(Skeleton2__default.default, { variant: "rounded", height: ROW_HEIGHT * 6 }) });
   }
   return /* @__PURE__ */ jsxRuntime.jsxs("div", { children: [
     legend ? /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { component: "div", variant: "body2", sx: { display: "flex", justifyContent: "flex-end", mb: 1 }, children: legend }) : null,
@@ -9525,21 +10498,23 @@ var TimelineMatrix = ({
     ] }) })
   ] });
 };
-function StatusFilterChips({
+var StatusFilterChips = ({
   options,
   value,
-  onChange
-}) {
+  onChange,
+  className
+}) => {
   const { t } = reactI18next.useTranslation();
-  return /* @__PURE__ */ jsxRuntime.jsx(Stack4__default.default, { direction: "row", spacing: 1, flexWrap: "wrap", useFlexGap: true, role: "tablist", children: options.map((option) => {
+  return /* @__PURE__ */ jsxRuntime.jsx(Stack2, { direction: "row", spacing: 1, flexWrap: "wrap", className, role: "tablist", children: options.map((option) => {
     const active = option.value === value;
     const label = option.count !== void 0 ? `${t(option.labelKey)} (${option.count})` : t(option.labelKey);
     return /* @__PURE__ */ jsxRuntime.jsx(
-      Chip6__default.default,
+      Chip,
       {
         label,
         color: active ? "primary" : void 0,
         variant: active ? "filled" : "outlined",
+        clickable: true,
         onClick: () => {
           onChange(option.value);
         },
@@ -9549,7 +10524,7 @@ function StatusFilterChips({
       option.value
     );
   }) });
-}
+};
 var DrawerHeader = styles.styled("header")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
@@ -9573,8 +10548,8 @@ var DrawerFooter = styles.styled("footer")(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
   "& > *": { flexGrow: 1 }
 }));
-function AppDrawer({
-  open,
+var AppDrawer = ({
+  open: open2,
   onClose,
   titleKey,
   titleParams,
@@ -9585,7 +10560,7 @@ function AppDrawer({
   width,
   loading = false,
   children
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   const getMaxWidth = () => {
     if (width === "full" || width === "xl") return "xl";
@@ -9612,7 +10587,7 @@ function AppDrawer({
   return /* @__PURE__ */ jsxRuntime.jsxs(
     Dialog__default.default,
     {
-      open,
+      open: open2,
       onClose: (_event, reason) => {
         if (reason !== "backdropClick") onClose();
       },
@@ -9633,7 +10608,7 @@ function AppDrawer({
             /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h5", fontWeight: 800, letterSpacing: "-0.3px", noWrap: true, children: title ?? (titleKey ? t(titleKey, titleParams) : null) }),
             statusChip
           ] }),
-          /* @__PURE__ */ jsxRuntime.jsx(IconButton8__default.default, { "aria-label": t("common:actions.close"), onClick: onClose, size: "small", children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon5__default.default, { fontSize: "small" }) })
+          /* @__PURE__ */ jsxRuntime.jsx(IconButton9__default.default, { "aria-label": t("common:actions.close"), onClick: onClose, size: "small", children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon5__default.default, { fontSize: "small" }) })
         ] }),
         tabs,
         /* @__PURE__ */ jsxRuntime.jsxs(DrawerContent, { children: [
@@ -9644,9 +10619,9 @@ function AppDrawer({
       ]
     }
   );
-}
-function WizardDialog({
-  open,
+};
+var WizardDialog = ({
+  open: open2,
   titleKey,
   steps,
   activeStep,
@@ -9662,13 +10637,13 @@ function WizardDialog({
   maxWidth = "md",
   paperSx,
   children
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   const isLast = activeStep === steps.length - 1;
   return /* @__PURE__ */ jsxRuntime.jsxs(
     Dialog__default.default,
     {
-      open,
+      open: open2,
       onClose: onCancel,
       fullWidth: true,
       maxWidth,
@@ -9687,17 +10662,17 @@ function WizardDialog({
           /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", alignItems: "center", spacing: 1.5, children: [
             /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h6", sx: { fontWeight: 700, letterSpacing: "-0.01em" }, children: t(titleKey) }),
             /* @__PURE__ */ jsxRuntime.jsx(
-              Chip6__default.default,
+              Chip,
               {
                 label: `${activeStep + 1} / ${steps.length}`,
                 size: "small",
                 color: "primary",
                 variant: "outlined",
-                sx: { fontWeight: 700, fontSize: "0.75rem", height: 22 }
+                style: { fontWeight: 700, fontSize: "0.75rem", height: 22 }
               }
             )
           ] }),
-          /* @__PURE__ */ jsxRuntime.jsx(IconButton8__default.default, { "aria-label": t("common:actions.close"), onClick: onCancel, size: "small", edge: "end", children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon5__default.default, { fontSize: "small" }) })
+          /* @__PURE__ */ jsxRuntime.jsx(IconButton9__default.default, { "aria-label": t("common:actions.close"), onClick: onCancel, size: "small", edge: "end", children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon5__default.default, { fontSize: "small" }) })
         ] }),
         /* @__PURE__ */ jsxRuntime.jsx(
           Stepper__default.default,
@@ -9769,12 +10744,12 @@ function WizardDialog({
       ]
     }
   );
-}
-function DateRangeButton({ range }) {
+};
+var DateRangeButton = ({ range }) => {
   const { t, i18n: i18n2 } = reactI18next.useTranslation();
-  const [anchorEl, setAnchorEl] = React18.useState(null);
-  const [draftFrom, setDraftFrom] = React18.useState(range.from);
-  const [draftTo, setDraftTo] = React18.useState(range.to);
+  const [anchorEl, setAnchorEl] = React19.useState(null);
+  const [draftFrom, setDraftFrom] = React19.useState(range.from);
+  const [draftTo, setDraftTo] = React19.useState(range.to);
   const format = new Intl.DateTimeFormat(i18n2.language, { month: "short", day: "numeric" });
   const formatWithYear = new Intl.DateTimeFormat(i18n2.language, {
     month: "short",
@@ -9815,7 +10790,7 @@ function DateRangeButton({ range }) {
         anchorOrigin: { vertical: "bottom", horizontal: "left" },
         children: /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { spacing: 2, sx: { p: 2, width: 300 }, children: [
           /* @__PURE__ */ jsxRuntime.jsx(Stack4__default.default, { direction: "row", spacing: 1, flexWrap: "wrap", useFlexGap: true, children: Object.values(DateRangePreset).map((preset) => /* @__PURE__ */ jsxRuntime.jsx(
-            Chip6__default.default,
+            Chip,
             {
               label: t(`common:dateRange.presets.${preset}`),
               size: "small",
@@ -9829,7 +10804,7 @@ function DateRangeButton({ range }) {
             preset
           )) }),
           /* @__PURE__ */ jsxRuntime.jsx(
-            TextField4__default.default,
+            TextField5__default.default,
             {
               type: "date",
               label: t("common:dateRange.from"),
@@ -9841,7 +10816,7 @@ function DateRangeButton({ range }) {
             }
           ),
           /* @__PURE__ */ jsxRuntime.jsx(
-            TextField4__default.default,
+            TextField5__default.default,
             {
               type: "date",
               label: t("common:dateRange.to"),
@@ -9868,7 +10843,7 @@ function DateRangeButton({ range }) {
       }
     )
   ] });
-}
+};
 var NavItemButton = styles.styled(ListItemButton__default.default)(({ theme }) => ({
   borderRadius: "12px",
   margin: theme.spacing(0.35, 1.25),
@@ -9885,14 +10860,14 @@ var NavItemButton = styles.styled(ListItemButton__default.default)(({ theme }) =
     "&:hover": { backgroundColor: theme.palette.mode === "light" ? "#0062CC" : "#0051A8" }
   }
 }));
-function NavList({
+var NavList = ({
   items,
   activePath,
   onNavigate,
   depth = 0
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
-  const [openMap, setOpenMap] = React18.useState({});
+  const [openMap, setOpenMap] = React19.useState({});
   return /* @__PURE__ */ jsxRuntime.jsx(List__default.default, { component: depth === 0 ? "nav" : "div", disablePadding: depth > 0, children: items.map((item) => {
     const isActive = activePath === item.path || !item.exact && item.path !== "/" && activePath.startsWith(`${item.path}/`);
     const hasChildren = Boolean(item.children?.length);
@@ -9928,22 +10903,22 @@ function NavList({
       ) }) : null
     ] }, item.path);
   }) });
-}
-function AppSideNav({
+};
+var AppSideNav = ({
   items,
   activePath,
   onNavigate,
   mobileOpen = false,
   onMobileClose,
   temporary = false
-}) {
+}) => {
   const content = /* @__PURE__ */ jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [
     /* @__PURE__ */ jsxRuntime.jsx(Toolbar__default.default, { sx: (theme) => ({ minHeight: theme.custom.topBarHeight }) }),
     /* @__PURE__ */ jsxRuntime.jsx(NavList, { items, activePath, onNavigate })
   ] });
   if (temporary) {
     return /* @__PURE__ */ jsxRuntime.jsx(
-      Drawer__default.default,
+      Drawer2__default.default,
       {
         variant: "temporary",
         open: mobileOpen,
@@ -9957,7 +10932,7 @@ function AppSideNav({
     );
   }
   return /* @__PURE__ */ jsxRuntime.jsx(
-    Drawer__default.default,
+    Drawer2__default.default,
     {
       variant: "permanent",
       sx: (theme) => ({
@@ -9972,7 +10947,7 @@ function AppSideNav({
       children: content
     }
   );
-}
+};
 var HeaderRoot = styles.styled("header")(({ theme }) => ({
   display: "flex",
   alignItems: "flex-start",
@@ -9981,7 +10956,7 @@ var HeaderRoot = styles.styled("header")(({ theme }) => ({
   gap: theme.spacing(2),
   marginBottom: theme.spacing(3)
 }));
-function PageHeader({
+var PageHeader = ({
   titleKey,
   titleParams,
   title,
@@ -9990,7 +10965,7 @@ function PageHeader({
   breadcrumbs,
   onNavigate,
   actions
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   return /* @__PURE__ */ jsxRuntime.jsxs(HeaderRoot, { children: [
     /* @__PURE__ */ jsxRuntime.jsxs("div", { children: [
@@ -10016,13 +10991,13 @@ function PageHeader({
     ] }),
     actions ? /* @__PURE__ */ jsxRuntime.jsx("div", { children: actions }) : null
   ] });
-}
+};
 var FALLOFF_CURVES = {
   linear: (t) => t,
   smooth: (t) => t * t * (3 - 2 * t),
   sharp: (t) => t * t * t
 };
-var hexToRgb = (hex) => {
+var hexToRgb2 = (hex) => {
   const h = hex.replace("#", "");
   const v = h.length === 3 ? h.split("").map((c) => c + c).join("") : h;
   const num = parseInt(v.slice(0, 6), 16);
@@ -10044,10 +11019,10 @@ var CursorGrid = ({
   pulseSpeed = 600,
   className = ""
 }) => {
-  const containerRef = React18.useRef(null);
-  const canvasRef = React18.useRef(null);
-  const propsRef = React18.useRef({});
-  const wakeRef = React18.useRef(null);
+  const containerRef = React19.useRef(null);
+  const canvasRef = React19.useRef(null);
+  const propsRef = React19.useRef({});
+  const wakeRef = React19.useRef(null);
   propsRef.current = {
     cellSize,
     color,
@@ -10063,7 +11038,7 @@ var CursorGrid = ({
     clickPulse,
     pulseSpeed
   };
-  React18.useEffect(() => {
+  React19.useEffect(() => {
     const container = containerRef.current;
     const canvas = canvasRef.current;
     if (!container || !canvas) return;
@@ -10136,7 +11111,7 @@ var CursorGrid = ({
       const dt = Math.min(now - lastFrame, 50);
       lastFrame = now;
       ctx.clearRect(0, 0, w, h);
-      const [cr, cg, cb] = hexToRgb(p.color);
+      const [cr, cg, cb] = hexToRgb2(p.color);
       if (p.gridOpacity > 0) {
         ctx.strokeStyle = `rgba(${cr}, ${cg}, ${cb}, ${p.gridOpacity})`;
         ctx.lineWidth = 1;
@@ -10266,7 +11241,7 @@ var CursorGrid = ({
       target.removeEventListener("pointerdown", onPointerDown);
     };
   }, [cellSize]);
-  React18.useEffect(() => {
+  React19.useEffect(() => {
     wakeRef.current?.();
   }, [gridOpacity, color, lineWidth, maxOpacity, fillOpacity, cellRadius]);
   return /* @__PURE__ */ jsxRuntime.jsx("div", { ref: containerRef, className: `cursor-grid${className ? ` ${className}` : ""}`, children: /* @__PURE__ */ jsxRuntime.jsx("canvas", { ref: canvasRef, className: "cursor-grid__canvas" }) });
@@ -10281,9 +11256,9 @@ var AuthPageRoot = styles.styled("main", {
   backgroundColor: theme.palette.background.default,
   [theme.breakpoints.up("md")]: {
     display: "grid",
-    height: "100vh",
-    minHeight: "100vh",
-    maxHeight: "100vh",
+    height: "100dvh",
+    minHeight: "100dvh",
+    maxHeight: "100dvh",
     overflow: "hidden",
     gridTemplateColumns: hasSplitBrand ? "minmax(0, 5fr) minmax(0, 7fr)" : "minmax(0, 1fr)"
   },
@@ -10365,11 +11340,16 @@ var AuthFormPanel = styles.styled("section")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  justifyContent: "center",
+  /* Use flex-start instead of center to prevent scroll-loop glitch.
+     Vertical centering is achieved via margin: 'auto 0' on the form shell. */
+  justifyContent: "flex-start",
   padding: theme.spacing(3, 2),
   position: "relative",
   overflowY: "auto",
   overflowX: "hidden",
+  /* Override global scroll-behavior: smooth to stop the auto-scroll loop
+     when the browser tries to scrollIntoView the focused input. */
+  scrollBehavior: "auto",
   boxSizing: "border-box",
   WebkitOverflowScrolling: "touch",
   backgroundColor: "#f8fafc",
@@ -10384,7 +11364,7 @@ var AuthFormPanel = styles.styled("section")(({ theme }) => ({
   },
   [theme.breakpoints.up("md")]: {
     height: "100%",
-    minHeight: "100vh",
+    minHeight: 0,
     padding: theme.spacing(4, 5)
   }
 }));
@@ -10393,6 +11373,8 @@ var StyledPaper = styles.styled(Paper__default.default)(({ theme }) => ({
   zIndex: 1,
   width: "100%",
   maxWidth: 450,
+  /* Safe vertical centering — replaces parent justifyContent:'center'
+     which caused a scroll-loop when content overflowed. */
   margin: "auto 0",
   padding: theme.spacing(3.5, 2.5),
   borderRadius: 20,
@@ -10403,28 +11385,25 @@ var StyledPaper = styles.styled(Paper__default.default)(({ theme }) => ({
   backdropFilter: "blur(10px)",
   boxSizing: "border-box",
   [theme.breakpoints.up("sm")]: {
-    padding: theme.spacing(5),
-    margin: "auto 0"
+    padding: theme.spacing(5)
   }
 }));
-function AuthFormShell({ children, sx, ...props }) {
+var AuthFormShell = ({ children, sx, ...props }) => {
   return /* @__PURE__ */ jsxRuntime.jsx(StyledPaper, { elevation: 0, sx, ...props, children });
-}
+};
 var AuthTopBar = styles.styled(Box7__default.default)(({ theme }) => ({
-  position: "absolute",
+  position: "sticky",
+  top: 0,
   zIndex: 2,
-  top: theme.spacing(2),
-  left: theme.spacing(2),
-  right: theme.spacing(2),
+  flexShrink: 0,
+  padding: theme.spacing(2),
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
   pointerEvents: "auto",
   [theme.breakpoints.up("md")]: {
     justifyContent: "flex-end",
-    top: theme.spacing(3),
-    right: theme.spacing(3),
-    left: "auto"
+    padding: theme.spacing(3, 3, 0, 0)
   }
 }));
 var MobileBrand = styles.styled("div")(({ theme }) => ({
@@ -10434,7 +11413,7 @@ var MobileBrand = styles.styled("div")(({ theme }) => ({
     display: "none"
   }
 }));
-function AuthLayout({
+var AuthLayout = ({
   children,
   logo,
   topRight,
@@ -10446,7 +11425,7 @@ function AuthLayout({
   footer,
   brandGradient,
   centeredOnly = false
-}) {
+}) => {
   const hasSplitBrand = !centeredOnly && Boolean(appName || headline);
   return /* @__PURE__ */ jsxRuntime.jsxs(AuthPageRoot, { hasSplitBrand, children: [
     hasSplitBrand ? /* @__PURE__ */ jsxRuntime.jsxs(AuthBrandPanel, { customGradient: brandGradient, children: [
@@ -10536,14 +11515,14 @@ function AuthLayout({
       /* @__PURE__ */ jsxRuntime.jsx(AuthFormShell, { elevation: 0, children: /* @__PURE__ */ jsxRuntime.jsx(Stack4__default.default, { spacing: 3, children }) })
     ] })
   ] });
-}
-function AuthFormHeader({ title, subtitle, badge }) {
+};
+var AuthFormHeader = ({ title, subtitle, badge }) => {
   return /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { spacing: 0.75, sx: { mb: 1 }, children: [
     badge ? /* @__PURE__ */ jsxRuntime.jsx("div", { children: badge }) : null,
     /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h4", component: "h1", sx: { fontWeight: 700, letterSpacing: "-0.02em" }, children: title }),
     subtitle ? /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "text.secondary", sx: { fontSize: "0.875rem" }, children: subtitle }) : null
   ] });
-}
+};
 
 // src/components/AppLauncher/constants/animationConfig.ts
 var FOLDER_LAYOUT_SPRING = {
@@ -10824,7 +11803,7 @@ var AppFolderMiniPreview = ({
   className
 }) => {
   const previewApps = apps.slice(0, 4);
-  return /* @__PURE__ */ jsxRuntime.jsx(Tooltip__default.default, { title: tooltip, arrow: true, placement: "bottom", children: /* @__PURE__ */ jsxRuntime.jsx(
+  return /* @__PURE__ */ jsxRuntime.jsx(Tooltip2__default.default, { title: tooltip, arrow: true, placement: "bottom", children: /* @__PURE__ */ jsxRuntime.jsx(
     framerMotion.motion.button,
     {
       type: "button",
@@ -10892,7 +11871,7 @@ var AppTile = ({
   isActive = false,
   onSelect
 }) => {
-  const [imgError, setImgError] = React18.useState(false);
+  const [imgError, setImgError] = React19.useState(false);
   const iconSrcToUse = app.lordIconSrc || app.iconSrc;
   const handleClick = () => {
     if (app.disabled) return;
@@ -11010,18 +11989,18 @@ var AppTile = ({
           }
         ),
         app.badge && /* @__PURE__ */ jsxRuntime.jsx(
-          Chip6__default.default,
+          Chip,
           {
             label: app.badge,
             size: "small",
-            color: app.badgeColor || "default",
-            sx: {
-              mt: 0.4,
+            color: app.badgeColor === "default" ? void 0 : app.badgeColor,
+            variant: app.badgeColor === "default" ? "outlined" : "filled",
+            style: {
+              marginTop: 4,
               height: 16,
               fontSize: "0.6rem",
               fontWeight: 800,
-              borderRadius: "5px",
-              "& .MuiChip-label": { px: 0.6 }
+              borderRadius: 5
             }
           }
         )
@@ -11038,16 +12017,16 @@ var AppFolderModal = ({
   onClose,
   onSelectApp
 }) => {
-  const [search, setSearch] = React18.useState("");
-  const [selectedCategory, setSelectedCategory] = React18.useState("all");
-  const modalRef = React18.useRef(null);
-  React18.useEffect(() => {
+  const [search, setSearch] = React19.useState("");
+  const [selectedCategory, setSelectedCategory] = React19.useState("all");
+  const modalRef = React19.useRef(null);
+  React19.useEffect(() => {
     if (!isOpen) {
       setSearch("");
       setSelectedCategory("all");
     }
   }, [isOpen]);
-  React18.useEffect(() => {
+  React19.useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape" && isOpen) {
         onClose();
@@ -11056,14 +12035,14 @@ var AppFolderModal = ({
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose]);
-  const categories = React18.useMemo(() => {
-    const set3 = /* @__PURE__ */ new Set();
+  const categories = React19.useMemo(() => {
+    const set = /* @__PURE__ */ new Set();
     apps.forEach((a) => {
-      if (a.category) set3.add(a.category);
+      if (a.category) set.add(a.category);
     });
-    return Array.from(set3);
+    return Array.from(set);
   }, [apps]);
-  const filteredApps = React18.useMemo(() => {
+  const filteredApps = React19.useMemo(() => {
     return apps.filter((app) => {
       const matchSearch = !search.trim() || app.name.toLowerCase().includes(search.toLowerCase()) || app.description && app.description.toLowerCase().includes(search.toLowerCase());
       const matchCategory = selectedCategory === "all" || app.category === selectedCategory;
@@ -11089,7 +12068,7 @@ var AppFolderModal = ({
     }
   };
   if (typeof document === "undefined") return null;
-  return ReactDOM3.createPortal(
+  return ReactDOM.createPortal(
     /* @__PURE__ */ jsxRuntime.jsx(framerMotion.AnimatePresence, { mode: "wait", children: isOpen && /* @__PURE__ */ jsxRuntime.jsxs(
       "div",
       {
@@ -11182,7 +12161,7 @@ var AppFolderModal = ({
                     )
                   ] }),
                   /* @__PURE__ */ jsxRuntime.jsx(
-                    IconButton8__default.default,
+                    IconButton9__default.default,
                     {
                       size: "small",
                       onClick: onClose,
@@ -11225,7 +12204,7 @@ var AppFolderModal = ({
                           }
                         }
                       ),
-                      search && /* @__PURE__ */ jsxRuntime.jsx(IconButton8__default.default, { size: "small", onClick: () => setSearch(""), sx: { p: 0.25 }, children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon5__default.default, { sx: { fontSize: 14 } }) })
+                      search && /* @__PURE__ */ jsxRuntime.jsx(IconButton9__default.default, { size: "small", onClick: () => setSearch(""), sx: { p: 0.25 }, children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon5__default.default, { sx: { fontSize: 14 } }) })
                     ]
                   }
                 ),
@@ -11241,36 +12220,36 @@ var AppFolderModal = ({
                     },
                     children: [
                       /* @__PURE__ */ jsxRuntime.jsx(
-                        Chip6__default.default,
+                        Chip,
                         {
                           label: "All Apps",
                           size: "small",
                           onClick: () => setSelectedCategory("all"),
                           variant: selectedCategory === "all" ? "filled" : "outlined",
-                          color: selectedCategory === "all" ? "primary" : "default",
-                          sx: {
+                          color: selectedCategory === "all" ? "primary" : void 0,
+                          style: {
                             fontWeight: 700,
                             fontSize: "0.72rem",
                             height: 26,
                             cursor: "pointer",
-                            borderRadius: "8px"
+                            borderRadius: 8
                           }
                         }
                       ),
                       categories.map((cat) => /* @__PURE__ */ jsxRuntime.jsx(
-                        Chip6__default.default,
+                        Chip,
                         {
                           label: getCategoryLabel(cat),
                           size: "small",
                           onClick: () => setSelectedCategory(cat),
                           variant: selectedCategory === cat ? "filled" : "outlined",
-                          color: selectedCategory === cat ? "primary" : "default",
-                          sx: {
+                          color: selectedCategory === cat ? "primary" : void 0,
+                          style: {
                             fontWeight: 700,
                             fontSize: "0.72rem",
                             height: 26,
                             cursor: "pointer",
-                            borderRadius: "8px"
+                            borderRadius: 8
                           }
                         },
                         cat
@@ -11394,20 +12373,20 @@ var AppLauncher = ({
   className,
   tooltip = "NamiOS Apps"
 }) => {
-  const [isOpen, setIsOpen] = React18.useState(false);
-  const resolvedApps = React18.useMemo(() => {
+  const [isOpen, setIsOpen] = React19.useState(false);
+  const resolvedApps = React19.useMemo(() => {
     return apps.map((app) => ({
       ...app,
       url: resolveAppUrl(app)
     }));
   }, [apps]);
-  const handleOpen = React18.useCallback(() => {
+  const handleOpen = React19.useCallback(() => {
     setIsOpen(true);
   }, []);
-  const handleClose = React18.useCallback(() => {
+  const handleClose = React19.useCallback(() => {
     setIsOpen(false);
   }, []);
-  const handleSelectApp = React18.useCallback(
+  const handleSelectApp = React19.useCallback(
     (app) => {
       const resolvedApp = {
         ...app,
@@ -11467,7 +12446,7 @@ var ContentArea = styles.styled("main")(({ theme }) => ({
   padding: theme.spacing(3),
   backgroundColor: theme.palette.background.default
 }));
-function DashboardLayout({
+var DashboardLayout = ({
   navItems,
   activePath,
   onNavigate,
@@ -11475,9 +12454,9 @@ function DashboardLayout({
   logo,
   topBarActions,
   children
-}) {
+}) => {
   const { isDesktop } = useMediaBreakpoint();
-  const [mobileOpen, setMobileOpen] = React18.useState(false);
+  const [mobileOpen, setMobileOpen] = React19.useState(false);
   const handleNavigate = (path) => {
     setMobileOpen(false);
     onNavigate(path);
@@ -11490,7 +12469,7 @@ function DashboardLayout({
         logo,
         actions: topBarActions,
         onMenuClick: isDesktop ? void 0 : () => {
-          setMobileOpen((open) => !open);
+          setMobileOpen((open2) => !open2);
         }
       }
     ),
@@ -11512,7 +12491,7 @@ function DashboardLayout({
       children
     ] })
   ] });
-}
+};
 var LaneContainer = styles.styled(Box7__default.default)(({ theme }) => ({
   flex: 1,
   minWidth: 280,
@@ -11552,13 +12531,13 @@ var ItemsScrollArea = styles.styled(Box7__default.default)(({ theme }) => ({
     borderRadius: 3
   }
 }));
-function KanbanBoard({
+var KanbanBoard = ({
   columns,
   items,
   getItemId,
   getItemColumnId,
   renderItem
-}) {
+}) => {
   return /* @__PURE__ */ jsxRuntime.jsx(
     Stack4__default.default,
     {
@@ -11590,18 +12569,12 @@ function KanbanBoard({
               /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "subtitle2", sx: { fontWeight: 700, letterSpacing: "0.05em" }, children: column.title })
             ] }),
             /* @__PURE__ */ jsxRuntime.jsx(
-              Card__default.default,
+              Chip,
               {
+                label: String(laneItems.length),
+                size: "small",
                 variant: "outlined",
-                sx: {
-                  px: 1,
-                  py: 0.25,
-                  borderRadius: 2,
-                  bgcolor: "background.paper",
-                  borderColor: "divider",
-                  boxShadow: "none"
-                },
-                children: /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "caption", sx: { fontWeight: 700 }, children: laneItems.length })
+                style: { height: 22, fontSize: "0.75rem", fontWeight: 700 }
               }
             )
           ] }),
@@ -11610,12 +12583,12 @@ function KanbanBoard({
       })
     }
   );
-}
-function SplitPaneLayout({
+};
+var SplitPaneLayout = ({
   leftPane,
   rightPane,
   rightWidth = 400
-}) {
+}) => {
   return /* @__PURE__ */ jsxRuntime.jsxs(
     Box7__default.default,
     {
@@ -11660,8 +12633,8 @@ function SplitPaneLayout({
       ]
     }
   );
-}
-var StyledCard = styles.styled(Card__default.default, {
+};
+var StyledCard = styles.styled(Card2__default.default, {
   shouldForwardProp: (prop) => prop !== "activeBorderColor" && prop !== "hasAction"
 })(({ theme, activeBorderColor, hasAction }) => ({
   position: "relative",
@@ -11700,7 +12673,7 @@ var MediaOverlay = styles.styled(Box7__default.default)({
     opacity: 1
   }
 });
-function MenuCard({
+var MenuCard = ({
   name,
   price,
   description,
@@ -11711,7 +12684,7 @@ function MenuCard({
   actionOverlay,
   activeBorderColor,
   onClick
-}) {
+}) => {
   const { formatCurrency } = useLocaleFormat();
   const formattedPrice = typeof price === "number" ? formatCurrency(price) : price;
   return /* @__PURE__ */ jsxRuntime.jsxs(
@@ -11723,7 +12696,7 @@ function MenuCard({
       children: [
         /* @__PURE__ */ jsxRuntime.jsxs(ImageContainer, { children: [
           imageUrl ? /* @__PURE__ */ jsxRuntime.jsx(
-            CardMedia__default.default,
+            CardMedia2__default.default,
             {
               component: "img",
               image: imageUrl,
@@ -11756,7 +12729,7 @@ function MenuCard({
           ),
           actionOverlay && /* @__PURE__ */ jsxRuntime.jsx(MediaOverlay, { children: actionOverlay })
         ] }),
-        /* @__PURE__ */ jsxRuntime.jsxs(CardContent__default.default, { sx: { p: 2, flexGrow: 1, display: "flex", flexDirection: "column", gap: 1 }, children: [
+        /* @__PURE__ */ jsxRuntime.jsxs(CardContent2__default.default, { sx: { p: 2, flexGrow: 1, display: "flex", flexDirection: "column", gap: 1 }, children: [
           /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", justifyContent: "space-between", alignItems: "flex-start", spacing: 1, children: [
             /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "subtitle1", sx: { fontWeight: 700, lineHeight: 1.2 }, noWrap: true, children: name }),
             /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "subtitle1", color: "primary", sx: { fontWeight: 700 }, children: formattedPrice })
@@ -11783,12 +12756,13 @@ function MenuCard({
             badges?.map((badge, idx) => /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { children: badge }, idx)),
             /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { flexGrow: 1 } }),
             stockLabel && /* @__PURE__ */ jsxRuntime.jsx(
-              Chip6__default.default,
+              Chip,
               {
                 label: stockLabel,
                 size: "small",
-                color: stockColor,
-                sx: { fontWeight: 700, fontSize: "0.65rem", height: 20 }
+                color: stockColor === "default" ? void 0 : stockColor,
+                variant: stockColor === "default" ? "outlined" : "filled",
+                style: { fontWeight: 700, fontSize: "0.65rem", height: 20 }
               }
             )
           ] })
@@ -11796,7 +12770,7 @@ function MenuCard({
       ]
     }
   );
-}
+};
 var DETERMINISTIC_COLORS = [
   "#007AFF",
   // Blue
@@ -11820,8 +12794,8 @@ var getAvatarBgColor = (seed) => {
   for (let i = 0; i < seed.length; i += 1) {
     hash = seed.charCodeAt(i) + ((hash << 5) - hash);
   }
-  const index2 = Math.abs(hash) % DETERMINISTIC_COLORS.length;
-  return DETERMINISTIC_COLORS[index2] ?? "#007AFF";
+  const index3 = Math.abs(hash) % DETERMINISTIC_COLORS.length;
+  return DETERMINISTIC_COLORS[index3] ?? "#007AFF";
 };
 var UserAvatar = ({
   name = "",
@@ -11829,22 +12803,20 @@ var UserAvatar = ({
   avatarUrl,
   size: size4 = 36,
   sx,
+  style,
   fontSize,
   className
 }) => {
-  const [imageSrc, setImageSrc] = React18.useState(avatarUrl);
-  const [imageError, setImageError] = React18.useState(false);
-  React18.useEffect(() => {
+  const [imageSrc, setImageSrc] = React19.useState(avatarUrl);
+  React19.useEffect(() => {
     if (avatarUrl) {
       setImageSrc(avatarUrl);
-      setImageError(false);
       return;
     }
     try {
       const stored = window.localStorage.getItem("hotelos.avatar");
       if (stored) {
         setImageSrc(stored);
-        setImageError(false);
       }
     } catch {
     }
@@ -11852,25 +12824,27 @@ var UserAvatar = ({
   const displayName = name.trim() || email.trim() || "User";
   const initials = initialsFromName(displayName);
   const bgColor = getAvatarBgColor(displayName);
+  const sxStyle = sx && typeof sx === "object" && !Array.isArray(sx) ? sx : void 0;
+  const combinedStyle = {
+    width: size4,
+    height: size4,
+    backgroundColor: bgColor,
+    color: "#FFFFFF",
+    fontWeight: 700,
+    fontSize: fontSize ?? Math.max(12, Math.floor(size4 * 0.4)),
+    boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+    ...sxStyle,
+    ...style
+  };
   return /* @__PURE__ */ jsxRuntime.jsx(
-    Avatar__default.default,
+    Avatar,
     {
-      src: imageError ? void 0 : imageSrc,
+      src: imageSrc,
       alt: displayName,
-      imgProps: {
-        onError: () => setImageError(true)
-      },
+      size: size4,
+      variant: "circular",
       className,
-      sx: {
-        width: size4,
-        height: size4,
-        bgcolor: bgColor,
-        color: "#FFFFFF",
-        fontWeight: 700,
-        fontSize: fontSize ?? Math.max(12, Math.floor(size4 * 0.4)),
-        boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
-        ...sx
-      },
+      style: combinedStyle,
       children: initials
     }
   );
@@ -13765,6 +14739,12 @@ function diffTranslationKeys(reference, candidate) {
 }
 
 exports.APP_TILE_VARIANTS = APP_TILE_VARIANTS;
+exports.Accordion = Accordion;
+exports.AccordionDetails = AccordionDetails;
+exports.AccordionSummary = AccordionSummary;
+exports.AdaptiveThemeProvider = AdaptiveThemeProvider;
+exports.Alert = Alert;
+exports.AlertTitle = AlertTitle;
 exports.AnimatedBed = AnimatedBed;
 exports.AnimatedBrush = AnimatedBrush;
 exports.AnimatedCalendar = AnimatedCalendar;
@@ -13793,13 +14773,27 @@ exports.AppleDialogTransition = AppleDialogTransition;
 exports.AuthFormHeader = AuthFormHeader;
 exports.AuthFormShell = AuthFormShell;
 exports.AuthLayout = AuthLayout;
+exports.Avatar = Avatar;
+exports.AvatarGroup = AvatarGroup;
 exports.BACKDROP_TRANSITION = BACKDROP_TRANSITION;
 exports.BRAND = BRAND;
+exports.Badge = Badge;
 exports.BillingCycle = BillingCycle;
+exports.Box = Box4;
+exports.Button = Button3;
 exports.COMMON_NAMESPACE = COMMON_NAMESPACE;
 exports.CONTAINER_VARIANTS = CONTAINER_VARIANTS;
+exports.Card = Card;
+exports.CardActions = CardActions;
+exports.CardContent = CardContent;
+exports.CardHeader = CardHeader;
+exports.CardMedia = CardMedia;
+exports.Checkbox = Checkbox;
+exports.Chip = Chip;
+exports.CircularProgress = CircularProgress3;
 exports.ConfirmDialog = ConfirmDialog;
 exports.ConfirmProvider = ConfirmProvider;
+exports.Container = Container;
 exports.ContextMenu = ContextMenu;
 exports.CursorGrid = CursorGrid;
 exports.DATE_FORMATS = DATE_FORMATS;
@@ -13812,7 +14806,13 @@ exports.DataTable = DataTable;
 exports.DateRangeButton = DateRangeButton;
 exports.DateRangePreset = DateRangePreset;
 exports.DescriptionList = DescriptionList;
+exports.Dialog = Dialog3;
+exports.DialogActions = DialogActions3;
+exports.DialogContent = DialogContent3;
 exports.DialogSize = DialogSize;
+exports.DialogTitle = DialogTitle3;
+exports.Divider = Divider;
+exports.Drawer = Drawer;
 exports.EMAIL_REGEX = EMAIL_REGEX;
 exports.EmptyState = EmptyState;
 exports.ErrorState = ErrorState;
@@ -13824,8 +14824,11 @@ exports.FormSelect = FormSelect;
 exports.FormSwitch = FormSwitch;
 exports.FormTextField = FormTextField;
 exports.GREY = GREY;
+exports.Grid = Grid;
+exports.IconButton = IconButton3;
 exports.KanbanBoard = KanbanBoard;
 exports.LanguageSwitcher = LanguageSwitcher;
+exports.LinearProgress = LinearProgress;
 exports.LoadState = LoadState;
 exports.LoadingOverlay = LoadingOverlay;
 exports.MAX_IMAGE_BYTES = MAX_IMAGE_BYTES;
@@ -13833,14 +14836,19 @@ exports.MAX_VIDEO_BYTES = MAX_VIDEO_BYTES;
 exports.MenuCard = MenuCard;
 exports.NamiosLoader = NamiosLoader;
 exports.NamiosMarkSvg = NamiosMarkSvg;
+exports.OtpInput = OtpInput;
 exports.PAGE_SIZE_OPTIONS = PAGE_SIZE_OPTIONS;
 exports.PASSWORD_REGEX = PASSWORD_REGEX;
 exports.PHONE_REGEX = PHONE_REGEX;
 exports.PRODUCTION_APP_URLS = PRODUCTION_APP_URLS;
 exports.PageHeader = PageHeader;
 exports.PageSkeleton = PageSkeleton;
+exports.Paper = Paper2;
 exports.PasswordField = PasswordField;
 exports.RADII = RADII;
+exports.Radio = Radio;
+exports.RadioGroup = RadioGroup;
+exports.Rating = Rating;
 exports.SEMANTIC = SEMANTIC;
 exports.SHADOWS = SHADOWS;
 exports.SHARED_ROUTES = SHARED_ROUTES;
@@ -13851,42 +14859,68 @@ exports.STORAGE_KEYS = STORAGE_KEYS;
 exports.SUPPORTED_LOCALES = SUPPORTED_LOCALES;
 exports.SearchField = SearchField;
 exports.SectionCard = SectionCard;
+exports.Select = Select;
 exports.SelectField = SelectField;
+exports.Skeleton = Skeleton;
+exports.Slider = Slider;
 exports.SnackbarProvider = SnackbarProvider;
 exports.SplitPaneLayout = SplitPaneLayout;
+exports.Stack = Stack2;
 exports.StatCard = StatCard;
 exports.Status = Status;
 exports.StatusChip = StatusChip;
 exports.StatusFilterChips = StatusFilterChips;
 exports.SubscriptionPlanTier = SubscriptionPlanTier;
+exports.Switch = Switch;
+exports.Tab = Tab;
+exports.Tabs = Tabs;
+exports.TextField = TextField;
 exports.ThemeModeProvider = ThemeModeProvider;
+exports.ThemeProvider = ThemeProvider2;
 exports.TimelineMatrix = TimelineMatrix;
+exports.Tooltip = Tooltip;
+exports.Typography = Typography3;
 exports.UserAvatar = UserAvatar;
 exports.UserRole = UserRole;
 exports.VERCEL_APP_URLS = VERCEL_APP_URLS;
 exports.WizardDialog = WizardDialog;
 exports.addDays = addDays;
+exports.adjustLightness = adjustLightness;
 exports.assertNever = assertNever;
+exports.buildColorRole = buildColorRole;
 exports.buildQueryString = buildQueryString;
 exports.clamp = clamp;
+exports.cn = cn;
 exports.commonKey = commonKey;
 exports.createHotelOsTheme = createHotelOsTheme;
+exports.createMuiCompatiblePalette = createMuiCompatiblePalette;
+exports.createTheme = createTheme2;
 exports.dateRangeDays = dateRangeDays;
 exports.diffTranslationKeys = diffTranslationKeys;
 exports.differenceInDays = differenceInDays;
 exports.flattenTranslationKeys = flattenTranslationKeys;
 exports.formatBytes = formatBytes;
+exports.forwardRef = forwardRef17;
+exports.generateId = generateId2;
 exports.getAvatarBgColor = getAvatarBgColor;
+exports.getContrastRatio = getContrastRatio;
+exports.getContrastText = getContrastText;
+exports.getRelativeLuminance = getRelativeLuminance;
 exports.groupBy = groupBy;
+exports.hexToRgb = hexToRgb;
 exports.initI18n = initI18n;
 exports.initialsFromName = initialsFromName;
+exports.injectThemeTokens = injectThemeTokens;
 exports.isDefined = isDefined;
+exports.isInteractive = isInteractive;
 exports.isPwa = isPwa;
 exports.isoDate = isoDate;
+exports.mapRange = mapRange;
 exports.navigateApp = navigateApp;
 exports.omit = omit;
 exports.pick = pick;
 exports.resolveAppUrl = resolveAppUrl;
+exports.rgbToHex = rgbToHex;
 exports.safeJsonParse = safeJsonParse;
 exports.sleep = sleep;
 exports.sortBy = sortBy;
@@ -13904,10 +14938,12 @@ exports.useIsMounted = useIsMounted;
 exports.useLocalStorage = useLocalStorage;
 exports.useLocaleFormat = useLocaleFormat;
 exports.useMediaBreakpoint = useMediaBreakpoint;
+exports.useMediaQuery = useMediaQuery2;
 exports.usePagination = usePagination;
 exports.usePrevious = usePrevious;
 exports.useSnackbar = useSnackbar;
 exports.useTableQuery = useTableQuery;
+exports.useTheme = useTheme3;
 exports.useThemeMode = useThemeMode;
 exports.useToggle = useToggle;
 exports.validateImageFile = validateImageFile;

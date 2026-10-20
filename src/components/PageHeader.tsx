@@ -34,7 +34,7 @@ export interface PageHeaderProps {
 }
 
 /** Standard admin page header: breadcrumbs, title, subtitle, actions. */
-export function PageHeader({
+export const PageHeader = ({
   titleKey,
   titleParams,
   title,
@@ -43,7 +43,7 @@ export function PageHeader({
   breadcrumbs,
   onNavigate,
   actions,
-}: PageHeaderProps) {
+}: PageHeaderProps) => {
   const { t } = useTranslation();
   return (
     <HeaderRoot>
@@ -85,4 +85,4 @@ export function PageHeader({
       {actions ? <div>{actions}</div> : null}
     </HeaderRoot>
   );
-}
+};

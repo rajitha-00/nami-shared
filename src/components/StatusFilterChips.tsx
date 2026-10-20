@@ -1,5 +1,4 @@
-import Chip from '@mui/material/Chip';
-import Stack from '@mui/material/Stack';
+import { Chip, Stack } from '@namios/motionui-react';
 import { useTranslation } from 'react-i18next';
 
 export interface StatusFilterOption<TValue extends string> {
@@ -12,17 +11,19 @@ export interface StatusFilterChipsProps<TValue extends string> {
   options: StatusFilterOption<TValue>[];
   value: TValue;
   onChange: (value: TValue) => void;
+  className?: string;
 }
 
-/** "All (47) / Confirmed (23) / …" chip filter row; active chip is filled dark. */
-export function StatusFilterChips<TValue extends string>({
+/** "All (47) / Confirmed (23) / …" chip filter row; active chip is filled dark. Powered by MotionUI design tokens. */
+export const StatusFilterChips = <TValue extends string>({
   options,
   value,
   onChange,
-}: StatusFilterChipsProps<TValue>) {
+  className,
+}: StatusFilterChipsProps<TValue>) => {
   const { t } = useTranslation();
   return (
-    <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap role="tablist">
+    <Stack direction="row" spacing={1} flexWrap="wrap" className={className} role="tablist">
       {options.map((option) => {
         const active = option.value === value;
         const label =
@@ -33,6 +34,7 @@ export function StatusFilterChips<TValue extends string>({
             label={label}
             color={active ? 'primary' : undefined}
             variant={active ? 'filled' : 'outlined'}
+            clickable
             onClick={() => {
               onChange(option.value);
             }}
@@ -43,4 +45,4 @@ export function StatusFilterChips<TValue extends string>({
       })}
     </Stack>
   );
-}
+};

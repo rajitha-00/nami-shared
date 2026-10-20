@@ -32,7 +32,7 @@ export interface ConfirmDialogProps {
 }
 
 /** The single confirm dialog rendered by ConfirmProvider (via useConfirm) with Family-style motion and aesthetics. */
-export function ConfirmDialog({
+export const ConfirmDialog = ({
   open,
   titleKey,
   messageKey,
@@ -45,7 +45,7 @@ export function ConfirmDialog({
   disableBackdrop = false,
   onConfirm,
   onCancel,
-}: ConfirmDialogProps) {
+}: ConfirmDialogProps) => {
   const { t } = useTranslation();
 
   const content = (
@@ -243,4 +243,4 @@ export function ConfirmDialog({
       {content}
     </Dialog>
   );
-}
+};

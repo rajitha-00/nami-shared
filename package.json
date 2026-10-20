@@ -84,6 +84,7 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
+    "@namios/motionui-react": "^1.0.0",
     "i18next-browser-languagedetector": "^8.0.0",
     "react-spinners": "^0.17.0"
   },

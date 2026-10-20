@@ -3,10 +3,10 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import Chip from '@mui/material/Chip';
 import CardMedia from '@mui/material/CardMedia';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
+import { Chip as MotionChip } from '@namios/motionui-react';
 import { useLocaleFormat } from '../hooks/useLocaleFormat';
 
 export interface MenuCardProps {
@@ -69,7 +69,7 @@ const MediaOverlay = styled(Box)({
 /**
  * MenuCard: A presentational card for items in the catalog or menu.
  */
-export function MenuCard({
+export const MenuCard = ({
   name,
   price,
   description,
@@ -80,7 +80,7 @@ export function MenuCard({
   actionOverlay,
   activeBorderColor,
   onClick,
-}: MenuCardProps) {
+}: MenuCardProps) => {
   const { formatCurrency } = useLocaleFormat();
   const formattedPrice = typeof price === 'number' ? formatCurrency(price) : price;
 
@@ -164,15 +164,16 @@ export function MenuCard({
           ))}
           <Box sx={{ flexGrow: 1 }} />
           {stockLabel && (
-            <Chip
+            <MotionChip
               label={stockLabel}
               size="small"
-              color={stockColor}
-              sx={{ fontWeight: 700, fontSize: '0.65rem', height: 20 }}
+              color={stockColor === 'default' ? undefined : stockColor}
+              variant={stockColor === 'default' ? 'outlined' : 'filled'}
+              style={{ fontWeight: 700, fontSize: '0.65rem', height: 20 }}
             />
           )}
         </Stack>
       </CardContent>
     </StyledCard>
   );
-}
+};

@@ -27,7 +27,7 @@ export interface AuthLayoutProps {
   /** Hero description below headline. */
   description?: string;
   /** Value proposition bullet points with checkmark icons. */
-  features?: Array<AuthLayoutFeatureItem | string>;
+  features?: (AuthLayoutFeatureItem | string)[];
   /** Brand panel footer text. */
   footer?: string;
   /** Optional custom gradient for brand panel. */
@@ -141,11 +141,16 @@ const AuthFormPanel = styled('section')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  justifyContent: 'center',
+  /* Use flex-start instead of center to prevent scroll-loop glitch.
+     Vertical centering is achieved via margin: 'auto 0' on the form shell. */
+  justifyContent: 'flex-start',
   padding: theme.spacing(3, 2),
   position: 'relative',
   overflowY: 'auto',
   overflowX: 'hidden',
+  /* Override global scroll-behavior: smooth to stop the auto-scroll loop
+     when the browser tries to scrollIntoView the focused input. */
+  scrollBehavior: 'auto',
   boxSizing: 'border-box',
   WebkitOverflowScrolling: 'touch',
   backgroundColor: '#f8fafc',
@@ -171,7 +176,9 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   zIndex: 1,
   width: '100%',
   maxWidth: 450,
-  margin: 0,
+  /* Safe vertical centering — replaces parent justifyContent:'center'
+     which caused a scroll-loop when content overflowed. */
+  margin: 'auto 0',
   padding: theme.spacing(3.5, 2.5),
   borderRadius: 20,
   border: '1px solid rgba(226, 232, 240, 0.9)',
@@ -189,29 +196,27 @@ export interface AuthFormShellProps extends PaperProps {
   children: ReactNode;
 }
 
-export function AuthFormShell({ children, sx, ...props }: AuthFormShellProps) {
+export const AuthFormShell = ({ children, sx, ...props }: AuthFormShellProps) => {
   return (
     <StyledPaper elevation={0} sx={sx} {...props}>
       {children}
     </StyledPaper>
   );
-}
+};
 
 const AuthTopBar = styled(Box)(({ theme }) => ({
-  position: 'absolute',
+  position: 'sticky',
+  top: 0,
   zIndex: 2,
-  top: theme.spacing(2),
-  left: theme.spacing(2),
-  right: theme.spacing(2),
+  flexShrink: 0,
+  padding: theme.spacing(2),
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
   pointerEvents: 'auto',
   [theme.breakpoints.up('md')]: {
     justifyContent: 'flex-end',
-    top: theme.spacing(3),
-    right: theme.spacing(3),
-    left: 'auto',
+    padding: theme.spacing(3, 3, 0, 0),
   },
 }));
 
@@ -227,7 +232,7 @@ const MobileBrand = styled('div')(({ theme }) => ({
  * Standard NamiOS Auth Layout with responsive split brand panel
  * and elevated form shell.
  */
-export function AuthLayout({
+export const AuthLayout = ({
   children,
   logo,
   topRight,
@@ -239,7 +244,7 @@ export function AuthLayout({
   footer,
   brandGradient,
   centeredOnly = false,
-}: AuthLayoutProps) {
+}: AuthLayoutProps) => {
   const hasSplitBrand = !centeredOnly && Boolean(appName || headline);
 
   return (

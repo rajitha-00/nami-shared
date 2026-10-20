@@ -5,4 +5,4 @@ export interface AuthFormHeaderProps {
     badge?: ReactNode;
 }
 /** Reusable header for auth views (login, forgot password, reset password). */
-export declare function AuthFormHeader({ title, subtitle, badge }: AuthFormHeaderProps): import("react").JSX.Element;
+export declare const AuthFormHeader: ({ title, subtitle, badge }: AuthFormHeaderProps) => import("react").JSX.Element;

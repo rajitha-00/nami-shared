@@ -9,7 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
-import Chip from '@mui/material/Chip';
+import { Chip } from '@namios/motionui-react';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
@@ -45,7 +45,7 @@ export interface WizardDialogProps {
 }
 
 /** Numbered-stepper dialog for multi-step flows (e.g. the booking wizard). */
-export function WizardDialog({
+export const WizardDialog = ({
   open,
   titleKey,
   steps,
@@ -62,7 +62,7 @@ export function WizardDialog({
   maxWidth = 'md',
   paperSx,
   children,
-}: WizardDialogProps) {
+}: WizardDialogProps) => {
   const { t } = useTranslation();
   const isLast = activeStep === steps.length - 1;
 
@@ -93,7 +93,7 @@ export function WizardDialog({
             size="small"
             color="primary"
             variant="outlined"
-            sx={{ fontWeight: 700, fontSize: '0.75rem', height: 22 }}
+            style={{ fontWeight: 700, fontSize: '0.75rem', height: 22 }}
           />
         </Stack>
         <IconButton aria-label={t('common:actions.close')} onClick={onCancel} size="small" edge="end">

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import Button from '@mui/material/Button';
-import Chip from '@mui/material/Chip';
+import { Chip } from '@namios/motionui-react';
 import Popover from '@mui/material/Popover';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
@@ -13,7 +13,7 @@ export interface DateRangeButtonProps {
 }
 
 /** The "Jun 19 – Jul 3, 2026" pill; opens a popover with presets + custom dates. */
-export function DateRangeButton({ range }: DateRangeButtonProps) {
+export const DateRangeButton = ({ range }: DateRangeButtonProps) => {
   const { t, i18n } = useTranslation();
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const [draftFrom, setDraftFrom] = useState(range.from);

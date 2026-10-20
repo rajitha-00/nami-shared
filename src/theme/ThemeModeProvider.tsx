@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import type { ThemeOptions } from '@mui/material/styles';
 import { STORAGE_KEYS } from '../constants/storage-keys';
@@ -30,11 +30,23 @@ export interface ThemeModeProviderProps {
 
 /**
  * Provides light/dark switching backed by localStorage and prefers-color-scheme.
+ * Automatically synchronizes `data-theme` attribute for MotionUI design tokens.
  * Apps pinned to a single mode (Super Admin) skip this and use
  * `createHotelOsTheme('light')` with MUI's ThemeProvider directly.
  */
-export function ThemeModeProvider({ children, overrides }: ThemeModeProviderProps) {
+export const ThemeModeProvider = ({ children, overrides }: ThemeModeProviderProps) => {
   const [mode, setModeState] = useState<ThemeMode>(readInitialMode);
+
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      document.documentElement.setAttribute('data-theme', mode);
+      if (mode === 'dark') {
+        document.documentElement.classList.add('mui-dark');
+      } else {
+        document.documentElement.classList.remove('mui-dark');
+      }
+    }
+  }, [mode]);
 
   const setMode = useCallback((next: ThemeMode) => {
     setModeState(next);
@@ -60,12 +72,12 @@ export function ThemeModeProvider({ children, overrides }: ThemeModeProviderProp
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </ThemeModeContext.Provider>
   );
-}
+};
 
-export function useThemeMode(): ThemeModeContextValue {
+export const useThemeMode = (): ThemeModeContextValue => {
   const ctx = useContext(ThemeModeContext);
   if (!ctx) {
     throw new Error('useThemeMode must be used within a ThemeModeProvider');
   }
   return ctx;
-}
+};

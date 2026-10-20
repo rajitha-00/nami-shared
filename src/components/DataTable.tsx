@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
 import Paper from '@mui/material/Paper';
-import Skeleton from '@mui/material/Skeleton';
+import { Skeleton } from '@namios/motionui-react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -78,7 +78,7 @@ export interface DataTableProps<T extends { id: ID }> {
  * Server-side paginated table driven by TableColumn<T>[]. Pairs directly with
  * useTableQuery + a Paginated<T> RTK Query endpoint.
  */
-export function DataTable<T extends { id: ID }>({
+export const DataTable = <T extends { id: ID }>({
   columns,
   data,
   isLoading = false,
@@ -100,7 +100,7 @@ export function DataTable<T extends { id: ID }>({
   toolbar,
   emptyState,
   compact = false,
-}: DataTableProps<T>) {
+}: DataTableProps<T>) => {
   const { t } = useTranslation();
   const { contextMenu, openContextMenu, closeContextMenu } = useContextMenu();
   const rows = data?.items ?? [];

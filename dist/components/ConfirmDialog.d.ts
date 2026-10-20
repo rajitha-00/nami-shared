@@ -16,4 +16,4 @@ export interface ConfirmDialogProps {
     onCancel: () => void;
 }
 /** The single confirm dialog rendered by ConfirmProvider (via useConfirm) with Family-style motion and aesthetics. */
-export declare function ConfirmDialog({ open, titleKey, messageKey, messageParams, variant, confirmKey, cancelKey, loading, anchorEl, disableBackdrop, onConfirm, onCancel, }: ConfirmDialogProps): import("react").JSX.Element;
+export declare const ConfirmDialog: ({ open, titleKey, messageKey, messageParams, variant, confirmKey, cancelKey, loading, anchorEl, disableBackdrop, onConfirm, onCancel, }: ConfirmDialogProps) => import("react").JSX.Element;

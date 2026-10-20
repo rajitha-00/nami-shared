@@ -5,9 +5,9 @@ var Dialog = require('@mui/material/Dialog');
 var DialogActions = require('@mui/material/DialogActions');
 var DialogContent = require('@mui/material/DialogContent');
 var DialogTitle = require('@mui/material/DialogTitle');
-var IconButton8 = require('@mui/material/IconButton');
+var IconButton9 = require('@mui/material/IconButton');
 var reactI18next = require('react-i18next');
-var react = require('react');
+var React17 = require('react');
 var framerMotion = require('framer-motion');
 var jsxRuntime = require('react/jsx-runtime');
 var styles = require('@mui/material/styles');
@@ -23,9 +23,7 @@ var Stack4 = require('@mui/material/Stack');
 var Paper = require('@mui/material/Paper');
 var ErrorOutlineIcon = require('@mui/icons-material/ErrorOutline');
 var RefreshIcon = require('@mui/icons-material/Refresh');
-var Chip6 = require('@mui/material/Chip');
-var Checkbox = require('@mui/material/Checkbox');
-var Skeleton = require('@mui/material/Skeleton');
+var Checkbox2 = require('@mui/material/Checkbox');
 var Table = require('@mui/material/Table');
 var TableBody = require('@mui/material/TableBody');
 var TableCell = require('@mui/material/TableCell');
@@ -37,18 +35,16 @@ var TableSortLabel = require('@mui/material/TableSortLabel');
 var TrendingDownIcon = require('@mui/icons-material/TrendingDown');
 var TrendingFlatIcon = require('@mui/icons-material/TrendingFlat');
 var TrendingUpIcon = require('@mui/icons-material/TrendingUp');
-var Card = require('@mui/material/Card');
-var CardContent = require('@mui/material/CardContent');
-var CardHeader = require('@mui/material/CardHeader');
+var Card2 = require('@mui/material/Card');
 var ClearIcon = require('@mui/icons-material/Clear');
 var SearchIcon = require('@mui/icons-material/Search');
 var InputAdornment = require('@mui/material/InputAdornment');
-var TextField4 = require('@mui/material/TextField');
+var TextField5 = require('@mui/material/TextField');
 var MenuItem = require('@mui/material/MenuItem');
 var VisibilityIcon = require('@mui/icons-material/Visibility');
 var VisibilityOffIcon = require('@mui/icons-material/VisibilityOff');
 var FormControlLabel = require('@mui/material/FormControlLabel');
-var Switch = require('@mui/material/Switch');
+var Switch2 = require('@mui/material/Switch');
 var CheckIcon = require('@mui/icons-material/Check');
 var TranslateIcon = require('@mui/icons-material/Translate');
 var ListItemIcon = require('@mui/material/ListItemIcon');
@@ -57,6 +53,7 @@ var Menu = require('@mui/material/Menu');
 var MenuIcon = require('@mui/icons-material/Menu');
 var AppBar = require('@mui/material/AppBar');
 var Toolbar = require('@mui/material/Toolbar');
+var Skeleton2 = require('@mui/material/Skeleton');
 var Step = require('@mui/material/Step');
 var StepLabel = require('@mui/material/StepLabel');
 var Stepper = require('@mui/material/Stepper');
@@ -64,14 +61,14 @@ var CalendarMonthOutlinedIcon = require('@mui/icons-material/CalendarMonthOutlin
 var ExpandLessIcon = require('@mui/icons-material/ExpandLess');
 var ExpandMoreIcon = require('@mui/icons-material/ExpandMore');
 var Collapse = require('@mui/material/Collapse');
-var Drawer = require('@mui/material/Drawer');
+var Drawer2 = require('@mui/material/Drawer');
 var List = require('@mui/material/List');
 var ListItemButton = require('@mui/material/ListItemButton');
 var NavigateNextIcon = require('@mui/icons-material/NavigateNext');
 var Breadcrumbs = require('@mui/material/Breadcrumbs');
 var Link = require('@mui/material/Link');
 var CheckCircleRoundedIcon = require('@mui/icons-material/CheckCircleRounded');
-var useMediaQuery = require('@mui/material/useMediaQuery');
+var useMediaQuery2 = require('@mui/material/useMediaQuery');
 var HotelIcon = require('@mui/icons-material/Hotel');
 var RestaurantIcon = require('@mui/icons-material/Restaurant');
 var AdminPanelSettingsIcon = require('@mui/icons-material/AdminPanelSettings');
@@ -80,11 +77,11 @@ var AutoAwesomeIcon = require('@mui/icons-material/AutoAwesome');
 var PaymentsIcon = require('@mui/icons-material/Payments');
 var PeopleIcon = require('@mui/icons-material/People');
 var InventoryIcon = require('@mui/icons-material/Inventory');
-var Tooltip = require('@mui/material/Tooltip');
+var Tooltip2 = require('@mui/material/Tooltip');
 var reactDom = require('react-dom');
 var InputBase = require('@mui/material/InputBase');
-var CardMedia = require('@mui/material/CardMedia');
-var Avatar = require('@mui/material/Avatar');
+var CardContent2 = require('@mui/material/CardContent');
+var CardMedia2 = require('@mui/material/CardMedia');
 
 function _interopDefault (e) { return e && e.__esModule ? e : { default: e }; }
 
@@ -93,7 +90,8 @@ var Dialog__default = /*#__PURE__*/_interopDefault(Dialog);
 var DialogActions__default = /*#__PURE__*/_interopDefault(DialogActions);
 var DialogContent__default = /*#__PURE__*/_interopDefault(DialogContent);
 var DialogTitle__default = /*#__PURE__*/_interopDefault(DialogTitle);
-var IconButton8__default = /*#__PURE__*/_interopDefault(IconButton8);
+var IconButton9__default = /*#__PURE__*/_interopDefault(IconButton9);
+var React17__default = /*#__PURE__*/_interopDefault(React17);
 var Box7__default = /*#__PURE__*/_interopDefault(Box7);
 var Typography9__default = /*#__PURE__*/_interopDefault(Typography9);
 var Button5__default = /*#__PURE__*/_interopDefault(Button5);
@@ -104,9 +102,7 @@ var Stack4__default = /*#__PURE__*/_interopDefault(Stack4);
 var Paper__default = /*#__PURE__*/_interopDefault(Paper);
 var ErrorOutlineIcon__default = /*#__PURE__*/_interopDefault(ErrorOutlineIcon);
 var RefreshIcon__default = /*#__PURE__*/_interopDefault(RefreshIcon);
-var Chip6__default = /*#__PURE__*/_interopDefault(Chip6);
-var Checkbox__default = /*#__PURE__*/_interopDefault(Checkbox);
-var Skeleton__default = /*#__PURE__*/_interopDefault(Skeleton);
+var Checkbox2__default = /*#__PURE__*/_interopDefault(Checkbox2);
 var Table__default = /*#__PURE__*/_interopDefault(Table);
 var TableBody__default = /*#__PURE__*/_interopDefault(TableBody);
 var TableCell__default = /*#__PURE__*/_interopDefault(TableCell);
@@ -118,18 +114,16 @@ var TableSortLabel__default = /*#__PURE__*/_interopDefault(TableSortLabel);
 var TrendingDownIcon__default = /*#__PURE__*/_interopDefault(TrendingDownIcon);
 var TrendingFlatIcon__default = /*#__PURE__*/_interopDefault(TrendingFlatIcon);
 var TrendingUpIcon__default = /*#__PURE__*/_interopDefault(TrendingUpIcon);
-var Card__default = /*#__PURE__*/_interopDefault(Card);
-var CardContent__default = /*#__PURE__*/_interopDefault(CardContent);
-var CardHeader__default = /*#__PURE__*/_interopDefault(CardHeader);
+var Card2__default = /*#__PURE__*/_interopDefault(Card2);
 var ClearIcon__default = /*#__PURE__*/_interopDefault(ClearIcon);
 var SearchIcon__default = /*#__PURE__*/_interopDefault(SearchIcon);
 var InputAdornment__default = /*#__PURE__*/_interopDefault(InputAdornment);
-var TextField4__default = /*#__PURE__*/_interopDefault(TextField4);
+var TextField5__default = /*#__PURE__*/_interopDefault(TextField5);
 var MenuItem__default = /*#__PURE__*/_interopDefault(MenuItem);
 var VisibilityIcon__default = /*#__PURE__*/_interopDefault(VisibilityIcon);
 var VisibilityOffIcon__default = /*#__PURE__*/_interopDefault(VisibilityOffIcon);
 var FormControlLabel__default = /*#__PURE__*/_interopDefault(FormControlLabel);
-var Switch__default = /*#__PURE__*/_interopDefault(Switch);
+var Switch2__default = /*#__PURE__*/_interopDefault(Switch2);
 var CheckIcon__default = /*#__PURE__*/_interopDefault(CheckIcon);
 var TranslateIcon__default = /*#__PURE__*/_interopDefault(TranslateIcon);
 var ListItemIcon__default = /*#__PURE__*/_interopDefault(ListItemIcon);
@@ -138,6 +132,7 @@ var Menu__default = /*#__PURE__*/_interopDefault(Menu);
 var MenuIcon__default = /*#__PURE__*/_interopDefault(MenuIcon);
 var AppBar__default = /*#__PURE__*/_interopDefault(AppBar);
 var Toolbar__default = /*#__PURE__*/_interopDefault(Toolbar);
+var Skeleton2__default = /*#__PURE__*/_interopDefault(Skeleton2);
 var Step__default = /*#__PURE__*/_interopDefault(Step);
 var StepLabel__default = /*#__PURE__*/_interopDefault(StepLabel);
 var Stepper__default = /*#__PURE__*/_interopDefault(Stepper);
@@ -145,14 +140,14 @@ var CalendarMonthOutlinedIcon__default = /*#__PURE__*/_interopDefault(CalendarMo
 var ExpandLessIcon__default = /*#__PURE__*/_interopDefault(ExpandLessIcon);
 var ExpandMoreIcon__default = /*#__PURE__*/_interopDefault(ExpandMoreIcon);
 var Collapse__default = /*#__PURE__*/_interopDefault(Collapse);
-var Drawer__default = /*#__PURE__*/_interopDefault(Drawer);
+var Drawer2__default = /*#__PURE__*/_interopDefault(Drawer2);
 var List__default = /*#__PURE__*/_interopDefault(List);
 var ListItemButton__default = /*#__PURE__*/_interopDefault(ListItemButton);
 var NavigateNextIcon__default = /*#__PURE__*/_interopDefault(NavigateNextIcon);
 var Breadcrumbs__default = /*#__PURE__*/_interopDefault(Breadcrumbs);
 var Link__default = /*#__PURE__*/_interopDefault(Link);
 var CheckCircleRoundedIcon__default = /*#__PURE__*/_interopDefault(CheckCircleRoundedIcon);
-var useMediaQuery__default = /*#__PURE__*/_interopDefault(useMediaQuery);
+var useMediaQuery2__default = /*#__PURE__*/_interopDefault(useMediaQuery2);
 var HotelIcon__default = /*#__PURE__*/_interopDefault(HotelIcon);
 var RestaurantIcon__default = /*#__PURE__*/_interopDefault(RestaurantIcon);
 var AdminPanelSettingsIcon__default = /*#__PURE__*/_interopDefault(AdminPanelSettingsIcon);
@@ -161,13 +156,13 @@ var AutoAwesomeIcon__default = /*#__PURE__*/_interopDefault(AutoAwesomeIcon);
 var PaymentsIcon__default = /*#__PURE__*/_interopDefault(PaymentsIcon);
 var PeopleIcon__default = /*#__PURE__*/_interopDefault(PeopleIcon);
 var InventoryIcon__default = /*#__PURE__*/_interopDefault(InventoryIcon);
-var Tooltip__default = /*#__PURE__*/_interopDefault(Tooltip);
+var Tooltip2__default = /*#__PURE__*/_interopDefault(Tooltip2);
 var InputBase__default = /*#__PURE__*/_interopDefault(InputBase);
-var CardMedia__default = /*#__PURE__*/_interopDefault(CardMedia);
-var Avatar__default = /*#__PURE__*/_interopDefault(Avatar);
+var CardContent2__default = /*#__PURE__*/_interopDefault(CardContent2);
+var CardMedia2__default = /*#__PURE__*/_interopDefault(CardMedia2);
 
 // src/components/AppDialog.tsx
-var AppleDialogTransition = react.forwardRef(
+var AppleDialogTransition = React17.forwardRef(
   function AppleDialogTransition2(props, ref) {
     const { in: inProp, onEnter, onEntered, onExit, onExited, children, ...other } = props;
     return /* @__PURE__ */ jsxRuntime.jsx(
@@ -381,11 +376,11 @@ var OverlayRoot = styles.styled("div")(({ theme }) => ({
   backdropFilter: "blur(4px)",
   zIndex: theme.zIndex.modal
 }));
-function LoadingOverlay({ open, label, size = 48 }) {
+var LoadingOverlay = ({ open, label, size = 48 }) => {
   if (!open) return null;
   return /* @__PURE__ */ jsxRuntime.jsx(OverlayRoot, { children: /* @__PURE__ */ jsxRuntime.jsx(NamiosLoader, { size, label }) });
-}
-function AppDialog({
+};
+var AppDialog = ({
   open,
   titleKey,
   titleParams,
@@ -395,7 +390,7 @@ function AppDialog({
   disableClose = false,
   onClose,
   children
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   const handleClose = (_event, reason) => {
     if (disableClose && (reason === "backdropClick" || reason === "escapeKeyDown")) return;
@@ -413,7 +408,7 @@ function AppDialog({
         /* @__PURE__ */ jsxRuntime.jsxs(DialogTitle__default.default, { sx: { display: "flex", alignItems: "center", justifyContent: "space-between" }, children: [
           t(titleKey, titleParams),
           /* @__PURE__ */ jsxRuntime.jsx(
-            IconButton8__default.default,
+            IconButton9__default.default,
             {
               "aria-label": t("common:actions.close"),
               onClick: onClose,
@@ -431,8 +426,8 @@ function AppDialog({
       ]
     }
   );
-}
-var FamilyDialogTransition = react.forwardRef(
+};
+var FamilyDialogTransition = React17.forwardRef(
   function FamilyDialogTransition2(props, ref) {
     const { in: inProp, onEnter, onEntered, onExit, onExited, children, style, ...other } = props;
     return /* @__PURE__ */ jsxRuntime.jsx(
@@ -501,7 +496,7 @@ var FamilyDialogTransition = react.forwardRef(
     );
   }
 );
-function ConfirmDialog({
+var ConfirmDialog = ({
   open,
   titleKey,
   messageKey,
@@ -514,7 +509,7 @@ function ConfirmDialog({
   disableBackdrop = false,
   onConfirm,
   onCancel
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   const content = /* @__PURE__ */ jsxRuntime.jsxs(Box7__default.default, { sx: { width: "100%", maxWidth: "380px" }, children: [
     /* @__PURE__ */ jsxRuntime.jsxs(
@@ -534,7 +529,7 @@ function ConfirmDialog({
         children: [
           t(titleKey),
           /* @__PURE__ */ jsxRuntime.jsx(
-            IconButton8__default.default,
+            IconButton9__default.default,
             {
               "aria-label": t("common:actions.close"),
               onClick: onCancel,
@@ -708,8 +703,8 @@ function ConfirmDialog({
       children: content
     }
   );
-}
-function FormDialog({
+};
+var FormDialog = ({
   open,
   titleKey,
   titleParams,
@@ -722,7 +717,7 @@ function FormDialog({
   submitKey = "common:actions.save",
   cancelKey = "common:actions.cancel",
   children
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   const form = reactHookForm.useForm({
     resolver: zod.zodResolver(schema),
@@ -730,7 +725,7 @@ function FormDialog({
     mode: "onBlur"
   });
   const { reset } = form;
-  react.useEffect(() => {
+  React17.useEffect(() => {
     if (open) reset(defaultValues);
   }, [open, defaultValues, reset]);
   const handleSubmit = form.handleSubmit(async (values) => {
@@ -774,7 +769,7 @@ function FormDialog({
       )
     }
   );
-}
+};
 var AnimatedInbox = ({
   size = 48,
   color = "currentColor",
@@ -917,6 +912,891 @@ var EmptyState = ({
     }
   );
 };
+function cn(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+var idCounter = 0;
+function generateId(prefix = "mui") {
+  idCounter += 1;
+  return `${prefix}-${idCounter}`;
+}
+function forwardRef3(component) {
+  return React17__default.default.forwardRef(component);
+}
+function isInteractive(element) {
+  const tag = element.tagName.toLowerCase();
+  return tag === "button" || tag === "a" || tag === "input" || tag === "select" || tag === "textarea" || element.getAttribute("tabindex") !== null;
+}
+function clamp(value, min, max) {
+  return Math.min(Math.max(value, min), max);
+}
+function mapRange(value, inMin, inMax, outMin, outMax) {
+  return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+}
+
+// node_modules/@namios/motionui-react/dist/esm/components/Accordion/Accordion.js
+var AccordionSummary = ({ expandIcon, children, className, ...props }) => {
+  return jsxRuntime.jsxs("button", { type: "button", className: cn("mui-accordion__summary", className), ...props, children: [jsxRuntime.jsx("div", { className: "mui-accordion__summary-content", children }), jsxRuntime.jsx("div", { className: "mui-accordion__expand-icon", children: expandIcon || jsxRuntime.jsx("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", children: jsxRuntime.jsx("polyline", { points: "6 9 12 15 18 9" }) }) })] });
+};
+var AccordionDetails = ({ children, className, ...props }) => {
+  return jsxRuntime.jsx("div", { className: cn("mui-accordion__details", className), ...props, children: jsxRuntime.jsx("div", { className: "mui-accordion__details-inner", children }) });
+};
+var Accordion = ({ expanded: controlledExpanded, defaultExpanded = false, onChange, className, children, ...props }) => {
+  const [uncontrolledExpanded, setUncontrolledExpanded] = React17.useState(defaultExpanded);
+  const isExpanded = controlledExpanded !== void 0 ? controlledExpanded : uncontrolledExpanded;
+  const toggle = () => {
+    const next = !isExpanded;
+    if (controlledExpanded === void 0) {
+      setUncontrolledExpanded(next);
+    }
+    onChange === null || onChange === void 0 ? void 0 : onChange(next);
+  };
+  return jsxRuntime.jsx("div", { className: cn("mui-accordion", isExpanded && "mui-accordion--expanded", className), ...props, children: React17__default.default.Children.map(children, (child) => {
+    if (!React17__default.default.isValidElement(child))
+      return child;
+    if (child.type === AccordionSummary) {
+      return React17__default.default.cloneElement(child, {
+        onClick: toggle,
+        role: "button",
+        "aria-expanded": isExpanded
+      });
+    }
+    return child;
+  }) });
+};
+var AlertTitle = ({ className, children, ...props }) => {
+  return jsxRuntime.jsx("h5", { className: cn("mui-alert__title", className), ...props, children });
+};
+var defaultIcons = {
+  success: jsxRuntime.jsxs("svg", { className: "mui-alert__icon-svg", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: [jsxRuntime.jsx("path", { d: "M22 11.08V12a10 10 0 1 1-5.93-9.14" }), jsxRuntime.jsx("polyline", { points: "22 4 12 14.01 9 11.01" })] }),
+  info: jsxRuntime.jsxs("svg", { className: "mui-alert__icon-svg", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: [jsxRuntime.jsx("circle", { cx: "12", cy: "12", r: "10" }), jsxRuntime.jsx("line", { x1: "12", y1: "16", x2: "12", y2: "12" }), jsxRuntime.jsx("line", { x1: "12", y1: "8", x2: "12.01", y2: "8" })] }),
+  warning: jsxRuntime.jsxs("svg", { className: "mui-alert__icon-svg", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: [jsxRuntime.jsx("path", { d: "m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" }), jsxRuntime.jsx("line", { x1: "12", y1: "9", x2: "12", y2: "13" }), jsxRuntime.jsx("line", { x1: "12", y1: "17", x2: "12.01", y2: "17" })] }),
+  error: jsxRuntime.jsxs("svg", { className: "mui-alert__icon-svg", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: [jsxRuntime.jsx("circle", { cx: "12", cy: "12", r: "10" }), jsxRuntime.jsx("line", { x1: "15", y1: "9", x2: "9", y2: "15" }), jsxRuntime.jsx("line", { x1: "9", y1: "9", x2: "15", y2: "15" })] })
+};
+var Alert = React17__default.default.forwardRef(({ severity = "success", variant = "standard", icon, action, onClose, closeText = "Close", className, children, ...props }, ref) => {
+  const renderIcon = () => {
+    if (icon === false)
+      return null;
+    if (icon !== void 0)
+      return jsxRuntime.jsx("div", { className: "mui-alert__icon", children: icon });
+    return jsxRuntime.jsx("div", { className: "mui-alert__icon", children: defaultIcons[severity] });
+  };
+  return jsxRuntime.jsxs("div", { ref, role: "alert", className: cn("mui-alert", `mui-alert--${severity}`, `mui-alert--${variant}`, className), ...props, children: [renderIcon(), jsxRuntime.jsx("div", { className: "mui-alert__message", children }), action && jsxRuntime.jsx("div", { className: "mui-alert__action", children: action }), onClose && !action && jsxRuntime.jsx("div", { className: "mui-alert__action", children: jsxRuntime.jsx("button", { type: "button", className: "mui-alert__close-btn", "aria-label": closeText, onClick: onClose, children: jsxRuntime.jsxs("svg", { viewBox: "0 0 24 24", width: "18", height: "18", stroke: "currentColor", strokeWidth: "2", fill: "none", children: [jsxRuntime.jsx("line", { x1: "18", y1: "6", x2: "6", y2: "18" }), jsxRuntime.jsx("line", { x1: "6", y1: "6", x2: "18", y2: "18" })] }) }) })] });
+});
+Alert.displayName = "Alert";
+var Avatar = React17__default.default.forwardRef(({ src, alt, size = "medium", variant = "circular", children, className, ...props }, ref) => {
+  const sizeStyle = typeof size === "number" ? { width: size, height: size } : {};
+  return jsxRuntime.jsx("div", { ref, className: cn("mui-avatar", `mui-avatar--${variant}`, typeof size === "string" && `mui-avatar--${size}`, className), style: sizeStyle, ...props, children: src ? jsxRuntime.jsx("img", { src, alt: alt || "", className: "mui-avatar__img" }) : children || (alt ? alt.charAt(0).toUpperCase() : "?") });
+});
+Avatar.displayName = "Avatar";
+var AvatarGroup = React17__default.default.forwardRef(({ max = 5, spacing = "medium", children, className, ...props }, ref) => {
+  const childArray = React17__default.default.Children.toArray(children);
+  const excess = childArray.length - max;
+  const visible = excess > 0 ? childArray.slice(0, max) : childArray;
+  return jsxRuntime.jsxs("div", { ref, className: cn("mui-avatar-group", `mui-avatar-group--${spacing}`, className), ...props, children: [visible, excess > 0 && jsxRuntime.jsxs("div", { className: "mui-avatar mui-avatar--circular mui-avatar--medium mui-avatar-group__excess", children: ["+", excess] })] });
+});
+AvatarGroup.displayName = "AvatarGroup";
+var Badge = React17__default.default.forwardRef(({ badgeContent, color = "error", variant = "standard", invisible = false, max = 99, overlap = "rectangular", anchorOrigin = { vertical: "top", horizontal: "right" }, children, className, ...props }, ref) => {
+  const displayContent = variant === "dot" ? null : typeof badgeContent === "number" && badgeContent > max ? `${max}+` : badgeContent;
+  const shouldHide = invisible || variant === "standard" && badgeContent == null;
+  return jsxRuntime.jsxs("span", { ref, className: cn("mui-badge", className), ...props, children: [children, !shouldHide && jsxRuntime.jsx("span", { className: cn("mui-badge__badge", `mui-badge--${color}`, `mui-badge--${variant}`, `mui-badge--${overlap}`, `mui-badge--${anchorOrigin.vertical}-${anchorOrigin.horizontal}`), children: displayContent })] });
+});
+Badge.displayName = "Badge";
+var Box4 = React17__default.default.forwardRef(({ component = "div", display, flexDirection, alignItems, justifyContent, gap, padding, margin, width, height, minWidth, maxWidth, minHeight, maxHeight, overflow, position, className, children, style, ...props }, ref) => {
+  const inlineStyle = {
+    ...style,
+    display,
+    flexDirection,
+    alignItems,
+    justifyContent,
+    gap: typeof gap === "number" ? `${gap * 0.25}rem` : gap,
+    padding: typeof padding === "number" ? `${padding * 0.25}rem` : padding,
+    margin: typeof margin === "number" ? `${margin * 0.25}rem` : margin,
+    width,
+    height,
+    minWidth,
+    maxWidth,
+    minHeight,
+    maxHeight,
+    overflow,
+    position
+  };
+  Object.keys(inlineStyle).forEach((key) => {
+    if (inlineStyle[key] === void 0)
+      delete inlineStyle[key];
+  });
+  return React17__default.default.createElement(component, { ref, className: cn("mui-box", className), style: inlineStyle, ...props }, children);
+});
+Box4.displayName = "Box";
+var Button3 = React17__default.default.forwardRef(({ variant = "contained", color = "primary", size = "medium", fullWidth = false, disabled = false, loading = false, disableRipple = false, disableElevation = false, startIcon, endIcon, rounded = false, className, children, onClick, href, ...props }, ref) => {
+  const buttonRef = React17.useRef(null);
+  const [ripples, setRipples] = React17.useState([]);
+  const handleClick = (e) => {
+    if (disabled || loading)
+      return;
+    if (!disableRipple) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const id = Date.now();
+      setRipples((prev) => [...prev, { x, y, id }]);
+      setTimeout(() => {
+        setRipples((prev) => prev.filter((r) => r.id !== id));
+      }, 600);
+    }
+    onClick === null || onClick === void 0 ? void 0 : onClick(e);
+  };
+  const classes = cn("mui-button", `mui-button--${variant}`, `mui-button--${color}`, `mui-button--${size}`, fullWidth && "mui-button--full-width", disabled && "mui-button--disabled", loading && "mui-button--loading", disableElevation && "mui-button--flat", rounded && "mui-button--rounded", className);
+  const content = jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [loading && jsxRuntime.jsx("span", { className: "mui-button__spinner", "aria-hidden": "true", children: jsxRuntime.jsx("svg", { viewBox: "0 0 24 24", className: "mui-button__spinner-svg", children: jsxRuntime.jsx("circle", { cx: "12", cy: "12", r: "10", fill: "none", strokeWidth: "3" }) }) }), startIcon && jsxRuntime.jsx("span", { className: "mui-button__start-icon", children: startIcon }), jsxRuntime.jsx("span", { className: cn("mui-button__label", loading && "mui-button__label--hidden"), children }), endIcon && jsxRuntime.jsx("span", { className: "mui-button__end-icon", children: endIcon }), !disableRipple && ripples.map((ripple) => jsxRuntime.jsx("span", { className: "mui-button__ripple", style: { left: ripple.x, top: ripple.y } }, ripple.id))] });
+  if (href && !disabled) {
+    return jsxRuntime.jsx("a", { className: classes, href, role: "button", tabIndex: 0, children: content });
+  }
+  return jsxRuntime.jsx("button", { ref: ref || buttonRef, className: classes, disabled: disabled || loading, onClick: handleClick, "aria-busy": loading, "aria-disabled": disabled || loading, ...props, children: content });
+});
+Button3.displayName = "Button";
+var Card = React17__default.default.forwardRef(({ elevation = 1, variant = "elevation", interactive = false, className, children, ...props }, ref) => jsxRuntime.jsx("div", { ref, className: cn("mui-card", variant === "elevation" && `mui-card--elevation-${elevation}`, variant === "outlined" && "mui-card--outlined", interactive && "mui-card--interactive", className), ...props, children }));
+Card.displayName = "Card";
+var CardHeader = ({ avatar, title, subheader, action, className, ...props }) => jsxRuntime.jsxs("div", { className: cn("mui-card__header", className), ...props, children: [avatar && jsxRuntime.jsx("div", { className: "mui-card__header-avatar", children: avatar }), jsxRuntime.jsxs("div", { className: "mui-card__header-content", children: [title && jsxRuntime.jsx("div", { className: "mui-card__header-title", children: title }), subheader && jsxRuntime.jsx("div", { className: "mui-card__header-subheader", children: subheader })] }), action && jsxRuntime.jsx("div", { className: "mui-card__header-action", children: action })] });
+var CardContent = ({ className, children, ...props }) => jsxRuntime.jsx("div", { className: cn("mui-card__content", className), ...props, children });
+var CardMedia = ({ component = "img", className, ...props }) => React17__default.default.createElement(component, { className: cn("mui-card__media", className), ...props });
+var CardActions = ({ disableSpacing, className, children, ...props }) => jsxRuntime.jsx("div", { className: cn("mui-card__actions", !disableSpacing && "mui-card__actions--spaced", className), ...props, children });
+var Checkbox = React17__default.default.forwardRef(({ color = "primary", size = "medium", label, indeterminate, className, id, ...props }, ref) => {
+  const inputId = id || `checkbox-${Math.random().toString(36).slice(2)}`;
+  const inputRef = React17__default.default.useRef(null);
+  React17__default.default.useEffect(() => {
+    const el = (ref === null || ref === void 0 ? void 0 : ref.current) || inputRef.current;
+    if (el)
+      el.indeterminate = !!indeterminate;
+  }, [indeterminate, ref]);
+  return jsxRuntime.jsxs("label", { className: cn("mui-checkbox", `mui-checkbox--${color}`, `mui-checkbox--${size}`, props.disabled && "mui-checkbox--disabled", className), htmlFor: inputId, children: [jsxRuntime.jsxs("span", { className: "mui-checkbox__box", children: [jsxRuntime.jsx("input", { ref: ref || inputRef, type: "checkbox", id: inputId, className: "mui-checkbox__input", ...props }), jsxRuntime.jsx("svg", { className: "mui-checkbox__icon", viewBox: "0 0 24 24", "aria-hidden": "true", children: indeterminate ? jsxRuntime.jsx("path", { d: "M6 12h12", fill: "none", stroke: "currentColor", strokeWidth: "2.5", strokeLinecap: "round" }) : jsxRuntime.jsx("path", { d: "M5 13l4 4L19 7", fill: "none", stroke: "currentColor", strokeWidth: "2.5", strokeLinecap: "round", strokeLinejoin: "round" }) })] }), label && jsxRuntime.jsx("span", { className: "mui-checkbox__label", children: label })] });
+});
+Checkbox.displayName = "Checkbox";
+var Chip = React17__default.default.forwardRef(({ label, variant = "filled", color = "primary", size = "medium", icon, avatar, deleteIcon, onDelete, clickable, disabled, className, onClick, ...props }, ref) => {
+  const isClickable = clickable || !!onClick;
+  return jsxRuntime.jsxs("div", { ref, className: cn("mui-chip", `mui-chip--${variant}`, `mui-chip--${color}`, `mui-chip--${size}`, isClickable && "mui-chip--clickable", disabled && "mui-chip--disabled", className), role: isClickable ? "button" : void 0, tabIndex: isClickable && !disabled ? 0 : void 0, onClick: !disabled ? onClick : void 0, ...props, children: [avatar && jsxRuntime.jsx("span", { className: "mui-chip__avatar", children: avatar }), icon && !avatar && jsxRuntime.jsx("span", { className: "mui-chip__icon", children: icon }), jsxRuntime.jsx("span", { className: "mui-chip__label", children: label }), onDelete && jsxRuntime.jsx("button", { className: "mui-chip__delete", onClick: (e) => {
+    e.stopPropagation();
+    onDelete();
+  }, "aria-label": `Remove ${label}`, tabIndex: -1, children: deleteIcon || jsxRuntime.jsx("svg", { viewBox: "0 0 24 24", width: "18", height: "18", children: jsxRuntime.jsx("path", { d: "M18 6L6 18M6 6l12 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", fill: "none" }) }) })] });
+});
+Chip.displayName = "Chip";
+var Container = React17__default.default.forwardRef(({ maxWidth = "lg", fixed = false, disableGutters = false, className, children, ...props }, ref) => {
+  const classes = cn("mui-container", maxWidth && `mui-container--${maxWidth}`, fixed && "mui-container--fixed", !disableGutters && "mui-container--gutters", className);
+  return jsxRuntime.jsx("div", { ref, className: classes, ...props, children });
+});
+Container.displayName = "Container";
+var DialogTitle3 = ({ className, children, ...props }) => jsxRuntime.jsx("h2", { className: cn("mui-dialog__title", className), ...props, children });
+var DialogContent3 = ({ className, children, ...props }) => jsxRuntime.jsx("div", { className: cn("mui-dialog__content", className), ...props, children });
+var DialogActions3 = ({ className, children, ...props }) => jsxRuntime.jsx("div", { className: cn("mui-dialog__actions", className), ...props, children });
+var Dialog3 = ({ open, onClose, maxWidth = "sm", fullWidth = true, className, children, ...props }) => {
+  React17.useEffect(() => {
+    if (!open)
+      return;
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && onClose) {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [open, onClose]);
+  if (!open)
+    return null;
+  return jsxRuntime.jsxs("div", { className: "mui-dialog__root", children: [jsxRuntime.jsx("div", { className: "mui-dialog__backdrop", onClick: onClose }), jsxRuntime.jsx("div", { className: "mui-dialog__container", children: jsxRuntime.jsx("div", { role: "dialog", "aria-modal": "true", className: cn("mui-dialog__paper", maxWidth && `mui-dialog--max-${maxWidth}`, fullWidth && "mui-dialog--full-width", className), ...props, children }) })] });
+};
+var Divider = React17__default.default.forwardRef(({ orientation = "horizontal", variant = "fullWidth", textAlign = "center", light = false, className, children, ...props }, ref) => {
+  const hasContent = !!children;
+  const classes = cn("mui-divider", `mui-divider--${orientation}`, `mui-divider--${variant}`, light && "mui-divider--light", hasContent && "mui-divider--with-content", hasContent && `mui-divider--text-${textAlign}`, className);
+  if (hasContent) {
+    return jsxRuntime.jsx("div", { ref, className: classes, role: "separator", ...props, children: jsxRuntime.jsx("span", { className: "mui-divider__content", children }) });
+  }
+  return jsxRuntime.jsx("hr", { ref, className: classes, role: "separator", ...props });
+});
+Divider.displayName = "Divider";
+var Drawer = ({ open, onClose, anchor = "bottom", className, children, ...props }) => {
+  React17.useEffect(() => {
+    if (!open)
+      return;
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && onClose) {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [open, onClose]);
+  if (!open)
+    return null;
+  return jsxRuntime.jsxs("div", { className: "mui-drawer-root", children: [jsxRuntime.jsx("div", { className: "mui-drawer-backdrop", onClick: onClose }), jsxRuntime.jsxs("div", { role: "dialog", "aria-modal": "true", className: cn("mui-drawer-paper", `mui-drawer-paper--${anchor}`, className), ...props, children: [anchor === "bottom" && jsxRuntime.jsx("div", { className: "mui-drawer-handle-bar", children: jsxRuntime.jsx("div", { className: "mui-drawer-handle" }) }), jsxRuntime.jsx("div", { className: "mui-drawer-content", children })] })] });
+};
+var Grid = React17__default.default.forwardRef(({ container, item, spacing = 2, columns = 12, xs, sm, md, lg, xl, direction, alignItems, justifyContent, wrap = "wrap", component = "div", className, children, style, ...props }, ref) => {
+  const classes = cn("mui-grid", container && "mui-grid--container", item && "mui-grid--item", typeof xs === "number" && `mui-grid--xs-${xs}`, xs === true && "mui-grid--xs-auto", typeof sm === "number" && `mui-grid--sm-${sm}`, typeof md === "number" && `mui-grid--md-${md}`, typeof lg === "number" && `mui-grid--lg-${lg}`, typeof xl === "number" && `mui-grid--xl-${xl}`, className);
+  const inlineStyle = {
+    ...style,
+    ...container ? {
+      "--grid-spacing": `${spacing * 0.25}rem`,
+      "--grid-columns": columns,
+      flexDirection: direction,
+      alignItems,
+      justifyContent,
+      flexWrap: wrap
+    } : {}
+  };
+  return React17__default.default.createElement(component, { ref, className: classes, style: inlineStyle, ...props }, children);
+});
+Grid.displayName = "Grid";
+var IconButton3 = React17__default.default.forwardRef(({ color = "default", size = "medium", edge = false, className, disabled = false, children, ...props }, ref) => {
+  return jsxRuntime.jsxs("button", { ref, type: "button", disabled, className: cn("mui-icon-button", `mui-icon-button--${color}`, `mui-icon-button--${size}`, edge && `mui-icon-button--edge-${edge}`, className), ...props, children: [jsxRuntime.jsx("span", { className: "mui-icon-button__content", children }), jsxRuntime.jsx("span", { className: "mui-icon-button__ripple" })] });
+});
+IconButton3.displayName = "IconButton";
+var OtpInput = ({ length = 6, value: controlledValue, defaultValue = "", onChange, onComplete, disabled = false, error = false, autoFocus = false, className }) => {
+  const [internalValue, setInternalValue] = React17.useState((controlledValue !== null && controlledValue !== void 0 ? controlledValue : defaultValue).padEnd(length, " ").slice(0, length));
+  const inputsRef = React17.useRef([]);
+  const digits = (controlledValue !== null && controlledValue !== void 0 ? controlledValue : internalValue).split("");
+  React17.useEffect(() => {
+    if (autoFocus && inputsRef.current[0]) {
+      inputsRef.current[0].focus();
+    }
+  }, [autoFocus]);
+  const updateValue = (newDigits) => {
+    const code = newDigits.join("").trimEnd();
+    if (controlledValue === void 0) {
+      setInternalValue(newDigits.join(""));
+    }
+    onChange === null || onChange === void 0 ? void 0 : onChange(code);
+    if (code.length === length) {
+      onComplete === null || onComplete === void 0 ? void 0 : onComplete(code);
+    }
+  };
+  const handleKeyDown = (index, e) => {
+    var _a, _b, _c;
+    if (e.key === "Backspace") {
+      e.preventDefault();
+      const next = [...digits];
+      if (next[index] && next[index] !== " ") {
+        next[index] = " ";
+        updateValue(next);
+      } else if (index > 0) {
+        next[index - 1] = " ";
+        updateValue(next);
+        (_a = inputsRef.current[index - 1]) === null || _a === void 0 ? void 0 : _a.focus();
+      }
+    } else if (e.key === "ArrowLeft" && index > 0) {
+      (_b = inputsRef.current[index - 1]) === null || _b === void 0 ? void 0 : _b.focus();
+    } else if (e.key === "ArrowRight" && index < length - 1) {
+      (_c = inputsRef.current[index + 1]) === null || _c === void 0 ? void 0 : _c.focus();
+    }
+  };
+  const handleChange = (index, e) => {
+    var _a;
+    const inputVal = e.target.value.replace(/\D/g, "");
+    if (!inputVal)
+      return;
+    const char = inputVal.slice(-1);
+    const next = [...digits];
+    next[index] = char;
+    updateValue(next);
+    if (index < length - 1) {
+      (_a = inputsRef.current[index + 1]) === null || _a === void 0 ? void 0 : _a.focus();
+    }
+  };
+  const handlePaste = (e) => {
+    var _a;
+    e.preventDefault();
+    const pasted = e.clipboardData.getData("text").replace(/\D/g, "").slice(0, length);
+    if (!pasted)
+      return;
+    const next = pasted.padEnd(length, " ").split("");
+    updateValue(next);
+    const focusIndex = Math.min(pasted.length, length - 1);
+    (_a = inputsRef.current[focusIndex]) === null || _a === void 0 ? void 0 : _a.focus();
+  };
+  return jsxRuntime.jsx("div", { className: cn("mui-otp-input", error && "mui-otp-input--error", disabled && "mui-otp-input--disabled", className), onPaste: handlePaste, children: Array.from({ length }).map((_, i) => jsxRuntime.jsx("input", { ref: (el) => inputsRef.current[i] = el, type: "text", inputMode: "numeric", pattern: "[0-9]*", maxLength: 1, value: digits[i] === " " ? "" : digits[i] || "", disabled, onKeyDown: (e) => handleKeyDown(i, e), onChange: (e) => handleChange(i, e), onFocus: (e) => e.target.select(), className: "mui-otp-input__slot", "aria-label": `Digit ${i + 1} of ${length}` }, i)) });
+};
+var Paper2 = React17__default.default.forwardRef(({ elevation = 1, variant = "elevation", square = false, className, children, ...props }, ref) => {
+  const classes = cn("mui-paper", variant === "elevation" && `mui-paper--elevation-${elevation}`, variant === "outlined" && "mui-paper--outlined", !square && "mui-paper--rounded", className);
+  return jsxRuntime.jsx("div", { ref, className: classes, ...props, children });
+});
+Paper2.displayName = "Paper";
+var CircularProgress3 = React17__default.default.forwardRef(({ size = 40, thickness = 3.6, value = 0, variant = "indeterminate", color = "primary", className, style, ...props }, ref) => {
+  const numericSize = typeof size === "number" ? size : 40;
+  const radius = (numericSize - thickness) / 2;
+  const circumference = 2 * Math.PI * radius;
+  const strokeDashoffset = variant === "determinate" ? circumference - circumference * Math.min(100, Math.max(0, value)) / 100 : void 0;
+  return jsxRuntime.jsx("div", { ref, role: "progressbar", "aria-valuenow": variant === "determinate" ? Math.round(value) : void 0, className: cn("mui-circular-progress", `mui-circular-progress--${variant}`, `mui-circular-progress--${color}`, className), style: {
+    width: size,
+    height: size,
+    ...style
+  }, ...props, children: jsxRuntime.jsx("svg", { className: "mui-circular-progress__svg", viewBox: `0 0 ${numericSize} ${numericSize}`, children: jsxRuntime.jsx("circle", { className: "mui-circular-progress__circle", cx: numericSize / 2, cy: numericSize / 2, r: radius, fill: "none", strokeWidth: thickness, strokeDasharray: variant === "determinate" ? circumference : void 0, strokeDashoffset }) }) });
+});
+CircularProgress3.displayName = "CircularProgress";
+var LinearProgress = React17__default.default.forwardRef(({ value = 0, variant = "indeterminate", color = "primary", className, style, ...props }, ref) => {
+  return jsxRuntime.jsx("div", { ref, role: "progressbar", "aria-valuenow": variant === "determinate" ? Math.round(value) : void 0, className: cn("mui-linear-progress", `mui-linear-progress--${variant}`, `mui-linear-progress--${color}`, className), style, ...props, children: variant === "determinate" ? jsxRuntime.jsx("div", { className: "mui-linear-progress__bar", style: { width: `${Math.min(100, Math.max(0, value))}%` } }) : jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { className: "mui-linear-progress__bar mui-linear-progress__bar--1" }), jsxRuntime.jsx("div", { className: "mui-linear-progress__bar mui-linear-progress__bar--2" })] }) });
+});
+LinearProgress.displayName = "LinearProgress";
+var Radio = React17__default.default.forwardRef(({ color = "primary", size = "medium", label, className, ...props }, ref) => jsxRuntime.jsxs("label", { className: cn("mui-radio", `mui-radio--${color}`, `mui-radio--${size}`, props.disabled && "mui-radio--disabled", className), children: [jsxRuntime.jsxs("span", { className: "mui-radio__circle", children: [jsxRuntime.jsx("input", { ref, type: "radio", className: "mui-radio__input", ...props }), jsxRuntime.jsx("span", { className: "mui-radio__dot" })] }), label && jsxRuntime.jsx("span", { className: "mui-radio__label", children: label })] }));
+Radio.displayName = "Radio";
+var RadioGroup = React17__default.default.forwardRef(({ name, value, defaultValue, onChange, row = false, children, className, ...props }, ref) => jsxRuntime.jsx("div", { ref, role: "radiogroup", className: cn("mui-radio-group", row && "mui-radio-group--row", className), ...props, children: React17__default.default.Children.map(children, (child) => {
+  if (React17__default.default.isValidElement(child)) {
+    return React17__default.default.cloneElement(child, { name, onChange, ...value !== void 0 ? { checked: child.props.value === value } : {} });
+  }
+  return child;
+}) }));
+RadioGroup.displayName = "RadioGroup";
+var Rating = ({ value: controlledValue, defaultValue = 0, max = 5, onChange, readOnly = false, disabled = false, size = "medium", className }) => {
+  const [internalValue, setInternalValue] = React17.useState(defaultValue);
+  const [hoverValue, setHoverValue] = React17.useState(null);
+  const activeValue = hoverValue !== null ? hoverValue : controlledValue !== null && controlledValue !== void 0 ? controlledValue : internalValue;
+  const handleClick = (rating) => {
+    if (readOnly || disabled)
+      return;
+    if (controlledValue === void 0) {
+      setInternalValue(rating);
+    }
+    onChange === null || onChange === void 0 ? void 0 : onChange(rating);
+  };
+  return jsxRuntime.jsx("div", { className: cn("mui-rating", `mui-rating--${size}`, readOnly && "mui-rating--readonly", disabled && "mui-rating--disabled", className), onMouseLeave: () => setHoverValue(null), role: "radiogroup", children: Array.from({ length: max }).map((_, i) => {
+    const starNumber = i + 1;
+    const isFilled = starNumber <= activeValue;
+    return jsxRuntime.jsx("button", { type: "button", disabled: disabled || readOnly, className: cn("mui-rating__star", isFilled && "mui-rating__star--filled"), onClick: () => handleClick(starNumber), onMouseEnter: () => !readOnly && !disabled && setHoverValue(starNumber), "aria-label": `${starNumber} Star${starNumber > 1 ? "s" : ""}`, children: jsxRuntime.jsx("svg", { viewBox: "0 0 24 24", className: "mui-rating__star-icon", fill: isFilled ? "currentColor" : "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: jsxRuntime.jsx("polygon", { points: "12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" }) }) }, i);
+  }) });
+};
+var Select = React17__default.default.forwardRef(({ label, options = [], variant = "outlined", fullWidth = false, helperText, error = false, className, children, value, defaultValue, onChange, disabled, ...props }, ref) => {
+  const [isFocused, setIsFocused] = React17.useState(false);
+  return jsxRuntime.jsxs("div", { className: cn("mui-select-field", `mui-select-field--${variant}`, fullWidth && "mui-select-field--full-width", error && "mui-select-field--error", disabled && "mui-select-field--disabled", isFocused && "mui-select-field--focused", className), children: [label && jsxRuntime.jsx("label", { className: "mui-select-field__label", children: label }), jsxRuntime.jsxs("div", { className: "mui-select-field__wrapper", children: [jsxRuntime.jsx("select", { ref, value, defaultValue, disabled, onChange, onFocus: () => setIsFocused(true), onBlur: () => setIsFocused(false), className: "mui-select-field__input", ...props, children: options.length > 0 ? options.map((opt) => jsxRuntime.jsx("option", { value: opt.value, disabled: opt.disabled, children: opt.label }, opt.value)) : children }), jsxRuntime.jsx("div", { className: "mui-select-field__arrow", children: jsxRuntime.jsx("svg", { viewBox: "0 0 24 24", width: "20", height: "20", fill: "currentColor", children: jsxRuntime.jsx("path", { d: "M7 10l5 5 5-5z" }) }) })] }), helperText && jsxRuntime.jsx("p", { className: "mui-select-field__helper", children: helperText })] });
+});
+Select.displayName = "Select";
+var Skeleton = React17__default.default.forwardRef(({ variant = "text", animation = "wave", width, height, className, style, ...props }, ref) => {
+  return jsxRuntime.jsx("div", { ref, className: cn("mui-skeleton", `mui-skeleton--${variant}`, animation && `mui-skeleton--${animation}`, className), style: {
+    width,
+    height,
+    ...style
+  }, ...props });
+});
+Skeleton.displayName = "Skeleton";
+var Slider = React17__default.default.forwardRef(({ value: propValue, defaultValue = 50, min = 0, max = 100, step = 1, color = "primary", size = "medium", disabled = false, marks = false, valueLabelDisplay = "auto", onChange, onChangeCommitted, className, ...props }, ref) => {
+  const [internalValue, setInternalValue] = React17.useState(defaultValue);
+  const [dragging, setDragging] = React17.useState(false);
+  const [hovering, setHovering] = React17.useState(false);
+  const trackRef = React17.useRef(null);
+  const val = propValue !== void 0 ? propValue : internalValue;
+  const percent = (val - min) / (max - min) * 100;
+  const updateValue = React17.useCallback((clientX) => {
+    if (!trackRef.current || disabled)
+      return;
+    const rect = trackRef.current.getBoundingClientRect();
+    const ratio = clamp((clientX - rect.left) / rect.width, 0, 1);
+    const rawValue = min + ratio * (max - min);
+    const stepped = Math.round(rawValue / step) * step;
+    const clamped = clamp(stepped, min, max);
+    setInternalValue(clamped);
+    onChange === null || onChange === void 0 ? void 0 : onChange(clamped);
+  }, [min, max, step, disabled, onChange]);
+  const handleMouseDown = (e) => {
+    if (disabled)
+      return;
+    setDragging(true);
+    updateValue(e.clientX);
+    const handleMouseMove = (ev) => updateValue(ev.clientX);
+    const handleMouseUp = (ev) => {
+      setDragging(false);
+      updateValue(ev.clientX);
+      onChangeCommitted === null || onChangeCommitted === void 0 ? void 0 : onChangeCommitted(val);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", handleMouseUp);
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseup", handleMouseUp);
+  };
+  const showLabel = valueLabelDisplay === "on" || valueLabelDisplay === "auto" && (dragging || hovering);
+  return jsxRuntime.jsxs("div", { ref, className: cn("mui-slider", `mui-slider--${color}`, `mui-slider--${size}`, disabled && "mui-slider--disabled", dragging && "mui-slider--active", className), onMouseDown: handleMouseDown, role: "slider", "aria-valuemin": min, "aria-valuemax": max, "aria-valuenow": val, "aria-disabled": disabled, tabIndex: disabled ? -1 : 0, ...props, children: [jsxRuntime.jsxs("div", { ref: trackRef, className: "mui-slider__track-container", children: [jsxRuntime.jsx("div", { className: "mui-slider__rail" }), jsxRuntime.jsx("div", { className: "mui-slider__track", style: { width: `${percent}%` } }), jsxRuntime.jsx("div", { className: "mui-slider__thumb", style: { left: `${percent}%` }, onMouseEnter: () => setHovering(true), onMouseLeave: () => setHovering(false), children: showLabel && jsxRuntime.jsx("span", { className: "mui-slider__value-label", children: Math.round(val) }) })] }), marks && Array.isArray(marks) && jsxRuntime.jsx("div", { className: "mui-slider__marks", children: marks.map((m) => jsxRuntime.jsx("span", { className: "mui-slider__mark", style: { left: `${(m.value - min) / (max - min) * 100}%` }, children: m.label && jsxRuntime.jsx("span", { className: "mui-slider__mark-label", children: m.label }) }, m.value)) })] });
+});
+Slider.displayName = "Slider";
+var Stack2 = React17__default.default.forwardRef(({ direction = "column", spacing = 2, alignItems, justifyContent, flexWrap, divider, component = "div", className, children, style, ...props }, ref) => {
+  const classes = cn("mui-stack", `mui-stack--${direction}`, className);
+  const inlineStyle = {
+    ...style,
+    gap: `${spacing * 0.25}rem`,
+    alignItems,
+    justifyContent,
+    flexWrap
+  };
+  Object.keys(inlineStyle).forEach((k) => {
+    if (inlineStyle[k] === void 0)
+      delete inlineStyle[k];
+  });
+  let content = children;
+  if (divider && React17__default.default.Children.count(children) > 1) {
+    const childArray = React17__default.default.Children.toArray(children);
+    const withDividers = [];
+    childArray.forEach((child, i) => {
+      withDividers.push(child);
+      if (i < childArray.length - 1) {
+        withDividers.push(React17__default.default.cloneElement(divider, { key: `divider-${i}` }));
+      }
+    });
+    content = withDividers;
+  }
+  return React17__default.default.createElement(component, { ref, className: classes, style: inlineStyle, ...props }, content);
+});
+Stack2.displayName = "Stack";
+var Switch = React17__default.default.forwardRef(({ color = "primary", size = "medium", label, labelPlacement = "end", className, ...props }, ref) => {
+  return jsxRuntime.jsxs("label", { className: cn("mui-switch", `mui-switch--${color}`, `mui-switch--${size}`, `mui-switch--label-${labelPlacement}`, props.disabled && "mui-switch--disabled", className), children: [label && labelPlacement === "start" && jsxRuntime.jsx("span", { className: "mui-switch__label", children: label }), jsxRuntime.jsxs("span", { className: "mui-switch__track", children: [jsxRuntime.jsx("input", { ref, type: "checkbox", className: "mui-switch__input", role: "switch", ...props }), jsxRuntime.jsx("span", { className: "mui-switch__thumb" })] }), label && labelPlacement === "end" && jsxRuntime.jsx("span", { className: "mui-switch__label", children: label })] });
+});
+Switch.displayName = "Switch";
+var Tab = ({ value, label, icon, selected = false, className, children, ...props }) => {
+  return jsxRuntime.jsxs("button", { type: "button", role: "tab", "aria-selected": selected, className: cn("mui-tab", selected && "mui-tab--selected", className), ...props, children: [icon && jsxRuntime.jsx("span", { className: "mui-tab__icon", children: icon }), jsxRuntime.jsx("span", { className: "mui-tab__label", children: label !== null && label !== void 0 ? label : children })] });
+};
+var Tabs = ({ value, onChange, items, variant = "line", fullWidth = false, className, children }) => {
+  return jsxRuntime.jsx("div", { role: "tablist", className: cn("mui-tabs", `mui-tabs--${variant}`, fullWidth && "mui-tabs--full-width", className), children: items ? items.map((item) => jsxRuntime.jsx(Tab, { value: item.id, label: item.label, icon: item.icon, disabled: item.disabled, selected: value === item.id, onClick: () => onChange(item.id) }, item.id)) : React17__default.default.Children.map(children, (child) => {
+    if (!React17__default.default.isValidElement(child))
+      return child;
+    const isSelected = child.props.value === value;
+    return React17__default.default.cloneElement(child, {
+      selected: isSelected,
+      onClick: () => onChange(child.props.value)
+    });
+  }) });
+};
+var TextField = React17__default.default.forwardRef(({ variant = "outlined", color = "primary", size = "medium", label, helperText, error = false, fullWidth = false, multiline = false, rows = 4, startAdornment, endAdornment, inputRef, className, disabled, value, defaultValue, onChange, onFocus, onBlur, id: propId, ...props }, ref) => {
+  const autoId = React17.useId();
+  const id = propId || autoId;
+  const [focused, setFocused] = React17.useState(false);
+  const [hasValue, setHasValue] = React17.useState(!!(value || defaultValue));
+  const internalRef = React17.useRef(null);
+  const handleFocus = (e) => {
+    setFocused(true);
+    onFocus === null || onFocus === void 0 ? void 0 : onFocus(e);
+  };
+  const handleBlur = (e) => {
+    setFocused(false);
+    onBlur === null || onBlur === void 0 ? void 0 : onBlur(e);
+  };
+  const handleChange = (e) => {
+    setHasValue(!!e.target.value);
+    onChange === null || onChange === void 0 ? void 0 : onChange(e);
+  };
+  const isFloating = focused || (value !== void 0 ? Boolean(value) : hasValue) || Boolean(defaultValue) || !!startAdornment;
+  const wrapperClasses = cn("mui-textfield", `mui-textfield--${variant}`, `mui-textfield--${size}`, `mui-textfield--${error ? "error" : color}`, focused && "mui-textfield--focused", error && "mui-textfield--error", disabled && "mui-textfield--disabled", fullWidth && "mui-textfield--full-width", isFloating && "mui-textfield--floating", className);
+  const inputProps = {
+    ref: inputRef || internalRef,
+    id,
+    className: "mui-textfield__input",
+    disabled,
+    value,
+    defaultValue,
+    onChange: handleChange,
+    onFocus: handleFocus,
+    onBlur: handleBlur,
+    "aria-invalid": error,
+    "aria-describedby": helperText ? `${id}-helper` : void 0,
+    ...props
+  };
+  return jsxRuntime.jsxs("div", { ref, className: wrapperClasses, children: [jsxRuntime.jsxs("div", { className: "mui-textfield__wrapper", children: [startAdornment && jsxRuntime.jsx("span", { className: "mui-textfield__adornment mui-textfield__adornment--start", children: startAdornment }), multiline ? jsxRuntime.jsx("textarea", { ...inputProps, rows, className: "mui-textfield__input mui-textfield__textarea" }) : jsxRuntime.jsx("input", { ...inputProps }), label && jsxRuntime.jsx("label", { htmlFor: id, className: "mui-textfield__label", children: label }), endAdornment && jsxRuntime.jsx("span", { className: "mui-textfield__adornment mui-textfield__adornment--end", children: endAdornment }), variant === "filled" && jsxRuntime.jsx("div", { className: "mui-textfield__fill-bg" }), variant === "standard" && jsxRuntime.jsx("div", { className: "mui-textfield__underline" })] }), helperText && jsxRuntime.jsx("p", { id: `${id}-helper`, className: cn("mui-textfield__helper", error && "mui-textfield__helper--error"), children: helperText })] });
+});
+TextField.displayName = "TextField";
+var Tooltip = ({ title, children, placement = "top", arrow = true, enterDelay = 150, leaveDelay = 100, className }) => {
+  const [open, setOpen] = React17.useState(false);
+  const enterTimer = React17.useRef(null);
+  const leaveTimer = React17.useRef(null);
+  const handleMouseEnter = () => {
+    if (leaveTimer.current)
+      clearTimeout(leaveTimer.current);
+    enterTimer.current = window.setTimeout(() => {
+      setOpen(true);
+    }, enterDelay);
+  };
+  const handleMouseLeave = () => {
+    if (enterTimer.current)
+      clearTimeout(enterTimer.current);
+    leaveTimer.current = window.setTimeout(() => {
+      setOpen(false);
+    }, leaveDelay);
+  };
+  React17.useEffect(() => {
+    return () => {
+      if (enterTimer.current)
+        clearTimeout(enterTimer.current);
+      if (leaveTimer.current)
+        clearTimeout(leaveTimer.current);
+    };
+  }, []);
+  return jsxRuntime.jsxs("div", { className: "mui-tooltip-wrapper", onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave, onFocus: handleMouseEnter, onBlur: handleMouseLeave, children: [children, open && title && jsxRuntime.jsxs("div", { role: "tooltip", className: cn("mui-tooltip", `mui-tooltip--${placement}`, arrow && "mui-tooltip--arrow", className), children: [title, arrow && jsxRuntime.jsx("span", { className: "mui-tooltip__arrow" })] })] });
+};
+var variantMapping = {
+  h1: "h1",
+  h2: "h2",
+  h3: "h3",
+  h4: "h4",
+  h5: "h5",
+  h6: "h6",
+  subtitle1: "h6",
+  subtitle2: "h6",
+  body1: "p",
+  body2: "p",
+  caption: "span",
+  overline: "span",
+  inherit: "span"
+};
+var Typography3 = React17__default.default.forwardRef(({ variant = "body1", component, align = "inherit", color = "inherit", gutterBottom = false, noWrap = false, paragraph = false, className, children, ...props }, ref) => {
+  const Component = component || (paragraph ? "p" : variantMapping[variant] || "span");
+  const classes = cn("mui-typography", `mui-typography--${variant}`, align !== "inherit" && `mui-typography--align-${align}`, `mui-typography--color-${color}`, gutterBottom && "mui-typography--gutter-bottom", noWrap && "mui-typography--no-wrap", className);
+  return React17__default.default.createElement(Component, { ref, className: classes, ...props }, children);
+});
+Typography3.displayName = "Typography";
+
+// node_modules/@namios/motionui-react/dist/esm/utils/colorEngine.js
+function hexToRgb(color) {
+  if (!color)
+    return { r: 99, g: 102, b: 241 };
+  const clean = color.trim().replace("#", "");
+  if (clean.length === 3) {
+    const r = parseInt(clean[0] + clean[0], 16);
+    const g = parseInt(clean[1] + clean[1], 16);
+    const b = parseInt(clean[2] + clean[2], 16);
+    return { r, g, b };
+  }
+  if (clean.length >= 6) {
+    const num = parseInt(clean.slice(0, 6), 16);
+    return {
+      r: num >> 16 & 255,
+      g: num >> 8 & 255,
+      b: num & 255
+    };
+  }
+  const rgbMatch = color.match(/\d+/g);
+  if (rgbMatch && rgbMatch.length >= 3) {
+    return {
+      r: parseInt(rgbMatch[0], 10),
+      g: parseInt(rgbMatch[1], 10),
+      b: parseInt(rgbMatch[2], 10)
+    };
+  }
+  return { r: 99, g: 102, b: 241 };
+}
+function rgbToHex({ r, g, b }) {
+  const clamp2 = (n) => Math.min(255, Math.max(0, Math.round(n)));
+  const toHex = (n) => clamp2(n).toString(16).padStart(2, "0");
+  return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+}
+function getRelativeLuminance(r, g, b) {
+  const [rl, gl, bl] = [r, g, b].map((val) => {
+    const s = val / 255;
+    return s <= 0.04045 ? s / 12.92 : Math.pow((s + 0.055) / 1.055, 2.4);
+  });
+  return 0.2126 * rl + 0.7152 * gl + 0.0722 * bl;
+}
+function getContrastRatio(lumA, lumB) {
+  const lighter = Math.max(lumA, lumB);
+  const darker = Math.min(lumA, lumB);
+  return (lighter + 0.05) / (darker + 0.05);
+}
+function getContrastText(backgroundColor, darkTextColor = "#0f172a", lightTextColor = "#ffffff") {
+  const { r, g, b } = hexToRgb(backgroundColor);
+  const bgLum = getRelativeLuminance(r, g, b);
+  return bgLum >= 0.5 ? darkTextColor : lightTextColor;
+}
+function adjustLightness(hex, percent) {
+  const { r, g, b } = hexToRgb(hex);
+  const factor = percent / 100;
+  let nr, ng, nb;
+  if (percent > 0) {
+    nr = r + (255 - r) * factor;
+    ng = g + (255 - g) * factor;
+    nb = b + (255 - b) * factor;
+  } else {
+    const darkFactor = 1 + factor;
+    nr = r * darkFactor;
+    ng = g * darkFactor;
+    nb = b * darkFactor;
+  }
+  return rgbToHex({ r: nr, g: ng, b: nb });
+}
+function buildColorRole(color) {
+  const rgb = hexToRgb(color);
+  const main = rgbToHex(rgb);
+  const lum = getRelativeLuminance(rgb.r, rgb.g, rgb.b);
+  const isLight = lum >= 0.5;
+  const contrastText = getContrastText(main);
+  return {
+    main,
+    light: adjustLightness(main, isLight ? -15 : 20),
+    dark: adjustLightness(main, isLight ? -30 : -20),
+    contrastText,
+    rgb: `${rgb.r}, ${rgb.g}, ${rgb.b}`,
+    luminance: lum,
+    isLight
+  };
+}
+function injectThemeTokens(tokens, target = typeof document !== "undefined" ? document.documentElement : null) {
+  if (!target)
+    return;
+  const applyRole = (prefix, colorHex) => {
+    if (!colorHex)
+      return;
+    const role = buildColorRole(colorHex);
+    target.style.setProperty(`--mui-color-${prefix}`, role.main);
+    target.style.setProperty(`--mui-color-${prefix}-main`, role.main);
+    target.style.setProperty(`--mui-color-${prefix}-light`, role.light);
+    target.style.setProperty(`--mui-color-${prefix}-dark`, role.dark);
+    target.style.setProperty(`--mui-color-${prefix}-contrast`, role.contrastText);
+    target.style.setProperty(`--mui-color-${prefix}-rgb`, role.rgb);
+  };
+  if (tokens.primary)
+    applyRole("primary", tokens.primary);
+  if (tokens.secondary)
+    applyRole("secondary", tokens.secondary);
+  if (tokens.success)
+    applyRole("success", tokens.success);
+  if (tokens.warning)
+    applyRole("warning", tokens.warning);
+  if (tokens.error)
+    applyRole("error", tokens.error);
+  if (tokens.info)
+    applyRole("info", tokens.info);
+  if (tokens.mode) {
+    target.setAttribute("data-theme", tokens.mode);
+  }
+  if (tokens.fontFamily) {
+    target.style.setProperty("--mui-font-family", tokens.fontFamily);
+  }
+  if (tokens.borderRadius !== void 0) {
+    target.style.setProperty("--mui-radius-md", `${tokens.borderRadius}px`);
+  }
+}
+
+// node_modules/@namios/motionui-react/dist/esm/theme/ThemeProvider.js
+function resolvePaletteColor(input, fallback) {
+  if (!input)
+    return fallback;
+  if (typeof input === "string") {
+    const role = buildColorRole(input);
+    return {
+      main: role.main,
+      light: role.light,
+      dark: role.dark,
+      contrastText: role.contrastText,
+      rgb: role.rgb
+    };
+  }
+  if (input.main && (!input.contrastText || !input.light || !input.dark)) {
+    const role = buildColorRole(input.main);
+    return {
+      main: input.main,
+      light: input.light || role.light,
+      dark: input.dark || role.dark,
+      contrastText: input.contrastText || role.contrastText,
+      rgb: input.rgb || role.rgb
+    };
+  }
+  return { ...fallback, ...input };
+}
+var defaultPalette = {
+  primary: {
+    main: "#6366f1",
+    light: "#818cf8",
+    dark: "#4f46e5",
+    contrastText: "#ffffff",
+    rgb: "99, 102, 241"
+  },
+  secondary: {
+    main: "#ec4899",
+    light: "#f472b6",
+    dark: "#db2777",
+    contrastText: "#ffffff",
+    rgb: "236, 72, 153"
+  },
+  success: {
+    main: "#10b981",
+    light: "#34d399",
+    dark: "#059669",
+    contrastText: "#ffffff",
+    rgb: "16, 185, 129"
+  },
+  warning: {
+    main: "#f59e0b",
+    light: "#fbbf24",
+    dark: "#d97706",
+    contrastText: "#0f172a",
+    // WCAG auto-contrast on amber
+    rgb: "245, 158, 11"
+  },
+  error: {
+    main: "#ef4444",
+    light: "#f87171",
+    dark: "#dc2626",
+    contrastText: "#ffffff",
+    rgb: "239, 68, 68"
+  },
+  info: {
+    main: "#3b82f6",
+    light: "#60a5fa",
+    dark: "#2563eb",
+    contrastText: "#ffffff",
+    rgb: "59, 130, 246"
+  }
+};
+function createTheme(options = {}) {
+  var _a;
+  const p = options.palette;
+  const palette = {
+    mode: (_a = p === null || p === void 0 ? void 0 : p.mode) !== null && _a !== void 0 ? _a : "light",
+    primary: resolvePaletteColor(p === null || p === void 0 ? void 0 : p.primary, defaultPalette.primary),
+    secondary: resolvePaletteColor(p === null || p === void 0 ? void 0 : p.secondary, defaultPalette.secondary),
+    success: resolvePaletteColor(p === null || p === void 0 ? void 0 : p.success, defaultPalette.success),
+    warning: resolvePaletteColor(p === null || p === void 0 ? void 0 : p.warning, defaultPalette.warning),
+    error: resolvePaletteColor(p === null || p === void 0 ? void 0 : p.error, defaultPalette.error),
+    info: resolvePaletteColor(p === null || p === void 0 ? void 0 : p.info, defaultPalette.info)
+  };
+  const typography = {
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    fontFamilyMono: "'JetBrains Mono', 'Fira Code', monospace",
+    fontSize: 16,
+    ...options.typography
+  };
+  const shape = {
+    borderRadius: 8,
+    ...options.shape
+  };
+  return {
+    palette,
+    typography,
+    shape,
+    spacing: (factor) => `${factor * 0.25}rem`
+  };
+}
+var defaultTheme = createTheme();
+var ThemeContext = React17.createContext({
+  theme: defaultTheme,
+  mode: "light",
+  toggleMode: () => {
+  },
+  setMode: () => {
+  },
+  setDynamicBrand: () => {
+  }
+});
+function useTheme2() {
+  return React17.useContext(ThemeContext);
+}
+var ThemeProvider = ({ theme: initialTheme = defaultTheme, children, defaultMode = "light" }) => {
+  const [activeTheme, setActiveTheme] = React17.useState(initialTheme);
+  const [mode, setModeState] = React17.useState(() => {
+    if (defaultMode === "auto") {
+      if (typeof window !== "undefined") {
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      return "light";
+    }
+    return defaultMode;
+  });
+  React17.useEffect(() => {
+    setActiveTheme(initialTheme);
+  }, [initialTheme]);
+  React17.useEffect(() => {
+    if (defaultMode !== "auto" || typeof window === "undefined")
+      return;
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handler = (e) => {
+      setModeState(e.matches ? "dark" : "light");
+    };
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, [defaultMode]);
+  React17.useEffect(() => {
+    if (typeof document === "undefined")
+      return;
+    document.documentElement.setAttribute("data-theme", mode);
+  }, [mode]);
+  React17.useEffect(() => {
+    if (typeof document === "undefined")
+      return;
+    injectThemeTokens({
+      primary: activeTheme.palette.primary.main,
+      secondary: activeTheme.palette.secondary.main,
+      success: activeTheme.palette.success.main,
+      warning: activeTheme.palette.warning.main,
+      error: activeTheme.palette.error.main,
+      info: activeTheme.palette.info.main,
+      mode,
+      fontFamily: activeTheme.typography.fontFamily,
+      borderRadius: activeTheme.shape.borderRadius
+    }, document.documentElement);
+  }, [activeTheme, mode]);
+  const toggleMode = React17.useCallback(() => {
+    setModeState((prev) => prev === "light" ? "dark" : "light");
+  }, []);
+  const setMode = React17.useCallback((newMode) => {
+    setModeState(newMode);
+  }, []);
+  const setDynamicBrand = React17.useCallback((colors) => {
+    setActiveTheme((prev) => createTheme({
+      palette: {
+        ...prev.palette,
+        primary: colors.primary || prev.palette.primary,
+        secondary: colors.secondary || prev.palette.secondary
+      },
+      typography: prev.typography,
+      shape: prev.shape
+    }));
+  }, []);
+  const contextValue = React17.useMemo(() => ({ theme: activeTheme, mode, toggleMode, setMode, setDynamicBrand }), [activeTheme, mode, toggleMode, setMode, setDynamicBrand]);
+  return React17__default.default.createElement(ThemeContext.Provider, { value: contextValue }, children);
+};
+var AdaptiveThemeProvider = ({ remoteConfig = {}, children }) => {
+  const customTheme = React17.useMemo(() => {
+    return createTheme({
+      palette: {
+        primary: remoteConfig.primaryColor,
+        secondary: remoteConfig.secondaryColor,
+        mode: remoteConfig.mode || "light"
+      },
+      typography: remoteConfig.fontFamily ? { fontFamily: remoteConfig.fontFamily } : void 0,
+      shape: remoteConfig.borderRadius !== void 0 ? { borderRadius: remoteConfig.borderRadius } : void 0
+    });
+  }, [remoteConfig.primaryColor, remoteConfig.secondaryColor, remoteConfig.mode, remoteConfig.fontFamily, remoteConfig.borderRadius]);
+  return jsxRuntime.jsx(ThemeProvider, { theme: customTheme, defaultMode: remoteConfig.mode || "light", children });
+};
+function createMuiCompatiblePalette(theme) {
+  return {
+    mode: theme.palette.mode,
+    primary: {
+      main: theme.palette.primary.main,
+      light: theme.palette.primary.light,
+      dark: theme.palette.primary.dark,
+      contrastText: theme.palette.primary.contrastText
+    },
+    secondary: {
+      main: theme.palette.secondary.main,
+      light: theme.palette.secondary.light,
+      dark: theme.palette.secondary.dark,
+      contrastText: theme.palette.secondary.contrastText
+    },
+    success: theme.palette.success,
+    warning: theme.palette.warning,
+    error: theme.palette.error,
+    info: theme.palette.info
+  };
+}
+function useMediaQuery(query) {
+  const [matches, setMatches] = React17.useState(() => {
+    if (typeof window !== "undefined") {
+      return window.matchMedia(query).matches;
+    }
+    return false;
+  });
+  React17.useEffect(() => {
+    if (typeof window === "undefined")
+      return;
+    const mediaQuery = window.matchMedia(query);
+    setMatches(mediaQuery.matches);
+    const handler = (event) => {
+      setMatches(event.matches);
+    };
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, [query]);
+  return matches;
+}
 var ErrorStateRoot = styles.styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
@@ -926,34 +1806,34 @@ var ErrorStateRoot = styles.styled("div")(({ theme }) => ({
   padding: theme.spacing(6, 3),
   textAlign: "center"
 }));
-function ErrorState({
+var ErrorState = ({
   titleKey = "common:states.errorTitle",
   messageKey = "common:states.errorGeneric",
-  onRetry
-}) {
+  onRetry,
+  className
+}) => {
   const { t } = reactI18next.useTranslation();
-  return /* @__PURE__ */ jsxRuntime.jsxs(ErrorStateRoot, { role: "alert", children: [
+  return /* @__PURE__ */ jsxRuntime.jsxs(ErrorStateRoot, { role: "alert", className, children: [
     /* @__PURE__ */ jsxRuntime.jsx(ErrorOutlineIcon__default.default, { color: "error", sx: { fontSize: 40 } }),
-    /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h6", children: t(titleKey) }),
-    /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "text.secondary", children: t(messageKey) }),
-    onRetry ? /* @__PURE__ */ jsxRuntime.jsx(Button5__default.default, { onClick: onRetry, startIcon: /* @__PURE__ */ jsxRuntime.jsx(RefreshIcon__default.default, {}), variant: "outlined", children: t("common:actions.retry") }) : null
+    /* @__PURE__ */ jsxRuntime.jsx(Typography3, { variant: "h6", children: t(titleKey) }),
+    /* @__PURE__ */ jsxRuntime.jsx(Typography3, { variant: "body2", color: "textSecondary", children: t(messageKey) }),
+    onRetry ? /* @__PURE__ */ jsxRuntime.jsx(Button3, { onClick: onRetry, startIcon: /* @__PURE__ */ jsxRuntime.jsx(RefreshIcon__default.default, {}), variant: "outlined", children: t("common:actions.retry") }) : null
   ] });
-}
-function PageSkeleton({ label }) {
+};
+var PageSkeleton = ({ label, className }) => {
   return /* @__PURE__ */ jsxRuntime.jsx(
-    Box7__default.default,
+    Box4,
     {
-      sx: {
-        display: "flex",
-        minHeight: "65vh",
-        width: "100%",
-        alignItems: "center",
-        justifyContent: "center"
-      },
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      minHeight: "65vh",
+      width: "100%",
+      className,
       children: /* @__PURE__ */ jsxRuntime.jsx(NamiosLoader, { size: 54, label })
     }
   );
-}
+};
 
 // src/types/entities.ts
 var Status = {
@@ -974,20 +1854,21 @@ var STATUS_COLORS = {
   [Status.EXPIRED]: "error",
   [Status.CANCELLED]: "error"
 };
-function StatusChip({ status, size = "small" }) {
+var StatusChip = ({ status, size = "small", className }) => {
   const { t } = reactI18next.useTranslation();
   const color = STATUS_COLORS[status];
+  const muiColor = color === "default" ? void 0 : color;
   return /* @__PURE__ */ jsxRuntime.jsx(
-    Chip6__default.default,
+    Chip,
     {
       label: t(`common:status.${status}`),
       size,
-      color: color === "default" ? void 0 : color,
+      color: muiColor,
       variant: color === "default" ? "outlined" : "filled",
-      sx: color === "default" ? void 0 : { color: "#fff" }
+      className
     }
   );
-}
+};
 
 // src/constants/app.ts
 var DATE_FORMATS = {
@@ -1014,11 +1895,11 @@ var ContextMenu = ({
   items,
   onClose
 }) => {
-  const [highlightedIndex, setHighlightedIndex] = react.useState(-1);
-  const [activeSubmenu, setActiveSubmenu] = react.useState(null);
-  const menuRef = react.useRef(null);
-  const [position, setPosition] = react.useState({ x, y });
-  react.useEffect(() => {
+  const [highlightedIndex, setHighlightedIndex] = React17.useState(-1);
+  const [activeSubmenu, setActiveSubmenu] = React17.useState(null);
+  const menuRef = React17.useRef(null);
+  const [position, setPosition] = React17.useState({ x, y });
+  React17.useEffect(() => {
     if (!open) {
       setHighlightedIndex(-1);
       setActiveSubmenu(null);
@@ -1038,7 +1919,7 @@ var ContextMenu = ({
     }
     setPosition({ x: Math.max(12, posX), y: Math.max(12, posY) });
   }, [open, x, y, items]);
-  react.useEffect(() => {
+  React17.useEffect(() => {
     if (!open) return;
     const handleMouseDown = (e) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
@@ -1062,7 +1943,7 @@ var ContextMenu = ({
       window.removeEventListener("scroll", handleScroll, { capture: true });
     };
   }, [open, onClose]);
-  const handleItemClick = react.useCallback(
+  const handleItemClick = React17.useCallback(
     (item) => {
       if (item.disabled || item.separator) return;
       if (item.children && item.children.length > 0) return;
@@ -1322,13 +2203,13 @@ var ContextMenu = ({
   ) });
 };
 function useContextMenu() {
-  const [contextMenu, setContextMenu] = react.useState({
+  const [contextMenu, setContextMenu] = React17.useState({
     open: false,
     x: 0,
     y: 0,
     items: []
   });
-  const openContextMenu = react.useCallback(
+  const openContextMenu = React17.useCallback(
     (event, items) => {
       event.preventDefault();
       event.stopPropagation();
@@ -1341,7 +2222,7 @@ function useContextMenu() {
     },
     []
   );
-  const closeContextMenu = react.useCallback(() => {
+  const closeContextMenu = React17.useCallback(() => {
     setContextMenu((prev) => prev.open ? { ...prev, open: false } : prev);
   }, []);
   return {
@@ -1371,7 +2252,7 @@ var ClickableRow = styles.styled(TableRow__default.default, {
     "&:hover": { backgroundColor: theme.palette.action.hover }
   }
 }));
-function DataTable({
+var DataTable = ({
   columns,
   data,
   isLoading = false,
@@ -1393,7 +2274,7 @@ function DataTable({
   toolbar,
   emptyState,
   compact = false
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   const { contextMenu, openContextMenu, closeContextMenu } = useContextMenu();
   const rows = data?.items ?? [];
@@ -1442,7 +2323,7 @@ function DataTable({
           /* @__PURE__ */ jsxRuntime.jsx(TableContainer__default.default, { children: /* @__PURE__ */ jsxRuntime.jsxs(Table__default.default, { size: "small", "aria-busy": isLoading, children: [
             /* @__PURE__ */ jsxRuntime.jsx(TableHead__default.default, { sx: { backgroundColor: "action.hover" }, children: /* @__PURE__ */ jsxRuntime.jsxs(TableRow__default.default, { children: [
               selectable ? /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { padding: "checkbox", children: /* @__PURE__ */ jsxRuntime.jsx(
-                Checkbox__default.default,
+                Checkbox2__default.default,
                 {
                   checked: allSelected,
                   indeterminate: !allSelected && someSelected,
@@ -1472,7 +2353,7 @@ function DataTable({
               )),
               rowActions ? /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { align: "right", sx: { fontWeight: 700 }, children: t("common:table.actions") }) : null
             ] }) }),
-            /* @__PURE__ */ jsxRuntime.jsx(TableBody__default.default, { children: isLoading ? Array.from({ length: compact ? 5 : pageSize }, (_, i) => /* @__PURE__ */ jsxRuntime.jsx(TableRow__default.default, { children: /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { colSpan, children: /* @__PURE__ */ jsxRuntime.jsx(Skeleton__default.default, { variant: "text", height: 28 }) }) }, i)) : rows.map((row) => /* @__PURE__ */ jsxRuntime.jsxs(
+            /* @__PURE__ */ jsxRuntime.jsx(TableBody__default.default, { children: isLoading ? Array.from({ length: compact ? 5 : pageSize }, (_, i) => /* @__PURE__ */ jsxRuntime.jsx(TableRow__default.default, { children: /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { colSpan, children: /* @__PURE__ */ jsxRuntime.jsx(Skeleton, { variant: "text", height: 28 }) }) }, i)) : rows.map((row) => /* @__PURE__ */ jsxRuntime.jsxs(
               ClickableRow,
               {
                 clickable: Boolean(onRowClick || getContextMenuItems),
@@ -1486,7 +2367,7 @@ function DataTable({
                   selectable ? /* @__PURE__ */ jsxRuntime.jsx(TableCell__default.default, { padding: "checkbox", onClick: (e) => {
                     e.stopPropagation();
                   }, children: /* @__PURE__ */ jsxRuntime.jsx(
-                    Checkbox__default.default,
+                    Checkbox2__default.default,
                     {
                       checked: selected.includes(row.id),
                       onChange: () => {
@@ -1541,8 +2422,8 @@ function DataTable({
       ]
     }
   );
-}
-var StatCardRoot = styles.styled(Card__default.default, {
+};
+var StatCardRoot = styles.styled(Card2__default.default, {
   shouldForwardProp: (prop) => prop !== "compactSize"
 })(({ theme, compactSize }) => ({
   padding: compactSize ? theme.spacing(2, 2.5) : theme.spacing(2.5, 3),
@@ -1595,7 +2476,7 @@ var TREND_ICONS = {
   down: /* @__PURE__ */ jsxRuntime.jsx(TrendingDownIcon__default.default, { fontSize: "inherit" }),
   flat: /* @__PURE__ */ jsxRuntime.jsx(TrendingFlatIcon__default.default, { fontSize: "inherit" })
 };
-function StatCard({
+var StatCard = ({
   labelKey,
   value,
   delta,
@@ -1608,10 +2489,10 @@ function StatCard({
   badge,
   iconColor = "primary",
   size = "small"
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   const isCompact = size === "small" || size === "mini";
-  const valueNode = loading ? /* @__PURE__ */ jsxRuntime.jsx(Skeleton__default.default, { variant: "text", width: 80, height: isCompact ? 28 : 40 }) : /* @__PURE__ */ jsxRuntime.jsx(
+  const valueNode = loading ? /* @__PURE__ */ jsxRuntime.jsx(Skeleton, { variant: "text", width: 80, height: isCompact ? 28 : 40 }) : /* @__PURE__ */ jsxRuntime.jsx(
     Typography9__default.default,
     {
       variant: isCompact ? "h5" : "h4",
@@ -1671,21 +2552,26 @@ function StatCard({
     deltaNode,
     subtitleNode
   ] });
-}
-function SectionCard({ titleKey, titleParams, action, children }) {
+};
+var SectionCard = ({
+  titleKey,
+  titleParams,
+  action,
+  children,
+  className
+}) => {
   const { t } = reactI18next.useTranslation();
-  return /* @__PURE__ */ jsxRuntime.jsxs(Card__default.default, { children: [
+  return /* @__PURE__ */ jsxRuntime.jsxs(Card, { elevation: 1, className, children: [
     /* @__PURE__ */ jsxRuntime.jsx(
-      CardHeader__default.default,
+      CardHeader,
       {
-        title: t(titleKey, titleParams),
-        titleTypographyProps: { variant: "h6" },
+        title: /* @__PURE__ */ jsxRuntime.jsx("span", { style: { fontWeight: 600, fontSize: "1.125rem" }, children: t(titleKey, titleParams) }),
         action
       }
     ),
-    /* @__PURE__ */ jsxRuntime.jsx(CardContent__default.default, { sx: { pt: 0 }, children })
+    /* @__PURE__ */ jsxRuntime.jsx(CardContent, { style: { paddingTop: 0 }, children })
   ] });
-}
+};
 var ListRoot = styles.styled("dl")(({ theme }) => ({
   display: "grid",
   gridTemplateColumns: "minmax(140px, auto) 1fr",
@@ -1702,23 +2588,23 @@ var Detail = styles.styled("dd")(({ theme }) => ({
   color: theme.palette.text.primary,
   margin: 0
 }));
-function DescriptionList({ items }) {
+var DescriptionList = ({ items, className }) => {
   const { t } = reactI18next.useTranslation();
-  return /* @__PURE__ */ jsxRuntime.jsx(ListRoot, { children: items.map((item) => /* @__PURE__ */ jsxRuntime.jsxs(react.Fragment, { children: [
+  return /* @__PURE__ */ jsxRuntime.jsx(ListRoot, { className, children: items.map((item) => /* @__PURE__ */ jsxRuntime.jsxs(React17.Fragment, { children: [
     /* @__PURE__ */ jsxRuntime.jsx(Term, { children: t(item.labelKey, item.labelParams) }),
     /* @__PURE__ */ jsxRuntime.jsx(Detail, { children: item.value })
   ] }, item.labelKey)) });
-}
-function SearchField({
+};
+var SearchField = ({
   value,
   onChange,
   placeholderKey = "common:actions.search",
   fullWidth = false,
   autoFocus = false
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   return /* @__PURE__ */ jsxRuntime.jsx(
-    TextField4__default.default,
+    TextField5__default.default,
     {
       value,
       onChange: (e) => {
@@ -1731,7 +2617,7 @@ function SearchField({
       InputProps: {
         startAdornment: /* @__PURE__ */ jsxRuntime.jsx(InputAdornment__default.default, { position: "start", children: /* @__PURE__ */ jsxRuntime.jsx(SearchIcon__default.default, { fontSize: "small" }) }),
         endAdornment: value ? /* @__PURE__ */ jsxRuntime.jsx(InputAdornment__default.default, { position: "end", children: /* @__PURE__ */ jsxRuntime.jsx(
-          IconButton8__default.default,
+          IconButton9__default.default,
           {
             size: "small",
             "aria-label": t("common:actions.clear"),
@@ -1744,8 +2630,8 @@ function SearchField({
       }
     }
   );
-}
-function SelectField({
+};
+var SelectField = ({
   value,
   onChange,
   options,
@@ -1754,10 +2640,10 @@ function SelectField({
   fullWidth = false,
   minWidth = 160,
   disabled = false
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   return /* @__PURE__ */ jsxRuntime.jsxs(
-    TextField4__default.default,
+    TextField5__default.default,
     {
       select: true,
       value,
@@ -1777,13 +2663,13 @@ function SelectField({
       ]
     }
   );
-}
-var PasswordField = react.forwardRef(
+};
+var PasswordField = React17.forwardRef(
   function PasswordField2(props, ref) {
     const { t } = reactI18next.useTranslation();
-    const [visible, setVisible] = react.useState(false);
+    const [visible, setVisible] = React17.useState(false);
     return /* @__PURE__ */ jsxRuntime.jsx(
-      TextField4__default.default,
+      TextField5__default.default,
       {
         ...props,
         inputRef: ref ?? props.inputRef,
@@ -1791,7 +2677,7 @@ var PasswordField = react.forwardRef(
         InputProps: {
           ...props.InputProps,
           endAdornment: /* @__PURE__ */ jsxRuntime.jsx(InputAdornment__default.default, { position: "end", children: /* @__PURE__ */ jsxRuntime.jsx(
-            IconButton8__default.default,
+            IconButton9__default.default,
             {
               "aria-label": t(
                 visible ? "common:actions.hidePassword" : "common:actions.showPassword"
@@ -1809,7 +2695,7 @@ var PasswordField = react.forwardRef(
     );
   }
 );
-function FormTextField({
+var FormTextField = ({
   control,
   name,
   labelKey,
@@ -1820,7 +2706,7 @@ function FormTextField({
   autoComplete,
   placeholderKey,
   disabled
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   return /* @__PURE__ */ jsxRuntime.jsx(
     reactHookForm.Controller,
@@ -1843,17 +2729,17 @@ function FormTextField({
           autoComplete,
           disabled
         };
-        return type === "password" ? /* @__PURE__ */ jsxRuntime.jsx(PasswordField, { ...shared }) : /* @__PURE__ */ jsxRuntime.jsx(TextField4__default.default, { ...shared, type });
+        return type === "password" ? /* @__PURE__ */ jsxRuntime.jsx(PasswordField, { ...shared }) : /* @__PURE__ */ jsxRuntime.jsx(TextField5__default.default, { ...shared, type });
       }
     }
   );
-}
-function FormSelect({
+};
+var FormSelect = ({
   control,
   name,
   labelKey,
   options
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   return /* @__PURE__ */ jsxRuntime.jsx(
     reactHookForm.Controller,
@@ -1861,7 +2747,7 @@ function FormSelect({
       control,
       name,
       render: ({ field, fieldState }) => /* @__PURE__ */ jsxRuntime.jsx(
-        TextField4__default.default,
+        TextField5__default.default,
         {
           ...field,
           select: true,
@@ -1875,12 +2761,12 @@ function FormSelect({
       )
     }
   );
-}
-function FormSwitch({
+};
+var FormSwitch = ({
   control,
   name,
   labelKey
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   return /* @__PURE__ */ jsxRuntime.jsx(
     reactHookForm.Controller,
@@ -1890,13 +2776,13 @@ function FormSwitch({
       render: ({ field }) => /* @__PURE__ */ jsxRuntime.jsx(
         FormControlLabel__default.default,
         {
-          control: /* @__PURE__ */ jsxRuntime.jsx(Switch__default.default, { checked: Boolean(field.value), onChange: field.onChange }),
+          control: /* @__PURE__ */ jsxRuntime.jsx(Switch2__default.default, { checked: Boolean(field.value), onChange: field.onChange }),
           label: t(labelKey)
         }
       )
     }
   );
-}
+};
 
 // src/constants/locales.ts
 var SUPPORTED_LOCALES = [
@@ -1908,9 +2794,9 @@ var SUPPORTED_LOCALES = [
   { code: "fr", label: "Fran\xE7ais", dir: "ltr" },
   { code: "de", label: "Deutsch", dir: "ltr" }
 ];
-function LanguageSwitcher({ variant = "text" }) {
+var LanguageSwitcher = ({ variant = "text" }) => {
   const { i18n, t } = reactI18next.useTranslation();
-  const [anchorEl, setAnchorEl] = react.useState(null);
+  const [anchorEl, setAnchorEl] = React17.useState(null);
   const current = SUPPORTED_LOCALES.find((locale) => i18n.language.startsWith(locale.code)) ?? SUPPORTED_LOCALES[0];
   const handleSelect = (code) => {
     void i18n.changeLanguage(code);
@@ -1955,7 +2841,7 @@ function LanguageSwitcher({ variant = "text" }) {
       }
     )
   ] });
-}
+};
 var TopBarSlot = styles.styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
@@ -1968,7 +2854,7 @@ var TopBarNav = styles.styled("nav")(({ theme }) => ({
   flexGrow: 1,
   justifyContent: "center"
 }));
-function AppTopBar({ appsLauncher, logo, nav, actions, onMenuClick }) {
+var AppTopBar = ({ appsLauncher, logo, nav, actions, onMenuClick }) => {
   const { t } = reactI18next.useTranslation();
   return /* @__PURE__ */ jsxRuntime.jsx(
     AppBar__default.default,
@@ -1984,7 +2870,7 @@ function AppTopBar({ appsLauncher, logo, nav, actions, onMenuClick }) {
       children: /* @__PURE__ */ jsxRuntime.jsxs(Toolbar__default.default, { sx: (theme) => ({ minHeight: theme.custom.topBarHeight }), children: [
         /* @__PURE__ */ jsxRuntime.jsxs(TopBarSlot, { children: [
           onMenuClick ? /* @__PURE__ */ jsxRuntime.jsx(
-            IconButton8__default.default,
+            IconButton9__default.default,
             {
               "aria-label": t("common:actions.openMenu"),
               onClick: onMenuClick,
@@ -2001,7 +2887,7 @@ function AppTopBar({ appsLauncher, logo, nav, actions, onMenuClick }) {
       ] })
     }
   );
-}
+};
 
 // src/utils/date.ts
 var DAY_MS = 24 * 60 * 60 * 1e3;
@@ -2138,11 +3024,11 @@ var TimelineMatrix = ({
 }) => {
   const { t, i18n } = reactI18next.useTranslation();
   const theme = styles.useTheme();
-  const scrollContainerRef = react.useRef(null);
+  const scrollContainerRef = React17.useRef(null);
   const dayList = dateRangeDays(startDate, days);
   const todayDate = today ?? todayIso();
   const endDate = addDays(startDate, days);
-  react.useEffect(() => {
+  React17.useEffect(() => {
     if (!initialScrollDate || !scrollContainerRef.current) return;
     const dayIndex = differenceInDays(startDate, initialScrollDate);
     if (dayIndex < 0 || dayIndex >= days) return;
@@ -2159,7 +3045,7 @@ var TimelineMatrix = ({
   const monthFormat = new Intl.DateTimeFormat(i18n.language, { month: "short" });
   const dayFormat = new Intl.DateTimeFormat(i18n.language, { day: "numeric" });
   if (loading) {
-    return /* @__PURE__ */ jsxRuntime.jsx("div", { children: /* @__PURE__ */ jsxRuntime.jsx(Skeleton__default.default, { variant: "rounded", height: ROW_HEIGHT * 6 }) });
+    return /* @__PURE__ */ jsxRuntime.jsx("div", { children: /* @__PURE__ */ jsxRuntime.jsx(Skeleton2__default.default, { variant: "rounded", height: ROW_HEIGHT * 6 }) });
   }
   return /* @__PURE__ */ jsxRuntime.jsxs("div", { children: [
     legend ? /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { component: "div", variant: "body2", sx: { display: "flex", justifyContent: "flex-end", mb: 1 }, children: legend }) : null,
@@ -2221,21 +3107,23 @@ var TimelineMatrix = ({
     ] }) })
   ] });
 };
-function StatusFilterChips({
+var StatusFilterChips = ({
   options,
   value,
-  onChange
-}) {
+  onChange,
+  className
+}) => {
   const { t } = reactI18next.useTranslation();
-  return /* @__PURE__ */ jsxRuntime.jsx(Stack4__default.default, { direction: "row", spacing: 1, flexWrap: "wrap", useFlexGap: true, role: "tablist", children: options.map((option) => {
+  return /* @__PURE__ */ jsxRuntime.jsx(Stack2, { direction: "row", spacing: 1, flexWrap: "wrap", className, role: "tablist", children: options.map((option) => {
     const active = option.value === value;
     const label = option.count !== void 0 ? `${t(option.labelKey)} (${option.count})` : t(option.labelKey);
     return /* @__PURE__ */ jsxRuntime.jsx(
-      Chip6__default.default,
+      Chip,
       {
         label,
         color: active ? "primary" : void 0,
         variant: active ? "filled" : "outlined",
+        clickable: true,
         onClick: () => {
           onChange(option.value);
         },
@@ -2245,7 +3133,7 @@ function StatusFilterChips({
       option.value
     );
   }) });
-}
+};
 var DrawerHeader = styles.styled("header")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
@@ -2269,7 +3157,7 @@ var DrawerFooter = styles.styled("footer")(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
   "& > *": { flexGrow: 1 }
 }));
-function AppDrawer({
+var AppDrawer = ({
   open,
   onClose,
   titleKey,
@@ -2281,7 +3169,7 @@ function AppDrawer({
   width,
   loading = false,
   children
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   const getMaxWidth = () => {
     if (width === "full" || width === "xl") return "xl";
@@ -2329,7 +3217,7 @@ function AppDrawer({
             /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h5", fontWeight: 800, letterSpacing: "-0.3px", noWrap: true, children: title ?? (titleKey ? t(titleKey, titleParams) : null) }),
             statusChip
           ] }),
-          /* @__PURE__ */ jsxRuntime.jsx(IconButton8__default.default, { "aria-label": t("common:actions.close"), onClick: onClose, size: "small", children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon5__default.default, { fontSize: "small" }) })
+          /* @__PURE__ */ jsxRuntime.jsx(IconButton9__default.default, { "aria-label": t("common:actions.close"), onClick: onClose, size: "small", children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon5__default.default, { fontSize: "small" }) })
         ] }),
         tabs,
         /* @__PURE__ */ jsxRuntime.jsxs(DrawerContent, { children: [
@@ -2340,8 +3228,8 @@ function AppDrawer({
       ]
     }
   );
-}
-function WizardDialog({
+};
+var WizardDialog = ({
   open,
   titleKey,
   steps,
@@ -2358,7 +3246,7 @@ function WizardDialog({
   maxWidth = "md",
   paperSx,
   children
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   const isLast = activeStep === steps.length - 1;
   return /* @__PURE__ */ jsxRuntime.jsxs(
@@ -2383,17 +3271,17 @@ function WizardDialog({
           /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", alignItems: "center", spacing: 1.5, children: [
             /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h6", sx: { fontWeight: 700, letterSpacing: "-0.01em" }, children: t(titleKey) }),
             /* @__PURE__ */ jsxRuntime.jsx(
-              Chip6__default.default,
+              Chip,
               {
                 label: `${activeStep + 1} / ${steps.length}`,
                 size: "small",
                 color: "primary",
                 variant: "outlined",
-                sx: { fontWeight: 700, fontSize: "0.75rem", height: 22 }
+                style: { fontWeight: 700, fontSize: "0.75rem", height: 22 }
               }
             )
           ] }),
-          /* @__PURE__ */ jsxRuntime.jsx(IconButton8__default.default, { "aria-label": t("common:actions.close"), onClick: onCancel, size: "small", edge: "end", children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon5__default.default, { fontSize: "small" }) })
+          /* @__PURE__ */ jsxRuntime.jsx(IconButton9__default.default, { "aria-label": t("common:actions.close"), onClick: onCancel, size: "small", edge: "end", children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon5__default.default, { fontSize: "small" }) })
         ] }),
         /* @__PURE__ */ jsxRuntime.jsx(
           Stepper__default.default,
@@ -2465,18 +3353,18 @@ function WizardDialog({
       ]
     }
   );
-}
+};
 var DateRangePreset = {
   LAST_7: "last7",
   NEXT_7: "next7",
   NEXT_14: "next14",
   THIS_MONTH: "thisMonth"
 };
-function DateRangeButton({ range }) {
+var DateRangeButton = ({ range }) => {
   const { t, i18n } = reactI18next.useTranslation();
-  const [anchorEl, setAnchorEl] = react.useState(null);
-  const [draftFrom, setDraftFrom] = react.useState(range.from);
-  const [draftTo, setDraftTo] = react.useState(range.to);
+  const [anchorEl, setAnchorEl] = React17.useState(null);
+  const [draftFrom, setDraftFrom] = React17.useState(range.from);
+  const [draftTo, setDraftTo] = React17.useState(range.to);
   const format = new Intl.DateTimeFormat(i18n.language, { month: "short", day: "numeric" });
   const formatWithYear = new Intl.DateTimeFormat(i18n.language, {
     month: "short",
@@ -2517,7 +3405,7 @@ function DateRangeButton({ range }) {
         anchorOrigin: { vertical: "bottom", horizontal: "left" },
         children: /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { spacing: 2, sx: { p: 2, width: 300 }, children: [
           /* @__PURE__ */ jsxRuntime.jsx(Stack4__default.default, { direction: "row", spacing: 1, flexWrap: "wrap", useFlexGap: true, children: Object.values(DateRangePreset).map((preset) => /* @__PURE__ */ jsxRuntime.jsx(
-            Chip6__default.default,
+            Chip,
             {
               label: t(`common:dateRange.presets.${preset}`),
               size: "small",
@@ -2531,7 +3419,7 @@ function DateRangeButton({ range }) {
             preset
           )) }),
           /* @__PURE__ */ jsxRuntime.jsx(
-            TextField4__default.default,
+            TextField5__default.default,
             {
               type: "date",
               label: t("common:dateRange.from"),
@@ -2543,7 +3431,7 @@ function DateRangeButton({ range }) {
             }
           ),
           /* @__PURE__ */ jsxRuntime.jsx(
-            TextField4__default.default,
+            TextField5__default.default,
             {
               type: "date",
               label: t("common:dateRange.to"),
@@ -2570,7 +3458,7 @@ function DateRangeButton({ range }) {
       }
     )
   ] });
-}
+};
 var NavItemButton = styles.styled(ListItemButton__default.default)(({ theme }) => ({
   borderRadius: "12px",
   margin: theme.spacing(0.35, 1.25),
@@ -2587,14 +3475,14 @@ var NavItemButton = styles.styled(ListItemButton__default.default)(({ theme }) =
     "&:hover": { backgroundColor: theme.palette.mode === "light" ? "#0062CC" : "#0051A8" }
   }
 }));
-function NavList({
+var NavList = ({
   items,
   activePath,
   onNavigate,
   depth = 0
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
-  const [openMap, setOpenMap] = react.useState({});
+  const [openMap, setOpenMap] = React17.useState({});
   return /* @__PURE__ */ jsxRuntime.jsx(List__default.default, { component: depth === 0 ? "nav" : "div", disablePadding: depth > 0, children: items.map((item) => {
     const isActive = activePath === item.path || !item.exact && item.path !== "/" && activePath.startsWith(`${item.path}/`);
     const hasChildren = Boolean(item.children?.length);
@@ -2630,22 +3518,22 @@ function NavList({
       ) }) : null
     ] }, item.path);
   }) });
-}
-function AppSideNav({
+};
+var AppSideNav = ({
   items,
   activePath,
   onNavigate,
   mobileOpen = false,
   onMobileClose,
   temporary = false
-}) {
+}) => {
   const content = /* @__PURE__ */ jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [
     /* @__PURE__ */ jsxRuntime.jsx(Toolbar__default.default, { sx: (theme) => ({ minHeight: theme.custom.topBarHeight }) }),
     /* @__PURE__ */ jsxRuntime.jsx(NavList, { items, activePath, onNavigate })
   ] });
   if (temporary) {
     return /* @__PURE__ */ jsxRuntime.jsx(
-      Drawer__default.default,
+      Drawer2__default.default,
       {
         variant: "temporary",
         open: mobileOpen,
@@ -2659,7 +3547,7 @@ function AppSideNav({
     );
   }
   return /* @__PURE__ */ jsxRuntime.jsx(
-    Drawer__default.default,
+    Drawer2__default.default,
     {
       variant: "permanent",
       sx: (theme) => ({
@@ -2674,7 +3562,7 @@ function AppSideNav({
       children: content
     }
   );
-}
+};
 var HeaderRoot = styles.styled("header")(({ theme }) => ({
   display: "flex",
   alignItems: "flex-start",
@@ -2683,7 +3571,7 @@ var HeaderRoot = styles.styled("header")(({ theme }) => ({
   gap: theme.spacing(2),
   marginBottom: theme.spacing(3)
 }));
-function PageHeader({
+var PageHeader = ({
   titleKey,
   titleParams,
   title,
@@ -2692,7 +3580,7 @@ function PageHeader({
   breadcrumbs,
   onNavigate,
   actions
-}) {
+}) => {
   const { t } = reactI18next.useTranslation();
   return /* @__PURE__ */ jsxRuntime.jsxs(HeaderRoot, { children: [
     /* @__PURE__ */ jsxRuntime.jsxs("div", { children: [
@@ -2718,13 +3606,13 @@ function PageHeader({
     ] }),
     actions ? /* @__PURE__ */ jsxRuntime.jsx("div", { children: actions }) : null
   ] });
-}
+};
 var FALLOFF_CURVES = {
   linear: (t) => t,
   smooth: (t) => t * t * (3 - 2 * t),
   sharp: (t) => t * t * t
 };
-var hexToRgb = (hex) => {
+var hexToRgb2 = (hex) => {
   const h = hex.replace("#", "");
   const v = h.length === 3 ? h.split("").map((c) => c + c).join("") : h;
   const num = parseInt(v.slice(0, 6), 16);
@@ -2746,10 +3634,10 @@ var CursorGrid = ({
   pulseSpeed = 600,
   className = ""
 }) => {
-  const containerRef = react.useRef(null);
-  const canvasRef = react.useRef(null);
-  const propsRef = react.useRef({});
-  const wakeRef = react.useRef(null);
+  const containerRef = React17.useRef(null);
+  const canvasRef = React17.useRef(null);
+  const propsRef = React17.useRef({});
+  const wakeRef = React17.useRef(null);
   propsRef.current = {
     cellSize,
     color,
@@ -2765,7 +3653,7 @@ var CursorGrid = ({
     clickPulse,
     pulseSpeed
   };
-  react.useEffect(() => {
+  React17.useEffect(() => {
     const container = containerRef.current;
     const canvas = canvasRef.current;
     if (!container || !canvas) return;
@@ -2838,7 +3726,7 @@ var CursorGrid = ({
       const dt = Math.min(now - lastFrame, 50);
       lastFrame = now;
       ctx.clearRect(0, 0, w, h);
-      const [cr, cg, cb] = hexToRgb(p.color);
+      const [cr, cg, cb] = hexToRgb2(p.color);
       if (p.gridOpacity > 0) {
         ctx.strokeStyle = `rgba(${cr}, ${cg}, ${cb}, ${p.gridOpacity})`;
         ctx.lineWidth = 1;
@@ -2968,7 +3856,7 @@ var CursorGrid = ({
       target.removeEventListener("pointerdown", onPointerDown);
     };
   }, [cellSize]);
-  react.useEffect(() => {
+  React17.useEffect(() => {
     wakeRef.current?.();
   }, [gridOpacity, color, lineWidth, maxOpacity, fillOpacity, cellRadius]);
   return /* @__PURE__ */ jsxRuntime.jsx("div", { ref: containerRef, className: `cursor-grid${className ? ` ${className}` : ""}`, children: /* @__PURE__ */ jsxRuntime.jsx("canvas", { ref: canvasRef, className: "cursor-grid__canvas" }) });
@@ -2983,9 +3871,9 @@ var AuthPageRoot = styles.styled("main", {
   backgroundColor: theme.palette.background.default,
   [theme.breakpoints.up("md")]: {
     display: "grid",
-    height: "100vh",
-    minHeight: "100vh",
-    maxHeight: "100vh",
+    height: "100dvh",
+    minHeight: "100dvh",
+    maxHeight: "100dvh",
     overflow: "hidden",
     gridTemplateColumns: hasSplitBrand ? "minmax(0, 5fr) minmax(0, 7fr)" : "minmax(0, 1fr)"
   },
@@ -3067,11 +3955,16 @@ var AuthFormPanel = styles.styled("section")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  justifyContent: "center",
+  /* Use flex-start instead of center to prevent scroll-loop glitch.
+     Vertical centering is achieved via margin: 'auto 0' on the form shell. */
+  justifyContent: "flex-start",
   padding: theme.spacing(3, 2),
   position: "relative",
   overflowY: "auto",
   overflowX: "hidden",
+  /* Override global scroll-behavior: smooth to stop the auto-scroll loop
+     when the browser tries to scrollIntoView the focused input. */
+  scrollBehavior: "auto",
   boxSizing: "border-box",
   WebkitOverflowScrolling: "touch",
   backgroundColor: "#f8fafc",
@@ -3086,7 +3979,7 @@ var AuthFormPanel = styles.styled("section")(({ theme }) => ({
   },
   [theme.breakpoints.up("md")]: {
     height: "100%",
-    minHeight: "100vh",
+    minHeight: 0,
     padding: theme.spacing(4, 5)
   }
 }));
@@ -3095,6 +3988,8 @@ var StyledPaper = styles.styled(Paper__default.default)(({ theme }) => ({
   zIndex: 1,
   width: "100%",
   maxWidth: 450,
+  /* Safe vertical centering — replaces parent justifyContent:'center'
+     which caused a scroll-loop when content overflowed. */
   margin: "auto 0",
   padding: theme.spacing(3.5, 2.5),
   borderRadius: 20,
@@ -3105,28 +4000,25 @@ var StyledPaper = styles.styled(Paper__default.default)(({ theme }) => ({
   backdropFilter: "blur(10px)",
   boxSizing: "border-box",
   [theme.breakpoints.up("sm")]: {
-    padding: theme.spacing(5),
-    margin: "auto 0"
+    padding: theme.spacing(5)
   }
 }));
-function AuthFormShell({ children, sx, ...props }) {
+var AuthFormShell = ({ children, sx, ...props }) => {
   return /* @__PURE__ */ jsxRuntime.jsx(StyledPaper, { elevation: 0, sx, ...props, children });
-}
+};
 var AuthTopBar = styles.styled(Box7__default.default)(({ theme }) => ({
-  position: "absolute",
+  position: "sticky",
+  top: 0,
   zIndex: 2,
-  top: theme.spacing(2),
-  left: theme.spacing(2),
-  right: theme.spacing(2),
+  flexShrink: 0,
+  padding: theme.spacing(2),
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
   pointerEvents: "auto",
   [theme.breakpoints.up("md")]: {
     justifyContent: "flex-end",
-    top: theme.spacing(3),
-    right: theme.spacing(3),
-    left: "auto"
+    padding: theme.spacing(3, 3, 0, 0)
   }
 }));
 var MobileBrand = styles.styled("div")(({ theme }) => ({
@@ -3136,7 +4028,7 @@ var MobileBrand = styles.styled("div")(({ theme }) => ({
     display: "none"
   }
 }));
-function AuthLayout({
+var AuthLayout = ({
   children,
   logo,
   topRight,
@@ -3148,7 +4040,7 @@ function AuthLayout({
   footer,
   brandGradient,
   centeredOnly = false
-}) {
+}) => {
   const hasSplitBrand = !centeredOnly && Boolean(appName || headline);
   return /* @__PURE__ */ jsxRuntime.jsxs(AuthPageRoot, { hasSplitBrand, children: [
     hasSplitBrand ? /* @__PURE__ */ jsxRuntime.jsxs(AuthBrandPanel, { customGradient: brandGradient, children: [
@@ -3238,20 +4130,20 @@ function AuthLayout({
       /* @__PURE__ */ jsxRuntime.jsx(AuthFormShell, { elevation: 0, children: /* @__PURE__ */ jsxRuntime.jsx(Stack4__default.default, { spacing: 3, children }) })
     ] })
   ] });
-}
-function AuthFormHeader({ title, subtitle, badge }) {
+};
+var AuthFormHeader = ({ title, subtitle, badge }) => {
   return /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { spacing: 0.75, sx: { mb: 1 }, children: [
     badge ? /* @__PURE__ */ jsxRuntime.jsx("div", { children: badge }) : null,
     /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h4", component: "h1", sx: { fontWeight: 700, letterSpacing: "-0.02em" }, children: title }),
     subtitle ? /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "text.secondary", sx: { fontSize: "0.875rem" }, children: subtitle }) : null
   ] });
-}
+};
 function useMediaBreakpoint() {
   const theme = styles.useTheme();
-  const isMobile = useMediaQuery__default.default(theme.breakpoints.down("sm"));
-  const isTablet = useMediaQuery__default.default(theme.breakpoints.between("sm", "md"));
-  const isDesktop = useMediaQuery__default.default(theme.breakpoints.up("md"));
-  const isLargeDesktop = useMediaQuery__default.default(theme.breakpoints.up("lg"));
+  const isMobile = useMediaQuery2__default.default(theme.breakpoints.down("sm"));
+  const isTablet = useMediaQuery2__default.default(theme.breakpoints.between("sm", "md"));
+  const isDesktop = useMediaQuery2__default.default(theme.breakpoints.up("md"));
+  const isLargeDesktop = useMediaQuery2__default.default(theme.breakpoints.up("lg"));
   return { isMobile, isTablet, isDesktop, isLargeDesktop };
 }
 
@@ -3534,7 +4426,7 @@ var AppFolderMiniPreview = ({
   className
 }) => {
   const previewApps = apps.slice(0, 4);
-  return /* @__PURE__ */ jsxRuntime.jsx(Tooltip__default.default, { title: tooltip, arrow: true, placement: "bottom", children: /* @__PURE__ */ jsxRuntime.jsx(
+  return /* @__PURE__ */ jsxRuntime.jsx(Tooltip2__default.default, { title: tooltip, arrow: true, placement: "bottom", children: /* @__PURE__ */ jsxRuntime.jsx(
     framerMotion.motion.button,
     {
       type: "button",
@@ -3602,7 +4494,7 @@ var AppTile = ({
   isActive = false,
   onSelect
 }) => {
-  const [imgError, setImgError] = react.useState(false);
+  const [imgError, setImgError] = React17.useState(false);
   const iconSrcToUse = app.lordIconSrc || app.iconSrc;
   const handleClick = () => {
     if (app.disabled) return;
@@ -3720,18 +4612,18 @@ var AppTile = ({
           }
         ),
         app.badge && /* @__PURE__ */ jsxRuntime.jsx(
-          Chip6__default.default,
+          Chip,
           {
             label: app.badge,
             size: "small",
-            color: app.badgeColor || "default",
-            sx: {
-              mt: 0.4,
+            color: app.badgeColor === "default" ? void 0 : app.badgeColor,
+            variant: app.badgeColor === "default" ? "outlined" : "filled",
+            style: {
+              marginTop: 4,
               height: 16,
               fontSize: "0.6rem",
               fontWeight: 800,
-              borderRadius: "5px",
-              "& .MuiChip-label": { px: 0.6 }
+              borderRadius: 5
             }
           }
         )
@@ -3748,16 +4640,16 @@ var AppFolderModal = ({
   onClose,
   onSelectApp
 }) => {
-  const [search, setSearch] = react.useState("");
-  const [selectedCategory, setSelectedCategory] = react.useState("all");
-  const modalRef = react.useRef(null);
-  react.useEffect(() => {
+  const [search, setSearch] = React17.useState("");
+  const [selectedCategory, setSelectedCategory] = React17.useState("all");
+  const modalRef = React17.useRef(null);
+  React17.useEffect(() => {
     if (!isOpen) {
       setSearch("");
       setSelectedCategory("all");
     }
   }, [isOpen]);
-  react.useEffect(() => {
+  React17.useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape" && isOpen) {
         onClose();
@@ -3766,14 +4658,14 @@ var AppFolderModal = ({
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose]);
-  const categories = react.useMemo(() => {
+  const categories = React17.useMemo(() => {
     const set = /* @__PURE__ */ new Set();
     apps.forEach((a) => {
       if (a.category) set.add(a.category);
     });
     return Array.from(set);
   }, [apps]);
-  const filteredApps = react.useMemo(() => {
+  const filteredApps = React17.useMemo(() => {
     return apps.filter((app) => {
       const matchSearch = !search.trim() || app.name.toLowerCase().includes(search.toLowerCase()) || app.description && app.description.toLowerCase().includes(search.toLowerCase());
       const matchCategory = selectedCategory === "all" || app.category === selectedCategory;
@@ -3892,7 +4784,7 @@ var AppFolderModal = ({
                     )
                   ] }),
                   /* @__PURE__ */ jsxRuntime.jsx(
-                    IconButton8__default.default,
+                    IconButton9__default.default,
                     {
                       size: "small",
                       onClick: onClose,
@@ -3935,7 +4827,7 @@ var AppFolderModal = ({
                           }
                         }
                       ),
-                      search && /* @__PURE__ */ jsxRuntime.jsx(IconButton8__default.default, { size: "small", onClick: () => setSearch(""), sx: { p: 0.25 }, children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon5__default.default, { sx: { fontSize: 14 } }) })
+                      search && /* @__PURE__ */ jsxRuntime.jsx(IconButton9__default.default, { size: "small", onClick: () => setSearch(""), sx: { p: 0.25 }, children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon5__default.default, { sx: { fontSize: 14 } }) })
                     ]
                   }
                 ),
@@ -3951,36 +4843,36 @@ var AppFolderModal = ({
                     },
                     children: [
                       /* @__PURE__ */ jsxRuntime.jsx(
-                        Chip6__default.default,
+                        Chip,
                         {
                           label: "All Apps",
                           size: "small",
                           onClick: () => setSelectedCategory("all"),
                           variant: selectedCategory === "all" ? "filled" : "outlined",
-                          color: selectedCategory === "all" ? "primary" : "default",
-                          sx: {
+                          color: selectedCategory === "all" ? "primary" : void 0,
+                          style: {
                             fontWeight: 700,
                             fontSize: "0.72rem",
                             height: 26,
                             cursor: "pointer",
-                            borderRadius: "8px"
+                            borderRadius: 8
                           }
                         }
                       ),
                       categories.map((cat) => /* @__PURE__ */ jsxRuntime.jsx(
-                        Chip6__default.default,
+                        Chip,
                         {
                           label: getCategoryLabel(cat),
                           size: "small",
                           onClick: () => setSelectedCategory(cat),
                           variant: selectedCategory === cat ? "filled" : "outlined",
-                          color: selectedCategory === cat ? "primary" : "default",
-                          sx: {
+                          color: selectedCategory === cat ? "primary" : void 0,
+                          style: {
                             fontWeight: 700,
                             fontSize: "0.72rem",
                             height: 26,
                             cursor: "pointer",
-                            borderRadius: "8px"
+                            borderRadius: 8
                           }
                         },
                         cat
@@ -4104,20 +4996,20 @@ var AppLauncher = ({
   className,
   tooltip = "NamiOS Apps"
 }) => {
-  const [isOpen, setIsOpen] = react.useState(false);
-  const resolvedApps = react.useMemo(() => {
+  const [isOpen, setIsOpen] = React17.useState(false);
+  const resolvedApps = React17.useMemo(() => {
     return apps.map((app) => ({
       ...app,
       url: resolveAppUrl(app)
     }));
   }, [apps]);
-  const handleOpen = react.useCallback(() => {
+  const handleOpen = React17.useCallback(() => {
     setIsOpen(true);
   }, []);
-  const handleClose = react.useCallback(() => {
+  const handleClose = React17.useCallback(() => {
     setIsOpen(false);
   }, []);
-  const handleSelectApp = react.useCallback(
+  const handleSelectApp = React17.useCallback(
     (app) => {
       const resolvedApp = {
         ...app,
@@ -4177,7 +5069,7 @@ var ContentArea = styles.styled("main")(({ theme }) => ({
   padding: theme.spacing(3),
   backgroundColor: theme.palette.background.default
 }));
-function DashboardLayout({
+var DashboardLayout = ({
   navItems,
   activePath,
   onNavigate,
@@ -4185,9 +5077,9 @@ function DashboardLayout({
   logo,
   topBarActions,
   children
-}) {
+}) => {
   const { isDesktop } = useMediaBreakpoint();
-  const [mobileOpen, setMobileOpen] = react.useState(false);
+  const [mobileOpen, setMobileOpen] = React17.useState(false);
   const handleNavigate = (path) => {
     setMobileOpen(false);
     onNavigate(path);
@@ -4222,7 +5114,7 @@ function DashboardLayout({
       children
     ] })
   ] });
-}
+};
 var LaneContainer = styles.styled(Box7__default.default)(({ theme }) => ({
   flex: 1,
   minWidth: 280,
@@ -4262,13 +5154,13 @@ var ItemsScrollArea = styles.styled(Box7__default.default)(({ theme }) => ({
     borderRadius: 3
   }
 }));
-function KanbanBoard({
+var KanbanBoard = ({
   columns,
   items,
   getItemId,
   getItemColumnId,
   renderItem
-}) {
+}) => {
   return /* @__PURE__ */ jsxRuntime.jsx(
     Stack4__default.default,
     {
@@ -4300,18 +5192,12 @@ function KanbanBoard({
               /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "subtitle2", sx: { fontWeight: 700, letterSpacing: "0.05em" }, children: column.title })
             ] }),
             /* @__PURE__ */ jsxRuntime.jsx(
-              Card__default.default,
+              Chip,
               {
+                label: String(laneItems.length),
+                size: "small",
                 variant: "outlined",
-                sx: {
-                  px: 1,
-                  py: 0.25,
-                  borderRadius: 2,
-                  bgcolor: "background.paper",
-                  borderColor: "divider",
-                  boxShadow: "none"
-                },
-                children: /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "caption", sx: { fontWeight: 700 }, children: laneItems.length })
+                style: { height: 22, fontSize: "0.75rem", fontWeight: 700 }
               }
             )
           ] }),
@@ -4320,12 +5206,12 @@ function KanbanBoard({
       })
     }
   );
-}
-function SplitPaneLayout({
+};
+var SplitPaneLayout = ({
   leftPane,
   rightPane,
   rightWidth = 400
-}) {
+}) => {
   return /* @__PURE__ */ jsxRuntime.jsxs(
     Box7__default.default,
     {
@@ -4370,12 +5256,12 @@ function SplitPaneLayout({
       ]
     }
   );
-}
+};
 var DEFAULT_CURRENCY = "LKR";
 function useLocaleFormat() {
   const { i18n } = reactI18next.useTranslation();
   const locale = i18n.language;
-  return react.useMemo(
+  return React17.useMemo(
     () => ({
       formatDate: (value) => new Intl.DateTimeFormat(locale, DATE_FORMATS.DATE).format(new Date(value)),
       formatDateTime: (value) => new Intl.DateTimeFormat(locale, DATE_FORMATS.DATE_TIME).format(new Date(value)),
@@ -4390,7 +5276,7 @@ function useLocaleFormat() {
     [locale]
   );
 }
-var StyledCard = styles.styled(Card__default.default, {
+var StyledCard = styles.styled(Card2__default.default, {
   shouldForwardProp: (prop) => prop !== "activeBorderColor" && prop !== "hasAction"
 })(({ theme, activeBorderColor, hasAction }) => ({
   position: "relative",
@@ -4429,7 +5315,7 @@ var MediaOverlay = styles.styled(Box7__default.default)({
     opacity: 1
   }
 });
-function MenuCard({
+var MenuCard = ({
   name,
   price,
   description,
@@ -4440,7 +5326,7 @@ function MenuCard({
   actionOverlay,
   activeBorderColor,
   onClick
-}) {
+}) => {
   const { formatCurrency } = useLocaleFormat();
   const formattedPrice = typeof price === "number" ? formatCurrency(price) : price;
   return /* @__PURE__ */ jsxRuntime.jsxs(
@@ -4452,7 +5338,7 @@ function MenuCard({
       children: [
         /* @__PURE__ */ jsxRuntime.jsxs(ImageContainer, { children: [
           imageUrl ? /* @__PURE__ */ jsxRuntime.jsx(
-            CardMedia__default.default,
+            CardMedia2__default.default,
             {
               component: "img",
               image: imageUrl,
@@ -4485,7 +5371,7 @@ function MenuCard({
           ),
           actionOverlay && /* @__PURE__ */ jsxRuntime.jsx(MediaOverlay, { children: actionOverlay })
         ] }),
-        /* @__PURE__ */ jsxRuntime.jsxs(CardContent__default.default, { sx: { p: 2, flexGrow: 1, display: "flex", flexDirection: "column", gap: 1 }, children: [
+        /* @__PURE__ */ jsxRuntime.jsxs(CardContent2__default.default, { sx: { p: 2, flexGrow: 1, display: "flex", flexDirection: "column", gap: 1 }, children: [
           /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", justifyContent: "space-between", alignItems: "flex-start", spacing: 1, children: [
             /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "subtitle1", sx: { fontWeight: 700, lineHeight: 1.2 }, noWrap: true, children: name }),
             /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "subtitle1", color: "primary", sx: { fontWeight: 700 }, children: formattedPrice })
@@ -4512,12 +5398,13 @@ function MenuCard({
             badges?.map((badge, idx) => /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { children: badge }, idx)),
             /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { flexGrow: 1 } }),
             stockLabel && /* @__PURE__ */ jsxRuntime.jsx(
-              Chip6__default.default,
+              Chip,
               {
                 label: stockLabel,
                 size: "small",
-                color: stockColor,
-                sx: { fontWeight: 700, fontSize: "0.65rem", height: 20 }
+                color: stockColor === "default" ? void 0 : stockColor,
+                variant: stockColor === "default" ? "outlined" : "filled",
+                style: { fontWeight: 700, fontSize: "0.65rem", height: 20 }
               }
             )
           ] })
@@ -4525,7 +5412,7 @@ function MenuCard({
       ]
     }
   );
-}
+};
 
 // src/utils/string.ts
 function initialsFromName(name) {
@@ -4571,22 +5458,20 @@ var UserAvatar = ({
   avatarUrl,
   size = 36,
   sx,
+  style,
   fontSize,
   className
 }) => {
-  const [imageSrc, setImageSrc] = react.useState(avatarUrl);
-  const [imageError, setImageError] = react.useState(false);
-  react.useEffect(() => {
+  const [imageSrc, setImageSrc] = React17.useState(avatarUrl);
+  React17.useEffect(() => {
     if (avatarUrl) {
       setImageSrc(avatarUrl);
-      setImageError(false);
       return;
     }
     try {
       const stored = window.localStorage.getItem("hotelos.avatar");
       if (stored) {
         setImageSrc(stored);
-        setImageError(false);
       }
     } catch {
     }
@@ -4594,25 +5479,27 @@ var UserAvatar = ({
   const displayName = name.trim() || email.trim() || "User";
   const initials = initialsFromName(displayName);
   const bgColor = getAvatarBgColor(displayName);
+  const sxStyle = sx && typeof sx === "object" && !Array.isArray(sx) ? sx : void 0;
+  const combinedStyle = {
+    width: size,
+    height: size,
+    backgroundColor: bgColor,
+    color: "#FFFFFF",
+    fontWeight: 700,
+    fontSize: fontSize ?? Math.max(12, Math.floor(size * 0.4)),
+    boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+    ...sxStyle,
+    ...style
+  };
   return /* @__PURE__ */ jsxRuntime.jsx(
-    Avatar__default.default,
+    Avatar,
     {
-      src: imageError ? void 0 : imageSrc,
+      src: imageSrc,
       alt: displayName,
-      imgProps: {
-        onError: () => setImageError(true)
-      },
+      size,
+      variant: "circular",
       className,
-      sx: {
-        width: size,
-        height: size,
-        bgcolor: bgColor,
-        color: "#FFFFFF",
-        fontWeight: 700,
-        fontSize: fontSize ?? Math.max(12, Math.floor(size * 0.4)),
-        boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
-        ...sx
-      },
+      style: combinedStyle,
       children: initials
     }
   );
@@ -5635,6 +6522,12 @@ var AnimatedDoorOpen = ({
 };
 
 exports.APP_TILE_VARIANTS = APP_TILE_VARIANTS;
+exports.Accordion = Accordion;
+exports.AccordionDetails = AccordionDetails;
+exports.AccordionSummary = AccordionSummary;
+exports.AdaptiveThemeProvider = AdaptiveThemeProvider;
+exports.Alert = Alert;
+exports.AlertTitle = AlertTitle;
 exports.AnimatedBed = AnimatedBed;
 exports.AnimatedBrush = AnimatedBrush;
 exports.AnimatedCalendar = AnimatedCalendar;
@@ -5663,9 +6556,23 @@ exports.AppleDialogTransition = AppleDialogTransition;
 exports.AuthFormHeader = AuthFormHeader;
 exports.AuthFormShell = AuthFormShell;
 exports.AuthLayout = AuthLayout;
+exports.Avatar = Avatar;
+exports.AvatarGroup = AvatarGroup;
 exports.BACKDROP_TRANSITION = BACKDROP_TRANSITION;
+exports.Badge = Badge;
+exports.Box = Box4;
+exports.Button = Button3;
 exports.CONTAINER_VARIANTS = CONTAINER_VARIANTS;
+exports.Card = Card;
+exports.CardActions = CardActions;
+exports.CardContent = CardContent;
+exports.CardHeader = CardHeader;
+exports.CardMedia = CardMedia;
+exports.Checkbox = Checkbox;
+exports.Chip = Chip;
+exports.CircularProgress = CircularProgress3;
 exports.ConfirmDialog = ConfirmDialog;
+exports.Container = Container;
 exports.ContextMenu = ContextMenu;
 exports.CursorGrid = CursorGrid;
 exports.DEFAULT_HOTELOS_APPS = DEFAULT_HOTELOS_APPS;
@@ -5673,6 +6580,12 @@ exports.DashboardLayout = DashboardLayout;
 exports.DataTable = DataTable;
 exports.DateRangeButton = DateRangeButton;
 exports.DescriptionList = DescriptionList;
+exports.Dialog = Dialog3;
+exports.DialogActions = DialogActions3;
+exports.DialogContent = DialogContent3;
+exports.DialogTitle = DialogTitle3;
+exports.Divider = Divider;
+exports.Drawer = Drawer;
 exports.EmptyState = EmptyState;
 exports.ErrorState = ErrorState;
 exports.FOLDER_LAYOUT_SPRING = FOLDER_LAYOUT_SPRING;
@@ -5681,30 +6594,67 @@ exports.FormDialog = FormDialog;
 exports.FormSelect = FormSelect;
 exports.FormSwitch = FormSwitch;
 exports.FormTextField = FormTextField;
+exports.Grid = Grid;
+exports.IconButton = IconButton3;
 exports.KanbanBoard = KanbanBoard;
 exports.LanguageSwitcher = LanguageSwitcher;
+exports.LinearProgress = LinearProgress;
 exports.LoadingOverlay = LoadingOverlay;
 exports.MenuCard = MenuCard;
 exports.NamiosLoader = NamiosLoader;
 exports.NamiosMarkSvg = NamiosMarkSvg;
+exports.OtpInput = OtpInput;
 exports.PRODUCTION_APP_URLS = PRODUCTION_APP_URLS;
 exports.PageHeader = PageHeader;
 exports.PageSkeleton = PageSkeleton;
+exports.Paper = Paper2;
 exports.PasswordField = PasswordField;
+exports.Radio = Radio;
+exports.RadioGroup = RadioGroup;
+exports.Rating = Rating;
 exports.SearchField = SearchField;
 exports.SectionCard = SectionCard;
+exports.Select = Select;
 exports.SelectField = SelectField;
+exports.Skeleton = Skeleton;
+exports.Slider = Slider;
 exports.SplitPaneLayout = SplitPaneLayout;
+exports.Stack = Stack2;
 exports.StatCard = StatCard;
 exports.StatusChip = StatusChip;
 exports.StatusFilterChips = StatusFilterChips;
+exports.Switch = Switch;
+exports.Tab = Tab;
+exports.Tabs = Tabs;
+exports.TextField = TextField;
+exports.ThemeProvider = ThemeProvider;
 exports.TimelineMatrix = TimelineMatrix;
+exports.Tooltip = Tooltip;
+exports.Typography = Typography3;
 exports.UserAvatar = UserAvatar;
 exports.VERCEL_APP_URLS = VERCEL_APP_URLS;
 exports.WizardDialog = WizardDialog;
+exports.adjustLightness = adjustLightness;
+exports.buildColorRole = buildColorRole;
+exports.clamp = clamp;
+exports.cn = cn;
+exports.createMuiCompatiblePalette = createMuiCompatiblePalette;
+exports.createTheme = createTheme;
+exports.forwardRef = forwardRef3;
+exports.generateId = generateId;
 exports.getAvatarBgColor = getAvatarBgColor;
+exports.getContrastRatio = getContrastRatio;
+exports.getContrastText = getContrastText;
+exports.getRelativeLuminance = getRelativeLuminance;
+exports.hexToRgb = hexToRgb;
+exports.injectThemeTokens = injectThemeTokens;
+exports.isInteractive = isInteractive;
 exports.isPwa = isPwa;
+exports.mapRange = mapRange;
 exports.navigateApp = navigateApp;
 exports.resolveAppUrl = resolveAppUrl;
+exports.rgbToHex = rgbToHex;
+exports.useMediaQuery = useMediaQuery;
+exports.useTheme = useTheme2;
 //# sourceMappingURL=index.cjs.map
 //# sourceMappingURL=index.cjs.map

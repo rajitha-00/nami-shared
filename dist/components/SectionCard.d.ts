@@ -5,6 +5,7 @@ export interface SectionCardProps {
     /** Optional header action (button, menu). */
     action?: ReactNode;
     children: ReactNode;
+    className?: string;
 }
-/** Titled card used for detail-view sections and dashboard panels. */
-export declare function SectionCard({ titleKey, titleParams, action, children }: SectionCardProps): import("react").JSX.Element;
+/** Titled card used for detail-view sections and dashboard panels powered by MotionUI. */
+export declare const SectionCard: ({ titleKey, titleParams, action, children, className, }: SectionCardProps) => import("react").JSX.Element;

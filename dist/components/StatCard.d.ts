@@ -27,4 +27,4 @@ export interface StatCardProps {
     size?: StatCardSize;
 }
 /** Dashboard KPI card with loading skeleton, trend indicator and two layouts. */
-export declare function StatCard({ labelKey, value, delta, trend, icon, loading, layout, subtitleKey, subtitleParams, badge, iconColor, size, }: StatCardProps): import("react").JSX.Element;
+export declare const StatCard: ({ labelKey, value, delta, trend, icon, loading, layout, subtitleKey, subtitleParams, badge, iconColor, size, }: StatCardProps) => import("react").JSX.Element;

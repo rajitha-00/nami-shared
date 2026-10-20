@@ -34,7 +34,7 @@ export interface FormDialogProps<TValues extends FieldValues> {
  * react-hook-form + zod inside AppDialog. Every create/edit dialog in every
  * NamiOS app composes this — do not hand-roll form dialogs.
  */
-export function FormDialog<TValues extends FieldValues>({
+export const FormDialog = <TValues extends FieldValues>({
   open,
   titleKey,
   titleParams,
@@ -47,10 +47,10 @@ export function FormDialog<TValues extends FieldValues>({
   submitKey = 'common:actions.save',
   cancelKey = 'common:actions.cancel',
   children,
-}: FormDialogProps<TValues>) {
+}: FormDialogProps<TValues>) => {
   const { t } = useTranslation();
   const form = useForm<TValues>({
-    resolver: zodResolver(schema as any),
+    resolver: zodResolver(schema as unknown as Parameters<typeof zodResolver>[0]),
     defaultValues,
     mode: 'onBlur',
   });

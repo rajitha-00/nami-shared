@@ -16,4 +16,4 @@ export interface PageHeaderProps {
     actions?: ReactNode;
 }
 /** Standard admin page header: breadcrumbs, title, subtitle, actions. */
-export declare function PageHeader({ titleKey, titleParams, title, subtitleKey, subtitleParams, breadcrumbs, onNavigate, actions, }: PageHeaderProps): import("react").JSX.Element;
+export declare const PageHeader: ({ titleKey, titleParams, title, subtitleKey, subtitleParams, breadcrumbs, onNavigate, actions, }: PageHeaderProps) => import("react").JSX.Element;

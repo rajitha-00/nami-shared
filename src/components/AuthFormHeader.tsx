@@ -9,7 +9,7 @@ export interface AuthFormHeaderProps {
 }
 
 /** Reusable header for auth views (login, forgot password, reset password). */
-export function AuthFormHeader({ title, subtitle, badge }: AuthFormHeaderProps) {
+export const AuthFormHeader = ({ title, subtitle, badge }: AuthFormHeaderProps) => {
   return (
     <Stack spacing={0.75} sx={{ mb: 1 }}>
       {badge ? <div>{badge}</div> : null}
@@ -23,4 +23,4 @@ export function AuthFormHeader({ title, subtitle, badge }: AuthFormHeaderProps) 
       ) : null}
     </Stack>
   );
-}
+};

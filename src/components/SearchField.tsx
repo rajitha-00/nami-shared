@@ -17,13 +17,13 @@ export interface SearchFieldProps {
  * Search input with clear button. Debouncing lives in useTableQuery, so this
  * stays a plain controlled input.
  */
-export function SearchField({
+export const SearchField = ({
   value,
   onChange,
   placeholderKey = 'common:actions.search',
   fullWidth = false,
   autoFocus = false,
-}: SearchFieldProps) {
+}: SearchFieldProps) => {
   const { t } = useTranslation();
   return (
     <TextField
@@ -57,4 +57,4 @@ export function SearchField({
       }}
     />
   );
-}
+};

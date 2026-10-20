@@ -12,11 +12,11 @@ export interface SplitPaneLayoutProps {
  * SplitPaneLayout: A master-detail framework split panel.
  * Designed for POS screen or split grids. Left side scrollable, right side sticky panel.
  */
-export function SplitPaneLayout({
+export const SplitPaneLayout = ({
   leftPane,
   rightPane,
   rightWidth = 400,
-}: SplitPaneLayoutProps) {
+}: SplitPaneLayoutProps) => {
   return (
     <Box
       sx={{
@@ -57,4 +57,4 @@ export function SplitPaneLayout({
       </Box>
     </Box>
   );
-}
+};

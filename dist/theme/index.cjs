@@ -443,8 +443,18 @@ var readInitialMode = () => {
   if (stored === "light" || stored === "dark") return stored;
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 };
-function ThemeModeProvider({ children, overrides }) {
+var ThemeModeProvider = ({ children, overrides }) => {
   const [mode, setModeState] = react.useState(readInitialMode);
+  react.useEffect(() => {
+    if (typeof document !== "undefined") {
+      document.documentElement.setAttribute("data-theme", mode);
+      if (mode === "dark") {
+        document.documentElement.classList.add("mui-dark");
+      } else {
+        document.documentElement.classList.remove("mui-dark");
+      }
+    }
+  }, [mode]);
   const setMode = react.useCallback((next) => {
     setModeState(next);
     window.localStorage.setItem(STORAGE_KEYS.THEME_MODE, next);
@@ -462,14 +472,14 @@ function ThemeModeProvider({ children, overrides }) {
     [mode, overrides]
   );
   return /* @__PURE__ */ jsxRuntime.jsx(ThemeModeContext.Provider, { value, children: /* @__PURE__ */ jsxRuntime.jsx(styles.ThemeProvider, { theme, children }) });
-}
-function useThemeMode() {
+};
+var useThemeMode = () => {
   const ctx = react.useContext(ThemeModeContext);
   if (!ctx) {
     throw new Error("useThemeMode must be used within a ThemeModeProvider");
   }
   return ctx;
-}
+};
 
 exports.BRAND = BRAND;
 exports.FONT_FAMILY = FONT_FAMILY;

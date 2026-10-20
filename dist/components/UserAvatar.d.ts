@@ -6,6 +6,7 @@ export interface UserAvatarProps {
     avatarUrl?: string;
     size?: number;
     sx?: SxProps<Theme>;
+    style?: React.CSSProperties;
     fontSize?: number | string;
     className?: string;
 }

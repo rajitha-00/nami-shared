@@ -1,7 +1,5 @@
 import type { ReactNode } from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardHeader from '@mui/material/CardHeader';
+import { Card, CardContent, CardHeader } from '@namios/motionui-react';
 import { useTranslation } from 'react-i18next';
 
 export interface SectionCardProps {
@@ -10,19 +8,25 @@ export interface SectionCardProps {
   /** Optional header action (button, menu). */
   action?: ReactNode;
   children: ReactNode;
+  className?: string;
 }
 
-/** Titled card used for detail-view sections and dashboard panels. */
-export function SectionCard({ titleKey, titleParams, action, children }: SectionCardProps) {
+/** Titled card used for detail-view sections and dashboard panels powered by MotionUI. */
+export const SectionCard = ({
+  titleKey,
+  titleParams,
+  action,
+  children,
+  className,
+}: SectionCardProps) => {
   const { t } = useTranslation();
   return (
-    <Card>
+    <Card elevation={1} className={className}>
       <CardHeader
-        title={t(titleKey, titleParams)}
-        titleTypographyProps={{ variant: 'h6' }}
+        title={<span style={{ fontWeight: 600, fontSize: '1.125rem' }}>{t(titleKey, titleParams)}</span>}
         action={action}
       />
-      <CardContent sx={{ pt: 0 }}>{children}</CardContent>
+      <CardContent style={{ paddingTop: 0 }}>{children}</CardContent>
     </Card>
   );
-}
+};

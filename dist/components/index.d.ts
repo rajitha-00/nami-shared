@@ -37,3 +37,4 @@ export { ContextMenu, type ContextMenuProps, type ContextMenuItem, } from './Con
 export { UserAvatar, type UserAvatarProps, getAvatarBgColor, } from './UserAvatar';
 export * from './AppLauncher';
 export * from './animated-icons';
+export * from '@namios/motionui-react';
