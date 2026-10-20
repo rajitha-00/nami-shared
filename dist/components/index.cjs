@@ -3607,6 +3607,268 @@ var PageHeader = ({
     actions ? /* @__PURE__ */ jsxRuntime.jsx("div", { children: actions }) : null
   ] });
 };
+var AuthPageRoot = styles.styled("main", {
+  shouldForwardProp: (prop) => prop !== "hasSplitBrand"
+})(({ theme, hasSplitBrand }) => ({
+  minHeight: "100dvh",
+  width: "100%",
+  boxSizing: "border-box",
+  display: "flex",
+  flexDirection: "column",
+  backgroundColor: theme.palette.background.default,
+  [theme.breakpoints.up("md")]: {
+    display: "grid",
+    height: "100dvh",
+    minHeight: "100dvh",
+    maxHeight: "100dvh",
+    overflow: "hidden",
+    gridTemplateColumns: hasSplitBrand ? "minmax(0, 5fr) minmax(0, 7fr)" : "minmax(0, 1fr)",
+    gridTemplateRows: "minmax(0, 1fr)"
+  },
+  ...hasSplitBrand && {
+    [theme.breakpoints.up("lg")]: {
+      gridTemplateColumns: "minmax(0, 5.2fr) minmax(0, 6.8fr)"
+    }
+  }
+}));
+var AuthBrandPanel = styles.styled("section", {
+  shouldForwardProp: (prop) => prop !== "customGradient"
+})(({ theme, customGradient }) => ({
+  display: "none",
+  position: "relative",
+  overflow: "hidden",
+  boxSizing: "border-box",
+  minHeight: 0,
+  padding: theme.spacing(6, 6, 5),
+  color: theme.palette.common.white,
+  background: customGradient || `linear-gradient(145deg, #090e17 0%, #0f172a 45%, ${theme.palette.primary.dark || "#1e3a8a"} 100%)`,
+  [theme.breakpoints.up("md")]: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    height: "100%",
+    overflow: "hidden"
+  },
+  "&::before": {
+    content: '""',
+    position: "absolute",
+    width: theme.spacing(52),
+    height: theme.spacing(52),
+    top: theme.spacing(-14),
+    right: theme.spacing(-14),
+    borderRadius: "50%",
+    border: `${theme.spacing(5)} solid ${styles.alpha(theme.palette.common.white, 0.04)}`,
+    pointerEvents: "none"
+  },
+  "&::after": {
+    content: '""',
+    position: "absolute",
+    width: theme.spacing(40),
+    height: theme.spacing(40),
+    bottom: theme.spacing(-14),
+    left: theme.spacing(-12),
+    borderRadius: "50%",
+    backgroundColor: styles.alpha(theme.palette.common.white, 0.03),
+    pointerEvents: "none"
+  }
+}));
+var BrandPanelContent = styles.styled("div")({
+  position: "relative",
+  zIndex: 1
+});
+var BrandMarkTile = styles.styled("div")(({ theme }) => ({
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  width: theme.spacing(6),
+  height: theme.spacing(6),
+  borderRadius: theme.shape.borderRadius * 1.5,
+  color: theme.palette.grey[900],
+  backgroundColor: theme.palette.common.white,
+  boxShadow: "0 8px 24px rgba(0, 0, 0, 0.25)"
+}));
+var FeatureList = styles.styled("div")(({ theme }) => ({
+  display: "grid",
+  gap: theme.spacing(2.25),
+  marginTop: theme.spacing(4.5)
+}));
+var FeatureItem = styles.styled("div")(({ theme }) => ({
+  display: "flex",
+  gap: theme.spacing(1.75),
+  alignItems: "center",
+  color: styles.alpha(theme.palette.common.white, 0.88)
+}));
+var AuthFormPanel = styles.styled("section")(({ theme }) => ({
+  flex: 1,
+  minWidth: 0,
+  minHeight: "100dvh",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  /* Use flex-start instead of center to prevent scroll-loop glitch.
+     Vertical centering is achieved via margin: 'auto 0' on the form shell. */
+  justifyContent: "flex-start",
+  padding: theme.spacing(3, 2),
+  position: "relative",
+  overflowY: "auto",
+  overflowX: "hidden",
+  /* Override global scroll-behavior: smooth to stop the auto-scroll loop
+     when the browser tries to scrollIntoView the focused input. */
+  scrollBehavior: "auto",
+  boxSizing: "border-box",
+  WebkitOverflowScrolling: "touch",
+  backgroundColor: theme.palette.background.paper,
+  "& .MuiInputBase-input": {
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "16px"
+    }
+  },
+  [theme.breakpoints.up("sm")]: {
+    padding: theme.spacing(4, 4)
+  },
+  [theme.breakpoints.up("md")]: {
+    height: "100%",
+    minHeight: 0,
+    padding: theme.spacing(4, 5)
+  }
+}));
+var StyledPaper = styles.styled(Paper__default.default)(({ theme }) => ({
+  position: "relative",
+  zIndex: 1,
+  width: "100%",
+  maxWidth: 450,
+  flexShrink: 0,
+  /* Safe vertical centering — replaces parent justifyContent:'center'
+     which caused a scroll-loop when content overflowed. */
+  margin: "auto 0",
+  padding: theme.spacing(3.5, 2.5),
+  borderRadius: 20,
+  border: "none",
+  boxShadow: "none",
+  backgroundImage: "none",
+  backgroundColor: "transparent",
+  boxSizing: "border-box",
+  [theme.breakpoints.up("sm")]: {
+    padding: theme.spacing(5)
+  }
+}));
+var AuthFormShell = ({ children, sx, ...props }) => {
+  return /* @__PURE__ */ jsxRuntime.jsx(StyledPaper, { elevation: 0, sx, ...props, children });
+};
+var AuthTopBar = styles.styled(Box7__default.default)(({ theme }) => ({
+  position: "relative",
+  width: "100%",
+  zIndex: 2,
+  flexShrink: 0,
+  padding: theme.spacing(2),
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  pointerEvents: "auto",
+  [theme.breakpoints.up("md")]: {
+    justifyContent: "flex-end",
+    padding: theme.spacing(3, 3, 0, 0)
+  }
+}));
+var MobileBrand = styles.styled("div")(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  [theme.breakpoints.up("md")]: {
+    display: "none"
+  }
+}));
+var AuthLayout = ({
+  children,
+  logo,
+  topRight,
+  appName,
+  tagline,
+  headline,
+  description,
+  features,
+  footer,
+  brandGradient,
+  centeredOnly = false
+}) => {
+  const hasSplitBrand = !centeredOnly && Boolean(appName || headline);
+  return /* @__PURE__ */ jsxRuntime.jsxs(AuthPageRoot, { hasSplitBrand, children: [
+    hasSplitBrand ? /* @__PURE__ */ jsxRuntime.jsxs(AuthBrandPanel, { customGradient: brandGradient, children: [
+      /* @__PURE__ */ jsxRuntime.jsx(BrandPanelContent, { children: /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", spacing: 2, alignItems: "center", children: [
+        /* @__PURE__ */ jsxRuntime.jsx(BrandMarkTile, { children: /* @__PURE__ */ jsxRuntime.jsx(NamiosMarkSvg, { size: 28, color: "#0f172a" }) }),
+        /* @__PURE__ */ jsxRuntime.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h5", component: "p", sx: { fontWeight: 800, letterSpacing: "-0.01em" }, children: appName }),
+          tagline ? /* @__PURE__ */ jsxRuntime.jsx(
+            Typography9__default.default,
+            {
+              variant: "caption",
+              sx: {
+                textTransform: "uppercase",
+                letterSpacing: "0.08em",
+                color: "inherit",
+                opacity: 0.72,
+                fontWeight: 600
+              },
+              children: tagline
+            }
+          ) : null
+        ] })
+      ] }) }),
+      /* @__PURE__ */ jsxRuntime.jsxs(BrandPanelContent, { children: [
+        headline ? /* @__PURE__ */ jsxRuntime.jsx(
+          Typography9__default.default,
+          {
+            variant: "h3",
+            component: "h1",
+            sx: {
+              fontWeight: 750,
+              letterSpacing: "-0.025em",
+              lineHeight: 1.15,
+              maxWidth: (theme) => theme.spacing(60)
+            },
+            children: headline
+          }
+        ) : null,
+        description ? /* @__PURE__ */ jsxRuntime.jsx(
+          Typography9__default.default,
+          {
+            variant: "body1",
+            sx: {
+              mt: 2,
+              maxWidth: (theme) => theme.spacing(58),
+              color: "inherit",
+              opacity: 0.76,
+              lineHeight: 1.6
+            },
+            children: description
+          }
+        ) : null,
+        features && features.length > 0 ? /* @__PURE__ */ jsxRuntime.jsx(FeatureList, { children: features.map((feature, idx) => {
+          const text = typeof feature === "string" ? feature : feature.text;
+          const icon = typeof feature === "object" && feature.icon ? feature.icon : /* @__PURE__ */ jsxRuntime.jsx(CheckCircleRoundedIcon__default.default, { sx: { fontSize: 20, color: "#38bdf8" } });
+          return /* @__PURE__ */ jsxRuntime.jsxs(FeatureItem, { children: [
+            icon,
+            /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "inherit", sx: { fontWeight: 500, fontSize: "0.9rem" }, children: text })
+          ] }, idx);
+        }) }) : null
+      ] }),
+      /* @__PURE__ */ jsxRuntime.jsx(BrandPanelContent, { children: /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "caption", sx: { opacity: 0.6, fontSize: "0.75rem" }, children: footer || "Hotel operations, thoughtfully connected." }) })
+    ] }) : null,
+    /* @__PURE__ */ jsxRuntime.jsxs(AuthFormPanel, { children: [
+      /* @__PURE__ */ jsxRuntime.jsxs(AuthTopBar, { children: [
+        /* @__PURE__ */ jsxRuntime.jsx(MobileBrand, { children: logo }),
+        topRight
+      ] }),
+      /* @__PURE__ */ jsxRuntime.jsx(AuthFormShell, { elevation: 0, children: /* @__PURE__ */ jsxRuntime.jsx(Stack4__default.default, { spacing: 3, children }) })
+    ] })
+  ] });
+};
+var AuthFormHeader = ({ title, subtitle, badge }) => {
+  return /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { spacing: 0.75, sx: { mb: 1 }, children: [
+    badge ? /* @__PURE__ */ jsxRuntime.jsx("div", { children: badge }) : null,
+    /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h4", component: "h1", sx: { fontWeight: 700, letterSpacing: "-0.02em" }, children: title }),
+    subtitle ? /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "text.secondary", sx: { fontSize: "0.875rem" }, children: subtitle }) : null
+  ] });
+};
 var FALLOFF_CURVES = {
   linear: (t) => t,
   smooth: (t) => t * t * (3 - 2 * t),
@@ -3860,283 +4122,6 @@ var CursorGrid = ({
     wakeRef.current?.();
   }, [gridOpacity, color, lineWidth, maxOpacity, fillOpacity, cellRadius]);
   return /* @__PURE__ */ jsxRuntime.jsx("div", { ref: containerRef, className: `cursor-grid${className ? ` ${className}` : ""}`, children: /* @__PURE__ */ jsxRuntime.jsx("canvas", { ref: canvasRef, className: "cursor-grid__canvas" }) });
-};
-var AuthPageRoot = styles.styled("main", {
-  shouldForwardProp: (prop) => prop !== "hasSplitBrand"
-})(({ theme, hasSplitBrand }) => ({
-  minHeight: "100dvh",
-  width: "100%",
-  display: "flex",
-  flexDirection: "column",
-  backgroundColor: theme.palette.background.default,
-  [theme.breakpoints.up("md")]: {
-    display: "grid",
-    height: "100dvh",
-    minHeight: "100dvh",
-    maxHeight: "100dvh",
-    overflow: "hidden",
-    gridTemplateColumns: hasSplitBrand ? "minmax(0, 5fr) minmax(0, 7fr)" : "minmax(0, 1fr)"
-  },
-  ...hasSplitBrand && {
-    [theme.breakpoints.up("lg")]: {
-      gridTemplateColumns: "minmax(0, 5.2fr) minmax(0, 6.8fr)"
-    }
-  }
-}));
-var AuthBrandPanel = styles.styled("section", {
-  shouldForwardProp: (prop) => prop !== "customGradient"
-})(({ theme, customGradient }) => ({
-  display: "none",
-  position: "relative",
-  overflow: "hidden",
-  padding: theme.spacing(6, 6, 5),
-  color: theme.palette.common.white,
-  background: customGradient || `linear-gradient(145deg, #090e17 0%, #0f172a 45%, ${theme.palette.primary.dark || "#1e3a8a"} 100%)`,
-  [theme.breakpoints.up("md")]: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    height: "100%",
-    overflow: "hidden"
-  },
-  "&::before": {
-    content: '""',
-    position: "absolute",
-    width: theme.spacing(52),
-    height: theme.spacing(52),
-    top: theme.spacing(-14),
-    right: theme.spacing(-14),
-    borderRadius: "50%",
-    border: `${theme.spacing(5)} solid ${styles.alpha(theme.palette.common.white, 0.04)}`,
-    pointerEvents: "none"
-  },
-  "&::after": {
-    content: '""',
-    position: "absolute",
-    width: theme.spacing(40),
-    height: theme.spacing(40),
-    bottom: theme.spacing(-14),
-    left: theme.spacing(-12),
-    borderRadius: "50%",
-    backgroundColor: styles.alpha(theme.palette.common.white, 0.03),
-    pointerEvents: "none"
-  }
-}));
-var BrandPanelContent = styles.styled("div")({
-  position: "relative",
-  zIndex: 1
-});
-var BrandMarkTile = styles.styled("div")(({ theme }) => ({
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
-  width: theme.spacing(6),
-  height: theme.spacing(6),
-  borderRadius: theme.shape.borderRadius * 1.5,
-  color: theme.palette.grey[900],
-  backgroundColor: theme.palette.common.white,
-  boxShadow: "0 8px 24px rgba(0, 0, 0, 0.25)"
-}));
-var FeatureList = styles.styled("div")(({ theme }) => ({
-  display: "grid",
-  gap: theme.spacing(2.25),
-  marginTop: theme.spacing(4.5)
-}));
-var FeatureItem = styles.styled("div")(({ theme }) => ({
-  display: "flex",
-  gap: theme.spacing(1.75),
-  alignItems: "center",
-  color: styles.alpha(theme.palette.common.white, 0.88)
-}));
-var AuthFormPanel = styles.styled("section")(({ theme }) => ({
-  flex: 1,
-  minWidth: 0,
-  minHeight: "100dvh",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  /* Use flex-start instead of center to prevent scroll-loop glitch.
-     Vertical centering is achieved via margin: 'auto 0' on the form shell. */
-  justifyContent: "flex-start",
-  padding: theme.spacing(3, 2),
-  position: "relative",
-  overflowY: "auto",
-  overflowX: "hidden",
-  /* Override global scroll-behavior: smooth to stop the auto-scroll loop
-     when the browser tries to scrollIntoView the focused input. */
-  scrollBehavior: "auto",
-  boxSizing: "border-box",
-  WebkitOverflowScrolling: "touch",
-  backgroundColor: "#f8fafc",
-  backgroundImage: "radial-gradient(circle at 50% 25%, rgba(255, 255, 255, 0.9) 0%, rgba(241, 245, 249, 0.7) 100%)",
-  "& .MuiInputBase-input": {
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "16px"
-    }
-  },
-  [theme.breakpoints.up("sm")]: {
-    padding: theme.spacing(4, 4)
-  },
-  [theme.breakpoints.up("md")]: {
-    height: "100%",
-    minHeight: 0,
-    padding: theme.spacing(4, 5)
-  }
-}));
-var StyledPaper = styles.styled(Paper__default.default)(({ theme }) => ({
-  position: "relative",
-  zIndex: 1,
-  width: "100%",
-  maxWidth: 450,
-  /* Safe vertical centering — replaces parent justifyContent:'center'
-     which caused a scroll-loop when content overflowed. */
-  margin: "auto 0",
-  padding: theme.spacing(3.5, 2.5),
-  borderRadius: 20,
-  border: "1px solid rgba(226, 232, 240, 0.9)",
-  boxShadow: "0 20px 45px -15px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(15, 23, 42, 0.04)",
-  backgroundImage: "none",
-  backgroundColor: "rgba(255, 255, 255, 0.96)",
-  backdropFilter: "blur(10px)",
-  boxSizing: "border-box",
-  [theme.breakpoints.up("sm")]: {
-    padding: theme.spacing(5)
-  }
-}));
-var AuthFormShell = ({ children, sx, ...props }) => {
-  return /* @__PURE__ */ jsxRuntime.jsx(StyledPaper, { elevation: 0, sx, ...props, children });
-};
-var AuthTopBar = styles.styled(Box7__default.default)(({ theme }) => ({
-  position: "sticky",
-  top: 0,
-  zIndex: 2,
-  flexShrink: 0,
-  padding: theme.spacing(2),
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  pointerEvents: "auto",
-  [theme.breakpoints.up("md")]: {
-    justifyContent: "flex-end",
-    padding: theme.spacing(3, 3, 0, 0)
-  }
-}));
-var MobileBrand = styles.styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  [theme.breakpoints.up("md")]: {
-    display: "none"
-  }
-}));
-var AuthLayout = ({
-  children,
-  logo,
-  topRight,
-  appName,
-  tagline,
-  headline,
-  description,
-  features,
-  footer,
-  brandGradient,
-  centeredOnly = false
-}) => {
-  const hasSplitBrand = !centeredOnly && Boolean(appName || headline);
-  return /* @__PURE__ */ jsxRuntime.jsxs(AuthPageRoot, { hasSplitBrand, children: [
-    hasSplitBrand ? /* @__PURE__ */ jsxRuntime.jsxs(AuthBrandPanel, { customGradient: brandGradient, children: [
-      /* @__PURE__ */ jsxRuntime.jsx(BrandPanelContent, { children: /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", spacing: 2, alignItems: "center", children: [
-        /* @__PURE__ */ jsxRuntime.jsx(BrandMarkTile, { children: /* @__PURE__ */ jsxRuntime.jsx(NamiosMarkSvg, { size: 28, color: "#0f172a" }) }),
-        /* @__PURE__ */ jsxRuntime.jsxs("div", { children: [
-          /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h5", component: "p", sx: { fontWeight: 800, letterSpacing: "-0.01em" }, children: appName }),
-          tagline ? /* @__PURE__ */ jsxRuntime.jsx(
-            Typography9__default.default,
-            {
-              variant: "caption",
-              sx: {
-                textTransform: "uppercase",
-                letterSpacing: "0.08em",
-                color: "inherit",
-                opacity: 0.72,
-                fontWeight: 600
-              },
-              children: tagline
-            }
-          ) : null
-        ] })
-      ] }) }),
-      /* @__PURE__ */ jsxRuntime.jsxs(BrandPanelContent, { children: [
-        headline ? /* @__PURE__ */ jsxRuntime.jsx(
-          Typography9__default.default,
-          {
-            variant: "h3",
-            component: "h1",
-            sx: {
-              fontWeight: 750,
-              letterSpacing: "-0.025em",
-              lineHeight: 1.15,
-              maxWidth: (theme) => theme.spacing(60)
-            },
-            children: headline
-          }
-        ) : null,
-        description ? /* @__PURE__ */ jsxRuntime.jsx(
-          Typography9__default.default,
-          {
-            variant: "body1",
-            sx: {
-              mt: 2,
-              maxWidth: (theme) => theme.spacing(58),
-              color: "inherit",
-              opacity: 0.76,
-              lineHeight: 1.6
-            },
-            children: description
-          }
-        ) : null,
-        features && features.length > 0 ? /* @__PURE__ */ jsxRuntime.jsx(FeatureList, { children: features.map((feature, idx) => {
-          const text = typeof feature === "string" ? feature : feature.text;
-          const icon = typeof feature === "object" && feature.icon ? feature.icon : /* @__PURE__ */ jsxRuntime.jsx(CheckCircleRoundedIcon__default.default, { sx: { fontSize: 20, color: "#38bdf8" } });
-          return /* @__PURE__ */ jsxRuntime.jsxs(FeatureItem, { children: [
-            icon,
-            /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "inherit", sx: { fontWeight: 500, fontSize: "0.9rem" }, children: text })
-          ] }, idx);
-        }) }) : null
-      ] }),
-      /* @__PURE__ */ jsxRuntime.jsx(BrandPanelContent, { children: /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "caption", sx: { opacity: 0.6, fontSize: "0.75rem" }, children: footer || "Hotel operations, thoughtfully connected." }) })
-    ] }) : null,
-    /* @__PURE__ */ jsxRuntime.jsxs(AuthFormPanel, { children: [
-      /* @__PURE__ */ jsxRuntime.jsx(
-        CursorGrid,
-        {
-          cellSize: 64,
-          color: "#334155",
-          radius: 160,
-          falloff: "smooth",
-          holdTime: 350,
-          fadeDuration: 750,
-          lineWidth: 1.2,
-          maxOpacity: 0.45,
-          fillOpacity: 0.03,
-          gridOpacity: 0.05,
-          cellRadius: 6,
-          clickPulse: true,
-          pulseSpeed: 550
-        }
-      ),
-      /* @__PURE__ */ jsxRuntime.jsxs(AuthTopBar, { children: [
-        /* @__PURE__ */ jsxRuntime.jsx(MobileBrand, { children: logo }),
-        topRight
-      ] }),
-      /* @__PURE__ */ jsxRuntime.jsx(AuthFormShell, { elevation: 0, children: /* @__PURE__ */ jsxRuntime.jsx(Stack4__default.default, { spacing: 3, children }) })
-    ] })
-  ] });
-};
-var AuthFormHeader = ({ title, subtitle, badge }) => {
-  return /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { spacing: 0.75, sx: { mb: 1 }, children: [
-    badge ? /* @__PURE__ */ jsxRuntime.jsx("div", { children: badge }) : null,
-    /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h4", component: "h1", sx: { fontWeight: 700, letterSpacing: "-0.02em" }, children: title }),
-    subtitle ? /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "text.secondary", sx: { fontSize: "0.875rem" }, children: subtitle }) : null
-  ] });
 };
 function useMediaBreakpoint() {
   const theme = styles.useTheme();

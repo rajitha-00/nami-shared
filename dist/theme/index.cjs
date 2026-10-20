@@ -50,19 +50,27 @@ var SEMANTIC = {
 };
 var SPACING_UNIT = 8;
 var RADII = {
-  sm: 10,
-  // Pills, Chips, Badges
-  md: 14,
-  // Buttons, Input Fields
-  lg: 20,
-  // Apple Continuous Cards, Containers
-  xl: 24
-  // Modals, Drawers
+  xs: 4,
+  // compact controls and inner elements
+  sm: 8,
+  // buttons, fields and menu rows
+  md: 12,
+  // grouped controls and table containers
+  lg: 16,
+  // cards and primary surfaces
+  xl: 24,
+  // dialogs and drawers
+  pill: 999
 };
 var SHADOWS = {
-  card: "0 4px 20px rgba(0, 0, 0, 0.04)",
-  raised: "0 8px 30px rgba(0, 0, 0, 0.06)",
-  overlay: "0 16px 40px rgba(0, 0, 0, 0.12)"
+  card: "0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.03)",
+  raised: "0 8px 24px rgba(15, 23, 42, 0.10)",
+  overlay: "0 20px 48px rgba(15, 23, 42, 0.18)"
+};
+var MOTION = {
+  micro: "150ms cubic-bezier(0.16, 1, 0.3, 1)",
+  surface: "200ms cubic-bezier(0.16, 1, 0.3, 1)",
+  overlay: "240ms cubic-bezier(0.16, 1, 0.3, 1)"
 };
 var FONT_FAMILY = [
   "-apple-system",
@@ -192,7 +200,7 @@ var buildComponents = (mode) => ({
     styleOverrides: {
       root: {
         textTransform: "none",
-        borderRadius: "14px",
+        borderRadius: `${RADII.sm}px`,
         fontWeight: 700,
         fontSize: "0.875rem",
         padding: "9px 20px",
@@ -208,7 +216,7 @@ var buildComponents = (mode) => ({
         }
       },
       outlinedPrimary: {
-        borderRadius: "14px",
+        borderRadius: `${RADII.sm}px`,
         borderColor: mode === "light" ? "rgba(0, 122, 255, 0.4)" : BRAND.primaryLight,
         fontWeight: 700
       }
@@ -217,7 +225,7 @@ var buildComponents = (mode) => ({
   MuiListItemButton: {
     styleOverrides: {
       root: {
-        borderRadius: "12px",
+        borderRadius: `${RADII.md}px`,
         margin: "3px 8px",
         paddingTop: 9,
         paddingBottom: 9,
@@ -242,7 +250,7 @@ var buildComponents = (mode) => ({
     styleOverrides: {
       root: {
         "& .MuiOutlinedInput-root": {
-          borderRadius: "14px",
+          borderRadius: `${RADII.sm}px`,
           backgroundColor: mode === "light" ? "#FFFFFF" : GREY[800],
           fontSize: "0.875rem",
           fontWeight: 500,
@@ -267,7 +275,7 @@ var buildComponents = (mode) => ({
   MuiSelect: {
     styleOverrides: {
       root: {
-        borderRadius: "14px",
+        borderRadius: `${RADII.sm}px`,
         backgroundColor: mode === "light" ? "#FFFFFF" : GREY[800],
         fontSize: "0.875rem",
         fontWeight: 600
@@ -277,7 +285,7 @@ var buildComponents = (mode) => ({
   MuiMenu: {
     styleOverrides: {
       paper: {
-        borderRadius: "16px",
+        borderRadius: `${RADII.md}px`,
         boxShadow: SHADOWS.raised,
         border: `1px solid ${mode === "light" ? "rgba(229, 229, 234, 0.9)" : "rgba(51, 65, 85, 0.8)"}`,
         backdropFilter: "blur(16px)",
@@ -288,7 +296,7 @@ var buildComponents = (mode) => ({
   MuiMenuItem: {
     styleOverrides: {
       root: {
-        borderRadius: "10px",
+        borderRadius: `${RADII.sm}px`,
         margin: "2px 6px",
         fontSize: "0.875rem",
         fontWeight: 600,
@@ -303,7 +311,7 @@ var buildComponents = (mode) => ({
   MuiCard: {
     styleOverrides: {
       root: {
-        borderRadius: "20px",
+        borderRadius: `${RADII.lg}px`,
         border: `1px solid ${mode === "light" ? "rgba(229, 229, 234, 0.85)" : "rgba(51, 65, 85, 0.8)"}`,
         boxShadow: mode === "light" ? "0 4px 20px rgba(0, 0, 0, 0.03)" : "0 4px 20px rgba(0,0,0,0.3)",
         backgroundImage: "none"
@@ -313,7 +321,7 @@ var buildComponents = (mode) => ({
   MuiPaper: {
     styleOverrides: {
       rounded: {
-        borderRadius: "20px"
+        borderRadius: `${RADII.lg}px`
       }
     }
   },
@@ -330,7 +338,7 @@ var buildComponents = (mode) => ({
         }
       },
       paper: {
-        borderRadius: "24px",
+        borderRadius: `${RADII.xl}px`,
         boxShadow: SHADOWS.overlay,
         border: `1px solid ${mode === "light" ? "rgba(229, 229, 234, 0.9)" : "rgba(51, 65, 85, 0.8)"}`,
         overflow: "hidden"
@@ -340,7 +348,7 @@ var buildComponents = (mode) => ({
   MuiChip: {
     styleOverrides: {
       root: {
-        borderRadius: "10px",
+        borderRadius: `${RADII.sm}px`,
         fontWeight: 700,
         fontSize: "0.75rem"
       }
@@ -390,7 +398,7 @@ var buildComponents = (mode) => ({
   MuiAlert: {
     styleOverrides: {
       root: {
-        borderRadius: "14px",
+        borderRadius: `${RADII.md}px`,
         fontWeight: 600,
         fontSize: "0.85rem"
       }
@@ -484,6 +492,7 @@ var useThemeMode = () => {
 exports.BRAND = BRAND;
 exports.FONT_FAMILY = FONT_FAMILY;
 exports.GREY = GREY;
+exports.MOTION = MOTION;
 exports.RADII = RADII;
 exports.SEMANTIC = SEMANTIC;
 exports.SHADOWS = SHADOWS;

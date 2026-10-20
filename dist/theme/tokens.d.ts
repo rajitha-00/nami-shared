@@ -42,15 +42,22 @@ export declare const SEMANTIC: {
 };
 export declare const SPACING_UNIT = 8;
 export declare const RADII: {
-    readonly sm: 10;
-    readonly md: 14;
-    readonly lg: 20;
+    readonly xs: 4;
+    readonly sm: 8;
+    readonly md: 12;
+    readonly lg: 16;
     readonly xl: 24;
+    readonly pill: 999;
 };
 export declare const SHADOWS: {
-    readonly card: "0 4px 20px rgba(0, 0, 0, 0.04)";
-    readonly raised: "0 8px 30px rgba(0, 0, 0, 0.06)";
-    readonly overlay: "0 16px 40px rgba(0, 0, 0, 0.12)";
+    readonly card: "0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.03)";
+    readonly raised: "0 8px 24px rgba(15, 23, 42, 0.10)";
+    readonly overlay: "0 20px 48px rgba(15, 23, 42, 0.18)";
+};
+export declare const MOTION: {
+    readonly micro: "150ms cubic-bezier(0.16, 1, 0.3, 1)";
+    readonly surface: "200ms cubic-bezier(0.16, 1, 0.3, 1)";
+    readonly overlay: "240ms cubic-bezier(0.16, 1, 0.3, 1)";
 };
 /** San Francisco first, with Inter & Noto fallbacks for Sinhala, Tamil, and Chinese. */
 export declare const FONT_FAMILY: string;

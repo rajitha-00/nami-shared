@@ -41,6 +41,7 @@ const AuthPageRoot = styled('main', {
 })<{ hasSplitBrand?: boolean }>(({ theme, hasSplitBrand }) => ({
   minHeight: '100dvh',
   width: '100%',
+  boxSizing: 'border-box',
   display: 'flex',
   flexDirection: 'column',
   backgroundColor: theme.palette.background.default,
@@ -51,6 +52,7 @@ const AuthPageRoot = styled('main', {
     maxHeight: '100dvh',
     overflow: 'hidden',
     gridTemplateColumns: hasSplitBrand ? 'minmax(0, 5fr) minmax(0, 7fr)' : 'minmax(0, 1fr)',
+    gridTemplateRows: 'minmax(0, 1fr)',
   },
   ...(hasSplitBrand && {
     [theme.breakpoints.up('lg')]: {
@@ -65,6 +67,8 @@ const AuthBrandPanel = styled('section', {
   display: 'none',
   position: 'relative',
   overflow: 'hidden',
+  boxSizing: 'border-box',
+  minHeight: 0,
   padding: theme.spacing(6, 6, 5),
   color: theme.palette.common.white,
   background:
@@ -132,7 +136,6 @@ const FeatureItem = styled('div')(({ theme }) => ({
 }));
 
 import type { PaperProps } from '@mui/material/Paper';
-import { CursorGrid } from './CursorGrid';
 
 const AuthFormPanel = styled('section')(({ theme }) => ({
   flex: 1,
@@ -153,9 +156,7 @@ const AuthFormPanel = styled('section')(({ theme }) => ({
   scrollBehavior: 'auto',
   boxSizing: 'border-box',
   WebkitOverflowScrolling: 'touch',
-  backgroundColor: '#f8fafc',
-  backgroundImage:
-    'radial-gradient(circle at 50% 25%, rgba(255, 255, 255, 0.9) 0%, rgba(241, 245, 249, 0.7) 100%)',
+  backgroundColor: theme.palette.background.paper,
   '& .MuiInputBase-input': {
     [theme.breakpoints.down('sm')]: {
       fontSize: '16px',
@@ -176,16 +177,16 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   zIndex: 1,
   width: '100%',
   maxWidth: 450,
+  flexShrink: 0,
   /* Safe vertical centering — replaces parent justifyContent:'center'
      which caused a scroll-loop when content overflowed. */
   margin: 'auto 0',
   padding: theme.spacing(3.5, 2.5),
   borderRadius: 20,
-  border: '1px solid rgba(226, 232, 240, 0.9)',
-  boxShadow: '0 20px 45px -15px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(15, 23, 42, 0.04)',
+  border: 'none',
+  boxShadow: 'none',
   backgroundImage: 'none',
-  backgroundColor: 'rgba(255, 255, 255, 0.96)',
-  backdropFilter: 'blur(10px)',
+  backgroundColor: 'transparent',
   boxSizing: 'border-box',
   [theme.breakpoints.up('sm')]: {
     padding: theme.spacing(5),
@@ -205,8 +206,8 @@ export const AuthFormShell = ({ children, sx, ...props }: AuthFormShellProps) =>
 };
 
 const AuthTopBar = styled(Box)(({ theme }) => ({
-  position: 'sticky',
-  top: 0,
+  position: 'relative',
+  width: '100%',
   zIndex: 2,
   flexShrink: 0,
   padding: theme.spacing(2),
@@ -343,24 +344,9 @@ export const AuthLayout = ({
         </AuthBrandPanel>
       ) : null}
 
-      {/* Form Panel */}
+      {/* Keep decoration CSS-only: an unstyled, resize-observed canvas can
+          participate in flex sizing and repeatedly push the form downward. */}
       <AuthFormPanel>
-        <CursorGrid
-          cellSize={64}
-          color="#334155"
-          radius={160}
-          falloff="smooth"
-          holdTime={350}
-          fadeDuration={750}
-          lineWidth={1.2}
-          maxOpacity={0.45}
-          fillOpacity={0.03}
-          gridOpacity={0.05}
-          cellRadius={6}
-          clickPulse
-          pulseSpeed={550}
-        />
-
         <AuthTopBar>
           <MobileBrand>{logo}</MobileBrand>
           {topRight}
