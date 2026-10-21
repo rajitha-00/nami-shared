@@ -12,7 +12,7 @@ const HeaderRoot = styled('header')(({ theme }) => ({
   justifyContent: 'space-between',
   flexWrap: 'wrap',
   gap: theme.spacing(2),
-  marginBottom: theme.spacing(3),
+  marginBottom: theme.spacing(2),
 }));
 
 export interface PageBreadcrumb {
@@ -73,7 +73,11 @@ export const PageHeader = ({
             )}
           </Breadcrumbs>
         ) : null}
-        <Typography variant="h4" component="h1">
+        <Typography
+          variant="h5"
+          component="h1"
+          sx={{ fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.25 }}
+        >
           {title ?? t(titleKey, titleParams)}
         </Typography>
         {subtitleKey ? (

@@ -33,11 +33,11 @@ export const SEMANTIC = {
 export const SPACING_UNIT = 8;
 
 export const RADII = {
-  xs: 4,    // compact controls and inner elements
-  sm: 8,    // buttons, fields and menu rows
-  md: 12,   // grouped controls and table containers
-  lg: 16,   // cards and primary surfaces
-  xl: 24,   // dialogs and drawers
+  xs: 2,    // compact controls and inner elements
+  sm: 6,    // buttons, fields and menu rows
+  md: 8,    // grouped controls and table containers
+  lg: 8,    // cards and primary surfaces
+  xl: 10,   // dialogs and drawers
   pill: 999,
 } as const;
 
