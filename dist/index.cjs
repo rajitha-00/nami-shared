@@ -514,15 +514,15 @@ var SEMANTIC = {
 };
 var SPACING_UNIT = 8;
 var RADII = {
-  xs: 4,
+  xs: 2,
   // compact controls and inner elements
-  sm: 8,
+  sm: 6,
   // buttons, fields and menu rows
-  md: 12,
+  md: 8,
   // grouped controls and table containers
-  lg: 16,
+  lg: 8,
   // cards and primary surfaces
-  xl: 24,
+  xl: 10,
   // dialogs and drawers
   pill: 999
 };
@@ -9869,7 +9869,7 @@ var StatCardRoot = styles.styled(Card2__default.default, {
   flexDirection: "column",
   gap: compactSize ? theme.spacing(0.75) : theme.spacing(1),
   height: "100%",
-  borderRadius: "20px",
+  borderRadius: "8px",
   boxShadow: "0 4px 18px rgba(0, 0, 0, 0.03)",
   border: "1px solid rgba(229, 229, 234, 0.85)",
   transition: "all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)",
@@ -9893,7 +9893,7 @@ var IconTile = styles.styled("div", {
   alignItems: "center",
   justifyContent: "center",
   padding: theme.spacing(compact ? 1 : 1.25),
-  borderRadius: "12px",
+  borderRadius: "6px",
   backgroundColor: styles.alpha(theme.palette[colorKey].main, 0.12),
   color: theme.palette[colorKey].main,
   flexShrink: 0
@@ -10853,26 +10853,31 @@ var DateRangeButton = ({ range }) => {
   ] });
 };
 var NavItemButton = styles.styled(ListItemButton__default.default)(({ theme }) => ({
-  borderRadius: "12px",
+  borderRadius: "4px",
   margin: theme.spacing(0.35, 1.25),
   paddingTop: 8,
   paddingBottom: 8,
   transition: "all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1)",
   "&.Mui-selected": {
-    backgroundColor: theme.palette.mode === "light" ? "#007AFF" : "#0A84FF",
-    color: "#FFFFFF",
+    backgroundColor: theme.palette.mode === "light" ? "rgba(0, 122, 255, 0.10)" : "rgba(10, 132, 255, 0.18)",
+    color: theme.palette.mode === "light" ? "#0A2540" : "#E8F0FE",
     fontWeight: 700,
-    boxShadow: theme.palette.mode === "light" ? "0 4px 14px rgba(0, 122, 255, 0.25)" : "none",
-    "& .MuiListItemIcon-root": { color: "#FFFFFF" },
+    boxShadow: theme.palette.mode === "light" ? "0 2px 8px rgba(0, 122, 255, 0.12), inset 0 0 0 1px rgba(0, 122, 255, 0.15)" : "0 2px 8px rgba(10, 132, 255, 0.20)",
+    "& .MuiListItemIcon-root": {
+      color: theme.palette.mode === "light" ? "#005EC4" : "#90CAFF"
+    },
     "& .MuiTypography-root": { fontWeight: 700 },
-    "&:hover": { backgroundColor: theme.palette.mode === "light" ? "#0062CC" : "#0051A8" }
+    "&:hover": {
+      backgroundColor: theme.palette.mode === "light" ? "rgba(0, 122, 255, 0.15)" : "rgba(10, 132, 255, 0.25)"
+    }
   }
 }));
 var NavList = ({
   items,
   activePath,
   onNavigate,
-  depth = 0
+  depth = 0,
+  compact = false
 }) => {
   const { t } = reactI18next.useTranslation();
   const [openMap, setOpenMap] = React19.useState({});
@@ -10892,9 +10897,18 @@ var NavList = ({
               onNavigate(item.path);
             }
           },
-          sx: { pl: 2 + depth * 2 },
+          sx: {
+            pl: (compact ? 1.25 : 2) + depth * 2,
+            py: compact ? 0.55 : 1,
+            minHeight: compact ? 38 : 48,
+            borderRadius: "4px",
+            mx: compact ? 0.75 : 1.25,
+            my: compact ? 0.2 : 0.35,
+            "& .MuiListItemIcon-root": { minWidth: compact ? 32 : 40 },
+            "& .MuiTypography-root": { fontSize: compact ? "0.78rem" : "0.875rem", lineHeight: 1.2 }
+          },
           children: [
-            item.icon ? /* @__PURE__ */ jsxRuntime.jsx(ListItemIcon__default.default, { sx: { minWidth: 40 }, children: item.icon }) : null,
+            item.icon ? /* @__PURE__ */ jsxRuntime.jsx(ListItemIcon__default.default, { children: item.icon }) : null,
             /* @__PURE__ */ jsxRuntime.jsx(ListItemText__default.default, { primary: t(item.labelKey) }),
             hasChildren ? isOpen ? /* @__PURE__ */ jsxRuntime.jsx(ExpandLessIcon__default.default, {}) : /* @__PURE__ */ jsxRuntime.jsx(ExpandMoreIcon__default.default, {}) : null
           ]
@@ -10906,7 +10920,8 @@ var NavList = ({
           items: item.children,
           activePath,
           onNavigate,
-          depth: depth + 1
+          depth: depth + 1,
+          compact
         }
       ) }) : null
     ] }, item.path);
@@ -10918,11 +10933,14 @@ var AppSideNav = ({
   onNavigate,
   mobileOpen = false,
   onMobileClose,
-  temporary = false
+  temporary = false,
+  compact = false,
+  width
 }) => {
+  const drawerWidth = width;
   const content = /* @__PURE__ */ jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [
     /* @__PURE__ */ jsxRuntime.jsx(Toolbar__default.default, { sx: (theme) => ({ minHeight: theme.custom.topBarHeight }) }),
-    /* @__PURE__ */ jsxRuntime.jsx(NavList, { items, activePath, onNavigate })
+    /* @__PURE__ */ jsxRuntime.jsx(NavList, { items, activePath, onNavigate, compact })
   ] });
   if (temporary) {
     return /* @__PURE__ */ jsxRuntime.jsx(
@@ -10933,7 +10951,7 @@ var AppSideNav = ({
         onClose: onMobileClose,
         ModalProps: { keepMounted: true },
         sx: (theme) => ({
-          "& .MuiDrawer-paper": { width: theme.custom.sidebarWidth }
+          "& .MuiDrawer-paper": { width: drawerWidth ?? theme.custom.sidebarWidth }
         }),
         children: content
       }
@@ -10944,10 +10962,10 @@ var AppSideNav = ({
     {
       variant: "permanent",
       sx: (theme) => ({
-        width: theme.custom.sidebarWidth,
+        width: drawerWidth ?? theme.custom.sidebarWidth,
         flexShrink: 0,
         "& .MuiDrawer-paper": {
-          width: theme.custom.sidebarWidth,
+          width: drawerWidth ?? theme.custom.sidebarWidth,
           boxSizing: "border-box",
           borderRight: `1px solid ${theme.palette.divider}`
         }
@@ -10962,7 +10980,7 @@ var HeaderRoot = styles.styled("header")(({ theme }) => ({
   justifyContent: "space-between",
   flexWrap: "wrap",
   gap: theme.spacing(2),
-  marginBottom: theme.spacing(3)
+  marginBottom: theme.spacing(2)
 }));
 var PageHeader = ({
   titleKey,
@@ -10994,7 +11012,15 @@ var PageHeader = ({
           crumb.labelKey
         ) : /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "text.primary", children: t(crumb.labelKey) }, crumb.labelKey)
       ) }) : null,
-      /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h4", component: "h1", children: title ?? t(titleKey, titleParams) }),
+      /* @__PURE__ */ jsxRuntime.jsx(
+        Typography9__default.default,
+        {
+          variant: "h5",
+          component: "h1",
+          sx: { fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 1.25 },
+          children: title ?? t(titleKey, titleParams)
+        }
+      ),
       subtitleKey ? /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "text.secondary", sx: { mt: 0.5 }, children: t(subtitleKey, subtitleParams) }) : null
     ] }),
     actions ? /* @__PURE__ */ jsxRuntime.jsx("div", { children: actions }) : null

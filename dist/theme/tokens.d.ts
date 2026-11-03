@@ -42,11 +42,11 @@ export declare const SEMANTIC: {
 };
 export declare const SPACING_UNIT = 8;
 export declare const RADII: {
-    readonly xs: 4;
-    readonly sm: 8;
-    readonly md: 12;
-    readonly lg: 16;
-    readonly xl: 24;
+    readonly xs: 2;
+    readonly sm: 6;
+    readonly md: 8;
+    readonly lg: 8;
+    readonly xl: 10;
     readonly pill: 999;
 };
 export declare const SHADOWS: {

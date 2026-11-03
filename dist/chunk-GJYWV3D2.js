@@ -49,15 +49,15 @@ var SEMANTIC = {
 };
 var SPACING_UNIT = 8;
 var RADII = {
-  xs: 4,
+  xs: 2,
   // compact controls and inner elements
-  sm: 8,
+  sm: 6,
   // buttons, fields and menu rows
-  md: 12,
+  md: 8,
   // grouped controls and table containers
-  lg: 16,
+  lg: 8,
   // cards and primary surfaces
-  xl: 24,
+  xl: 10,
   // dialogs and drawers
   pill: 999
 };
@@ -403,5 +403,5 @@ var useThemeMode = () => {
 };
 
 export { BRAND, FONT_FAMILY, GREY, MOTION, RADII, SEMANTIC, SHADOWS, SPACING_UNIT, ThemeModeProvider, createHotelOsTheme, useThemeMode };
-//# sourceMappingURL=chunk-QUE26YID.js.map
-//# sourceMappingURL=chunk-QUE26YID.js.map
+//# sourceMappingURL=chunk-GJYWV3D2.js.map
+//# sourceMappingURL=chunk-GJYWV3D2.js.map

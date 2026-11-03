@@ -17,6 +17,10 @@ export interface AppSideNavProps {
     onMobileClose?: () => void;
     /** Force temporary variant below this breakpoint — handled by the parent layout. */
     temporary?: boolean;
+    /** Compact density for information-dense operational products. */
+    compact?: boolean;
+    /** Optional app-specific navigation width. */
+    width?: number;
 }
 /** Config-driven collapsible side navigation shared by all NamiOS admin apps. */
-export declare const AppSideNav: ({ items, activePath, onNavigate, mobileOpen, onMobileClose, temporary, }: AppSideNavProps) => import("react").JSX.Element;
+export declare const AppSideNav: ({ items, activePath, onNavigate, mobileOpen, onMobileClose, temporary, compact, width, }: AppSideNavProps) => import("react").JSX.Element;
