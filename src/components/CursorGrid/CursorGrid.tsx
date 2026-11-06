@@ -325,7 +325,6 @@ export const CursorGrid = ({
       target.removeEventListener('pointermove', onPointerMove);
       target.removeEventListener('pointerdown', onPointerDown);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cellSize]);
 
   // Repaint static layers when visual props change while idle
