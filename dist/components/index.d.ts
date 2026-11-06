@@ -38,3 +38,4 @@ export { UserAvatar, type UserAvatarProps, getAvatarBgColor, } from './UserAvata
 export * from './AppLauncher';
 export * from './animated-icons';
 export * from '@namios/motionui-react';
+export * from '../webgl';

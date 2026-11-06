@@ -102,9 +102,9 @@ export const AppDrawer = ({
       fullWidth
       PaperProps={{
         sx: {
-          borderRadius: '24px',
-          boxShadow: '0 20px 60px rgba(0, 0, 0, 0.18)',
-          border: '1px solid rgba(229, 229, 234, 0.9)',
+          borderRadius: '4px',
+          boxShadow: '0 12px 28px rgba(0, 0, 0, 0.12)',
+          border: '0.5px solid rgba(0, 0, 0, 0.08)',
           overflow: 'hidden',
           ...getPaperWidthSx(),
         },

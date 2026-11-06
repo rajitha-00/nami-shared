@@ -50,22 +50,44 @@ var SEMANTIC = {
 };
 var SPACING_UNIT = 8;
 var RADII = {
-  xs: 4,
-  // compact controls and inner elements
-  sm: 8,
-  // buttons, fields and menu rows
-  md: 12,
-  // grouped controls and table containers
-  lg: 16,
-  // cards and primary surfaces
-  xl: 24,
-  // dialogs and drawers
-  pill: 999
+  none: 0,
+  xs: 2,
+  // compact controls, micro-badges, tags (1.5 - 2px)
+  sm: 3,
+  // buttons, form fields, dropdowns (2 - 3px)
+  md: 4,
+  // menus, popovers, grouped containers (3 - 4px)
+  lg: 4,
+  // cards, primary surfaces (capped at 4px micro-corner)
+  xl: 4,
+  // dialogs, drawers, modals (strictly capped at 4px)
+  pill: 2
+  // deprecated pill - flattened to 2px micro-tag
+};
+var BORDERS = {
+  hairline: "0.5px solid rgba(0, 0, 0, 0.08)",
+  subtle: "1px solid rgba(0, 0, 0, 0.07)",
+  darkHairline: "0.5px solid rgba(255, 255, 255, 0.08)",
+  darkSubtle: "1px solid rgba(255, 255, 255, 0.09)"
+};
+var OUTLINES = {
+  panel: {
+    light: "1px solid rgba(226, 232, 240, 0.85)",
+    dark: "1px solid rgba(255, 255, 255, 0.08)"
+  },
+  card: {
+    light: "0.5px solid rgba(15, 23, 42, 0.08)",
+    dark: "0.5px solid rgba(255, 255, 255, 0.08)"
+  },
+  focus: {
+    light: "0 0 0 2px rgba(15, 23, 42, 0.08)",
+    dark: "0 0 0 2px rgba(255, 255, 255, 0.12)"
+  }
 };
 var SHADOWS = {
-  card: "0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.03)",
-  raised: "0 8px 24px rgba(15, 23, 42, 0.10)",
-  overlay: "0 20px 48px rgba(15, 23, 42, 0.18)"
+  card: "0 1px 2px rgba(15, 23, 42, 0.03)",
+  raised: "0 4px 12px rgba(15, 23, 42, 0.06)",
+  overlay: "0 12px 28px rgba(15, 23, 42, 0.14)"
 };
 var MOTION = {
   micro: "150ms cubic-bezier(0.16, 1, 0.3, 1)",
@@ -201,45 +223,52 @@ var buildComponents = (mode) => ({
       root: {
         textTransform: "none",
         borderRadius: `${RADII.sm}px`,
-        fontWeight: 700,
-        fontSize: "0.875rem",
-        padding: "9px 20px",
-        transition: "all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1)"
+        fontWeight: 600,
+        fontSize: "0.8125rem",
+        padding: "5px 12px",
+        minHeight: 32,
+        transition: "all 0.15s cubic-bezier(0.16, 1, 0.3, 1)"
       },
       containedPrimary: {
         backgroundColor: BRAND.primary,
         color: "#FFFFFF",
-        boxShadow: mode === "light" ? "0 4px 14px rgba(0, 122, 255, 0.25)" : "none",
+        boxShadow: "none",
         "&:hover": {
           backgroundColor: BRAND.primaryDark,
-          boxShadow: mode === "light" ? "0 6px 18px rgba(0, 122, 255, 0.35)" : "none"
+          boxShadow: "none"
         }
       },
       outlinedPrimary: {
         borderRadius: `${RADII.sm}px`,
-        borderColor: mode === "light" ? "rgba(0, 122, 255, 0.4)" : BRAND.primaryLight,
-        fontWeight: 700
+        borderWidth: "0.5px",
+        borderColor: mode === "light" ? "rgba(0, 122, 255, 0.35)" : BRAND.primaryLight,
+        fontWeight: 600,
+        "&:hover": {
+          borderWidth: "0.5px"
+        }
       }
     }
   },
   MuiListItemButton: {
     styleOverrides: {
       root: {
-        borderRadius: `${RADII.md}px`,
-        margin: "3px 8px",
-        paddingTop: 9,
-        paddingBottom: 9,
-        transition: "all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1)",
+        borderRadius: `${RADII.sm}px`,
+        margin: "2px 4px",
+        paddingTop: 6,
+        paddingBottom: 6,
+        paddingLeft: 10,
+        paddingRight: 10,
+        transition: "all 0.15s cubic-bezier(0.16, 1, 0.3, 1)",
         "&.Mui-selected": {
-          backgroundColor: mode === "light" ? BRAND.primary : "rgba(0, 122, 255, 0.2)",
-          color: mode === "light" ? "#FFFFFF" : "#38BDF8",
-          fontWeight: 700,
-          boxShadow: mode === "light" ? "0 4px 14px rgba(0, 122, 255, 0.25)" : "none",
+          backgroundColor: mode === "light" ? "rgba(0, 122, 255, 0.10)" : "rgba(0, 122, 255, 0.18)",
+          color: mode === "light" ? BRAND.primaryDark : "#38BDF8",
+          fontWeight: 600,
+          boxShadow: "none",
           "& .MuiListItemIcon-root": {
-            color: mode === "light" ? "#FFFFFF" : "#38BDF8"
+            color: mode === "light" ? BRAND.primaryDark : "#38BDF8"
           },
           "&:hover": {
-            backgroundColor: mode === "light" ? BRAND.primaryDark : "rgba(0, 122, 255, 0.3)"
+            backgroundColor: mode === "light" ? "rgba(0, 122, 255, 0.16)" : "rgba(0, 122, 255, 0.24)"
           }
         }
       }
@@ -252,20 +281,21 @@ var buildComponents = (mode) => ({
         "& .MuiOutlinedInput-root": {
           borderRadius: `${RADII.sm}px`,
           backgroundColor: mode === "light" ? "#FFFFFF" : GREY[800],
-          fontSize: "0.875rem",
+          fontSize: "0.8125rem",
           fontWeight: 500,
-          boxShadow: mode === "light" ? "0 2px 8px rgba(0,0,0,0.02)" : "none",
+          boxShadow: "none",
           "& fieldset": {
-            borderColor: mode === "light" ? "rgba(229, 229, 234, 0.9)" : "rgba(51, 65, 85, 0.8)"
+            borderWidth: "0.5px",
+            borderColor: mode === "light" ? "rgba(0, 0, 0, 0.10)" : "rgba(255, 255, 255, 0.10)"
           },
           "&:hover fieldset": {
-            borderColor: mode === "light" ? GREY[300] : GREY[600]
+            borderColor: mode === "light" ? "rgba(0, 0, 0, 0.20)" : "rgba(255, 255, 255, 0.24)"
           },
           "&.Mui-focused": {
-            boxShadow: mode === "light" ? "0 0 0 3px rgba(0, 122, 255, 0.18)" : "none",
+            boxShadow: mode === "light" ? "0 0 0 2px rgba(15, 23, 42, 0.08)" : "0 0 0 2px rgba(255, 255, 255, 0.12)",
             "& fieldset": {
               borderColor: BRAND.primary,
-              borderWidth: "1.5px"
+              borderWidth: "1px"
             }
           }
         }
@@ -277,7 +307,7 @@ var buildComponents = (mode) => ({
       root: {
         borderRadius: `${RADII.sm}px`,
         backgroundColor: mode === "light" ? "#FFFFFF" : GREY[800],
-        fontSize: "0.875rem",
+        fontSize: "0.8125rem",
         fontWeight: 600
       }
     }
@@ -287,23 +317,24 @@ var buildComponents = (mode) => ({
       paper: {
         borderRadius: `${RADII.md}px`,
         boxShadow: SHADOWS.raised,
-        border: `1px solid ${mode === "light" ? "rgba(229, 229, 234, 0.9)" : "rgba(51, 65, 85, 0.8)"}`,
+        border: `0.5px solid ${mode === "light" ? "rgba(0, 0, 0, 0.08)" : "rgba(255, 255, 255, 0.08)"}`,
         backdropFilter: "blur(16px)",
-        padding: "6px 0"
+        padding: "4px 0"
       }
     }
   },
   MuiMenuItem: {
     styleOverrides: {
       root: {
-        borderRadius: `${RADII.sm}px`,
-        margin: "2px 6px",
-        fontSize: "0.875rem",
-        fontWeight: 600,
+        borderRadius: `${RADII.xs}px`,
+        margin: "1px 4px",
+        padding: "5px 10px",
+        fontSize: "0.8125rem",
+        fontWeight: 500,
         "&.Mui-selected": {
-          backgroundColor: mode === "light" ? "rgba(0, 122, 255, 0.12)" : "rgba(0, 122, 255, 0.25)",
+          backgroundColor: mode === "light" ? "rgba(0, 122, 255, 0.10)" : "rgba(0, 122, 255, 0.20)",
           color: BRAND.primary,
-          fontWeight: 700
+          fontWeight: 600
         }
       }
     }
@@ -312,8 +343,8 @@ var buildComponents = (mode) => ({
     styleOverrides: {
       root: {
         borderRadius: `${RADII.lg}px`,
-        border: `1px solid ${mode === "light" ? "rgba(229, 229, 234, 0.85)" : "rgba(51, 65, 85, 0.8)"}`,
-        boxShadow: mode === "light" ? "0 4px 20px rgba(0, 0, 0, 0.03)" : "0 4px 20px rgba(0,0,0,0.3)",
+        border: `0.5px solid ${mode === "light" ? "rgba(15, 23, 42, 0.08)" : "rgba(255, 255, 255, 0.08)"}`,
+        boxShadow: mode === "light" ? "0 1px 2px rgba(0, 0, 0, 0.03)" : "0 1px 2px rgba(0, 0, 0, 0.3)",
         backgroundImage: "none"
       }
     }
@@ -322,6 +353,10 @@ var buildComponents = (mode) => ({
     styleOverrides: {
       rounded: {
         borderRadius: `${RADII.lg}px`
+      },
+      outlined: {
+        borderRadius: `${RADII.lg}px`,
+        borderColor: mode === "light" ? "rgba(15, 23, 42, 0.08)" : "rgba(255, 255, 255, 0.08)"
       }
     }
   },
@@ -332,7 +367,7 @@ var buildComponents = (mode) => ({
     styleOverrides: {
       root: {
         "& .MuiBackdrop-root": {
-          backgroundColor: mode === "light" ? "rgba(0, 0, 0, 0.45)" : "rgba(0, 0, 0, 0.65)",
+          backgroundColor: mode === "light" ? "rgba(0, 0, 0, 0.40)" : "rgba(0, 0, 0, 0.65)",
           backdropFilter: "blur(4px)",
           WebkitBackdropFilter: "blur(4px)"
         }
@@ -340,44 +375,68 @@ var buildComponents = (mode) => ({
       paper: {
         borderRadius: `${RADII.xl}px`,
         boxShadow: SHADOWS.overlay,
-        border: `1px solid ${mode === "light" ? "rgba(229, 229, 234, 0.9)" : "rgba(51, 65, 85, 0.8)"}`,
+        border: `0.5px solid ${mode === "light" ? "rgba(15, 23, 42, 0.12)" : "rgba(255, 255, 255, 0.12)"}`,
         overflow: "hidden"
+      }
+    }
+  },
+  MuiDialogTitle: {
+    styleOverrides: {
+      root: {
+        padding: "12px 16px",
+        fontSize: "0.95rem",
+        fontWeight: 700,
+        borderBottom: `0.5px solid ${mode === "light" ? "rgba(0, 0, 0, 0.06)" : "rgba(255, 255, 255, 0.06)"}`
+      }
+    }
+  },
+  MuiDialogContent: {
+    styleOverrides: {
+      root: {
+        padding: "14px 16px"
+      }
+    }
+  },
+  MuiDialogActions: {
+    styleOverrides: {
+      root: {
+        padding: "10px 16px",
+        borderTop: `0.5px solid ${mode === "light" ? "rgba(0, 0, 0, 0.06)" : "rgba(255, 255, 255, 0.06)"}`,
+        gap: 6
       }
     }
   },
   MuiChip: {
     styleOverrides: {
       root: {
-        borderRadius: `${RADII.sm}px`,
-        fontWeight: 700,
-        fontSize: "0.75rem"
+        borderRadius: `${RADII.xs}px`,
+        fontWeight: 600,
+        fontSize: "0.72rem",
+        height: 22
       }
     }
   },
   MuiTableCell: {
     styleOverrides: {
       root: {
-        paddingTop: SPACING_UNIT * 0.75,
-        // 6px padding for high-density rows
-        paddingBottom: SPACING_UNIT * 0.75,
-        // 6px padding for high-density rows
-        paddingLeft: SPACING_UNIT * 1.5,
-        // 12px horizontal padding
-        paddingRight: SPACING_UNIT * 1.5,
-        fontSize: "0.8125rem"
-        // 13px clean compact text
+        paddingTop: 5,
+        paddingBottom: 5,
+        paddingLeft: 10,
+        paddingRight: 10,
+        fontSize: "0.78rem",
+        borderBottom: `0.5px solid ${mode === "light" ? "rgba(0, 0, 0, 0.06)" : "rgba(255, 255, 255, 0.06)"}`
       },
       head: {
-        paddingTop: SPACING_UNIT * 1,
-        // 8px header vertical padding
-        paddingBottom: SPACING_UNIT * 1,
+        paddingTop: 6,
+        paddingBottom: 6,
         fontWeight: 700,
         backgroundColor: mode === "light" ? GREY[50] : GREY[800],
-        color: mode === "light" ? GREY[500] : GREY[400],
+        color: mode === "light" ? GREY[600] : GREY[400],
         whiteSpace: "nowrap",
-        borderBottom: `1px solid ${mode === "light" ? GREY[100] : GREY[700]}`,
-        fontSize: "0.75rem",
-        letterSpacing: "0.04em"
+        borderBottom: `0.5px solid ${mode === "light" ? "rgba(0, 0, 0, 0.10)" : "rgba(255, 255, 255, 0.10)"}`,
+        fontSize: "0.72rem",
+        letterSpacing: "0.04em",
+        textTransform: "uppercase"
       }
     }
   },
@@ -385,22 +444,24 @@ var buildComponents = (mode) => ({
     defaultProps: { arrow: true },
     styleOverrides: {
       tooltip: {
-        borderRadius: "10px",
-        fontSize: "0.75rem",
+        borderRadius: "3px",
+        fontSize: "0.72rem",
         fontWeight: 600,
-        backgroundColor: mode === "light" ? "rgba(28, 28, 30, 0.92)" : "#1E293B",
+        backgroundColor: mode === "light" ? "rgba(28, 28, 30, 0.94)" : "#1E293B",
         backdropFilter: "blur(10px)",
-        boxShadow: "0 4px 14px rgba(0,0,0,0.15)",
-        padding: "6px 10px"
+        border: "0.5px solid rgba(255, 255, 255, 0.12)",
+        boxShadow: "0 2px 8px rgba(0,0,0,0.12)",
+        padding: "4px 8px"
       }
     }
   },
   MuiAlert: {
     styleOverrides: {
       root: {
-        borderRadius: `${RADII.md}px`,
+        borderRadius: `${RADII.sm}px`,
         fontWeight: 600,
-        fontSize: "0.85rem"
+        fontSize: "0.8125rem",
+        border: "0.5px solid transparent"
       }
     }
   }
@@ -489,10 +550,12 @@ var useThemeMode = () => {
   return ctx;
 };
 
+exports.BORDERS = BORDERS;
 exports.BRAND = BRAND;
 exports.FONT_FAMILY = FONT_FAMILY;
 exports.GREY = GREY;
 exports.MOTION = MOTION;
+exports.OUTLINES = OUTLINES;
 exports.RADII = RADII;
 exports.SEMANTIC = SEMANTIC;
 exports.SHADOWS = SHADOWS;

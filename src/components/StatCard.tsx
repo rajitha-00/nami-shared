@@ -11,19 +11,19 @@ import { useTranslation } from 'react-i18next';
 const StatCardRoot = styled(Card, {
   shouldForwardProp: (prop) => prop !== 'compactSize',
 })<{ compactSize?: boolean }>(({ theme, compactSize }) => ({
-  padding: compactSize ? theme.spacing(2, 2.5) : theme.spacing(2.5, 3),
+  padding: compactSize ? theme.spacing(1.25, 1.5) : theme.spacing(1.5, 2),
   display: 'flex',
   flexDirection: 'column',
-  gap: compactSize ? theme.spacing(0.75) : theme.spacing(1),
+  gap: compactSize ? theme.spacing(0.5) : theme.spacing(0.75),
   height: '100%',
-  borderRadius: '8px',
-  boxShadow: '0 4px 18px rgba(0, 0, 0, 0.03)',
-  border: '1px solid rgba(229, 229, 234, 0.85)',
-  transition: 'all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)',
+  borderRadius: '4px',
+  boxShadow: '0 1px 2px rgba(0, 0, 0, 0.03)',
+  border: `0.5px solid ${theme.palette.mode === 'light' ? 'rgba(15, 23, 42, 0.08)' : 'rgba(255, 255, 255, 0.08)'}`,
+  transition: 'border-color 0.15s ease, background-color 0.15s ease',
   '&:hover': {
-    boxShadow: '0 8px 28px rgba(0, 0, 0, 0.07)',
-    borderColor: theme.palette.primary.main,
-    transform: 'translateY(-2px)',
+    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
+    borderColor: theme.palette.mode === 'light' ? 'rgba(15, 23, 42, 0.20)' : 'rgba(255, 255, 255, 0.20)',
+    transform: 'none',
   },
 }));
 
@@ -31,7 +31,7 @@ const KpiHeaderRow = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  gap: theme.spacing(1.5),
+  gap: theme.spacing(1),
   width: '100%',
 }));
 
@@ -43,9 +43,9 @@ const IconTile = styled('div', {
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
-  padding: theme.spacing(compact ? 1 : 1.25),
-  borderRadius: '6px',
-  backgroundColor: alpha(theme.palette[colorKey].main, 0.12),
+  padding: theme.spacing(compact ? 0.75 : 1),
+  borderRadius: '2px',
+  backgroundColor: alpha(theme.palette[colorKey].main, 0.10),
   color: theme.palette[colorKey].main,
   flexShrink: 0,
 }));

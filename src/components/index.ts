@@ -91,4 +91,7 @@ export * from './animated-icons';
 // MotionUI design system & components powered by @namios/motionui-react
 export * from '@namios/motionui-react';
 
+// WebGL & 3D Overview components
+export * from '../webgl';
+
 

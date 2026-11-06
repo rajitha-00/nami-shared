@@ -42,17 +42,38 @@ export declare const SEMANTIC: {
 };
 export declare const SPACING_UNIT = 8;
 export declare const RADII: {
-    readonly xs: 4;
-    readonly sm: 8;
-    readonly md: 12;
-    readonly lg: 16;
-    readonly xl: 24;
-    readonly pill: 999;
+    readonly none: 0;
+    readonly xs: 2;
+    readonly sm: 3;
+    readonly md: 4;
+    readonly lg: 4;
+    readonly xl: 4;
+    readonly pill: 2;
+};
+export declare const BORDERS: {
+    readonly hairline: "0.5px solid rgba(0, 0, 0, 0.08)";
+    readonly subtle: "1px solid rgba(0, 0, 0, 0.07)";
+    readonly darkHairline: "0.5px solid rgba(255, 255, 255, 0.08)";
+    readonly darkSubtle: "1px solid rgba(255, 255, 255, 0.09)";
+};
+export declare const OUTLINES: {
+    readonly panel: {
+        readonly light: "1px solid rgba(226, 232, 240, 0.85)";
+        readonly dark: "1px solid rgba(255, 255, 255, 0.08)";
+    };
+    readonly card: {
+        readonly light: "0.5px solid rgba(15, 23, 42, 0.08)";
+        readonly dark: "0.5px solid rgba(255, 255, 255, 0.08)";
+    };
+    readonly focus: {
+        readonly light: "0 0 0 2px rgba(15, 23, 42, 0.08)";
+        readonly dark: "0 0 0 2px rgba(255, 255, 255, 0.12)";
+    };
 };
 export declare const SHADOWS: {
-    readonly card: "0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.03)";
-    readonly raised: "0 8px 24px rgba(15, 23, 42, 0.10)";
-    readonly overlay: "0 20px 48px rgba(15, 23, 42, 0.18)";
+    readonly card: "0 1px 2px rgba(15, 23, 42, 0.03)";
+    readonly raised: "0 4px 12px rgba(15, 23, 42, 0.06)";
+    readonly overlay: "0 12px 28px rgba(15, 23, 42, 0.14)";
 };
 export declare const MOTION: {
     readonly micro: "150ms cubic-bezier(0.16, 1, 0.3, 1)";

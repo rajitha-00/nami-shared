@@ -77,8 +77,9 @@ export const WizardDialog = ({
         sx: {
           maxWidth: { xs: 'calc(100vw - 32px)', sm: 780, md: 960 },
           width: '100%',
-          borderRadius: '24px',
-          boxShadow: '0 24px 60px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(0, 0, 0, 0.08)',
+          borderRadius: '4px',
+          border: '0.5px solid rgba(0, 0, 0, 0.1)',
+          boxShadow: '0 12px 28px rgba(0, 0, 0, 0.12)',
           ...paperSx,
         },
       }}
@@ -140,7 +141,7 @@ export const WizardDialog = ({
         <LoadingOverlay open={submitting} />
       </DialogContent>
       <DialogActions sx={{ justifyContent: 'space-between', px: 3, py: 2 }}>
-        <Button onClick={onCancel} color="inherit" disabled={submitting} sx={{ borderRadius: '12px' }}>
+        <Button onClick={onCancel} color="inherit" disabled={submitting} sx={{ borderRadius: '3px' }}>
           {t('common:actions.cancel')}
         </Button>
         <Stack direction="row" spacing={1.5} alignItems="center">
@@ -148,7 +149,7 @@ export const WizardDialog = ({
             onClick={onBack}
             color="inherit"
             disabled={activeStep === 0 || submitting}
-            sx={{ borderRadius: '12px' }}
+            sx={{ borderRadius: '3px' }}
           >
             {t(backKey)}
           </Button>
@@ -158,7 +159,7 @@ export const WizardDialog = ({
             disabled={!canNext || submitting}
             startIcon={submitting && isLast ? <CircularProgress size={16} color="inherit" /> : undefined}
             sx={{
-              borderRadius: '12px',
+              borderRadius: '3px',
               px: 3,
               fontWeight: 700,
             }}

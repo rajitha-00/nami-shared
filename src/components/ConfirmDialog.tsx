@@ -101,7 +101,7 @@ export const ConfirmDialog = ({
           color="inherit"
           disabled={loading}
           sx={{
-            borderRadius: '9999px',
+            borderRadius: '3px',
             textTransform: 'none',
             fontWeight: 600,
             fontSize: '0.875rem',
@@ -125,7 +125,7 @@ export const ConfirmDialog = ({
           startIcon={loading ? <CircularProgress size={16} color="inherit" /> : undefined}
           color={variant === 'danger' ? 'error' : variant === 'warning' ? 'warning' : 'primary'}
           sx={{
-            borderRadius: '9999px',
+            borderRadius: '3px',
             textTransform: 'none',
             fontWeight: 700,
             fontSize: '0.875rem',
@@ -193,7 +193,8 @@ export const ConfirmDialog = ({
         slotProps={{
           paper: {
             sx: {
-              borderRadius: '28px',
+              borderRadius: '4px',
+              border: '0.5px solid rgba(0, 0, 0, 0.1)',
               maxWidth: '380px',
               boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.08)',
               p: 0.5,
@@ -225,7 +226,8 @@ export const ConfirmDialog = ({
       TransitionComponent={FamilyDialogTransition}
       PaperProps={{
         sx: {
-          borderRadius: '28px',
+          borderRadius: '4px',
+          border: '0.5px solid rgba(0, 0, 0, 0.1)',
           maxWidth: '380px',
           boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.05)',
           p: 0.5,

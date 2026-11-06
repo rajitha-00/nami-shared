@@ -1,6 +1,6 @@
-export { COMMON_NAMESPACE, commonKey, diffTranslationKeys, flattenTranslationKeys, initI18n } from '../chunk-STXCR2FM.js';
-import '../chunk-UCW2MS4Z.js';
-import '../chunk-4766LFD6.js';
+export { COMMON_NAMESPACE, commonKey, diffTranslationKeys, flattenTranslationKeys, initI18n } from '../chunk-JAYGV7PO.js';
+import '../chunk-3XYH3GIR.js';
+import '../chunk-TSLK7DRZ.js';
 import '../chunk-UVKRO5ER.js';
 //# sourceMappingURL=index.js.map
 //# sourceMappingURL=index.js.map

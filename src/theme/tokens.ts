@@ -33,18 +33,41 @@ export const SEMANTIC = {
 export const SPACING_UNIT = 8;
 
 export const RADII = {
-  xs: 2,    // compact controls and inner elements
-  sm: 6,    // buttons, fields and menu rows
-  md: 8,    // grouped controls and table containers
-  lg: 8,    // cards and primary surfaces
-  xl: 10,   // dialogs and drawers
-  pill: 999,
+  none: 0,
+  xs: 2,    // compact controls, micro-badges, tags (1.5 - 2px)
+  sm: 3,    // buttons, form fields, dropdowns (2 - 3px)
+  md: 4,    // menus, popovers, grouped containers (3 - 4px)
+  lg: 4,    // cards, primary surfaces (capped at 4px micro-corner)
+  xl: 4,    // dialogs, drawers, modals (strictly capped at 4px)
+  pill: 2,  // deprecated pill - flattened to 2px micro-tag
+} as const;
+
+export const BORDERS = {
+  hairline: '0.5px solid rgba(0, 0, 0, 0.08)',
+  subtle: '1px solid rgba(0, 0, 0, 0.07)',
+  darkHairline: '0.5px solid rgba(255, 255, 255, 0.08)',
+  darkSubtle: '1px solid rgba(255, 255, 255, 0.09)',
+} as const;
+
+export const OUTLINES = {
+  panel: {
+    light: '1px solid rgba(226, 232, 240, 0.85)',
+    dark: '1px solid rgba(255, 255, 255, 0.08)',
+  },
+  card: {
+    light: '0.5px solid rgba(15, 23, 42, 0.08)',
+    dark: '0.5px solid rgba(255, 255, 255, 0.08)',
+  },
+  focus: {
+    light: '0 0 0 2px rgba(15, 23, 42, 0.08)',
+    dark: '0 0 0 2px rgba(255, 255, 255, 0.12)',
+  },
 } as const;
 
 export const SHADOWS = {
-  card: '0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.03)',
-  raised: '0 8px 24px rgba(15, 23, 42, 0.10)',
-  overlay: '0 20px 48px rgba(15, 23, 42, 0.18)',
+  card: '0 1px 2px rgba(15, 23, 42, 0.03)',
+  raised: '0 4px 12px rgba(15, 23, 42, 0.06)',
+  overlay: '0 12px 28px rgba(15, 23, 42, 0.14)',
 } as const;
 
 export const MOTION = {

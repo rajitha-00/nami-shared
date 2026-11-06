@@ -569,7 +569,7 @@ var ConfirmDialog = ({
           color: "inherit",
           disabled: loading,
           sx: {
-            borderRadius: "9999px",
+            borderRadius: "3px",
             textTransform: "none",
             fontWeight: 600,
             fontSize: "0.875rem",
@@ -594,7 +594,7 @@ var ConfirmDialog = ({
           startIcon: loading ? /* @__PURE__ */ jsxRuntime.jsx(CircularProgress__default.default, { size: 16, color: "inherit" }) : void 0,
           color: variant === "danger" ? "error" : variant === "warning" ? "warning" : "primary",
           sx: {
-            borderRadius: "9999px",
+            borderRadius: "3px",
             textTransform: "none",
             fontWeight: 700,
             fontSize: "0.875rem",
@@ -655,7 +655,8 @@ var ConfirmDialog = ({
         slotProps: {
           paper: {
             sx: {
-              borderRadius: "28px",
+              borderRadius: "4px",
+              border: "0.5px solid rgba(0, 0, 0, 0.1)",
               maxWidth: "380px",
               boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.08)",
               p: 0.5,
@@ -686,7 +687,8 @@ var ConfirmDialog = ({
       TransitionComponent: FamilyDialogTransition,
       PaperProps: {
         sx: {
-          borderRadius: "28px",
+          borderRadius: "4px",
+          border: "0.5px solid rgba(0, 0, 0, 0.1)",
           maxWidth: "380px",
           boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.05)",
           p: 0.5
@@ -2426,26 +2428,26 @@ var DataTable = ({
 var StatCardRoot = styles.styled(Card2__default.default, {
   shouldForwardProp: (prop) => prop !== "compactSize"
 })(({ theme, compactSize }) => ({
-  padding: compactSize ? theme.spacing(2, 2.5) : theme.spacing(2.5, 3),
+  padding: compactSize ? theme.spacing(1.25, 1.5) : theme.spacing(1.5, 2),
   display: "flex",
   flexDirection: "column",
-  gap: compactSize ? theme.spacing(0.75) : theme.spacing(1),
+  gap: compactSize ? theme.spacing(0.5) : theme.spacing(0.75),
   height: "100%",
-  borderRadius: "20px",
-  boxShadow: "0 4px 18px rgba(0, 0, 0, 0.03)",
-  border: "1px solid rgba(229, 229, 234, 0.85)",
-  transition: "all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)",
+  borderRadius: "4px",
+  boxShadow: "0 1px 2px rgba(0, 0, 0, 0.03)",
+  border: `0.5px solid ${theme.palette.mode === "light" ? "rgba(15, 23, 42, 0.08)" : "rgba(255, 255, 255, 0.08)"}`,
+  transition: "border-color 0.15s ease, background-color 0.15s ease",
   "&:hover": {
-    boxShadow: "0 8px 28px rgba(0, 0, 0, 0.07)",
-    borderColor: theme.palette.primary.main,
-    transform: "translateY(-2px)"
+    boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
+    borderColor: theme.palette.mode === "light" ? "rgba(15, 23, 42, 0.20)" : "rgba(255, 255, 255, 0.20)",
+    transform: "none"
   }
 }));
 var KpiHeaderRow = styles.styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  gap: theme.spacing(1.5),
+  gap: theme.spacing(1),
   width: "100%"
 }));
 var IconTile = styles.styled("div", {
@@ -2454,9 +2456,9 @@ var IconTile = styles.styled("div", {
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
-  padding: theme.spacing(compact ? 1 : 1.25),
-  borderRadius: "12px",
-  backgroundColor: styles.alpha(theme.palette[colorKey].main, 0.12),
+  padding: theme.spacing(compact ? 0.75 : 1),
+  borderRadius: "2px",
+  backgroundColor: styles.alpha(theme.palette[colorKey].main, 0.1),
   color: theme.palette[colorKey].main,
   flexShrink: 0
 }));
@@ -3204,9 +3206,9 @@ var AppDrawer = ({
       fullWidth: true,
       PaperProps: {
         sx: {
-          borderRadius: "24px",
-          boxShadow: "0 20px 60px rgba(0, 0, 0, 0.18)",
-          border: "1px solid rgba(229, 229, 234, 0.9)",
+          borderRadius: "4px",
+          boxShadow: "0 12px 28px rgba(0, 0, 0, 0.12)",
+          border: "0.5px solid rgba(0, 0, 0, 0.08)",
           overflow: "hidden",
           ...getPaperWidthSx()
         }
@@ -3261,8 +3263,9 @@ var WizardDialog = ({
         sx: {
           maxWidth: { xs: "calc(100vw - 32px)", sm: 780, md: 960 },
           width: "100%",
-          borderRadius: "24px",
-          boxShadow: "0 24px 60px rgba(0, 0, 0, 0.12), 0 8px 24px rgba(0, 0, 0, 0.08)",
+          borderRadius: "4px",
+          border: "0.5px solid rgba(0, 0, 0, 0.1)",
+          boxShadow: "0 12px 28px rgba(0, 0, 0, 0.12)",
           ...paperSx
         }
       },
@@ -3321,7 +3324,7 @@ var WizardDialog = ({
           /* @__PURE__ */ jsxRuntime.jsx(LoadingOverlay, { open: submitting })
         ] }),
         /* @__PURE__ */ jsxRuntime.jsxs(DialogActions__default.default, { sx: { justifyContent: "space-between", px: 3, py: 2 }, children: [
-          /* @__PURE__ */ jsxRuntime.jsx(Button5__default.default, { onClick: onCancel, color: "inherit", disabled: submitting, sx: { borderRadius: "12px" }, children: t("common:actions.cancel") }),
+          /* @__PURE__ */ jsxRuntime.jsx(Button5__default.default, { onClick: onCancel, color: "inherit", disabled: submitting, sx: { borderRadius: "3px" }, children: t("common:actions.cancel") }),
           /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", spacing: 1.5, alignItems: "center", children: [
             /* @__PURE__ */ jsxRuntime.jsx(
               Button5__default.default,
@@ -3329,7 +3332,7 @@ var WizardDialog = ({
                 onClick: onBack,
                 color: "inherit",
                 disabled: activeStep === 0 || submitting,
-                sx: { borderRadius: "12px" },
+                sx: { borderRadius: "3px" },
                 children: t(backKey)
               }
             ),
@@ -3341,7 +3344,7 @@ var WizardDialog = ({
                 disabled: !canNext || submitting,
                 startIcon: submitting && isLast ? /* @__PURE__ */ jsxRuntime.jsx(CircularProgress__default.default, { size: 16, color: "inherit" }) : void 0,
                 sx: {
-                  borderRadius: "12px",
+                  borderRadius: "3px",
                   px: 3,
                   fontWeight: 700
                 },
@@ -3460,26 +3463,31 @@ var DateRangeButton = ({ range }) => {
   ] });
 };
 var NavItemButton = styles.styled(ListItemButton__default.default)(({ theme }) => ({
-  borderRadius: "12px",
+  borderRadius: "4px",
   margin: theme.spacing(0.35, 1.25),
   paddingTop: 8,
   paddingBottom: 8,
   transition: "all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1)",
   "&.Mui-selected": {
-    backgroundColor: theme.palette.mode === "light" ? "#007AFF" : "#0A84FF",
-    color: "#FFFFFF",
+    backgroundColor: theme.palette.mode === "light" ? "rgba(0, 122, 255, 0.10)" : "rgba(10, 132, 255, 0.18)",
+    color: theme.palette.mode === "light" ? "#0A2540" : "#E8F0FE",
     fontWeight: 700,
-    boxShadow: theme.palette.mode === "light" ? "0 4px 14px rgba(0, 122, 255, 0.25)" : "none",
-    "& .MuiListItemIcon-root": { color: "#FFFFFF" },
+    boxShadow: theme.palette.mode === "light" ? "0 2px 8px rgba(0, 122, 255, 0.12), inset 0 0 0 1px rgba(0, 122, 255, 0.15)" : "0 2px 8px rgba(10, 132, 255, 0.20)",
+    "& .MuiListItemIcon-root": {
+      color: theme.palette.mode === "light" ? "#005EC4" : "#90CAFF"
+    },
     "& .MuiTypography-root": { fontWeight: 700 },
-    "&:hover": { backgroundColor: theme.palette.mode === "light" ? "#0062CC" : "#0051A8" }
+    "&:hover": {
+      backgroundColor: theme.palette.mode === "light" ? "rgba(0, 122, 255, 0.15)" : "rgba(10, 132, 255, 0.25)"
+    }
   }
 }));
 var NavList = ({
   items,
   activePath,
   onNavigate,
-  depth = 0
+  depth = 0,
+  compact = false
 }) => {
   const { t } = reactI18next.useTranslation();
   const [openMap, setOpenMap] = React17.useState({});
@@ -3499,9 +3507,18 @@ var NavList = ({
               onNavigate(item.path);
             }
           },
-          sx: { pl: 2 + depth * 2 },
+          sx: {
+            pl: (compact ? 1.25 : 2) + depth * 2,
+            py: compact ? 0.55 : 1,
+            minHeight: compact ? 38 : 48,
+            borderRadius: "4px",
+            mx: compact ? 0.75 : 1.25,
+            my: compact ? 0.2 : 0.35,
+            "& .MuiListItemIcon-root": { minWidth: compact ? 32 : 40 },
+            "& .MuiTypography-root": { fontSize: compact ? "0.78rem" : "0.875rem", lineHeight: 1.2 }
+          },
           children: [
-            item.icon ? /* @__PURE__ */ jsxRuntime.jsx(ListItemIcon__default.default, { sx: { minWidth: 40 }, children: item.icon }) : null,
+            item.icon ? /* @__PURE__ */ jsxRuntime.jsx(ListItemIcon__default.default, { children: item.icon }) : null,
             /* @__PURE__ */ jsxRuntime.jsx(ListItemText__default.default, { primary: t(item.labelKey) }),
             hasChildren ? isOpen ? /* @__PURE__ */ jsxRuntime.jsx(ExpandLessIcon__default.default, {}) : /* @__PURE__ */ jsxRuntime.jsx(ExpandMoreIcon__default.default, {}) : null
           ]
@@ -3513,7 +3530,8 @@ var NavList = ({
           items: item.children,
           activePath,
           onNavigate,
-          depth: depth + 1
+          depth: depth + 1,
+          compact
         }
       ) }) : null
     ] }, item.path);
@@ -3525,11 +3543,14 @@ var AppSideNav = ({
   onNavigate,
   mobileOpen = false,
   onMobileClose,
-  temporary = false
+  temporary = false,
+  compact = false,
+  width
 }) => {
+  const drawerWidth = width;
   const content = /* @__PURE__ */ jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [
     /* @__PURE__ */ jsxRuntime.jsx(Toolbar__default.default, { sx: (theme) => ({ minHeight: theme.custom.topBarHeight }) }),
-    /* @__PURE__ */ jsxRuntime.jsx(NavList, { items, activePath, onNavigate })
+    /* @__PURE__ */ jsxRuntime.jsx(NavList, { items, activePath, onNavigate, compact })
   ] });
   if (temporary) {
     return /* @__PURE__ */ jsxRuntime.jsx(
@@ -3540,7 +3561,7 @@ var AppSideNav = ({
         onClose: onMobileClose,
         ModalProps: { keepMounted: true },
         sx: (theme) => ({
-          "& .MuiDrawer-paper": { width: theme.custom.sidebarWidth }
+          "& .MuiDrawer-paper": { width: drawerWidth ?? theme.custom.sidebarWidth }
         }),
         children: content
       }
@@ -3551,10 +3572,10 @@ var AppSideNav = ({
     {
       variant: "permanent",
       sx: (theme) => ({
-        width: theme.custom.sidebarWidth,
+        width: drawerWidth ?? theme.custom.sidebarWidth,
         flexShrink: 0,
         "& .MuiDrawer-paper": {
-          width: theme.custom.sidebarWidth,
+          width: drawerWidth ?? theme.custom.sidebarWidth,
           boxSizing: "border-box",
           borderRight: `1px solid ${theme.palette.divider}`
         }
@@ -3569,7 +3590,7 @@ var HeaderRoot = styles.styled("header")(({ theme }) => ({
   justifyContent: "space-between",
   flexWrap: "wrap",
   gap: theme.spacing(2),
-  marginBottom: theme.spacing(3)
+  marginBottom: theme.spacing(2)
 }));
 var PageHeader = ({
   titleKey,
@@ -3601,7 +3622,15 @@ var PageHeader = ({
           crumb.labelKey
         ) : /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "text.primary", children: t(crumb.labelKey) }, crumb.labelKey)
       ) }) : null,
-      /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h4", component: "h1", children: title ?? t(titleKey, titleParams) }),
+      /* @__PURE__ */ jsxRuntime.jsx(
+        Typography9__default.default,
+        {
+          variant: "h5",
+          component: "h1",
+          sx: { fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 1.25 },
+          children: title ?? t(titleKey, titleParams)
+        }
+      ),
       subtitleKey ? /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "text.secondary", sx: { mt: 0.5 }, children: t(subtitleKey, subtitleParams) }) : null
     ] }),
     actions ? /* @__PURE__ */ jsxRuntime.jsx("div", { children: actions }) : null
@@ -6505,6 +6534,823 @@ var AnimatedDoorOpen = ({
     }
   );
 };
+function useWebGlSupport() {
+  const [supported, setSupported] = React17.useState(true);
+  React17.useEffect(() => {
+    try {
+      const canvas = document.createElement("canvas");
+      const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl") || canvas.getContext("webgl2");
+      setSupported(Boolean(gl && gl instanceof WebGLRenderingContext));
+    } catch {
+      setSupported(false);
+    }
+  }, []);
+  return supported;
+}
+function ThreeOverviewCanvas({
+  height = 280,
+  fallback,
+  children,
+  title,
+  subtitle,
+  onRenderScene
+}) {
+  const theme = styles.useTheme();
+  const isDark = theme.palette.mode === "dark";
+  const hasWebGl = useWebGlSupport();
+  const canvasRef = React17.useRef(null);
+  const containerRef = React17.useRef(null);
+  const [rotation, setRotation] = React17.useState({ x: 0.55, y: -0.65 });
+  const isDraggingRef = React17.useRef(false);
+  const lastPointerRef = React17.useRef({ x: 0, y: 0 });
+  const handlePointerDown = (e) => {
+    isDraggingRef.current = true;
+    lastPointerRef.current = { x: e.clientX, y: e.clientY };
+    e.target.setPointerCapture(e.pointerId);
+  };
+  const handlePointerMove = (e) => {
+    if (!isDraggingRef.current) return;
+    const dx = e.clientX - lastPointerRef.current.x;
+    const dy = e.clientY - lastPointerRef.current.y;
+    lastPointerRef.current = { x: e.clientX, y: e.clientY };
+    setRotation((prev) => ({
+      x: Math.max(0.1, Math.min(1.2, prev.x + dy * 8e-3)),
+      y: prev.y + dx * 8e-3
+    }));
+  };
+  const handlePointerUp = () => {
+    isDraggingRef.current = false;
+  };
+  React17.useEffect(() => {
+    if (!canvasRef.current || !hasWebGl) return;
+    const canvas = canvasRef.current;
+    const gl = canvas.getContext("webgl", { antialias: true, alpha: true });
+    if (!gl) return;
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.getBoundingClientRect();
+    const width = Math.floor(rect.width * dpr);
+    const heightPx = Math.floor(rect.height * dpr);
+    if (canvas.width !== width || canvas.height !== heightPx) {
+      canvas.width = width;
+      canvas.height = heightPx;
+    }
+    gl.viewport(0, 0, width, heightPx);
+    gl.enable(gl.DEPTH_TEST);
+    gl.depthFunc(gl.LEQUAL);
+    if (isDark) {
+      gl.clearColor(0.043, 0.051, 0.07, 1);
+    } else {
+      gl.clearColor(0.972, 0.98, 0.988, 1);
+    }
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    if (onRenderScene) {
+      onRenderScene(gl, width, heightPx, rotation, isDark);
+    }
+  }, [rotation, isDark, hasWebGl, onRenderScene]);
+  if (!hasWebGl && fallback) {
+    return /* @__PURE__ */ jsxRuntime.jsx(jsxRuntime.Fragment, { children: fallback });
+  }
+  return /* @__PURE__ */ jsxRuntime.jsxs(
+    Box7__default.default,
+    {
+      ref: containerRef,
+      sx: {
+        width: "100%",
+        height,
+        position: "relative",
+        borderRadius: "4px",
+        border: `0.5px solid ${isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(15, 23, 42, 0.08)"}`,
+        backgroundColor: isDark ? "#0B0D12" : "#F8FAFC",
+        overflow: "hidden",
+        userSelect: "none"
+      },
+      children: [
+        (title || subtitle) && /* @__PURE__ */ jsxRuntime.jsxs(
+          Box7__default.default,
+          {
+            sx: {
+              position: "absolute",
+              top: 10,
+              left: 12,
+              zIndex: 2,
+              pointerEvents: "none"
+            },
+            children: [
+              title && /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "caption", sx: { fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase", color: isDark ? "#94A3B8" : "#64748B", display: "block", fontSize: "0.68rem" }, children: title }),
+              subtitle && /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", sx: { fontWeight: 600, fontSize: "0.8rem", color: isDark ? "#F8FAFC" : "#0F172A" }, children: subtitle })
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          "canvas",
+          {
+            ref: canvasRef,
+            style: { width: "100%", height: "100%", display: "block", cursor: "grab" },
+            onPointerDown: handlePointerDown,
+            onPointerMove: handlePointerMove,
+            onPointerUp: handlePointerUp,
+            onPointerCancel: handlePointerUp
+          }
+        ),
+        children && /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { position: "absolute", bottom: 8, right: 10, zIndex: 2 }, children })
+      ]
+    }
+  );
+}
+function IsometricBarOverview({
+  data,
+  title,
+  subtitle,
+  height = 280,
+  fallback
+}) {
+  const theme = styles.useTheme();
+  const isDark = theme.palette.mode === "dark";
+  const maxValue = React17.useMemo(() => {
+    return Math.max(...data.map((d) => d.value), 1);
+  }, [data]);
+  const renderScene = React17__default.default.useCallback(
+    (gl, width, heightPx, rotation) => {
+      const vsSource = `
+        attribute vec3 aPosition;
+        attribute vec3 aNormal;
+        uniform mat4 uMatrix;
+        uniform vec3 uColor;
+        varying vec3 vColor;
+        varying float vLight;
+
+        void main() {
+          gl_Position = uMatrix * vec4(aPosition, 1.0);
+          vec3 lightDir = normalize(vec3(0.5, 1.0, 0.7));
+          float diffuse = max(dot(aNormal, lightDir), 0.0);
+          vLight = 0.55 + 0.45 * diffuse;
+          vColor = uColor;
+        }
+      `;
+      const fsSource = `
+        precision mediump float;
+        varying vec3 vColor;
+        varying float vLight;
+
+        void main() {
+          gl_FragColor = vec4(vColor * vLight, 1.0);
+        }
+      `;
+      const createShader = (type, src) => {
+        const s = gl.createShader(type);
+        if (!s) return null;
+        gl.shaderSource(s, src);
+        gl.compileShader(s);
+        return s;
+      };
+      const vs = createShader(gl.VERTEX_SHADER, vsSource);
+      const fs = createShader(gl.FRAGMENT_SHADER, fsSource);
+      if (!vs || !fs) return;
+      const program = gl.createProgram();
+      if (!program) return;
+      gl.attachShader(program, vs);
+      gl.attachShader(program, fs);
+      gl.linkProgram(program);
+      gl.useProgram(program);
+      const aPos = gl.getAttribLocation(program, "aPosition");
+      const aNorm = gl.getAttribLocation(program, "aNormal");
+      const uMatrix = gl.getUniformLocation(program, "uMatrix");
+      const uColor = gl.getUniformLocation(program, "uColor");
+      const vertices = new Float32Array([
+        // Front face
+        -0.5,
+        0,
+        0.5,
+        0.5,
+        0,
+        0.5,
+        0.5,
+        1,
+        0.5,
+        -0.5,
+        0,
+        0.5,
+        0.5,
+        1,
+        0.5,
+        -0.5,
+        1,
+        0.5,
+        // Back face
+        -0.5,
+        0,
+        -0.5,
+        -0.5,
+        1,
+        -0.5,
+        0.5,
+        1,
+        -0.5,
+        -0.5,
+        0,
+        -0.5,
+        0.5,
+        1,
+        -0.5,
+        0.5,
+        0,
+        -0.5,
+        // Top face
+        -0.5,
+        1,
+        -0.5,
+        -0.5,
+        1,
+        0.5,
+        0.5,
+        1,
+        0.5,
+        -0.5,
+        1,
+        -0.5,
+        0.5,
+        1,
+        0.5,
+        0.5,
+        1,
+        -0.5,
+        // Left face
+        -0.5,
+        0,
+        -0.5,
+        -0.5,
+        0,
+        0.5,
+        -0.5,
+        1,
+        0.5,
+        -0.5,
+        0,
+        -0.5,
+        -0.5,
+        1,
+        0.5,
+        -0.5,
+        1,
+        -0.5,
+        // Right face
+        0.5,
+        0,
+        -0.5,
+        0.5,
+        1,
+        -0.5,
+        0.5,
+        1,
+        0.5,
+        0.5,
+        0,
+        -0.5,
+        0.5,
+        1,
+        0.5,
+        0.5,
+        0,
+        0.5
+      ]);
+      const normals = new Float32Array([
+        // Front
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        // Back
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        // Top
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        // Left
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        // Right
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]);
+      const vBuf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, vBuf);
+      gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+      gl.enableVertexAttribArray(aPos);
+      gl.vertexAttribPointer(aPos, 3, gl.FLOAT, false, 0, 0);
+      const nBuf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, nBuf);
+      gl.bufferData(gl.ARRAY_BUFFER, normals, gl.STATIC_DRAW);
+      gl.enableVertexAttribArray(aNorm);
+      gl.vertexAttribPointer(aNorm, 3, gl.FLOAT, false, 0, 0);
+      const aspect = width / heightPx;
+      const count = data.length;
+      const spacing = 1.3;
+      data.forEach((item, index) => {
+        const heightNorm = Math.max(0.08, item.value / maxValue * 2.2);
+        const xPos = (index - count / 2 + 0.5) * spacing;
+        const cosX = Math.cos(rotation.x);
+        const sinX = Math.sin(rotation.x);
+        const cosY = Math.cos(rotation.y);
+        const sinY = Math.sin(rotation.y);
+        const scale = 0.38;
+        const mat = new Float32Array([
+          cosY * scale / aspect,
+          sinX * sinY * scale,
+          -cosX * sinY * scale,
+          0,
+          0,
+          cosX * scale * heightNorm,
+          sinX * scale,
+          0,
+          sinY * scale / aspect,
+          -sinX * cosY * scale,
+          cosX * cosY * scale,
+          0,
+          xPos * scale * 0.9 / aspect,
+          -0.45,
+          0,
+          1
+        ]);
+        gl.uniformMatrix4fv(uMatrix, false, mat);
+        const hex = item.color || "#007AFF";
+        const r = parseInt(hex.slice(1, 3), 16) / 255 || 0;
+        const g = parseInt(hex.slice(3, 5), 16) / 255 || 0.48;
+        const b = parseInt(hex.slice(5, 7), 16) / 255 || 1;
+        gl.uniform3f(uColor, r, g, b);
+        gl.drawArrays(gl.TRIANGLES, 0, 30);
+      });
+    },
+    [data, maxValue]
+  );
+  return /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { width: "100%", position: "relative" }, children: /* @__PURE__ */ jsxRuntime.jsx(
+    ThreeOverviewCanvas,
+    {
+      height,
+      title,
+      subtitle,
+      fallback,
+      onRenderScene: renderScene,
+      children: /* @__PURE__ */ jsxRuntime.jsx(
+        Box7__default.default,
+        {
+          sx: {
+            display: "flex",
+            gap: 1.5,
+            bgcolor: isDark ? "rgba(15, 23, 42, 0.75)" : "rgba(255, 255, 255, 0.85)",
+            backdropFilter: "blur(8px)",
+            px: 1.25,
+            py: 0.5,
+            borderRadius: "3px",
+            border: `0.5px solid ${isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.08)"}`
+          },
+          children: data.slice(0, 4).map((d) => /* @__PURE__ */ jsxRuntime.jsxs(Box7__default.default, { sx: { display: "flex", alignItems: "center", gap: 0.75 }, children: [
+            /* @__PURE__ */ jsxRuntime.jsx(
+              Box7__default.default,
+              {
+                sx: {
+                  width: 8,
+                  height: 8,
+                  borderRadius: "1.5px",
+                  bgcolor: d.color || "#007AFF"
+                }
+              }
+            ),
+            /* @__PURE__ */ jsxRuntime.jsxs(Typography9__default.default, { variant: "caption", sx: { fontSize: "0.7rem", fontWeight: 600, color: "text.secondary" }, children: [
+              d.label,
+              ": ",
+              /* @__PURE__ */ jsxRuntime.jsx("strong", { children: d.formattedValue || d.value })
+            ] })
+          ] }, d.label))
+        }
+      )
+    }
+  ) });
+}
+var STATUS_HEX = {
+  available: "#34C759",
+  // Apple Green
+  occupied: "#007AFF",
+  // Blue
+  reserved: "#FF9500",
+  // Amber
+  cleaning: "#AF52DE"
+  // Purple
+};
+function PropertyDigitalTwin({
+  rooms,
+  title,
+  subtitle,
+  height = 300,
+  fallback
+}) {
+  const theme = styles.useTheme();
+  const isDark = theme.palette.mode === "dark";
+  const floors = React17.useMemo(() => {
+    const map = /* @__PURE__ */ new Map();
+    rooms.forEach((r) => {
+      const list = map.get(r.floor) || [];
+      list.push(r);
+      map.set(r.floor, list);
+    });
+    return Array.from(map.entries()).sort(([a], [b]) => a - b);
+  }, [rooms]);
+  const renderScene = React17__default.default.useCallback(
+    (gl, width, heightPx, rotation) => {
+      const vsSource = `
+        attribute vec3 aPosition;
+        attribute vec3 aNormal;
+        uniform mat4 uMatrix;
+        uniform vec3 uColor;
+        varying vec3 vColor;
+        varying float vLight;
+
+        void main() {
+          gl_Position = uMatrix * vec4(aPosition, 1.0);
+          vec3 lightDir = normalize(vec3(0.6, 1.0, 0.5));
+          float diffuse = max(dot(aNormal, lightDir), 0.0);
+          vLight = 0.6 + 0.4 * diffuse;
+          vColor = uColor;
+        }
+      `;
+      const fsSource = `
+        precision mediump float;
+        varying vec3 vColor;
+        varying float vLight;
+
+        void main() {
+          gl_FragColor = vec4(vColor * vLight, 1.0);
+        }
+      `;
+      const createShader = (type, src) => {
+        const s = gl.createShader(type);
+        if (!s) return null;
+        gl.shaderSource(s, src);
+        gl.compileShader(s);
+        return s;
+      };
+      const vs = createShader(gl.VERTEX_SHADER, vsSource);
+      const fs = createShader(gl.FRAGMENT_SHADER, fsSource);
+      if (!vs || !fs) return;
+      const program = gl.createProgram();
+      if (!program) return;
+      gl.attachShader(program, vs);
+      gl.attachShader(program, fs);
+      gl.linkProgram(program);
+      gl.useProgram(program);
+      const aPos = gl.getAttribLocation(program, "aPosition");
+      const aNorm = gl.getAttribLocation(program, "aNormal");
+      const uMatrix = gl.getUniformLocation(program, "uMatrix");
+      const uColor = gl.getUniformLocation(program, "uColor");
+      const vertices = new Float32Array([
+        // Front
+        -0.5,
+        -0.5,
+        0.5,
+        0.5,
+        -0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        -0.5,
+        -0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        -0.5,
+        0.5,
+        0.5,
+        // Back
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5,
+        0.5,
+        -0.5,
+        0.5,
+        0.5,
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5,
+        0.5,
+        0.5,
+        -0.5,
+        0.5,
+        -0.5,
+        -0.5,
+        // Top
+        -0.5,
+        0.5,
+        -0.5,
+        -0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        -0.5,
+        0.5,
+        -0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        -0.5,
+        // Left
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5,
+        0.5,
+        -0.5,
+        0.5,
+        0.5,
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5,
+        0.5,
+        0.5,
+        -0.5,
+        0.5,
+        -0.5,
+        // Right
+        0.5,
+        -0.5,
+        -0.5,
+        0.5,
+        0.5,
+        -0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        -0.5,
+        -0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        -0.5,
+        0.5
+      ]);
+      const normals = new Float32Array([
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]);
+      const vBuf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, vBuf);
+      gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+      gl.enableVertexAttribArray(aPos);
+      gl.vertexAttribPointer(aPos, 3, gl.FLOAT, false, 0, 0);
+      const nBuf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, nBuf);
+      gl.bufferData(gl.ARRAY_BUFFER, normals, gl.STATIC_DRAW);
+      gl.enableVertexAttribArray(aNorm);
+      gl.vertexAttribPointer(aNorm, 3, gl.FLOAT, false, 0, 0);
+      const aspect = width / heightPx;
+      const cosX = Math.cos(rotation.x);
+      const sinX = Math.sin(rotation.x);
+      const cosY = Math.cos(rotation.y);
+      const sinY = Math.sin(rotation.y);
+      const scale = 0.22;
+      floors.forEach(([, floorRooms], fIdx) => {
+        const floorY = (fIdx - floors.length / 2) * 1.1;
+        floorRooms.forEach((rm, rIdx) => {
+          const row = Math.floor(rIdx / 4);
+          const col = rIdx % 4;
+          const xPos = (col - 1.5) * 1.1;
+          const zPos = (row - 0.5) * 1.1;
+          const mat = new Float32Array([
+            cosY * scale / aspect,
+            sinX * sinY * scale,
+            -cosX * sinY * scale,
+            0,
+            0,
+            cosX * scale,
+            sinX * scale,
+            0,
+            sinY * scale / aspect,
+            -sinX * cosY * scale,
+            cosX * cosY * scale,
+            0,
+            (xPos * cosY + zPos * sinY) * scale / aspect,
+            floorY * scale + (-xPos * sinX * sinY + zPos * sinX * cosY) * scale,
+            0,
+            1
+          ]);
+          gl.uniformMatrix4fv(uMatrix, false, mat);
+          const hex = STATUS_HEX[rm.status] || "#007AFF";
+          const r = parseInt(hex.slice(1, 3), 16) / 255 || 0;
+          const g = parseInt(hex.slice(3, 5), 16) / 255 || 0.48;
+          const b = parseInt(hex.slice(5, 7), 16) / 255 || 1;
+          gl.uniform3f(uColor, r, g, b);
+          gl.drawArrays(gl.TRIANGLES, 0, 30);
+        });
+      });
+    },
+    [floors]
+  );
+  return /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { width: "100%", position: "relative" }, children: /* @__PURE__ */ jsxRuntime.jsx(
+    ThreeOverviewCanvas,
+    {
+      height,
+      title,
+      subtitle,
+      fallback,
+      onRenderScene: renderScene,
+      children: /* @__PURE__ */ jsxRuntime.jsx(
+        Box7__default.default,
+        {
+          sx: {
+            display: "flex",
+            gap: 1.5,
+            bgcolor: isDark ? "rgba(15, 23, 42, 0.75)" : "rgba(255, 255, 255, 0.85)",
+            backdropFilter: "blur(8px)",
+            px: 1.25,
+            py: 0.5,
+            borderRadius: "3px",
+            border: `0.5px solid ${isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.08)"}`
+          },
+          children: Object.entries(STATUS_HEX).map(([status, color]) => /* @__PURE__ */ jsxRuntime.jsxs(Box7__default.default, { sx: { display: "flex", alignItems: "center", gap: 0.5 }, children: [
+            /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { width: 8, height: 8, borderRadius: "1.5px", bgcolor: color } }),
+            /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "caption", sx: { fontSize: "0.68rem", fontWeight: 600, color: "text.secondary", textTransform: "capitalize" }, children: status })
+          ] }, status))
+        }
+      )
+    }
+  ) });
+}
 
 exports.APP_TILE_VARIANTS = APP_TILE_VARIANTS;
 exports.Accordion = Accordion;
@@ -6581,6 +7427,7 @@ exports.FormSwitch = FormSwitch;
 exports.FormTextField = FormTextField;
 exports.Grid = Grid;
 exports.IconButton = IconButton3;
+exports.IsometricBarOverview = IsometricBarOverview;
 exports.KanbanBoard = KanbanBoard;
 exports.LanguageSwitcher = LanguageSwitcher;
 exports.LinearProgress = LinearProgress;
@@ -6594,6 +7441,7 @@ exports.PageHeader = PageHeader;
 exports.PageSkeleton = PageSkeleton;
 exports.Paper = Paper2;
 exports.PasswordField = PasswordField;
+exports.PropertyDigitalTwin = PropertyDigitalTwin;
 exports.Radio = Radio;
 exports.RadioGroup = RadioGroup;
 exports.Rating = Rating;
@@ -6613,6 +7461,7 @@ exports.Tab = Tab;
 exports.Tabs = Tabs;
 exports.TextField = TextField;
 exports.ThemeProvider = ThemeProvider;
+exports.ThreeOverviewCanvas = ThreeOverviewCanvas;
 exports.TimelineMatrix = TimelineMatrix;
 exports.Tooltip = Tooltip;
 exports.Typography = Typography3;
@@ -6641,5 +7490,6 @@ exports.resolveAppUrl = resolveAppUrl;
 exports.rgbToHex = rgbToHex;
 exports.useMediaQuery = useMediaQuery;
 exports.useTheme = useTheme2;
+exports.useWebGlSupport = useWebGlSupport;
 //# sourceMappingURL=index.cjs.map
 //# sourceMappingURL=index.cjs.map
