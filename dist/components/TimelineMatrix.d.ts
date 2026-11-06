@@ -1,5 +1,13 @@
 import { type ReactNode } from 'react';
 export type TimelineColorKey = 'success' | 'info' | 'warning' | 'error' | 'neutral' | 'primary';
+export type TimelineDensity = 'comfortable' | 'compact';
+export interface TimelineDimensions {
+    resourceColWidth: number;
+    dayColWidth: number;
+    rowHeight: number;
+    spanInset: number;
+}
+export declare const TIMELINE_DIMENSIONS: Record<TimelineDensity, TimelineDimensions>;
 export interface TimelineResource {
     id: string;
 }
@@ -14,6 +22,10 @@ export interface TimelineSpan<TData = unknown> {
     labelKey?: string;
     colorKey: TimelineColorKey;
     data?: TData;
+    code?: string;
+    status?: string;
+    totalAmount?: number | null;
+    tooltip?: ReactNode;
 }
 export interface TimelineMatrixProps<TResource extends TimelineResource, TSpanData = unknown> {
     resources: TResource[];
@@ -23,7 +35,7 @@ export interface TimelineMatrixProps<TResource extends TimelineResource, TSpanDa
     /** Number of day columns. */
     days: number;
     /** Renders the left resource column cell. */
-    renderResource: (resource: TResource) => ReactNode;
+    renderResource: (resource: TResource, density?: TimelineDensity) => ReactNode;
     /** i18n key for the resource column header. */
     resourceLabelKey: string;
     onSpanClick?: (span: TimelineSpan<TSpanData>) => void;
@@ -36,10 +48,20 @@ export interface TimelineMatrixProps<TResource extends TimelineResource, TSpanDa
     today?: string;
     /** Date positioned as the first visible day column when the matrix opens. */
     initialScrollDate?: string;
+    /** Layout density: 'comfortable' (default) or 'compact' (dense rows and columns). */
+    density?: TimelineDensity;
+    /** Custom dimension overrides. */
+    customDimensions?: Partial<TimelineDimensions>;
+    /** Optional custom tooltip builder for spans. */
+    renderSpanTooltip?: (span: TimelineSpan<TSpanData>) => ReactNode;
+    /** Optional custom tooltip builder for empty cells. */
+    renderCellTooltip?: (resourceId: string, date: string) => ReactNode;
+    /** Disable border and border-radius (e.g. when nested inside a styled Paper). */
+    disableBorder?: boolean;
 }
 /**
  * Generic resource-timeline grid (e.g. the Room Allocation Matrix): sticky
  * resource column, N-day header with today highlight, positioned span bars.
- * Purely presentational — no domain logic inside.
+ * Supports compact mode and rich tooltips. Purely presentational.
  */
-export declare const TimelineMatrix: <TResource extends TimelineResource, TSpanData = unknown>({ resources, spans, startDate, days, renderResource, resourceLabelKey, onSpanClick, onCellClick, legend, loading, today, initialScrollDate, }: TimelineMatrixProps<TResource, TSpanData>) => import("react").JSX.Element;
+export declare const TimelineMatrix: <TResource extends TimelineResource, TSpanData = unknown>({ resources, spans, startDate, days, renderResource, resourceLabelKey, onSpanClick, onCellClick, legend, loading, today, initialScrollDate, density, customDimensions, renderSpanTooltip, renderCellTooltip, disableBorder, }: TimelineMatrixProps<TResource, TSpanData>) => import("react").JSX.Element;

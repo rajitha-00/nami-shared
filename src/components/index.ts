@@ -49,6 +49,9 @@ export { AppTopBar, type AppTopBarProps } from './AppTopBar';
 export {
   TimelineMatrix,
   type TimelineColorKey,
+  type TimelineDensity,
+  type TimelineDimensions,
+  TIMELINE_DIMENSIONS,
   type TimelineMatrixProps,
   type TimelineResource,
   type TimelineSpan,

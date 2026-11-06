@@ -54,6 +54,7 @@ var MenuIcon = require('@mui/icons-material/Menu');
 var AppBar = require('@mui/material/AppBar');
 var Toolbar = require('@mui/material/Toolbar');
 var Skeleton2 = require('@mui/material/Skeleton');
+var Tooltip2 = require('@mui/material/Tooltip');
 var Step = require('@mui/material/Step');
 var StepLabel = require('@mui/material/StepLabel');
 var Stepper = require('@mui/material/Stepper');
@@ -77,7 +78,6 @@ var AutoAwesomeIcon = require('@mui/icons-material/AutoAwesome');
 var PaymentsIcon = require('@mui/icons-material/Payments');
 var PeopleIcon = require('@mui/icons-material/People');
 var InventoryIcon = require('@mui/icons-material/Inventory');
-var Tooltip2 = require('@mui/material/Tooltip');
 var reactDom = require('react-dom');
 var InputBase = require('@mui/material/InputBase');
 var CardContent2 = require('@mui/material/CardContent');
@@ -133,6 +133,7 @@ var MenuIcon__default = /*#__PURE__*/_interopDefault(MenuIcon);
 var AppBar__default = /*#__PURE__*/_interopDefault(AppBar);
 var Toolbar__default = /*#__PURE__*/_interopDefault(Toolbar);
 var Skeleton2__default = /*#__PURE__*/_interopDefault(Skeleton2);
+var Tooltip2__default = /*#__PURE__*/_interopDefault(Tooltip2);
 var Step__default = /*#__PURE__*/_interopDefault(Step);
 var StepLabel__default = /*#__PURE__*/_interopDefault(StepLabel);
 var Stepper__default = /*#__PURE__*/_interopDefault(Stepper);
@@ -156,7 +157,6 @@ var AutoAwesomeIcon__default = /*#__PURE__*/_interopDefault(AutoAwesomeIcon);
 var PaymentsIcon__default = /*#__PURE__*/_interopDefault(PaymentsIcon);
 var PeopleIcon__default = /*#__PURE__*/_interopDefault(PeopleIcon);
 var InventoryIcon__default = /*#__PURE__*/_interopDefault(InventoryIcon);
-var Tooltip2__default = /*#__PURE__*/_interopDefault(Tooltip2);
 var InputBase__default = /*#__PURE__*/_interopDefault(InputBase);
 var CardContent2__default = /*#__PURE__*/_interopDefault(CardContent2);
 var CardMedia2__default = /*#__PURE__*/_interopDefault(CardMedia2);
@@ -2947,14 +2947,26 @@ function differenceInDays(a, b) {
 function dateRangeDays(start, count) {
   return Array.from({ length: count }, (_, i) => addDays(start, i));
 }
-var RESOURCE_COL_WIDTH = 148;
-var DAY_COL_WIDTH = 76;
-var ROW_HEIGHT = 52;
-var SPAN_INSET = 8;
-var MatrixRoot = styles.styled("div")(({ theme }) => ({
+var TIMELINE_DIMENSIONS = {
+  comfortable: {
+    resourceColWidth: 148,
+    dayColWidth: 76,
+    rowHeight: 52,
+    spanInset: 8
+  },
+  compact: {
+    resourceColWidth: 128,
+    dayColWidth: 48,
+    rowHeight: 38,
+    spanInset: 4
+  }
+};
+var MatrixRoot = styles.styled("div", {
+  shouldForwardProp: (p) => p !== "disableBorder"
+})(({ theme, disableBorder }) => ({
   overflowX: "auto",
-  border: `1px solid ${theme.palette.divider}`,
-  borderRadius: theme.shape.borderRadius
+  border: disableBorder ? "none" : `1px solid ${theme.palette.divider}`,
+  borderRadius: disableBorder ? 0 : theme.shape.borderRadius
 }));
 var HeaderRow = styles.styled("div")(({ theme }) => ({
   display: "flex",
@@ -2964,39 +2976,53 @@ var HeaderRow = styles.styled("div")(({ theme }) => ({
   top: 0,
   zIndex: 3
 }));
-var ResourceCell = styles.styled("div")(({ theme }) => ({
-  width: RESOURCE_COL_WIDTH,
-  minWidth: RESOURCE_COL_WIDTH,
-  padding: theme.spacing(1, 2),
-  display: "flex",
-  alignItems: "center",
-  position: "sticky",
-  left: 0,
-  zIndex: 2,
-  backgroundColor: theme.palette.background.paper,
-  borderRight: `1px solid ${theme.palette.divider}`
-}));
-var DayHeaderCell = styles.styled("div")(({ theme }) => ({
-  width: DAY_COL_WIDTH,
-  minWidth: DAY_COL_WIDTH,
-  padding: theme.spacing(1, 0),
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  gap: 2
-}));
-var TodayBubble = styles.styled("span")(({ theme }) => ({
-  width: 26,
-  height: 26,
-  borderRadius: "50%",
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
-  backgroundColor: theme.palette.primary.main,
-  color: theme.palette.primary.contrastText,
-  fontWeight: 600,
-  fontSize: theme.typography.body2.fontSize
-}));
+var ResourceCell = styles.styled("div", {
+  shouldForwardProp: (p) => p !== "density"
+})(({ theme, density }) => {
+  const isCompact = density === "compact";
+  return {
+    padding: isCompact ? theme.spacing(0.5, 1) : theme.spacing(1, 2),
+    display: "flex",
+    alignItems: "center",
+    position: "sticky",
+    left: 0,
+    zIndex: 2,
+    backgroundColor: theme.palette.background.paper,
+    borderRight: `1px solid ${theme.palette.divider}`,
+    boxSizing: "border-box"
+  };
+});
+var DayHeaderCell = styles.styled("div", {
+  shouldForwardProp: (p) => p !== "density"
+})(({ theme, density }) => {
+  const isCompact = density === "compact";
+  return {
+    padding: isCompact ? theme.spacing(0.5, 0) : theme.spacing(1, 0),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: isCompact ? 1 : 2,
+    boxSizing: "border-box"
+  };
+});
+var TodayBubble = styles.styled("span", {
+  shouldForwardProp: (p) => p !== "density"
+})(({ theme, density }) => {
+  const isCompact = density === "compact";
+  const size = isCompact ? 22 : 26;
+  return {
+    width: size,
+    height: size,
+    borderRadius: "50%",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
+    fontWeight: 700,
+    fontSize: isCompact ? "0.72rem" : theme.typography.body2.fontSize
+  };
+});
 var BodyRow = styles.styled("div")(({ theme }) => ({
   display: "flex",
   borderBottom: `1px solid ${theme.palette.divider}`,
@@ -3005,40 +3031,50 @@ var BodyRow = styles.styled("div")(({ theme }) => ({
 }));
 var RowTrack = styles.styled("div")({
   position: "relative",
-  height: ROW_HEIGHT,
   display: "flex"
 });
 var DayCell = styles.styled("button")(({ theme }) => ({
-  width: DAY_COL_WIDTH,
-  minWidth: DAY_COL_WIDTH,
   height: "100%",
   border: "none",
   borderLeft: `1px solid ${theme.palette.divider}`,
   backgroundColor: "transparent",
   cursor: "pointer",
   padding: 0,
+  boxSizing: "border-box",
+  transition: "background-color 0.15s ease",
   "&:hover": { backgroundColor: theme.palette.action.hover },
   "&:disabled": { cursor: "default" }
 }));
-var SpanBar = styles.styled("button")(({ theme }) => ({
-  position: "absolute",
-  top: SPAN_INSET,
-  height: ROW_HEIGHT - SPAN_INSET * 2,
-  borderRadius: theme.shape.borderRadius,
-  display: "flex",
-  alignItems: "center",
-  paddingLeft: theme.spacing(1.5),
-  paddingRight: theme.spacing(1),
-  overflow: "hidden",
-  whiteSpace: "nowrap",
-  textOverflow: "ellipsis",
-  cursor: "pointer",
-  fontFamily: "inherit",
-  fontSize: theme.typography.body2.fontSize,
-  fontWeight: 500,
-  textAlign: "left",
-  zIndex: 1
-}));
+var SpanBar = styles.styled("button", {
+  shouldForwardProp: (p) => p !== "density"
+})(({ theme, density }) => {
+  const isCompact = density === "compact";
+  return {
+    position: "absolute",
+    borderRadius: isCompact ? 4 : theme.shape.borderRadius,
+    display: "flex",
+    alignItems: "center",
+    paddingLeft: isCompact ? theme.spacing(0.75) : theme.spacing(1.5),
+    paddingRight: isCompact ? theme.spacing(0.5) : theme.spacing(1),
+    overflow: "hidden",
+    whiteSpace: "nowrap",
+    textOverflow: "ellipsis",
+    cursor: "pointer",
+    fontFamily: "inherit",
+    fontSize: isCompact ? "0.75rem" : theme.typography.body2.fontSize,
+    fontWeight: 600,
+    lineHeight: 1.2,
+    textAlign: "left",
+    zIndex: 1,
+    boxSizing: "border-box",
+    transition: "transform 0.1s ease, box-shadow 0.15s ease",
+    "&:hover": {
+      zIndex: 5,
+      transform: "translateY(-1px)",
+      boxShadow: "0 3px 10px rgba(0, 0, 0, 0.14)"
+    }
+  };
+});
 var TimelineMatrix = ({
   resources,
   spans,
@@ -3051,7 +3087,12 @@ var TimelineMatrix = ({
   legend,
   loading = false,
   today,
-  initialScrollDate
+  initialScrollDate,
+  density = "compact",
+  customDimensions,
+  renderSpanTooltip,
+  renderCellTooltip,
+  disableBorder = false
 }) => {
   const { t, i18n } = reactI18next.useTranslation();
   const theme = styles.useTheme();
@@ -3059,16 +3100,21 @@ var TimelineMatrix = ({
   const dayList = dateRangeDays(startDate, days);
   const todayDate = today ?? todayIso();
   const endDate = addDays(startDate, days);
+  const dimensions = {
+    ...TIMELINE_DIMENSIONS[density],
+    ...customDimensions
+  };
+  const { resourceColWidth, dayColWidth, rowHeight, spanInset } = dimensions;
   React17.useEffect(() => {
     if (!initialScrollDate || !scrollContainerRef.current) return;
     const dayIndex = differenceInDays(startDate, initialScrollDate);
     if (dayIndex < 0 || dayIndex >= days) return;
-    scrollContainerRef.current.scrollLeft = dayIndex * DAY_COL_WIDTH;
-  }, [days, initialScrollDate, startDate]);
+    scrollContainerRef.current.scrollLeft = dayIndex * dayColWidth;
+  }, [days, initialScrollDate, startDate, dayColWidth]);
   const spanColor = (key) => {
     const paletteColor = key === "neutral" ? theme.palette.neutral : theme.palette[key];
     return {
-      backgroundColor: styles.alpha(paletteColor.main, theme.palette.mode === "light" ? 0.09 : 0.22),
+      backgroundColor: styles.alpha(paletteColor.main, theme.palette.mode === "light" ? 0.12 : 0.24),
       border: `1px solid ${styles.alpha(paletteColor.main, 0.55)}`,
       color: theme.palette.mode === "light" ? paletteColor.dark : paletteColor.light
     };
@@ -3076,20 +3122,71 @@ var TimelineMatrix = ({
   const monthFormat = new Intl.DateTimeFormat(i18n.language, { month: "short" });
   const dayFormat = new Intl.DateTimeFormat(i18n.language, { day: "numeric" });
   if (loading) {
-    return /* @__PURE__ */ jsxRuntime.jsx("div", { children: /* @__PURE__ */ jsxRuntime.jsx(Skeleton2__default.default, { variant: "rounded", height: ROW_HEIGHT * 6 }) });
+    return /* @__PURE__ */ jsxRuntime.jsx("div", { children: /* @__PURE__ */ jsxRuntime.jsx(Skeleton2__default.default, { variant: "rounded", height: rowHeight * 6 }) });
   }
+  const tooltipSx = {
+    bgcolor: "background.paper",
+    color: "text.primary",
+    boxShadow: "0 6px 24px rgba(0, 0, 0, 0.16)",
+    border: "1px solid",
+    borderColor: "divider",
+    p: 0,
+    borderRadius: 2,
+    maxWidth: 320
+  };
   return /* @__PURE__ */ jsxRuntime.jsxs("div", { children: [
     legend ? /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { component: "div", variant: "body2", sx: { display: "flex", justifyContent: "flex-end", mb: 1 }, children: legend }) : null,
-    /* @__PURE__ */ jsxRuntime.jsx(MatrixRoot, { ref: scrollContainerRef, "data-testid": "timeline-matrix-scroll-container", children: /* @__PURE__ */ jsxRuntime.jsxs("div", { style: { width: RESOURCE_COL_WIDTH + days * DAY_COL_WIDTH }, children: [
+    /* @__PURE__ */ jsxRuntime.jsx(MatrixRoot, { ref: scrollContainerRef, disableBorder, "data-testid": "timeline-matrix-scroll-container", children: /* @__PURE__ */ jsxRuntime.jsxs("div", { style: { width: resourceColWidth + days * dayColWidth }, children: [
       /* @__PURE__ */ jsxRuntime.jsxs(HeaderRow, { children: [
-        /* @__PURE__ */ jsxRuntime.jsx(ResourceCell, { children: /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "overline", color: "text.secondary", children: t(resourceLabelKey) }) }),
+        /* @__PURE__ */ jsxRuntime.jsx(ResourceCell, { density, style: { width: resourceColWidth, minWidth: resourceColWidth }, children: /* @__PURE__ */ jsxRuntime.jsx(
+          Typography4__default.default,
+          {
+            variant: density === "compact" ? "caption" : "overline",
+            color: "text.secondary",
+            fontWeight: 700,
+            sx: { letterSpacing: density === "compact" ? "0.5px" : void 0 },
+            children: t(resourceLabelKey)
+          }
+        ) }),
         dayList.map((date) => {
           const isToday = date === todayDate;
           const dateObj = /* @__PURE__ */ new Date(`${date}T00:00:00Z`);
-          return /* @__PURE__ */ jsxRuntime.jsxs(DayHeaderCell, { "aria-current": isToday ? "date" : void 0, children: [
-            /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "caption", color: "text.secondary", sx: { textTransform: "uppercase" }, children: monthFormat.format(dateObj) }),
-            isToday ? /* @__PURE__ */ jsxRuntime.jsx(TodayBubble, { "aria-label": t("common:timeline.today"), children: dayFormat.format(dateObj) }) : /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "body2", children: dayFormat.format(dateObj) })
-          ] }, date);
+          return /* @__PURE__ */ jsxRuntime.jsxs(
+            DayHeaderCell,
+            {
+              density,
+              "aria-current": isToday ? "date" : void 0,
+              style: { width: dayColWidth, minWidth: dayColWidth },
+              children: [
+                /* @__PURE__ */ jsxRuntime.jsx(
+                  Typography4__default.default,
+                  {
+                    variant: "caption",
+                    color: "text.secondary",
+                    sx: {
+                      textTransform: "uppercase",
+                      fontSize: density === "compact" ? "0.65rem" : void 0,
+                      lineHeight: 1.1,
+                      fontWeight: 600
+                    },
+                    children: monthFormat.format(dateObj)
+                  }
+                ),
+                isToday ? /* @__PURE__ */ jsxRuntime.jsx(TodayBubble, { density, "aria-label": t("common:timeline.today"), children: dayFormat.format(dateObj) }) : /* @__PURE__ */ jsxRuntime.jsx(
+                  Typography4__default.default,
+                  {
+                    variant: density === "compact" ? "caption" : "body2",
+                    sx: {
+                      fontSize: density === "compact" ? "0.75rem" : void 0,
+                      fontWeight: 600
+                    },
+                    children: dayFormat.format(dateObj)
+                  }
+                )
+              ]
+            },
+            date
+          );
         })
       ] }),
       resources.map((resource) => {
@@ -3097,37 +3194,86 @@ var TimelineMatrix = ({
           (span) => span.resourceId === resource.id && span.startDate < endDate && span.endDate > startDate
         );
         return /* @__PURE__ */ jsxRuntime.jsxs(BodyRow, { children: [
-          /* @__PURE__ */ jsxRuntime.jsx(ResourceCell, { children: renderResource(resource) }),
-          /* @__PURE__ */ jsxRuntime.jsxs(RowTrack, { style: { width: days * DAY_COL_WIDTH }, children: [
-            dayList.map((date) => /* @__PURE__ */ jsxRuntime.jsx(
-              DayCell,
-              {
-                type: "button",
-                "aria-label": `${resource.id} ${date}`,
-                disabled: !onCellClick,
-                onClick: () => onCellClick?.(resource.id, date)
-              },
-              date
-            )),
+          /* @__PURE__ */ jsxRuntime.jsx(ResourceCell, { density, style: { width: resourceColWidth, minWidth: resourceColWidth }, children: renderResource(resource, density) }),
+          /* @__PURE__ */ jsxRuntime.jsxs(RowTrack, { style: { width: days * dayColWidth, height: rowHeight }, children: [
+            dayList.map((date) => {
+              const cellTooltip = renderCellTooltip?.(resource.id, date);
+              const cellButton = /* @__PURE__ */ jsxRuntime.jsx(
+                DayCell,
+                {
+                  type: "button",
+                  "aria-label": `${resource.id} ${date}`,
+                  disabled: !onCellClick,
+                  onClick: () => onCellClick?.(resource.id, date),
+                  style: { width: dayColWidth, minWidth: dayColWidth }
+                },
+                date
+              );
+              if (!cellTooltip) return cellButton;
+              return /* @__PURE__ */ jsxRuntime.jsx(
+                Tooltip2__default.default,
+                {
+                  title: cellTooltip,
+                  arrow: true,
+                  placement: "top",
+                  enterDelay: 350,
+                  leaveDelay: 50,
+                  componentsProps: {
+                    tooltip: { sx: tooltipSx },
+                    arrow: { sx: { color: "background.paper", "&::before": { border: "1px solid", borderColor: "divider" } } }
+                  },
+                  children: cellButton
+                },
+                date
+              );
+            }),
             rowSpans.map((span) => {
               const clampedStart = span.startDate < startDate ? startDate : span.startDate;
               const clampedEnd = span.endDate > endDate ? endDate : span.endDate;
               const offset = differenceInDays(startDate, clampedStart);
               const length = Math.max(1, differenceInDays(clampedStart, clampedEnd));
-              return /* @__PURE__ */ jsxRuntime.jsx(
+              const defaultTooltip = /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { p: 1, minWidth: 140 }, children: [
+                /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "body2", sx: { fontWeight: 700, fontSize: "0.8125rem" }, noWrap: true, children: span.labelKey ? t(span.labelKey) : span.label }),
+                /* @__PURE__ */ jsxRuntime.jsxs(Typography4__default.default, { variant: "caption", color: "text.secondary", sx: { display: "block", mt: 0.25 }, children: [
+                  span.startDate,
+                  " \u2192 ",
+                  span.endDate
+                ] })
+              ] });
+              const tooltipContent = renderSpanTooltip ? renderSpanTooltip(span) : span.tooltip ?? defaultTooltip;
+              const spanButton = /* @__PURE__ */ jsxRuntime.jsx(
                 SpanBar,
                 {
                   type: "button",
+                  density,
                   onClick: (e) => {
                     e.stopPropagation();
                     onSpanClick?.(span);
                   },
                   style: {
-                    left: offset * DAY_COL_WIDTH + 2,
-                    width: length * DAY_COL_WIDTH - 4,
+                    left: offset * dayColWidth + 2,
+                    width: length * dayColWidth - 4,
+                    height: rowHeight - spanInset * 2,
+                    top: spanInset,
                     ...spanColor(span.colorKey)
                   },
                   children: span.labelKey ? t(span.labelKey) : span.label
+                },
+                span.id
+              );
+              return /* @__PURE__ */ jsxRuntime.jsx(
+                Tooltip2__default.default,
+                {
+                  title: tooltipContent,
+                  arrow: true,
+                  placement: "top",
+                  enterDelay: 150,
+                  leaveDelay: 50,
+                  componentsProps: {
+                    tooltip: { sx: tooltipSx },
+                    arrow: { sx: { color: "background.paper", "&::before": { border: "1px solid", borderColor: "divider" } } }
+                  },
+                  children: spanButton
                 },
                 span.id
               );
@@ -7486,6 +7632,7 @@ exports.StatCard = StatCard;
 exports.StatusChip = StatusChip;
 exports.StatusFilterChips = StatusFilterChips;
 exports.Switch = Switch;
+exports.TIMELINE_DIMENSIONS = TIMELINE_DIMENSIONS;
 exports.Tab = Tab;
 exports.Tabs = Tabs;
 exports.TextField = TextField;

@@ -57,7 +57,7 @@ describe('TimelineMatrix', () => {
     expect(onCellClick).toHaveBeenCalledWith('r102', '2026-07-04');
   });
 
-  it('positions an in-range initial date as the first visible day column', () => {
+  it('positions an in-range initial date as the first visible day column with compact dayColWidth by default', () => {
     renderWithProviders(
       <TimelineMatrix<Room>
         resources={resources}
@@ -72,7 +72,48 @@ describe('TimelineMatrix', () => {
 
     expect(screen.getByTestId('timeline-matrix-scroll-container')).toHaveProperty(
       'scrollLeft',
+      11 * 48,
+    );
+  });
+
+  it('positions initial date with comfortable dayColWidth when comfortable is specified', () => {
+    renderWithProviders(
+      <TimelineMatrix<Room>
+        resources={resources}
+        spans={[]}
+        startDate="2026-07-01"
+        days={31}
+        density="comfortable"
+        initialScrollDate="2026-07-12"
+        resourceLabelKey="common:timeline.resource"
+        renderResource={(room) => <span>{room.number}</span>}
+      />,
+    );
+
+    expect(screen.getByTestId('timeline-matrix-scroll-container')).toHaveProperty(
+      'scrollLeft',
       11 * 76,
     );
+  });
+
+  it('renders custom tooltip builder for spans', async () => {
+    const user = userEvent.setup();
+    renderWithProviders(
+      <TimelineMatrix<Room>
+        resources={resources}
+        spans={spans}
+        startDate="2026-07-01"
+        days={7}
+        resourceLabelKey="common:timeline.resource"
+        renderResource={(room) => <span>{room.number}</span>}
+        renderSpanTooltip={(span) => (
+          <div data-testid="custom-tooltip">Booking: {span.label}</div>
+        )}
+      />,
+    );
+
+    const spanBtn = screen.getByRole('button', { name: 'John Doe' });
+    await user.hover(spanBtn);
+    expect(await screen.findByTestId('custom-tooltip')).toBeInTheDocument();
   });
 });

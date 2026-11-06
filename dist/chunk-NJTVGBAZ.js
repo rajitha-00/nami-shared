@@ -57,6 +57,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Skeleton2 from '@mui/material/Skeleton';
+import Tooltip2 from '@mui/material/Tooltip';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
@@ -80,7 +81,6 @@ import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import PaymentsIcon from '@mui/icons-material/Payments';
 import PeopleIcon from '@mui/icons-material/People';
 import InventoryIcon from '@mui/icons-material/Inventory';
-import Tooltip2 from '@mui/material/Tooltip';
 import { createPortal } from 'react-dom';
 import InputBase from '@mui/material/InputBase';
 import CardContent2 from '@mui/material/CardContent';
@@ -2416,14 +2416,26 @@ var AppTopBar = ({ appsLauncher, logo, nav, actions, onMenuClick }) => {
     }
   );
 };
-var RESOURCE_COL_WIDTH = 148;
-var DAY_COL_WIDTH = 76;
-var ROW_HEIGHT = 52;
-var SPAN_INSET = 8;
-var MatrixRoot = styled("div")(({ theme }) => ({
+var TIMELINE_DIMENSIONS = {
+  comfortable: {
+    resourceColWidth: 148,
+    dayColWidth: 76,
+    rowHeight: 52,
+    spanInset: 8
+  },
+  compact: {
+    resourceColWidth: 128,
+    dayColWidth: 48,
+    rowHeight: 38,
+    spanInset: 4
+  }
+};
+var MatrixRoot = styled("div", {
+  shouldForwardProp: (p) => p !== "disableBorder"
+})(({ theme, disableBorder }) => ({
   overflowX: "auto",
-  border: `1px solid ${theme.palette.divider}`,
-  borderRadius: theme.shape.borderRadius
+  border: disableBorder ? "none" : `1px solid ${theme.palette.divider}`,
+  borderRadius: disableBorder ? 0 : theme.shape.borderRadius
 }));
 var HeaderRow = styled("div")(({ theme }) => ({
   display: "flex",
@@ -2433,39 +2445,53 @@ var HeaderRow = styled("div")(({ theme }) => ({
   top: 0,
   zIndex: 3
 }));
-var ResourceCell = styled("div")(({ theme }) => ({
-  width: RESOURCE_COL_WIDTH,
-  minWidth: RESOURCE_COL_WIDTH,
-  padding: theme.spacing(1, 2),
-  display: "flex",
-  alignItems: "center",
-  position: "sticky",
-  left: 0,
-  zIndex: 2,
-  backgroundColor: theme.palette.background.paper,
-  borderRight: `1px solid ${theme.palette.divider}`
-}));
-var DayHeaderCell = styled("div")(({ theme }) => ({
-  width: DAY_COL_WIDTH,
-  minWidth: DAY_COL_WIDTH,
-  padding: theme.spacing(1, 0),
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  gap: 2
-}));
-var TodayBubble = styled("span")(({ theme }) => ({
-  width: 26,
-  height: 26,
-  borderRadius: "50%",
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
-  backgroundColor: theme.palette.primary.main,
-  color: theme.palette.primary.contrastText,
-  fontWeight: 600,
-  fontSize: theme.typography.body2.fontSize
-}));
+var ResourceCell = styled("div", {
+  shouldForwardProp: (p) => p !== "density"
+})(({ theme, density }) => {
+  const isCompact = density === "compact";
+  return {
+    padding: isCompact ? theme.spacing(0.5, 1) : theme.spacing(1, 2),
+    display: "flex",
+    alignItems: "center",
+    position: "sticky",
+    left: 0,
+    zIndex: 2,
+    backgroundColor: theme.palette.background.paper,
+    borderRight: `1px solid ${theme.palette.divider}`,
+    boxSizing: "border-box"
+  };
+});
+var DayHeaderCell = styled("div", {
+  shouldForwardProp: (p) => p !== "density"
+})(({ theme, density }) => {
+  const isCompact = density === "compact";
+  return {
+    padding: isCompact ? theme.spacing(0.5, 0) : theme.spacing(1, 0),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: isCompact ? 1 : 2,
+    boxSizing: "border-box"
+  };
+});
+var TodayBubble = styled("span", {
+  shouldForwardProp: (p) => p !== "density"
+})(({ theme, density }) => {
+  const isCompact = density === "compact";
+  const size = isCompact ? 22 : 26;
+  return {
+    width: size,
+    height: size,
+    borderRadius: "50%",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
+    fontWeight: 700,
+    fontSize: isCompact ? "0.72rem" : theme.typography.body2.fontSize
+  };
+});
 var BodyRow = styled("div")(({ theme }) => ({
   display: "flex",
   borderBottom: `1px solid ${theme.palette.divider}`,
@@ -2474,40 +2500,50 @@ var BodyRow = styled("div")(({ theme }) => ({
 }));
 var RowTrack = styled("div")({
   position: "relative",
-  height: ROW_HEIGHT,
   display: "flex"
 });
 var DayCell = styled("button")(({ theme }) => ({
-  width: DAY_COL_WIDTH,
-  minWidth: DAY_COL_WIDTH,
   height: "100%",
   border: "none",
   borderLeft: `1px solid ${theme.palette.divider}`,
   backgroundColor: "transparent",
   cursor: "pointer",
   padding: 0,
+  boxSizing: "border-box",
+  transition: "background-color 0.15s ease",
   "&:hover": { backgroundColor: theme.palette.action.hover },
   "&:disabled": { cursor: "default" }
 }));
-var SpanBar = styled("button")(({ theme }) => ({
-  position: "absolute",
-  top: SPAN_INSET,
-  height: ROW_HEIGHT - SPAN_INSET * 2,
-  borderRadius: theme.shape.borderRadius,
-  display: "flex",
-  alignItems: "center",
-  paddingLeft: theme.spacing(1.5),
-  paddingRight: theme.spacing(1),
-  overflow: "hidden",
-  whiteSpace: "nowrap",
-  textOverflow: "ellipsis",
-  cursor: "pointer",
-  fontFamily: "inherit",
-  fontSize: theme.typography.body2.fontSize,
-  fontWeight: 500,
-  textAlign: "left",
-  zIndex: 1
-}));
+var SpanBar = styled("button", {
+  shouldForwardProp: (p) => p !== "density"
+})(({ theme, density }) => {
+  const isCompact = density === "compact";
+  return {
+    position: "absolute",
+    borderRadius: isCompact ? 4 : theme.shape.borderRadius,
+    display: "flex",
+    alignItems: "center",
+    paddingLeft: isCompact ? theme.spacing(0.75) : theme.spacing(1.5),
+    paddingRight: isCompact ? theme.spacing(0.5) : theme.spacing(1),
+    overflow: "hidden",
+    whiteSpace: "nowrap",
+    textOverflow: "ellipsis",
+    cursor: "pointer",
+    fontFamily: "inherit",
+    fontSize: isCompact ? "0.75rem" : theme.typography.body2.fontSize,
+    fontWeight: 600,
+    lineHeight: 1.2,
+    textAlign: "left",
+    zIndex: 1,
+    boxSizing: "border-box",
+    transition: "transform 0.1s ease, box-shadow 0.15s ease",
+    "&:hover": {
+      zIndex: 5,
+      transform: "translateY(-1px)",
+      boxShadow: "0 3px 10px rgba(0, 0, 0, 0.14)"
+    }
+  };
+});
 var TimelineMatrix = ({
   resources,
   spans,
@@ -2520,7 +2556,12 @@ var TimelineMatrix = ({
   legend,
   loading = false,
   today,
-  initialScrollDate
+  initialScrollDate,
+  density = "compact",
+  customDimensions,
+  renderSpanTooltip,
+  renderCellTooltip,
+  disableBorder = false
 }) => {
   const { t, i18n } = useTranslation();
   const theme = useTheme();
@@ -2528,16 +2569,21 @@ var TimelineMatrix = ({
   const dayList = dateRangeDays(startDate, days);
   const todayDate = today ?? todayIso();
   const endDate = addDays(startDate, days);
+  const dimensions = {
+    ...TIMELINE_DIMENSIONS[density],
+    ...customDimensions
+  };
+  const { resourceColWidth, dayColWidth, rowHeight, spanInset } = dimensions;
   useEffect(() => {
     if (!initialScrollDate || !scrollContainerRef.current) return;
     const dayIndex = differenceInDays(startDate, initialScrollDate);
     if (dayIndex < 0 || dayIndex >= days) return;
-    scrollContainerRef.current.scrollLeft = dayIndex * DAY_COL_WIDTH;
-  }, [days, initialScrollDate, startDate]);
+    scrollContainerRef.current.scrollLeft = dayIndex * dayColWidth;
+  }, [days, initialScrollDate, startDate, dayColWidth]);
   const spanColor = (key) => {
     const paletteColor = key === "neutral" ? theme.palette.neutral : theme.palette[key];
     return {
-      backgroundColor: alpha(paletteColor.main, theme.palette.mode === "light" ? 0.09 : 0.22),
+      backgroundColor: alpha(paletteColor.main, theme.palette.mode === "light" ? 0.12 : 0.24),
       border: `1px solid ${alpha(paletteColor.main, 0.55)}`,
       color: theme.palette.mode === "light" ? paletteColor.dark : paletteColor.light
     };
@@ -2545,20 +2591,71 @@ var TimelineMatrix = ({
   const monthFormat = new Intl.DateTimeFormat(i18n.language, { month: "short" });
   const dayFormat = new Intl.DateTimeFormat(i18n.language, { day: "numeric" });
   if (loading) {
-    return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(Skeleton2, { variant: "rounded", height: ROW_HEIGHT * 6 }) });
+    return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(Skeleton2, { variant: "rounded", height: rowHeight * 6 }) });
   }
+  const tooltipSx = {
+    bgcolor: "background.paper",
+    color: "text.primary",
+    boxShadow: "0 6px 24px rgba(0, 0, 0, 0.16)",
+    border: "1px solid",
+    borderColor: "divider",
+    p: 0,
+    borderRadius: 2,
+    maxWidth: 320
+  };
   return /* @__PURE__ */ jsxs("div", { children: [
     legend ? /* @__PURE__ */ jsx(Typography4, { component: "div", variant: "body2", sx: { display: "flex", justifyContent: "flex-end", mb: 1 }, children: legend }) : null,
-    /* @__PURE__ */ jsx(MatrixRoot, { ref: scrollContainerRef, "data-testid": "timeline-matrix-scroll-container", children: /* @__PURE__ */ jsxs("div", { style: { width: RESOURCE_COL_WIDTH + days * DAY_COL_WIDTH }, children: [
+    /* @__PURE__ */ jsx(MatrixRoot, { ref: scrollContainerRef, disableBorder, "data-testid": "timeline-matrix-scroll-container", children: /* @__PURE__ */ jsxs("div", { style: { width: resourceColWidth + days * dayColWidth }, children: [
       /* @__PURE__ */ jsxs(HeaderRow, { children: [
-        /* @__PURE__ */ jsx(ResourceCell, { children: /* @__PURE__ */ jsx(Typography4, { variant: "overline", color: "text.secondary", children: t(resourceLabelKey) }) }),
+        /* @__PURE__ */ jsx(ResourceCell, { density, style: { width: resourceColWidth, minWidth: resourceColWidth }, children: /* @__PURE__ */ jsx(
+          Typography4,
+          {
+            variant: density === "compact" ? "caption" : "overline",
+            color: "text.secondary",
+            fontWeight: 700,
+            sx: { letterSpacing: density === "compact" ? "0.5px" : void 0 },
+            children: t(resourceLabelKey)
+          }
+        ) }),
         dayList.map((date) => {
           const isToday = date === todayDate;
           const dateObj = /* @__PURE__ */ new Date(`${date}T00:00:00Z`);
-          return /* @__PURE__ */ jsxs(DayHeaderCell, { "aria-current": isToday ? "date" : void 0, children: [
-            /* @__PURE__ */ jsx(Typography4, { variant: "caption", color: "text.secondary", sx: { textTransform: "uppercase" }, children: monthFormat.format(dateObj) }),
-            isToday ? /* @__PURE__ */ jsx(TodayBubble, { "aria-label": t("common:timeline.today"), children: dayFormat.format(dateObj) }) : /* @__PURE__ */ jsx(Typography4, { variant: "body2", children: dayFormat.format(dateObj) })
-          ] }, date);
+          return /* @__PURE__ */ jsxs(
+            DayHeaderCell,
+            {
+              density,
+              "aria-current": isToday ? "date" : void 0,
+              style: { width: dayColWidth, minWidth: dayColWidth },
+              children: [
+                /* @__PURE__ */ jsx(
+                  Typography4,
+                  {
+                    variant: "caption",
+                    color: "text.secondary",
+                    sx: {
+                      textTransform: "uppercase",
+                      fontSize: density === "compact" ? "0.65rem" : void 0,
+                      lineHeight: 1.1,
+                      fontWeight: 600
+                    },
+                    children: monthFormat.format(dateObj)
+                  }
+                ),
+                isToday ? /* @__PURE__ */ jsx(TodayBubble, { density, "aria-label": t("common:timeline.today"), children: dayFormat.format(dateObj) }) : /* @__PURE__ */ jsx(
+                  Typography4,
+                  {
+                    variant: density === "compact" ? "caption" : "body2",
+                    sx: {
+                      fontSize: density === "compact" ? "0.75rem" : void 0,
+                      fontWeight: 600
+                    },
+                    children: dayFormat.format(dateObj)
+                  }
+                )
+              ]
+            },
+            date
+          );
         })
       ] }),
       resources.map((resource) => {
@@ -2566,37 +2663,86 @@ var TimelineMatrix = ({
           (span) => span.resourceId === resource.id && span.startDate < endDate && span.endDate > startDate
         );
         return /* @__PURE__ */ jsxs(BodyRow, { children: [
-          /* @__PURE__ */ jsx(ResourceCell, { children: renderResource(resource) }),
-          /* @__PURE__ */ jsxs(RowTrack, { style: { width: days * DAY_COL_WIDTH }, children: [
-            dayList.map((date) => /* @__PURE__ */ jsx(
-              DayCell,
-              {
-                type: "button",
-                "aria-label": `${resource.id} ${date}`,
-                disabled: !onCellClick,
-                onClick: () => onCellClick?.(resource.id, date)
-              },
-              date
-            )),
+          /* @__PURE__ */ jsx(ResourceCell, { density, style: { width: resourceColWidth, minWidth: resourceColWidth }, children: renderResource(resource, density) }),
+          /* @__PURE__ */ jsxs(RowTrack, { style: { width: days * dayColWidth, height: rowHeight }, children: [
+            dayList.map((date) => {
+              const cellTooltip = renderCellTooltip?.(resource.id, date);
+              const cellButton = /* @__PURE__ */ jsx(
+                DayCell,
+                {
+                  type: "button",
+                  "aria-label": `${resource.id} ${date}`,
+                  disabled: !onCellClick,
+                  onClick: () => onCellClick?.(resource.id, date),
+                  style: { width: dayColWidth, minWidth: dayColWidth }
+                },
+                date
+              );
+              if (!cellTooltip) return cellButton;
+              return /* @__PURE__ */ jsx(
+                Tooltip2,
+                {
+                  title: cellTooltip,
+                  arrow: true,
+                  placement: "top",
+                  enterDelay: 350,
+                  leaveDelay: 50,
+                  componentsProps: {
+                    tooltip: { sx: tooltipSx },
+                    arrow: { sx: { color: "background.paper", "&::before": { border: "1px solid", borderColor: "divider" } } }
+                  },
+                  children: cellButton
+                },
+                date
+              );
+            }),
             rowSpans.map((span) => {
               const clampedStart = span.startDate < startDate ? startDate : span.startDate;
               const clampedEnd = span.endDate > endDate ? endDate : span.endDate;
               const offset = differenceInDays(startDate, clampedStart);
               const length = Math.max(1, differenceInDays(clampedStart, clampedEnd));
-              return /* @__PURE__ */ jsx(
+              const defaultTooltip = /* @__PURE__ */ jsxs(Box5, { sx: { p: 1, minWidth: 140 }, children: [
+                /* @__PURE__ */ jsx(Typography4, { variant: "body2", sx: { fontWeight: 700, fontSize: "0.8125rem" }, noWrap: true, children: span.labelKey ? t(span.labelKey) : span.label }),
+                /* @__PURE__ */ jsxs(Typography4, { variant: "caption", color: "text.secondary", sx: { display: "block", mt: 0.25 }, children: [
+                  span.startDate,
+                  " \u2192 ",
+                  span.endDate
+                ] })
+              ] });
+              const tooltipContent = renderSpanTooltip ? renderSpanTooltip(span) : span.tooltip ?? defaultTooltip;
+              const spanButton = /* @__PURE__ */ jsx(
                 SpanBar,
                 {
                   type: "button",
+                  density,
                   onClick: (e) => {
                     e.stopPropagation();
                     onSpanClick?.(span);
                   },
                   style: {
-                    left: offset * DAY_COL_WIDTH + 2,
-                    width: length * DAY_COL_WIDTH - 4,
+                    left: offset * dayColWidth + 2,
+                    width: length * dayColWidth - 4,
+                    height: rowHeight - spanInset * 2,
+                    top: spanInset,
                     ...spanColor(span.colorKey)
                   },
                   children: span.labelKey ? t(span.labelKey) : span.label
+                },
+                span.id
+              );
+              return /* @__PURE__ */ jsx(
+                Tooltip2,
+                {
+                  title: tooltipContent,
+                  arrow: true,
+                  placement: "top",
+                  enterDelay: 150,
+                  leaveDelay: 50,
+                  componentsProps: {
+                    tooltip: { sx: tooltipSx },
+                    arrow: { sx: { color: "background.paper", "&::before": { border: "1px solid", borderColor: "divider" } } }
+                  },
+                  children: spanButton
                 },
                 span.id
               );
@@ -6804,6 +6950,6 @@ function PropertyDigitalTwin({
   ) });
 }
 
-export { APP_TILE_VARIANTS, Accordion, AccordionDetails, AccordionSummary, AdaptiveThemeProvider, Alert, AlertTitle, AnimatedBed, AnimatedBrush, AnimatedCalendar, AnimatedCreditCard, AnimatedDashboard, AnimatedDoorOpen, AnimatedFolderOpen, AnimatedInbox, AnimatedLayers, AnimatedRadio, AnimatedSearch, AnimatedSettings, AnimatedShieldCheck, AnimatedSparkles, AnimatedTrendingUp, AnimatedUsers, AppDialog, AppDrawer, AppFolderMiniPreview, AppFolderModal, AppLauncher, AppSideNav, AppTile, AppTopBar, AuthFormHeader, AuthFormShell, AuthLayout, Avatar, AvatarGroup, BACKDROP_TRANSITION, Badge, Box3 as Box, Button2 as Button, CONTAINER_VARIANTS, Card, CardActions, CardContent, CardHeader, CardMedia, Checkbox, Chip, CircularProgress2 as CircularProgress, Container, ContextMenu, CursorGrid, DEFAULT_HOTELOS_APPS, DashboardLayout, DataTable, DateRangeButton, DescriptionList, Dialog2 as Dialog, DialogActions2 as DialogActions, DialogContent2 as DialogContent, DialogTitle2 as DialogTitle, Divider, Drawer, EmptyState, ErrorState, FOLDER_LAYOUT_SPRING, FormDialog, FormSelect, FormSwitch, FormTextField, Grid, IconButton2 as IconButton, IsometricBarOverview, KanbanBoard, LanguageSwitcher, LinearProgress, LoadingOverlay, MenuCard, NamiosLoader, NamiosMarkSvg, OtpInput, PRODUCTION_APP_URLS, PageHeader, PageSkeleton, Paper2 as Paper, PasswordField, PropertyDigitalTwin, Radio, RadioGroup, Rating, SearchField, SectionCard, Select, SelectField, Skeleton, Slider, SplitPaneLayout, Stack2 as Stack, StatCard, StatusChip, StatusFilterChips, Switch, Tab, Tabs, TextField, ThemeProvider, ThreeOverviewCanvas, TimelineMatrix, Tooltip, Typography3 as Typography, UserAvatar, VERCEL_APP_URLS, WizardDialog, adjustLightness, buildColorRole, clamp, cn, createMuiCompatiblePalette, createTheme, forwardRef, generateId, getAvatarBgColor, getContrastRatio, getContrastText, getRelativeLuminance, hexToRgb, injectThemeTokens, isInteractive, isPwa, mapRange, navigateApp, resolveAppUrl, rgbToHex, useMediaQuery, useTheme2 as useTheme, useWebGlSupport };
-//# sourceMappingURL=chunk-NPSQ6NY3.js.map
-//# sourceMappingURL=chunk-NPSQ6NY3.js.map
+export { APP_TILE_VARIANTS, Accordion, AccordionDetails, AccordionSummary, AdaptiveThemeProvider, Alert, AlertTitle, AnimatedBed, AnimatedBrush, AnimatedCalendar, AnimatedCreditCard, AnimatedDashboard, AnimatedDoorOpen, AnimatedFolderOpen, AnimatedInbox, AnimatedLayers, AnimatedRadio, AnimatedSearch, AnimatedSettings, AnimatedShieldCheck, AnimatedSparkles, AnimatedTrendingUp, AnimatedUsers, AppDialog, AppDrawer, AppFolderMiniPreview, AppFolderModal, AppLauncher, AppSideNav, AppTile, AppTopBar, AuthFormHeader, AuthFormShell, AuthLayout, Avatar, AvatarGroup, BACKDROP_TRANSITION, Badge, Box3 as Box, Button2 as Button, CONTAINER_VARIANTS, Card, CardActions, CardContent, CardHeader, CardMedia, Checkbox, Chip, CircularProgress2 as CircularProgress, Container, ContextMenu, CursorGrid, DEFAULT_HOTELOS_APPS, DashboardLayout, DataTable, DateRangeButton, DescriptionList, Dialog2 as Dialog, DialogActions2 as DialogActions, DialogContent2 as DialogContent, DialogTitle2 as DialogTitle, Divider, Drawer, EmptyState, ErrorState, FOLDER_LAYOUT_SPRING, FormDialog, FormSelect, FormSwitch, FormTextField, Grid, IconButton2 as IconButton, IsometricBarOverview, KanbanBoard, LanguageSwitcher, LinearProgress, LoadingOverlay, MenuCard, NamiosLoader, NamiosMarkSvg, OtpInput, PRODUCTION_APP_URLS, PageHeader, PageSkeleton, Paper2 as Paper, PasswordField, PropertyDigitalTwin, Radio, RadioGroup, Rating, SearchField, SectionCard, Select, SelectField, Skeleton, Slider, SplitPaneLayout, Stack2 as Stack, StatCard, StatusChip, StatusFilterChips, Switch, TIMELINE_DIMENSIONS, Tab, Tabs, TextField, ThemeProvider, ThreeOverviewCanvas, TimelineMatrix, Tooltip, Typography3 as Typography, UserAvatar, VERCEL_APP_URLS, WizardDialog, adjustLightness, buildColorRole, clamp, cn, createMuiCompatiblePalette, createTheme, forwardRef, generateId, getAvatarBgColor, getContrastRatio, getContrastText, getRelativeLuminance, hexToRgb, injectThemeTokens, isInteractive, isPwa, mapRange, navigateApp, resolveAppUrl, rgbToHex, useMediaQuery, useTheme2 as useTheme, useWebGlSupport };
+//# sourceMappingURL=chunk-NJTVGBAZ.js.map
+//# sourceMappingURL=chunk-NJTVGBAZ.js.map

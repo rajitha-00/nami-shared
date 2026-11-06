@@ -19,7 +19,7 @@ export { PasswordField, type PasswordFieldProps } from './PasswordField';
 export { FormSelect, FormSwitch, FormTextField, type FormSelectProps, type FormSwitchProps, type FormTextFieldProps, } from './FormFields';
 export { LanguageSwitcher, type LanguageSwitcherProps } from './LanguageSwitcher';
 export { AppTopBar, type AppTopBarProps } from './AppTopBar';
-export { TimelineMatrix, type TimelineColorKey, type TimelineMatrixProps, type TimelineResource, type TimelineSpan, } from './TimelineMatrix';
+export { TimelineMatrix, type TimelineColorKey, type TimelineDensity, type TimelineDimensions, TIMELINE_DIMENSIONS, type TimelineMatrixProps, type TimelineResource, type TimelineSpan, } from './TimelineMatrix';
 export { StatusFilterChips, type StatusFilterChipsProps, type StatusFilterOption, } from './StatusFilterChips';
 export { AppDrawer, type AppDrawerProps } from './AppDrawer';
 export { WizardDialog, type WizardDialogProps, type WizardStep } from './WizardDialog';
