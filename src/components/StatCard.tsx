@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import { Skeleton } from '@namios/motionui-react';
 import Typography from '@mui/material/Typography';
@@ -11,28 +12,20 @@ import { useTranslation } from 'react-i18next';
 const StatCardRoot = styled(Card, {
   shouldForwardProp: (prop) => prop !== 'compactSize',
 })<{ compactSize?: boolean }>(({ theme, compactSize }) => ({
-  padding: compactSize ? theme.spacing(1.25, 1.5) : theme.spacing(1.5, 2),
+  padding: compactSize ? theme.spacing(1, 1.25) : theme.spacing(1.25, 1.75),
   display: 'flex',
   flexDirection: 'column',
-  gap: compactSize ? theme.spacing(0.5) : theme.spacing(0.75),
+  justifyContent: 'center',
   height: '100%',
   borderRadius: '4px',
   boxShadow: '0 1px 2px rgba(0, 0, 0, 0.03)',
   border: `0.5px solid ${theme.palette.mode === 'light' ? 'rgba(15, 23, 42, 0.08)' : 'rgba(255, 255, 255, 0.08)'}`,
-  transition: 'border-color 0.15s ease, background-color 0.15s ease',
+  transition: 'border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease',
   '&:hover': {
-    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
-    borderColor: theme.palette.mode === 'light' ? 'rgba(15, 23, 42, 0.20)' : 'rgba(255, 255, 255, 0.20)',
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)',
+    borderColor: theme.palette.mode === 'light' ? 'rgba(15, 23, 42, 0.18)' : 'rgba(255, 255, 255, 0.18)',
     transform: 'none',
   },
-}));
-
-const KpiHeaderRow = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  gap: theme.spacing(1),
-  width: '100%',
 }));
 
 export type StatCardIconColor = 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error';
@@ -43,8 +36,10 @@ const IconTile = styled('div', {
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
-  padding: theme.spacing(compact ? 0.75 : 1),
-  borderRadius: '2px',
+  width: compact ? 36 : 40,
+  height: compact ? 36 : 40,
+  minWidth: compact ? 36 : 40,
+  borderRadius: '4px',
   backgroundColor: alpha(theme.palette[colorKey].main, 0.10),
   color: theme.palette[colorKey].main,
   flexShrink: 0,
@@ -52,20 +47,26 @@ const IconTile = styled('div', {
 
 const DeltaRow = styled('div', {
   shouldForwardProp: (prop) => prop !== 'trend',
-})<{ trend: StatCardTrend }>(({ theme, trend }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  gap: theme.spacing(0.5),
-  ...theme.typography.caption,
-  fontWeight: 700,
-  fontSize: '0.75rem',
-  color:
+})<{ trend: StatCardTrend }>(({ theme, trend }) => {
+  const color =
     trend === 'up'
       ? theme.palette.success.main
       : trend === 'down'
         ? theme.palette.error.main
-        : theme.palette.text.secondary,
-}));
+        : theme.palette.text.secondary;
+  return {
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: 3,
+    fontWeight: 600,
+    fontSize: '0.75rem',
+    lineHeight: 1.2,
+    color,
+    '& svg': {
+      fontSize: '0.875rem',
+    },
+  };
+});
 
 export type StatCardTrend = 'up' | 'down' | 'flat';
 export type StatCardSize = 'medium' | 'small' | 'mini';
@@ -79,20 +80,21 @@ export interface StatCardProps {
   icon?: ReactNode;
   loading?: boolean;
   /**
-   * 'stat' — label above value (Super Admin dashboard).
-   * 'kpi' — icon tile top-left, right-aligned uppercase label, badge slot
-   * top-right (Stay OS property overview / revenue KPIs).
+   * 'stat' — label above value with inline icon (Super Admin dashboard).
+   * 'kpi' — icon tile right-aligned, label and value compact on left (Stay OS property overview / revenue KPIs).
    */
   layout?: 'stat' | 'kpi';
-  /** Small line under the value ("4 floors · 3 categories", "Due before 14:00"). */
+  /** Small line under or beside the value ("4 floors · 3 categories", "Due before 14:00"). */
   subtitleKey?: string;
   subtitleParams?: Record<string, unknown>;
-  /** Free-form badge rendered top-right in kpi layout (delta chip). */
+  /** Free-form badge rendered in kpi layout (delta chip). */
   badge?: ReactNode;
   /** Tint of the kpi icon tile. */
   iconColor?: StatCardIconColor;
   /** Card sizing: 'medium' (default), 'small', or 'mini'. */
   size?: StatCardSize;
+  /** Backward compatibility with compactSize flag */
+  compactSize?: boolean;
 }
 
 const TREND_ICONS = {
@@ -115,9 +117,10 @@ export const StatCard = ({
   badge,
   iconColor = 'primary',
   size = 'small',
+  compactSize,
 }: StatCardProps) => {
   const { t } = useTranslation();
-  const isCompact = size === 'small' || size === 'mini';
+  const isCompact = size === 'small' || size === 'mini' || Boolean(compactSize);
 
   const valueNode = loading ? (
     <Skeleton variant="text" width={80} height={isCompact ? 28 : 40} />
@@ -125,7 +128,7 @@ export const StatCard = ({
     <Typography
       variant={isCompact ? 'h5' : 'h4'}
       component="div"
-      sx={isCompact ? { fontWeight: 800, fontSize: '1.35rem', lineHeight: 1.2 } : { fontWeight: 800 }}
+      sx={isCompact ? { fontWeight: 800, fontSize: '1.35rem', lineHeight: 1.15 } : { fontWeight: 800, lineHeight: 1.15 }}
     >
       {value}
     </Typography>
@@ -140,7 +143,11 @@ export const StatCard = ({
     ) : null;
 
   const subtitleNode = subtitleKey ? (
-    <Typography variant="caption" color="text.secondary" sx={{ fontSize: '0.75rem', fontWeight: 500 }}>
+    <Typography
+      variant="caption"
+      color="text.secondary"
+      sx={{ fontSize: '0.75rem', fontWeight: 500, lineHeight: 1.2 }}
+    >
       {t(subtitleKey, subtitleParams)}
     </Typography>
   ) : null;
@@ -148,52 +155,85 @@ export const StatCard = ({
   if (layout === 'kpi') {
     return (
       <StatCardRoot compactSize={isCompact}>
-        <KpiHeaderRow>
-          {icon ? <IconTile colorKey={iconColor} compact={isCompact}>{icon}</IconTile> : <span />}
-          {badge ?? (
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 1.5, width: '100%' }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', minWidth: 0, flex: 1, gap: 0.25 }}>
             <Typography
-              variant="overline"
+              variant="caption"
               color="text.secondary"
               noWrap
+              title={t(labelKey)}
               sx={{
-                textAlign: 'right',
-                lineHeight: 1.3,
-                fontSize: isCompact ? '0.68rem' : '0.75rem',
-                fontWeight: 700,
-                letterSpacing: '0.05em',
-                maxWidth: '70%',
-                pr: 0.5,
+                fontSize: isCompact ? '0.75rem' : '0.8125rem',
+                fontWeight: 600,
+                lineHeight: 1.25,
+                letterSpacing: '0.01em',
               }}
             >
               {t(labelKey)}
             </Typography>
-          )}
-        </KpiHeaderRow>
-        {badge ? (
-          <Typography variant="overline" color="text.secondary" noWrap sx={{ fontSize: isCompact ? '0.68rem' : '0.75rem', fontWeight: 700, pr: 0.5 }}>
-            {t(labelKey)}
-          </Typography>
-        ) : null}
-        {valueNode}
-        {deltaNode ?? subtitleNode}
+            <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1, flexWrap: 'wrap' }}>
+              {valueNode}
+              {deltaNode && subtitleNode ? (
+                <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.75, flexWrap: 'wrap' }}>
+                  {deltaNode}
+                  <Typography component="span" variant="caption" color="text.disabled" sx={{ fontSize: '0.65rem' }}>
+                    •
+                  </Typography>
+                  {subtitleNode}
+                </Box>
+              ) : (
+                deltaNode ?? subtitleNode
+              )}
+              {icon && badge ? badge : null}
+            </Box>
+          </Box>
+          {icon ? (
+            <IconTile colorKey={iconColor} compact={isCompact}>
+              {icon}
+            </IconTile>
+          ) : badge ? (
+            <Box sx={{ flexShrink: 0 }}>{badge}</Box>
+          ) : null}
+        </Box>
       </StatCardRoot>
     );
   }
 
   return (
     <StatCardRoot compactSize={isCompact}>
-      <Typography
-        variant="body2"
-        color="text.secondary"
-        noWrap
-        sx={{ display: 'flex', alignItems: 'center', gap: 1, fontSize: isCompact ? '0.75rem' : '0.8125rem', pr: 0.5 }}
-      >
-        {icon}
-        {t(labelKey)}
-      </Typography>
-      {valueNode}
-      {deltaNode}
-      {subtitleNode}
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 1, width: '100%', mb: 0.25 }}>
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          noWrap
+          title={t(labelKey)}
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 0.75,
+            fontSize: isCompact ? '0.75rem' : '0.8125rem',
+            fontWeight: 600,
+          }}
+        >
+          {icon}
+          {t(labelKey)}
+        </Typography>
+        {badge}
+      </Box>
+      <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 1, flexWrap: 'wrap' }}>
+        {valueNode}
+        {deltaNode && subtitleNode ? (
+          <Box sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.75, flexWrap: 'wrap' }}>
+            {deltaNode}
+            <Typography component="span" variant="caption" color="text.disabled" sx={{ fontSize: '0.65rem' }}>
+              •
+            </Typography>
+            {subtitleNode}
+          </Box>
+        ) : (
+          deltaNode ?? subtitleNode
+        )}
+      </Box>
     </StatCardRoot>
   );
-}
+};

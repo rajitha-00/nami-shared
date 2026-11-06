@@ -13,8 +13,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import IconButton8 from '@mui/material/IconButton';
 import { useTranslation } from 'react-i18next';
 import { styled, alpha, useTheme, keyframes } from '@mui/material/styles';
-import Box6 from '@mui/material/Box';
-import Typography9 from '@mui/material/Typography';
+import Box5 from '@mui/material/Box';
+import Typography4 from '@mui/material/Typography';
 import { jsxs, jsx, Fragment } from 'react/jsx-runtime';
 import React17, { useRef, useState, useCallback, useId, createContext, forwardRef as forwardRef$1, useEffect, useContext, useMemo, Fragment as Fragment$1 } from 'react';
 import Button4 from '@mui/material/Button';
@@ -120,7 +120,7 @@ function NamiosLoader({
   const thickness = Math.max(4, Math.round(size / 5));
   const lat = Math.round((size - thickness) / 2);
   return /* @__PURE__ */ jsxs(
-    Box6,
+    Box5,
     {
       sx: {
         display: "inline-flex",
@@ -132,7 +132,7 @@ function NamiosLoader({
       },
       children: [
         showLogo && /* @__PURE__ */ jsxs(
-          Box6,
+          Box5,
           {
             sx: {
               display: "flex",
@@ -143,7 +143,7 @@ function NamiosLoader({
             children: [
               /* @__PURE__ */ jsx(NamiosMarkSvg, { size: 26, color: loaderColor }),
               /* @__PURE__ */ jsx(
-                Typography9,
+                Typography4,
                 {
                   variant: "subtitle2",
                   sx: {
@@ -160,7 +160,7 @@ function NamiosLoader({
           }
         ),
         /* @__PURE__ */ jsx(
-          Box6,
+          Box5,
           {
             sx: {
               position: "relative",
@@ -192,7 +192,7 @@ function NamiosLoader({
           }
         ),
         label && /* @__PURE__ */ jsx(
-          Typography9,
+          Typography4,
           {
             variant: "caption",
             color: "text.secondary",
@@ -425,7 +425,7 @@ var EmptyStateContainer = styled(Paper)(({ theme }) => ({
   minHeight: 280,
   transition: "all 0.2s ease"
 }));
-var IconGlowBadge = styled(Box6)(({ theme }) => ({
+var IconGlowBadge = styled(Box5)(({ theme }) => ({
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
@@ -469,10 +469,10 @@ var EmptyState = ({
           children: [
             /* @__PURE__ */ jsx(IconGlowBadge, { children: icon ?? /* @__PURE__ */ jsx(AnimatedInbox, { size: 42, isAnimated: true }) }),
             /* @__PURE__ */ jsxs(Stack4, { spacing: 0.75, alignItems: "center", sx: { maxWidth: 440, mt: 1, mb: action ? 2.5 : 0 }, children: [
-              /* @__PURE__ */ jsx(Typography9, { variant: "h6", fontWeight: 700, color: "text.primary", letterSpacing: "-0.2px", children: displayTitle }),
-              displayDesc ? /* @__PURE__ */ jsx(Typography9, { variant: "body2", color: "text.secondary", fontWeight: 500, lineHeight: 1.5, children: displayDesc }) : null
+              /* @__PURE__ */ jsx(Typography4, { variant: "h6", fontWeight: 700, color: "text.primary", letterSpacing: "-0.2px", children: displayTitle }),
+              displayDesc ? /* @__PURE__ */ jsx(Typography4, { variant: "body2", color: "text.secondary", fontWeight: 500, lineHeight: 1.5, children: displayDesc }) : null
             ] }),
-            action ? /* @__PURE__ */ jsx(Box6, { sx: { mt: 1 }, children: action }) : null
+            action ? /* @__PURE__ */ jsx(Box5, { sx: { mt: 1 }, children: action }) : null
           ]
         }
       )
@@ -1827,8 +1827,8 @@ var DataTable = ({
       },
       children: [
         toolbar ? /* @__PURE__ */ jsx(TableToolbar, { children: toolbar }) : null,
-        !isLoading && isError ? /* @__PURE__ */ jsx(Box6, { sx: { p: 3 }, children: /* @__PURE__ */ jsx(ErrorState, { onRetry }) }) : null,
-        !isLoading && !isError && rows.length === 0 ? /* @__PURE__ */ jsx(Box6, { sx: { p: 2 }, children: emptyState ?? /* @__PURE__ */ jsx(EmptyState, { titleKey: "common:states.noResults" }) }) : null,
+        !isLoading && isError ? /* @__PURE__ */ jsx(Box5, { sx: { p: 3 }, children: /* @__PURE__ */ jsx(ErrorState, { onRetry }) }) : null,
+        !isLoading && !isError && rows.length === 0 ? /* @__PURE__ */ jsx(Box5, { sx: { p: 2 }, children: emptyState ?? /* @__PURE__ */ jsx(EmptyState, { titleKey: "common:states.noResults" }) }) : null,
         (isLoading || rows.length > 0) && /* @__PURE__ */ jsxs(Fragment, { children: [
           /* @__PURE__ */ jsx(TableContainer, { children: /* @__PURE__ */ jsxs(Table, { size: "small", "aria-busy": isLoading, children: [
             /* @__PURE__ */ jsx(TableHead, { sx: { backgroundColor: "action.hover" }, children: /* @__PURE__ */ jsxs(TableRow, { children: [
@@ -1936,27 +1936,20 @@ var DataTable = ({
 var StatCardRoot = styled(Card2, {
   shouldForwardProp: (prop) => prop !== "compactSize"
 })(({ theme, compactSize }) => ({
-  padding: compactSize ? theme.spacing(1.25, 1.5) : theme.spacing(1.5, 2),
+  padding: compactSize ? theme.spacing(1, 1.25) : theme.spacing(1.25, 1.75),
   display: "flex",
   flexDirection: "column",
-  gap: compactSize ? theme.spacing(0.5) : theme.spacing(0.75),
+  justifyContent: "center",
   height: "100%",
   borderRadius: "4px",
   boxShadow: "0 1px 2px rgba(0, 0, 0, 0.03)",
   border: `0.5px solid ${theme.palette.mode === "light" ? "rgba(15, 23, 42, 0.08)" : "rgba(255, 255, 255, 0.08)"}`,
-  transition: "border-color 0.15s ease, background-color 0.15s ease",
+  transition: "border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease",
   "&:hover": {
-    boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
-    borderColor: theme.palette.mode === "light" ? "rgba(15, 23, 42, 0.20)" : "rgba(255, 255, 255, 0.20)",
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
+    borderColor: theme.palette.mode === "light" ? "rgba(15, 23, 42, 0.18)" : "rgba(255, 255, 255, 0.18)",
     transform: "none"
   }
-}));
-var KpiHeaderRow = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  gap: theme.spacing(1),
-  width: "100%"
 }));
 var IconTile = styled("div", {
   shouldForwardProp: (prop) => prop !== "colorKey" && prop !== "compact"
@@ -1964,23 +1957,31 @@ var IconTile = styled("div", {
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
-  padding: theme.spacing(compact ? 0.75 : 1),
-  borderRadius: "2px",
+  width: compact ? 36 : 40,
+  height: compact ? 36 : 40,
+  minWidth: compact ? 36 : 40,
+  borderRadius: "4px",
   backgroundColor: alpha(theme.palette[colorKey].main, 0.1),
   color: theme.palette[colorKey].main,
   flexShrink: 0
 }));
 var DeltaRow = styled("div", {
   shouldForwardProp: (prop) => prop !== "trend"
-})(({ theme, trend }) => ({
-  display: "flex",
-  alignItems: "center",
-  gap: theme.spacing(0.5),
-  ...theme.typography.caption,
-  fontWeight: 700,
-  fontSize: "0.75rem",
-  color: trend === "up" ? theme.palette.success.main : trend === "down" ? theme.palette.error.main : theme.palette.text.secondary
-}));
+})(({ theme, trend }) => {
+  const color = trend === "up" ? theme.palette.success.main : trend === "down" ? theme.palette.error.main : theme.palette.text.secondary;
+  return {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 3,
+    fontWeight: 600,
+    fontSize: "0.75rem",
+    lineHeight: 1.2,
+    color,
+    "& svg": {
+      fontSize: "0.875rem"
+    }
+  };
+});
 var TREND_ICONS = {
   up: /* @__PURE__ */ jsx(TrendingUpIcon, { fontSize: "inherit" }),
   down: /* @__PURE__ */ jsx(TrendingDownIcon, { fontSize: "inherit" }),
@@ -1998,16 +1999,17 @@ var StatCard = ({
   subtitleParams,
   badge,
   iconColor = "primary",
-  size = "small"
+  size = "small",
+  compactSize
 }) => {
   const { t } = useTranslation();
-  const isCompact = size === "small" || size === "mini";
+  const isCompact = size === "small" || size === "mini" || Boolean(compactSize);
   const valueNode = loading ? /* @__PURE__ */ jsx(Skeleton, { variant: "text", width: 80, height: isCompact ? 28 : 40 }) : /* @__PURE__ */ jsx(
-    Typography9,
+    Typography4,
     {
       variant: isCompact ? "h5" : "h4",
       component: "div",
-      sx: isCompact ? { fontWeight: 800, fontSize: "1.35rem", lineHeight: 1.2 } : { fontWeight: 800 },
+      sx: isCompact ? { fontWeight: 800, fontSize: "1.35rem", lineHeight: 1.15 } : { fontWeight: 800, lineHeight: 1.15 },
       children: value
     }
   );
@@ -2015,52 +2017,79 @@ var StatCard = ({
     TREND_ICONS[trend],
     delta
   ] }) : null;
-  const subtitleNode = subtitleKey ? /* @__PURE__ */ jsx(Typography9, { variant: "caption", color: "text.secondary", sx: { fontSize: "0.75rem", fontWeight: 500 }, children: t(subtitleKey, subtitleParams) }) : null;
+  const subtitleNode = subtitleKey ? /* @__PURE__ */ jsx(
+    Typography4,
+    {
+      variant: "caption",
+      color: "text.secondary",
+      sx: { fontSize: "0.75rem", fontWeight: 500, lineHeight: 1.2 },
+      children: t(subtitleKey, subtitleParams)
+    }
+  ) : null;
   if (layout === "kpi") {
-    return /* @__PURE__ */ jsxs(StatCardRoot, { compactSize: isCompact, children: [
-      /* @__PURE__ */ jsxs(KpiHeaderRow, { children: [
-        icon ? /* @__PURE__ */ jsx(IconTile, { colorKey: iconColor, compact: isCompact, children: icon }) : /* @__PURE__ */ jsx("span", {}),
-        badge ?? /* @__PURE__ */ jsx(
-          Typography9,
+    return /* @__PURE__ */ jsx(StatCardRoot, { compactSize: isCompact, children: /* @__PURE__ */ jsxs(Box5, { sx: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1.5, width: "100%" }, children: [
+      /* @__PURE__ */ jsxs(Box5, { sx: { display: "flex", flexDirection: "column", minWidth: 0, flex: 1, gap: 0.25 }, children: [
+        /* @__PURE__ */ jsx(
+          Typography4,
           {
-            variant: "overline",
+            variant: "caption",
             color: "text.secondary",
             noWrap: true,
+            title: t(labelKey),
             sx: {
-              textAlign: "right",
-              lineHeight: 1.3,
-              fontSize: isCompact ? "0.68rem" : "0.75rem",
-              fontWeight: 700,
-              letterSpacing: "0.05em",
-              maxWidth: "70%",
-              pr: 0.5
+              fontSize: isCompact ? "0.75rem" : "0.8125rem",
+              fontWeight: 600,
+              lineHeight: 1.25,
+              letterSpacing: "0.01em"
             },
             children: t(labelKey)
           }
-        )
+        ),
+        /* @__PURE__ */ jsxs(Box5, { sx: { display: "flex", alignItems: "baseline", gap: 1, flexWrap: "wrap" }, children: [
+          valueNode,
+          deltaNode && subtitleNode ? /* @__PURE__ */ jsxs(Box5, { sx: { display: "inline-flex", alignItems: "center", gap: 0.75, flexWrap: "wrap" }, children: [
+            deltaNode,
+            /* @__PURE__ */ jsx(Typography4, { component: "span", variant: "caption", color: "text.disabled", sx: { fontSize: "0.65rem" }, children: "\u2022" }),
+            subtitleNode
+          ] }) : deltaNode ?? subtitleNode,
+          icon && badge ? badge : null
+        ] })
       ] }),
-      badge ? /* @__PURE__ */ jsx(Typography9, { variant: "overline", color: "text.secondary", noWrap: true, sx: { fontSize: isCompact ? "0.68rem" : "0.75rem", fontWeight: 700, pr: 0.5 }, children: t(labelKey) }) : null,
-      valueNode,
-      deltaNode ?? subtitleNode
-    ] });
+      icon ? /* @__PURE__ */ jsx(IconTile, { colorKey: iconColor, compact: isCompact, children: icon }) : badge ? /* @__PURE__ */ jsx(Box5, { sx: { flexShrink: 0 }, children: badge }) : null
+    ] }) });
   }
   return /* @__PURE__ */ jsxs(StatCardRoot, { compactSize: isCompact, children: [
-    /* @__PURE__ */ jsxs(
-      Typography9,
-      {
-        variant: "body2",
-        color: "text.secondary",
-        noWrap: true,
-        sx: { display: "flex", alignItems: "center", gap: 1, fontSize: isCompact ? "0.75rem" : "0.8125rem", pr: 0.5 },
-        children: [
-          icon,
-          t(labelKey)
-        ]
-      }
-    ),
-    valueNode,
-    deltaNode,
-    subtitleNode
+    /* @__PURE__ */ jsxs(Box5, { sx: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1, width: "100%", mb: 0.25 }, children: [
+      /* @__PURE__ */ jsxs(
+        Typography4,
+        {
+          variant: "body2",
+          color: "text.secondary",
+          noWrap: true,
+          title: t(labelKey),
+          sx: {
+            display: "flex",
+            alignItems: "center",
+            gap: 0.75,
+            fontSize: isCompact ? "0.75rem" : "0.8125rem",
+            fontWeight: 600
+          },
+          children: [
+            icon,
+            t(labelKey)
+          ]
+        }
+      ),
+      badge
+    ] }),
+    /* @__PURE__ */ jsxs(Box5, { sx: { display: "flex", alignItems: "baseline", gap: 1, flexWrap: "wrap" }, children: [
+      valueNode,
+      deltaNode && subtitleNode ? /* @__PURE__ */ jsxs(Box5, { sx: { display: "inline-flex", alignItems: "center", gap: 0.75, flexWrap: "wrap" }, children: [
+        deltaNode,
+        /* @__PURE__ */ jsx(Typography4, { component: "span", variant: "caption", color: "text.disabled", sx: { fontSize: "0.65rem" }, children: "\u2022" }),
+        subtitleNode
+      ] }) : deltaNode ?? subtitleNode
+    ] })
   ] });
 };
 var SectionCard = ({
@@ -2519,16 +2548,16 @@ var TimelineMatrix = ({
     return /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx(Skeleton2, { variant: "rounded", height: ROW_HEIGHT * 6 }) });
   }
   return /* @__PURE__ */ jsxs("div", { children: [
-    legend ? /* @__PURE__ */ jsx(Typography9, { component: "div", variant: "body2", sx: { display: "flex", justifyContent: "flex-end", mb: 1 }, children: legend }) : null,
+    legend ? /* @__PURE__ */ jsx(Typography4, { component: "div", variant: "body2", sx: { display: "flex", justifyContent: "flex-end", mb: 1 }, children: legend }) : null,
     /* @__PURE__ */ jsx(MatrixRoot, { ref: scrollContainerRef, "data-testid": "timeline-matrix-scroll-container", children: /* @__PURE__ */ jsxs("div", { style: { width: RESOURCE_COL_WIDTH + days * DAY_COL_WIDTH }, children: [
       /* @__PURE__ */ jsxs(HeaderRow, { children: [
-        /* @__PURE__ */ jsx(ResourceCell, { children: /* @__PURE__ */ jsx(Typography9, { variant: "overline", color: "text.secondary", children: t(resourceLabelKey) }) }),
+        /* @__PURE__ */ jsx(ResourceCell, { children: /* @__PURE__ */ jsx(Typography4, { variant: "overline", color: "text.secondary", children: t(resourceLabelKey) }) }),
         dayList.map((date) => {
           const isToday = date === todayDate;
           const dateObj = /* @__PURE__ */ new Date(`${date}T00:00:00Z`);
           return /* @__PURE__ */ jsxs(DayHeaderCell, { "aria-current": isToday ? "date" : void 0, children: [
-            /* @__PURE__ */ jsx(Typography9, { variant: "caption", color: "text.secondary", sx: { textTransform: "uppercase" }, children: monthFormat.format(dateObj) }),
-            isToday ? /* @__PURE__ */ jsx(TodayBubble, { "aria-label": t("common:timeline.today"), children: dayFormat.format(dateObj) }) : /* @__PURE__ */ jsx(Typography9, { variant: "body2", children: dayFormat.format(dateObj) })
+            /* @__PURE__ */ jsx(Typography4, { variant: "caption", color: "text.secondary", sx: { textTransform: "uppercase" }, children: monthFormat.format(dateObj) }),
+            isToday ? /* @__PURE__ */ jsx(TodayBubble, { "aria-label": t("common:timeline.today"), children: dayFormat.format(dateObj) }) : /* @__PURE__ */ jsx(Typography4, { variant: "body2", children: dayFormat.format(dateObj) })
           ] }, date);
         })
       ] }),
@@ -2685,7 +2714,7 @@ var AppDrawer = ({
       children: [
         /* @__PURE__ */ jsxs(DrawerHeader, { children: [
           /* @__PURE__ */ jsxs(Stack4, { direction: "row", spacing: 1.5, alignItems: "center", sx: { flexGrow: 1, minWidth: 0 }, children: [
-            /* @__PURE__ */ jsx(Typography9, { variant: "h5", fontWeight: 800, letterSpacing: "-0.3px", noWrap: true, children: title ?? (titleKey ? t(titleKey, titleParams) : null) }),
+            /* @__PURE__ */ jsx(Typography4, { variant: "h5", fontWeight: 800, letterSpacing: "-0.3px", noWrap: true, children: title ?? (titleKey ? t(titleKey, titleParams) : null) }),
             statusChip
           ] }),
           /* @__PURE__ */ jsx(IconButton8, { "aria-label": t("common:actions.close"), onClick: onClose, size: "small", children: /* @__PURE__ */ jsx(CloseIcon4, { fontSize: "small" }) })
@@ -2741,7 +2770,7 @@ var WizardDialog = ({
       children: [
         /* @__PURE__ */ jsxs(DialogTitle, { sx: { display: "flex", alignItems: "center", justifyContent: "space-between", pb: 2, pt: 2.5, px: 3 }, children: [
           /* @__PURE__ */ jsxs(Stack4, { direction: "row", alignItems: "center", spacing: 1.5, children: [
-            /* @__PURE__ */ jsx(Typography9, { variant: "h6", sx: { fontWeight: 700, letterSpacing: "-0.01em" }, children: t(titleKey) }),
+            /* @__PURE__ */ jsx(Typography4, { variant: "h6", sx: { fontWeight: 700, letterSpacing: "-0.01em" }, children: t(titleKey) }),
             /* @__PURE__ */ jsx(
               Chip,
               {
@@ -3083,10 +3112,10 @@ var PageHeader = ({
             children: t(crumb.labelKey)
           },
           crumb.labelKey
-        ) : /* @__PURE__ */ jsx(Typography9, { variant: "body2", color: "text.primary", children: t(crumb.labelKey) }, crumb.labelKey)
+        ) : /* @__PURE__ */ jsx(Typography4, { variant: "body2", color: "text.primary", children: t(crumb.labelKey) }, crumb.labelKey)
       ) }) : null,
       /* @__PURE__ */ jsx(
-        Typography9,
+        Typography4,
         {
           variant: "h5",
           component: "h1",
@@ -3094,7 +3123,7 @@ var PageHeader = ({
           children: title ?? t(titleKey, titleParams)
         }
       ),
-      subtitleKey ? /* @__PURE__ */ jsx(Typography9, { variant: "body2", color: "text.secondary", sx: { mt: 0.5 }, children: t(subtitleKey, subtitleParams) }) : null
+      subtitleKey ? /* @__PURE__ */ jsx(Typography4, { variant: "body2", color: "text.secondary", sx: { mt: 0.5 }, children: t(subtitleKey, subtitleParams) }) : null
     ] }),
     actions ? /* @__PURE__ */ jsx("div", { children: actions }) : null
   ] });
@@ -3247,7 +3276,7 @@ var StyledPaper = styled(Paper)(({ theme }) => ({
 var AuthFormShell = ({ children, sx, ...props }) => {
   return /* @__PURE__ */ jsx(StyledPaper, { elevation: 0, sx, ...props, children });
 };
-var AuthTopBar = styled(Box6)(({ theme }) => ({
+var AuthTopBar = styled(Box5)(({ theme }) => ({
   position: "relative",
   width: "100%",
   zIndex: 2,
@@ -3288,9 +3317,9 @@ var AuthLayout = ({
       /* @__PURE__ */ jsx(BrandPanelContent, { children: /* @__PURE__ */ jsxs(Stack4, { direction: "row", spacing: 2, alignItems: "center", children: [
         /* @__PURE__ */ jsx(BrandMarkTile, { children: /* @__PURE__ */ jsx(NamiosMarkSvg, { size: 28, color: "#0f172a" }) }),
         /* @__PURE__ */ jsxs("div", { children: [
-          /* @__PURE__ */ jsx(Typography9, { variant: "h5", component: "p", sx: { fontWeight: 800, letterSpacing: "-0.01em" }, children: appName }),
+          /* @__PURE__ */ jsx(Typography4, { variant: "h5", component: "p", sx: { fontWeight: 800, letterSpacing: "-0.01em" }, children: appName }),
           tagline ? /* @__PURE__ */ jsx(
-            Typography9,
+            Typography4,
             {
               variant: "caption",
               sx: {
@@ -3307,7 +3336,7 @@ var AuthLayout = ({
       ] }) }),
       /* @__PURE__ */ jsxs(BrandPanelContent, { children: [
         headline ? /* @__PURE__ */ jsx(
-          Typography9,
+          Typography4,
           {
             variant: "h3",
             component: "h1",
@@ -3321,7 +3350,7 @@ var AuthLayout = ({
           }
         ) : null,
         description ? /* @__PURE__ */ jsx(
-          Typography9,
+          Typography4,
           {
             variant: "body1",
             sx: {
@@ -3339,11 +3368,11 @@ var AuthLayout = ({
           const icon = typeof feature === "object" && feature.icon ? feature.icon : /* @__PURE__ */ jsx(CheckCircleRoundedIcon, { sx: { fontSize: 20, color: "#38bdf8" } });
           return /* @__PURE__ */ jsxs(FeatureItem, { children: [
             icon,
-            /* @__PURE__ */ jsx(Typography9, { variant: "body2", color: "inherit", sx: { fontWeight: 500, fontSize: "0.9rem" }, children: text })
+            /* @__PURE__ */ jsx(Typography4, { variant: "body2", color: "inherit", sx: { fontWeight: 500, fontSize: "0.9rem" }, children: text })
           ] }, idx);
         }) }) : null
       ] }),
-      /* @__PURE__ */ jsx(BrandPanelContent, { children: /* @__PURE__ */ jsx(Typography9, { variant: "caption", sx: { opacity: 0.6, fontSize: "0.75rem" }, children: footer || "Hotel operations, thoughtfully connected." }) })
+      /* @__PURE__ */ jsx(BrandPanelContent, { children: /* @__PURE__ */ jsx(Typography4, { variant: "caption", sx: { opacity: 0.6, fontSize: "0.75rem" }, children: footer || "Hotel operations, thoughtfully connected." }) })
     ] }) : null,
     /* @__PURE__ */ jsxs(AuthFormPanel, { children: [
       /* @__PURE__ */ jsxs(AuthTopBar, { children: [
@@ -3357,8 +3386,8 @@ var AuthLayout = ({
 var AuthFormHeader = ({ title, subtitle, badge }) => {
   return /* @__PURE__ */ jsxs(Stack4, { spacing: 0.75, sx: { mb: 1 }, children: [
     badge ? /* @__PURE__ */ jsx("div", { children: badge }) : null,
-    /* @__PURE__ */ jsx(Typography9, { variant: "h4", component: "h1", sx: { fontWeight: 700, letterSpacing: "-0.02em" }, children: title }),
-    subtitle ? /* @__PURE__ */ jsx(Typography9, { variant: "body2", color: "text.secondary", sx: { fontSize: "0.875rem" }, children: subtitle }) : null
+    /* @__PURE__ */ jsx(Typography4, { variant: "h4", component: "h1", sx: { fontWeight: 700, letterSpacing: "-0.02em" }, children: title }),
+    subtitle ? /* @__PURE__ */ jsx(Typography4, { variant: "body2", color: "text.secondary", sx: { fontSize: "0.875rem" }, children: subtitle }) : null
   ] });
 };
 var FALLOFF_CURVES = {
@@ -4063,7 +4092,7 @@ var AppTile = ({
           }
         ),
         /* @__PURE__ */ jsx(
-          Typography9,
+          Typography4,
           {
             variant: "caption",
             sx: {
@@ -4227,10 +4256,10 @@ var AppFolderModal = ({
               },
               onClick: (e) => e.stopPropagation(),
               children: [
-                /* @__PURE__ */ jsxs(Box6, { sx: { display: "flex", alignItems: "flex-start", justifyContent: "space-between", mb: 2 }, children: [
-                  /* @__PURE__ */ jsxs(Box6, { sx: { pr: 2 }, children: [
+                /* @__PURE__ */ jsxs(Box5, { sx: { display: "flex", alignItems: "flex-start", justifyContent: "space-between", mb: 2 }, children: [
+                  /* @__PURE__ */ jsxs(Box5, { sx: { pr: 2 }, children: [
                     /* @__PURE__ */ jsx(
-                      Typography9,
+                      Typography4,
                       {
                         variant: "h6",
                         sx: {
@@ -4244,7 +4273,7 @@ var AppFolderModal = ({
                       }
                     ),
                     subtitle && /* @__PURE__ */ jsx(
-                      Typography9,
+                      Typography4,
                       {
                         variant: "caption",
                         sx: { color: "#64748B", fontWeight: 500, display: "block", mt: 0.5, fontSize: "0.8rem" },
@@ -4268,7 +4297,7 @@ var AppFolderModal = ({
                   )
                 ] }),
                 apps.length > 4 && /* @__PURE__ */ jsxs(
-                  Box6,
+                  Box5,
                   {
                     sx: {
                       display: "flex",
@@ -4301,7 +4330,7 @@ var AppFolderModal = ({
                   }
                 ),
                 categories.length > 1 && !search && /* @__PURE__ */ jsxs(
-                  Box6,
+                  Box5,
                   {
                     sx: {
                       display: "flex",
@@ -4350,7 +4379,7 @@ var AppFolderModal = ({
                   }
                 ),
                 /* @__PURE__ */ jsx(
-                  Box6,
+                  Box5,
                   {
                     sx: {
                       flexGrow: 1,
@@ -4364,7 +4393,7 @@ var AppFolderModal = ({
                         borderRadius: 2
                       }
                     },
-                    children: filteredApps.length === 0 ? /* @__PURE__ */ jsx(Box6, { sx: { py: 6, textAlign: "center" }, children: /* @__PURE__ */ jsxs(Typography9, { variant: "body2", color: "text.secondary", fontWeight: 600, children: [
+                    children: filteredApps.length === 0 ? /* @__PURE__ */ jsx(Box5, { sx: { py: 6, textAlign: "center" }, children: /* @__PURE__ */ jsxs(Typography4, { variant: "body2", color: "text.secondary", fontWeight: 600, children: [
                       "No apps found matching \u201C",
                       search,
                       "\u201D"
@@ -4397,7 +4426,7 @@ var AppFolderModal = ({
                   }
                 ),
                 /* @__PURE__ */ jsxs(
-                  Box6,
+                  Box5,
                   {
                     sx: {
                       pt: 1.5,
@@ -4408,8 +4437,8 @@ var AppFolderModal = ({
                       justifyContent: "space-between"
                     },
                     children: [
-                      /* @__PURE__ */ jsx(Typography9, { variant: "caption", sx: { color: "#94A3B8", fontWeight: 600 }, children: "NamiOS Suite" }),
-                      /* @__PURE__ */ jsxs(Typography9, { variant: "caption", sx: { color: "#94A3B8", fontSize: "0.7rem" }, children: [
+                      /* @__PURE__ */ jsx(Typography4, { variant: "caption", sx: { color: "#94A3B8", fontWeight: 600 }, children: "NamiOS Suite" }),
+                      /* @__PURE__ */ jsxs(Typography4, { variant: "caption", sx: { color: "#94A3B8", fontSize: "0.7rem" }, children: [
                         "Press ",
                         /* @__PURE__ */ jsx("kbd", { style: { background: "rgba(0,0,0,0.06)", padding: "2px 4px", borderRadius: 4, fontWeight: 700 }, children: "Esc" }),
                         " to close"
@@ -4584,7 +4613,7 @@ var DashboardLayout = ({
     ] })
   ] });
 };
-var LaneContainer = styled(Box6)(({ theme }) => ({
+var LaneContainer = styled(Box5)(({ theme }) => ({
   flex: 1,
   minWidth: 280,
   maxWidth: 360,
@@ -4598,14 +4627,14 @@ var LaneContainer = styled(Box6)(({ theme }) => ({
   minHeight: 500,
   border: `1px solid ${theme.palette.mode === "light" ? "#E2E8F0" : "#1E293B"}`
 }));
-var ColumnHeader = styled(Box6)(({ theme }) => ({
+var ColumnHeader = styled(Box5)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
   paddingBottom: theme.spacing(1.5),
   borderBottom: `2px solid ${theme.palette.divider}`
 }));
-var ItemsScrollArea = styled(Box6)(({ theme }) => ({
+var ItemsScrollArea = styled(Box5)(({ theme }) => ({
   flexGrow: 1,
   overflowY: "auto",
   display: "flex",
@@ -4648,7 +4677,7 @@ var KanbanBoard = ({
           /* @__PURE__ */ jsxs(ColumnHeader, { children: [
             /* @__PURE__ */ jsxs(Stack4, { direction: "row", spacing: 1.5, alignItems: "center", children: [
               column.color && /* @__PURE__ */ jsx(
-                Box6,
+                Box5,
                 {
                   sx: {
                     width: 8,
@@ -4658,7 +4687,7 @@ var KanbanBoard = ({
                   }
                 }
               ),
-              /* @__PURE__ */ jsx(Typography9, { variant: "subtitle2", sx: { fontWeight: 700, letterSpacing: "0.05em" }, children: column.title })
+              /* @__PURE__ */ jsx(Typography4, { variant: "subtitle2", sx: { fontWeight: 700, letterSpacing: "0.05em" }, children: column.title })
             ] }),
             /* @__PURE__ */ jsx(
               Chip,
@@ -4670,7 +4699,7 @@ var KanbanBoard = ({
               }
             )
           ] }),
-          /* @__PURE__ */ jsx(ItemsScrollArea, { children: laneItems.map((item) => /* @__PURE__ */ jsx(Box6, { sx: { position: "relative" }, children: renderItem(item) }, getItemId(item))) })
+          /* @__PURE__ */ jsx(ItemsScrollArea, { children: laneItems.map((item) => /* @__PURE__ */ jsx(Box5, { sx: { position: "relative" }, children: renderItem(item) }, getItemId(item))) })
         ] }, column.id);
       })
     }
@@ -4682,7 +4711,7 @@ var SplitPaneLayout = ({
   rightWidth = 400
 }) => {
   return /* @__PURE__ */ jsxs(
-    Box6,
+    Box5,
     {
       sx: {
         display: "flex",
@@ -4694,7 +4723,7 @@ var SplitPaneLayout = ({
       },
       children: [
         /* @__PURE__ */ jsx(
-          Box6,
+          Box5,
           {
             sx: {
               flexGrow: 1,
@@ -4706,7 +4735,7 @@ var SplitPaneLayout = ({
           }
         ),
         /* @__PURE__ */ jsx(
-          Box6,
+          Box5,
           {
             sx: {
               width: { xs: "100%", md: rightWidth },
@@ -4742,14 +4771,14 @@ var StyledCard = styled(Card2, {
     borderColor: activeBorderColor || theme.palette.text.secondary
   } : {}
 }));
-var ImageContainer = styled(Box6)({
+var ImageContainer = styled(Box5)({
   position: "relative",
   paddingTop: "60%",
   // 5:3 Aspect Ratio
   width: "100%",
   overflow: "hidden"
 });
-var MediaOverlay = styled(Box6)({
+var MediaOverlay = styled(Box5)({
   position: "absolute",
   top: 0,
   left: 0,
@@ -4803,7 +4832,7 @@ var MenuCard = ({
               }
             }
           ) : /* @__PURE__ */ jsx(
-            Box6,
+            Box5,
             {
               sx: {
                 position: "absolute",
@@ -4816,18 +4845,18 @@ var MenuCard = ({
                 justifyContent: "center",
                 bgcolor: "action.hover"
               },
-              children: /* @__PURE__ */ jsx(Typography9, { variant: "body2", color: "text.secondary", sx: { fontWeight: 600 }, children: "No Image" })
+              children: /* @__PURE__ */ jsx(Typography4, { variant: "body2", color: "text.secondary", sx: { fontWeight: 600 }, children: "No Image" })
             }
           ),
           actionOverlay && /* @__PURE__ */ jsx(MediaOverlay, { children: actionOverlay })
         ] }),
         /* @__PURE__ */ jsxs(CardContent2, { sx: { p: 2, flexGrow: 1, display: "flex", flexDirection: "column", gap: 1 }, children: [
           /* @__PURE__ */ jsxs(Stack4, { direction: "row", justifyContent: "space-between", alignItems: "flex-start", spacing: 1, children: [
-            /* @__PURE__ */ jsx(Typography9, { variant: "subtitle1", sx: { fontWeight: 700, lineHeight: 1.2 }, noWrap: true, children: name }),
-            /* @__PURE__ */ jsx(Typography9, { variant: "subtitle1", color: "primary", sx: { fontWeight: 700 }, children: formattedPrice })
+            /* @__PURE__ */ jsx(Typography4, { variant: "subtitle1", sx: { fontWeight: 700, lineHeight: 1.2 }, noWrap: true, children: name }),
+            /* @__PURE__ */ jsx(Typography4, { variant: "subtitle1", color: "primary", sx: { fontWeight: 700 }, children: formattedPrice })
           ] }),
           description && /* @__PURE__ */ jsx(
-            Typography9,
+            Typography4,
             {
               variant: "body2",
               color: "text.secondary",
@@ -4843,10 +4872,10 @@ var MenuCard = ({
               children: description
             }
           ),
-          /* @__PURE__ */ jsx(Box6, { sx: { flexGrow: 1 } }),
+          /* @__PURE__ */ jsx(Box5, { sx: { flexGrow: 1 } }),
           /* @__PURE__ */ jsxs(Stack4, { direction: "row", spacing: 0.5, flexWrap: "wrap", useFlexGap: true, alignItems: "center", sx: { mt: 1 }, children: [
-            badges?.map((badge, idx) => /* @__PURE__ */ jsx(Box6, { children: badge }, idx)),
-            /* @__PURE__ */ jsx(Box6, { sx: { flexGrow: 1 } }),
+            badges?.map((badge, idx) => /* @__PURE__ */ jsx(Box5, { children: badge }, idx)),
+            /* @__PURE__ */ jsx(Box5, { sx: { flexGrow: 1 } }),
             stockLabel && /* @__PURE__ */ jsx(
               Chip,
               {
@@ -6034,7 +6063,7 @@ function ThreeOverviewCanvas({
     return /* @__PURE__ */ jsx(Fragment, { children: fallback });
   }
   return /* @__PURE__ */ jsxs(
-    Box6,
+    Box5,
     {
       ref: containerRef,
       sx: {
@@ -6049,7 +6078,7 @@ function ThreeOverviewCanvas({
       },
       children: [
         (title || subtitle) && /* @__PURE__ */ jsxs(
-          Box6,
+          Box5,
           {
             sx: {
               position: "absolute",
@@ -6059,8 +6088,8 @@ function ThreeOverviewCanvas({
               pointerEvents: "none"
             },
             children: [
-              title && /* @__PURE__ */ jsx(Typography9, { variant: "caption", sx: { fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase", color: isDark ? "#94A3B8" : "#64748B", display: "block", fontSize: "0.68rem" }, children: title }),
-              subtitle && /* @__PURE__ */ jsx(Typography9, { variant: "body2", sx: { fontWeight: 600, fontSize: "0.8rem", color: isDark ? "#F8FAFC" : "#0F172A" }, children: subtitle })
+              title && /* @__PURE__ */ jsx(Typography4, { variant: "caption", sx: { fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase", color: isDark ? "#94A3B8" : "#64748B", display: "block", fontSize: "0.68rem" }, children: title }),
+              subtitle && /* @__PURE__ */ jsx(Typography4, { variant: "body2", sx: { fontWeight: 600, fontSize: "0.8rem", color: isDark ? "#F8FAFC" : "#0F172A" }, children: subtitle })
             ]
           }
         ),
@@ -6075,7 +6104,7 @@ function ThreeOverviewCanvas({
             onPointerCancel: handlePointerUp
           }
         ),
-        children && /* @__PURE__ */ jsx(Box6, { sx: { position: "absolute", bottom: 8, right: 10, zIndex: 2 }, children })
+        children && /* @__PURE__ */ jsx(Box5, { sx: { position: "absolute", bottom: 8, right: 10, zIndex: 2 }, children })
       ]
     }
   );
@@ -6383,7 +6412,7 @@ function IsometricBarOverview({
     },
     [data, maxValue]
   );
-  return /* @__PURE__ */ jsx(Box6, { sx: { width: "100%", position: "relative" }, children: /* @__PURE__ */ jsx(
+  return /* @__PURE__ */ jsx(Box5, { sx: { width: "100%", position: "relative" }, children: /* @__PURE__ */ jsx(
     ThreeOverviewCanvas,
     {
       height,
@@ -6392,7 +6421,7 @@ function IsometricBarOverview({
       fallback,
       onRenderScene: renderScene,
       children: /* @__PURE__ */ jsx(
-        Box6,
+        Box5,
         {
           sx: {
             display: "flex",
@@ -6404,9 +6433,9 @@ function IsometricBarOverview({
             borderRadius: "3px",
             border: `0.5px solid ${isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.08)"}`
           },
-          children: data.slice(0, 4).map((d) => /* @__PURE__ */ jsxs(Box6, { sx: { display: "flex", alignItems: "center", gap: 0.75 }, children: [
+          children: data.slice(0, 4).map((d) => /* @__PURE__ */ jsxs(Box5, { sx: { display: "flex", alignItems: "center", gap: 0.75 }, children: [
             /* @__PURE__ */ jsx(
-              Box6,
+              Box5,
               {
                 sx: {
                   width: 8,
@@ -6416,7 +6445,7 @@ function IsometricBarOverview({
                 }
               }
             ),
-            /* @__PURE__ */ jsxs(Typography9, { variant: "caption", sx: { fontSize: "0.7rem", fontWeight: 600, color: "text.secondary" }, children: [
+            /* @__PURE__ */ jsxs(Typography4, { variant: "caption", sx: { fontSize: "0.7rem", fontWeight: 600, color: "text.secondary" }, children: [
               d.label,
               ": ",
               /* @__PURE__ */ jsx("strong", { children: d.formattedValue || d.value })
@@ -6744,7 +6773,7 @@ function PropertyDigitalTwin({
     },
     [floors]
   );
-  return /* @__PURE__ */ jsx(Box6, { sx: { width: "100%", position: "relative" }, children: /* @__PURE__ */ jsx(
+  return /* @__PURE__ */ jsx(Box5, { sx: { width: "100%", position: "relative" }, children: /* @__PURE__ */ jsx(
     ThreeOverviewCanvas,
     {
       height,
@@ -6753,7 +6782,7 @@ function PropertyDigitalTwin({
       fallback,
       onRenderScene: renderScene,
       children: /* @__PURE__ */ jsx(
-        Box6,
+        Box5,
         {
           sx: {
             display: "flex",
@@ -6765,9 +6794,9 @@ function PropertyDigitalTwin({
             borderRadius: "3px",
             border: `0.5px solid ${isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.08)"}`
           },
-          children: Object.entries(STATUS_HEX).map(([status, color]) => /* @__PURE__ */ jsxs(Box6, { sx: { display: "flex", alignItems: "center", gap: 0.5 }, children: [
-            /* @__PURE__ */ jsx(Box6, { sx: { width: 8, height: 8, borderRadius: "1.5px", bgcolor: color } }),
-            /* @__PURE__ */ jsx(Typography9, { variant: "caption", sx: { fontSize: "0.68rem", fontWeight: 600, color: "text.secondary", textTransform: "capitalize" }, children: status })
+          children: Object.entries(STATUS_HEX).map(([status, color]) => /* @__PURE__ */ jsxs(Box5, { sx: { display: "flex", alignItems: "center", gap: 0.5 }, children: [
+            /* @__PURE__ */ jsx(Box5, { sx: { width: 8, height: 8, borderRadius: "1.5px", bgcolor: color } }),
+            /* @__PURE__ */ jsx(Typography4, { variant: "caption", sx: { fontSize: "0.68rem", fontWeight: 600, color: "text.secondary", textTransform: "capitalize" }, children: status })
           ] }, status))
         }
       )
@@ -6776,5 +6805,5 @@ function PropertyDigitalTwin({
 }
 
 export { APP_TILE_VARIANTS, Accordion, AccordionDetails, AccordionSummary, AdaptiveThemeProvider, Alert, AlertTitle, AnimatedBed, AnimatedBrush, AnimatedCalendar, AnimatedCreditCard, AnimatedDashboard, AnimatedDoorOpen, AnimatedFolderOpen, AnimatedInbox, AnimatedLayers, AnimatedRadio, AnimatedSearch, AnimatedSettings, AnimatedShieldCheck, AnimatedSparkles, AnimatedTrendingUp, AnimatedUsers, AppDialog, AppDrawer, AppFolderMiniPreview, AppFolderModal, AppLauncher, AppSideNav, AppTile, AppTopBar, AuthFormHeader, AuthFormShell, AuthLayout, Avatar, AvatarGroup, BACKDROP_TRANSITION, Badge, Box3 as Box, Button2 as Button, CONTAINER_VARIANTS, Card, CardActions, CardContent, CardHeader, CardMedia, Checkbox, Chip, CircularProgress2 as CircularProgress, Container, ContextMenu, CursorGrid, DEFAULT_HOTELOS_APPS, DashboardLayout, DataTable, DateRangeButton, DescriptionList, Dialog2 as Dialog, DialogActions2 as DialogActions, DialogContent2 as DialogContent, DialogTitle2 as DialogTitle, Divider, Drawer, EmptyState, ErrorState, FOLDER_LAYOUT_SPRING, FormDialog, FormSelect, FormSwitch, FormTextField, Grid, IconButton2 as IconButton, IsometricBarOverview, KanbanBoard, LanguageSwitcher, LinearProgress, LoadingOverlay, MenuCard, NamiosLoader, NamiosMarkSvg, OtpInput, PRODUCTION_APP_URLS, PageHeader, PageSkeleton, Paper2 as Paper, PasswordField, PropertyDigitalTwin, Radio, RadioGroup, Rating, SearchField, SectionCard, Select, SelectField, Skeleton, Slider, SplitPaneLayout, Stack2 as Stack, StatCard, StatusChip, StatusFilterChips, Switch, Tab, Tabs, TextField, ThemeProvider, ThreeOverviewCanvas, TimelineMatrix, Tooltip, Typography3 as Typography, UserAvatar, VERCEL_APP_URLS, WizardDialog, adjustLightness, buildColorRole, clamp, cn, createMuiCompatiblePalette, createTheme, forwardRef, generateId, getAvatarBgColor, getContrastRatio, getContrastText, getRelativeLuminance, hexToRgb, injectThemeTokens, isInteractive, isPwa, mapRange, navigateApp, resolveAppUrl, rgbToHex, useMediaQuery, useTheme2 as useTheme, useWebGlSupport };
-//# sourceMappingURL=chunk-3UUW7L6C.js.map
-//# sourceMappingURL=chunk-3UUW7L6C.js.map
+//# sourceMappingURL=chunk-NPSQ6NY3.js.map
+//# sourceMappingURL=chunk-NPSQ6NY3.js.map

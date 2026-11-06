@@ -11,8 +11,8 @@ var React17 = require('react');
 var framerMotion = require('framer-motion');
 var jsxRuntime = require('react/jsx-runtime');
 var styles = require('@mui/material/styles');
-var Box7 = require('@mui/material/Box');
-var Typography9 = require('@mui/material/Typography');
+var Box6 = require('@mui/material/Box');
+var Typography4 = require('@mui/material/Typography');
 var Button5 = require('@mui/material/Button');
 var CircularProgress = require('@mui/material/CircularProgress');
 var Popover = require('@mui/material/Popover');
@@ -92,8 +92,8 @@ var DialogContent__default = /*#__PURE__*/_interopDefault(DialogContent);
 var DialogTitle__default = /*#__PURE__*/_interopDefault(DialogTitle);
 var IconButton9__default = /*#__PURE__*/_interopDefault(IconButton9);
 var React17__default = /*#__PURE__*/_interopDefault(React17);
-var Box7__default = /*#__PURE__*/_interopDefault(Box7);
-var Typography9__default = /*#__PURE__*/_interopDefault(Typography9);
+var Box6__default = /*#__PURE__*/_interopDefault(Box6);
+var Typography4__default = /*#__PURE__*/_interopDefault(Typography4);
 var Button5__default = /*#__PURE__*/_interopDefault(Button5);
 var CircularProgress__default = /*#__PURE__*/_interopDefault(CircularProgress);
 var Popover__default = /*#__PURE__*/_interopDefault(Popover);
@@ -276,7 +276,7 @@ function NamiosLoader({
   const thickness = Math.max(4, Math.round(size / 5));
   const lat = Math.round((size - thickness) / 2);
   return /* @__PURE__ */ jsxRuntime.jsxs(
-    Box7__default.default,
+    Box6__default.default,
     {
       sx: {
         display: "inline-flex",
@@ -288,7 +288,7 @@ function NamiosLoader({
       },
       children: [
         showLogo && /* @__PURE__ */ jsxRuntime.jsxs(
-          Box7__default.default,
+          Box6__default.default,
           {
             sx: {
               display: "flex",
@@ -299,7 +299,7 @@ function NamiosLoader({
             children: [
               /* @__PURE__ */ jsxRuntime.jsx(NamiosMarkSvg, { size: 26, color: loaderColor }),
               /* @__PURE__ */ jsxRuntime.jsx(
-                Typography9__default.default,
+                Typography4__default.default,
                 {
                   variant: "subtitle2",
                   sx: {
@@ -316,7 +316,7 @@ function NamiosLoader({
           }
         ),
         /* @__PURE__ */ jsxRuntime.jsx(
-          Box7__default.default,
+          Box6__default.default,
           {
             sx: {
               position: "relative",
@@ -348,7 +348,7 @@ function NamiosLoader({
           }
         ),
         label && /* @__PURE__ */ jsxRuntime.jsx(
-          Typography9__default.default,
+          Typography4__default.default,
           {
             variant: "caption",
             color: "text.secondary",
@@ -511,7 +511,7 @@ var ConfirmDialog = ({
   onCancel
 }) => {
   const { t } = reactI18next.useTranslation();
-  const content = /* @__PURE__ */ jsxRuntime.jsxs(Box7__default.default, { sx: { width: "100%", maxWidth: "380px" }, children: [
+  const content = /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { width: "100%", maxWidth: "380px" }, children: [
     /* @__PURE__ */ jsxRuntime.jsxs(
       DialogTitle__default.default,
       {
@@ -860,7 +860,7 @@ var EmptyStateContainer = styles.styled(Paper__default.default)(({ theme }) => (
   minHeight: 280,
   transition: "all 0.2s ease"
 }));
-var IconGlowBadge = styles.styled(Box7__default.default)(({ theme }) => ({
+var IconGlowBadge = styles.styled(Box6__default.default)(({ theme }) => ({
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
@@ -904,10 +904,10 @@ var EmptyState = ({
           children: [
             /* @__PURE__ */ jsxRuntime.jsx(IconGlowBadge, { children: icon ?? /* @__PURE__ */ jsxRuntime.jsx(AnimatedInbox, { size: 42, isAnimated: true }) }),
             /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { spacing: 0.75, alignItems: "center", sx: { maxWidth: 440, mt: 1, mb: action ? 2.5 : 0 }, children: [
-              /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h6", fontWeight: 700, color: "text.primary", letterSpacing: "-0.2px", children: displayTitle }),
-              displayDesc ? /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "text.secondary", fontWeight: 500, lineHeight: 1.5, children: displayDesc }) : null
+              /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "h6", fontWeight: 700, color: "text.primary", letterSpacing: "-0.2px", children: displayTitle }),
+              displayDesc ? /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "body2", color: "text.secondary", fontWeight: 500, lineHeight: 1.5, children: displayDesc }) : null
             ] }),
-            action ? /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { mt: 1 }, children: action }) : null
+            action ? /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { mt: 1 }, children: action }) : null
           ]
         }
       )
@@ -2319,8 +2319,8 @@ var DataTable = ({
       },
       children: [
         toolbar ? /* @__PURE__ */ jsxRuntime.jsx(TableToolbar, { children: toolbar }) : null,
-        !isLoading && isError ? /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { p: 3 }, children: /* @__PURE__ */ jsxRuntime.jsx(ErrorState, { onRetry }) }) : null,
-        !isLoading && !isError && rows.length === 0 ? /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { p: 2 }, children: emptyState ?? /* @__PURE__ */ jsxRuntime.jsx(EmptyState, { titleKey: "common:states.noResults" }) }) : null,
+        !isLoading && isError ? /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { p: 3 }, children: /* @__PURE__ */ jsxRuntime.jsx(ErrorState, { onRetry }) }) : null,
+        !isLoading && !isError && rows.length === 0 ? /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { p: 2 }, children: emptyState ?? /* @__PURE__ */ jsxRuntime.jsx(EmptyState, { titleKey: "common:states.noResults" }) }) : null,
         (isLoading || rows.length > 0) && /* @__PURE__ */ jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [
           /* @__PURE__ */ jsxRuntime.jsx(TableContainer__default.default, { children: /* @__PURE__ */ jsxRuntime.jsxs(Table__default.default, { size: "small", "aria-busy": isLoading, children: [
             /* @__PURE__ */ jsxRuntime.jsx(TableHead__default.default, { sx: { backgroundColor: "action.hover" }, children: /* @__PURE__ */ jsxRuntime.jsxs(TableRow__default.default, { children: [
@@ -2428,27 +2428,20 @@ var DataTable = ({
 var StatCardRoot = styles.styled(Card2__default.default, {
   shouldForwardProp: (prop) => prop !== "compactSize"
 })(({ theme, compactSize }) => ({
-  padding: compactSize ? theme.spacing(1.25, 1.5) : theme.spacing(1.5, 2),
+  padding: compactSize ? theme.spacing(1, 1.25) : theme.spacing(1.25, 1.75),
   display: "flex",
   flexDirection: "column",
-  gap: compactSize ? theme.spacing(0.5) : theme.spacing(0.75),
+  justifyContent: "center",
   height: "100%",
   borderRadius: "4px",
   boxShadow: "0 1px 2px rgba(0, 0, 0, 0.03)",
   border: `0.5px solid ${theme.palette.mode === "light" ? "rgba(15, 23, 42, 0.08)" : "rgba(255, 255, 255, 0.08)"}`,
-  transition: "border-color 0.15s ease, background-color 0.15s ease",
+  transition: "border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease",
   "&:hover": {
-    boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
-    borderColor: theme.palette.mode === "light" ? "rgba(15, 23, 42, 0.20)" : "rgba(255, 255, 255, 0.20)",
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
+    borderColor: theme.palette.mode === "light" ? "rgba(15, 23, 42, 0.18)" : "rgba(255, 255, 255, 0.18)",
     transform: "none"
   }
-}));
-var KpiHeaderRow = styles.styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  gap: theme.spacing(1),
-  width: "100%"
 }));
 var IconTile = styles.styled("div", {
   shouldForwardProp: (prop) => prop !== "colorKey" && prop !== "compact"
@@ -2456,23 +2449,31 @@ var IconTile = styles.styled("div", {
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
-  padding: theme.spacing(compact ? 0.75 : 1),
-  borderRadius: "2px",
+  width: compact ? 36 : 40,
+  height: compact ? 36 : 40,
+  minWidth: compact ? 36 : 40,
+  borderRadius: "4px",
   backgroundColor: styles.alpha(theme.palette[colorKey].main, 0.1),
   color: theme.palette[colorKey].main,
   flexShrink: 0
 }));
 var DeltaRow = styles.styled("div", {
   shouldForwardProp: (prop) => prop !== "trend"
-})(({ theme, trend }) => ({
-  display: "flex",
-  alignItems: "center",
-  gap: theme.spacing(0.5),
-  ...theme.typography.caption,
-  fontWeight: 700,
-  fontSize: "0.75rem",
-  color: trend === "up" ? theme.palette.success.main : trend === "down" ? theme.palette.error.main : theme.palette.text.secondary
-}));
+})(({ theme, trend }) => {
+  const color = trend === "up" ? theme.palette.success.main : trend === "down" ? theme.palette.error.main : theme.palette.text.secondary;
+  return {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 3,
+    fontWeight: 600,
+    fontSize: "0.75rem",
+    lineHeight: 1.2,
+    color,
+    "& svg": {
+      fontSize: "0.875rem"
+    }
+  };
+});
 var TREND_ICONS = {
   up: /* @__PURE__ */ jsxRuntime.jsx(TrendingUpIcon__default.default, { fontSize: "inherit" }),
   down: /* @__PURE__ */ jsxRuntime.jsx(TrendingDownIcon__default.default, { fontSize: "inherit" }),
@@ -2490,16 +2491,17 @@ var StatCard = ({
   subtitleParams,
   badge,
   iconColor = "primary",
-  size = "small"
+  size = "small",
+  compactSize
 }) => {
   const { t } = reactI18next.useTranslation();
-  const isCompact = size === "small" || size === "mini";
+  const isCompact = size === "small" || size === "mini" || Boolean(compactSize);
   const valueNode = loading ? /* @__PURE__ */ jsxRuntime.jsx(Skeleton, { variant: "text", width: 80, height: isCompact ? 28 : 40 }) : /* @__PURE__ */ jsxRuntime.jsx(
-    Typography9__default.default,
+    Typography4__default.default,
     {
       variant: isCompact ? "h5" : "h4",
       component: "div",
-      sx: isCompact ? { fontWeight: 800, fontSize: "1.35rem", lineHeight: 1.2 } : { fontWeight: 800 },
+      sx: isCompact ? { fontWeight: 800, fontSize: "1.35rem", lineHeight: 1.15 } : { fontWeight: 800, lineHeight: 1.15 },
       children: value
     }
   );
@@ -2507,52 +2509,79 @@ var StatCard = ({
     TREND_ICONS[trend],
     delta
   ] }) : null;
-  const subtitleNode = subtitleKey ? /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "caption", color: "text.secondary", sx: { fontSize: "0.75rem", fontWeight: 500 }, children: t(subtitleKey, subtitleParams) }) : null;
+  const subtitleNode = subtitleKey ? /* @__PURE__ */ jsxRuntime.jsx(
+    Typography4__default.default,
+    {
+      variant: "caption",
+      color: "text.secondary",
+      sx: { fontSize: "0.75rem", fontWeight: 500, lineHeight: 1.2 },
+      children: t(subtitleKey, subtitleParams)
+    }
+  ) : null;
   if (layout === "kpi") {
-    return /* @__PURE__ */ jsxRuntime.jsxs(StatCardRoot, { compactSize: isCompact, children: [
-      /* @__PURE__ */ jsxRuntime.jsxs(KpiHeaderRow, { children: [
-        icon ? /* @__PURE__ */ jsxRuntime.jsx(IconTile, { colorKey: iconColor, compact: isCompact, children: icon }) : /* @__PURE__ */ jsxRuntime.jsx("span", {}),
-        badge ?? /* @__PURE__ */ jsxRuntime.jsx(
-          Typography9__default.default,
+    return /* @__PURE__ */ jsxRuntime.jsx(StatCardRoot, { compactSize: isCompact, children: /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1.5, width: "100%" }, children: [
+      /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { display: "flex", flexDirection: "column", minWidth: 0, flex: 1, gap: 0.25 }, children: [
+        /* @__PURE__ */ jsxRuntime.jsx(
+          Typography4__default.default,
           {
-            variant: "overline",
+            variant: "caption",
             color: "text.secondary",
             noWrap: true,
+            title: t(labelKey),
             sx: {
-              textAlign: "right",
-              lineHeight: 1.3,
-              fontSize: isCompact ? "0.68rem" : "0.75rem",
-              fontWeight: 700,
-              letterSpacing: "0.05em",
-              maxWidth: "70%",
-              pr: 0.5
+              fontSize: isCompact ? "0.75rem" : "0.8125rem",
+              fontWeight: 600,
+              lineHeight: 1.25,
+              letterSpacing: "0.01em"
             },
             children: t(labelKey)
           }
-        )
+        ),
+        /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { display: "flex", alignItems: "baseline", gap: 1, flexWrap: "wrap" }, children: [
+          valueNode,
+          deltaNode && subtitleNode ? /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { display: "inline-flex", alignItems: "center", gap: 0.75, flexWrap: "wrap" }, children: [
+            deltaNode,
+            /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { component: "span", variant: "caption", color: "text.disabled", sx: { fontSize: "0.65rem" }, children: "\u2022" }),
+            subtitleNode
+          ] }) : deltaNode ?? subtitleNode,
+          icon && badge ? badge : null
+        ] })
       ] }),
-      badge ? /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "overline", color: "text.secondary", noWrap: true, sx: { fontSize: isCompact ? "0.68rem" : "0.75rem", fontWeight: 700, pr: 0.5 }, children: t(labelKey) }) : null,
-      valueNode,
-      deltaNode ?? subtitleNode
-    ] });
+      icon ? /* @__PURE__ */ jsxRuntime.jsx(IconTile, { colorKey: iconColor, compact: isCompact, children: icon }) : badge ? /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { flexShrink: 0 }, children: badge }) : null
+    ] }) });
   }
   return /* @__PURE__ */ jsxRuntime.jsxs(StatCardRoot, { compactSize: isCompact, children: [
-    /* @__PURE__ */ jsxRuntime.jsxs(
-      Typography9__default.default,
-      {
-        variant: "body2",
-        color: "text.secondary",
-        noWrap: true,
-        sx: { display: "flex", alignItems: "center", gap: 1, fontSize: isCompact ? "0.75rem" : "0.8125rem", pr: 0.5 },
-        children: [
-          icon,
-          t(labelKey)
-        ]
-      }
-    ),
-    valueNode,
-    deltaNode,
-    subtitleNode
+    /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1, width: "100%", mb: 0.25 }, children: [
+      /* @__PURE__ */ jsxRuntime.jsxs(
+        Typography4__default.default,
+        {
+          variant: "body2",
+          color: "text.secondary",
+          noWrap: true,
+          title: t(labelKey),
+          sx: {
+            display: "flex",
+            alignItems: "center",
+            gap: 0.75,
+            fontSize: isCompact ? "0.75rem" : "0.8125rem",
+            fontWeight: 600
+          },
+          children: [
+            icon,
+            t(labelKey)
+          ]
+        }
+      ),
+      badge
+    ] }),
+    /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { display: "flex", alignItems: "baseline", gap: 1, flexWrap: "wrap" }, children: [
+      valueNode,
+      deltaNode && subtitleNode ? /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { display: "inline-flex", alignItems: "center", gap: 0.75, flexWrap: "wrap" }, children: [
+        deltaNode,
+        /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { component: "span", variant: "caption", color: "text.disabled", sx: { fontSize: "0.65rem" }, children: "\u2022" }),
+        subtitleNode
+      ] }) : deltaNode ?? subtitleNode
+    ] })
   ] });
 };
 var SectionCard = ({
@@ -3050,16 +3079,16 @@ var TimelineMatrix = ({
     return /* @__PURE__ */ jsxRuntime.jsx("div", { children: /* @__PURE__ */ jsxRuntime.jsx(Skeleton2__default.default, { variant: "rounded", height: ROW_HEIGHT * 6 }) });
   }
   return /* @__PURE__ */ jsxRuntime.jsxs("div", { children: [
-    legend ? /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { component: "div", variant: "body2", sx: { display: "flex", justifyContent: "flex-end", mb: 1 }, children: legend }) : null,
+    legend ? /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { component: "div", variant: "body2", sx: { display: "flex", justifyContent: "flex-end", mb: 1 }, children: legend }) : null,
     /* @__PURE__ */ jsxRuntime.jsx(MatrixRoot, { ref: scrollContainerRef, "data-testid": "timeline-matrix-scroll-container", children: /* @__PURE__ */ jsxRuntime.jsxs("div", { style: { width: RESOURCE_COL_WIDTH + days * DAY_COL_WIDTH }, children: [
       /* @__PURE__ */ jsxRuntime.jsxs(HeaderRow, { children: [
-        /* @__PURE__ */ jsxRuntime.jsx(ResourceCell, { children: /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "overline", color: "text.secondary", children: t(resourceLabelKey) }) }),
+        /* @__PURE__ */ jsxRuntime.jsx(ResourceCell, { children: /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "overline", color: "text.secondary", children: t(resourceLabelKey) }) }),
         dayList.map((date) => {
           const isToday = date === todayDate;
           const dateObj = /* @__PURE__ */ new Date(`${date}T00:00:00Z`);
           return /* @__PURE__ */ jsxRuntime.jsxs(DayHeaderCell, { "aria-current": isToday ? "date" : void 0, children: [
-            /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "caption", color: "text.secondary", sx: { textTransform: "uppercase" }, children: monthFormat.format(dateObj) }),
-            isToday ? /* @__PURE__ */ jsxRuntime.jsx(TodayBubble, { "aria-label": t("common:timeline.today"), children: dayFormat.format(dateObj) }) : /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", children: dayFormat.format(dateObj) })
+            /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "caption", color: "text.secondary", sx: { textTransform: "uppercase" }, children: monthFormat.format(dateObj) }),
+            isToday ? /* @__PURE__ */ jsxRuntime.jsx(TodayBubble, { "aria-label": t("common:timeline.today"), children: dayFormat.format(dateObj) }) : /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "body2", children: dayFormat.format(dateObj) })
           ] }, date);
         })
       ] }),
@@ -3216,7 +3245,7 @@ var AppDrawer = ({
       children: [
         /* @__PURE__ */ jsxRuntime.jsxs(DrawerHeader, { children: [
           /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", spacing: 1.5, alignItems: "center", sx: { flexGrow: 1, minWidth: 0 }, children: [
-            /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h5", fontWeight: 800, letterSpacing: "-0.3px", noWrap: true, children: title ?? (titleKey ? t(titleKey, titleParams) : null) }),
+            /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "h5", fontWeight: 800, letterSpacing: "-0.3px", noWrap: true, children: title ?? (titleKey ? t(titleKey, titleParams) : null) }),
             statusChip
           ] }),
           /* @__PURE__ */ jsxRuntime.jsx(IconButton9__default.default, { "aria-label": t("common:actions.close"), onClick: onClose, size: "small", children: /* @__PURE__ */ jsxRuntime.jsx(CloseIcon5__default.default, { fontSize: "small" }) })
@@ -3272,7 +3301,7 @@ var WizardDialog = ({
       children: [
         /* @__PURE__ */ jsxRuntime.jsxs(DialogTitle__default.default, { sx: { display: "flex", alignItems: "center", justifyContent: "space-between", pb: 2, pt: 2.5, px: 3 }, children: [
           /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", alignItems: "center", spacing: 1.5, children: [
-            /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h6", sx: { fontWeight: 700, letterSpacing: "-0.01em" }, children: t(titleKey) }),
+            /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "h6", sx: { fontWeight: 700, letterSpacing: "-0.01em" }, children: t(titleKey) }),
             /* @__PURE__ */ jsxRuntime.jsx(
               Chip,
               {
@@ -3620,10 +3649,10 @@ var PageHeader = ({
             children: t(crumb.labelKey)
           },
           crumb.labelKey
-        ) : /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "text.primary", children: t(crumb.labelKey) }, crumb.labelKey)
+        ) : /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "body2", color: "text.primary", children: t(crumb.labelKey) }, crumb.labelKey)
       ) }) : null,
       /* @__PURE__ */ jsxRuntime.jsx(
-        Typography9__default.default,
+        Typography4__default.default,
         {
           variant: "h5",
           component: "h1",
@@ -3631,7 +3660,7 @@ var PageHeader = ({
           children: title ?? t(titleKey, titleParams)
         }
       ),
-      subtitleKey ? /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "text.secondary", sx: { mt: 0.5 }, children: t(subtitleKey, subtitleParams) }) : null
+      subtitleKey ? /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "body2", color: "text.secondary", sx: { mt: 0.5 }, children: t(subtitleKey, subtitleParams) }) : null
     ] }),
     actions ? /* @__PURE__ */ jsxRuntime.jsx("div", { children: actions }) : null
   ] });
@@ -3784,7 +3813,7 @@ var StyledPaper = styles.styled(Paper__default.default)(({ theme }) => ({
 var AuthFormShell = ({ children, sx, ...props }) => {
   return /* @__PURE__ */ jsxRuntime.jsx(StyledPaper, { elevation: 0, sx, ...props, children });
 };
-var AuthTopBar = styles.styled(Box7__default.default)(({ theme }) => ({
+var AuthTopBar = styles.styled(Box6__default.default)(({ theme }) => ({
   position: "relative",
   width: "100%",
   zIndex: 2,
@@ -3825,9 +3854,9 @@ var AuthLayout = ({
       /* @__PURE__ */ jsxRuntime.jsx(BrandPanelContent, { children: /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", spacing: 2, alignItems: "center", children: [
         /* @__PURE__ */ jsxRuntime.jsx(BrandMarkTile, { children: /* @__PURE__ */ jsxRuntime.jsx(NamiosMarkSvg, { size: 28, color: "#0f172a" }) }),
         /* @__PURE__ */ jsxRuntime.jsxs("div", { children: [
-          /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h5", component: "p", sx: { fontWeight: 800, letterSpacing: "-0.01em" }, children: appName }),
+          /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "h5", component: "p", sx: { fontWeight: 800, letterSpacing: "-0.01em" }, children: appName }),
           tagline ? /* @__PURE__ */ jsxRuntime.jsx(
-            Typography9__default.default,
+            Typography4__default.default,
             {
               variant: "caption",
               sx: {
@@ -3844,7 +3873,7 @@ var AuthLayout = ({
       ] }) }),
       /* @__PURE__ */ jsxRuntime.jsxs(BrandPanelContent, { children: [
         headline ? /* @__PURE__ */ jsxRuntime.jsx(
-          Typography9__default.default,
+          Typography4__default.default,
           {
             variant: "h3",
             component: "h1",
@@ -3858,7 +3887,7 @@ var AuthLayout = ({
           }
         ) : null,
         description ? /* @__PURE__ */ jsxRuntime.jsx(
-          Typography9__default.default,
+          Typography4__default.default,
           {
             variant: "body1",
             sx: {
@@ -3876,11 +3905,11 @@ var AuthLayout = ({
           const icon = typeof feature === "object" && feature.icon ? feature.icon : /* @__PURE__ */ jsxRuntime.jsx(CheckCircleRoundedIcon__default.default, { sx: { fontSize: 20, color: "#38bdf8" } });
           return /* @__PURE__ */ jsxRuntime.jsxs(FeatureItem, { children: [
             icon,
-            /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "inherit", sx: { fontWeight: 500, fontSize: "0.9rem" }, children: text })
+            /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "body2", color: "inherit", sx: { fontWeight: 500, fontSize: "0.9rem" }, children: text })
           ] }, idx);
         }) }) : null
       ] }),
-      /* @__PURE__ */ jsxRuntime.jsx(BrandPanelContent, { children: /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "caption", sx: { opacity: 0.6, fontSize: "0.75rem" }, children: footer || "Hotel operations, thoughtfully connected." }) })
+      /* @__PURE__ */ jsxRuntime.jsx(BrandPanelContent, { children: /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "caption", sx: { opacity: 0.6, fontSize: "0.75rem" }, children: footer || "Hotel operations, thoughtfully connected." }) })
     ] }) : null,
     /* @__PURE__ */ jsxRuntime.jsxs(AuthFormPanel, { children: [
       /* @__PURE__ */ jsxRuntime.jsxs(AuthTopBar, { children: [
@@ -3894,8 +3923,8 @@ var AuthLayout = ({
 var AuthFormHeader = ({ title, subtitle, badge }) => {
   return /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { spacing: 0.75, sx: { mb: 1 }, children: [
     badge ? /* @__PURE__ */ jsxRuntime.jsx("div", { children: badge }) : null,
-    /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "h4", component: "h1", sx: { fontWeight: 700, letterSpacing: "-0.02em" }, children: title }),
-    subtitle ? /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "text.secondary", sx: { fontSize: "0.875rem" }, children: subtitle }) : null
+    /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "h4", component: "h1", sx: { fontWeight: 700, letterSpacing: "-0.02em" }, children: title }),
+    subtitle ? /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "body2", color: "text.secondary", sx: { fontSize: "0.875rem" }, children: subtitle }) : null
   ] });
 };
 var FALLOFF_CURVES = {
@@ -4608,7 +4637,7 @@ var AppTile = ({
           }
         ),
         /* @__PURE__ */ jsxRuntime.jsx(
-          Typography9__default.default,
+          Typography4__default.default,
           {
             variant: "caption",
             sx: {
@@ -4772,10 +4801,10 @@ var AppFolderModal = ({
               },
               onClick: (e) => e.stopPropagation(),
               children: [
-                /* @__PURE__ */ jsxRuntime.jsxs(Box7__default.default, { sx: { display: "flex", alignItems: "flex-start", justifyContent: "space-between", mb: 2 }, children: [
-                  /* @__PURE__ */ jsxRuntime.jsxs(Box7__default.default, { sx: { pr: 2 }, children: [
+                /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { display: "flex", alignItems: "flex-start", justifyContent: "space-between", mb: 2 }, children: [
+                  /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { pr: 2 }, children: [
                     /* @__PURE__ */ jsxRuntime.jsx(
-                      Typography9__default.default,
+                      Typography4__default.default,
                       {
                         variant: "h6",
                         sx: {
@@ -4789,7 +4818,7 @@ var AppFolderModal = ({
                       }
                     ),
                     subtitle && /* @__PURE__ */ jsxRuntime.jsx(
-                      Typography9__default.default,
+                      Typography4__default.default,
                       {
                         variant: "caption",
                         sx: { color: "#64748B", fontWeight: 500, display: "block", mt: 0.5, fontSize: "0.8rem" },
@@ -4813,7 +4842,7 @@ var AppFolderModal = ({
                   )
                 ] }),
                 apps.length > 4 && /* @__PURE__ */ jsxRuntime.jsxs(
-                  Box7__default.default,
+                  Box6__default.default,
                   {
                     sx: {
                       display: "flex",
@@ -4846,7 +4875,7 @@ var AppFolderModal = ({
                   }
                 ),
                 categories.length > 1 && !search && /* @__PURE__ */ jsxRuntime.jsxs(
-                  Box7__default.default,
+                  Box6__default.default,
                   {
                     sx: {
                       display: "flex",
@@ -4895,7 +4924,7 @@ var AppFolderModal = ({
                   }
                 ),
                 /* @__PURE__ */ jsxRuntime.jsx(
-                  Box7__default.default,
+                  Box6__default.default,
                   {
                     sx: {
                       flexGrow: 1,
@@ -4909,7 +4938,7 @@ var AppFolderModal = ({
                         borderRadius: 2
                       }
                     },
-                    children: filteredApps.length === 0 ? /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { py: 6, textAlign: "center" }, children: /* @__PURE__ */ jsxRuntime.jsxs(Typography9__default.default, { variant: "body2", color: "text.secondary", fontWeight: 600, children: [
+                    children: filteredApps.length === 0 ? /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { py: 6, textAlign: "center" }, children: /* @__PURE__ */ jsxRuntime.jsxs(Typography4__default.default, { variant: "body2", color: "text.secondary", fontWeight: 600, children: [
                       "No apps found matching \u201C",
                       search,
                       "\u201D"
@@ -4942,7 +4971,7 @@ var AppFolderModal = ({
                   }
                 ),
                 /* @__PURE__ */ jsxRuntime.jsxs(
-                  Box7__default.default,
+                  Box6__default.default,
                   {
                     sx: {
                       pt: 1.5,
@@ -4953,8 +4982,8 @@ var AppFolderModal = ({
                       justifyContent: "space-between"
                     },
                     children: [
-                      /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "caption", sx: { color: "#94A3B8", fontWeight: 600 }, children: "NamiOS Suite" }),
-                      /* @__PURE__ */ jsxRuntime.jsxs(Typography9__default.default, { variant: "caption", sx: { color: "#94A3B8", fontSize: "0.7rem" }, children: [
+                      /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "caption", sx: { color: "#94A3B8", fontWeight: 600 }, children: "NamiOS Suite" }),
+                      /* @__PURE__ */ jsxRuntime.jsxs(Typography4__default.default, { variant: "caption", sx: { color: "#94A3B8", fontSize: "0.7rem" }, children: [
                         "Press ",
                         /* @__PURE__ */ jsxRuntime.jsx("kbd", { style: { background: "rgba(0,0,0,0.06)", padding: "2px 4px", borderRadius: 4, fontWeight: 700 }, children: "Esc" }),
                         " to close"
@@ -5129,7 +5158,7 @@ var DashboardLayout = ({
     ] })
   ] });
 };
-var LaneContainer = styles.styled(Box7__default.default)(({ theme }) => ({
+var LaneContainer = styles.styled(Box6__default.default)(({ theme }) => ({
   flex: 1,
   minWidth: 280,
   maxWidth: 360,
@@ -5143,14 +5172,14 @@ var LaneContainer = styles.styled(Box7__default.default)(({ theme }) => ({
   minHeight: 500,
   border: `1px solid ${theme.palette.mode === "light" ? "#E2E8F0" : "#1E293B"}`
 }));
-var ColumnHeader = styles.styled(Box7__default.default)(({ theme }) => ({
+var ColumnHeader = styles.styled(Box6__default.default)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
   paddingBottom: theme.spacing(1.5),
   borderBottom: `2px solid ${theme.palette.divider}`
 }));
-var ItemsScrollArea = styles.styled(Box7__default.default)(({ theme }) => ({
+var ItemsScrollArea = styles.styled(Box6__default.default)(({ theme }) => ({
   flexGrow: 1,
   overflowY: "auto",
   display: "flex",
@@ -5193,7 +5222,7 @@ var KanbanBoard = ({
           /* @__PURE__ */ jsxRuntime.jsxs(ColumnHeader, { children: [
             /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", spacing: 1.5, alignItems: "center", children: [
               column.color && /* @__PURE__ */ jsxRuntime.jsx(
-                Box7__default.default,
+                Box6__default.default,
                 {
                   sx: {
                     width: 8,
@@ -5203,7 +5232,7 @@ var KanbanBoard = ({
                   }
                 }
               ),
-              /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "subtitle2", sx: { fontWeight: 700, letterSpacing: "0.05em" }, children: column.title })
+              /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "subtitle2", sx: { fontWeight: 700, letterSpacing: "0.05em" }, children: column.title })
             ] }),
             /* @__PURE__ */ jsxRuntime.jsx(
               Chip,
@@ -5215,7 +5244,7 @@ var KanbanBoard = ({
               }
             )
           ] }),
-          /* @__PURE__ */ jsxRuntime.jsx(ItemsScrollArea, { children: laneItems.map((item) => /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { position: "relative" }, children: renderItem(item) }, getItemId(item))) })
+          /* @__PURE__ */ jsxRuntime.jsx(ItemsScrollArea, { children: laneItems.map((item) => /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { position: "relative" }, children: renderItem(item) }, getItemId(item))) })
         ] }, column.id);
       })
     }
@@ -5227,7 +5256,7 @@ var SplitPaneLayout = ({
   rightWidth = 400
 }) => {
   return /* @__PURE__ */ jsxRuntime.jsxs(
-    Box7__default.default,
+    Box6__default.default,
     {
       sx: {
         display: "flex",
@@ -5239,7 +5268,7 @@ var SplitPaneLayout = ({
       },
       children: [
         /* @__PURE__ */ jsxRuntime.jsx(
-          Box7__default.default,
+          Box6__default.default,
           {
             sx: {
               flexGrow: 1,
@@ -5251,7 +5280,7 @@ var SplitPaneLayout = ({
           }
         ),
         /* @__PURE__ */ jsxRuntime.jsx(
-          Box7__default.default,
+          Box6__default.default,
           {
             sx: {
               width: { xs: "100%", md: rightWidth },
@@ -5306,14 +5335,14 @@ var StyledCard = styles.styled(Card2__default.default, {
     borderColor: activeBorderColor || theme.palette.text.secondary
   } : {}
 }));
-var ImageContainer = styles.styled(Box7__default.default)({
+var ImageContainer = styles.styled(Box6__default.default)({
   position: "relative",
   paddingTop: "60%",
   // 5:3 Aspect Ratio
   width: "100%",
   overflow: "hidden"
 });
-var MediaOverlay = styles.styled(Box7__default.default)({
+var MediaOverlay = styles.styled(Box6__default.default)({
   position: "absolute",
   top: 0,
   left: 0,
@@ -5367,7 +5396,7 @@ var MenuCard = ({
               }
             }
           ) : /* @__PURE__ */ jsxRuntime.jsx(
-            Box7__default.default,
+            Box6__default.default,
             {
               sx: {
                 position: "absolute",
@@ -5380,18 +5409,18 @@ var MenuCard = ({
                 justifyContent: "center",
                 bgcolor: "action.hover"
               },
-              children: /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", color: "text.secondary", sx: { fontWeight: 600 }, children: "No Image" })
+              children: /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "body2", color: "text.secondary", sx: { fontWeight: 600 }, children: "No Image" })
             }
           ),
           actionOverlay && /* @__PURE__ */ jsxRuntime.jsx(MediaOverlay, { children: actionOverlay })
         ] }),
         /* @__PURE__ */ jsxRuntime.jsxs(CardContent2__default.default, { sx: { p: 2, flexGrow: 1, display: "flex", flexDirection: "column", gap: 1 }, children: [
           /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", justifyContent: "space-between", alignItems: "flex-start", spacing: 1, children: [
-            /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "subtitle1", sx: { fontWeight: 700, lineHeight: 1.2 }, noWrap: true, children: name }),
-            /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "subtitle1", color: "primary", sx: { fontWeight: 700 }, children: formattedPrice })
+            /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "subtitle1", sx: { fontWeight: 700, lineHeight: 1.2 }, noWrap: true, children: name }),
+            /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "subtitle1", color: "primary", sx: { fontWeight: 700 }, children: formattedPrice })
           ] }),
           description && /* @__PURE__ */ jsxRuntime.jsx(
-            Typography9__default.default,
+            Typography4__default.default,
             {
               variant: "body2",
               color: "text.secondary",
@@ -5407,10 +5436,10 @@ var MenuCard = ({
               children: description
             }
           ),
-          /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { flexGrow: 1 } }),
+          /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { flexGrow: 1 } }),
           /* @__PURE__ */ jsxRuntime.jsxs(Stack4__default.default, { direction: "row", spacing: 0.5, flexWrap: "wrap", useFlexGap: true, alignItems: "center", sx: { mt: 1 }, children: [
-            badges?.map((badge, idx) => /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { children: badge }, idx)),
-            /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { flexGrow: 1 } }),
+            badges?.map((badge, idx) => /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { children: badge }, idx)),
+            /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { flexGrow: 1 } }),
             stockLabel && /* @__PURE__ */ jsxRuntime.jsx(
               Chip,
               {
@@ -6611,7 +6640,7 @@ function ThreeOverviewCanvas({
     return /* @__PURE__ */ jsxRuntime.jsx(jsxRuntime.Fragment, { children: fallback });
   }
   return /* @__PURE__ */ jsxRuntime.jsxs(
-    Box7__default.default,
+    Box6__default.default,
     {
       ref: containerRef,
       sx: {
@@ -6626,7 +6655,7 @@ function ThreeOverviewCanvas({
       },
       children: [
         (title || subtitle) && /* @__PURE__ */ jsxRuntime.jsxs(
-          Box7__default.default,
+          Box6__default.default,
           {
             sx: {
               position: "absolute",
@@ -6636,8 +6665,8 @@ function ThreeOverviewCanvas({
               pointerEvents: "none"
             },
             children: [
-              title && /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "caption", sx: { fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase", color: isDark ? "#94A3B8" : "#64748B", display: "block", fontSize: "0.68rem" }, children: title }),
-              subtitle && /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "body2", sx: { fontWeight: 600, fontSize: "0.8rem", color: isDark ? "#F8FAFC" : "#0F172A" }, children: subtitle })
+              title && /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "caption", sx: { fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase", color: isDark ? "#94A3B8" : "#64748B", display: "block", fontSize: "0.68rem" }, children: title }),
+              subtitle && /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "body2", sx: { fontWeight: 600, fontSize: "0.8rem", color: isDark ? "#F8FAFC" : "#0F172A" }, children: subtitle })
             ]
           }
         ),
@@ -6652,7 +6681,7 @@ function ThreeOverviewCanvas({
             onPointerCancel: handlePointerUp
           }
         ),
-        children && /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { position: "absolute", bottom: 8, right: 10, zIndex: 2 }, children })
+        children && /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { position: "absolute", bottom: 8, right: 10, zIndex: 2 }, children })
       ]
     }
   );
@@ -6960,7 +6989,7 @@ function IsometricBarOverview({
     },
     [data, maxValue]
   );
-  return /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { width: "100%", position: "relative" }, children: /* @__PURE__ */ jsxRuntime.jsx(
+  return /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { width: "100%", position: "relative" }, children: /* @__PURE__ */ jsxRuntime.jsx(
     ThreeOverviewCanvas,
     {
       height,
@@ -6969,7 +6998,7 @@ function IsometricBarOverview({
       fallback,
       onRenderScene: renderScene,
       children: /* @__PURE__ */ jsxRuntime.jsx(
-        Box7__default.default,
+        Box6__default.default,
         {
           sx: {
             display: "flex",
@@ -6981,9 +7010,9 @@ function IsometricBarOverview({
             borderRadius: "3px",
             border: `0.5px solid ${isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.08)"}`
           },
-          children: data.slice(0, 4).map((d) => /* @__PURE__ */ jsxRuntime.jsxs(Box7__default.default, { sx: { display: "flex", alignItems: "center", gap: 0.75 }, children: [
+          children: data.slice(0, 4).map((d) => /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { display: "flex", alignItems: "center", gap: 0.75 }, children: [
             /* @__PURE__ */ jsxRuntime.jsx(
-              Box7__default.default,
+              Box6__default.default,
               {
                 sx: {
                   width: 8,
@@ -6993,7 +7022,7 @@ function IsometricBarOverview({
                 }
               }
             ),
-            /* @__PURE__ */ jsxRuntime.jsxs(Typography9__default.default, { variant: "caption", sx: { fontSize: "0.7rem", fontWeight: 600, color: "text.secondary" }, children: [
+            /* @__PURE__ */ jsxRuntime.jsxs(Typography4__default.default, { variant: "caption", sx: { fontSize: "0.7rem", fontWeight: 600, color: "text.secondary" }, children: [
               d.label,
               ": ",
               /* @__PURE__ */ jsxRuntime.jsx("strong", { children: d.formattedValue || d.value })
@@ -7321,7 +7350,7 @@ function PropertyDigitalTwin({
     },
     [floors]
   );
-  return /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { width: "100%", position: "relative" }, children: /* @__PURE__ */ jsxRuntime.jsx(
+  return /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { width: "100%", position: "relative" }, children: /* @__PURE__ */ jsxRuntime.jsx(
     ThreeOverviewCanvas,
     {
       height,
@@ -7330,7 +7359,7 @@ function PropertyDigitalTwin({
       fallback,
       onRenderScene: renderScene,
       children: /* @__PURE__ */ jsxRuntime.jsx(
-        Box7__default.default,
+        Box6__default.default,
         {
           sx: {
             display: "flex",
@@ -7342,9 +7371,9 @@ function PropertyDigitalTwin({
             borderRadius: "3px",
             border: `0.5px solid ${isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.08)"}`
           },
-          children: Object.entries(STATUS_HEX).map(([status, color]) => /* @__PURE__ */ jsxRuntime.jsxs(Box7__default.default, { sx: { display: "flex", alignItems: "center", gap: 0.5 }, children: [
-            /* @__PURE__ */ jsxRuntime.jsx(Box7__default.default, { sx: { width: 8, height: 8, borderRadius: "1.5px", bgcolor: color } }),
-            /* @__PURE__ */ jsxRuntime.jsx(Typography9__default.default, { variant: "caption", sx: { fontSize: "0.68rem", fontWeight: 600, color: "text.secondary", textTransform: "capitalize" }, children: status })
+          children: Object.entries(STATUS_HEX).map(([status, color]) => /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { display: "flex", alignItems: "center", gap: 0.5 }, children: [
+            /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { width: 8, height: 8, borderRadius: "1.5px", bgcolor: color } }),
+            /* @__PURE__ */ jsxRuntime.jsx(Typography4__default.default, { variant: "caption", sx: { fontSize: "0.68rem", fontWeight: 600, color: "text.secondary", textTransform: "capitalize" }, children: status })
           ] }, status))
         }
       )

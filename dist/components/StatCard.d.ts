@@ -11,20 +11,21 @@ export interface StatCardProps {
     icon?: ReactNode;
     loading?: boolean;
     /**
-     * 'stat' — label above value (Super Admin dashboard).
-     * 'kpi' — icon tile top-left, right-aligned uppercase label, badge slot
-     * top-right (Stay OS property overview / revenue KPIs).
+     * 'stat' — label above value with inline icon (Super Admin dashboard).
+     * 'kpi' — icon tile right-aligned, label and value compact on left (Stay OS property overview / revenue KPIs).
      */
     layout?: 'stat' | 'kpi';
-    /** Small line under the value ("4 floors · 3 categories", "Due before 14:00"). */
+    /** Small line under or beside the value ("4 floors · 3 categories", "Due before 14:00"). */
     subtitleKey?: string;
     subtitleParams?: Record<string, unknown>;
-    /** Free-form badge rendered top-right in kpi layout (delta chip). */
+    /** Free-form badge rendered in kpi layout (delta chip). */
     badge?: ReactNode;
     /** Tint of the kpi icon tile. */
     iconColor?: StatCardIconColor;
     /** Card sizing: 'medium' (default), 'small', or 'mini'. */
     size?: StatCardSize;
+    /** Backward compatibility with compactSize flag */
+    compactSize?: boolean;
 }
 /** Dashboard KPI card with loading skeleton, trend indicator and two layouts. */
-export declare const StatCard: ({ labelKey, value, delta, trend, icon, loading, layout, subtitleKey, subtitleParams, badge, iconColor, size, }: StatCardProps) => import("react").JSX.Element;
+export declare const StatCard: ({ labelKey, value, delta, trend, icon, loading, layout, subtitleKey, subtitleParams, badge, iconColor, size, compactSize, }: StatCardProps) => import("react").JSX.Element;
