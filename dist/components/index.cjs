@@ -5666,6 +5666,7 @@ var MenuCard = ({
 
 // src/utils/string.ts
 function initialsFromName(name) {
+  if (typeof name !== "string") return "";
   const parts = name.trim().split(/\s+/).filter(Boolean);
   if (parts.length === 0) return "";
   if (parts.length === 1) {

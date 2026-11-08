@@ -1,9 +1,11 @@
 // src/utils/string.ts
-function truncate(value, maxLength, suffix = "\u2026") {
+function truncate(value, maxLength = 0, suffix = "\u2026") {
+  if (!value || typeof value !== "string") return "";
   if (value.length <= maxLength) return value;
   return value.slice(0, Math.max(0, maxLength - suffix.length)).trimEnd() + suffix;
 }
 function initialsFromName(name) {
+  if (!name || typeof name !== "string") return "";
   const parts = name.trim().split(/\s+/).filter(Boolean);
   if (parts.length === 0) return "";
   if (parts.length === 1) {
@@ -24,5 +26,5 @@ function formatBytes(bytes, decimals = 1) {
 }
 
 export { formatBytes, initialsFromName, truncate };
-//# sourceMappingURL=chunk-MYZDKFRT.js.map
-//# sourceMappingURL=chunk-MYZDKFRT.js.map
+//# sourceMappingURL=chunk-4SVWHJFT.js.map
+//# sourceMappingURL=chunk-4SVWHJFT.js.map

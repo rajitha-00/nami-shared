@@ -1,10 +1,12 @@
-export function truncate(value: string, maxLength: number, suffix = '…'): string {
+export function truncate(value?: string | null, maxLength = 0, suffix = '…'): string {
+  if (!value || typeof value !== 'string') return '';
   if (value.length <= maxLength) return value;
   return value.slice(0, Math.max(0, maxLength - suffix.length)).trimEnd() + suffix;
 }
 
-/** "Amaya Perera" → "AP"; single names take the first two characters. */
-export function initialsFromName(name: string): string {
+/** "Amaya Perera" → "AP"; single names take the first two characters. Safe against null/undefined/non-strings. */
+export function initialsFromName(name?: string | null): string {
+  if (!name || typeof name !== 'string') return '';
   const parts = name.trim().split(/\s+/).filter(Boolean);
   if (parts.length === 0) return '';
   if (parts.length === 1) {

@@ -3,7 +3,7 @@ import { useContextMenu, DateRangePreset, useMediaBreakpoint, useLocaleFormat } 
 import { STATUS_COLORS } from './chunk-PIXANAT2.js';
 import { PAGE_SIZE_OPTIONS } from './chunk-PGMOSXPC.js';
 import { SUPPORTED_LOCALES } from './chunk-TSLK7DRZ.js';
-import { initialsFromName } from './chunk-MYZDKFRT.js';
+import { initialsFromName } from './chunk-4SVWHJFT.js';
 import { dateRangeDays, todayIso, addDays, differenceInDays } from './chunk-3GW7KH25.js';
 import CloseIcon4 from '@mui/icons-material/Close';
 import Dialog from '@mui/material/Dialog';
@@ -7028,5 +7028,5 @@ function PropertyDigitalTwin({
 }
 
 export { APP_TILE_VARIANTS, Accordion, AccordionDetails, AccordionSummary, AdaptiveThemeProvider, Alert, AlertTitle, AnimatedBed, AnimatedBrush, AnimatedCalendar, AnimatedCreditCard, AnimatedDashboard, AnimatedDoorOpen, AnimatedFolderOpen, AnimatedInbox, AnimatedLayers, AnimatedRadio, AnimatedSearch, AnimatedSettings, AnimatedShieldCheck, AnimatedSparkles, AnimatedTrendingUp, AnimatedUsers, AppDialog, AppDrawer, AppFolderMiniPreview, AppFolderModal, AppLauncher, AppSideNav, AppTile, AppTopBar, AuthFormHeader, AuthFormShell, AuthLayout, Avatar, AvatarGroup, BACKDROP_TRANSITION, Badge, Box3 as Box, Button2 as Button, CONTAINER_VARIANTS, Card, CardActions, CardContent, CardHeader, CardMedia, Checkbox, Chip, CircularProgress2 as CircularProgress, Container, ContextMenu, CursorGrid, DEFAULT_HOTELOS_APPS, DashboardLayout, DataTable, DateRangeButton, DescriptionList, Dialog2 as Dialog, DialogActions2 as DialogActions, DialogContent2 as DialogContent, DialogTitle2 as DialogTitle, Divider, Drawer, EmptyState, ErrorState, FOLDER_LAYOUT_SPRING, FormDialog, FormSelect, FormSwitch, FormTextField, Grid, IconButton2 as IconButton, IsometricBarOverview, KanbanBoard, LanguageSwitcher, LinearProgress, LoadingOverlay, MenuCard, NamiosLoader, NamiosMarkSvg, OtpInput, PRODUCTION_APP_URLS, PageHeader, PageSkeleton, Paper2 as Paper, PasswordField, PropertyDigitalTwin, Radio, RadioGroup, Rating, SearchField, SectionCard, Select, SelectField, Skeleton, Slider, SplitPaneLayout, Stack2 as Stack, StatCard, StatusChip, StatusFilterChips, Switch, TIMELINE_DIMENSIONS, Tab, Tabs, TextField, ThemeProvider, ThreeOverviewCanvas, TimelineMatrix, Tooltip, Typography3 as Typography, UserAvatar, VERCEL_APP_URLS, WizardDialog, adjustLightness, buildColorRole, clamp, cn, createMuiCompatiblePalette, createTheme, forwardRef, generateId, getAvatarBgColor, getContrastRatio, getContrastText, getRelativeLuminance, hexToRgb, injectThemeTokens, isInteractive, isPwa, mapRange, navigateApp, resolveAppUrl, rgbToHex, useMediaQuery, useTheme2 as useTheme, useWebGlSupport };
-//# sourceMappingURL=chunk-IEM2RDCB.js.map
-//# sourceMappingURL=chunk-IEM2RDCB.js.map
+//# sourceMappingURL=chunk-64PIZ23W.js.map
+//# sourceMappingURL=chunk-64PIZ23W.js.map

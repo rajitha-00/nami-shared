@@ -43,6 +43,8 @@ describe('string utils', () => {
     expect(initialsFromName('Cinnamon Grand Colombo')).toBe('CC');
     expect(initialsFromName('Solo')).toBe('SO');
     expect(initialsFromName('')).toBe('');
+    expect(initialsFromName(undefined)).toBe('');
+    expect(initialsFromName(null)).toBe('');
   });
 
   it('formatBytes', () => {
