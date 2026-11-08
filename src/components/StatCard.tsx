@@ -10,20 +10,22 @@ import { alpha, styled } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
 
 const StatCardRoot = styled(Card, {
-  shouldForwardProp: (prop) => prop !== 'compactSize',
-})<{ compactSize?: boolean }>(({ theme, compactSize }) => ({
+  shouldForwardProp: (prop) => prop !== 'compactSize' && prop !== 'borderless',
+})<{ compactSize?: boolean; borderless?: boolean }>(({ theme, compactSize, borderless }) => ({
   padding: compactSize ? theme.spacing(1, 1.25) : theme.spacing(1.25, 1.75),
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   height: '100%',
-  borderRadius: '4px',
-  boxShadow: '0 1px 2px rgba(0, 0, 0, 0.03)',
-  border: `0.5px solid ${theme.palette.mode === 'light' ? 'rgba(15, 23, 42, 0.08)' : 'rgba(255, 255, 255, 0.08)'}`,
+  borderRadius: borderless ? 0 : '4px',
+  boxShadow: borderless ? 'none' : '0 1px 2px rgba(0, 0, 0, 0.03)',
+  border: borderless ? 'none' : `0.5px solid ${theme.palette.mode === 'light' ? 'rgba(15, 23, 42, 0.08)' : 'rgba(255, 255, 255, 0.08)'}`,
+  backgroundColor: borderless ? 'transparent' : undefined,
   transition: 'border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease',
   '&:hover': {
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.05)',
-    borderColor: theme.palette.mode === 'light' ? 'rgba(15, 23, 42, 0.18)' : 'rgba(255, 255, 255, 0.18)',
+    boxShadow: borderless ? 'none' : '0 2px 4px rgba(0, 0, 0, 0.05)',
+    borderColor: borderless ? 'transparent' : theme.palette.mode === 'light' ? 'rgba(15, 23, 42, 0.18)' : 'rgba(255, 255, 255, 0.18)',
+    backgroundColor: borderless ? (theme.palette.mode === 'light' ? 'rgba(0,0,0,0.015)' : 'rgba(255,255,255,0.02)') : undefined,
     transform: 'none',
   },
 }));
@@ -95,6 +97,8 @@ export interface StatCardProps {
   size?: StatCardSize;
   /** Backward compatibility with compactSize flag */
   compactSize?: boolean;
+  /** When true, removes outer card border, shadow, and background so it can sit inside a divided container */
+  borderless?: boolean;
 }
 
 const TREND_ICONS = {
@@ -118,6 +122,7 @@ export const StatCard = ({
   iconColor = 'primary',
   size = 'small',
   compactSize,
+  borderless = false,
 }: StatCardProps) => {
   const { t } = useTranslation();
   const isCompact = size === 'small' || size === 'mini' || Boolean(compactSize);
@@ -154,7 +159,7 @@ export const StatCard = ({
 
   if (layout === 'kpi') {
     return (
-      <StatCardRoot compactSize={isCompact}>
+      <StatCardRoot compactSize={isCompact} borderless={borderless}>
         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 1.5, width: '100%' }}>
           <Box sx={{ display: 'flex', flexDirection: 'column', minWidth: 0, flex: 1, gap: 0.25 }}>
             <Typography
@@ -200,7 +205,7 @@ export const StatCard = ({
   }
 
   return (
-    <StatCardRoot compactSize={isCompact}>
+    <StatCardRoot compactSize={isCompact} borderless={borderless}>
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 1, width: '100%', mb: 0.25 }}>
         <Typography
           variant="body2"
