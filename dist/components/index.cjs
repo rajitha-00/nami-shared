@@ -1895,15 +1895,20 @@ var ContextMenu = ({
   x,
   y,
   items,
-  onClose
+  onClose,
+  mode
 }) => {
+  const muiTheme = styles.useTheme();
+  const isDark = (mode ?? muiTheme?.palette?.mode) === "dark";
   const [highlightedIndex, setHighlightedIndex] = React17.useState(-1);
+  const [highlightedSubIndex, setHighlightedSubIndex] = React17.useState(-1);
   const [activeSubmenu, setActiveSubmenu] = React17.useState(null);
   const menuRef = React17.useRef(null);
   const [position, setPosition] = React17.useState({ x, y });
   React17.useEffect(() => {
     if (!open) {
       setHighlightedIndex(-1);
+      setHighlightedSubIndex(-1);
       setActiveSubmenu(null);
       return;
     }
@@ -1967,15 +1972,15 @@ var ContextMenu = ({
         left: position.x,
         top: position.y,
         zIndex: 999999,
-        backgroundColor: "#11151e",
+        backgroundColor: isDark ? "rgba(17, 21, 30, 0.94)" : "rgba(255, 255, 255, 0.96)",
         backdropFilter: "blur(24px) saturate(1.6)",
         WebkitBackdropFilter: "blur(24px) saturate(1.6)",
-        border: "1px solid rgba(255, 255, 255, 0.1)",
+        border: isDark ? "1px solid rgba(255, 255, 255, 0.1)" : "1px solid rgba(0, 0, 0, 0.08)",
         borderRadius: 12,
         padding: 5,
         minWidth: 210,
         maxWidth: 280,
-        boxShadow: "0 20px 48px -10px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 0.5px 0 rgba(255, 255, 255, 0.12)",
+        boxShadow: isDark ? "0 20px 48px -10px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 0.5px 0 rgba(255, 255, 255, 0.12)" : "0 16px 36px -6px rgba(15, 23, 42, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04), inset 0 0.5px 0 rgba(255, 255, 255, 0.8)",
         userSelect: "none",
         outline: "none"
       },
@@ -1987,7 +1992,7 @@ var ContextMenu = ({
             {
               style: {
                 height: 1,
-                backgroundColor: "rgba(255, 255, 255, 0.08)",
+                backgroundColor: isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.07)",
                 margin: "4px 6px"
               }
             },
@@ -2004,6 +2009,7 @@ var ContextMenu = ({
             onMouseEnter: () => {
               if (!item.disabled) {
                 setHighlightedIndex(index);
+                setHighlightedSubIndex(-1);
                 if (hasChildren && item.label) {
                   setActiveSubmenu(item.label);
                 } else {
@@ -2031,7 +2037,7 @@ var ContextMenu = ({
                     cursor: item.disabled ? "not-allowed" : "pointer",
                     fontSize: "13px",
                     fontWeight: 500,
-                    color: item.disabled ? "rgba(255, 255, 255, 0.25)" : item.danger ? "#FF453A" : "#FFFFFF",
+                    color: item.disabled ? isDark ? "rgba(255, 255, 255, 0.25)" : "rgba(0, 0, 0, 0.28)" : item.danger ? isDark ? "#FF453A" : "#FF3B30" : isDark ? "#FFFFFF" : "#1C1C1E",
                     gap: 12
                   },
                   children: [
@@ -2045,7 +2051,7 @@ var ContextMenu = ({
                           position: "absolute",
                           inset: 0,
                           borderRadius: 8,
-                          backgroundColor: item.danger ? "rgba(255, 69, 58, 0.18)" : "rgba(255, 255, 255, 0.1)",
+                          backgroundColor: item.danger ? isDark ? "rgba(255, 69, 58, 0.18)" : "rgba(255, 59, 48, 0.10)" : isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.05)",
                           pointerEvents: "none"
                         }
                       }
@@ -2101,7 +2107,7 @@ var ContextMenu = ({
                                 fontSize: "11px",
                                 fontWeight: 600,
                                 fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                                color: isHighlighted ? "rgba(255, 255, 255, 0.65)" : "rgba(255, 255, 255, 0.35)",
+                                color: isDark ? isHighlighted ? "rgba(255, 255, 255, 0.65)" : "rgba(255, 255, 255, 0.35)" : isHighlighted ? "rgba(0, 0, 0, 0.65)" : "rgba(0, 0, 0, 0.40)",
                                 letterSpacing: "0.04em"
                               },
                               children: item.shortcut
@@ -2112,7 +2118,7 @@ var ContextMenu = ({
                             {
                               style: {
                                 fontSize: "14px",
-                                color: isHighlighted ? "rgba(255, 255, 255, 0.7)" : "rgba(255, 255, 255, 0.3)"
+                                color: isDark ? isHighlighted ? "rgba(255, 255, 255, 0.7)" : "rgba(255, 255, 255, 0.3)" : isHighlighted ? "rgba(0, 0, 0, 0.7)" : "rgba(0, 0, 0, 0.35)"
                               },
                               children: "\u203A"
                             }
@@ -2134,13 +2140,14 @@ var ContextMenu = ({
                     position: "absolute",
                     top: -4,
                     left: "calc(100% + 4px)",
-                    backgroundColor: "#11151e",
+                    backgroundColor: isDark ? "rgba(17, 21, 30, 0.94)" : "rgba(255, 255, 255, 0.96)",
                     backdropFilter: "blur(24px) saturate(1.6)",
-                    border: "1px solid rgba(255, 255, 255, 0.1)",
+                    WebkitBackdropFilter: "blur(24px) saturate(1.6)",
+                    border: isDark ? "1px solid rgba(255, 255, 255, 0.1)" : "1px solid rgba(0, 0, 0, 0.08)",
                     borderRadius: 12,
                     padding: 5,
                     minWidth: 180,
-                    boxShadow: "0 20px 48px -10px rgba(0, 0, 0, 0.55)",
+                    boxShadow: isDark ? "0 20px 48px -10px rgba(0, 0, 0, 0.55)" : "0 16px 36px -6px rgba(15, 23, 42, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.06)",
                     zIndex: 1e6
                   },
                   children: item.children.map((sub, subIdx) => {
@@ -2150,16 +2157,21 @@ var ContextMenu = ({
                         {
                           style: {
                             height: 1,
-                            backgroundColor: "rgba(255, 255, 255, 0.08)",
+                            backgroundColor: isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.07)",
                             margin: "4px 6px"
                           }
                         },
                         `sub-sep-${subIdx}`
                       );
                     }
+                    const isSubHighlighted = highlightedSubIndex === subIdx;
                     return /* @__PURE__ */ jsxRuntime.jsxs(
                       "div",
                       {
+                        onMouseEnter: () => {
+                          if (!sub.disabled) setHighlightedSubIndex(subIdx);
+                        },
+                        onMouseLeave: () => setHighlightedSubIndex(-1),
                         onClick: () => handleItemClick(sub),
                         style: {
                           position: "relative",
@@ -2171,20 +2183,69 @@ var ContextMenu = ({
                           cursor: sub.disabled ? "not-allowed" : "pointer",
                           fontSize: "13px",
                           fontWeight: 500,
-                          color: sub.disabled ? "rgba(255, 255, 255, 0.25)" : sub.danger ? "#FF453A" : "#FFFFFF",
+                          color: sub.disabled ? isDark ? "rgba(255, 255, 255, 0.25)" : "rgba(0, 0, 0, 0.28)" : sub.danger ? isDark ? "#FF453A" : "#FF3B30" : isDark ? "#FFFFFF" : "#1C1C1E",
                           gap: 12
                         },
                         children: [
-                          /* @__PURE__ */ jsxRuntime.jsxs("div", { style: { display: "flex", alignItems: "center", gap: 8 }, children: [
-                            sub.icon && /* @__PURE__ */ jsxRuntime.jsx("span", { children: sub.icon }),
-                            /* @__PURE__ */ jsxRuntime.jsx("span", { children: sub.label })
-                          ] }),
+                          /* @__PURE__ */ jsxRuntime.jsx(
+                            framerMotion.motion.div,
+                            {
+                              initial: false,
+                              animate: { opacity: isSubHighlighted ? 1 : 0 },
+                              transition: HIGHLIGHT_SPRING,
+                              style: {
+                                position: "absolute",
+                                inset: 0,
+                                borderRadius: 8,
+                                backgroundColor: sub.danger ? isDark ? "rgba(255, 69, 58, 0.18)" : "rgba(255, 59, 48, 0.10)" : isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.05)",
+                                pointerEvents: "none"
+                              }
+                            }
+                          ),
+                          /* @__PURE__ */ jsxRuntime.jsxs(
+                            "div",
+                            {
+                              style: {
+                                position: "relative",
+                                zIndex: 1,
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 8,
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                                whiteSpace: "nowrap"
+                              },
+                              children: [
+                                sub.icon && /* @__PURE__ */ jsxRuntime.jsx(
+                                  "span",
+                                  {
+                                    style: {
+                                      display: "inline-flex",
+                                      alignItems: "center",
+                                      justifyContent: "center",
+                                      fontSize: 16,
+                                      width: 16,
+                                      height: 16,
+                                      opacity: sub.disabled ? 0.3 : 0.9
+                                    },
+                                    children: sub.icon
+                                  }
+                                ),
+                                /* @__PURE__ */ jsxRuntime.jsx("span", { children: sub.label })
+                              ]
+                            }
+                          ),
                           sub.shortcut && /* @__PURE__ */ jsxRuntime.jsx(
                             "span",
                             {
                               style: {
+                                position: "relative",
+                                zIndex: 1,
                                 fontSize: "11px",
-                                color: "rgba(255, 255, 255, 0.35)"
+                                fontWeight: 600,
+                                fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                                color: isDark ? isSubHighlighted ? "rgba(255, 255, 255, 0.65)" : "rgba(255, 255, 255, 0.35)" : isSubHighlighted ? "rgba(0, 0, 0, 0.65)" : "rgba(0, 0, 0, 0.40)",
+                                letterSpacing: "0.04em"
                               },
                               children: sub.shortcut
                             }
@@ -5616,30 +5677,44 @@ function initialsFromName(name) {
   return (first + last).toUpperCase();
 }
 var DETERMINISTIC_COLORS = [
-  "#007AFF",
+  "#1565C0",
   // Blue
-  "#5856D6",
+  "#4527A0",
+  // Deep Purple
+  "#7B1FA2",
   // Purple
-  "#AF52DE",
-  // Magenta
-  "#FF2D55",
-  // Pink
-  "#FF9500",
-  // Orange
-  "#34C759",
+  "#C62828",
+  // Red
+  "#E65100",
+  // Deep Orange
+  "#2E7D32",
   // Green
-  "#00C7BE",
+  "#00695C",
   // Teal
-  "#32ADE6"
+  "#0277BD"
   // Light Blue
 ];
+function hexToRgb3(hex) {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1] ?? "0", 16),
+    g: parseInt(result[2] ?? "0", 16),
+    b: parseInt(result[3] ?? "0", 16)
+  } : { r: 25, g: 118, d: 210 };
+}
 var getAvatarBgColor = (seed) => {
   let hash = 0;
   for (let i = 0; i < seed.length; i += 1) {
     hash = seed.charCodeAt(i) + ((hash << 5) - hash);
   }
   const index = Math.abs(hash) % DETERMINISTIC_COLORS.length;
-  return DETERMINISTIC_COLORS[index] ?? "#007AFF";
+  return DETERMINISTIC_COLORS[index] ?? "#1565C0";
+};
+var getAvatarColors = (seed) => {
+  const textColor = getAvatarBgColor(seed);
+  const { r, g, b } = hexToRgb3(textColor);
+  const bg = `rgba(${r}, ${g}, ${b}, 0.14)`;
+  return { bg, text: textColor };
 };
 var UserAvatar = ({
   name = "",
@@ -5667,16 +5742,18 @@ var UserAvatar = ({
   }, [avatarUrl]);
   const displayName = name.trim() || email.trim() || "User";
   const initials = initialsFromName(displayName);
-  const bgColor = getAvatarBgColor(displayName);
+  const { bg, text } = getAvatarColors(displayName);
   const sxStyle = sx && typeof sx === "object" && !Array.isArray(sx) ? sx : void 0;
   const combinedStyle = {
     width: size,
     height: size,
-    backgroundColor: bgColor,
-    color: "#FFFFFF",
-    fontWeight: 700,
+    backgroundColor: bg,
+    color: text,
+    fontWeight: 800,
     fontSize: fontSize ?? Math.max(12, Math.floor(size * 0.4)),
-    boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+    boxShadow: "none",
+    border: `1.5px solid ${text}26`,
+    // ~15% opacity border
     ...sxStyle,
     ...style
   };

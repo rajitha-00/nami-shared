@@ -11,4 +11,9 @@ export interface UserAvatarProps {
     className?: string;
 }
 export declare const getAvatarBgColor: (seed: string) => string;
+/** Returns light pastel background and dark text color for given seed */
+export declare const getAvatarColors: (seed: string) => {
+    bg: string;
+    text: string;
+};
 export declare const UserAvatar: React.FC<UserAvatarProps>;

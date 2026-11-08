@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTheme } from '@mui/material/styles';
 
 export interface ContextMenuItem {
   key?: string;
@@ -19,6 +20,11 @@ export interface ContextMenuProps {
   y: number;
   items: ContextMenuItem[];
   onClose: () => void;
+  /**
+   * Theme mode override. When omitted, dynamically adapts to the active MUI theme
+   * mode (defaulting to 'light').
+   */
+  mode?: 'light' | 'dark';
 }
 
 const MENU_SPRING = {
@@ -40,8 +46,13 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
   y,
   items,
   onClose,
+  mode,
 }) => {
+  const muiTheme = useTheme();
+  const isDark = (mode ?? muiTheme?.palette?.mode) === 'dark';
+
   const [highlightedIndex, setHighlightedIndex] = useState<number>(-1);
+  const [highlightedSubIndex, setHighlightedSubIndex] = useState<number>(-1);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState<{ x: number; y: number }>({ x, y });
@@ -50,6 +61,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
   useEffect(() => {
     if (!open) {
       setHighlightedIndex(-1);
+      setHighlightedSubIndex(-1);
       setActiveSubmenu(null);
       return;
     }
@@ -127,16 +139,17 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
             left: position.x,
             top: position.y,
             zIndex: 999999,
-            backgroundColor: '#11151e',
+            backgroundColor: isDark ? 'rgba(17, 21, 30, 0.94)' : 'rgba(255, 255, 255, 0.96)',
             backdropFilter: 'blur(24px) saturate(1.6)',
             WebkitBackdropFilter: 'blur(24px) saturate(1.6)',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
+            border: isDark ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid rgba(0, 0, 0, 0.08)',
             borderRadius: 12,
             padding: 5,
             minWidth: 210,
             maxWidth: 280,
-            boxShadow:
-              '0 20px 48px -10px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 0.5px 0 rgba(255, 255, 255, 0.12)',
+            boxShadow: isDark
+              ? '0 20px 48px -10px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 0.5px 0 rgba(255, 255, 255, 0.12)'
+              : '0 16px 36px -6px rgba(15, 23, 42, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04), inset 0 0.5px 0 rgba(255, 255, 255, 0.8)',
             userSelect: 'none',
             outline: 'none',
           }}
@@ -149,7 +162,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
                   key={`sep-${index}`}
                   style={{
                     height: 1,
-                    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                    backgroundColor: isDark ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.07)',
                     margin: '4px 6px',
                   }}
                 />
@@ -167,6 +180,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
                 onMouseEnter={() => {
                   if (!item.disabled) {
                     setHighlightedIndex(index);
+                    setHighlightedSubIndex(-1);
                     if (hasChildren && item.label) {
                       setActiveSubmenu(item.label);
                     } else {
@@ -193,10 +207,10 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
                     fontSize: '13px',
                     fontWeight: 500,
                     color: item.disabled
-                      ? 'rgba(255, 255, 255, 0.25)'
+                      ? (isDark ? 'rgba(255, 255, 255, 0.25)' : 'rgba(0, 0, 0, 0.28)')
                       : item.danger
-                      ? '#FF453A'
-                      : '#FFFFFF',
+                      ? (isDark ? '#FF453A' : '#FF3B30')
+                      : (isDark ? '#FFFFFF' : '#1C1C1E'),
                     gap: 12,
                   }}
                 >
@@ -210,8 +224,8 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
                       inset: 0,
                       borderRadius: 8,
                       backgroundColor: item.danger
-                        ? 'rgba(255, 69, 58, 0.18)'
-                        : 'rgba(255, 255, 255, 0.1)',
+                        ? (isDark ? 'rgba(255, 69, 58, 0.18)' : 'rgba(255, 59, 48, 0.10)')
+                        : (isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'),
                       pointerEvents: 'none',
                     }}
                   />
@@ -264,9 +278,9 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
                           fontWeight: 600,
                           fontFamily:
                             '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                          color: isHighlighted
-                            ? 'rgba(255, 255, 255, 0.65)'
-                            : 'rgba(255, 255, 255, 0.35)',
+                          color: isDark
+                            ? (isHighlighted ? 'rgba(255, 255, 255, 0.65)' : 'rgba(255, 255, 255, 0.35)')
+                            : (isHighlighted ? 'rgba(0, 0, 0, 0.65)' : 'rgba(0, 0, 0, 0.40)'),
                           letterSpacing: '0.04em',
                         }}
                       >
@@ -278,9 +292,9 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
                       <span
                         style={{
                           fontSize: '14px',
-                          color: isHighlighted
-                            ? 'rgba(255, 255, 255, 0.7)'
-                            : 'rgba(255, 255, 255, 0.3)',
+                          color: isDark
+                            ? (isHighlighted ? 'rgba(255, 255, 255, 0.7)' : 'rgba(255, 255, 255, 0.3)')
+                            : (isHighlighted ? 'rgba(0, 0, 0, 0.7)' : 'rgba(0, 0, 0, 0.35)'),
                         }}
                       >
                         ›
@@ -301,13 +315,16 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
                         position: 'absolute',
                         top: -4,
                         left: 'calc(100% + 4px)',
-                        backgroundColor: '#11151e',
+                        backgroundColor: isDark ? 'rgba(17, 21, 30, 0.94)' : 'rgba(255, 255, 255, 0.96)',
                         backdropFilter: 'blur(24px) saturate(1.6)',
-                        border: '1px solid rgba(255, 255, 255, 0.1)',
+                        WebkitBackdropFilter: 'blur(24px) saturate(1.6)',
+                        border: isDark ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid rgba(0, 0, 0, 0.08)',
                         borderRadius: 12,
                         padding: 5,
                         minWidth: 180,
-                        boxShadow: '0 20px 48px -10px rgba(0, 0, 0, 0.55)',
+                        boxShadow: isDark
+                          ? '0 20px 48px -10px rgba(0, 0, 0, 0.55)'
+                          : '0 16px 36px -6px rgba(15, 23, 42, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.06)',
                         zIndex: 1000000,
                       }}
                     >
@@ -318,15 +335,20 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
                               key={`sub-sep-${subIdx}`}
                               style={{
                                 height: 1,
-                                backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                                backgroundColor: isDark ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.07)',
                                 margin: '4px 6px',
                               }}
                             />
                           );
                         }
+                        const isSubHighlighted = highlightedSubIndex === subIdx;
                         return (
                           <div
                             key={sub.key || sub.label || `sub-${subIdx}`}
+                            onMouseEnter={() => {
+                              if (!sub.disabled) setHighlightedSubIndex(subIdx);
+                            }}
+                            onMouseLeave={() => setHighlightedSubIndex(-1)}
                             onClick={() => handleItemClick(sub)}
                             style={{
                               position: 'relative',
@@ -339,22 +361,69 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
                               fontSize: '13px',
                               fontWeight: 500,
                               color: sub.disabled
-                                ? 'rgba(255, 255, 255, 0.25)'
+                                ? (isDark ? 'rgba(255, 255, 255, 0.25)' : 'rgba(0, 0, 0, 0.28)')
                                 : sub.danger
-                                ? '#FF453A'
-                                : '#FFFFFF',
+                                ? (isDark ? '#FF453A' : '#FF3B30')
+                                : (isDark ? '#FFFFFF' : '#1C1C1E'),
                               gap: 12,
                             }}
                           >
-                            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                              {sub.icon && <span>{sub.icon}</span>}
+                            <motion.div
+                              initial={false}
+                              animate={{ opacity: isSubHighlighted ? 1 : 0 }}
+                              transition={HIGHLIGHT_SPRING}
+                              style={{
+                                position: 'absolute',
+                                inset: 0,
+                                borderRadius: 8,
+                                backgroundColor: sub.danger
+                                  ? (isDark ? 'rgba(255, 69, 58, 0.18)' : 'rgba(255, 59, 48, 0.10)')
+                                  : (isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'),
+                                pointerEvents: 'none',
+                              }}
+                            />
+                            <div
+                              style={{
+                                position: 'relative',
+                                zIndex: 1,
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 8,
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                                whiteSpace: 'nowrap',
+                              }}
+                            >
+                              {sub.icon && (
+                                <span
+                                  style={{
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    fontSize: 16,
+                                    width: 16,
+                                    height: 16,
+                                    opacity: sub.disabled ? 0.3 : 0.9,
+                                  }}
+                                >
+                                  {sub.icon}
+                                </span>
+                              )}
                               <span>{sub.label}</span>
                             </div>
                             {sub.shortcut && (
                               <span
                                 style={{
+                                  position: 'relative',
+                                  zIndex: 1,
                                   fontSize: '11px',
-                                  color: 'rgba(255, 255, 255, 0.35)',
+                                  fontWeight: 600,
+                                  fontFamily:
+                                    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                                  color: isDark
+                                    ? (isSubHighlighted ? 'rgba(255, 255, 255, 0.65)' : 'rgba(255, 255, 255, 0.35)')
+                                    : (isSubHighlighted ? 'rgba(0, 0, 0, 0.65)' : 'rgba(0, 0, 0, 0.40)'),
+                                  letterSpacing: '0.04em',
                                 }}
                               >
                                 {sub.shortcut}
@@ -374,3 +443,5 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({
     </AnimatePresence>
   );
 };
+
+export default ContextMenu;

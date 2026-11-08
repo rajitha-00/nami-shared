@@ -14,16 +14,29 @@ export interface UserAvatarProps {
   className?: string;
 }
 
+/** Dark vibrant colors used as the text/border color (light pastel bg derived from these). */
 const DETERMINISTIC_COLORS = [
-  '#007AFF', // Blue
-  '#5856D6', // Purple
-  '#AF52DE', // Magenta
-  '#FF2D55', // Pink
-  '#FF9500', // Orange
-  '#34C759', // Green
-  '#00C7BE', // Teal
-  '#32ADE6', // Light Blue
+  '#1565C0', // Blue
+  '#4527A0', // Deep Purple
+  '#7B1FA2', // Purple
+  '#C62828', // Red
+  '#E65100', // Deep Orange
+  '#2E7D32', // Green
+  '#00695C', // Teal
+  '#0277BD', // Light Blue
 ];
+
+/** Approximate alpha at ~15% to get a light pastel bg for use inline. */
+function hexToRgb(hex: string): { r: number; g: number; b: number } {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result
+    ? {
+        r: parseInt(result[1] ?? '0', 16),
+        g: parseInt(result[2] ?? '0', 16),
+        b: parseInt(result[3] ?? '0', 16),
+      }
+    : { r: 25, g: 118, d: 210 } as any;
+}
 
 export const getAvatarBgColor = (seed: string): string => {
   let hash = 0;
@@ -31,7 +44,15 @@ export const getAvatarBgColor = (seed: string): string => {
     hash = seed.charCodeAt(i) + ((hash << 5) - hash);
   }
   const index = Math.abs(hash) % DETERMINISTIC_COLORS.length;
-  return DETERMINISTIC_COLORS[index] ?? '#007AFF';
+  return DETERMINISTIC_COLORS[index] ?? '#1565C0';
+};
+
+/** Returns light pastel background and dark text color for given seed */
+export const getAvatarColors = (seed: string): { bg: string; text: string } => {
+  const textColor = getAvatarBgColor(seed);
+  const { r, g, b } = hexToRgb(textColor);
+  const bg = `rgba(${r}, ${g}, ${b}, 0.14)`;
+  return { bg, text: textColor };
 };
 
 export const UserAvatar: React.FC<UserAvatarProps> = ({
@@ -64,7 +85,7 @@ export const UserAvatar: React.FC<UserAvatarProps> = ({
 
   const displayName = name.trim() || email.trim() || 'User';
   const initials = initialsFromName(displayName);
-  const bgColor = getAvatarBgColor(displayName);
+  const { bg, text } = getAvatarColors(displayName);
 
   const sxStyle =
     sx && typeof sx === 'object' && !Array.isArray(sx)
@@ -74,11 +95,12 @@ export const UserAvatar: React.FC<UserAvatarProps> = ({
   const combinedStyle: React.CSSProperties = {
     width: size,
     height: size,
-    backgroundColor: bgColor,
-    color: '#FFFFFF',
-    fontWeight: 700,
+    backgroundColor: bg,
+    color: text,
+    fontWeight: 800,
     fontSize: fontSize ?? Math.max(12, Math.floor(size * 0.4)),
-    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
+    boxShadow: 'none',
+    border: `1.5px solid ${text}26`, // ~15% opacity border
     ...sxStyle,
     ...style,
   };
