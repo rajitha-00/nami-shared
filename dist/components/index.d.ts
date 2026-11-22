@@ -35,6 +35,7 @@ export { SplitPaneLayout, type SplitPaneLayoutProps } from './SplitPaneLayout';
 export { MenuCard, type MenuCardProps } from './MenuCard';
 export { ContextMenu, type ContextMenuProps, type ContextMenuItem, } from './ContextMenu';
 export { UserAvatar, type UserAvatarProps, getAvatarBgColor, } from './UserAvatar';
+export { BrandLogo, type BrandLogoProps } from './BrandLogo';
 export * from './AppLauncher';
 export * from './animated-icons';
 export * from '@namios/motionui-react';

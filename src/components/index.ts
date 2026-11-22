@@ -88,6 +88,7 @@ export {
   type UserAvatarProps,
   getAvatarBgColor,
 } from './UserAvatar';
+export { BrandLogo, type BrandLogoProps } from './BrandLogo';
 export * from './AppLauncher';
 export * from './animated-icons';
 
