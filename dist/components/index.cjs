@@ -72,12 +72,14 @@ var CheckCircleRoundedIcon = require('@mui/icons-material/CheckCircleRounded');
 var useMediaQuery2 = require('@mui/material/useMediaQuery');
 var HotelIcon = require('@mui/icons-material/Hotel');
 var RestaurantIcon = require('@mui/icons-material/Restaurant');
+var CelebrationIcon = require('@mui/icons-material/Celebration');
+var InventoryIcon = require('@mui/icons-material/Inventory');
+var MenuBookIcon = require('@mui/icons-material/MenuBook');
 var AdminPanelSettingsIcon = require('@mui/icons-material/AdminPanelSettings');
 var PublicIcon = require('@mui/icons-material/Public');
 var AutoAwesomeIcon = require('@mui/icons-material/AutoAwesome');
 var PaymentsIcon = require('@mui/icons-material/Payments');
 var PeopleIcon = require('@mui/icons-material/People');
-var InventoryIcon = require('@mui/icons-material/Inventory');
 var reactDom = require('react-dom');
 var InputBase = require('@mui/material/InputBase');
 var CardContent2 = require('@mui/material/CardContent');
@@ -151,12 +153,14 @@ var CheckCircleRoundedIcon__default = /*#__PURE__*/_interopDefault(CheckCircleRo
 var useMediaQuery2__default = /*#__PURE__*/_interopDefault(useMediaQuery2);
 var HotelIcon__default = /*#__PURE__*/_interopDefault(HotelIcon);
 var RestaurantIcon__default = /*#__PURE__*/_interopDefault(RestaurantIcon);
+var CelebrationIcon__default = /*#__PURE__*/_interopDefault(CelebrationIcon);
+var InventoryIcon__default = /*#__PURE__*/_interopDefault(InventoryIcon);
+var MenuBookIcon__default = /*#__PURE__*/_interopDefault(MenuBookIcon);
 var AdminPanelSettingsIcon__default = /*#__PURE__*/_interopDefault(AdminPanelSettingsIcon);
 var PublicIcon__default = /*#__PURE__*/_interopDefault(PublicIcon);
 var AutoAwesomeIcon__default = /*#__PURE__*/_interopDefault(AutoAwesomeIcon);
 var PaymentsIcon__default = /*#__PURE__*/_interopDefault(PaymentsIcon);
 var PeopleIcon__default = /*#__PURE__*/_interopDefault(PeopleIcon);
-var InventoryIcon__default = /*#__PURE__*/_interopDefault(InventoryIcon);
 var InputBase__default = /*#__PURE__*/_interopDefault(InputBase);
 var CardContent2__default = /*#__PURE__*/_interopDefault(CardContent2);
 var CardMedia2__default = /*#__PURE__*/_interopDefault(CardMedia2);
@@ -936,7 +940,7 @@ function mapRange(value, inMin, inMax, outMin, outMax) {
   return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
 }
 
-// node_modules/@namios/motionui-react/dist/esm/components/Accordion/Accordion.js
+// node_modules/.pnpm/@namios+motionui-react@1.0.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@namios/motionui-react/dist/esm/components/Accordion/Accordion.js
 var AccordionSummary = ({ expandIcon, children, className, ...props }) => {
   return jsxRuntime.jsxs("button", { type: "button", className: cn("mui-accordion__summary", className), ...props, children: [jsxRuntime.jsx("div", { className: "mui-accordion__summary-content", children }), jsxRuntime.jsx("div", { className: "mui-accordion__expand-icon", children: expandIcon || jsxRuntime.jsx("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", children: jsxRuntime.jsx("polyline", { points: "6 9 12 15 18 9" }) }) })] });
 };
@@ -1446,7 +1450,7 @@ var Typography3 = React17__default.default.forwardRef(({ variant = "body1", comp
 });
 Typography3.displayName = "Typography";
 
-// node_modules/@namios/motionui-react/dist/esm/utils/colorEngine.js
+// node_modules/.pnpm/@namios+motionui-react@1.0.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@namios/motionui-react/dist/esm/utils/colorEngine.js
 function hexToRgb(color) {
   if (!color)
     return { r: 99, g: 102, b: 241 };
@@ -1566,7 +1570,7 @@ function injectThemeTokens(tokens, target = typeof document !== "undefined" ? do
   }
 }
 
-// node_modules/@namios/motionui-react/dist/esm/theme/ThemeProvider.js
+// node_modules/.pnpm/@namios+motionui-react@1.0.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@namios/motionui-react/dist/esm/theme/ThemeProvider.js
 function resolvePaletteColor(input, fallback) {
   if (!input)
     return fallback;
@@ -2487,20 +2491,22 @@ var DataTable = ({
   );
 };
 var StatCardRoot = styles.styled(Card2__default.default, {
-  shouldForwardProp: (prop) => prop !== "compactSize"
-})(({ theme, compactSize }) => ({
+  shouldForwardProp: (prop) => prop !== "compactSize" && prop !== "borderless"
+})(({ theme, compactSize, borderless }) => ({
   padding: compactSize ? theme.spacing(1, 1.25) : theme.spacing(1.25, 1.75),
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
   height: "100%",
-  borderRadius: "4px",
-  boxShadow: "0 1px 2px rgba(0, 0, 0, 0.03)",
-  border: `0.5px solid ${theme.palette.mode === "light" ? "rgba(15, 23, 42, 0.08)" : "rgba(255, 255, 255, 0.08)"}`,
+  borderRadius: borderless ? 0 : "4px",
+  boxShadow: borderless ? "none" : "0 1px 2px rgba(0, 0, 0, 0.03)",
+  border: borderless ? "none" : `0.5px solid ${theme.palette.mode === "light" ? "rgba(15, 23, 42, 0.08)" : "rgba(255, 255, 255, 0.08)"}`,
+  backgroundColor: borderless ? "transparent" : void 0,
   transition: "border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease",
   "&:hover": {
-    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
-    borderColor: theme.palette.mode === "light" ? "rgba(15, 23, 42, 0.18)" : "rgba(255, 255, 255, 0.18)",
+    boxShadow: borderless ? "none" : "0 2px 4px rgba(0, 0, 0, 0.05)",
+    borderColor: borderless ? "transparent" : theme.palette.mode === "light" ? "rgba(15, 23, 42, 0.18)" : "rgba(255, 255, 255, 0.18)",
+    backgroundColor: borderless ? theme.palette.mode === "light" ? "rgba(0,0,0,0.015)" : "rgba(255,255,255,0.02)" : void 0,
     transform: "none"
   }
 }));
@@ -2553,7 +2559,8 @@ var StatCard = ({
   badge,
   iconColor = "primary",
   size = "small",
-  compactSize
+  compactSize,
+  borderless = false
 }) => {
   const { t } = reactI18next.useTranslation();
   const isCompact = size === "small" || size === "mini" || Boolean(compactSize);
@@ -2580,7 +2587,7 @@ var StatCard = ({
     }
   ) : null;
   if (layout === "kpi") {
-    return /* @__PURE__ */ jsxRuntime.jsx(StatCardRoot, { compactSize: isCompact, children: /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1.5, width: "100%" }, children: [
+    return /* @__PURE__ */ jsxRuntime.jsx(StatCardRoot, { compactSize: isCompact, borderless, children: /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1.5, width: "100%" }, children: [
       /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { display: "flex", flexDirection: "column", minWidth: 0, flex: 1, gap: 0.25 }, children: [
         /* @__PURE__ */ jsxRuntime.jsx(
           Typography4__default.default,
@@ -2611,7 +2618,7 @@ var StatCard = ({
       icon ? /* @__PURE__ */ jsxRuntime.jsx(IconTile, { colorKey: iconColor, compact: isCompact, children: icon }) : badge ? /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { flexShrink: 0 }, children: badge }) : null
     ] }) });
   }
-  return /* @__PURE__ */ jsxRuntime.jsxs(StatCardRoot, { compactSize: isCompact, children: [
+  return /* @__PURE__ */ jsxRuntime.jsxs(StatCardRoot, { compactSize: isCompact, borderless, children: [
     /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1, width: "100%", mb: 0.25 }, children: [
       /* @__PURE__ */ jsxRuntime.jsxs(
         Typography4__default.default,
@@ -2889,9 +2896,10 @@ var SUPPORTED_LOCALES = [
 var LanguageSwitcher = ({ variant = "text" }) => {
   const { i18n, t } = reactI18next.useTranslation();
   const [anchorEl, setAnchorEl] = React17.useState(null);
-  const current = SUPPORTED_LOCALES.find((locale) => i18n.language.startsWith(locale.code)) ?? SUPPORTED_LOCALES[0];
+  const lang = i18n?.language ?? "en";
+  const current = SUPPORTED_LOCALES.find((locale) => lang.startsWith(locale.code)) ?? SUPPORTED_LOCALES[0];
   const handleSelect = (code) => {
-    void i18n.changeLanguage(code);
+    void i18n?.changeLanguage?.(code);
     setAnchorEl(null);
   };
   return /* @__PURE__ */ jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [
@@ -4464,17 +4472,22 @@ var APP_TILE_VARIANTS = {
 var PRODUCTION_APP_URLS = {
   "stay-os": "https://stay.namios.app",
   "dine-os": "https://dine.namios.app",
+  "event-os": "https://event.namios.app",
+  "inventory-os": "https://inventory.namios.app",
   "people-hr": "https://people.namios.app",
   "super-admin": "https://admin.namios.app",
   "payments-os": "https://payments.namios.app",
-  "inventory-os": "https://inventory.namios.app",
   "nami-ai": "https://ai.namios.app",
-  "public-web": "https://booking.namios.app"
+  "public-web": "https://booking.namios.app",
+  "docs": "https://docs.namios.app"
 };
 var VERCEL_APP_URLS = {
   "stay-os": "https://hotelos-stay-os.vercel.app",
   "dine-os": "https://hotelos-dine-os.vercel.app",
-  "super-admin": "https://hotelos-super-admin.vercel.app"
+  "event-os": "https://nami-event.vercel.app",
+  "inventory-os": "https://nami-inventory.vercel.app",
+  "super-admin": "https://hotelos-super-admin.vercel.app",
+  "docs": "https://nami-docs.vercel.app"
 };
 function resolveAppUrl(app) {
   if (typeof window === "undefined") {
@@ -4506,7 +4519,7 @@ var DEFAULT_HOTELOS_APPS = [
     status: "OPERATIONAL",
     port: 5174,
     url: "http://localhost:5174",
-    devCommand: "cd hotelos-stay-os && pnpm dev",
+    devCommand: "cd nami-stay && pnpm dev",
     iconBg: "linear-gradient(135deg, #007AFF 0%, #00C6FF 100%)",
     iconColor: "#007AFF",
     gradientBorder: "from-blue-500/20 via-indigo-500/20 to-sky-500/20",
@@ -4516,7 +4529,7 @@ var DEFAULT_HOTELOS_APPS = [
     badgeColor: "primary",
     shortcut: "\u23181",
     isFavorite: true,
-    docUrl: "https://docs.stay.namios.app/",
+    docUrl: "https://docs.namios.app/stay-os",
     lordIconSrc: "/icons/stay.gif"
   },
   {
@@ -4529,7 +4542,7 @@ var DEFAULT_HOTELOS_APPS = [
     status: "OPERATIONAL",
     port: 5175,
     url: "http://localhost:5175",
-    devCommand: "cd hotelos-dine-os && pnpm dev",
+    devCommand: "cd nami-dine && pnpm dev",
     iconBg: "linear-gradient(135deg, #FF6B00 0%, #FFA800 100%)",
     iconColor: "#FF6B00",
     gradientBorder: "from-rose-500/20 via-orange-500/20 to-amber-500/20",
@@ -4539,8 +4552,77 @@ var DEFAULT_HOTELOS_APPS = [
     badgeColor: "warning",
     shortcut: "\u23182",
     isFavorite: true,
-    docUrl: "https://docs.dine.namios.app/",
+    docUrl: "https://docs.namios.app/dine-os",
     lordIconSrc: "/icons/dine.gif"
+  },
+  {
+    id: "event-os",
+    name: "Event OS",
+    shortName: "Events & Banquets",
+    tagline: "Banquet Booking, Weddings & Royal Certificates",
+    description: "End-to-end banquet hall allocations, multi-course catering menus, upfront deposit folios, and royal Liquid certificates.",
+    category: "operations",
+    status: "OPERATIONAL",
+    port: 5176,
+    url: "http://localhost:5176",
+    devCommand: "cd nami-event && pnpm dev",
+    iconBg: "linear-gradient(135deg, #8B5CF6 0%, #D946EF 100%)",
+    iconColor: "#8B5CF6",
+    gradientBorder: "from-purple-500/20 via-fuchsia-500/20 to-pink-500/20",
+    icon: /* @__PURE__ */ jsxRuntime.jsx(CelebrationIcon__default.default, { sx: { fontSize: 26, color: "#FFFFFF" } }),
+    badge: "Events",
+    badgeText: "Port 5176",
+    badgeColor: "primary",
+    shortcut: "\u23183",
+    isFavorite: true,
+    docUrl: "https://docs.namios.app/event-os",
+    lordIconSrc: "/icons/event.gif"
+  },
+  {
+    id: "inventory-os",
+    name: "Inventory OS",
+    shortName: "Inventory & Stock",
+    tagline: "F&B Stock & Kitchen Recipe BOM Engine",
+    description: "Real-time stock audits, automated recipe BOM deductions, room essentials par-levels, and purchase order creation.",
+    category: "operations",
+    status: "OPERATIONAL",
+    port: 5178,
+    url: "http://localhost:5178",
+    devCommand: "cd nami-inventory && pnpm dev",
+    iconBg: "linear-gradient(135deg, #0891B2 0%, #06B6D4 100%)",
+    iconColor: "#0891B2",
+    gradientBorder: "from-cyan-500/20 via-sky-500/20 to-blue-500/20",
+    icon: /* @__PURE__ */ jsxRuntime.jsx(InventoryIcon__default.default, { sx: { fontSize: 26, color: "#FFFFFF" } }),
+    badge: "Stock",
+    badgeText: "Port 5178",
+    badgeColor: "default",
+    shortcut: "\u23184",
+    isFavorite: true,
+    docUrl: "https://docs.namios.app/inventory-os",
+    lordIconSrc: "/icons/inventory.gif"
+  },
+  {
+    id: "docs",
+    name: "Nami Docs",
+    shortName: "Docs & Cloud",
+    tagline: "Document Cloud & Developer Manuals",
+    description: "Centralized hotel document storage, guest identity cards, invoices, contracts, and platform API reference.",
+    category: "platform",
+    status: "OPERATIONAL",
+    port: 5179,
+    url: "http://localhost:5179",
+    devCommand: "cd nami-docs && pnpm dev",
+    iconBg: "linear-gradient(135deg, #6366F1 0%, #4F46E5 100%)",
+    iconColor: "#6366F1",
+    gradientBorder: "from-indigo-500/20 via-blue-500/20 to-purple-500/20",
+    icon: /* @__PURE__ */ jsxRuntime.jsx(MenuBookIcon__default.default, { sx: { fontSize: 26, color: "#FFFFFF" } }),
+    badge: "Docs",
+    badgeText: "Port 5179",
+    badgeColor: "info",
+    shortcut: "\u23185",
+    isFavorite: true,
+    docUrl: "https://docs.namios.app",
+    lordIconSrc: "/icons/admin.gif"
   },
   {
     id: "people-hr",
@@ -4550,18 +4632,18 @@ var DEFAULT_HOTELOS_APPS = [
     description: "Shift scheduling, employee attendance tracking, payroll processing, leave management, and staff performance metrics.",
     category: "operations",
     status: "OPERATIONAL",
-    port: 5176,
-    url: "http://localhost:5176",
-    devCommand: "cd hotelos-stay-os && pnpm dev",
+    port: 5177,
+    url: "http://localhost:5177",
+    devCommand: "cd nami-people && pnpm dev",
     iconBg: "linear-gradient(135deg, #9333EA 0%, #C084FC 100%)",
     iconColor: "#9333EA",
     gradientBorder: "from-purple-500/20 via-fuchsia-500/20 to-violet-500/20",
     icon: /* @__PURE__ */ jsxRuntime.jsx(PeopleIcon__default.default, { sx: { fontSize: 26, color: "#FFFFFF" } }),
     badge: "HR",
-    badgeText: "HR Module",
+    badgeText: "Staff & HR",
     badgeColor: "info",
     isFavorite: true,
-    docUrl: "https://docs.people.namios.app/",
+    docUrl: "https://docs.namios.app/people-hr",
     lordIconSrc: "/icons/people.gif"
   },
   {
@@ -4574,7 +4656,7 @@ var DEFAULT_HOTELOS_APPS = [
     status: "OPERATIONAL",
     port: 5173,
     url: "http://localhost:5173",
-    devCommand: "cd hotelos-super-admin && pnpm dev",
+    devCommand: "cd nami-admin && pnpm dev",
     iconBg: "linear-gradient(135deg, #1C1C1E 0%, #3A3A3C 100%)",
     iconColor: "#16A34A",
     gradientBorder: "from-emerald-500/20 via-teal-500/20 to-green-500/20",
@@ -4583,7 +4665,7 @@ var DEFAULT_HOTELOS_APPS = [
     badgeText: "Port 5173",
     badgeColor: "default",
     isFavorite: true,
-    docUrl: "https://docs.admin.namios.app/",
+    docUrl: "https://docs.namios.app/super-admin",
     lordIconSrc: "/icons/admin.gif"
   },
   {
@@ -4596,7 +4678,7 @@ var DEFAULT_HOTELOS_APPS = [
     status: "OPERATIONAL",
     port: 4e3,
     url: "http://localhost:4000",
-    devCommand: "cd hotel-os-be && npm run dev",
+    devCommand: "cd be/nami-be && npm run dev",
     iconBg: "linear-gradient(135deg, #00C7BE 0%, #30B0C7 100%)",
     iconColor: "#EA580C",
     gradientBorder: "from-amber-500/20 via-orange-500/20 to-red-500/20",
@@ -4605,30 +4687,8 @@ var DEFAULT_HOTELOS_APPS = [
     badgeText: "Gateway",
     badgeColor: "info",
     isFavorite: true,
-    docUrl: "https://docs.payments.namios.app/",
+    docUrl: "https://docs.namios.app/payments-os",
     lordIconSrc: "/icons/payments.gif"
-  },
-  {
-    id: "inventory-os",
-    name: "Inventory OS",
-    shortName: "Stock & POs",
-    tagline: "F&B Stock & Supplies Control",
-    description: "Real-time stock level tracking, kitchen ingredient usage, linen inventories, low-stock alerts, and purchase order creation.",
-    category: "operations",
-    status: "OPERATIONAL",
-    port: 5175,
-    url: "http://localhost:5175",
-    devCommand: "cd hotelos-dine-os && pnpm dev",
-    iconBg: "linear-gradient(135deg, #0891B2 0%, #06B6D4 100%)",
-    iconColor: "#0891B2",
-    gradientBorder: "from-cyan-500/20 via-sky-500/20 to-blue-500/20",
-    icon: /* @__PURE__ */ jsxRuntime.jsx(InventoryIcon__default.default, { sx: { fontSize: 26, color: "#FFFFFF" } }),
-    badge: "Stock",
-    badgeText: "Stock Engine",
-    badgeColor: "default",
-    isFavorite: true,
-    docUrl: "https://docs.inventory.namios.app/",
-    lordIconSrc: "/icons/inventory.gif"
   },
   {
     id: "nami-ai",
@@ -4638,15 +4698,14 @@ var DEFAULT_HOTELOS_APPS = [
     description: "AI Guest Concierge, Assistant & Smart Messaging across Guest Portals and Front Desk.",
     category: "guest_experience",
     status: "BETA",
-    port: 5176,
-    url: "http://localhost:5176",
+    url: "https://ai.namios.app",
     iconBg: "linear-gradient(135deg, #AF52DE 0%, #FF2D55 100%)",
     iconColor: "#AF52DE",
     icon: /* @__PURE__ */ jsxRuntime.jsx(AutoAwesomeIcon__default.default, { sx: { fontSize: 26, color: "#FFFFFF" } }),
     badge: "AI Beta",
     badgeText: "Beta",
     badgeColor: "info",
-    shortcut: "\u23184",
+    docUrl: "https://docs.namios.app/nami-ai",
     isFavorite: false
   },
   {
@@ -4665,7 +4724,8 @@ var DEFAULT_HOTELOS_APPS = [
     badge: "Public",
     badgeText: "Guest Web",
     badgeColor: "success",
-    isExternal: true
+    isExternal: true,
+    docUrl: "https://docs.namios.app/guest-portal"
   }
 ];
 var AppFolderMiniPreview = ({
@@ -4838,6 +4898,27 @@ var AppTile = ({
                     backgroundColor: "#FFFFFF",
                     boxShadow: "0 0 4px rgba(255, 255, 255, 0.9)"
                   }
+                }
+              ),
+              app.isLocked && /* @__PURE__ */ jsxRuntime.jsx(
+                "div",
+                {
+                  title: "Subscription Upgrade Required",
+                  style: {
+                    position: "absolute",
+                    top: 3,
+                    right: 3,
+                    width: 16,
+                    height: 16,
+                    borderRadius: "50%",
+                    backgroundColor: "rgba(15, 23, 42, 0.75)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "9px",
+                    lineHeight: 1
+                  },
+                  children: "\u{1F512}"
                 }
               )
             ]
@@ -5209,11 +5290,62 @@ var AppFolderModal = ({
   );
 };
 
+// src/constants/storage-keys.ts
+var STORAGE_KEYS = {
+  AUTH_TOKEN: "hotelos.authToken",
+  LOCALE: "hotelos.locale",
+  THEME_MODE: "hotelos.themeMode",
+  SIDEBAR_STATE: "hotelos.sidebarState",
+  LIST_VIEW_MODE: "hotelos.listViewMode"
+};
+
+// src/utils/sso.ts
+function buildSsoUrl(targetUrl) {
+  if (!targetUrl || typeof window === "undefined") return targetUrl;
+  try {
+    const token = window.localStorage.getItem(STORAGE_KEYS.AUTH_TOKEN) || window.localStorage.getItem("authToken") || window.localStorage.getItem("hotelos_auth_token") || window.sessionStorage.getItem(STORAGE_KEYS.AUTH_TOKEN);
+    const orgId = window.localStorage.getItem("hotelos.org_id") || window.localStorage.getItem("hotelos_org_id");
+    const propId = window.localStorage.getItem("hotelos.prop_id") || window.localStorage.getItem("hotelos_property_id");
+    const tenantName = window.localStorage.getItem("hotelos.tenant_name") || window.localStorage.getItem("hotelos_tenant_name");
+    const logoBase64 = window.localStorage.getItem("hotelos.logo_base64") || window.localStorage.getItem("hotelos_logo");
+    const brandColor = window.localStorage.getItem("hotelos.brand_color");
+    if (token || orgId || propId || tenantName || logoBase64) {
+      const url = new URL(targetUrl, window.location.origin);
+      const hashParams = new URLSearchParams(url.hash ? url.hash.substring(1) : "");
+      if (token) hashParams.set("sso_token", token);
+      if (orgId) hashParams.set("org_id", orgId);
+      if (propId) hashParams.set("prop_id", propId);
+      if (tenantName) hashParams.set("tenant_name", tenantName);
+      if (logoBase64) hashParams.set("logo_base64", logoBase64);
+      if (brandColor) hashParams.set("brand_color", brandColor);
+      url.hash = hashParams.toString();
+      return url.toString();
+    }
+  } catch {
+  }
+  return targetUrl;
+}
+
 // src/components/AppLauncher/functions/navigateApp.ts
 var isReachableUrl = (url) => {
   if (!url) return false;
   try {
     const { hostname } = new URL(url);
+    if (!hostname) return false;
+    if (typeof window !== "undefined") {
+      let currentHost = "";
+      try {
+        if (window.location.href) {
+          currentHost = new URL(window.location.href).hostname;
+        }
+      } catch {
+        currentHost = window.location.hostname || "";
+      }
+      const isCurrentHostLocal = currentHost === "localhost" || currentHost === "127.0.0.1" || currentHost.endsWith(".local");
+      if (isCurrentHostLocal) {
+        return true;
+      }
+    }
     return hostname !== "localhost" && hostname !== "127.0.0.1";
   } catch {
     return false;
@@ -5230,29 +5362,83 @@ var navigateApp = ({
   }
   const isCurrentApp = Boolean(currentAppId && app.id === currentAppId);
   if (isCurrentApp) return;
-  const targetUrl = app.url;
-  if (app.disabled || !isReachableUrl(targetUrl ?? "")) {
-    window.location.href = "/404";
+  if (app.isLocked) {
+    if (typeof window !== "undefined") {
+      const adminUrl = resolveAppUrl({ id: "super-admin" });
+      const wantsUpgrade = window.confirm(
+        `"${app.name}" is not included in your organization's current subscription.
+
+` + (app.lockReason ? `${app.lockReason}
+
+` : "") + `Would you like to open the NamiOS Admin Console to upgrade your subscription plan?`
+      );
+      if (wantsUpgrade && adminUrl) {
+        window.open(adminUrl, "_blank", "noopener,noreferrer");
+      }
+    }
     return;
   }
-  window.open(targetUrl, "_blank", "noopener,noreferrer");
+  const targetUrl = app.url;
+  if (app.disabled || !isReachableUrl(targetUrl ?? "")) {
+    if (typeof window !== "undefined") {
+      window.location.href = "/404";
+    }
+    return;
+  }
+  const ssoUrl = !app.isExternal && targetUrl ? buildSsoUrl(targetUrl) : targetUrl || "";
+  window.open(ssoUrl, "_blank", "noopener,noreferrer");
 };
 var AppLauncher = ({
   title = "NamiOS Ecosystem",
   subtitle = "Switch between NamiOS modules & portals",
   apps = DEFAULT_HOTELOS_APPS,
   currentAppId = "stay-os",
+  allowedAppIds,
   onSelectApp,
   className,
   tooltip = "NamiOS Apps"
 }) => {
   const [isOpen, setIsOpen] = React17.useState(false);
   const resolvedApps = React17.useMemo(() => {
-    return apps.map((app) => ({
-      ...app,
-      url: resolveAppUrl(app)
-    }));
-  }, [apps]);
+    let allowedSet = null;
+    let isSuperAdmin = false;
+    if (allowedAppIds && allowedAppIds.length > 0) {
+      allowedSet = new Set(allowedAppIds);
+    } else if (typeof window !== "undefined") {
+      try {
+        const storedRole = window.localStorage.getItem("hotelos.user_role");
+        if (storedRole && storedRole.toLowerCase() === "super_admin") {
+          isSuperAdmin = true;
+        }
+        const storedApps = window.localStorage.getItem("hotelos.accessible_apps");
+        if (storedApps) {
+          const parsed = JSON.parse(storedApps);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            allowedSet = new Set(parsed);
+          }
+        }
+      } catch {
+      }
+    }
+    const alwaysAllowed = /* @__PURE__ */ new Set(["payments-os", "public-web", "docs"]);
+    return apps.filter((app) => {
+      if (app.id === "super-admin" && !isSuperAdmin && currentAppId !== "super-admin") {
+        return false;
+      }
+      return true;
+    }).map((app) => {
+      const isAllowed = isSuperAdmin || (allowedSet ? allowedSet.has(app.id) || alwaysAllowed.has(app.id) : true);
+      const isLocked = !isAllowed;
+      return {
+        ...app,
+        url: resolveAppUrl(app),
+        isLocked,
+        isSubscribed: isAllowed,
+        badge: isLocked ? "Locked" : app.badge,
+        badgeColor: isLocked ? "warning" : app.badgeColor
+      };
+    });
+  }, [apps, allowedAppIds, currentAppId]);
   const handleOpen = React17.useCallback(() => {
     setIsOpen(true);
   }, []);
@@ -7738,6 +7924,7 @@ exports.hexToRgb = hexToRgb;
 exports.injectThemeTokens = injectThemeTokens;
 exports.isInteractive = isInteractive;
 exports.isPwa = isPwa;
+exports.isReachableUrl = isReachableUrl;
 exports.mapRange = mapRange;
 exports.navigateApp = navigateApp;
 exports.resolveAppUrl = resolveAppUrl;

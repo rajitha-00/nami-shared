@@ -41,6 +41,9 @@ export interface IAppItem {
   isExternal?: boolean;
   active?: boolean;
   disabled?: boolean;
+  isLocked?: boolean;
+  isSubscribed?: boolean;
+  lockReason?: string;
   shortcut?: string;
 }
 
@@ -53,6 +56,8 @@ export interface AppLauncherProps {
   apps?: IAppItem[];
   /** The currently active app's ID (e.g. "stay-os"). */
   currentAppId?: string;
+  /** List of app IDs allowed for the logged in tenant. Defaults to tenant's accessibleAppIds. */
+  allowedAppIds?: string[];
   /** Callback fired when an app tile is clicked. */
   onSelectApp?: (app: IAppItem) => void;
   /** Optional custom class name. */

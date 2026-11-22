@@ -26,6 +26,8 @@ export interface StatCardProps {
     size?: StatCardSize;
     /** Backward compatibility with compactSize flag */
     compactSize?: boolean;
+    /** When true, removes outer card border, shadow, and background so it can sit inside a divided container */
+    borderless?: boolean;
 }
 /** Dashboard KPI card with loading skeleton, trend indicator and two layouts. */
-export declare const StatCard: ({ labelKey, value, delta, trend, icon, loading, layout, subtitleKey, subtitleParams, badge, iconColor, size, compactSize, }: StatCardProps) => import("react").JSX.Element;
+export declare const StatCard: ({ labelKey, value, delta, trend, icon, loading, layout, subtitleKey, subtitleParams, badge, iconColor, size, compactSize, borderless, }: StatCardProps) => import("react").JSX.Element;

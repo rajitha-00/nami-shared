@@ -37,6 +37,8 @@ export type SubscriptionPlanTier = (typeof SubscriptionPlanTier)[keyof typeof Su
 export const BillingCycle = {
   MONTHLY: 'MONTHLY',
   YEARLY: 'YEARLY',
+  ANNUAL: 'ANNUAL',
+  PRO_2YEAR: 'PRO_2YEAR',
 } as const;
 export type BillingCycle = (typeof BillingCycle)[keyof typeof BillingCycle];
 
@@ -67,6 +69,11 @@ export interface Client extends BaseEntity {
   planTier: SubscriptionPlanTier;
   joinedAt: string;
   mrr: number;
+  subscribedApps?: string[];
+  billingCycle?: BillingCycle;
+  hasFreeWebsite?: boolean;
+  monthlyTotal?: number;
+  billingTotal?: number;
 }
 
 export interface SubscriptionSummary {

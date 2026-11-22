@@ -19,12 +19,13 @@ export const LanguageSwitcher = ({ variant = 'text' }: LanguageSwitcherProps) =>
   const { i18n, t } = useTranslation();
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
+  const lang = i18n?.language ?? 'en';
   const current =
-    SUPPORTED_LOCALES.find((locale) => i18n.language.startsWith(locale.code)) ??
+    SUPPORTED_LOCALES.find((locale) => lang.startsWith(locale.code)) ??
     SUPPORTED_LOCALES[0];
 
   const handleSelect = (code: string) => {
-    void i18n.changeLanguage(code);
+    void i18n?.changeLanguage?.(code);
     setAnchorEl(null);
   };
 

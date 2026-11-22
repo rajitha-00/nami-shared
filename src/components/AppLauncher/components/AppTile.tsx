@@ -116,6 +116,29 @@ export const AppTile = ({
             }}
           />
         )}
+
+        {/* LOCKED APP INDICATOR */}
+        {app.isLocked && (
+          <div
+            title="Subscription Upgrade Required"
+            style={{
+              position: 'absolute',
+              top: 3,
+              right: 3,
+              width: 16,
+              height: 16,
+              borderRadius: '50%',
+              backgroundColor: 'rgba(15, 23, 42, 0.75)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '9px',
+              lineHeight: 1,
+            }}
+          >
+            🔒
+          </div>
+        )}
       </div>
 
       {/* APP NAME */}

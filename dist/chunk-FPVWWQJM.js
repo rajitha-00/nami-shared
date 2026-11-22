@@ -23,9 +23,11 @@ var SubscriptionPlanTier = {
 };
 var BillingCycle = {
   MONTHLY: "MONTHLY",
-  YEARLY: "YEARLY"
+  YEARLY: "YEARLY",
+  ANNUAL: "ANNUAL",
+  PRO_2YEAR: "PRO_2YEAR"
 };
 
 export { BillingCycle, Status, SubscriptionPlanTier, UserRole };
-//# sourceMappingURL=chunk-VHJBQ5IQ.js.map
-//# sourceMappingURL=chunk-VHJBQ5IQ.js.map
+//# sourceMappingURL=chunk-FPVWWQJM.js.map
+//# sourceMappingURL=chunk-FPVWWQJM.js.map

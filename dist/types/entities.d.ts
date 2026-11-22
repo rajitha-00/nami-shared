@@ -32,6 +32,8 @@ export type SubscriptionPlanTier = (typeof SubscriptionPlanTier)[keyof typeof Su
 export declare const BillingCycle: {
     readonly MONTHLY: "MONTHLY";
     readonly YEARLY: "YEARLY";
+    readonly ANNUAL: "ANNUAL";
+    readonly PRO_2YEAR: "PRO_2YEAR";
 };
 export type BillingCycle = (typeof BillingCycle)[keyof typeof BillingCycle];
 /** The signed-in platform user. */
@@ -59,6 +61,11 @@ export interface Client extends BaseEntity {
     planTier: SubscriptionPlanTier;
     joinedAt: string;
     mrr: number;
+    subscribedApps?: string[];
+    billingCycle?: BillingCycle;
+    hasFreeWebsite?: boolean;
+    monthlyTotal?: number;
+    billingTotal?: number;
 }
 export interface SubscriptionSummary {
     planTier: SubscriptionPlanTier;

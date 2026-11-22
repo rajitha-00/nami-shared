@@ -1,7 +1,7 @@
 'use strict';
 
 var styles = require('@mui/material/styles');
-var React19 = require('react');
+var React18 = require('react');
 var framerMotion = require('framer-motion');
 var jsxRuntime = require('react/jsx-runtime');
 var Button5 = require('@mui/material/Button');
@@ -19,7 +19,7 @@ var reactI18next = require('react-i18next');
 var useMediaQuery = require('@mui/material/useMediaQuery');
 var shim = require('use-sync-external-store/shim');
 var withSelector = require('use-sync-external-store/shim/with-selector');
-var ReactDOM = require('react-dom');
+var ReactDOM3 = require('react-dom');
 var CloseRoundedIcon = require('@mui/icons-material/CloseRounded');
 var CheckCircleRoundedIcon = require('@mui/icons-material/CheckCircleRounded');
 var ErrorRoundedIcon = require('@mui/icons-material/ErrorRounded');
@@ -79,12 +79,14 @@ var Breadcrumbs = require('@mui/material/Breadcrumbs');
 var Link = require('@mui/material/Link');
 var HotelIcon = require('@mui/icons-material/Hotel');
 var RestaurantIcon = require('@mui/icons-material/Restaurant');
+var CelebrationIcon = require('@mui/icons-material/Celebration');
+var InventoryIcon = require('@mui/icons-material/Inventory');
+var MenuBookIcon = require('@mui/icons-material/MenuBook');
 var AdminPanelSettingsIcon = require('@mui/icons-material/AdminPanelSettings');
 var PublicIcon = require('@mui/icons-material/Public');
 var AutoAwesomeIcon = require('@mui/icons-material/AutoAwesome');
 var PaymentsIcon = require('@mui/icons-material/Payments');
 var PeopleIcon = require('@mui/icons-material/People');
-var InventoryIcon = require('@mui/icons-material/Inventory');
 var InputBase = require('@mui/material/InputBase');
 var CardContent2 = require('@mui/material/CardContent');
 var CardMedia2 = require('@mui/material/CardMedia');
@@ -111,7 +113,7 @@ function _interopNamespace(e) {
   return Object.freeze(n);
 }
 
-var React19__namespace = /*#__PURE__*/_interopNamespace(React19);
+var React18__namespace = /*#__PURE__*/_interopNamespace(React18);
 var Button5__default = /*#__PURE__*/_interopDefault(Button5);
 var CircularProgress__default = /*#__PURE__*/_interopDefault(CircularProgress);
 var Dialog__default = /*#__PURE__*/_interopDefault(Dialog);
@@ -124,7 +126,7 @@ var Box6__default = /*#__PURE__*/_interopDefault(Box6);
 var IconButton9__default = /*#__PURE__*/_interopDefault(IconButton9);
 var CloseIcon5__default = /*#__PURE__*/_interopDefault(CloseIcon5);
 var useMediaQuery__default = /*#__PURE__*/_interopDefault(useMediaQuery);
-var ReactDOM__namespace = /*#__PURE__*/_interopNamespace(ReactDOM);
+var ReactDOM3__namespace = /*#__PURE__*/_interopNamespace(ReactDOM3);
 var CloseRoundedIcon__default = /*#__PURE__*/_interopDefault(CloseRoundedIcon);
 var CheckCircleRoundedIcon__default = /*#__PURE__*/_interopDefault(CheckCircleRoundedIcon);
 var ErrorRoundedIcon__default = /*#__PURE__*/_interopDefault(ErrorRoundedIcon);
@@ -182,12 +184,14 @@ var Breadcrumbs__default = /*#__PURE__*/_interopDefault(Breadcrumbs);
 var Link__default = /*#__PURE__*/_interopDefault(Link);
 var HotelIcon__default = /*#__PURE__*/_interopDefault(HotelIcon);
 var RestaurantIcon__default = /*#__PURE__*/_interopDefault(RestaurantIcon);
+var CelebrationIcon__default = /*#__PURE__*/_interopDefault(CelebrationIcon);
+var InventoryIcon__default = /*#__PURE__*/_interopDefault(InventoryIcon);
+var MenuBookIcon__default = /*#__PURE__*/_interopDefault(MenuBookIcon);
 var AdminPanelSettingsIcon__default = /*#__PURE__*/_interopDefault(AdminPanelSettingsIcon);
 var PublicIcon__default = /*#__PURE__*/_interopDefault(PublicIcon);
 var AutoAwesomeIcon__default = /*#__PURE__*/_interopDefault(AutoAwesomeIcon);
 var PaymentsIcon__default = /*#__PURE__*/_interopDefault(PaymentsIcon);
 var PeopleIcon__default = /*#__PURE__*/_interopDefault(PeopleIcon);
-var InventoryIcon__default = /*#__PURE__*/_interopDefault(InventoryIcon);
 var InputBase__default = /*#__PURE__*/_interopDefault(InputBase);
 var CardContent2__default = /*#__PURE__*/_interopDefault(CardContent2);
 var CardMedia2__default = /*#__PURE__*/_interopDefault(CardMedia2);
@@ -227,7 +231,9 @@ var SubscriptionPlanTier = {
 };
 var BillingCycle = {
   MONTHLY: "MONTHLY",
-  YEARLY: "YEARLY"
+  YEARLY: "YEARLY",
+  ANNUAL: "ANNUAL",
+  PRO_2YEAR: "PRO_2YEAR"
 };
 
 // src/types/ui.ts
@@ -457,7 +463,7 @@ var validateImageFile = async (file, maxBytes = MAX_IMAGE_BYTES) => {
   if (file.size === 0 || file.size > maxBytes) return false;
   const bytes = await readHeader(file);
   const png = [137, 80, 78, 71, 13, 10, 26, 10].every(
-    (value, index3) => bytes[index3] === value
+    (value, index2) => bytes[index2] === value
   );
   const jpeg = bytes[0] === 255 && bytes[1] === 216 && bytes[2] === 255;
   const webp = bytes.length >= 12 && String.fromCharCode(...bytes.slice(0, 4)) === "RIFF" && String.fromCharCode(...bytes.slice(8, 12)) === "WEBP";
@@ -470,6 +476,94 @@ var validateVideoFile = async (file, maxBytes = MAX_VIDEO_BYTES) => {
   const webm = bytes.length >= 4 && bytes[0] === 26 && bytes[1] === 69 && bytes[2] === 223 && bytes[3] === 163;
   return mp4 || webm;
 };
+
+// src/utils/sso.ts
+function extractSsoContext() {
+  if (typeof window === "undefined") return null;
+  try {
+    let token = null;
+    let orgId = null;
+    let propId = null;
+    let tenantName = null;
+    let logoBase64 = null;
+    let brandColor = null;
+    if (window.location.hash && window.location.hash.length > 1) {
+      const hashString = window.location.hash.substring(1);
+      const hashParams = new URLSearchParams(hashString);
+      token = hashParams.get("sso_token") || hashParams.get("token") || hashParams.get("auth_token");
+      orgId = hashParams.get("org_id") || hashParams.get("organizationId") || hashParams.get("orgId");
+      propId = hashParams.get("prop_id") || hashParams.get("propertyId") || hashParams.get("propId");
+      tenantName = hashParams.get("tenant_name") || hashParams.get("tenantName");
+      logoBase64 = hashParams.get("logo_base64") || hashParams.get("logoUrl") || hashParams.get("logo");
+      brandColor = hashParams.get("brand_color") || hashParams.get("brandColor");
+    }
+    if (window.location.search) {
+      const searchParams = new URLSearchParams(window.location.search);
+      token = token || searchParams.get("sso_token") || searchParams.get("token") || searchParams.get("auth_token");
+      orgId = orgId || searchParams.get("org_id") || searchParams.get("organizationId") || searchParams.get("orgId");
+      propId = propId || searchParams.get("prop_id") || searchParams.get("propertyId") || searchParams.get("propId");
+      tenantName = tenantName || searchParams.get("tenant_name") || searchParams.get("tenantName");
+      logoBase64 = logoBase64 || searchParams.get("logo_base64") || searchParams.get("logoUrl") || searchParams.get("logo");
+      brandColor = brandColor || searchParams.get("brand_color") || searchParams.get("brandColor");
+    }
+    if (token) {
+      window.localStorage.setItem(STORAGE_KEYS.AUTH_TOKEN, token);
+      window.localStorage.setItem("authToken", token);
+      window.localStorage.setItem("hotelos_auth_token", token);
+    }
+    if (orgId) {
+      window.localStorage.setItem("hotelos.org_id", orgId);
+      window.localStorage.setItem("hotelos_org_id", orgId);
+    }
+    if (propId) {
+      window.localStorage.setItem("hotelos.prop_id", propId);
+      window.localStorage.setItem("hotelos_property_id", propId);
+    }
+    if (tenantName) {
+      window.localStorage.setItem("hotelos.tenant_name", tenantName);
+      window.localStorage.setItem("hotelos_tenant_name", tenantName);
+    }
+    if (logoBase64) {
+      window.localStorage.setItem("hotelos.logo_base64", logoBase64);
+      window.localStorage.setItem("hotelos_logo", logoBase64);
+    }
+    if (brandColor) {
+      window.localStorage.setItem("hotelos.brand_color", brandColor);
+    }
+    if (token || orgId || propId || tenantName || logoBase64) {
+      const cleanUrl = window.location.pathname;
+      window.history.replaceState(null, document.title, cleanUrl);
+      return { token, orgId, propId, tenantName };
+    }
+  } catch {
+  }
+  return null;
+}
+function buildSsoUrl(targetUrl) {
+  if (!targetUrl || typeof window === "undefined") return targetUrl;
+  try {
+    const token = window.localStorage.getItem(STORAGE_KEYS.AUTH_TOKEN) || window.localStorage.getItem("authToken") || window.localStorage.getItem("hotelos_auth_token") || window.sessionStorage.getItem(STORAGE_KEYS.AUTH_TOKEN);
+    const orgId = window.localStorage.getItem("hotelos.org_id") || window.localStorage.getItem("hotelos_org_id");
+    const propId = window.localStorage.getItem("hotelos.prop_id") || window.localStorage.getItem("hotelos_property_id");
+    const tenantName = window.localStorage.getItem("hotelos.tenant_name") || window.localStorage.getItem("hotelos_tenant_name");
+    const logoBase64 = window.localStorage.getItem("hotelos.logo_base64") || window.localStorage.getItem("hotelos_logo");
+    const brandColor = window.localStorage.getItem("hotelos.brand_color");
+    if (token || orgId || propId || tenantName || logoBase64) {
+      const url = new URL(targetUrl, window.location.origin);
+      const hashParams = new URLSearchParams(url.hash ? url.hash.substring(1) : "");
+      if (token) hashParams.set("sso_token", token);
+      if (orgId) hashParams.set("org_id", orgId);
+      if (propId) hashParams.set("prop_id", propId);
+      if (tenantName) hashParams.set("tenant_name", tenantName);
+      if (logoBase64) hashParams.set("logo_base64", logoBase64);
+      if (brandColor) hashParams.set("brand_color", brandColor);
+      url.hash = hashParams.toString();
+      return url.toString();
+    }
+  } catch {
+  }
+  return targetUrl;
+}
 
 // src/theme/tokens.ts
 var BRAND = {
@@ -573,7 +667,7 @@ var FONT_FAMILY = [
   "Roboto",
   "sans-serif"
 ].join(", ");
-var AppleDialogTransition = React19.forwardRef(
+var AppleDialogTransition = React18.forwardRef(
   function AppleDialogTransition2(props, ref) {
     const { in: inProp, onEnter, onEntered, onExit, onExited, children, ...other } = props;
     return /* @__PURE__ */ jsxRuntime.jsx(
@@ -967,7 +1061,7 @@ function createHotelOsTheme(mode, overrides) {
     overrides ?? {}
   );
 }
-var ThemeModeContext = React19.createContext(null);
+var ThemeModeContext = React18.createContext(null);
 var readInitialMode = () => {
   if (typeof window === "undefined") return "light";
   const stored = window.localStorage.getItem(STORAGE_KEYS.THEME_MODE);
@@ -975,8 +1069,8 @@ var readInitialMode = () => {
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 };
 var ThemeModeProvider = ({ children, overrides }) => {
-  const [mode, setModeState] = React19.useState(readInitialMode);
-  React19.useEffect(() => {
+  const [mode, setModeState] = React18.useState(readInitialMode);
+  React18.useEffect(() => {
     if (typeof document !== "undefined") {
       document.documentElement.setAttribute("data-theme", mode);
       if (mode === "dark") {
@@ -986,47 +1080,47 @@ var ThemeModeProvider = ({ children, overrides }) => {
       }
     }
   }, [mode]);
-  const setMode = React19.useCallback((next) => {
+  const setMode = React18.useCallback((next) => {
     setModeState(next);
     window.localStorage.setItem(STORAGE_KEYS.THEME_MODE, next);
   }, []);
-  const toggleMode = React19.useCallback(() => {
+  const toggleMode = React18.useCallback(() => {
     setModeState((prev) => {
       const next = prev === "light" ? "dark" : "light";
       window.localStorage.setItem(STORAGE_KEYS.THEME_MODE, next);
       return next;
     });
   }, []);
-  const value = React19.useMemo(() => ({ mode, toggleMode, setMode }), [mode, toggleMode, setMode]);
-  const theme = React19.useMemo(
+  const value = React18.useMemo(() => ({ mode, toggleMode, setMode }), [mode, toggleMode, setMode]);
+  const theme = React18.useMemo(
     () => createHotelOsTheme(mode, typeof overrides === "function" ? overrides(mode) : overrides),
     [mode, overrides]
   );
   return /* @__PURE__ */ jsxRuntime.jsx(ThemeModeContext.Provider, { value, children: /* @__PURE__ */ jsxRuntime.jsx(styles.ThemeProvider, { theme, children }) });
 };
 var useThemeMode = () => {
-  const ctx = React19.useContext(ThemeModeContext);
+  const ctx = React18.useContext(ThemeModeContext);
   if (!ctx) {
     throw new Error("useThemeMode must be used within a ThemeModeProvider");
   }
   return ctx;
 };
 function useDialog() {
-  const [isOpen, setIsOpen] = React19.useState(false);
-  const [data, setData] = React19.useState(void 0);
-  const open2 = React19.useCallback((next) => {
+  const [isOpen, setIsOpen] = React18.useState(false);
+  const [data, setData] = React18.useState(void 0);
+  const open = React18.useCallback((next) => {
     setData(next);
     setIsOpen(true);
   }, []);
-  const close = React19.useCallback(() => {
+  const close = React18.useCallback(() => {
     setIsOpen(false);
   }, []);
-  const toggle = React19.useCallback(() => {
+  const toggle = React18.useCallback(() => {
     setIsOpen((prev) => !prev);
   }, []);
-  return { isOpen, data, open: open2, close, toggle };
+  return { isOpen, data, open, close, toggle };
 }
-var FamilyDialogTransition = React19.forwardRef(
+var FamilyDialogTransition = React18.forwardRef(
   function FamilyDialogTransition2(props, ref) {
     const { in: inProp, onEnter, onEntered, onExit, onExited, children, style, ...other } = props;
     return /* @__PURE__ */ jsxRuntime.jsx(
@@ -1096,7 +1190,7 @@ var FamilyDialogTransition = React19.forwardRef(
   }
 );
 var ConfirmDialog = ({
-  open: open2,
+  open,
   titleKey,
   messageKey,
   messageParams,
@@ -1239,7 +1333,7 @@ var ConfirmDialog = ({
     return /* @__PURE__ */ jsxRuntime.jsx(
       Popover__default.default,
       {
-        open: open2,
+        open,
         anchorEl,
         onClose: onCancel,
         anchorOrigin: {
@@ -1279,7 +1373,7 @@ var ConfirmDialog = ({
   return /* @__PURE__ */ jsxRuntime.jsx(
     Dialog__default.default,
     {
-      open: open2,
+      open,
       onClose: onCancel,
       maxWidth: "xs",
       fullWidth: true,
@@ -1305,17 +1399,17 @@ var ConfirmDialog = ({
     }
   );
 };
-var ConfirmContext = React19.createContext(null);
+var ConfirmContext = React18.createContext(null);
 function ConfirmProvider({ children }) {
-  const [options, setOptions] = React19.useState(null);
-  const resolverRef = React19.useRef(null);
-  const confirm = React19.useCallback((next) => {
+  const [options, setOptions] = React18.useState(null);
+  const resolverRef = React18.useRef(null);
+  const confirm = React18.useCallback((next) => {
     setOptions(next);
     return new Promise((resolve) => {
       resolverRef.current = resolve;
     });
   }, []);
-  const settle = React19.useCallback((confirmed) => {
+  const settle = React18.useCallback((confirmed) => {
     resolverRef.current?.(confirmed);
     resolverRef.current = null;
     setOptions(null);
@@ -1345,15 +1439,15 @@ function ConfirmProvider({ children }) {
   ] });
 }
 function useConfirm() {
-  const ctx = React19.useContext(ConfirmContext);
+  const ctx = React18.useContext(ConfirmContext);
   if (!ctx) {
     throw new Error("useConfirm must be used within a ConfirmProvider");
   }
   return ctx;
 }
 function useDebounce(value, delay = DEBOUNCE_MS) {
-  const [debounced, setDebounced] = React19.useState(value);
-  React19.useEffect(() => {
+  const [debounced, setDebounced] = React18.useState(value);
+  React18.useEffect(() => {
     const timer = window.setTimeout(() => {
       setDebounced(value);
     }, delay);
@@ -1364,16 +1458,16 @@ function useDebounce(value, delay = DEBOUNCE_MS) {
   return debounced;
 }
 function useDebouncedCallback(callback, delay = DEBOUNCE_MS) {
-  const callbackRef = React19.useRef(callback);
+  const callbackRef = React18.useRef(callback);
   callbackRef.current = callback;
-  const timerRef = React19.useRef(void 0);
-  React19.useEffect(
+  const timerRef = React18.useRef(void 0);
+  React18.useEffect(
     () => () => {
       window.clearTimeout(timerRef.current);
     },
     []
   );
-  return React19.useMemo(
+  return React18.useMemo(
     () => (...args) => {
       window.clearTimeout(timerRef.current);
       timerRef.current = window.setTimeout(() => {
@@ -1386,58 +1480,58 @@ function useDebouncedCallback(callback, delay = DEBOUNCE_MS) {
 function usePagination(initial2) {
   const initialPage = initial2?.page ?? 1;
   const initialPageSize = initial2?.pageSize ?? DEFAULT_PAGE_SIZE;
-  const [page, setPage] = React19.useState(initialPage);
-  const [pageSize, setPageSizeState] = React19.useState(initialPageSize);
-  const setPageSize = React19.useCallback((next) => {
+  const [page, setPage] = React18.useState(initialPage);
+  const [pageSize, setPageSizeState] = React18.useState(initialPageSize);
+  const setPageSize = React18.useCallback((next) => {
     setPageSizeState(next);
     setPage(1);
   }, []);
-  const reset = React19.useCallback(() => {
+  const reset = React18.useCallback(() => {
     setPage(initialPage);
     setPageSizeState(initialPageSize);
   }, [initialPage, initialPageSize]);
   return { page, pageSize, setPage, setPageSize, reset, offset: (page - 1) * pageSize };
 }
 function useTableQuery(defaults) {
-  const defaultFilters = React19.useMemo(() => defaults?.filters ?? {}, [defaults?.filters]);
-  const [page, setPage] = React19.useState(defaults?.initial?.page ?? 1);
-  const [pageSize, setPageSizeState] = React19.useState(defaults?.pageSize ?? DEFAULT_PAGE_SIZE);
-  const [search, setSearchState] = React19.useState(defaults?.initial?.search ?? "");
-  const [sortBy2, setSortBy] = React19.useState(defaults?.sortBy);
-  const [sortDir, setSortDir] = React19.useState(defaults?.sortDir ?? "asc");
-  const [filters, setFilters] = React19.useState(defaultFilters);
+  const defaultFilters = React18.useMemo(() => defaults?.filters ?? {}, [defaults?.filters]);
+  const [page, setPage] = React18.useState(defaults?.initial?.page ?? 1);
+  const [pageSize, setPageSizeState] = React18.useState(defaults?.pageSize ?? DEFAULT_PAGE_SIZE);
+  const [search, setSearchState] = React18.useState(defaults?.initial?.search ?? "");
+  const [sortBy2, setSortBy] = React18.useState(defaults?.sortBy);
+  const [sortDir, setSortDir] = React18.useState(defaults?.sortDir ?? "asc");
+  const [filters, setFilters] = React18.useState(defaultFilters);
   const debouncedSearch = useDebounce(search);
-  const setSearch = React19.useCallback((next) => {
+  const setSearch = React18.useCallback((next) => {
     setSearchState(next);
     setPage(1);
   }, []);
-  const setPageSize = React19.useCallback((next) => {
+  const setPageSize = React18.useCallback((next) => {
     setPageSizeState(next);
     setPage(1);
   }, []);
-  const onSortChange = React19.useCallback((key) => {
+  const onSortChange = React18.useCallback((key) => {
     setSortBy((prevKey) => {
       setSortDir((prevDir) => prevKey === key && prevDir === "asc" ? "desc" : "asc");
       return key;
     });
   }, []);
-  const setFilter = React19.useCallback((key, value) => {
+  const setFilter = React18.useCallback((key, value) => {
     setFilters((prev) => ({ ...prev, [key]: value }));
     setPage(1);
   }, []);
-  const clearFilters = React19.useCallback(() => {
+  const clearFilters = React18.useCallback(() => {
     setFilters(defaultFilters);
     setSearchState("");
     setPage(1);
   }, [defaultFilters]);
-  const reset = React19.useCallback(() => {
+  const reset = React18.useCallback(() => {
     setPage(1);
     setSearchState("");
     setSortBy(defaults?.sortBy);
     setSortDir(defaults?.sortDir ?? "asc");
     setFilters(defaultFilters);
   }, [defaultFilters, defaults?.sortBy, defaults?.sortDir]);
-  const params = React19.useMemo(() => {
+  const params = React18.useMemo(() => {
     const activeFilters = Object.fromEntries(
       Object.entries(filters).filter(([, v]) => Array.isArray(v) ? v.length > 0 : v !== "")
     );
@@ -1469,13 +1563,13 @@ function useTableQuery(defaults) {
   };
 }
 function useLocalStorage(key, initial2) {
-  const [value, setValueState] = React19.useState(() => {
+  const [value, setValueState] = React18.useState(() => {
     if (typeof window === "undefined") return initial2;
     const raw = window.localStorage.getItem(key);
     if (raw === null) return initial2;
     return safeJsonParse(raw) ?? initial2;
   });
-  const setValue = React19.useCallback(
+  const setValue = React18.useCallback(
     (next) => {
       setValueState((prev) => {
         const resolved = typeof next === "function" ? next(prev) : next;
@@ -1485,20 +1579,20 @@ function useLocalStorage(key, initial2) {
     },
     [key]
   );
-  const remove = React19.useCallback(() => {
+  const remove = React18.useCallback(() => {
     window.localStorage.removeItem(key);
   }, [key]);
   return { value, setValue, remove };
 }
 function useBoolean(initial2 = false) {
-  const [value, setValue] = React19.useState(initial2);
-  const setTrue = React19.useCallback(() => {
+  const [value, setValue] = React18.useState(initial2);
+  const setTrue = React18.useCallback(() => {
     setValue(true);
   }, []);
-  const setFalse = React19.useCallback(() => {
+  const setFalse = React18.useCallback(() => {
     setValue(false);
   }, []);
-  const toggle = React19.useCallback(() => {
+  const toggle = React18.useCallback(() => {
     setValue((prev) => !prev);
   }, []);
   return { value, setTrue, setFalse, toggle, setValue };
@@ -1508,21 +1602,21 @@ function useToggle(initial2 = false) {
   return { value, toggle, setValue };
 }
 function usePrevious(value) {
-  const ref = React19.useRef(void 0);
-  React19.useEffect(() => {
+  const ref = React18.useRef(void 0);
+  React18.useEffect(() => {
     ref.current = value;
   }, [value]);
   return ref.current;
 }
 function useIsMounted() {
-  const mountedRef = React19.useRef(false);
-  React19.useEffect(() => {
+  const mountedRef = React18.useRef(false);
+  React18.useEffect(() => {
     mountedRef.current = true;
     return () => {
       mountedRef.current = false;
     };
   }, []);
-  return React19.useCallback(() => mountedRef.current, []);
+  return React18.useCallback(() => mountedRef.current, []);
 }
 function useMediaBreakpoint() {
   const theme = styles.useTheme();
@@ -1533,7 +1627,7 @@ function useMediaBreakpoint() {
   return { isMobile, isTablet, isDesktop, isLargeDesktop };
 }
 
-// node_modules/@base-ui/react/toast/index.parts.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/toast/index.parts.mjs
 var index_parts_exports = {};
 __export(index_parts_exports, {
   Action: () => ToastAction,
@@ -1551,19 +1645,19 @@ __export(index_parts_exports, {
   useToastManager: () => useToastManager
 });
 
-// node_modules/@base-ui/utils/empty.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/empty.mjs
 function NOOP() {
 }
 var EMPTY_ARRAY = Object.freeze([]);
 var EMPTY_OBJECT = Object.freeze({});
 
-// node_modules/@base-ui/utils/useOnMount.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/useOnMount.mjs
 function useOnMount(fn) {
-  React19__namespace.useEffect(fn, EMPTY_ARRAY);
+  React18__namespace.useEffect(fn, EMPTY_ARRAY);
 }
 var UNINITIALIZED = {};
 function useRefWithInit(init, initArg) {
-  const ref = React19__namespace.useRef(UNINITIALIZED);
+  const ref = React18__namespace.useRef(UNINITIALIZED);
   if (ref.current === UNINITIALIZED) {
     ref.current = init(initArg);
   }
@@ -1571,9 +1665,9 @@ function useRefWithInit(init, initArg) {
 }
 var noop = () => {
 };
-var useIsoLayoutEffect = typeof document !== "undefined" ? React19__namespace.useLayoutEffect : noop;
+var useIsoLayoutEffect = typeof document !== "undefined" ? React18__namespace.useLayoutEffect : noop;
 
-// node_modules/@base-ui/utils/formatErrorMessage.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/formatErrorMessage.mjs
 function createFormatErrorMessage(baseUrl, prefix) {
   return function formatErrorMessage2(code, ...args) {
     const url = new URL(baseUrl);
@@ -1584,28 +1678,28 @@ function createFormatErrorMessage(baseUrl, prefix) {
 }
 var formatErrorMessage = createFormatErrorMessage("https://base-ui.com/production-error", "Base UI");
 var formatErrorMessage_default = formatErrorMessage;
-var ToastContext = /* @__PURE__ */ React19__namespace.createContext(void 0);
+var ToastContext = /* @__PURE__ */ React18__namespace.createContext(void 0);
 if (process.env.NODE_ENV !== "production") ToastContext.displayName = "ToastContext";
 function useToastProviderContext() {
-  const context = React19__namespace.useContext(ToastContext);
+  const context = React18__namespace.useContext(ToastContext);
   if (!context) {
     throw new Error(process.env.NODE_ENV !== "production" ? "Base UI: useToastManager must be used within <Toast.Provider>." : formatErrorMessage_default(73));
   }
   return context;
 }
-var majorVersion = parseInt(React19__namespace.version, 10);
+var majorVersion = parseInt(React18__namespace.version, 10);
 function isReactVersionAtLeast(reactVersionToCheck) {
   return majorVersion >= reactVersionToCheck;
 }
 
-// node_modules/@base-ui/utils/store/useStore.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/store/useStore.mjs
 var canUseRawUseSyncExternalStore = isReactVersionAtLeast(19);
 var useStoreImplementation = canUseRawUseSyncExternalStore ? useStoreFast : useStoreLegacy;
 function useStore(store, selector, a1, a2, a3) {
   return useStoreImplementation(store, selector, a1, a2, a3);
 }
 function useStoreR19(store, selector, a1, a2, a3) {
-  const getSelection = React19__namespace.useCallback(() => selector(store.getSnapshot(), a1, a2, a3), [store, selector, a1, a2, a3]);
+  const getSelection = React18__namespace.useCallback(() => selector(store.getSnapshot(), a1, a2, a3), [store, selector, a1, a2, a3]);
   return shim.useSyncExternalStore(store.subscribe, getSelection, getSelection);
 }
 function useStoreFast(store, selector, a1, a2, a3) {
@@ -1617,7 +1711,7 @@ function useStoreLegacy(store, selector, a1, a2, a3) {
   return withSelector.useSyncExternalStoreWithSelector(store.subscribe, store.getSnapshot, store.getSnapshot, (state) => selector(state, a1, a2, a3));
 }
 
-// node_modules/@base-ui/utils/store/Store.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/store/Store.mjs
 var Store = class {
   /**
    * The current state of the store.
@@ -1652,14 +1746,6 @@ var Store = class {
     this.updateTick = 0;
   }
   /**
-   * Creates a store with the given initial state, constructing the class it is called on.
-   * Calling it on a generic base class (e.g. `ReactStore.create(...)`) constructs that
-   * class but degrades the inferred instance type to `Store`; use `new` there instead.
-   */
-  static create(state) {
-    return new this(state);
-  }
-  /**
    * Updates the entire store's state and notifies all registered listeners.
    *
    * @param newState The new state to set for the store.
@@ -1680,8 +1766,6 @@ var Store = class {
   }
   /**
    * Merges the provided changes into the current state and notifies listeners if there are changes.
-   * Each value must match its state key. Pass an exact known subset rather than a broad
-   * `Partial<State>`, which may contain `undefined` for required state fields.
    *
    * @param changes An object containing the changes to apply to the current state.
    */
@@ -1724,10 +1808,10 @@ var Store = class {
   }
 };
 var SafeReact = {
-  ...React19__namespace
+  ...React18__namespace
 };
 
-// node_modules/@base-ui/utils/useStableCallback.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/useStableCallback.mjs
 var useInsertionEffect = SafeReact.useInsertionEffect;
 var useSafeInsertionEffect = (
   // React 17 doesn't have useInsertionEffect.
@@ -1760,7 +1844,7 @@ function assertNotCalled() {
   }
 }
 
-// node_modules/@base-ui/utils/store/ReactStore.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/store/ReactStore.mjs
 var ReactStore = class extends Store {
   /**
    * Creates a new ReactStore instance.
@@ -1784,7 +1868,7 @@ var ReactStore = class extends Store {
    * by `useState` is updated before the next render (similarly to React's `useState`).
    */
   useSyncedValue(key, value) {
-    React19__namespace.useDebugValue(key);
+    React18__namespace.useDebugValue(key);
     const store = this;
     useIsoLayoutEffect(() => {
       if (store.state[key] !== value) {
@@ -1812,21 +1896,17 @@ var ReactStore = class extends Store {
   }
   /**
    * Synchronizes multiple external values into the store.
-   * Each value must match its state key. Pass an exact known subset rather than a broad
-   * `Partial<State>`, which may contain `undefined` for required state fields.
    *
    * Note that the while the values in `state` are updated immediately, the values returned
    * by `useState` are updated before the next render (similarly to React's `useState`).
-   *
-   * @param statePart An exact subset of state fields to synchronize. Unknown keys are not accepted.
    */
   useSyncedValues(statePart) {
     const store = this;
     if (process.env.NODE_ENV !== "production") {
-      React19__namespace.useDebugValue(statePart, (p) => Object.keys(p));
-      const keys = React19__namespace.useRef(Object.keys(statePart)).current;
+      React18__namespace.useDebugValue(statePart, (p) => Object.keys(p));
+      const keys = React18__namespace.useRef(Object.keys(statePart)).current;
       const nextKeys = Object.keys(statePart);
-      if (keys.length !== nextKeys.length || keys.some((key, index3) => key !== nextKeys[index3])) {
+      if (keys.length !== nextKeys.length || keys.some((key, index2) => key !== nextKeys[index2])) {
         console.error("ReactStore.useSyncedValues expects the same prop keys on every render. Keys should be stable.");
       }
     }
@@ -1840,7 +1920,7 @@ var ReactStore = class extends Store {
    * is non-undefined, the store's state at `key` is updated to match `controlled`.
    */
   useControlledProp(key, controlled) {
-    React19__namespace.useDebugValue(key);
+    React18__namespace.useDebugValue(key);
     const store = this;
     const isControlled = controlled !== void 0;
     useIsoLayoutEffect(() => {
@@ -1858,7 +1938,7 @@ var ReactStore = class extends Store {
       }
       const previouslyControlled = cache.get(key);
       if (previouslyControlled !== void 0 && previouslyControlled !== isControlled) {
-        console.error(`A component is changing the ${previouslyControlled ? "" : "un"}controlled state of ${key.toString()} to be ${previouslyControlled ? "un" : ""}controlled. Elements should not switch from uncontrolled to controlled (or vice versa).`);
+        console.error(`A component is changing the ${isControlled ? "" : "un"}controlled state of ${key.toString()} to be ${isControlled ? "un" : ""}controlled. Elements should not switch from uncontrolled to controlled (or vice versa).`);
       }
     }
   }
@@ -1878,7 +1958,7 @@ var ReactStore = class extends Store {
    * @param key Key of the selector to use.
    */
   useState(key, a1, a2, a3) {
-    React19__namespace.useDebugValue(key);
+    React18__namespace.useDebugValue(key);
     return useStore(this, this.selectors[key], a1, a2, a3);
   }
   /**
@@ -1889,7 +1969,7 @@ var ReactStore = class extends Store {
    * @param fn Function to assign.
    */
   useContextCallback(key, fn) {
-    React19__namespace.useDebugValue(key);
+    React18__namespace.useDebugValue(key);
     const stableFunction = useStableCallback(fn ?? NOOP);
     this.context[key] = stableFunction;
   }
@@ -1900,7 +1980,7 @@ var ReactStore = class extends Store {
    * @param key Key of the state to set.
    */
   useStateSetter(key) {
-    const ref = React19__namespace.useRef(void 0);
+    const ref = React18__namespace.useRef(void 0);
     if (ref.current === void 0) {
       ref.current = (value) => {
         this.set(key, value);
@@ -1934,7 +2014,7 @@ var ReactStore = class extends Store {
   }
 };
 
-// node_modules/@floating-ui/utils/dist/floating-ui.utils.dom.mjs
+// node_modules/.pnpm/@floating-ui+utils@0.2.12/node_modules/@floating-ui/utils/dist/floating-ui.utils.dom.mjs
 function hasWindow() {
   return typeof window !== "undefined";
 }
@@ -2090,7 +2170,7 @@ function getFrameElement(win) {
   return win.parent && Object.getPrototypeOf(win.parent) ? win.frameElement : null;
 }
 
-// node_modules/@base-ui/utils/mergeCleanups.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/mergeCleanups.mjs
 function mergeCleanups(...cleanups) {
   return () => {
     for (let i = 0; i < cleanups.length; i += 1) {
@@ -2102,26 +2182,20 @@ function mergeCleanups(...cleanups) {
   };
 }
 
-// node_modules/@base-ui/utils/owner.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/owner.mjs
 function ownerDocument(node) {
   return node?.ownerDocument || document;
 }
 
-// node_modules/@base-ui/utils/addEventListener.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/addEventListener.mjs
 function addEventListener(target, type, listener, options) {
   target.addEventListener(type, listener, options);
   return () => {
     target.removeEventListener(type, listener, options);
   };
 }
-function useForcedRerendering() {
-  const [, setState] = React19__namespace.useState({});
-  return React19__namespace.useCallback(() => {
-    setState({});
-  }, []);
-}
 
-// node_modules/@base-ui/utils/useAnimationFrame.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/useAnimationFrame.mjs
 var EMPTY = null;
 var LAST_RAF = globalThis.requestAnimationFrame;
 var Scheduler = class {
@@ -2165,14 +2239,11 @@ var Scheduler = class {
     return id;
   }
   cancel(id) {
-    const index3 = id - this.startId;
-    if (index3 < 0 || index3 >= this.callbacks.length) {
+    const index2 = id - this.startId;
+    if (index2 < 0 || index2 >= this.callbacks.length) {
       return;
     }
-    if (this.callbacks[index3] === null) {
-      return;
-    }
-    this.callbacks[index3] = null;
+    this.callbacks[index2] = null;
     this.callbacksCount -= 1;
   }
 };
@@ -2216,7 +2287,7 @@ function useAnimationFrame() {
   return timeout;
 }
 
-// node_modules/@base-ui/utils/useTimeout.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/useTimeout.mjs
 var EMPTY2 = 0;
 var Timeout = class _Timeout {
   constructor() {
@@ -2254,14 +2325,14 @@ function useTimeout() {
   return timeout;
 }
 
-// node_modules/@base-ui/utils/generateId.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/generateId.mjs
 var counter = 0;
 function generateId(prefix) {
   counter += 1;
   return `${prefix}-${Math.random().toString(36).slice(2, 6)}-${counter}`;
 }
 
-// node_modules/@base-ui/react/toast/utils/resolvePromiseOptions.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/toast/utils/resolvePromiseOptions.mjs
 function resolvePromiseOptions(options, result) {
   if (typeof options === "string") {
     return {
@@ -2277,17 +2348,16 @@ function resolvePromiseOptions(options, result) {
   return options;
 }
 
-// node_modules/@base-ui/utils/platform/parts.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/platform/parts.mjs
 var parts_exports = {};
 __export(parts_exports, {
   engine: () => engine_exports,
   env: () => env_exports,
-  mediaQuery: () => media_query_exports,
   os: () => os_exports,
   screenReader: () => screen_reader_exports
 });
 
-// node_modules/@base-ui/utils/platform/os.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/platform/os.mjs
 var os_exports = {};
 __export(os_exports, {
   android: () => android,
@@ -2298,7 +2368,7 @@ __export(os_exports, {
   windows: () => windows
 });
 
-// node_modules/@base-ui/utils/platform/shared.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/platform/shared.mjs
 function readRawData() {
   if (typeof navigator === "undefined") {
     return {
@@ -2334,7 +2404,7 @@ var {
 var lowerUserAgent = userAgent.toLowerCase();
 var lowerPlatform = platform.toLowerCase();
 
-// node_modules/@base-ui/utils/platform/os.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/platform/os.mjs
 var ios = /^i(os$|p)/.test(lowerPlatform) || lowerPlatform === "macintel" && maxTouchPoints > 1;
 var ANDROID_STRING = "android";
 var android = lowerPlatform === ANDROID_STRING || lowerUserAgent.includes(ANDROID_STRING);
@@ -2343,7 +2413,7 @@ var windows = lowerPlatform.startsWith("win");
 var linux = !android && /^(linux|chrome os)/.test(lowerPlatform);
 var apple = mac || ios;
 
-// node_modules/@base-ui/utils/platform/engine.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/platform/engine.mjs
 var engine_exports = {};
 __export(engine_exports, {
   blink: () => blink,
@@ -2354,28 +2424,21 @@ var webkit = typeof CSS !== "undefined" && !!CSS.supports?.("-webkit-backdrop-fi
 var gecko = !webkit && lowerUserAgent.includes("firefox");
 var blink = !webkit && lowerUserAgent.includes("chrom");
 
-// node_modules/@base-ui/utils/platform/screen-reader.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/platform/screen-reader.mjs
 var screen_reader_exports = {};
 __export(screen_reader_exports, {
   voiceOver: () => voiceOver
 });
 var voiceOver = apple;
 
-// node_modules/@base-ui/utils/platform/env.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/platform/env.mjs
 var env_exports = {};
 __export(env_exports, {
   jsdom: () => jsdom
 });
 var jsdom = /jsdom|happydom/.test(lowerUserAgent);
 
-// node_modules/@base-ui/utils/platform/media-query.mjs
-var media_query_exports = {};
-__export(media_query_exports, {
-  iOS: () => iOS
-});
-var iOS = "@supports (-webkit-touch-callout: none)";
-
-// node_modules/@base-ui/utils/shadowDom.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/internals/shadowDom.mjs
 function activeElement(doc) {
   let element = doc.activeElement;
   while (element?.shadowRoot?.activeElement != null) {
@@ -2402,82 +2465,14 @@ function contains(parent, child) {
   }
   return false;
 }
-function closest(node, selector) {
-  let current = node;
-  while (current) {
-    if (isElement(current) && current.matches(selector)) {
-      return current;
-    }
-    current = current.assignedSlot ?? current.parentNode ?? (isShadowRoot(current) ? current.host : null);
-  }
-  return null;
-}
 function getTarget(event) {
   if ("composedPath" in event) {
-    return event.composedPath()[0] ?? event.target;
+    return event.composedPath()[0];
   }
   return event.target;
 }
 
-// node_modules/@base-ui/react/internals/TransitionStatusDataAttributes.mjs
-var TransitionStatusDataAttributes_exports = {};
-__export(TransitionStatusDataAttributes_exports, {
-  endingStyle: () => endingStyle,
-  startingStyle: () => startingStyle
-});
-var startingStyle = "data-starting-style";
-var endingStyle = "data-ending-style";
-
-// node_modules/@base-ui/react/internals/stateAttributesMapping.mjs
-var STARTING_HOOK = {
-  [startingStyle]: ""
-};
-var ENDING_HOOK = {
-  [endingStyle]: ""
-};
-var transitionStatusMapping = {
-  transitionStatus(value) {
-    if (value === "starting") {
-      return STARTING_HOOK;
-    }
-    if (value === "ending") {
-      return ENDING_HOOK;
-    }
-    return null;
-  }
-};
-
-// node_modules/@base-ui/react/utils/CommonPopupDataAttributes.mjs
-var open = "data-open";
-var closed = "data-closed";
-var anchorHidden = "data-anchor-hidden";
-var POPUP_OPEN_HOOK = {
-  [open]: ""
-};
-var POPUP_CLOSED_HOOK = {
-  [closed]: ""
-};
-var ANCHOR_HIDDEN_HOOK = {
-  [anchorHidden]: ""
-};
-var popupStateMapping = {
-  open(value) {
-    if (value) {
-      return POPUP_OPEN_HOOK;
-    }
-    return POPUP_CLOSED_HOOK;
-  },
-  anchorHidden(value) {
-    if (value) {
-      return ANCHOR_HIDDEN_HOOK;
-    }
-    return null;
-  }
-};
-({
-  ...popupStateMapping});
-
-// node_modules/@base-ui/react/floating-ui-react/utils/element.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/floating-ui-react/utils/element.mjs
 function matchesFocusVisible(element) {
   if (!element || parts_exports.env.jsdom) {
     return true;
@@ -2489,13 +2484,13 @@ function matchesFocusVisible(element) {
   }
 }
 
-// node_modules/@base-ui/react/floating-ui-react/utils/event.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/floating-ui-react/utils/event.mjs
 function isClickLikeEvent(event) {
   const type = event.type;
   return type === "click" || type === "mousedown" || type === "keydown" || type === "keyup";
 }
 
-// node_modules/@floating-ui/utils/dist/floating-ui.utils.mjs
+// node_modules/.pnpm/@floating-ui+utils@0.2.12/node_modules/@floating-ui/utils/dist/floating-ui.utils.mjs
 var min = Math.min;
 var max = Math.max;
 var round = Math.round;
@@ -2609,21 +2604,21 @@ function rectToClientRect(rect) {
     x,
     y,
     width,
-    height: height2
+    height
   } = rect;
   return {
     width,
-    height: height2,
+    height,
     top: y,
     left: x,
     right: x + width,
-    bottom: y + height2,
+    bottom: y + height,
     x,
     y
   };
 }
 
-// node_modules/@base-ui/react/floating-ui-react/utils/composite.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/floating-ui-react/utils/composite.mjs
 function isHiddenByStyles(styles) {
   return styles.visibility === "hidden" || styles.visibility === "collapse";
 }
@@ -2637,7 +2632,7 @@ function isElementVisible(element, styles = element ? getComputedStyle2(element)
   return styles.display !== "none" && styles.display !== "contents";
 }
 
-// node_modules/@base-ui/react/floating-ui-react/utils/tabbable.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/floating-ui-react/utils/tabbable.mjs
 var CANDIDATE_SELECTOR = 'a[href],button,input,select,textarea,summary,details,iframe,object,embed,[tabindex],[contenteditable]:not([contenteditable="false"]),audio[controls],video[controls]';
 function getParentElement(element) {
   const assignedSlot = element.assignedSlot;
@@ -2769,8 +2764,8 @@ function getTabbableIn(container, dir) {
     return void 0;
   }
   const active = activeElement(ownerDocument(container));
-  const index3 = list.indexOf(active);
-  const nextIndex = index3 === -1 ? dir === 1 ? 0 : len - 1 : index3 + dir;
+  const index2 = list.indexOf(active);
+  const nextIndex = index2 === -1 ? dir === 1 ? 0 : len - 1 : index2 + dir;
   return list[nextIndex];
 }
 function getNextTabbable(referenceElement) {
@@ -2805,20 +2800,20 @@ function enableFocusInside(container) {
   });
 }
 
-// node_modules/@base-ui/react/toast/store.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/toast/store.mjs
 function createToastMetadata(toasts) {
   const metadata = /* @__PURE__ */ new Map();
   let visibleIndex = 0;
-  let offsetY2 = 0;
+  let offsetY = 0;
   toasts.forEach((toast, toastIndex) => {
     const isEnding = toast.transitionStatus === "ending";
     metadata.set(toast.id, {
       value: toast,
       domIndex: toastIndex,
       visibleIndex: isEnding ? -1 : visibleIndex,
-      offsetY: offsetY2
+      offsetY
     });
-    offsetY2 += toast.height || 0;
+    offsetY += toast.height || 0;
     if (!isEnding) {
       visibleIndex += 1;
     }
@@ -2910,11 +2905,7 @@ var ToastStore = class extends ReactStore {
       return id;
     });
     __publicField(this, "updateToast", (id, updates) => {
-      const prevToast = selectors.toast(this.state, id);
-      if (!prevToast || prevToast.transitionStatus === "ending") {
-        return;
-      }
-      this.updateToastInternal(id, typeof updates === "function" ? updates(prevToast) : updates, false, true);
+      this.updateToastInternal(id, updates, false, true);
     });
     __publicField(this, "updateToastInternal", (id, updates, resetTimer = false, markUpdated = false) => {
       const {
@@ -3047,16 +3038,16 @@ var ToastStore = class extends ReactStore {
     this.update(updates);
   }
   removeToast(toastId, skipOnRemove = false) {
-    const index3 = selectors.toastIndex(this.state, toastId);
-    if (index3 === -1) {
+    const index2 = selectors.toastIndex(this.state, toastId);
+    if (index2 === -1) {
       return;
     }
-    const toast = this.state.toasts[index3];
+    const toast = this.state.toasts[index2];
     if (!skipOnRemove) {
       toast?.onRemove?.();
     }
     const newToasts = [...this.state.toasts];
-    newToasts.splice(index3, 1);
+    newToasts.splice(index2, 1);
     this.setToasts(newToasts);
   }
   pauseTimers() {
@@ -3152,9 +3143,9 @@ var ToastStore = class extends ReactStore {
     const toasts = selectors.toasts(this.state);
     const currentIndex = selectors.toastIndex(this.state, toastId);
     const scan = (from, step) => {
-      for (let index3 = from; index3 >= 0 && index3 < toasts.length; index3 += step) {
-        if (toasts[index3].transitionStatus !== "ending") {
-          return toasts[index3];
+      for (let index2 = from; index2 >= 0 && index2 < toasts.length; index2 += step) {
+        if (toasts[index2].transitionStatus !== "ending") {
+          return toasts[index2];
         }
       }
       return null;
@@ -3185,7 +3176,7 @@ var ToastProvider = function ToastProvider2(props) {
     prevFocusElement: null
   })).current;
   useOnMount(store.disposeEffect);
-  React19__namespace.useEffect(function subscribeToToastManager() {
+  React18__namespace.useEffect(function subscribeToToastManager() {
     if (!toastManager) {
       return void 0;
     }
@@ -3197,7 +3188,7 @@ var ToastProvider = function ToastProvider2(props) {
       if (action === "promise" && options.promise) {
         store.promiseToast(options.promise, options);
       } else if (action === "update" && id) {
-        store.updateToast(id, options.updates);
+        store.updateToast(id, options);
       } else if (action === "close") {
         store.closeToast(id);
       } else {
@@ -3228,7 +3219,7 @@ function ToastProviderPropsSynchronizer(props) {
   return null;
 }
 
-// node_modules/@base-ui/utils/visuallyHidden.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/visuallyHidden.mjs
 var visuallyHiddenBase = {
   clipPath: "inset(50%)",
   overflow: "hidden",
@@ -3242,12 +3233,11 @@ var visuallyHiddenBase = {
 var visuallyHidden = {
   ...visuallyHiddenBase,
   position: "fixed",
-  margin: 0,
   top: 0,
   left: 0
 };
-var FocusGuard = /* @__PURE__ */ React19__namespace.forwardRef(function FocusGuard2(props, ref) {
-  const [role, setRole] = React19__namespace.useState();
+var FocusGuard = /* @__PURE__ */ React18__namespace.forwardRef(function FocusGuard2(props, ref) {
+  const [role, setRole] = React18__namespace.useState();
   useIsoLayoutEffect(() => {
     if (parts_exports.screenReader.voiceOver && parts_exports.engine.webkit) {
       setRole("button");
@@ -3269,7 +3259,7 @@ var FocusGuard = /* @__PURE__ */ React19__namespace.forwardRef(function FocusGua
 });
 if (process.env.NODE_ENV !== "production") FocusGuard.displayName = "FocusGuard";
 
-// node_modules/@base-ui/utils/useMergedRefs.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/useMergedRefs.mjs
 function useMergedRefs(a, b, c, d) {
   const forkRef = useRefWithInit(createForkRef).current;
   if (didChange(forkRef, a, b, c, d)) {
@@ -3295,7 +3285,7 @@ function didChange(forkRef, a, b, c, d) {
   return forkRef.refs[0] !== a || forkRef.refs[1] !== b || forkRef.refs[2] !== c || forkRef.refs[3] !== d;
 }
 function didChangeN(forkRef, newRefs) {
-  return forkRef.refs.length !== newRefs.length || forkRef.refs.some((ref, index3) => ref !== newRefs[index3]);
+  return forkRef.refs.length !== newRefs.length || forkRef.refs.some((ref, index2) => ref !== newRefs[index2]);
 }
 function update(forkRef, refs) {
   forkRef.refs = refs;
@@ -3356,7 +3346,7 @@ function update(forkRef, refs) {
   };
 }
 function getReactElementRef(element) {
-  if (!/* @__PURE__ */ React19__namespace.isValidElement(element)) {
+  if (!/* @__PURE__ */ React18__namespace.isValidElement(element)) {
     return null;
   }
   const reactElement = element;
@@ -3364,7 +3354,7 @@ function getReactElementRef(element) {
   return (isReactVersionAtLeast(19) ? propsWithRef?.ref : reactElement.ref) ?? null;
 }
 
-// node_modules/@base-ui/utils/mergeObjects.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/mergeObjects.mjs
 function mergeObjects(a, b) {
   if (a && !b) {
     return a;
@@ -3381,33 +3371,22 @@ function mergeObjects(a, b) {
   return void 0;
 }
 
-// node_modules/@base-ui/utils/createLogOnce.mjs
-var loggedMessages;
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/warn.mjs
+var set;
 if (process.env.NODE_ENV !== "production") {
-  loggedMessages = /* @__PURE__ */ new Set();
+  set = /* @__PURE__ */ new Set();
 }
-function createLogOnce(severity, prefix) {
-  return function logOnce(...messages) {
-    if (process.env.NODE_ENV !== "production") {
-      const message = messages.join(" ");
-      const output = `${prefix}: ${message}` ;
-      const key = `${severity}:${output}`;
-      if (!loggedMessages.has(key)) {
-        loggedMessages.add(key);
-        if (severity === "warn") {
-          console.warn(output);
-        } else {
-          console.error(output);
-        }
-      }
+function warn(...messages) {
+  if (process.env.NODE_ENV !== "production") {
+    const messageKey = messages.join(" ");
+    if (!set.has(messageKey)) {
+      set.add(messageKey);
+      console.warn(`Base UI: ${messageKey}`);
     }
-  };
+  }
 }
 
-// node_modules/@base-ui/utils/warn.mjs
-var warn = createLogOnce("warn", "Base UI");
-
-// node_modules/@base-ui/react/internals/getStateAttributesProps.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/internals/getStateAttributesProps.mjs
 function getStateAttributesProps(state, customMapping) {
   const props = {};
   for (const key in state) {
@@ -3428,17 +3407,17 @@ function getStateAttributesProps(state, customMapping) {
   return props;
 }
 
-// node_modules/@base-ui/react/utils/resolveClassName.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/utils/resolveClassName.mjs
 function resolveClassName(className, state) {
   return typeof className === "function" ? className(state) : className;
 }
 
-// node_modules/@base-ui/react/utils/resolveStyle.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/utils/resolveStyle.mjs
 function resolveStyle(style, state) {
   return typeof style === "function" ? style(state) : style;
 }
 
-// node_modules/@base-ui/react/merge-props/mergeProps.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/merge-props/mergeProps.mjs
 var EMPTY_PROPS = {};
 function mergeProps(a, b, c, d, e) {
   if (!c && !d && true && !a) {
@@ -3472,14 +3451,14 @@ function mergePropsN(props) {
 function createInitialMergedProps(inputProps) {
   if (isPropsGetter(inputProps)) {
     return {
-      ...inputProps(EMPTY_PROPS)
+      ...resolvePropsGetter(inputProps, EMPTY_PROPS)
     };
   }
   return copyInitialProps(inputProps);
 }
 function mergeInto(merged, inputProps) {
   if (isPropsGetter(inputProps)) {
-    return inputProps(merged);
+    return resolvePropsGetter(inputProps, merged);
   }
   return mutablyMergeInto(merged, inputProps);
 }
@@ -3529,6 +3508,12 @@ function isEventHandler(key, value) {
 }
 function isPropsGetter(inputProps) {
   return typeof inputProps === "function";
+}
+function resolvePropsGetter(inputProps, previousProps) {
+  if (isPropsGetter(inputProps)) {
+    return inputProps(previousProps);
+  }
+  return inputProps ?? EMPTY_PROPS;
 }
 function mergeEventHandlers(ourHandler, theirHandler) {
   if (!theirHandler) {
@@ -3584,21 +3569,19 @@ function isSyntheticEvent(event) {
   return event != null && typeof event === "object" && "nativeEvent" in event;
 }
 function useRenderElement(element, componentProps, params = {}) {
-  let renderProp = componentProps.render;
-  if (params.enabled !== false) {
-    renderProp = unwrapLazyRenderProp(renderProp);
-  }
-  const outProps = useRenderElementProps(componentProps, params, renderProp);
+  const renderProp = componentProps.render;
+  const outProps = useRenderElementProps(componentProps, params);
   if (params.enabled === false) {
     return null;
   }
   const state = params.state ?? EMPTY_OBJECT;
   return evaluateRenderProp(element, renderProp, outProps, state);
 }
-function useRenderElementProps(componentProps, params, renderProp) {
+function useRenderElementProps(componentProps, params = {}) {
   const {
     className: classNameProp,
-    style: styleProp
+    style: styleProp,
+    render: renderProp
   } = componentProps;
   const {
     state = EMPTY_OBJECT,
@@ -3641,13 +3624,6 @@ function resolveRenderFunctionProps(props) {
 var REACT_LAZY_TYPE = /* @__PURE__ */ Symbol.for("react.lazy");
 var COMPONENT_IDENTIFIER_PATTERN = /^[A-Z][A-Za-z0-9$]*$/;
 var LOWERCASE_CHARACTER_PATTERN = /[a-z]/;
-function unwrapLazyRenderProp(render) {
-  if (render?.$$typeof !== REACT_LAZY_TYPE) {
-    return render;
-  }
-  const unwrapped = React19__namespace.Children.toArray(render)[0];
-  return /* @__PURE__ */ React19__namespace.isValidElement(unwrapped) ? unwrapped : render;
-}
 function evaluateRenderProp(element, render, props, state) {
   if (render) {
     if (typeof render === "function") {
@@ -3658,14 +3634,24 @@ function evaluateRenderProp(element, render, props, state) {
     }
     const mergedProps = mergeProps(props, render.props);
     mergedProps.ref = props.ref;
+    let newElement = render;
+    if (newElement?.$$typeof === REACT_LAZY_TYPE) {
+      const children = React18__namespace.Children.toArray(render);
+      newElement = children[0];
+    }
     if (process.env.NODE_ENV !== "production") {
-      if (!/* @__PURE__ */ React19__namespace.isValidElement(render)) {
+      if (!/* @__PURE__ */ React18__namespace.isValidElement(newElement)) {
         throw new Error(["Base UI: The `render` prop was provided an invalid React element as `React.isValidElement(render)` is `false`.", "A valid React element must be provided to the `render` prop because it is cloned with props to replace the default element.", "https://base-ui.com/r/invalid-render-prop"].join("\n"));
       }
     }
-    return /* @__PURE__ */ React19__namespace.cloneElement(render, mergedProps);
+    return /* @__PURE__ */ React18__namespace.cloneElement(newElement, mergedProps);
   }
-  return renderTag(element, props);
+  if (element) {
+    if (typeof element === "string") {
+      return renderTag(element, props);
+    }
+  }
+  throw new Error(process.env.NODE_ENV !== "production" ? "Base UI: Render element or function are not defined." : formatErrorMessage_default(8));
 }
 function warnIfRenderPropLooksLikeComponent(renderFn) {
   const functionName = renderFn.name;
@@ -3682,25 +3668,22 @@ function warnIfRenderPropLooksLikeComponent(renderFn) {
 }
 function renderTag(Tag, props) {
   if (Tag === "button") {
-    return /* @__PURE__ */ React19.createElement("button", {
+    return /* @__PURE__ */ React18.createElement("button", {
       type: "button",
       ...props,
       key: props.key
     });
   }
   if (Tag === "img") {
-    return /* @__PURE__ */ React19.createElement("img", {
+    return /* @__PURE__ */ React18.createElement("img", {
       alt: "",
       ...props,
       key: props.key
     });
   }
-  return /* @__PURE__ */ React19__namespace.createElement(Tag, props);
+  return /* @__PURE__ */ React18__namespace.createElement(Tag, props);
 }
-
-// node_modules/@base-ui/react/toast/viewport/ToastViewportCssVars.mjs
-var frontmostHeight = "--toast-frontmost-height";
-var ToastViewport = /* @__PURE__ */ React19__namespace.forwardRef(function ToastViewport2(componentProps, forwardedRef) {
+var ToastViewport = /* @__PURE__ */ React18__namespace.forwardRef(function ToastViewport2(componentProps, forwardedRef) {
   const {
     render,
     className,
@@ -3710,18 +3693,18 @@ var ToastViewport = /* @__PURE__ */ React19__namespace.forwardRef(function Toast
   } = componentProps;
   const store = useToastProviderContext();
   const windowFocusTimeout = useTimeout();
-  const handlingFocusGuardRef = React19__namespace.useRef(false);
-  const markedReadyForMouseLeaveRef = React19__namespace.useRef(false);
-  const touchActiveRef = React19__namespace.useRef(false);
+  const handlingFocusGuardRef = React18__namespace.useRef(false);
+  const markedReadyForMouseLeaveRef = React18__namespace.useRef(false);
+  const touchActiveRef = React18__namespace.useRef(false);
   const isEmpty = store.useState("isEmpty");
   const toasts = store.useState("toasts");
   const focused = store.useState("focused");
   const expanded = store.useState("expanded");
   const prevFocusElement = store.useState("prevFocusElement");
-  const frontmostHeight2 = toasts[0]?.height;
+  const frontmostHeight = toasts[0]?.height;
   const hasTransitioningToasts = toasts.some((toast) => toast.transitionStatus === "ending");
   const highPriorityToasts = toasts.filter((toast) => toast.priority === "high");
-  React19__namespace.useEffect(() => {
+  React18__namespace.useEffect(() => {
     const viewport = store.state.viewport;
     if (!viewport || isEmpty) {
       return void 0;
@@ -3779,17 +3762,22 @@ var ToastViewport = /* @__PURE__ */ React19__namespace.forwardRef(function Toast
     if (hasEndingToasts || touchActiveRef.current || !markedReadyForMouseLeaveRef.current) {
       return;
     }
-    store.set("hovering", false);
-    if (!store.select("expandedOrOutOfFocus")) {
+    if (store.state.isWindowFocused) {
       store.resumeTimers();
     }
+    store.set("hovering", false);
     markedReadyForMouseLeaveRef.current = false;
   }
-  React19__namespace.useEffect(flushMouseLeave, [hasTransitioningToasts, store]);
+  React18__namespace.useEffect(flushMouseLeave, [hasTransitioningToasts, store]);
   function handleMouseEnter() {
     store.pauseTimers();
     store.set("hovering", true);
     markedReadyForMouseLeaveRef.current = false;
+  }
+  function resumeTimersIfWindowFocused() {
+    if (store.state.isWindowFocused) {
+      store.resumeTimers();
+    }
   }
   function handleMouseLeave() {
     markedReadyForMouseLeaveRef.current = true;
@@ -3825,9 +3813,7 @@ var ToastViewport = /* @__PURE__ */ React19__namespace.forwardRef(function Toast
       return;
     }
     store.set("focused", false);
-    if (!store.select("expandedOrOutOfFocus")) {
-      store.resumeTimers();
-    }
+    resumeTimersIfWindowFocused();
   }
   const defaultProps = {
     tabIndex: -1,
@@ -3847,7 +3833,7 @@ var ToastViewport = /* @__PURE__ */ React19__namespace.forwardRef(function Toast
     onPointerUp: handlePointerEnd,
     onPointerCancel: handlePointerEnd,
     style: {
-      [frontmostHeight]: frontmostHeight2 ? `${frontmostHeight2}px` : void 0
+      ["--toast-frontmost-height"]: frontmostHeight ? `${frontmostHeight}px` : void 0
     }
   };
   const state = {
@@ -3860,12 +3846,12 @@ var ToastViewport = /* @__PURE__ */ React19__namespace.forwardRef(function Toast
     ref: [forwardedRef, store.setViewport],
     state,
     props: [defaultProps, elementProps, {
-      children: /* @__PURE__ */ jsxRuntime.jsxs(React19__namespace.Fragment, {
+      children: /* @__PURE__ */ jsxRuntime.jsxs(React18__namespace.Fragment, {
         children: [focusGuard, children, focusGuard]
       })
     }]
   });
-  return /* @__PURE__ */ jsxRuntime.jsxs(React19__namespace.Fragment, {
+  return /* @__PURE__ */ jsxRuntime.jsxs(React18__namespace.Fragment, {
     children: [focusGuard, element, !focused && highPriorityToasts.length > 0 && /* @__PURE__ */ jsxRuntime.jsx("div", {
       style: visuallyHidden,
       children: highPriorityToasts.map((toast) => /* @__PURE__ */ jsxRuntime.jsxs("div", {
@@ -3882,24 +3868,48 @@ var ToastViewport = /* @__PURE__ */ React19__namespace.forwardRef(function Toast
 });
 if (process.env.NODE_ENV !== "production") ToastViewport.displayName = "ToastViewport";
 
-// node_modules/@base-ui/utils/inertValue.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/inertValue.mjs
 function inertValue(value) {
   if (isReactVersionAtLeast(19)) {
     return value;
   }
   return value ? "true" : void 0;
 }
-var ToastRootContext = /* @__PURE__ */ React19__namespace.createContext(void 0);
+var ToastRootContext = /* @__PURE__ */ React18__namespace.createContext(void 0);
 if (process.env.NODE_ENV !== "production") ToastRootContext.displayName = "ToastRootContext";
 function useToastRootContext() {
-  const context = React19__namespace.useContext(ToastRootContext);
+  const context = React18__namespace.useContext(ToastRootContext);
   if (!context) {
     throw new Error(process.env.NODE_ENV !== "production" ? "Base UI: ToastRootContext is missing. Toast parts must be used within <Toast.Root>." : formatErrorMessage_default(66));
   }
   return context;
 }
 
-// node_modules/@base-ui/react/utils/resolveRef.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/internals/stateAttributesMapping.mjs
+var TransitionStatusDataAttributes = /* @__PURE__ */ (function(TransitionStatusDataAttributes2) {
+  TransitionStatusDataAttributes2["startingStyle"] = "data-starting-style";
+  TransitionStatusDataAttributes2["endingStyle"] = "data-ending-style";
+  return TransitionStatusDataAttributes2;
+})({});
+var STARTING_HOOK = {
+  "data-starting-style": ""
+};
+var ENDING_HOOK = {
+  "data-ending-style": ""
+};
+var transitionStatusMapping = {
+  transitionStatus(value) {
+    if (value === "starting") {
+      return STARTING_HOOK;
+    }
+    if (value === "ending") {
+      return ENDING_HOOK;
+    }
+    return null;
+  }
+};
+
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/utils/resolveRef.mjs
 function resolveRef(maybeRef) {
   if (maybeRef == null) {
     return maybeRef;
@@ -3907,32 +3917,8 @@ function resolveRef(maybeRef) {
   return "current" in maybeRef ? maybeRef.current : maybeRef;
 }
 
-// node_modules/@base-ui/react/utils/getFiniteAnimations.mjs
-function getFiniteAnimations(element, options) {
-  return element.getAnimations(options).filter((animation) => {
-    const timing = animation.effect?.getTiming();
-    return timing?.duration !== Infinity && timing?.iterations !== Infinity;
-  });
-}
-
-// node_modules/@base-ui/react/internals/useAnimationsFinished.mjs
-var pendingCallbacks = null;
-function flushBeforePaint(fn) {
-  if (!pendingCallbacks) {
-    const callbacks = [];
-    pendingCallbacks = callbacks;
-    queueMicrotask(() => {
-      pendingCallbacks = null;
-      ReactDOM__namespace.flushSync(() => {
-        for (const callback of callbacks) {
-          callback();
-        }
-      });
-    });
-  }
-  pendingCallbacks.push(fn);
-}
-function useAnimationsFinished(elementOrRef, waitForStartingStyleRemoved = false, batch = false) {
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/internals/useAnimationsFinished.mjs
+function useAnimationsFinished(elementOrRef, waitForStartingStyleRemoved = false) {
   const frame = useAnimationFrame();
   return useStableCallback((fnToExecute, signal = null) => {
     frame.cancel();
@@ -3942,22 +3928,14 @@ function useAnimationsFinished(elementOrRef, waitForStartingStyleRemoved = false
     }
     const resolvedElement = element;
     const done = () => {
-      if (!batch) {
-        ReactDOM__namespace.flushSync(fnToExecute);
-        return;
-      }
-      flushBeforePaint(() => {
-        if (!signal?.aborted) {
-          fnToExecute();
-        }
-      });
+      ReactDOM3__namespace.flushSync(fnToExecute);
     };
     if (typeof resolvedElement.getAnimations !== "function" || globalThis.BASE_UI_ANIMATIONS_DISABLED) {
       fnToExecute();
       return;
     }
     function exec() {
-      Promise.all(getFiniteAnimations(resolvedElement).map((animation) => animation.finished.then(NOOP))).then(() => {
+      Promise.all(resolvedElement.getAnimations().map((animation) => animation.finished)).then(() => {
         if (!signal?.aborted) {
           done();
         }
@@ -3965,7 +3943,7 @@ function useAnimationsFinished(elementOrRef, waitForStartingStyleRemoved = false
         if (signal?.aborted) {
           return;
         }
-        const currentAnimations = getFiniteAnimations(resolvedElement);
+        const currentAnimations = resolvedElement.getAnimations();
         if (currentAnimations.some((animation) => animation.pending || animation.playState !== "finished")) {
           exec();
           return;
@@ -3974,7 +3952,7 @@ function useAnimationsFinished(elementOrRef, waitForStartingStyleRemoved = false
       });
     }
     if (waitForStartingStyleRemoved) {
-      const startingStyleAttribute = startingStyle;
+      const startingStyleAttribute = "data-starting-style";
       if (!resolvedElement.hasAttribute(startingStyleAttribute)) {
         frame.request(exec);
         return;
@@ -3998,18 +3976,17 @@ function useAnimationsFinished(elementOrRef, waitForStartingStyleRemoved = false
   });
 }
 
-// node_modules/@base-ui/react/internals/useOpenChangeComplete.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/internals/useOpenChangeComplete.mjs
 function useOpenChangeComplete(parameters) {
   const {
     enabled = true,
-    open: open2,
+    open,
     ref,
-    batch = false,
     onComplete: onCompleteParam
   } = parameters;
   const onComplete = useStableCallback(onCompleteParam);
-  const runOnceAnimationsFinish = useAnimationsFinished(ref, open2, batch);
-  React19__namespace.useEffect(() => {
+  const runOnceAnimationsFinish = useAnimationsFinished(ref, open);
+  React18__namespace.useEffect(() => {
     if (!enabled) {
       return void 0;
     }
@@ -4018,10 +3995,10 @@ function useOpenChangeComplete(parameters) {
     return () => {
       abortController.abort();
     };
-  }, [enabled, open2, onComplete, runOnceAnimationsFinish]);
+  }, [enabled, open, onComplete, runOnceAnimationsFinish]);
 }
 
-// node_modules/@base-ui/react/internals/constants.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/internals/constants.mjs
 var DISABLED_TRANSITIONS_STYLE = {
   style: {
     transition: "none"
@@ -4040,10 +4017,23 @@ var ownerVisuallyHidden = {
   top: 0,
   left: 0
 };
-
-// node_modules/@base-ui/react/utils/getElementTransform.mjs
-function getElementTransform(element, computedStyle) {
-  const transform = (getWindow(element).getComputedStyle(element)).transform;
+function getDisplacement(direction, deltaX, deltaY) {
+  switch (direction) {
+    case "up":
+      return -deltaY;
+    case "down":
+      return deltaY;
+    case "left":
+      return -deltaX;
+    case "right":
+      return deltaX;
+    default:
+      return 0;
+  }
+}
+function getElementTransform(element) {
+  const computedStyle = getWindow(element).getComputedStyle(element);
+  const transform = computedStyle.transform;
   let translateX = 0;
   let translateY = 0;
   let scale = 1;
@@ -4068,39 +4058,11 @@ function getElementTransform(element, computedStyle) {
     scale
   };
 }
-
-// node_modules/@base-ui/react/utils/useSwipeDismiss.mjs
-function getDisplacement(direction, deltaX, deltaY) {
-  switch (direction) {
-    case "up":
-      return -deltaY;
-    case "down":
-      return deltaY;
-    case "left":
-      return -deltaX;
-    case "right":
-      return deltaX;
-    default:
-      return 0;
-  }
-}
-
-// node_modules/@base-ui/react/toast/root/ToastRootCssVars.mjs
-var index = "--toast-index";
-var offsetY = "--toast-offset-y";
-var height = "--toast-height";
-var swipeMovementX = "--toast-swipe-movement-x";
-var swipeMovementY = "--toast-swipe-movement-y";
-
-// node_modules/@base-ui/react/toast/root/ToastRootDataAttributes.mjs
-var swipeDirection = "data-swipe-direction";
-TransitionStatusDataAttributes_exports.startingStyle;
-TransitionStatusDataAttributes_exports.endingStyle;
 var toastRootStateAttributesMapping = {
   ...transitionStatusMapping,
   swipeDirection(value) {
     return value ? {
-      [swipeDirection]: value
+      "data-swipe-direction": value
     } : null;
   }
 };
@@ -4109,65 +4071,65 @@ var REVERSE_CANCEL_THRESHOLD = 10;
 var OPPOSITE_DIRECTION_DAMPING_FACTOR = 0.5;
 var MIN_DRAG_THRESHOLD = 1;
 var TOAST_SWIPE_IGNORE_SELECTOR = `${BASE_UI_SWIPE_IGNORE_SELECTOR},${LEGACY_SWIPE_IGNORE_SELECTOR}`;
-var ToastRoot = /* @__PURE__ */ React19__namespace.forwardRef(function ToastRoot2(componentProps, forwardedRef) {
+var ToastRoot = /* @__PURE__ */ React18__namespace.forwardRef(function ToastRoot2(componentProps, forwardedRef) {
   const {
     toast,
     render,
     className,
-    swipeDirection: swipeDirection2 = ["down", "right"],
+    swipeDirection = ["down", "right"],
     style,
     ...elementProps
   } = componentProps;
   const isAnchored = toast.positionerProps?.anchor !== void 0;
   let swipeDirections = [];
   if (!isAnchored) {
-    swipeDirections = Array.isArray(swipeDirection2) ? swipeDirection2 : [swipeDirection2];
+    swipeDirections = Array.isArray(swipeDirection) ? swipeDirection : [swipeDirection];
   }
   const swipeEnabled = swipeDirections.length > 0;
   const store = useToastProviderContext();
-  const [currentSwipeDirection, setCurrentSwipeDirection] = React19__namespace.useState(void 0);
-  const [isSwiping, setIsSwiping] = React19__namespace.useState(false);
-  const [isRealSwipe, setIsRealSwipe] = React19__namespace.useState(false);
-  const [dragOffset, setDragOffset] = React19__namespace.useState({
+  const [currentSwipeDirection, setCurrentSwipeDirection] = React18__namespace.useState(void 0);
+  const [isSwiping, setIsSwiping] = React18__namespace.useState(false);
+  const [isRealSwipe, setIsRealSwipe] = React18__namespace.useState(false);
+  const [dragOffset, setDragOffset] = React18__namespace.useState({
     x: 0,
     y: 0
   });
-  const [initialTransform, setInitialTransform] = React19__namespace.useState({
+  const [initialTransform, setInitialTransform] = React18__namespace.useState({
     x: 0,
     y: 0,
     scale: 1
   });
-  const [titleId, setTitleId] = React19__namespace.useState();
-  const [descriptionId, setDescriptionId] = React19__namespace.useState();
-  const [lockedDirection, setLockedDirection] = React19__namespace.useState(null);
-  const rootRef = React19__namespace.useRef(null);
-  const lastToastIdRef = React19__namespace.useRef(void 0);
-  const dragStartPosRef = React19__namespace.useRef({
+  const [titleId, setTitleId] = React18__namespace.useState();
+  const [descriptionId, setDescriptionId] = React18__namespace.useState();
+  const [lockedDirection, setLockedDirection] = React18__namespace.useState(null);
+  const rootRef = React18__namespace.useRef(null);
+  const lastToastIdRef = React18__namespace.useRef(void 0);
+  const dragStartPosRef = React18__namespace.useRef({
     x: 0,
     y: 0
   });
-  const initialTransformRef = React19__namespace.useRef({
+  const initialTransformRef = React18__namespace.useRef({
     x: 0,
     y: 0,
     scale: 1
   });
-  const intendedSwipeDirectionRef = React19__namespace.useRef(void 0);
-  const maxSwipeDisplacementRef = React19__namespace.useRef(0);
-  const cancelledSwipeRef = React19__namespace.useRef(false);
-  const swipeCancelBaselineRef = React19__namespace.useRef({
+  const intendedSwipeDirectionRef = React18__namespace.useRef(void 0);
+  const maxSwipeDisplacementRef = React18__namespace.useRef(0);
+  const cancelledSwipeRef = React18__namespace.useRef(false);
+  const swipeCancelBaselineRef = React18__namespace.useRef({
     x: 0,
     y: 0
   });
-  const isFirstPointerMoveRef = React19__namespace.useRef(false);
-  const dragOffsetRef = React19__namespace.useRef({
+  const isFirstPointerMoveRef = React18__namespace.useRef(false);
+  const dragOffsetRef = React18__namespace.useRef({
     x: 0,
     y: 0
   });
-  const activePointerIdRef = React19__namespace.useRef(null);
-  const dragAbortControllerRef = React19__namespace.useRef(null);
+  const activePointerIdRef = React18__namespace.useRef(null);
+  const dragAbortControllerRef = React18__namespace.useRef(null);
   const domIndex = store.useState("toastIndex", toast.id);
   const visibleIndex = store.useState("toastVisibleIndex", toast.id);
-  const offsetY2 = store.useState("toastOffsetY", toast.id);
+  const offsetY = store.useState("toastOffsetY", toast.id);
   const focused = store.useState("focused");
   const expanded = store.useState("expanded");
   useOpenChangeComplete({
@@ -4186,17 +4148,17 @@ var ToastRoot = /* @__PURE__ */ React19__namespace.forwardRef(function ToastRoot
     }
     const previousHeight = element2.style.height;
     element2.style.height = "auto";
-    const height2 = element2.offsetHeight;
+    const height = element2.offsetHeight;
     element2.style.height = previousHeight;
     function update2() {
       store.updateToastInternal(toast.id, {
         ref: rootRef,
-        height: height2,
+        height,
         transitionStatus: void 0
       });
     }
     if (flushSync4) {
-      ReactDOM__namespace.flushSync(update2);
+      ReactDOM3__namespace.flushSync(update2);
     } else {
       update2();
     }
@@ -4287,7 +4249,7 @@ var ToastRoot = /* @__PURE__ */ React19__namespace.forwardRef(function ToastRoot
       store.pauseTimers();
     }
     const target = getTarget(event.nativeEvent);
-    const isInteractiveElement = closest(target, `button,a,input,textarea,[role="button"],${TOAST_SWIPE_IGNORE_SELECTOR}`);
+    const isInteractiveElement = target?.closest(`button,a,input,textarea,[role="button"],${TOAST_SWIPE_IGNORE_SELECTOR}`);
     if (isInteractiveElement) {
       return;
     }
@@ -4432,7 +4394,7 @@ var ToastRoot = /* @__PURE__ */ React19__namespace.forwardRef(function ToastRoot
       store.closeToast(toast.id);
     }
   }
-  React19__namespace.useEffect(() => {
+  React18__namespace.useEffect(() => {
     const element2 = rootRef.current;
     if (!swipeEnabled || !element2) {
       return void 0;
@@ -4455,8 +4417,8 @@ var ToastRoot = /* @__PURE__ */ React19__namespace.forwardRef(function ToastRoot
       // While swiping, freeze the element at its current visual transform so it doesn't snap to the
       // end position.
       transform: isSwiping ? `translateX(${dragOffset.x}px) translateY(${dragOffset.y}px) scale(${initialTransform.scale})` : void 0,
-      [swipeMovementX]: `${deltaX}px`,
-      [swipeMovementY]: `${deltaY}px`
+      ["--toast-swipe-movement-x"]: `${deltaX}px`,
+      ["--toast-swipe-movement-y"]: `${deltaY}px`
     };
   }
   const isHighPriority = toast.priority === "high";
@@ -4475,12 +4437,12 @@ var ToastRoot = /* @__PURE__ */ React19__namespace.forwardRef(function ToastRoot
     inert: inertValue(toast.limited),
     style: {
       ...getDragStyles(),
-      [index]: toast.transitionStatus === "ending" ? domIndex : visibleIndex,
-      [offsetY]: `${offsetY2}px`,
-      [height]: toast.height ? `${toast.height}px` : void 0
+      ["--toast-index"]: toast.transitionStatus === "ending" ? domIndex : visibleIndex,
+      ["--toast-offset-y"]: `${offsetY}px`,
+      ["--toast-height"]: toast.height ? `${toast.height}px` : void 0
     }
   };
-  const toastRoot = React19__namespace.useMemo(() => ({
+  const toastRoot = React18__namespace.useMemo(() => ({
     toast,
     setTitleId,
     setDescriptionId,
@@ -4508,7 +4470,7 @@ var ToastRoot = /* @__PURE__ */ React19__namespace.forwardRef(function ToastRoot
   });
 });
 if (process.env.NODE_ENV !== "production") ToastRoot.displayName = "ToastRoot";
-var ToastContent = /* @__PURE__ */ React19__namespace.forwardRef(function ToastContent2(componentProps, forwardedRef) {
+var ToastContent = /* @__PURE__ */ React18__namespace.forwardRef(function ToastContent2(componentProps, forwardedRef) {
   const {
     render,
     className,
@@ -4520,7 +4482,7 @@ var ToastContent = /* @__PURE__ */ React19__namespace.forwardRef(function ToastC
     expanded,
     recalculateHeight
   } = useToastRootContext();
-  const contentRef = React19__namespace.useRef(null);
+  const contentRef = React18__namespace.useRef(null);
   useIsoLayoutEffect(() => {
     recalculateHeight();
     const node = contentRef.current;
@@ -4554,18 +4516,14 @@ var ToastContent = /* @__PURE__ */ React19__namespace.forwardRef(function ToastC
 if (process.env.NODE_ENV !== "production") ToastContent.displayName = "ToastContent";
 var globalId = 0;
 function useGlobalId(idOverride, prefix = "mui") {
-  const defaultId = React19__namespace.useRef(void 0);
-  const forceRerender = useForcedRerendering();
-  const id = idOverride ?? defaultId.current;
-  React19__namespace.useEffect(() => {
-    if (defaultId.current == null) {
+  const [defaultId, setDefaultId] = React18__namespace.useState(idOverride);
+  const id = idOverride || defaultId;
+  React18__namespace.useEffect(() => {
+    if (defaultId == null) {
       globalId += 1;
-      defaultId.current = `${prefix}-${globalId}`;
-      if (idOverride == null) {
-        forceRerender();
-      }
+      setDefaultId(`${prefix}-${globalId}`);
     }
-  }, [idOverride, prefix, forceRerender]);
+  }, [defaultId, prefix]);
   return id;
 }
 var maybeReactUseId = SafeReact.useId;
@@ -4586,10 +4544,10 @@ function isRenderableNode(node) {
   return true;
 }
 function hasRenderableChildren(element) {
-  return /* @__PURE__ */ React19__namespace.isValidElement(element) && isRenderableNode(element.props.children);
+  return /* @__PURE__ */ React18__namespace.isValidElement(element) && isRenderableNode(element.props.children);
 }
 
-// node_modules/@base-ui/react/toast/utils/useToastLabelPart.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/toast/utils/useToastLabelPart.mjs
 function useToastLabelPart(idProp, childrenProp, part) {
   const {
     toast,
@@ -4620,8 +4578,8 @@ function useToastLabelElement(element, id, setId) {
   return shouldRender ? element : null;
 }
 
-// node_modules/@base-ui/react/toast/description/ToastDescription.mjs
-var ToastDescription = /* @__PURE__ */ React19__namespace.forwardRef(function ToastDescription2(componentProps, forwardedRef) {
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/toast/description/ToastDescription.mjs
+var ToastDescription = /* @__PURE__ */ React18__namespace.forwardRef(function ToastDescription2(componentProps, forwardedRef) {
   const {
     render,
     className,
@@ -4651,7 +4609,7 @@ var ToastDescription = /* @__PURE__ */ React19__namespace.forwardRef(function To
   return useToastLabelElement(element, id, setId);
 });
 if (process.env.NODE_ENV !== "production") ToastDescription.displayName = "ToastDescription";
-var ToastTitle = /* @__PURE__ */ React19__namespace.forwardRef(function ToastTitle2(componentProps, forwardedRef) {
+var ToastTitle = /* @__PURE__ */ React18__namespace.forwardRef(function ToastTitle2(componentProps, forwardedRef) {
   const {
     render,
     className,
@@ -4682,12 +4640,24 @@ var ToastTitle = /* @__PURE__ */ React19__namespace.forwardRef(function ToastTit
 });
 if (process.env.NODE_ENV !== "production") ToastTitle.displayName = "ToastTitle";
 
-// node_modules/@base-ui/utils/error.mjs
-var error = createLogOnce("error", "Base UI");
-var CompositeRootContext = /* @__PURE__ */ React19__namespace.createContext(void 0);
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/error.mjs
+var set2;
+if (process.env.NODE_ENV !== "production") {
+  set2 = /* @__PURE__ */ new Set();
+}
+function error(...messages) {
+  if (process.env.NODE_ENV !== "production") {
+    const messageKey = messages.join(" ");
+    if (!set2.has(messageKey)) {
+      set2.add(messageKey);
+      console.error(`Base UI: ${messageKey}`);
+    }
+  }
+}
+var CompositeRootContext = /* @__PURE__ */ React18__namespace.createContext(void 0);
 if (process.env.NODE_ENV !== "production") CompositeRootContext.displayName = "CompositeRootContext";
 function useCompositeRootContext(optional = false) {
-  const context = React19__namespace.useContext(CompositeRootContext);
+  const context = React18__namespace.useContext(CompositeRootContext);
   if (context === void 0 && !optional) {
     throw new Error(process.env.NODE_ENV !== "production" ? "Base UI: CompositeRootContext is missing. Composite parts must be placed within <Composite.Root>." : formatErrorMessage_default(16));
   }
@@ -4703,7 +4673,7 @@ function useFocusableWhenDisabled(parameters) {
   } = parameters;
   const isFocusableComposite = composite && focusableWhenDisabled !== false;
   const isNonFocusableComposite = composite && focusableWhenDisabled === false;
-  const props = React19__namespace.useMemo(() => {
+  const props = React18__namespace.useMemo(() => {
     const additionalProps = {
       // allow Tabbing away from focusableWhenDisabled elements
       onKeyDown(event) {
@@ -4731,17 +4701,15 @@ function useFocusableWhenDisabled(parameters) {
   };
 }
 
-// node_modules/@base-ui/react/utils/dispatchClickWithModifiers.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/utils/dispatchClickWithModifiers.mjs
 function dispatchClickWithModifiers(target, sourceEvent, {
-  detail = 0,
-  pointerType = ""
+  detail = 0
 } = {}) {
   target.dispatchEvent(new (getWindow(target)).PointerEvent("click", {
     bubbles: true,
     cancelable: true,
     composed: true,
     detail,
-    pointerType,
     shiftKey: sourceEvent.shiftKey,
     ctrlKey: sourceEvent.ctrlKey,
     altKey: sourceEvent.altKey,
@@ -4749,7 +4717,7 @@ function dispatchClickWithModifiers(target, sourceEvent, {
   }));
 }
 
-// node_modules/@base-ui/react/internals/use-button/useButton.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/internals/use-button/useButton.mjs
 function useButton(parameters = {}) {
   const {
     disabled: disabled2 = false,
@@ -4758,7 +4726,7 @@ function useButton(parameters = {}) {
     native: isNativeButton = true,
     composite: compositeProp
   } = parameters;
-  const elementRef = React19__namespace.useRef(null);
+  const elementRef = React18__namespace.useRef(null);
   const compositeRootContext = useCompositeRootContext(true);
   const isCompositeItem = compositeProp ?? compositeRootContext !== void 0;
   const {
@@ -4771,7 +4739,7 @@ function useButton(parameters = {}) {
     isNativeButton
   });
   if (process.env.NODE_ENV !== "production") {
-    React19__namespace.useEffect(() => {
+    React18__namespace.useEffect(() => {
       if (!elementRef.current) {
         return;
       }
@@ -4789,7 +4757,7 @@ function useButton(parameters = {}) {
       }
     }, [isNativeButton]);
   }
-  const updateDisabled = React19__namespace.useCallback(() => {
+  const updateDisabled = React18__namespace.useCallback(() => {
     const element = elementRef.current;
     if (!isButtonElement(element)) {
       return;
@@ -4799,7 +4767,7 @@ function useButton(parameters = {}) {
     }
   }, [disabled2, focusableWhenDisabledProps.disabled, isCompositeItem]);
   useIsoLayoutEffect(updateDisabled, [updateDisabled]);
-  const getButtonProps = React19__namespace.useCallback((externalProps = {}) => {
+  const getButtonProps = React18__namespace.useCallback((externalProps = {}) => {
     const {
       onClick: externalOnClick,
       onMouseDown: externalOnMouseDown,
@@ -4912,8 +4880,8 @@ function isValidLinkElement(elem) {
   return isHTMLElement(elem) && elem.tagName === "A" && Boolean(elem.href);
 }
 
-// node_modules/@base-ui/react/toast/close/ToastClose.mjs
-var ToastClose = /* @__PURE__ */ React19__namespace.forwardRef(function ToastClose2(componentProps, forwardedRef) {
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/toast/close/ToastClose.mjs
+var ToastClose = /* @__PURE__ */ React18__namespace.forwardRef(function ToastClose2(componentProps, forwardedRef) {
   const {
     render,
     className,
@@ -4927,7 +4895,7 @@ var ToastClose = /* @__PURE__ */ React19__namespace.forwardRef(function ToastClo
     toast,
     expanded
   } = useToastRootContext();
-  const [hasFocus, setHasFocus] = React19__namespace.useState(false);
+  const [hasFocus, setHasFocus] = React18__namespace.useState(false);
   const {
     getButtonProps,
     buttonRef
@@ -4956,7 +4924,7 @@ var ToastClose = /* @__PURE__ */ React19__namespace.forwardRef(function ToastClo
   });
 });
 if (process.env.NODE_ENV !== "production") ToastClose.displayName = "ToastClose";
-var ToastAction = /* @__PURE__ */ React19__namespace.forwardRef(function ToastAction2(componentProps, forwardedRef) {
+var ToastAction = /* @__PURE__ */ React18__namespace.forwardRef(function ToastAction2(componentProps, forwardedRef) {
   const {
     render,
     className,
@@ -4990,33 +4958,7 @@ var ToastAction = /* @__PURE__ */ React19__namespace.forwardRef(function ToastAc
 });
 if (process.env.NODE_ENV !== "production") ToastAction.displayName = "ToastAction";
 
-// node_modules/@base-ui/react/internals/createBaseUIEventDetails.mjs
-function createChangeEventDetails(reason, event, trigger, customProperties) {
-  let canceled = false;
-  let allowPropagation = false;
-  const custom = EMPTY_OBJECT;
-  const details = {
-    reason,
-    event: event ?? new Event("base-ui"),
-    cancel() {
-      canceled = true;
-    },
-    allowPropagation() {
-      allowPropagation = true;
-    },
-    get isCanceled() {
-      return canceled;
-    },
-    get isPropagationAllowed() {
-      return allowPropagation;
-    },
-    trigger,
-    ...custom
-  };
-  return details;
-}
-
-// node_modules/@base-ui/react/internals/reason-parts.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/internals/reason-parts.mjs
 var reason_parts_exports = {};
 __export(reason_parts_exports, {
   cancelOpen: () => cancelOpen,
@@ -5045,7 +4987,6 @@ __export(reason_parts_exports, {
   none: () => none,
   outsidePress: () => outsidePress,
   pointer: () => pointer,
-  popupClose: () => popupClose,
   scrub: () => scrub,
   siblingOpen: () => siblingOpen,
   swipe: () => swipe,
@@ -5083,7 +5024,6 @@ var pointer = "pointer";
 var drag = "drag";
 var wheel = "wheel";
 var scrub = "scrub";
-var popupClose = "popup-close";
 var cancelOpen = "cancel-open";
 var siblingOpen = "sibling-open";
 var disabled = "disabled";
@@ -5093,13 +5033,39 @@ var imperativeAction = "imperative-action";
 var swipe = "swipe";
 var windowResize = "window-resize";
 
-// node_modules/@base-ui/react/floating-ui-react/utils/createAttribute.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/internals/createBaseUIEventDetails.mjs
+function createChangeEventDetails(reason, event, trigger, customProperties) {
+  let canceled = false;
+  let allowPropagation = false;
+  const custom = EMPTY_OBJECT;
+  const details = {
+    reason,
+    event: event ?? new Event("base-ui"),
+    cancel() {
+      canceled = true;
+    },
+    allowPropagation() {
+      allowPropagation = true;
+    },
+    get isCanceled() {
+      return canceled;
+    },
+    get isPropagationAllowed() {
+      return allowPropagation;
+    },
+    trigger,
+    ...custom
+  };
+  return details;
+}
+
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/floating-ui-react/utils/createAttribute.mjs
 function createAttribute(name) {
   return `data-base-ui-${name}`;
 }
-var PortalContext = /* @__PURE__ */ React19__namespace.createContext(null);
+var PortalContext = /* @__PURE__ */ React18__namespace.createContext(null);
 if (process.env.NODE_ENV !== "production") PortalContext.displayName = "PortalContext";
-var usePortalContext = () => React19__namespace.useContext(PortalContext);
+var usePortalContext = () => React18__namespace.useContext(PortalContext);
 var attr = createAttribute("portal");
 function useFloatingPortalNode(props = {}) {
   const {
@@ -5111,14 +5077,14 @@ function useFloatingPortalNode(props = {}) {
   const uniqueId = useId();
   const portalContext = usePortalContext();
   const parentPortalNode = portalContext?.portalNode;
-  const [containerElement, setContainerElement] = React19__namespace.useState(null);
-  const [portalNode, setPortalNode] = React19__namespace.useState(null);
+  const [containerElement, setContainerElement] = React18__namespace.useState(null);
+  const [portalNode, setPortalNode] = React18__namespace.useState(null);
   const setPortalNodeRef = useStableCallback((node) => {
     if (node !== null) {
       setPortalNode(node);
     }
   });
-  const containerRef = React19__namespace.useRef(null);
+  const containerRef = React18__namespace.useRef(null);
   useIsoLayoutEffect(() => {
     if (containerProp === null) {
       if (containerRef.current) {
@@ -5150,23 +5116,22 @@ function useFloatingPortalNode(props = {}) {
       [attr]: ""
     }, elementProps]
   });
-  const portalSubtree = containerElement && portalElement ? /* @__PURE__ */ ReactDOM__namespace.createPortal(portalElement, containerElement) : null;
+  const portalSubtree = containerElement && portalElement ? /* @__PURE__ */ ReactDOM3__namespace.createPortal(portalElement, containerElement) : null;
   return {
     node: portalNode,
     // `id` and `render` props can override or remove the generated ID. Use the exact
     // rendered value so `aria-owns` never points at an ID absent from the DOM.
-    nodeId: /* @__PURE__ */ React19__namespace.isValidElement(portalElement) ? portalElement.props.id : void 0,
+    nodeId: /* @__PURE__ */ React18__namespace.isValidElement(portalElement) ? portalElement.props.id : void 0,
     subtree: portalSubtree
   };
 }
-var FloatingPortal = /* @__PURE__ */ React19__namespace.forwardRef(function FloatingPortal2(componentProps, forwardedRef) {
+var FloatingPortal = /* @__PURE__ */ React18__namespace.forwardRef(function FloatingPortal2(componentProps, forwardedRef) {
   const {
     render,
     className,
     style,
     children,
     container,
-    portalOwnerRole,
     ...elementProps
   } = componentProps;
   const {
@@ -5179,16 +5144,16 @@ var FloatingPortal = /* @__PURE__ */ React19__namespace.forwardRef(function Floa
     componentProps,
     elementProps
   });
-  const beforeOutsideRef = React19__namespace.useRef(null);
-  const afterOutsideRef = React19__namespace.useRef(null);
-  const beforeInsideRef = React19__namespace.useRef(null);
-  const afterInsideRef = React19__namespace.useRef(null);
-  const [focusManagerState, setFocusManagerState] = React19__namespace.useState(null);
-  const focusInsideDisabledRef = React19__namespace.useRef(false);
+  const beforeOutsideRef = React18__namespace.useRef(null);
+  const afterOutsideRef = React18__namespace.useRef(null);
+  const beforeInsideRef = React18__namespace.useRef(null);
+  const afterInsideRef = React18__namespace.useRef(null);
+  const [focusManagerState, setFocusManagerState] = React18__namespace.useState(null);
+  const focusInsideDisabledRef = React18__namespace.useRef(false);
   const modal = focusManagerState?.modal;
-  const open2 = focusManagerState?.open;
+  const open = focusManagerState?.open;
   const shouldRenderGuards = !!focusManagerState && !focusManagerState.modal && focusManagerState.open && !!portalNode;
-  React19__namespace.useEffect(() => {
+  React18__namespace.useEffect(() => {
     if (!portalNode || modal) {
       return void 0;
     }
@@ -5208,13 +5173,13 @@ var FloatingPortal = /* @__PURE__ */ React19__namespace.forwardRef(function Floa
     return mergeCleanups(addEventListener(portalNode, "focusin", onFocus, true), addEventListener(portalNode, "focusout", onFocus, true));
   }, [portalNode, modal]);
   useIsoLayoutEffect(() => {
-    if (!portalNode || open2 !== true || !focusInsideDisabledRef.current) {
+    if (!portalNode || open !== true || !focusInsideDisabledRef.current) {
       return;
     }
     enableFocusInside(portalNode);
     focusInsideDisabledRef.current = false;
-  }, [open2, portalNode]);
-  const portalContextValue = React19__namespace.useMemo(() => ({
+  }, [open, portalNode]);
+  const portalContextValue = React18__namespace.useMemo(() => ({
     beforeOutsideRef,
     afterOutsideRef,
     beforeInsideRef,
@@ -5222,7 +5187,7 @@ var FloatingPortal = /* @__PURE__ */ React19__namespace.forwardRef(function Floa
     portalNode,
     setFocusManagerState
   }), [portalNode]);
-  return /* @__PURE__ */ jsxRuntime.jsxs(React19__namespace.Fragment, {
+  return /* @__PURE__ */ jsxRuntime.jsxs(React18__namespace.Fragment, {
     children: [portalSubtree, /* @__PURE__ */ jsxRuntime.jsxs(PortalContext.Provider, {
       value: portalContextValue,
       children: [shouldRenderGuards && portalNode && /* @__PURE__ */ jsxRuntime.jsx(FocusGuard, {
@@ -5238,10 +5203,9 @@ var FloatingPortal = /* @__PURE__ */ React19__namespace.forwardRef(function Floa
           }
         }
       }), shouldRenderGuards && portalNode && /* @__PURE__ */ jsxRuntime.jsx("span", {
-        role: portalOwnerRole,
         "aria-owns": portalNodeId,
         style: ownerVisuallyHidden
-      }), portalNode && /* @__PURE__ */ ReactDOM__namespace.createPortal(children, portalNode), shouldRenderGuards && portalNode && /* @__PURE__ */ jsxRuntime.jsx(FocusGuard, {
+      }), portalNode && /* @__PURE__ */ ReactDOM3__namespace.createPortal(children, portalNode), shouldRenderGuards && portalNode && /* @__PURE__ */ jsxRuntime.jsx(FocusGuard, {
         "data-type": "outside",
         ref: afterOutsideRef,
         onFocus: (event) => {
@@ -5261,7 +5225,7 @@ var FloatingPortal = /* @__PURE__ */ React19__namespace.forwardRef(function Floa
   });
 });
 if (process.env.NODE_ENV !== "production") FloatingPortal.displayName = "FloatingPortal";
-var FloatingPortalLite = /* @__PURE__ */ React19__namespace.forwardRef(function FloatingPortalLite2(componentProps, forwardedRef) {
+var FloatingPortalLite = /* @__PURE__ */ React18__namespace.forwardRef(function FloatingPortalLite2(componentProps, forwardedRef) {
   const {
     children,
     container,
@@ -5282,12 +5246,12 @@ var FloatingPortalLite = /* @__PURE__ */ React19__namespace.forwardRef(function 
   if (!portalSubtree && !portalNode) {
     return null;
   }
-  return /* @__PURE__ */ jsxRuntime.jsxs(React19__namespace.Fragment, {
-    children: [portalSubtree, portalNode && /* @__PURE__ */ ReactDOM__namespace.createPortal(children, portalNode)]
+  return /* @__PURE__ */ jsxRuntime.jsxs(React18__namespace.Fragment, {
+    children: [portalSubtree, portalNode && /* @__PURE__ */ ReactDOM3__namespace.createPortal(children, portalNode)]
   });
 });
 if (process.env.NODE_ENV !== "production") FloatingPortalLite.displayName = "FloatingPortalLite";
-var ToastPortal = /* @__PURE__ */ React19__namespace.forwardRef(function ToastPortal2(props, forwardedRef) {
+var ToastPortal = /* @__PURE__ */ React18__namespace.forwardRef(function ToastPortal2(props, forwardedRef) {
   return /* @__PURE__ */ jsxRuntime.jsx(FloatingPortalLite, {
     ref: forwardedRef,
     ...props
@@ -5295,7 +5259,7 @@ var ToastPortal = /* @__PURE__ */ React19__namespace.forwardRef(function ToastPo
 });
 if (process.env.NODE_ENV !== "production") ToastPortal.displayName = "ToastPortal";
 
-// node_modules/@base-ui/utils/useValueAsRef.mjs
+// node_modules/.pnpm/@base-ui+utils@0.3.2_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/utils/useValueAsRef.mjs
 function useValueAsRef(value) {
   const latest = useRefWithInit(createLatestRef, value).current;
   latest.next = value;
@@ -5313,7 +5277,7 @@ function createLatestRef(value) {
   return latest;
 }
 
-// node_modules/@base-ui/react/floating-ui-react/utils/createEventEmitter.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/floating-ui-react/utils/createEventEmitter.mjs
 function createEventEmitter() {
   const map = /* @__PURE__ */ new Map();
   return {
@@ -5331,230 +5295,17 @@ function createEventEmitter() {
     }
   };
 }
-var FloatingNodeContext = /* @__PURE__ */ React19__namespace.createContext(null);
+var FloatingNodeContext = /* @__PURE__ */ React18__namespace.createContext(null);
 if (process.env.NODE_ENV !== "production") FloatingNodeContext.displayName = "FloatingNodeContext";
-var FloatingTreeContext = /* @__PURE__ */ React19__namespace.createContext(null);
+var FloatingTreeContext = /* @__PURE__ */ React18__namespace.createContext(null);
 if (process.env.NODE_ENV !== "production") FloatingTreeContext.displayName = "FloatingTreeContext";
-var useFloatingParentNodeId = () => React19__namespace.useContext(FloatingNodeContext)?.id || null;
+var useFloatingParentNodeId = () => React18__namespace.useContext(FloatingNodeContext)?.id || null;
 var useFloatingTree = (externalTree) => {
-  const contextTree = React19__namespace.useContext(FloatingTreeContext);
+  const contextTree = React18__namespace.useContext(FloatingTreeContext);
   return externalTree ?? contextTree;
 };
 
-// node_modules/@base-ui/react/utils/popups/popupTriggerMap.mjs
-var devElementIdsByMap;
-function getDevElementIds(map) {
-  devElementIdsByMap ?? (devElementIdsByMap = /* @__PURE__ */ new WeakMap());
-  let elementIds = devElementIdsByMap.get(map);
-  if (!elementIds) {
-    elementIds = /* @__PURE__ */ new WeakMap();
-    devElementIdsByMap.set(map, elementIds);
-  }
-  return elementIds;
-}
-var PopupTriggerMap = class {
-  constructor() {
-    __publicField(this, "idMap", /* @__PURE__ */ new Map());
-  }
-  /**
-   * Adds a trigger element with the given ID.
-   *
-   * Note: The provided element is assumed to not be registered under multiple IDs.
-   */
-  add(id, element) {
-    if (process.env.NODE_ENV !== "production") {
-      const elementIds = getDevElementIds(this);
-      const existingId = elementIds.get(element);
-      if (existingId !== void 0 && existingId !== id) {
-        throw new Error("Base UI: A trigger element cannot be registered under multiple IDs in PopupTriggerMap.");
-      }
-      const previousElement = this.idMap.get(id);
-      if (previousElement !== void 0 && previousElement !== element) {
-        elementIds.delete(previousElement);
-      }
-      elementIds.set(element, id);
-    }
-    this.idMap.set(id, element);
-  }
-  /**
-   * Removes the trigger element with the given ID.
-   */
-  delete(id) {
-    if (process.env.NODE_ENV !== "production") {
-      const element = this.idMap.get(id);
-      if (element !== void 0) {
-        devElementIdsByMap?.get(this)?.delete(element);
-      }
-    }
-    this.idMap.delete(id);
-  }
-  /**
-   * Whether the given element is registered as a trigger.
-   */
-  hasElement(element) {
-    for (const registered of this.idMap.values()) {
-      if (registered === element) {
-        return true;
-      }
-    }
-    return false;
-  }
-  /**
-   * Whether there is a registered trigger element matching the given predicate.
-   */
-  hasMatchingElement(predicate) {
-    for (const element of this.idMap.values()) {
-      if (predicate(element)) {
-        return true;
-      }
-    }
-    return false;
-  }
-  /**
-   * Returns the trigger element associated with the given ID, or undefined if no such element exists.
-   */
-  getById(id) {
-    return this.idMap.get(id);
-  }
-  /**
-   * Returns an iterable of all registered trigger entries, where each entry is a tuple of [id, element].
-   */
-  entries() {
-    return this.idMap.entries();
-  }
-  /**
-   * Returns an iterable of all registered trigger elements.
-   */
-  elements() {
-    return this.idMap.values();
-  }
-  /**
-   * Returns the number of registered trigger elements.
-   */
-  get size() {
-    return this.idMap.size;
-  }
-};
-
-// node_modules/@base-ui/react/floating-ui-react/components/FloatingRootStore.mjs
-var selectors2 = {
-  open: (state) => state.open,
-  transitionStatus: (state) => state.transitionStatus,
-  domReferenceElement: (state) => state.domReferenceElement,
-  referenceElement: (state) => state.positionReference ?? state.referenceElement,
-  floatingElement: (state) => state.floatingElement,
-  floatingId: (state) => state.floatingId
-};
-var FloatingRootStore = class extends ReactStore {
-  constructor(options) {
-    const {
-      syncOnly,
-      nested,
-      onOpenChange,
-      triggerElements,
-      ...initialState
-    } = options;
-    super({
-      ...initialState,
-      positionReference: initialState.referenceElement,
-      domReferenceElement: initialState.referenceElement
-    }, {
-      onOpenChange,
-      dataRef: {
-        current: {}
-      },
-      events: createEventEmitter(),
-      nested,
-      triggerElements
-    }, selectors2);
-    /**
-     * Syncs the event used by hover logic to distinguish hover-open from click-like interaction.
-     */
-    __publicField(this, "syncOpenEvent", (newOpen, event) => {
-      if (!newOpen || !this.state.open || // Prevent a pending hover-open from overwriting a click-open event, while allowing
-      // click events to upgrade a hover-open.
-      event != null && isClickLikeEvent(event)) {
-        this.context.dataRef.current.openEvent = newOpen ? event : void 0;
-      }
-    });
-    /**
-     * Runs the root-owned side effects for an open state change.
-     */
-    __publicField(this, "dispatchOpenChange", (newOpen, eventDetails) => {
-      this.syncOpenEvent(newOpen, eventDetails.event);
-      const details = {
-        open: newOpen,
-        reason: eventDetails.reason,
-        nativeEvent: eventDetails.event,
-        nested: this.context.nested,
-        triggerElement: eventDetails.trigger
-      };
-      this.context.events.emit("openchange", details);
-    });
-    /**
-     * Emits the `openchange` event through the internal event emitter and calls the `onOpenChange` handler with the provided arguments.
-     *
-     * @param newOpen The new open state.
-     * @param eventDetails Details about the event that triggered the open state change.
-     */
-    __publicField(this, "setOpen", (newOpen, eventDetails) => {
-      if (this.syncOnly) {
-        this.context.onOpenChange?.(newOpen, eventDetails);
-        return;
-      }
-      this.dispatchOpenChange(newOpen, eventDetails);
-      this.context.onOpenChange?.(newOpen, eventDetails);
-    });
-    this.syncOnly = syncOnly;
-  }
-};
-
-// node_modules/@base-ui/react/floating-ui-react/hooks/useFloatingRootContext.mjs
-function useFloatingRootContext(options) {
-  const {
-    open: open2 = false,
-    onOpenChange,
-    elements = {}
-  } = options;
-  const floatingId = useId();
-  const nested = useFloatingParentNodeId() != null;
-  if (process.env.NODE_ENV !== "production") {
-    const optionDomReference = elements.reference;
-    if (optionDomReference && !isElement(optionDomReference)) {
-      console.error("Cannot pass a virtual element to the `elements.reference` option,", "as it must be a real DOM element. Use `context.setPositionReference()`", "instead.");
-    }
-  }
-  const store = useRefWithInit(() => new FloatingRootStore({
-    open: open2,
-    transitionStatus: void 0,
-    onOpenChange,
-    referenceElement: elements.reference ?? null,
-    floatingElement: elements.floating ?? null,
-    triggerElements: new PopupTriggerMap(),
-    floatingId,
-    syncOnly: false,
-    nested
-  })).current;
-  useIsoLayoutEffect(() => {
-    const valuesToSync = {
-      open: open2,
-      floatingId
-    };
-    if (elements.reference !== void 0) {
-      valuesToSync.referenceElement = elements.reference;
-      valuesToSync.domReferenceElement = isElement(elements.reference) ? elements.reference : null;
-    }
-    if (elements.floating !== void 0) {
-      valuesToSync.floatingElement = elements.floating;
-    }
-    store.update(valuesToSync);
-  }, [open2, floatingId, elements.reference, elements.floating, store]);
-  store.context.onOpenChange = onOpenChange;
-  store.context.nested = nested;
-  return store;
-}
-
-// node_modules/@floating-ui/core/dist/floating-ui.core.mjs
+// node_modules/.pnpm/@floating-ui+core@1.8.0/node_modules/@floating-ui/core/dist/floating-ui.core.mjs
 function computeCoordsFromPlacement(_ref, placement, rtl) {
   let {
     reference,
@@ -6080,7 +5831,7 @@ var size = function(options) {
       const isYAxis = getSideAxis(placement) === "y";
       const {
         width,
-        height: height2
+        height
       } = rects.floating;
       let heightSide;
       let widthSide;
@@ -6091,34 +5842,34 @@ var size = function(options) {
         widthSide = side;
         heightSide = alignment === "end" ? "top" : "bottom";
       }
-      const maximumClippingHeight = height2 - overflow.top - overflow.bottom;
+      const maximumClippingHeight = height - overflow.top - overflow.bottom;
       const maximumClippingWidth = width - overflow.left - overflow.right;
-      const overflowAvailableHeight = min(height2 - overflow[heightSide], maximumClippingHeight);
+      const overflowAvailableHeight = min(height - overflow[heightSide], maximumClippingHeight);
       const overflowAvailableWidth = min(width - overflow[widthSide], maximumClippingWidth);
       const shiftData = state.middlewareData.shift;
       const noShift = !shiftData;
-      let availableHeight2 = overflowAvailableHeight;
-      let availableWidth2 = overflowAvailableWidth;
+      let availableHeight = overflowAvailableHeight;
+      let availableWidth = overflowAvailableWidth;
       if (shiftData != null && shiftData.enabled.x) {
-        availableWidth2 = maximumClippingWidth;
+        availableWidth = maximumClippingWidth;
       }
       if (shiftData != null && shiftData.enabled.y) {
-        availableHeight2 = maximumClippingHeight;
+        availableHeight = maximumClippingHeight;
       }
       if (noShift && !alignment) {
         if (isYAxis) {
-          availableWidth2 = width - 2 * max(overflow.left, overflow.right);
+          availableWidth = width - 2 * max(overflow.left, overflow.right);
         } else {
-          availableHeight2 = height2 - 2 * max(overflow.top, overflow.bottom);
+          availableHeight = height - 2 * max(overflow.top, overflow.bottom);
         }
       }
       await apply({
         ...state,
-        availableWidth: availableWidth2,
-        availableHeight: availableHeight2
+        availableWidth,
+        availableHeight
       });
       const nextDimensions = await platform3.getDimensions(elements.floating);
-      if (width !== nextDimensions.width || height2 !== nextDimensions.height) {
+      if (width !== nextDimensions.width || height !== nextDimensions.height) {
         return {
           reset: {
             rects: true
@@ -6130,22 +5881,22 @@ var size = function(options) {
   };
 };
 
-// node_modules/@floating-ui/dom/dist/floating-ui.dom.mjs
+// node_modules/.pnpm/@floating-ui+dom@1.8.0/node_modules/@floating-ui/dom/dist/floating-ui.dom.mjs
 function getCssDimensions(element) {
   const css = getComputedStyle2(element);
   let width = parseFloat(css.width) || 0;
-  let height2 = parseFloat(css.height) || 0;
+  let height = parseFloat(css.height) || 0;
   const hasOffset = isHTMLElement(element);
   const offsetWidth = hasOffset ? element.offsetWidth : width;
-  const offsetHeight = hasOffset ? element.offsetHeight : height2;
-  const shouldFallback = round(width) !== offsetWidth || round(height2) !== offsetHeight;
+  const offsetHeight = hasOffset ? element.offsetHeight : height;
+  const shouldFallback = round(width) !== offsetWidth || round(height) !== offsetHeight;
   if (shouldFallback) {
     width = offsetWidth;
-    height2 = offsetHeight;
+    height = offsetHeight;
   }
   return {
     width,
-    height: height2,
+    height,
     $: shouldFallback
   };
 }
@@ -6160,11 +5911,11 @@ function getScale(element) {
   const rect = domElement.getBoundingClientRect();
   const {
     width,
-    height: height2,
+    height,
     $
   } = getCssDimensions(domElement);
   let x = ($ ? round(rect.width) : rect.width) / width;
-  let y = ($ ? round(rect.height) : rect.height) / height2;
+  let y = ($ ? round(rect.height) : rect.height) / height;
   if (!x || !Number.isFinite(x)) {
     x = 1;
   }
@@ -6216,7 +5967,7 @@ function getBoundingClientRect(element, includeScale, isFixedStrategy, offsetPar
   let x = (clientRect.left + visualOffsets.x) / scale.x;
   let y = (clientRect.top + visualOffsets.y) / scale.y;
   let width = clientRect.width / scale.x;
-  let height2 = clientRect.height / scale.y;
+  let height = clientRect.height / scale.y;
   if (domElement && offsetParent) {
     const win = getWindow(domElement);
     const offsetWin = isElement(offsetParent) ? getWindow(offsetParent) : offsetParent;
@@ -6231,7 +5982,7 @@ function getBoundingClientRect(element, includeScale, isFixedStrategy, offsetPar
       x *= iframeScale.x;
       y *= iframeScale.y;
       width *= iframeScale.x;
-      height2 *= iframeScale.y;
+      height *= iframeScale.y;
       x += left;
       y += top;
       currentWin = getWindow(currentIFrame);
@@ -6240,7 +5991,7 @@ function getBoundingClientRect(element, includeScale, isFixedStrategy, offsetPar
   }
   return rectToClientRect({
     width,
-    height: height2,
+    height,
     x,
     y
   });
@@ -6307,7 +6058,7 @@ function getDocumentRect(html) {
   const scroll = getNodeScroll(html);
   const body = html.ownerDocument.body;
   const width = max(html.scrollWidth, html.clientWidth, body.scrollWidth, body.clientWidth);
-  const height2 = max(html.scrollHeight, html.clientHeight, body.scrollHeight, body.clientHeight);
+  const height = max(html.scrollHeight, html.clientHeight, body.scrollHeight, body.clientHeight);
   let x = -scroll.scrollLeft + getWindowScrollBarX(html);
   const y = -scroll.scrollTop;
   if (getComputedStyle2(body).direction === "rtl") {
@@ -6315,7 +6066,7 @@ function getDocumentRect(html) {
   }
   return {
     width,
-    height: height2,
+    height,
     x,
     y
   };
@@ -6330,7 +6081,7 @@ function getViewportRect(element, strategy, rootBoundary) {
   const html = getDocumentElement(element);
   const visualViewport = win.visualViewport;
   let width = html.clientWidth;
-  let height2 = html.clientHeight;
+  let height = html.clientHeight;
   let x = 0;
   let y = 0;
   if (visualViewport) {
@@ -6342,7 +6093,7 @@ function getViewportRect(element, strategy, rootBoundary) {
       }
     } else {
       width = visualViewport.width;
-      height2 = visualViewport.height;
+      height = visualViewport.height;
       if (layoutRelativeClientCoords) {
         x = visualViewport.offsetLeft;
         y = visualViewport.offsetTop;
@@ -6363,7 +6114,7 @@ function getViewportRect(element, strategy, rootBoundary) {
   }
   return {
     width,
-    height: height2,
+    height,
     x,
     y
   };
@@ -6374,12 +6125,12 @@ function getInnerBoundingClientRect(element, strategy) {
   const left = clientRect.left + element.clientLeft;
   const scale = getScale(element);
   const width = element.clientWidth * scale.x;
-  const height2 = element.clientHeight * scale.y;
+  const height = element.clientHeight * scale.y;
   const x = left * scale.x;
   const y = top * scale.y;
   return {
     width,
-    height: height2,
+    height,
     x,
     y
   };
@@ -6458,11 +6209,11 @@ function getClippingRect(_ref) {
 function getDimensions(element) {
   const {
     width,
-    height: height2
+    height
   } = getCssDimensions(element);
   return {
     width,
-    height: height2
+    height
   };
 }
 function getRectRelativeToOffsetParent(element, offsetParent, strategy) {
@@ -6593,17 +6344,17 @@ function observeMove(element, onMove, ancestorResize) {
       left,
       top,
       width,
-      height: height2
+      height
     } = elementRectForRootMargin;
     if (!skip) {
       onMove();
     }
-    if (!width || !height2) {
+    if (!width || !height) {
       return;
     }
     const insetTop = floor(top);
     const insetRight = floor(root.clientWidth - (left + width));
-    const insetBottom = floor(root.clientHeight - (top + height2));
+    const insetBottom = floor(root.clientHeight - (top + height));
     const insetLeft = floor(left);
     const rootMargin = -insetTop + "px " + -insetRight + "px " + -insetBottom + "px " + -insetLeft + "px";
     const options = {
@@ -6739,7 +6490,7 @@ var computePosition2 = (reference, floating, options) => {
 var isClient = typeof document !== "undefined";
 var noop2 = function noop3() {
 };
-var index2 = isClient ? React19.useLayoutEffect : noop2;
+var index = isClient ? React18.useLayoutEffect : noop2;
 function deepEqual(a, b) {
   if (a === b) {
     return true;
@@ -6799,8 +6550,8 @@ function roundByDPR(element, value) {
   return Math.round(value * dpr) / dpr;
 }
 function useLatestRef(value) {
-  const ref = React19__namespace.useRef(value);
-  index2(() => {
+  const ref = React18__namespace.useRef(value);
+  index(() => {
     ref.current = value;
   });
   return ref;
@@ -6820,9 +6571,9 @@ function useFloating(options) {
     } = {},
     transform = true,
     whileElementsMounted,
-    open: open2
+    open
   } = options;
-  const [data, setData] = React19__namespace.useState({
+  const [data, setData] = React18__namespace.useState({
     x: 0,
     y: 0,
     strategy,
@@ -6830,19 +6581,19 @@ function useFloating(options) {
     middlewareData: {},
     isPositioned: false
   });
-  const [latestMiddleware, setLatestMiddleware] = React19__namespace.useState(middleware);
+  const [latestMiddleware, setLatestMiddleware] = React18__namespace.useState(middleware);
   if (!deepEqual(latestMiddleware, middleware)) {
     setLatestMiddleware(middleware);
   }
-  const [_reference, _setReference] = React19__namespace.useState(null);
-  const [_floating, _setFloating] = React19__namespace.useState(null);
-  const setReference = React19__namespace.useCallback((node) => {
+  const [_reference, _setReference] = React18__namespace.useState(null);
+  const [_floating, _setFloating] = React18__namespace.useState(null);
+  const setReference = React18__namespace.useCallback((node) => {
     if (node !== referenceRef.current) {
       referenceRef.current = node;
       _setReference(node);
     }
   }, []);
-  const setFloating = React19__namespace.useCallback((node) => {
+  const setFloating = React18__namespace.useCallback((node) => {
     if (node !== floatingRef.current) {
       floatingRef.current = node;
       _setFloating(node);
@@ -6850,14 +6601,14 @@ function useFloating(options) {
   }, []);
   const referenceEl = externalReference || _reference;
   const floatingEl = externalFloating || _floating;
-  const referenceRef = React19__namespace.useRef(null);
-  const floatingRef = React19__namespace.useRef(null);
-  const dataRef = React19__namespace.useRef(data);
+  const referenceRef = React18__namespace.useRef(null);
+  const floatingRef = React18__namespace.useRef(null);
+  const dataRef = React18__namespace.useRef(data);
   const hasWhileElementsMounted = whileElementsMounted != null;
   const whileElementsMountedRef = useLatestRef(whileElementsMounted);
   const platformRef = useLatestRef(platform3);
-  const openRef = useLatestRef(open2);
-  const update2 = React19__namespace.useCallback(() => {
+  const openRef = useLatestRef(open);
+  const update2 = React18__namespace.useCallback(() => {
     if (!referenceRef.current || !floatingRef.current) {
       return;
     }
@@ -6880,29 +6631,29 @@ function useFloating(options) {
       };
       if (isMountedRef.current && !deepEqual(dataRef.current, fullData)) {
         dataRef.current = fullData;
-        ReactDOM__namespace.flushSync(() => {
+        ReactDOM3__namespace.flushSync(() => {
           setData(fullData);
         });
       }
     });
   }, [latestMiddleware, placement, strategy, platformRef, openRef]);
-  index2(() => {
-    if (open2 === false && dataRef.current.isPositioned) {
+  index(() => {
+    if (open === false && dataRef.current.isPositioned) {
       dataRef.current.isPositioned = false;
       setData((data2) => ({
         ...data2,
         isPositioned: false
       }));
     }
-  }, [open2]);
-  const isMountedRef = React19__namespace.useRef(false);
-  index2(() => {
+  }, [open]);
+  const isMountedRef = React18__namespace.useRef(false);
+  index(() => {
     isMountedRef.current = true;
     return () => {
       isMountedRef.current = false;
     };
   }, []);
-  index2(() => {
+  index(() => {
     if (referenceEl) referenceRef.current = referenceEl;
     if (floatingEl) floatingRef.current = floatingEl;
     if (referenceEl && floatingEl) {
@@ -6912,17 +6663,17 @@ function useFloating(options) {
       update2();
     }
   }, [referenceEl, floatingEl, update2, whileElementsMountedRef, hasWhileElementsMounted]);
-  const refs = React19__namespace.useMemo(() => ({
+  const refs = React18__namespace.useMemo(() => ({
     reference: referenceRef,
     floating: floatingRef,
     setReference,
     setFloating
   }), [setReference, setFloating]);
-  const elements = React19__namespace.useMemo(() => ({
+  const elements = React18__namespace.useMemo(() => ({
     reference: referenceEl,
     floating: floatingEl
   }), [referenceEl, floatingEl]);
-  const floatingStyles = React19__namespace.useMemo(() => {
+  const floatingStyles = React18__namespace.useMemo(() => {
     const initialStyles = {
       position: strategy,
       left: 0,
@@ -6948,7 +6699,7 @@ function useFloating(options) {
       top: y
     };
   }, [strategy, transform, elements.floating, data.x, data.y]);
-  return React19__namespace.useMemo(() => ({
+  return React18__namespace.useMemo(() => ({
     ...data,
     update: update2,
     refs,
@@ -6995,21 +6746,240 @@ var size3 = (options, deps) => {
     options: [options, deps]
   };
 };
+
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/floating-ui-react/components/FloatingRootStore.mjs
+var selectors2 = {
+  open: (state) => state.open,
+  transitionStatus: (state) => state.transitionStatus,
+  domReferenceElement: (state) => state.domReferenceElement,
+  referenceElement: (state) => state.positionReference ?? state.referenceElement,
+  floatingElement: (state) => state.floatingElement,
+  floatingId: (state) => state.floatingId
+};
+var FloatingRootStore = class extends ReactStore {
+  constructor(options) {
+    const {
+      syncOnly,
+      nested,
+      onOpenChange,
+      triggerElements,
+      ...initialState
+    } = options;
+    super({
+      ...initialState,
+      positionReference: initialState.referenceElement,
+      domReferenceElement: initialState.referenceElement
+    }, {
+      onOpenChange,
+      dataRef: {
+        current: {}
+      },
+      events: createEventEmitter(),
+      nested,
+      triggerElements
+    }, selectors2);
+    /**
+     * Syncs the event used by hover logic to distinguish hover-open from click-like interaction.
+     */
+    __publicField(this, "syncOpenEvent", (newOpen, event) => {
+      if (!newOpen || !this.state.open || // Prevent a pending hover-open from overwriting a click-open event, while allowing
+      // click events to upgrade a hover-open.
+      event != null && isClickLikeEvent(event)) {
+        this.context.dataRef.current.openEvent = newOpen ? event : void 0;
+      }
+    });
+    /**
+     * Runs the root-owned side effects for an open state change.
+     */
+    __publicField(this, "dispatchOpenChange", (newOpen, eventDetails) => {
+      this.syncOpenEvent(newOpen, eventDetails.event);
+      const details = {
+        open: newOpen,
+        reason: eventDetails.reason,
+        nativeEvent: eventDetails.event,
+        nested: this.context.nested,
+        triggerElement: eventDetails.trigger
+      };
+      this.context.events.emit("openchange", details);
+    });
+    /**
+     * Emits the `openchange` event through the internal event emitter and calls the `onOpenChange` handler with the provided arguments.
+     *
+     * @param newOpen The new open state.
+     * @param eventDetails Details about the event that triggered the open state change.
+     */
+    __publicField(this, "setOpen", (newOpen, eventDetails) => {
+      if (this.syncOnly) {
+        this.context.onOpenChange?.(newOpen, eventDetails);
+        return;
+      }
+      this.dispatchOpenChange(newOpen, eventDetails);
+      this.context.onOpenChange?.(newOpen, eventDetails);
+    });
+    this.syncOnly = syncOnly;
+  }
+};
+
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/utils/popups/popupTriggerMap.mjs
+var devElementIdsByMap;
+function getDevElementIds(map) {
+  devElementIdsByMap ?? (devElementIdsByMap = /* @__PURE__ */ new WeakMap());
+  let elementIds = devElementIdsByMap.get(map);
+  if (!elementIds) {
+    elementIds = /* @__PURE__ */ new WeakMap();
+    devElementIdsByMap.set(map, elementIds);
+  }
+  return elementIds;
+}
+var PopupTriggerMap = class {
+  constructor() {
+    this.idMap = /* @__PURE__ */ new Map();
+  }
+  /**
+   * Adds a trigger element with the given ID.
+   *
+   * Note: The provided element is assumed to not be registered under multiple IDs.
+   */
+  add(id, element) {
+    if (process.env.NODE_ENV !== "production") {
+      const elementIds = getDevElementIds(this);
+      const existingId = elementIds.get(element);
+      if (existingId !== void 0 && existingId !== id) {
+        throw new Error("Base UI: A trigger element cannot be registered under multiple IDs in PopupTriggerMap.");
+      }
+      const previousElement = this.idMap.get(id);
+      if (previousElement !== void 0 && previousElement !== element) {
+        elementIds.delete(previousElement);
+      }
+      elementIds.set(element, id);
+    }
+    this.idMap.set(id, element);
+  }
+  /**
+   * Removes the trigger element with the given ID.
+   */
+  delete(id) {
+    if (process.env.NODE_ENV !== "production") {
+      const element = this.idMap.get(id);
+      if (element !== void 0) {
+        devElementIdsByMap?.get(this)?.delete(element);
+      }
+    }
+    this.idMap.delete(id);
+  }
+  /**
+   * Whether the given element is registered as a trigger.
+   */
+  hasElement(element) {
+    for (const registered of this.idMap.values()) {
+      if (registered === element) {
+        return true;
+      }
+    }
+    return false;
+  }
+  /**
+   * Whether there is a registered trigger element matching the given predicate.
+   */
+  hasMatchingElement(predicate) {
+    for (const element of this.idMap.values()) {
+      if (predicate(element)) {
+        return true;
+      }
+    }
+    return false;
+  }
+  /**
+   * Returns the trigger element associated with the given ID, or undefined if no such element exists.
+   */
+  getById(id) {
+    return this.idMap.get(id);
+  }
+  /**
+   * Returns an iterable of all registered trigger entries, where each entry is a tuple of [id, element].
+   */
+  entries() {
+    return this.idMap.entries();
+  }
+  /**
+   * Returns an iterable of all registered trigger elements.
+   */
+  elements() {
+    return this.idMap.values();
+  }
+  /**
+   * Returns the number of registered trigger elements.
+   */
+  get size() {
+    return this.idMap.size;
+  }
+};
+
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/floating-ui-react/hooks/useFloatingRootContext.mjs
+function useFloatingRootContext(options) {
+  const {
+    open = false,
+    onOpenChange,
+    elements = {}
+  } = options;
+  const floatingId = useId();
+  const nested = useFloatingParentNodeId() != null;
+  if (process.env.NODE_ENV !== "production") {
+    const optionDomReference = elements.reference;
+    if (optionDomReference && !isElement(optionDomReference)) {
+      console.error("Cannot pass a virtual element to the `elements.reference` option,", "as it must be a real DOM element. Use `context.setPositionReference()`", "instead.");
+    }
+  }
+  const store = useRefWithInit(() => new FloatingRootStore({
+    open,
+    transitionStatus: void 0,
+    onOpenChange,
+    referenceElement: elements.reference ?? null,
+    floatingElement: elements.floating ?? null,
+    triggerElements: new PopupTriggerMap(),
+    floatingId,
+    syncOnly: false,
+    nested
+  })).current;
+  useIsoLayoutEffect(() => {
+    const valuesToSync = {
+      open,
+      floatingId
+    };
+    if (elements.reference !== void 0) {
+      valuesToSync.referenceElement = elements.reference;
+      valuesToSync.domReferenceElement = isElement(elements.reference) ? elements.reference : null;
+    }
+    if (elements.floating !== void 0) {
+      valuesToSync.floatingElement = elements.floating;
+    }
+    store.update(valuesToSync);
+  }, [open, floatingId, elements.reference, elements.floating, store]);
+  store.context.onOpenChange = onOpenChange;
+  store.context.nested = nested;
+  return store;
+}
+
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/floating-ui-react/hooks/useFloating.mjs
 function useBaseUIFloating(options) {
+  return useFloatingWithStore(options, options.rootContext);
+}
+function useFloatingWithStore(options, store) {
   const {
     nodeId,
-    externalTree,
-    rootContext: store
+    externalTree
   } = options;
   const referenceElement = store.useState("referenceElement");
   const floatingElement = store.useState("floatingElement");
   const domReferenceElement = store.useState("domReferenceElement");
-  const open2 = store.useState("open");
+  const open = store.useState("open");
   const floatingId = store.useState("floatingId");
-  const [positionReference, setPositionReferenceRaw] = React19__namespace.useState(null);
-  const domReferenceRef = React19__namespace.useRef(null);
+  const [positionReference, setPositionReferenceRaw] = React18__namespace.useState(null);
+  const [localDomReference, setLocalDomReference] = React18__namespace.useState(void 0);
+  const [localFloatingElement, setLocalFloatingElement] = React18__namespace.useState(void 0);
+  const domReferenceRef = React18__namespace.useRef(null);
   const tree = useFloatingTree(externalTree);
-  const storeElements = React19__namespace.useMemo(() => ({
+  const storeElements = React18__namespace.useMemo(() => ({
     reference: referenceElement,
     floating: floatingElement,
     domReference: domReferenceElement
@@ -7023,7 +6993,12 @@ function useBaseUIFloating(options) {
       }
     }
   });
-  const setPositionReference = React19__namespace.useCallback((node) => {
+  const localDomReferenceElement = isElement(localDomReference) ? localDomReference : null;
+  const syncedFloatingElement = localFloatingElement === void 0 ? store.state.floatingElement : localFloatingElement;
+  store.useSyncedValue("referenceElement", localDomReference ?? null);
+  store.useSyncedValue("domReferenceElement", localDomReference === void 0 ? domReferenceElement : localDomReferenceElement);
+  store.useSyncedValue("floatingElement", syncedFloatingElement);
+  const setPositionReference = React18__namespace.useCallback((node) => {
     const computedPositionReference = isElement(node) ? {
       getBoundingClientRect: () => node.getBoundingClientRect(),
       getClientRects: () => node.getClientRects(),
@@ -7032,19 +7007,37 @@ function useBaseUIFloating(options) {
     setPositionReferenceRaw(computedPositionReference);
     position.refs.setReference(computedPositionReference);
   }, [position.refs]);
-  const refs = React19__namespace.useMemo(() => ({
+  const setReference = React18__namespace.useCallback((node) => {
+    if (isElement(node) || node === null) {
+      domReferenceRef.current = node;
+      setLocalDomReference(node);
+    }
+    if (isElement(position.refs.reference.current) || position.refs.reference.current === null || // Don't allow setting virtual elements using the old technique back to
+    // `null` to support `positionReference` + an unstable `reference`
+    // callback ref.
+    node !== null && !isElement(node)) {
+      position.refs.setReference(node);
+    }
+  }, [position.refs, setLocalDomReference]);
+  const setFloating = React18__namespace.useCallback((node) => {
+    setLocalFloatingElement(node);
+    position.refs.setFloating(node);
+  }, [position.refs]);
+  const refs = React18__namespace.useMemo(() => ({
     ...position.refs,
+    setReference,
+    setFloating,
     setPositionReference,
     domReference: domReferenceRef
-  }), [position.refs, setPositionReference]);
-  const elements = React19__namespace.useMemo(() => ({
+  }), [position.refs, setReference, setFloating, setPositionReference]);
+  const elements = React18__namespace.useMemo(() => ({
     ...position.elements,
     domReference: domReferenceElement
   }), [position.elements, domReferenceElement]);
-  const context = React19__namespace.useMemo(() => ({
+  const context = React18__namespace.useMemo(() => ({
     ...position,
     dataRef: store.context.dataRef,
-    open: open2,
+    open,
     onOpenChange: store.setOpen,
     events: store.context.events,
     floatingId,
@@ -7052,7 +7045,7 @@ function useBaseUIFloating(options) {
     elements,
     nodeId,
     rootStore: store
-  }), [position, refs, elements, nodeId, store, open2, floatingId]);
+  }), [position, refs, elements, nodeId, store, open, floatingId]);
   useIsoLayoutEffect(() => {
     if (domReferenceElement) {
       domReferenceRef.current = domReferenceElement;
@@ -7065,7 +7058,7 @@ function useBaseUIFloating(options) {
       node.context = context;
     }
   });
-  return React19__namespace.useMemo(() => ({
+  return React18__namespace.useMemo(() => ({
     ...position,
     context,
     refs,
@@ -7073,14 +7066,14 @@ function useBaseUIFloating(options) {
     rootStore: store
   }), [position, refs, elements, context, store]);
 }
-var DirectionContext = /* @__PURE__ */ React19__namespace.createContext(void 0);
+var DirectionContext = /* @__PURE__ */ React18__namespace.createContext(void 0);
 if (process.env.NODE_ENV !== "production") DirectionContext.displayName = "DirectionContext";
 function useDirection() {
-  const context = React19__namespace.useContext(DirectionContext);
+  const context = React18__namespace.useContext(DirectionContext);
   return context?.direction ?? "ltr";
 }
 
-// node_modules/@base-ui/react/floating-ui-react/middleware/arrow.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/floating-ui-react/middleware/arrow.mjs
 var baseArrow = (options) => ({
   name: "arrow",
   options,
@@ -7096,7 +7089,8 @@ var baseArrow = (options) => ({
     } = state;
     const {
       element,
-      padding = 0
+      padding = 0,
+      offsetParent = "real"
     } = evaluate(options, state) || {};
     if (element == null) {
       return {};
@@ -7115,7 +7109,11 @@ var baseArrow = (options) => ({
     const clientProp = isYAxis ? "clientHeight" : "clientWidth";
     const endDiff = rects.reference[length] + rects.reference[axis] - coords[axis] - rects.floating[length];
     const startDiff = coords[axis] - rects.reference[axis];
-    const clientSize = elements.floating[clientProp] || rects.floating[length];
+    const arrowOffsetParent = offsetParent === "real" ? await platform3.getOffsetParent?.(element) : elements.floating;
+    let clientSize = elements.floating[clientProp] || rects.floating[length];
+    if (!clientSize || !await platform3.isElement?.(arrowOffsetParent)) {
+      clientSize = elements.floating[clientProp] || rects.floating[length];
+    }
     const centerToReference = endDiff / 2 - startDiff / 2;
     const largestPossiblePadding = clientSize / 2 - arrowDimensions[length] / 2 - 1;
     const minPadding = Math.min(paddingObject[minProp], largestPossiblePadding);
@@ -7139,57 +7137,43 @@ var baseArrow = (options) => ({
     };
   }
 });
-var arrow4 = (options, deps) => {
-  const {
-    name,
-    fn
-  } = baseArrow(options);
-  return {
-    name,
-    fn,
-    options: [options, deps]
-  };
-};
+var arrow4 = (options, deps) => ({
+  ...baseArrow(options),
+  options: [options, deps]
+});
 
-// node_modules/@base-ui/react/utils/hideMiddleware.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/utils/hideMiddleware.mjs
 var hide4 = {
   name: "hide",
   async fn(state) {
     const {
       width,
-      height: height2,
+      height,
       x,
       y
     } = state.rects.reference;
-    const anchorHidden2 = width === 0 && height2 === 0 && x === 0 && y === 0;
+    const anchorHidden = width === 0 && height === 0 && x === 0 && y === 0;
     const overflow = await state.platform.detectOverflow(state, {
       elementContext: "reference"
     });
-    const referenceHidden = overflow.top - height2 >= 0 || overflow.right - width >= 0 || overflow.bottom - height2 >= 0 || overflow.left - width >= 0;
+    const referenceHidden = overflow.top - height >= 0 || overflow.right - width >= 0 || overflow.bottom - height >= 0 || overflow.left - width >= 0;
     return {
       data: {
-        referenceHidden: referenceHidden || anchorHidden2
+        referenceHidden: referenceHidden || anchorHidden
       }
     };
   }
 };
 
-// node_modules/@base-ui/react/utils/adaptiveOriginConstants.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/utils/adaptiveOriginConstants.mjs
 var DEFAULT_SIDES = {
   sideX: "left",
   sideY: "top"
 };
 
-// node_modules/@base-ui/react/utils/CommonPositionerCssVars.mjs
-var availableWidth = "--available-width";
-var availableHeight = "--available-height";
-var anchorWidth = "--anchor-width";
-var anchorHeight = "--anchor-height";
-var transformOrigin = "--transform-origin";
-
-// node_modules/@base-ui/react/internals/useAnchorPositioning.mjs
-var AVAILABLE_WIDTH_VAR = availableWidth;
-var AVAILABLE_HEIGHT_VAR = availableHeight;
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/internals/useAnchorPositioning.mjs
+var AVAILABLE_WIDTH_VAR = "--available-width";
+var AVAILABLE_HEIGHT_VAR = "--available-height";
 function getLogicalSide(sideParam, renderedSide, isRtl) {
   const isLogicalSideParam = sideParam === "inline-start" || sideParam === "inline-end";
   const logicalRight = isRtl ? "inline-start" : "inline-end";
@@ -7249,6 +7233,10 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
     lazyFlip = false,
     externalTree
   } = params;
+  const [mountSide, setMountSide] = React18__namespace.useState(null);
+  if (!mounted && mountSide !== null) {
+    setMountSide(null);
+  }
   const collisionAvoidanceSide = collisionAvoidance.side || "flip";
   const collisionAvoidanceAlign = collisionAvoidance.align || "flip";
   const collisionAvoidanceFallbackAxisSide = collisionAvoidance.fallbackAxisSide || "end";
@@ -7261,13 +7249,6 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
   const mountedRef = useValueAsRef(mounted);
   const direction = useDirection();
   const isRtl = direction === "rtl";
-  const [mountPlacement, setMountPlacement] = React19__namespace.useState(null);
-  if (!mounted && mountPlacement !== null) {
-    setMountPlacement(null);
-  }
-  const lockAlign = lazyFlip === "placement";
-  const mountSide = mountPlacement ? getSide(mountPlacement) : null;
-  const mountAlign = mountPlacement && lockAlign ? getAlignment(mountPlacement) || "center" : null;
   const side = mountSide || {
     top: "top",
     right: "right",
@@ -7276,8 +7257,7 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
     "inline-end": isRtl ? "left" : "right",
     "inline-start": isRtl ? "right" : "left"
   }[sideParam];
-  const placementAlign = mountAlign || align;
-  const placement = placementAlign === "center" ? side : `${side}-${placementAlign}`;
+  const placement = align === "center" ? side : `${side}-${align}`;
   let collisionPadding = collisionPaddingParam;
   if (typeof collisionPadding === "number") {
     collisionPadding = {
@@ -7303,7 +7283,7 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
     boundary: collisionBoundary === "clipping-ancestors" ? "clippingAncestors" : collisionBoundary,
     padding: collisionPadding
   };
-  const arrowRef = React19__namespace.useRef(null);
+  const arrowRef = React18__namespace.useRef(null);
   const sideOffsetRef = useValueAsRef(sideOffset);
   const alignOffsetRef = useValueAsRef(alignOffset);
   const sideOffsetDep = typeof sideOffset !== "function" ? sideOffset : 0;
@@ -7350,17 +7330,17 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
       }
       const {
         width,
-        height: height2
+        height
       } = arrowRef.current.getBoundingClientRect();
       const sideAxis = getSideAxis(getSide(limitData.placement));
-      const arrowSize = sideAxis === "y" ? width : height2;
+      const arrowSize = sideAxis === "y" ? width : height;
       const offsetAmount = sideAxis === "y" ? collisionPadding.left + collisionPadding.right : collisionPadding.top + collisionPadding.bottom;
       return {
         offset: arrowSize / 2 + offsetAmount / 2
       };
     })
   }, [commonCollisionProps, sticky, shiftCrossAxis, shiftRootBoundary, collisionPadding, collisionAvoidanceAlign]);
-  if (collisionAvoidanceSide === "shift" || collisionAvoidanceAlign === "shift" || placementAlign === "center") {
+  if (collisionAvoidanceSide === "shift" || collisionAvoidanceAlign === "shift" || align === "center") {
     middleware.push(shiftMiddleware, flipMiddleware);
   } else {
     middleware.push(flipMiddleware, shiftMiddleware);
@@ -7371,65 +7351,65 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
       elements: {
         floating
       },
-      availableWidth: availableWidth2,
-      availableHeight: availableHeight2,
+      availableWidth,
+      availableHeight,
       rects
     }) {
       if (!mountedRef.current) {
         return;
       }
       const floatingStyle = floating.style;
-      floatingStyle.setProperty(AVAILABLE_WIDTH_VAR, `${availableWidth2}px`);
-      floatingStyle.setProperty(AVAILABLE_HEIGHT_VAR, `${availableHeight2}px`);
+      floatingStyle.setProperty(AVAILABLE_WIDTH_VAR, `${availableWidth}px`);
+      floatingStyle.setProperty(AVAILABLE_HEIGHT_VAR, `${availableHeight}px`);
       const dpr = getWindow(floating).devicePixelRatio || 1;
       const {
         x: x2,
         y: y2,
         width,
-        height: height2
+        height
       } = rects.reference;
-      const anchorWidth2 = (Math.round((x2 + width) * dpr) - Math.round(x2 * dpr)) / dpr;
-      const anchorHeight2 = (Math.round((y2 + height2) * dpr) - Math.round(y2 * dpr)) / dpr;
-      floatingStyle.setProperty(anchorWidth, `${anchorWidth2}px`);
-      floatingStyle.setProperty(anchorHeight, `${anchorHeight2}px`);
+      const anchorWidth = (Math.round((x2 + width) * dpr) - Math.round(x2 * dpr)) / dpr;
+      const anchorHeight = (Math.round((y2 + height) * dpr) - Math.round(y2 * dpr)) / dpr;
+      floatingStyle.setProperty("--anchor-width", `${anchorWidth}px`);
+      floatingStyle.setProperty("--anchor-height", `${anchorHeight}px`);
     }
   }), arrow4((state) => ({
     // `transform-origin` calculations rely on an element existing. If the arrow hasn't been set,
     // we'll create a fake element.
     element: arrowRef.current || ownerDocument(state.elements.floating).createElement("div"),
-    // No padding for the fake arrow: it would displace aligned popups on narrow anchors.
-    padding: arrowRef.current ? arrowPadding : 0
+    padding: arrowPadding,
+    offsetParent: "floating"
   }), [arrowPadding]), {
     name: "transformOrigin",
     fn(state) {
       const {
-        elements: {
-          floating
-        },
+        elements: elements2,
         middlewareData: middlewareData2,
         placement: renderedPlacement2,
-        platform: platform3,
         rects,
         y: y2
       } = state;
-      const renderedSide2 = getSide(renderedPlacement2);
-      const renderedAlign2 = getAlignment(renderedPlacement2);
-      const isVertical = getSideAxis(renderedSide2) === "y";
+      const currentRenderedSide = getSide(renderedPlacement2);
+      const currentRenderedAxis = getSideAxis(currentRenderedSide);
       const arrowEl = arrowRef.current;
+      const arrowX = middlewareData2.arrow?.x || 0;
+      const arrowY = middlewareData2.arrow?.y || 0;
+      const arrowWidth = arrowEl?.clientWidth || 0;
+      const arrowHeight = arrowEl?.clientHeight || 0;
+      const transformX = arrowX + arrowWidth / 2;
+      const transformY = arrowY + arrowHeight / 2;
+      const shiftY = Math.abs(middlewareData2.shift?.y || 0);
+      const halfAnchorHeight = rects.reference.height / 2;
       const sideOffsetValue = typeof sideOffset === "function" ? sideOffset(getOffsetData(state, sideParam, isRtl)) : sideOffset;
-      let crossOrigin;
-      if (!arrowEl && renderedAlign2 && Math.abs(isVertical ? middlewareData2.shift?.x || 0 : middlewareData2.shift?.y || 0) <= 1) {
-        crossOrigin = renderedAlign2 === "start" === (isVertical && platform3.isRTL?.(floating) === true) ? "100%" : "0%";
-      } else {
-        const arrowOffset = isVertical ? middlewareData2.arrow?.x || 0 : middlewareData2.arrow?.y || 0;
-        const arrowSize = isVertical ? arrowEl?.clientWidth || 0 : arrowEl?.clientHeight || 0;
-        crossOrigin = `${arrowOffset + arrowSize / 2}px`;
-      }
-      let sideOrigin = renderedSide2 === "top" || renderedSide2 === "left" ? `calc(100% + ${sideOffsetValue}px)` : `${-sideOffsetValue}px`;
-      if (crossAxisShiftEnabled && isVertical && Math.abs(middlewareData2.shift?.y || 0) > sideOffsetValue) {
-        sideOrigin = `${rects.reference.y + rects.reference.height / 2 - y2}px`;
-      }
-      floating.style.setProperty(transformOrigin, isVertical ? `${crossOrigin} ${sideOrigin}` : `${sideOrigin} ${crossOrigin}`);
+      const isOverlappingAnchor = shiftY > sideOffsetValue;
+      const adjacentTransformOrigin = {
+        top: `${transformX}px calc(100% + ${sideOffsetValue}px)`,
+        bottom: `${transformX}px ${-sideOffsetValue}px`,
+        left: `calc(100% + ${sideOffsetValue}px) ${transformY}px`,
+        right: `${-sideOffsetValue}px ${transformY}px`
+      }[currentRenderedSide];
+      const overlapTransformOrigin = `${transformX}px ${rects.reference.y + halfAnchorHeight - y2}px`;
+      elements2.floating.style.setProperty("--transform-origin", crossAxisShiftEnabled && currentRenderedAxis === "y" && isOverlappingAnchor ? overlapTransformOrigin : adjacentTransformOrigin);
       return {};
     }
   }, hide4, adaptiveOrigin);
@@ -7443,8 +7423,7 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
       });
     }
   }, [mounted, floatingRootContext]);
-  const autoUpdateOptions = React19__namespace.useMemo(() => ({
-    ancestorScroll: !disableAnchorTracking,
+  const autoUpdateOptions = React18__namespace.useMemo(() => ({
     elementResize: !disableAnchorTracking && typeof ResizeObserver !== "undefined",
     layoutShift: !disableAnchorTracking && typeof IntersectionObserver !== "undefined"
   }), [disableAnchorTracking]);
@@ -7474,7 +7453,7 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
     sideY
   } = middlewareData.adaptiveOrigin || DEFAULT_SIDES;
   const resolvedPosition = isPositioned ? positionMethod : "fixed";
-  const floatingStyles = React19__namespace.useMemo(() => {
+  const floatingStyles = React18__namespace.useMemo(() => {
     let base;
     if (!isPositioned) {
       base = {
@@ -7501,7 +7480,7 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
     }
     return base;
   }, [adaptiveOrigin, resolvedPosition, sideX, x, sideY, y, originalFloatingStyles, isPositioned]);
-  const registeredPositionReferenceRef = React19__namespace.useRef(null);
+  const registeredPositionReferenceRef = React18__namespace.useRef(null);
   useIsoLayoutEffect(() => {
     if (!mounted) {
       return;
@@ -7515,7 +7494,7 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
       registeredPositionReferenceRef.current = finalAnchor;
     }
   }, [mounted, refs, anchorDep, anchorValueRef]);
-  React19__namespace.useEffect(() => {
+  React18__namespace.useEffect(() => {
     if (!mounted) {
       return;
     }
@@ -7528,7 +7507,7 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
       registeredPositionReferenceRef.current = anchorValue.current;
     }
   }, [mounted, refs, anchorDep, anchorValueRef]);
-  React19__namespace.useEffect(() => {
+  React18__namespace.useEffect(() => {
     if (keepMounted && mounted && elements.reference && elements.floating) {
       return autoUpdate(elements.reference, elements.floating, update2, autoUpdateOptions);
     }
@@ -7537,19 +7516,19 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
   const renderedSide = getSide(renderedPlacement);
   const logicalRenderedSide = getLogicalSide(sideParam, renderedSide, isRtl);
   const renderedAlign = getAlignment(renderedPlacement) || "center";
-  const anchorHidden2 = Boolean(middlewareData.hide?.referenceHidden);
+  const anchorHidden = Boolean(middlewareData.hide?.referenceHidden);
   useIsoLayoutEffect(() => {
-    if (lazyFlip && mounted && isPositioned && (renderedSide !== side || lockAlign && renderedAlign !== placementAlign)) {
-      setMountPlacement(renderedPlacement);
+    if (lazyFlip && mounted && isPositioned && renderedSide !== side) {
+      setMountSide(renderedSide);
     }
-  }, [lazyFlip, lockAlign, mounted, isPositioned, renderedPlacement, renderedSide, renderedAlign, side, placementAlign]);
-  const arrowStyles = React19__namespace.useMemo(() => ({
+  }, [lazyFlip, mounted, isPositioned, renderedSide, side]);
+  const arrowStyles = React18__namespace.useMemo(() => ({
     position: "absolute",
     top: middlewareData.arrow?.y,
     left: middlewareData.arrow?.x
   }), [middlewareData.arrow]);
   const arrowUncentered = middlewareData.arrow?.centerOffset !== 0;
-  return React19__namespace.useMemo(() => ({
+  return React18__namespace.useMemo(() => ({
     positionerStyles: floatingStyles,
     arrowStyles,
     arrowRef,
@@ -7557,32 +7536,69 @@ function useAnchorPositioningWithHook(params, useFloatingHook) {
     side: logicalRenderedSide,
     align: renderedAlign,
     physicalSide: renderedSide,
-    anchorHidden: anchorHidden2,
+    anchorHidden,
     refs,
     context,
     isPositioned,
     update: update2
-  }), [floatingStyles, arrowStyles, arrowRef, arrowUncentered, logicalRenderedSide, renderedAlign, renderedSide, anchorHidden2, refs, context, isPositioned, update2]);
+  }), [floatingStyles, arrowStyles, arrowRef, arrowUncentered, logicalRenderedSide, renderedAlign, renderedSide, anchorHidden, refs, context, isPositioned, update2]);
 }
 function isRef(param) {
   return param != null && "current" in param;
 }
-var ToastPositionerContext = /* @__PURE__ */ React19__namespace.createContext(void 0);
+var ToastPositionerContext = /* @__PURE__ */ React18__namespace.createContext(void 0);
 if (process.env.NODE_ENV !== "production") ToastPositionerContext.displayName = "ToastPositionerContext";
 function useToastPositionerContext() {
-  const context = React19__namespace.useContext(ToastPositionerContext);
+  const context = React18__namespace.useContext(ToastPositionerContext);
   if (context === void 0) {
     throw new Error(process.env.NODE_ENV !== "production" ? "Base UI: ToastPositionerContext is missing. ToastPositioner parts must be placed within <Toast.Positioner>." : formatErrorMessage_default(84));
   }
   return context;
 }
 
-// node_modules/@base-ui/react/internals/getDisabledMountTransitionStyles.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/utils/popupStateMapping.mjs
+((function(CommonPopupDataAttributes2) {
+  CommonPopupDataAttributes2["open"] = "data-open";
+  CommonPopupDataAttributes2["closed"] = "data-closed";
+  CommonPopupDataAttributes2[CommonPopupDataAttributes2["startingStyle"] = TransitionStatusDataAttributes.startingStyle] = "startingStyle";
+  CommonPopupDataAttributes2[CommonPopupDataAttributes2["endingStyle"] = TransitionStatusDataAttributes.endingStyle] = "endingStyle";
+  CommonPopupDataAttributes2["anchorHidden"] = "data-anchor-hidden";
+  CommonPopupDataAttributes2["side"] = "data-side";
+  CommonPopupDataAttributes2["align"] = "data-align";
+  return CommonPopupDataAttributes2;
+}))({});
+var POPUP_OPEN_HOOK = {
+  "data-open": ""
+};
+var POPUP_CLOSED_HOOK = {
+  "data-closed": ""
+};
+var ANCHOR_HIDDEN_HOOK = {
+  "data-anchor-hidden": ""
+};
+var popupStateMapping = {
+  open(value) {
+    if (value) {
+      return POPUP_OPEN_HOOK;
+    }
+    return POPUP_CLOSED_HOOK;
+  },
+  anchorHidden(value) {
+    if (value) {
+      return ANCHOR_HIDDEN_HOOK;
+    }
+    return null;
+  }
+};
+({
+  ...popupStateMapping});
+
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/internals/getDisabledMountTransitionStyles.mjs
 function getDisabledMountTransitionStyles(transitionStatus) {
   return transitionStatus === "starting" ? DISABLED_TRANSITIONS_STYLE : EMPTY_OBJECT;
 }
 
-// node_modules/@base-ui/react/utils/usePositioner.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/utils/usePositioner.mjs
 function usePositioner(componentProps, state, {
   styles,
   transitionStatus,
@@ -7608,7 +7624,7 @@ function usePositioner(componentProps, state, {
     stateAttributesMapping: popupStateMapping
   });
 }
-var ToastPositioner = /* @__PURE__ */ React19__namespace.forwardRef(function ToastPositioner2(componentProps, forwardedRef) {
+var ToastPositioner = /* @__PURE__ */ React18__namespace.forwardRef(function ToastPositioner2(componentProps, forwardedRef) {
   const {
     toast,
     ...props
@@ -7633,7 +7649,7 @@ var ToastPositioner = /* @__PURE__ */ React19__namespace.forwardRef(function Toa
     style,
     ...elementProps
   } = props;
-  const [positionerElement, setPositionerElement] = React19__namespace.useState(null);
+  const [positionerElement, setPositionerElement] = React18__namespace.useState(null);
   const domIndex = store.useState("toastIndex", toast.id);
   const visibleIndex = store.useState("toastVisibleIndex", toast.id);
   const anchor = isElement(anchorProp) ? anchorProp : null;
@@ -7670,7 +7686,7 @@ var ToastPositioner = /* @__PURE__ */ React19__namespace.forwardRef(function Toa
   const element = usePositioner(componentProps, state, {
     styles: {
       ...positioning.positionerStyles,
-      [index]: toast.transitionStatus === "ending" ? domIndex : visibleIndex
+      ["--toast-index"]: toast.transitionStatus === "ending" ? domIndex : visibleIndex
     },
     transitionStatus: toast.transitionStatus,
     props: elementProps,
@@ -7682,7 +7698,7 @@ var ToastPositioner = /* @__PURE__ */ React19__namespace.forwardRef(function Toa
   });
 });
 if (process.env.NODE_ENV !== "production") ToastPositioner.displayName = "ToastPositioner";
-var ToastArrow = /* @__PURE__ */ React19__namespace.forwardRef(function ToastArrow2(componentProps, forwardedRef) {
+var ToastArrow = /* @__PURE__ */ React18__namespace.forwardRef(function ToastArrow2(componentProps, forwardedRef) {
   const {
     className,
     render,
@@ -7714,7 +7730,7 @@ if (process.env.NODE_ENV !== "production") ToastArrow.displayName = "ToastArrow"
 function useToastManager() {
   const store = useToastProviderContext();
   const toasts = store.useState("toasts");
-  return React19__namespace.useMemo(() => ({
+  return React18__namespace.useMemo(() => ({
     toasts,
     add: store.addToast,
     close: store.closeToast,
@@ -7723,7 +7739,7 @@ function useToastManager() {
   }), [toasts, store]);
 }
 
-// node_modules/@base-ui/react/toast/createToastManager.mjs
+// node_modules/.pnpm/@base-ui+react@1.7.0_@types+react@18.3.31_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@base-ui/react/toast/createToastManager.mjs
 function createToastManager() {
   const listeners = /* @__PURE__ */ new Set();
   function emit(data) {
@@ -7763,8 +7779,8 @@ function createToastManager() {
       emit({
         action: "update",
         options: {
-          id,
-          updates
+          ...updates,
+          id
         }
       });
     },
@@ -7945,7 +7961,7 @@ var MotionToastViewport = () => {
     );
   }) }) }) });
 };
-var SnackbarContext = React19.createContext(null);
+var SnackbarContext = React18.createContext(null);
 var SEVERITY_TITLES = {
   success: "Success",
   error: "Something went wrong",
@@ -7955,7 +7971,7 @@ var SEVERITY_TITLES = {
 var SnackbarBridge = ({ children }) => {
   const { t } = reactI18next.useTranslation();
   const toastManager = index_parts_exports.useToastManager();
-  const show = React19.useCallback(
+  const show = React18.useCallback(
     (severity) => (message, params) => {
       toastManager.add({
         title: SEVERITY_TITLES[severity],
@@ -7966,7 +7982,7 @@ var SnackbarBridge = ({ children }) => {
     },
     [t, toastManager]
   );
-  const value = React19.useMemo(
+  const value = React18.useMemo(
     () => ({
       showSuccess: show("success"),
       showError: show("error"),
@@ -7982,7 +7998,7 @@ var SnackbarBridge = ({ children }) => {
 };
 var SnackbarProvider = ({ children }) => /* @__PURE__ */ jsxRuntime.jsx(index_parts_exports.Provider, { limit: 5, timeout: SNACKBAR_AUTOHIDE_MS, children: /* @__PURE__ */ jsxRuntime.jsx(SnackbarBridge, { children }) });
 var useSnackbar = () => {
-  const ctx = React19.useContext(SnackbarContext);
+  const ctx = React18.useContext(SnackbarContext);
   if (!ctx) {
     throw new Error("useSnackbar must be used within a SnackbarProvider");
   }
@@ -7992,7 +8008,7 @@ var DEFAULT_CURRENCY = "LKR";
 function useLocaleFormat() {
   const { i18n: i18n2 } = reactI18next.useTranslation();
   const locale = i18n2.language;
-  return React19.useMemo(
+  return React18.useMemo(
     () => ({
       formatDate: (value) => new Intl.DateTimeFormat(locale, DATE_FORMATS.DATE).format(new Date(value)),
       formatDateTime: (value) => new Intl.DateTimeFormat(locale, DATE_FORMATS.DATE_TIME).format(new Date(value)),
@@ -8033,31 +8049,31 @@ var presetRange = (preset) => {
 };
 function useDateRange(initialPreset = DateRangePreset.NEXT_14) {
   const initial2 = presetRange(initialPreset);
-  const [from, setFrom] = React19.useState(initial2.from);
-  const [to, setTo] = React19.useState(initial2.to);
-  const [preset, setPreset] = React19.useState(initialPreset);
-  const setRange = React19.useCallback((nextFrom, nextTo) => {
+  const [from, setFrom] = React18.useState(initial2.from);
+  const [to, setTo] = React18.useState(initial2.to);
+  const [preset, setPreset] = React18.useState(initialPreset);
+  const setRange = React18.useCallback((nextFrom, nextTo) => {
     setFrom(nextFrom);
     setTo(nextTo);
     setPreset(null);
   }, []);
-  const applyPreset = React19.useCallback((next) => {
+  const applyPreset = React18.useCallback((next) => {
     const range = presetRange(next);
     setFrom(range.from);
     setTo(range.to);
     setPreset(next);
   }, []);
-  const days = React19.useMemo(() => differenceInDays(from, to) + 1, [from, to]);
+  const days = React18.useMemo(() => differenceInDays(from, to) + 1, [from, to]);
   return { from, to, setRange, preset, applyPreset, days };
 }
 function useContextMenu() {
-  const [contextMenu, setContextMenu] = React19.useState({
+  const [contextMenu, setContextMenu] = React18.useState({
     open: false,
     x: 0,
     y: 0,
     items: []
   });
-  const openContextMenu = React19.useCallback(
+  const openContextMenu = React18.useCallback(
     (event, items) => {
       event.preventDefault();
       event.stopPropagation();
@@ -8070,7 +8086,7 @@ function useContextMenu() {
     },
     []
   );
-  const closeContextMenu = React19.useCallback(() => {
+  const closeContextMenu = React18.useCallback(() => {
     setContextMenu((prev) => prev.open ? { ...prev, open: false } : prev);
   }, []);
   return {
@@ -8213,12 +8229,12 @@ var OverlayRoot = styles.styled("div")(({ theme }) => ({
   backdropFilter: "blur(4px)",
   zIndex: theme.zIndex.modal
 }));
-var LoadingOverlay = ({ open: open2, label, size: size4 = 48 }) => {
-  if (!open2) return null;
+var LoadingOverlay = ({ open, label, size: size4 = 48 }) => {
+  if (!open) return null;
   return /* @__PURE__ */ jsxRuntime.jsx(OverlayRoot, { children: /* @__PURE__ */ jsxRuntime.jsx(NamiosLoader, { size: size4, label }) });
 };
 var AppDialog = ({
-  open: open2,
+  open,
   titleKey,
   titleParams,
   size: size4 = "sm",
@@ -8236,7 +8252,7 @@ var AppDialog = ({
   return /* @__PURE__ */ jsxRuntime.jsxs(
     Dialog__default.default,
     {
-      open: open2,
+      open,
       onClose: handleClose,
       fullWidth: true,
       maxWidth: size4,
@@ -8265,7 +8281,7 @@ var AppDialog = ({
   );
 };
 var FormDialog = ({
-  open: open2,
+  open,
   titleKey,
   titleParams,
   size: size4 = "sm",
@@ -8285,16 +8301,16 @@ var FormDialog = ({
     mode: "onBlur"
   });
   const { reset } = form;
-  React19.useEffect(() => {
-    if (open2) reset(defaultValues);
-  }, [open2, defaultValues, reset]);
+  React18.useEffect(() => {
+    if (open) reset(defaultValues);
+  }, [open, defaultValues, reset]);
   const handleSubmit = form.handleSubmit(async (values) => {
     await onSubmit(values);
   });
   return /* @__PURE__ */ jsxRuntime.jsx(
     AppDialog,
     {
-      open: open2,
+      open,
       titleKey,
       titleParams,
       size: size4,
@@ -8481,7 +8497,7 @@ function generateId2(prefix = "mui") {
   return `${prefix}-${idCounter}`;
 }
 function forwardRef17(component) {
-  return React19__namespace.default.forwardRef(component);
+  return React18__namespace.default.forwardRef(component);
 }
 function isInteractive(element) {
   const tag = element.tagName.toLowerCase();
@@ -8494,7 +8510,7 @@ function mapRange(value, inMin, inMax, outMin, outMax) {
   return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
 }
 
-// node_modules/@namios/motionui-react/dist/esm/components/Accordion/Accordion.js
+// node_modules/.pnpm/@namios+motionui-react@1.0.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@namios/motionui-react/dist/esm/components/Accordion/Accordion.js
 var AccordionSummary = ({ expandIcon, children, className, ...props }) => {
   return jsxRuntime.jsxs("button", { type: "button", className: cn("mui-accordion__summary", className), ...props, children: [jsxRuntime.jsx("div", { className: "mui-accordion__summary-content", children }), jsxRuntime.jsx("div", { className: "mui-accordion__expand-icon", children: expandIcon || jsxRuntime.jsx("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", children: jsxRuntime.jsx("polyline", { points: "6 9 12 15 18 9" }) }) })] });
 };
@@ -8502,7 +8518,7 @@ var AccordionDetails = ({ children, className, ...props }) => {
   return jsxRuntime.jsx("div", { className: cn("mui-accordion__details", className), ...props, children: jsxRuntime.jsx("div", { className: "mui-accordion__details-inner", children }) });
 };
 var Accordion = ({ expanded: controlledExpanded, defaultExpanded = false, onChange, className, children, ...props }) => {
-  const [uncontrolledExpanded, setUncontrolledExpanded] = React19.useState(defaultExpanded);
+  const [uncontrolledExpanded, setUncontrolledExpanded] = React18.useState(defaultExpanded);
   const isExpanded = controlledExpanded !== void 0 ? controlledExpanded : uncontrolledExpanded;
   const toggle = () => {
     const next = !isExpanded;
@@ -8511,11 +8527,11 @@ var Accordion = ({ expanded: controlledExpanded, defaultExpanded = false, onChan
     }
     onChange === null || onChange === void 0 ? void 0 : onChange(next);
   };
-  return jsxRuntime.jsx("div", { className: cn("mui-accordion", isExpanded && "mui-accordion--expanded", className), ...props, children: React19__namespace.default.Children.map(children, (child) => {
-    if (!React19__namespace.default.isValidElement(child))
+  return jsxRuntime.jsx("div", { className: cn("mui-accordion", isExpanded && "mui-accordion--expanded", className), ...props, children: React18__namespace.default.Children.map(children, (child) => {
+    if (!React18__namespace.default.isValidElement(child))
       return child;
     if (child.type === AccordionSummary) {
-      return React19__namespace.default.cloneElement(child, {
+      return React18__namespace.default.cloneElement(child, {
         onClick: toggle,
         role: "button",
         "aria-expanded": isExpanded
@@ -8533,7 +8549,7 @@ var defaultIcons = {
   warning: jsxRuntime.jsxs("svg", { className: "mui-alert__icon-svg", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: [jsxRuntime.jsx("path", { d: "m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" }), jsxRuntime.jsx("line", { x1: "12", y1: "9", x2: "12", y2: "13" }), jsxRuntime.jsx("line", { x1: "12", y1: "17", x2: "12.01", y2: "17" })] }),
   error: jsxRuntime.jsxs("svg", { className: "mui-alert__icon-svg", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: [jsxRuntime.jsx("circle", { cx: "12", cy: "12", r: "10" }), jsxRuntime.jsx("line", { x1: "15", y1: "9", x2: "9", y2: "15" }), jsxRuntime.jsx("line", { x1: "9", y1: "9", x2: "15", y2: "15" })] })
 };
-var Alert = React19__namespace.default.forwardRef(({ severity = "success", variant = "standard", icon, action, onClose, closeText = "Close", className, children, ...props }, ref) => {
+var Alert = React18__namespace.default.forwardRef(({ severity = "success", variant = "standard", icon, action, onClose, closeText = "Close", className, children, ...props }, ref) => {
   const renderIcon = () => {
     if (icon === false)
       return null;
@@ -8544,25 +8560,25 @@ var Alert = React19__namespace.default.forwardRef(({ severity = "success", varia
   return jsxRuntime.jsxs("div", { ref, role: "alert", className: cn("mui-alert", `mui-alert--${severity}`, `mui-alert--${variant}`, className), ...props, children: [renderIcon(), jsxRuntime.jsx("div", { className: "mui-alert__message", children }), action && jsxRuntime.jsx("div", { className: "mui-alert__action", children: action }), onClose && !action && jsxRuntime.jsx("div", { className: "mui-alert__action", children: jsxRuntime.jsx("button", { type: "button", className: "mui-alert__close-btn", "aria-label": closeText, onClick: onClose, children: jsxRuntime.jsxs("svg", { viewBox: "0 0 24 24", width: "18", height: "18", stroke: "currentColor", strokeWidth: "2", fill: "none", children: [jsxRuntime.jsx("line", { x1: "18", y1: "6", x2: "6", y2: "18" }), jsxRuntime.jsx("line", { x1: "6", y1: "6", x2: "18", y2: "18" })] }) }) })] });
 });
 Alert.displayName = "Alert";
-var Avatar = React19__namespace.default.forwardRef(({ src, alt, size: size4 = "medium", variant = "circular", children, className, ...props }, ref) => {
+var Avatar = React18__namespace.default.forwardRef(({ src, alt, size: size4 = "medium", variant = "circular", children, className, ...props }, ref) => {
   const sizeStyle = typeof size4 === "number" ? { width: size4, height: size4 } : {};
   return jsxRuntime.jsx("div", { ref, className: cn("mui-avatar", `mui-avatar--${variant}`, typeof size4 === "string" && `mui-avatar--${size4}`, className), style: sizeStyle, ...props, children: src ? jsxRuntime.jsx("img", { src, alt: alt || "", className: "mui-avatar__img" }) : children || (alt ? alt.charAt(0).toUpperCase() : "?") });
 });
 Avatar.displayName = "Avatar";
-var AvatarGroup = React19__namespace.default.forwardRef(({ max: max2 = 5, spacing = "medium", children, className, ...props }, ref) => {
-  const childArray = React19__namespace.default.Children.toArray(children);
+var AvatarGroup = React18__namespace.default.forwardRef(({ max: max2 = 5, spacing = "medium", children, className, ...props }, ref) => {
+  const childArray = React18__namespace.default.Children.toArray(children);
   const excess = childArray.length - max2;
   const visible = excess > 0 ? childArray.slice(0, max2) : childArray;
   return jsxRuntime.jsxs("div", { ref, className: cn("mui-avatar-group", `mui-avatar-group--${spacing}`, className), ...props, children: [visible, excess > 0 && jsxRuntime.jsxs("div", { className: "mui-avatar mui-avatar--circular mui-avatar--medium mui-avatar-group__excess", children: ["+", excess] })] });
 });
 AvatarGroup.displayName = "AvatarGroup";
-var Badge = React19__namespace.default.forwardRef(({ badgeContent, color = "error", variant = "standard", invisible = false, max: max2 = 99, overlap = "rectangular", anchorOrigin = { vertical: "top", horizontal: "right" }, children, className, ...props }, ref) => {
+var Badge = React18__namespace.default.forwardRef(({ badgeContent, color = "error", variant = "standard", invisible = false, max: max2 = 99, overlap = "rectangular", anchorOrigin = { vertical: "top", horizontal: "right" }, children, className, ...props }, ref) => {
   const displayContent = variant === "dot" ? null : typeof badgeContent === "number" && badgeContent > max2 ? `${max2}+` : badgeContent;
   const shouldHide = invisible || variant === "standard" && badgeContent == null;
   return jsxRuntime.jsxs("span", { ref, className: cn("mui-badge", className), ...props, children: [children, !shouldHide && jsxRuntime.jsx("span", { className: cn("mui-badge__badge", `mui-badge--${color}`, `mui-badge--${variant}`, `mui-badge--${overlap}`, `mui-badge--${anchorOrigin.vertical}-${anchorOrigin.horizontal}`), children: displayContent })] });
 });
 Badge.displayName = "Badge";
-var Box4 = React19__namespace.default.forwardRef(({ component = "div", display, flexDirection, alignItems, justifyContent, gap, padding, margin, width, height: height2, minWidth, maxWidth, minHeight, maxHeight, overflow, position, className, children, style, ...props }, ref) => {
+var Box4 = React18__namespace.default.forwardRef(({ component = "div", display, flexDirection, alignItems, justifyContent, gap, padding, margin, width, height, minWidth, maxWidth, minHeight, maxHeight, overflow, position, className, children, style, ...props }, ref) => {
   const inlineStyle = {
     ...style,
     display,
@@ -8573,7 +8589,7 @@ var Box4 = React19__namespace.default.forwardRef(({ component = "div", display, 
     padding: typeof padding === "number" ? `${padding * 0.25}rem` : padding,
     margin: typeof margin === "number" ? `${margin * 0.25}rem` : margin,
     width,
-    height: height2,
+    height,
     minWidth,
     maxWidth,
     minHeight,
@@ -8585,12 +8601,12 @@ var Box4 = React19__namespace.default.forwardRef(({ component = "div", display, 
     if (inlineStyle[key] === void 0)
       delete inlineStyle[key];
   });
-  return React19__namespace.default.createElement(component, { ref, className: cn("mui-box", className), style: inlineStyle, ...props }, children);
+  return React18__namespace.default.createElement(component, { ref, className: cn("mui-box", className), style: inlineStyle, ...props }, children);
 });
 Box4.displayName = "Box";
-var Button3 = React19__namespace.default.forwardRef(({ variant = "contained", color = "primary", size: size4 = "medium", fullWidth = false, disabled: disabled2 = false, loading = false, disableRipple = false, disableElevation = false, startIcon, endIcon, rounded = false, className, children, onClick, href, ...props }, ref) => {
-  const buttonRef = React19.useRef(null);
-  const [ripples, setRipples] = React19.useState([]);
+var Button3 = React18__namespace.default.forwardRef(({ variant = "contained", color = "primary", size: size4 = "medium", fullWidth = false, disabled: disabled2 = false, loading = false, disableRipple = false, disableElevation = false, startIcon, endIcon, rounded = false, className, children, onClick, href, ...props }, ref) => {
+  const buttonRef = React18.useRef(null);
+  const [ripples, setRipples] = React18.useState([]);
   const handleClick = (e) => {
     if (disabled2 || loading)
       return;
@@ -8614,16 +8630,16 @@ var Button3 = React19__namespace.default.forwardRef(({ variant = "contained", co
   return jsxRuntime.jsx("button", { ref: ref || buttonRef, className: classes, disabled: disabled2 || loading, onClick: handleClick, "aria-busy": loading, "aria-disabled": disabled2 || loading, ...props, children: content });
 });
 Button3.displayName = "Button";
-var Card = React19__namespace.default.forwardRef(({ elevation = 1, variant = "elevation", interactive = false, className, children, ...props }, ref) => jsxRuntime.jsx("div", { ref, className: cn("mui-card", variant === "elevation" && `mui-card--elevation-${elevation}`, variant === "outlined" && "mui-card--outlined", interactive && "mui-card--interactive", className), ...props, children }));
+var Card = React18__namespace.default.forwardRef(({ elevation = 1, variant = "elevation", interactive = false, className, children, ...props }, ref) => jsxRuntime.jsx("div", { ref, className: cn("mui-card", variant === "elevation" && `mui-card--elevation-${elevation}`, variant === "outlined" && "mui-card--outlined", interactive && "mui-card--interactive", className), ...props, children }));
 Card.displayName = "Card";
 var CardHeader = ({ avatar, title, subheader, action, className, ...props }) => jsxRuntime.jsxs("div", { className: cn("mui-card__header", className), ...props, children: [avatar && jsxRuntime.jsx("div", { className: "mui-card__header-avatar", children: avatar }), jsxRuntime.jsxs("div", { className: "mui-card__header-content", children: [title && jsxRuntime.jsx("div", { className: "mui-card__header-title", children: title }), subheader && jsxRuntime.jsx("div", { className: "mui-card__header-subheader", children: subheader })] }), action && jsxRuntime.jsx("div", { className: "mui-card__header-action", children: action })] });
 var CardContent = ({ className, children, ...props }) => jsxRuntime.jsx("div", { className: cn("mui-card__content", className), ...props, children });
-var CardMedia = ({ component = "img", className, ...props }) => React19__namespace.default.createElement(component, { className: cn("mui-card__media", className), ...props });
+var CardMedia = ({ component = "img", className, ...props }) => React18__namespace.default.createElement(component, { className: cn("mui-card__media", className), ...props });
 var CardActions = ({ disableSpacing, className, children, ...props }) => jsxRuntime.jsx("div", { className: cn("mui-card__actions", !disableSpacing && "mui-card__actions--spaced", className), ...props, children });
-var Checkbox = React19__namespace.default.forwardRef(({ color = "primary", size: size4 = "medium", label, indeterminate, className, id, ...props }, ref) => {
+var Checkbox = React18__namespace.default.forwardRef(({ color = "primary", size: size4 = "medium", label, indeterminate, className, id, ...props }, ref) => {
   const inputId = id || `checkbox-${Math.random().toString(36).slice(2)}`;
-  const inputRef = React19__namespace.default.useRef(null);
-  React19__namespace.default.useEffect(() => {
+  const inputRef = React18__namespace.default.useRef(null);
+  React18__namespace.default.useEffect(() => {
     const el = (ref === null || ref === void 0 ? void 0 : ref.current) || inputRef.current;
     if (el)
       el.indeterminate = !!indeterminate;
@@ -8631,7 +8647,7 @@ var Checkbox = React19__namespace.default.forwardRef(({ color = "primary", size:
   return jsxRuntime.jsxs("label", { className: cn("mui-checkbox", `mui-checkbox--${color}`, `mui-checkbox--${size4}`, props.disabled && "mui-checkbox--disabled", className), htmlFor: inputId, children: [jsxRuntime.jsxs("span", { className: "mui-checkbox__box", children: [jsxRuntime.jsx("input", { ref: ref || inputRef, type: "checkbox", id: inputId, className: "mui-checkbox__input", ...props }), jsxRuntime.jsx("svg", { className: "mui-checkbox__icon", viewBox: "0 0 24 24", "aria-hidden": "true", children: indeterminate ? jsxRuntime.jsx("path", { d: "M6 12h12", fill: "none", stroke: "currentColor", strokeWidth: "2.5", strokeLinecap: "round" }) : jsxRuntime.jsx("path", { d: "M5 13l4 4L19 7", fill: "none", stroke: "currentColor", strokeWidth: "2.5", strokeLinecap: "round", strokeLinejoin: "round" }) })] }), label && jsxRuntime.jsx("span", { className: "mui-checkbox__label", children: label })] });
 });
 Checkbox.displayName = "Checkbox";
-var Chip = React19__namespace.default.forwardRef(({ label, variant = "filled", color = "primary", size: size4 = "medium", icon, avatar, deleteIcon, onDelete, clickable, disabled: disabled2, className, onClick, ...props }, ref) => {
+var Chip = React18__namespace.default.forwardRef(({ label, variant = "filled", color = "primary", size: size4 = "medium", icon, avatar, deleteIcon, onDelete, clickable, disabled: disabled2, className, onClick, ...props }, ref) => {
   const isClickable = clickable || !!onClick;
   return jsxRuntime.jsxs("div", { ref, className: cn("mui-chip", `mui-chip--${variant}`, `mui-chip--${color}`, `mui-chip--${size4}`, isClickable && "mui-chip--clickable", disabled2 && "mui-chip--disabled", className), role: isClickable ? "button" : void 0, tabIndex: isClickable && !disabled2 ? 0 : void 0, onClick: !disabled2 ? onClick : void 0, ...props, children: [avatar && jsxRuntime.jsx("span", { className: "mui-chip__avatar", children: avatar }), icon && !avatar && jsxRuntime.jsx("span", { className: "mui-chip__icon", children: icon }), jsxRuntime.jsx("span", { className: "mui-chip__label", children: label }), onDelete && jsxRuntime.jsx("button", { className: "mui-chip__delete", onClick: (e) => {
     e.stopPropagation();
@@ -8639,7 +8655,7 @@ var Chip = React19__namespace.default.forwardRef(({ label, variant = "filled", c
   }, "aria-label": `Remove ${label}`, tabIndex: -1, children: deleteIcon || jsxRuntime.jsx("svg", { viewBox: "0 0 24 24", width: "18", height: "18", children: jsxRuntime.jsx("path", { d: "M18 6L6 18M6 6l12 12", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", fill: "none" }) }) })] });
 });
 Chip.displayName = "Chip";
-var Container = React19__namespace.default.forwardRef(({ maxWidth = "lg", fixed = false, disableGutters = false, className, children, ...props }, ref) => {
+var Container = React18__namespace.default.forwardRef(({ maxWidth = "lg", fixed = false, disableGutters = false, className, children, ...props }, ref) => {
   const classes = cn("mui-container", maxWidth && `mui-container--${maxWidth}`, fixed && "mui-container--fixed", !disableGutters && "mui-container--gutters", className);
   return jsxRuntime.jsx("div", { ref, className: classes, ...props, children });
 });
@@ -8647,9 +8663,9 @@ Container.displayName = "Container";
 var DialogTitle3 = ({ className, children, ...props }) => jsxRuntime.jsx("h2", { className: cn("mui-dialog__title", className), ...props, children });
 var DialogContent3 = ({ className, children, ...props }) => jsxRuntime.jsx("div", { className: cn("mui-dialog__content", className), ...props, children });
 var DialogActions3 = ({ className, children, ...props }) => jsxRuntime.jsx("div", { className: cn("mui-dialog__actions", className), ...props, children });
-var Dialog3 = ({ open: open2, onClose, maxWidth = "sm", fullWidth = true, className, children, ...props }) => {
-  React19.useEffect(() => {
-    if (!open2)
+var Dialog3 = ({ open, onClose, maxWidth = "sm", fullWidth = true, className, children, ...props }) => {
+  React18.useEffect(() => {
+    if (!open)
       return;
     const handleKeyDown = (e) => {
       if (e.key === "Escape" && onClose) {
@@ -8658,12 +8674,12 @@ var Dialog3 = ({ open: open2, onClose, maxWidth = "sm", fullWidth = true, classN
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [open2, onClose]);
-  if (!open2)
+  }, [open, onClose]);
+  if (!open)
     return null;
   return jsxRuntime.jsxs("div", { className: "mui-dialog__root", children: [jsxRuntime.jsx("div", { className: "mui-dialog__backdrop", onClick: onClose }), jsxRuntime.jsx("div", { className: "mui-dialog__container", children: jsxRuntime.jsx("div", { role: "dialog", "aria-modal": "true", className: cn("mui-dialog__paper", maxWidth && `mui-dialog--max-${maxWidth}`, fullWidth && "mui-dialog--full-width", className), ...props, children }) })] });
 };
-var Divider = React19__namespace.default.forwardRef(({ orientation = "horizontal", variant = "fullWidth", textAlign = "center", light = false, className, children, ...props }, ref) => {
+var Divider = React18__namespace.default.forwardRef(({ orientation = "horizontal", variant = "fullWidth", textAlign = "center", light = false, className, children, ...props }, ref) => {
   const hasContent = !!children;
   const classes = cn("mui-divider", `mui-divider--${orientation}`, `mui-divider--${variant}`, light && "mui-divider--light", hasContent && "mui-divider--with-content", hasContent && `mui-divider--text-${textAlign}`, className);
   if (hasContent) {
@@ -8672,9 +8688,9 @@ var Divider = React19__namespace.default.forwardRef(({ orientation = "horizontal
   return jsxRuntime.jsx("hr", { ref, className: classes, role: "separator", ...props });
 });
 Divider.displayName = "Divider";
-var Drawer = ({ open: open2, onClose, anchor = "bottom", className, children, ...props }) => {
-  React19.useEffect(() => {
-    if (!open2)
+var Drawer = ({ open, onClose, anchor = "bottom", className, children, ...props }) => {
+  React18.useEffect(() => {
+    if (!open)
       return;
     const handleKeyDown = (e) => {
       if (e.key === "Escape" && onClose) {
@@ -8683,12 +8699,12 @@ var Drawer = ({ open: open2, onClose, anchor = "bottom", className, children, ..
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [open2, onClose]);
-  if (!open2)
+  }, [open, onClose]);
+  if (!open)
     return null;
   return jsxRuntime.jsxs("div", { className: "mui-drawer-root", children: [jsxRuntime.jsx("div", { className: "mui-drawer-backdrop", onClick: onClose }), jsxRuntime.jsxs("div", { role: "dialog", "aria-modal": "true", className: cn("mui-drawer-paper", `mui-drawer-paper--${anchor}`, className), ...props, children: [anchor === "bottom" && jsxRuntime.jsx("div", { className: "mui-drawer-handle-bar", children: jsxRuntime.jsx("div", { className: "mui-drawer-handle" }) }), jsxRuntime.jsx("div", { className: "mui-drawer-content", children })] })] });
 };
-var Grid = React19__namespace.default.forwardRef(({ container, item, spacing = 2, columns = 12, xs, sm, md, lg, xl, direction, alignItems, justifyContent, wrap = "wrap", component = "div", className, children, style, ...props }, ref) => {
+var Grid = React18__namespace.default.forwardRef(({ container, item, spacing = 2, columns = 12, xs, sm, md, lg, xl, direction, alignItems, justifyContent, wrap = "wrap", component = "div", className, children, style, ...props }, ref) => {
   const classes = cn("mui-grid", container && "mui-grid--container", item && "mui-grid--item", typeof xs === "number" && `mui-grid--xs-${xs}`, xs === true && "mui-grid--xs-auto", typeof sm === "number" && `mui-grid--sm-${sm}`, typeof md === "number" && `mui-grid--md-${md}`, typeof lg === "number" && `mui-grid--lg-${lg}`, typeof xl === "number" && `mui-grid--xl-${xl}`, className);
   const inlineStyle = {
     ...style,
@@ -8701,18 +8717,18 @@ var Grid = React19__namespace.default.forwardRef(({ container, item, spacing = 2
       flexWrap: wrap
     } : {}
   };
-  return React19__namespace.default.createElement(component, { ref, className: classes, style: inlineStyle, ...props }, children);
+  return React18__namespace.default.createElement(component, { ref, className: classes, style: inlineStyle, ...props }, children);
 });
 Grid.displayName = "Grid";
-var IconButton3 = React19__namespace.default.forwardRef(({ color = "default", size: size4 = "medium", edge = false, className, disabled: disabled2 = false, children, ...props }, ref) => {
+var IconButton3 = React18__namespace.default.forwardRef(({ color = "default", size: size4 = "medium", edge = false, className, disabled: disabled2 = false, children, ...props }, ref) => {
   return jsxRuntime.jsxs("button", { ref, type: "button", disabled: disabled2, className: cn("mui-icon-button", `mui-icon-button--${color}`, `mui-icon-button--${size4}`, edge && `mui-icon-button--edge-${edge}`, className), ...props, children: [jsxRuntime.jsx("span", { className: "mui-icon-button__content", children }), jsxRuntime.jsx("span", { className: "mui-icon-button__ripple" })] });
 });
 IconButton3.displayName = "IconButton";
 var OtpInput = ({ length = 6, value: controlledValue, defaultValue = "", onChange, onComplete, disabled: disabled2 = false, error: error2 = false, autoFocus = false, className }) => {
-  const [internalValue, setInternalValue] = React19.useState((controlledValue !== null && controlledValue !== void 0 ? controlledValue : defaultValue).padEnd(length, " ").slice(0, length));
-  const inputsRef = React19.useRef([]);
+  const [internalValue, setInternalValue] = React18.useState((controlledValue !== null && controlledValue !== void 0 ? controlledValue : defaultValue).padEnd(length, " ").slice(0, length));
+  const inputsRef = React18.useRef([]);
   const digits = (controlledValue !== null && controlledValue !== void 0 ? controlledValue : internalValue).split("");
-  React19.useEffect(() => {
+  React18.useEffect(() => {
     if (autoFocus && inputsRef.current[0]) {
       inputsRef.current[0].focus();
     }
@@ -8727,36 +8743,36 @@ var OtpInput = ({ length = 6, value: controlledValue, defaultValue = "", onChang
       onComplete === null || onComplete === void 0 ? void 0 : onComplete(code);
     }
   };
-  const handleKeyDown = (index3, e) => {
+  const handleKeyDown = (index2, e) => {
     var _a, _b, _c;
     if (e.key === "Backspace") {
       e.preventDefault();
       const next = [...digits];
-      if (next[index3] && next[index3] !== " ") {
-        next[index3] = " ";
+      if (next[index2] && next[index2] !== " ") {
+        next[index2] = " ";
         updateValue(next);
-      } else if (index3 > 0) {
-        next[index3 - 1] = " ";
+      } else if (index2 > 0) {
+        next[index2 - 1] = " ";
         updateValue(next);
-        (_a = inputsRef.current[index3 - 1]) === null || _a === void 0 ? void 0 : _a.focus();
+        (_a = inputsRef.current[index2 - 1]) === null || _a === void 0 ? void 0 : _a.focus();
       }
-    } else if (e.key === "ArrowLeft" && index3 > 0) {
-      (_b = inputsRef.current[index3 - 1]) === null || _b === void 0 ? void 0 : _b.focus();
-    } else if (e.key === "ArrowRight" && index3 < length - 1) {
-      (_c = inputsRef.current[index3 + 1]) === null || _c === void 0 ? void 0 : _c.focus();
+    } else if (e.key === "ArrowLeft" && index2 > 0) {
+      (_b = inputsRef.current[index2 - 1]) === null || _b === void 0 ? void 0 : _b.focus();
+    } else if (e.key === "ArrowRight" && index2 < length - 1) {
+      (_c = inputsRef.current[index2 + 1]) === null || _c === void 0 ? void 0 : _c.focus();
     }
   };
-  const handleChange = (index3, e) => {
+  const handleChange = (index2, e) => {
     var _a;
     const inputVal = e.target.value.replace(/\D/g, "");
     if (!inputVal)
       return;
     const char = inputVal.slice(-1);
     const next = [...digits];
-    next[index3] = char;
+    next[index2] = char;
     updateValue(next);
-    if (index3 < length - 1) {
-      (_a = inputsRef.current[index3 + 1]) === null || _a === void 0 ? void 0 : _a.focus();
+    if (index2 < length - 1) {
+      (_a = inputsRef.current[index2 + 1]) === null || _a === void 0 ? void 0 : _a.focus();
     }
   };
   const handlePaste = (e) => {
@@ -8772,12 +8788,12 @@ var OtpInput = ({ length = 6, value: controlledValue, defaultValue = "", onChang
   };
   return jsxRuntime.jsx("div", { className: cn("mui-otp-input", error2 && "mui-otp-input--error", disabled2 && "mui-otp-input--disabled", className), onPaste: handlePaste, children: Array.from({ length }).map((_, i) => jsxRuntime.jsx("input", { ref: (el) => inputsRef.current[i] = el, type: "text", inputMode: "numeric", pattern: "[0-9]*", maxLength: 1, value: digits[i] === " " ? "" : digits[i] || "", disabled: disabled2, onKeyDown: (e) => handleKeyDown(i, e), onChange: (e) => handleChange(i, e), onFocus: (e) => e.target.select(), className: "mui-otp-input__slot", "aria-label": `Digit ${i + 1} of ${length}` }, i)) });
 };
-var Paper2 = React19__namespace.default.forwardRef(({ elevation = 1, variant = "elevation", square = false, className, children, ...props }, ref) => {
+var Paper2 = React18__namespace.default.forwardRef(({ elevation = 1, variant = "elevation", square = false, className, children, ...props }, ref) => {
   const classes = cn("mui-paper", variant === "elevation" && `mui-paper--elevation-${elevation}`, variant === "outlined" && "mui-paper--outlined", !square && "mui-paper--rounded", className);
   return jsxRuntime.jsx("div", { ref, className: classes, ...props, children });
 });
 Paper2.displayName = "Paper";
-var CircularProgress3 = React19__namespace.default.forwardRef(({ size: size4 = 40, thickness = 3.6, value = 0, variant = "indeterminate", color = "primary", className, style, ...props }, ref) => {
+var CircularProgress3 = React18__namespace.default.forwardRef(({ size: size4 = 40, thickness = 3.6, value = 0, variant = "indeterminate", color = "primary", className, style, ...props }, ref) => {
   const numericSize = typeof size4 === "number" ? size4 : 40;
   const radius = (numericSize - thickness) / 2;
   const circumference = 2 * Math.PI * radius;
@@ -8789,22 +8805,22 @@ var CircularProgress3 = React19__namespace.default.forwardRef(({ size: size4 = 4
   }, ...props, children: jsxRuntime.jsx("svg", { className: "mui-circular-progress__svg", viewBox: `0 0 ${numericSize} ${numericSize}`, children: jsxRuntime.jsx("circle", { className: "mui-circular-progress__circle", cx: numericSize / 2, cy: numericSize / 2, r: radius, fill: "none", strokeWidth: thickness, strokeDasharray: variant === "determinate" ? circumference : void 0, strokeDashoffset }) }) });
 });
 CircularProgress3.displayName = "CircularProgress";
-var LinearProgress = React19__namespace.default.forwardRef(({ value = 0, variant = "indeterminate", color = "primary", className, style, ...props }, ref) => {
+var LinearProgress = React18__namespace.default.forwardRef(({ value = 0, variant = "indeterminate", color = "primary", className, style, ...props }, ref) => {
   return jsxRuntime.jsx("div", { ref, role: "progressbar", "aria-valuenow": variant === "determinate" ? Math.round(value) : void 0, className: cn("mui-linear-progress", `mui-linear-progress--${variant}`, `mui-linear-progress--${color}`, className), style, ...props, children: variant === "determinate" ? jsxRuntime.jsx("div", { className: "mui-linear-progress__bar", style: { width: `${Math.min(100, Math.max(0, value))}%` } }) : jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { className: "mui-linear-progress__bar mui-linear-progress__bar--1" }), jsxRuntime.jsx("div", { className: "mui-linear-progress__bar mui-linear-progress__bar--2" })] }) });
 });
 LinearProgress.displayName = "LinearProgress";
-var Radio = React19__namespace.default.forwardRef(({ color = "primary", size: size4 = "medium", label, className, ...props }, ref) => jsxRuntime.jsxs("label", { className: cn("mui-radio", `mui-radio--${color}`, `mui-radio--${size4}`, props.disabled && "mui-radio--disabled", className), children: [jsxRuntime.jsxs("span", { className: "mui-radio__circle", children: [jsxRuntime.jsx("input", { ref, type: "radio", className: "mui-radio__input", ...props }), jsxRuntime.jsx("span", { className: "mui-radio__dot" })] }), label && jsxRuntime.jsx("span", { className: "mui-radio__label", children: label })] }));
+var Radio = React18__namespace.default.forwardRef(({ color = "primary", size: size4 = "medium", label, className, ...props }, ref) => jsxRuntime.jsxs("label", { className: cn("mui-radio", `mui-radio--${color}`, `mui-radio--${size4}`, props.disabled && "mui-radio--disabled", className), children: [jsxRuntime.jsxs("span", { className: "mui-radio__circle", children: [jsxRuntime.jsx("input", { ref, type: "radio", className: "mui-radio__input", ...props }), jsxRuntime.jsx("span", { className: "mui-radio__dot" })] }), label && jsxRuntime.jsx("span", { className: "mui-radio__label", children: label })] }));
 Radio.displayName = "Radio";
-var RadioGroup = React19__namespace.default.forwardRef(({ name, value, defaultValue, onChange, row = false, children, className, ...props }, ref) => jsxRuntime.jsx("div", { ref, role: "radiogroup", className: cn("mui-radio-group", row && "mui-radio-group--row", className), ...props, children: React19__namespace.default.Children.map(children, (child) => {
-  if (React19__namespace.default.isValidElement(child)) {
-    return React19__namespace.default.cloneElement(child, { name, onChange, ...value !== void 0 ? { checked: child.props.value === value } : {} });
+var RadioGroup = React18__namespace.default.forwardRef(({ name, value, defaultValue, onChange, row = false, children, className, ...props }, ref) => jsxRuntime.jsx("div", { ref, role: "radiogroup", className: cn("mui-radio-group", row && "mui-radio-group--row", className), ...props, children: React18__namespace.default.Children.map(children, (child) => {
+  if (React18__namespace.default.isValidElement(child)) {
+    return React18__namespace.default.cloneElement(child, { name, onChange, ...value !== void 0 ? { checked: child.props.value === value } : {} });
   }
   return child;
 }) }));
 RadioGroup.displayName = "RadioGroup";
 var Rating = ({ value: controlledValue, defaultValue = 0, max: max2 = 5, onChange, readOnly = false, disabled: disabled2 = false, size: size4 = "medium", className }) => {
-  const [internalValue, setInternalValue] = React19.useState(defaultValue);
-  const [hoverValue, setHoverValue] = React19.useState(null);
+  const [internalValue, setInternalValue] = React18.useState(defaultValue);
+  const [hoverValue, setHoverValue] = React18.useState(null);
   const activeValue = hoverValue !== null ? hoverValue : controlledValue !== null && controlledValue !== void 0 ? controlledValue : internalValue;
   const handleClick = (rating) => {
     if (readOnly || disabled2)
@@ -8820,27 +8836,27 @@ var Rating = ({ value: controlledValue, defaultValue = 0, max: max2 = 5, onChang
     return jsxRuntime.jsx("button", { type: "button", disabled: disabled2 || readOnly, className: cn("mui-rating__star", isFilled && "mui-rating__star--filled"), onClick: () => handleClick(starNumber), onMouseEnter: () => !readOnly && !disabled2 && setHoverValue(starNumber), "aria-label": `${starNumber} Star${starNumber > 1 ? "s" : ""}`, children: jsxRuntime.jsx("svg", { viewBox: "0 0 24 24", className: "mui-rating__star-icon", fill: isFilled ? "currentColor" : "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: jsxRuntime.jsx("polygon", { points: "12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" }) }) }, i);
   }) });
 };
-var Select = React19__namespace.default.forwardRef(({ label, options = [], variant = "outlined", fullWidth = false, helperText, error: error2 = false, className, children, value, defaultValue, onChange, disabled: disabled2, ...props }, ref) => {
-  const [isFocused, setIsFocused] = React19.useState(false);
+var Select = React18__namespace.default.forwardRef(({ label, options = [], variant = "outlined", fullWidth = false, helperText, error: error2 = false, className, children, value, defaultValue, onChange, disabled: disabled2, ...props }, ref) => {
+  const [isFocused, setIsFocused] = React18.useState(false);
   return jsxRuntime.jsxs("div", { className: cn("mui-select-field", `mui-select-field--${variant}`, fullWidth && "mui-select-field--full-width", error2 && "mui-select-field--error", disabled2 && "mui-select-field--disabled", isFocused && "mui-select-field--focused", className), children: [label && jsxRuntime.jsx("label", { className: "mui-select-field__label", children: label }), jsxRuntime.jsxs("div", { className: "mui-select-field__wrapper", children: [jsxRuntime.jsx("select", { ref, value, defaultValue, disabled: disabled2, onChange, onFocus: () => setIsFocused(true), onBlur: () => setIsFocused(false), className: "mui-select-field__input", ...props, children: options.length > 0 ? options.map((opt) => jsxRuntime.jsx("option", { value: opt.value, disabled: opt.disabled, children: opt.label }, opt.value)) : children }), jsxRuntime.jsx("div", { className: "mui-select-field__arrow", children: jsxRuntime.jsx("svg", { viewBox: "0 0 24 24", width: "20", height: "20", fill: "currentColor", children: jsxRuntime.jsx("path", { d: "M7 10l5 5 5-5z" }) }) })] }), helperText && jsxRuntime.jsx("p", { className: "mui-select-field__helper", children: helperText })] });
 });
 Select.displayName = "Select";
-var Skeleton = React19__namespace.default.forwardRef(({ variant = "text", animation = "wave", width, height: height2, className, style, ...props }, ref) => {
+var Skeleton = React18__namespace.default.forwardRef(({ variant = "text", animation = "wave", width, height, className, style, ...props }, ref) => {
   return jsxRuntime.jsx("div", { ref, className: cn("mui-skeleton", `mui-skeleton--${variant}`, animation && `mui-skeleton--${animation}`, className), style: {
     width,
-    height: height2,
+    height,
     ...style
   }, ...props });
 });
 Skeleton.displayName = "Skeleton";
-var Slider = React19__namespace.default.forwardRef(({ value: propValue, defaultValue = 50, min: min2 = 0, max: max2 = 100, step = 1, color = "primary", size: size4 = "medium", disabled: disabled2 = false, marks = false, valueLabelDisplay = "auto", onChange, onChangeCommitted, className, ...props }, ref) => {
-  const [internalValue, setInternalValue] = React19.useState(defaultValue);
-  const [dragging, setDragging] = React19.useState(false);
-  const [hovering, setHovering] = React19.useState(false);
-  const trackRef = React19.useRef(null);
+var Slider = React18__namespace.default.forwardRef(({ value: propValue, defaultValue = 50, min: min2 = 0, max: max2 = 100, step = 1, color = "primary", size: size4 = "medium", disabled: disabled2 = false, marks = false, valueLabelDisplay = "auto", onChange, onChangeCommitted, className, ...props }, ref) => {
+  const [internalValue, setInternalValue] = React18.useState(defaultValue);
+  const [dragging, setDragging] = React18.useState(false);
+  const [hovering, setHovering] = React18.useState(false);
+  const trackRef = React18.useRef(null);
   const val = propValue !== void 0 ? propValue : internalValue;
   const percent = (val - min2) / (max2 - min2) * 100;
-  const updateValue = React19.useCallback((clientX) => {
+  const updateValue = React18.useCallback((clientX) => {
     if (!trackRef.current || disabled2)
       return;
     const rect = trackRef.current.getBoundingClientRect();
@@ -8871,7 +8887,7 @@ var Slider = React19__namespace.default.forwardRef(({ value: propValue, defaultV
   return jsxRuntime.jsxs("div", { ref, className: cn("mui-slider", `mui-slider--${color}`, `mui-slider--${size4}`, disabled2 && "mui-slider--disabled", dragging && "mui-slider--active", className), onMouseDown: handleMouseDown, role: "slider", "aria-valuemin": min2, "aria-valuemax": max2, "aria-valuenow": val, "aria-disabled": disabled2, tabIndex: disabled2 ? -1 : 0, ...props, children: [jsxRuntime.jsxs("div", { ref: trackRef, className: "mui-slider__track-container", children: [jsxRuntime.jsx("div", { className: "mui-slider__rail" }), jsxRuntime.jsx("div", { className: "mui-slider__track", style: { width: `${percent}%` } }), jsxRuntime.jsx("div", { className: "mui-slider__thumb", style: { left: `${percent}%` }, onMouseEnter: () => setHovering(true), onMouseLeave: () => setHovering(false), children: showLabel && jsxRuntime.jsx("span", { className: "mui-slider__value-label", children: Math.round(val) }) })] }), marks && Array.isArray(marks) && jsxRuntime.jsx("div", { className: "mui-slider__marks", children: marks.map((m) => jsxRuntime.jsx("span", { className: "mui-slider__mark", style: { left: `${(m.value - min2) / (max2 - min2) * 100}%` }, children: m.label && jsxRuntime.jsx("span", { className: "mui-slider__mark-label", children: m.label }) }, m.value)) })] });
 });
 Slider.displayName = "Slider";
-var Stack2 = React19__namespace.default.forwardRef(({ direction = "column", spacing = 2, alignItems, justifyContent, flexWrap, divider, component = "div", className, children, style, ...props }, ref) => {
+var Stack2 = React18__namespace.default.forwardRef(({ direction = "column", spacing = 2, alignItems, justifyContent, flexWrap, divider, component = "div", className, children, style, ...props }, ref) => {
   const classes = cn("mui-stack", `mui-stack--${direction}`, className);
   const inlineStyle = {
     ...style,
@@ -8885,21 +8901,21 @@ var Stack2 = React19__namespace.default.forwardRef(({ direction = "column", spac
       delete inlineStyle[k];
   });
   let content = children;
-  if (divider && React19__namespace.default.Children.count(children) > 1) {
-    const childArray = React19__namespace.default.Children.toArray(children);
+  if (divider && React18__namespace.default.Children.count(children) > 1) {
+    const childArray = React18__namespace.default.Children.toArray(children);
     const withDividers = [];
     childArray.forEach((child, i) => {
       withDividers.push(child);
       if (i < childArray.length - 1) {
-        withDividers.push(React19__namespace.default.cloneElement(divider, { key: `divider-${i}` }));
+        withDividers.push(React18__namespace.default.cloneElement(divider, { key: `divider-${i}` }));
       }
     });
     content = withDividers;
   }
-  return React19__namespace.default.createElement(component, { ref, className: classes, style: inlineStyle, ...props }, content);
+  return React18__namespace.default.createElement(component, { ref, className: classes, style: inlineStyle, ...props }, content);
 });
 Stack2.displayName = "Stack";
-var Switch = React19__namespace.default.forwardRef(({ color = "primary", size: size4 = "medium", label, labelPlacement = "end", className, ...props }, ref) => {
+var Switch = React18__namespace.default.forwardRef(({ color = "primary", size: size4 = "medium", label, labelPlacement = "end", className, ...props }, ref) => {
   return jsxRuntime.jsxs("label", { className: cn("mui-switch", `mui-switch--${color}`, `mui-switch--${size4}`, `mui-switch--label-${labelPlacement}`, props.disabled && "mui-switch--disabled", className), children: [label && labelPlacement === "start" && jsxRuntime.jsx("span", { className: "mui-switch__label", children: label }), jsxRuntime.jsxs("span", { className: "mui-switch__track", children: [jsxRuntime.jsx("input", { ref, type: "checkbox", className: "mui-switch__input", role: "switch", ...props }), jsxRuntime.jsx("span", { className: "mui-switch__thumb" })] }), label && labelPlacement === "end" && jsxRuntime.jsx("span", { className: "mui-switch__label", children: label })] });
 });
 Switch.displayName = "Switch";
@@ -8907,22 +8923,22 @@ var Tab = ({ value, label, icon, selected = false, className, children, ...props
   return jsxRuntime.jsxs("button", { type: "button", role: "tab", "aria-selected": selected, className: cn("mui-tab", selected && "mui-tab--selected", className), ...props, children: [icon && jsxRuntime.jsx("span", { className: "mui-tab__icon", children: icon }), jsxRuntime.jsx("span", { className: "mui-tab__label", children: label !== null && label !== void 0 ? label : children })] });
 };
 var Tabs = ({ value, onChange, items, variant = "line", fullWidth = false, className, children }) => {
-  return jsxRuntime.jsx("div", { role: "tablist", className: cn("mui-tabs", `mui-tabs--${variant}`, fullWidth && "mui-tabs--full-width", className), children: items ? items.map((item) => jsxRuntime.jsx(Tab, { value: item.id, label: item.label, icon: item.icon, disabled: item.disabled, selected: value === item.id, onClick: () => onChange(item.id) }, item.id)) : React19__namespace.default.Children.map(children, (child) => {
-    if (!React19__namespace.default.isValidElement(child))
+  return jsxRuntime.jsx("div", { role: "tablist", className: cn("mui-tabs", `mui-tabs--${variant}`, fullWidth && "mui-tabs--full-width", className), children: items ? items.map((item) => jsxRuntime.jsx(Tab, { value: item.id, label: item.label, icon: item.icon, disabled: item.disabled, selected: value === item.id, onClick: () => onChange(item.id) }, item.id)) : React18__namespace.default.Children.map(children, (child) => {
+    if (!React18__namespace.default.isValidElement(child))
       return child;
     const isSelected = child.props.value === value;
-    return React19__namespace.default.cloneElement(child, {
+    return React18__namespace.default.cloneElement(child, {
       selected: isSelected,
       onClick: () => onChange(child.props.value)
     });
   }) });
 };
-var TextField = React19__namespace.default.forwardRef(({ variant = "outlined", color = "primary", size: size4 = "medium", label, helperText, error: error2 = false, fullWidth = false, multiline = false, rows = 4, startAdornment, endAdornment, inputRef, className, disabled: disabled2, value, defaultValue, onChange, onFocus, onBlur, id: propId, ...props }, ref) => {
-  const autoId = React19.useId();
+var TextField = React18__namespace.default.forwardRef(({ variant = "outlined", color = "primary", size: size4 = "medium", label, helperText, error: error2 = false, fullWidth = false, multiline = false, rows = 4, startAdornment, endAdornment, inputRef, className, disabled: disabled2, value, defaultValue, onChange, onFocus, onBlur, id: propId, ...props }, ref) => {
+  const autoId = React18.useId();
   const id = propId || autoId;
-  const [focused, setFocused] = React19.useState(false);
-  const [hasValue, setHasValue] = React19.useState(!!(value || defaultValue));
-  const internalRef = React19.useRef(null);
+  const [focused, setFocused] = React18.useState(false);
+  const [hasValue, setHasValue] = React18.useState(!!(value || defaultValue));
+  const internalRef = React18.useRef(null);
   const handleFocus = (e) => {
     setFocused(true);
     onFocus === null || onFocus === void 0 ? void 0 : onFocus(e);
@@ -8955,9 +8971,9 @@ var TextField = React19__namespace.default.forwardRef(({ variant = "outlined", c
 });
 TextField.displayName = "TextField";
 var Tooltip = ({ title, children, placement = "top", arrow: arrow5 = true, enterDelay = 150, leaveDelay = 100, className }) => {
-  const [open2, setOpen] = React19.useState(false);
-  const enterTimer = React19.useRef(null);
-  const leaveTimer = React19.useRef(null);
+  const [open, setOpen] = React18.useState(false);
+  const enterTimer = React18.useRef(null);
+  const leaveTimer = React18.useRef(null);
   const handleMouseEnter = () => {
     if (leaveTimer.current)
       clearTimeout(leaveTimer.current);
@@ -8972,7 +8988,7 @@ var Tooltip = ({ title, children, placement = "top", arrow: arrow5 = true, enter
       setOpen(false);
     }, leaveDelay);
   };
-  React19.useEffect(() => {
+  React18.useEffect(() => {
     return () => {
       if (enterTimer.current)
         clearTimeout(enterTimer.current);
@@ -8980,7 +8996,7 @@ var Tooltip = ({ title, children, placement = "top", arrow: arrow5 = true, enter
         clearTimeout(leaveTimer.current);
     };
   }, []);
-  return jsxRuntime.jsxs("div", { className: "mui-tooltip-wrapper", onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave, onFocus: handleMouseEnter, onBlur: handleMouseLeave, children: [children, open2 && title && jsxRuntime.jsxs("div", { role: "tooltip", className: cn("mui-tooltip", `mui-tooltip--${placement}`, arrow5 && "mui-tooltip--arrow", className), children: [title, arrow5 && jsxRuntime.jsx("span", { className: "mui-tooltip__arrow" })] })] });
+  return jsxRuntime.jsxs("div", { className: "mui-tooltip-wrapper", onMouseEnter: handleMouseEnter, onMouseLeave: handleMouseLeave, onFocus: handleMouseEnter, onBlur: handleMouseLeave, children: [children, open && title && jsxRuntime.jsxs("div", { role: "tooltip", className: cn("mui-tooltip", `mui-tooltip--${placement}`, arrow5 && "mui-tooltip--arrow", className), children: [title, arrow5 && jsxRuntime.jsx("span", { className: "mui-tooltip__arrow" })] })] });
 };
 var variantMapping = {
   h1: "h1",
@@ -8997,14 +9013,14 @@ var variantMapping = {
   overline: "span",
   inherit: "span"
 };
-var Typography3 = React19__namespace.default.forwardRef(({ variant = "body1", component, align = "inherit", color = "inherit", gutterBottom = false, noWrap = false, paragraph = false, className, children, ...props }, ref) => {
+var Typography3 = React18__namespace.default.forwardRef(({ variant = "body1", component, align = "inherit", color = "inherit", gutterBottom = false, noWrap = false, paragraph = false, className, children, ...props }, ref) => {
   const Component = component || (paragraph ? "p" : variantMapping[variant] || "span");
   const classes = cn("mui-typography", `mui-typography--${variant}`, align !== "inherit" && `mui-typography--align-${align}`, `mui-typography--color-${color}`, gutterBottom && "mui-typography--gutter-bottom", noWrap && "mui-typography--no-wrap", className);
-  return React19__namespace.default.createElement(Component, { ref, className: classes, ...props }, children);
+  return React18__namespace.default.createElement(Component, { ref, className: classes, ...props }, children);
 });
 Typography3.displayName = "Typography";
 
-// node_modules/@namios/motionui-react/dist/esm/utils/colorEngine.js
+// node_modules/.pnpm/@namios+motionui-react@1.0.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@namios/motionui-react/dist/esm/utils/colorEngine.js
 function hexToRgb(color) {
   if (!color)
     return { r: 99, g: 102, b: 241 };
@@ -9124,7 +9140,7 @@ function injectThemeTokens(tokens, target = typeof document !== "undefined" ? do
   }
 }
 
-// node_modules/@namios/motionui-react/dist/esm/theme/ThemeProvider.js
+// node_modules/.pnpm/@namios+motionui-react@1.0.0_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/@namios/motionui-react/dist/esm/theme/ThemeProvider.js
 function resolvePaletteColor(input, fallback) {
   if (!input)
     return fallback;
@@ -9225,7 +9241,7 @@ function createTheme2(options = {}) {
   };
 }
 var defaultTheme = createTheme2();
-var ThemeContext = React19.createContext({
+var ThemeContext = React18.createContext({
   theme: defaultTheme,
   mode: "light",
   toggleMode: () => {
@@ -9236,11 +9252,11 @@ var ThemeContext = React19.createContext({
   }
 });
 function useTheme3() {
-  return React19.useContext(ThemeContext);
+  return React18.useContext(ThemeContext);
 }
 var ThemeProvider2 = ({ theme: initialTheme = defaultTheme, children, defaultMode = "light" }) => {
-  const [activeTheme, setActiveTheme] = React19.useState(initialTheme);
-  const [mode, setModeState] = React19.useState(() => {
+  const [activeTheme, setActiveTheme] = React18.useState(initialTheme);
+  const [mode, setModeState] = React18.useState(() => {
     if (defaultMode === "auto") {
       if (typeof window !== "undefined") {
         return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
@@ -9249,10 +9265,10 @@ var ThemeProvider2 = ({ theme: initialTheme = defaultTheme, children, defaultMod
     }
     return defaultMode;
   });
-  React19.useEffect(() => {
+  React18.useEffect(() => {
     setActiveTheme(initialTheme);
   }, [initialTheme]);
-  React19.useEffect(() => {
+  React18.useEffect(() => {
     if (defaultMode !== "auto" || typeof window === "undefined")
       return;
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
@@ -9262,12 +9278,12 @@ var ThemeProvider2 = ({ theme: initialTheme = defaultTheme, children, defaultMod
     mediaQuery.addEventListener("change", handler);
     return () => mediaQuery.removeEventListener("change", handler);
   }, [defaultMode]);
-  React19.useEffect(() => {
+  React18.useEffect(() => {
     if (typeof document === "undefined")
       return;
     document.documentElement.setAttribute("data-theme", mode);
   }, [mode]);
-  React19.useEffect(() => {
+  React18.useEffect(() => {
     if (typeof document === "undefined")
       return;
     injectThemeTokens({
@@ -9282,13 +9298,13 @@ var ThemeProvider2 = ({ theme: initialTheme = defaultTheme, children, defaultMod
       borderRadius: activeTheme.shape.borderRadius
     }, document.documentElement);
   }, [activeTheme, mode]);
-  const toggleMode = React19.useCallback(() => {
+  const toggleMode = React18.useCallback(() => {
     setModeState((prev) => prev === "light" ? "dark" : "light");
   }, []);
-  const setMode = React19.useCallback((newMode) => {
+  const setMode = React18.useCallback((newMode) => {
     setModeState(newMode);
   }, []);
-  const setDynamicBrand = React19.useCallback((colors) => {
+  const setDynamicBrand = React18.useCallback((colors) => {
     setActiveTheme((prev) => createTheme2({
       palette: {
         ...prev.palette,
@@ -9299,11 +9315,11 @@ var ThemeProvider2 = ({ theme: initialTheme = defaultTheme, children, defaultMod
       shape: prev.shape
     }));
   }, []);
-  const contextValue = React19.useMemo(() => ({ theme: activeTheme, mode, toggleMode, setMode, setDynamicBrand }), [activeTheme, mode, toggleMode, setMode, setDynamicBrand]);
-  return React19__namespace.default.createElement(ThemeContext.Provider, { value: contextValue }, children);
+  const contextValue = React18.useMemo(() => ({ theme: activeTheme, mode, toggleMode, setMode, setDynamicBrand }), [activeTheme, mode, toggleMode, setMode, setDynamicBrand]);
+  return React18__namespace.default.createElement(ThemeContext.Provider, { value: contextValue }, children);
 };
 var AdaptiveThemeProvider = ({ remoteConfig = {}, children }) => {
-  const customTheme = React19.useMemo(() => {
+  const customTheme = React18.useMemo(() => {
     return createTheme2({
       palette: {
         primary: remoteConfig.primaryColor,
@@ -9338,13 +9354,13 @@ function createMuiCompatiblePalette(theme) {
   };
 }
 function useMediaQuery2(query) {
-  const [matches, setMatches] = React19.useState(() => {
+  const [matches, setMatches] = React18.useState(() => {
     if (typeof window !== "undefined") {
       return window.matchMedia(query).matches;
     }
     return false;
   });
-  React19.useEffect(() => {
+  React18.useEffect(() => {
     if (typeof window === "undefined")
       return;
     const mediaQuery = window.matchMedia(query);
@@ -9421,7 +9437,7 @@ var HIGHLIGHT_SPRING = {
   damping: 35
 };
 var ContextMenu = ({
-  open: open2,
+  open,
   x,
   y,
   items,
@@ -9430,13 +9446,13 @@ var ContextMenu = ({
 }) => {
   const muiTheme = styles.useTheme();
   const isDark = (mode ?? muiTheme?.palette?.mode) === "dark";
-  const [highlightedIndex, setHighlightedIndex] = React19.useState(-1);
-  const [highlightedSubIndex, setHighlightedSubIndex] = React19.useState(-1);
-  const [activeSubmenu, setActiveSubmenu] = React19.useState(null);
-  const menuRef = React19.useRef(null);
-  const [position, setPosition] = React19.useState({ x, y });
-  React19.useEffect(() => {
-    if (!open2) {
+  const [highlightedIndex, setHighlightedIndex] = React18.useState(-1);
+  const [highlightedSubIndex, setHighlightedSubIndex] = React18.useState(-1);
+  const [activeSubmenu, setActiveSubmenu] = React18.useState(null);
+  const menuRef = React18.useRef(null);
+  const [position, setPosition] = React18.useState({ x, y });
+  React18.useEffect(() => {
+    if (!open) {
       setHighlightedIndex(-1);
       setHighlightedSubIndex(-1);
       setActiveSubmenu(null);
@@ -9455,9 +9471,9 @@ var ContextMenu = ({
       posY = Math.max(12, winHeight - estimatedHeight - 12);
     }
     setPosition({ x: Math.max(12, posX), y: Math.max(12, posY) });
-  }, [open2, x, y, items]);
-  React19.useEffect(() => {
-    if (!open2) return;
+  }, [open, x, y, items]);
+  React18.useEffect(() => {
+    if (!open) return;
     const handleMouseDown = (e) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
         onClose();
@@ -9479,8 +9495,8 @@ var ContextMenu = ({
       document.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("scroll", handleScroll, { capture: true });
     };
-  }, [open2, onClose]);
-  const handleItemClick = React19.useCallback(
+  }, [open, onClose]);
+  const handleItemClick = React18.useCallback(
     (item) => {
       if (item.disabled || item.separator) return;
       if (item.children && item.children.length > 0) return;
@@ -9489,7 +9505,7 @@ var ContextMenu = ({
     },
     [onClose]
   );
-  return /* @__PURE__ */ jsxRuntime.jsx(framerMotion.AnimatePresence, { children: open2 && /* @__PURE__ */ jsxRuntime.jsx(
+  return /* @__PURE__ */ jsxRuntime.jsx(framerMotion.AnimatePresence, { children: open && /* @__PURE__ */ jsxRuntime.jsx(
     framerMotion.motion.div,
     {
       ref: menuRef,
@@ -9515,7 +9531,7 @@ var ContextMenu = ({
         outline: "none"
       },
       onContextMenu: (e) => e.preventDefault(),
-      children: items.map((item, index3) => {
+      children: items.map((item, index2) => {
         if (item.separator) {
           return /* @__PURE__ */ jsxRuntime.jsx(
             "div",
@@ -9526,10 +9542,10 @@ var ContextMenu = ({
                 margin: "4px 6px"
               }
             },
-            `sep-${index3}`
+            `sep-${index2}`
           );
         }
-        const isHighlighted = highlightedIndex === index3;
+        const isHighlighted = highlightedIndex === index2;
         const hasChildren = Boolean(item.children && item.children.length > 0);
         const isSubmenuOpen = activeSubmenu === item.label;
         return /* @__PURE__ */ jsxRuntime.jsxs(
@@ -9538,7 +9554,7 @@ var ContextMenu = ({
             style: { position: "relative" },
             onMouseEnter: () => {
               if (!item.disabled) {
-                setHighlightedIndex(index3);
+                setHighlightedIndex(index2);
                 setHighlightedSubIndex(-1);
                 if (hasChildren && item.label) {
                   setActiveSubmenu(item.label);
@@ -9789,7 +9805,7 @@ var ContextMenu = ({
               ) })
             ]
           },
-          item.key || item.label || `item-${index3}`
+          item.key || item.label || `item-${index2}`
         );
       })
     }
@@ -9988,20 +10004,22 @@ var DataTable = ({
   );
 };
 var StatCardRoot = styles.styled(Card2__default.default, {
-  shouldForwardProp: (prop) => prop !== "compactSize"
-})(({ theme, compactSize }) => ({
+  shouldForwardProp: (prop) => prop !== "compactSize" && prop !== "borderless"
+})(({ theme, compactSize, borderless }) => ({
   padding: compactSize ? theme.spacing(1, 1.25) : theme.spacing(1.25, 1.75),
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
   height: "100%",
-  borderRadius: "4px",
-  boxShadow: "0 1px 2px rgba(0, 0, 0, 0.03)",
-  border: `0.5px solid ${theme.palette.mode === "light" ? "rgba(15, 23, 42, 0.08)" : "rgba(255, 255, 255, 0.08)"}`,
+  borderRadius: borderless ? 0 : "4px",
+  boxShadow: borderless ? "none" : "0 1px 2px rgba(0, 0, 0, 0.03)",
+  border: borderless ? "none" : `0.5px solid ${theme.palette.mode === "light" ? "rgba(15, 23, 42, 0.08)" : "rgba(255, 255, 255, 0.08)"}`,
+  backgroundColor: borderless ? "transparent" : void 0,
   transition: "border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease",
   "&:hover": {
-    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
-    borderColor: theme.palette.mode === "light" ? "rgba(15, 23, 42, 0.18)" : "rgba(255, 255, 255, 0.18)",
+    boxShadow: borderless ? "none" : "0 2px 4px rgba(0, 0, 0, 0.05)",
+    borderColor: borderless ? "transparent" : theme.palette.mode === "light" ? "rgba(15, 23, 42, 0.18)" : "rgba(255, 255, 255, 0.18)",
+    backgroundColor: borderless ? theme.palette.mode === "light" ? "rgba(0,0,0,0.015)" : "rgba(255,255,255,0.02)" : void 0,
     transform: "none"
   }
 }));
@@ -10054,7 +10072,8 @@ var StatCard = ({
   badge,
   iconColor = "primary",
   size: size4 = "small",
-  compactSize
+  compactSize,
+  borderless = false
 }) => {
   const { t } = reactI18next.useTranslation();
   const isCompact = size4 === "small" || size4 === "mini" || Boolean(compactSize);
@@ -10081,7 +10100,7 @@ var StatCard = ({
     }
   ) : null;
   if (layout === "kpi") {
-    return /* @__PURE__ */ jsxRuntime.jsx(StatCardRoot, { compactSize: isCompact, children: /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1.5, width: "100%" }, children: [
+    return /* @__PURE__ */ jsxRuntime.jsx(StatCardRoot, { compactSize: isCompact, borderless, children: /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1.5, width: "100%" }, children: [
       /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { display: "flex", flexDirection: "column", minWidth: 0, flex: 1, gap: 0.25 }, children: [
         /* @__PURE__ */ jsxRuntime.jsx(
           Typography4__default.default,
@@ -10112,7 +10131,7 @@ var StatCard = ({
       icon ? /* @__PURE__ */ jsxRuntime.jsx(IconTile, { colorKey: iconColor, compact: isCompact, children: icon }) : badge ? /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { flexShrink: 0 }, children: badge }) : null
     ] }) });
   }
-  return /* @__PURE__ */ jsxRuntime.jsxs(StatCardRoot, { compactSize: isCompact, children: [
+  return /* @__PURE__ */ jsxRuntime.jsxs(StatCardRoot, { compactSize: isCompact, borderless, children: [
     /* @__PURE__ */ jsxRuntime.jsxs(Box6__default.default, { sx: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: 1, width: "100%", mb: 0.25 }, children: [
       /* @__PURE__ */ jsxRuntime.jsxs(
         Typography4__default.default,
@@ -10183,7 +10202,7 @@ var Detail = styles.styled("dd")(({ theme }) => ({
 }));
 var DescriptionList = ({ items, className }) => {
   const { t } = reactI18next.useTranslation();
-  return /* @__PURE__ */ jsxRuntime.jsx(ListRoot, { className, children: items.map((item) => /* @__PURE__ */ jsxRuntime.jsxs(React19.Fragment, { children: [
+  return /* @__PURE__ */ jsxRuntime.jsx(ListRoot, { className, children: items.map((item) => /* @__PURE__ */ jsxRuntime.jsxs(React18.Fragment, { children: [
     /* @__PURE__ */ jsxRuntime.jsx(Term, { children: t(item.labelKey, item.labelParams) }),
     /* @__PURE__ */ jsxRuntime.jsx(Detail, { children: item.value })
   ] }, item.labelKey)) });
@@ -10257,10 +10276,10 @@ var SelectField = ({
     }
   );
 };
-var PasswordField = React19.forwardRef(
+var PasswordField = React18.forwardRef(
   function PasswordField2(props, ref) {
     const { t } = reactI18next.useTranslation();
-    const [visible, setVisible] = React19.useState(false);
+    const [visible, setVisible] = React18.useState(false);
     return /* @__PURE__ */ jsxRuntime.jsx(
       TextField5__default.default,
       {
@@ -10378,10 +10397,11 @@ var FormSwitch = ({
 };
 var LanguageSwitcher = ({ variant = "text" }) => {
   const { i18n: i18n2, t } = reactI18next.useTranslation();
-  const [anchorEl, setAnchorEl] = React19.useState(null);
-  const current = SUPPORTED_LOCALES.find((locale) => i18n2.language.startsWith(locale.code)) ?? SUPPORTED_LOCALES[0];
+  const [anchorEl, setAnchorEl] = React18.useState(null);
+  const lang = i18n2?.language ?? "en";
+  const current = SUPPORTED_LOCALES.find((locale) => lang.startsWith(locale.code)) ?? SUPPORTED_LOCALES[0];
   const handleSelect = (code) => {
-    void i18n2.changeLanguage(code);
+    void i18n2?.changeLanguage?.(code);
     setAnchorEl(null);
   };
   return /* @__PURE__ */ jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [
@@ -10619,7 +10639,7 @@ var TimelineMatrix = ({
 }) => {
   const { t, i18n: i18n2 } = reactI18next.useTranslation();
   const theme = styles.useTheme();
-  const scrollContainerRef = React19.useRef(null);
+  const scrollContainerRef = React18.useRef(null);
   const dayList = dateRangeDays(startDate, days);
   const todayDate = today ?? todayIso();
   const endDate = addDays(startDate, days);
@@ -10628,7 +10648,7 @@ var TimelineMatrix = ({
     ...customDimensions
   };
   const { resourceColWidth, dayColWidth, rowHeight, spanInset } = dimensions;
-  React19.useEffect(() => {
+  React18.useEffect(() => {
     if (!initialScrollDate || !scrollContainerRef.current) return;
     const dayIndex = differenceInDays(startDate, initialScrollDate);
     if (dayIndex < 0 || dayIndex >= days) return;
@@ -10858,7 +10878,7 @@ var DrawerFooter = styles.styled("footer")(({ theme }) => ({
   "& > *": { flexGrow: 1 }
 }));
 var AppDrawer = ({
-  open: open2,
+  open,
   onClose,
   titleKey,
   titleParams,
@@ -10896,7 +10916,7 @@ var AppDrawer = ({
   return /* @__PURE__ */ jsxRuntime.jsxs(
     Dialog__default.default,
     {
-      open: open2,
+      open,
       onClose: (_event, reason) => {
         if (reason !== "backdropClick") onClose();
       },
@@ -10930,7 +10950,7 @@ var AppDrawer = ({
   );
 };
 var WizardDialog = ({
-  open: open2,
+  open,
   titleKey,
   steps,
   activeStep,
@@ -10952,7 +10972,7 @@ var WizardDialog = ({
   return /* @__PURE__ */ jsxRuntime.jsxs(
     Dialog__default.default,
     {
-      open: open2,
+      open,
       onClose: onCancel,
       fullWidth: true,
       maxWidth,
@@ -11057,9 +11077,9 @@ var WizardDialog = ({
 };
 var DateRangeButton = ({ range }) => {
   const { t, i18n: i18n2 } = reactI18next.useTranslation();
-  const [anchorEl, setAnchorEl] = React19.useState(null);
-  const [draftFrom, setDraftFrom] = React19.useState(range.from);
-  const [draftTo, setDraftTo] = React19.useState(range.to);
+  const [anchorEl, setAnchorEl] = React18.useState(null);
+  const [draftFrom, setDraftFrom] = React18.useState(range.from);
+  const [draftTo, setDraftTo] = React18.useState(range.to);
   const format = new Intl.DateTimeFormat(i18n2.language, { month: "short", day: "numeric" });
   const formatWithYear = new Intl.DateTimeFormat(i18n2.language, {
     month: "short",
@@ -11182,7 +11202,7 @@ var NavList = ({
   compact = false
 }) => {
   const { t } = reactI18next.useTranslation();
-  const [openMap, setOpenMap] = React19.useState({});
+  const [openMap, setOpenMap] = React18.useState({});
   return /* @__PURE__ */ jsxRuntime.jsx(List__default.default, { component: depth === 0 ? "nav" : "div", disablePadding: depth > 0, children: items.map((item) => {
     const isActive = activePath === item.path || !item.exact && item.path !== "/" && activePath.startsWith(`${item.path}/`);
     const hasChildren = Boolean(item.children?.length);
@@ -11617,10 +11637,10 @@ var CursorGrid = ({
   pulseSpeed = 600,
   className = ""
 }) => {
-  const containerRef = React19.useRef(null);
-  const canvasRef = React19.useRef(null);
-  const propsRef = React19.useRef({});
-  const wakeRef = React19.useRef(null);
+  const containerRef = React18.useRef(null);
+  const canvasRef = React18.useRef(null);
+  const propsRef = React18.useRef({});
+  const wakeRef = React18.useRef(null);
   propsRef.current = {
     cellSize,
     color,
@@ -11636,7 +11656,7 @@ var CursorGrid = ({
     clickPulse,
     pulseSpeed
   };
-  React19.useEffect(() => {
+  React18.useEffect(() => {
     const container = containerRef.current;
     const canvas = canvasRef.current;
     if (!container || !canvas) return;
@@ -11839,7 +11859,7 @@ var CursorGrid = ({
       target.removeEventListener("pointerdown", onPointerDown);
     };
   }, [cellSize]);
-  React19.useEffect(() => {
+  React18.useEffect(() => {
     wakeRef.current?.();
   }, [gridOpacity, color, lineWidth, maxOpacity, fillOpacity, cellRadius]);
   return /* @__PURE__ */ jsxRuntime.jsx("div", { ref: containerRef, className: `cursor-grid${className ? ` ${className}` : ""}`, children: /* @__PURE__ */ jsxRuntime.jsx("canvas", { ref: canvasRef, className: "cursor-grid__canvas" }) });
@@ -11912,17 +11932,22 @@ var APP_TILE_VARIANTS = {
 var PRODUCTION_APP_URLS = {
   "stay-os": "https://stay.namios.app",
   "dine-os": "https://dine.namios.app",
+  "event-os": "https://event.namios.app",
+  "inventory-os": "https://inventory.namios.app",
   "people-hr": "https://people.namios.app",
   "super-admin": "https://admin.namios.app",
   "payments-os": "https://payments.namios.app",
-  "inventory-os": "https://inventory.namios.app",
   "nami-ai": "https://ai.namios.app",
-  "public-web": "https://booking.namios.app"
+  "public-web": "https://booking.namios.app",
+  "docs": "https://docs.namios.app"
 };
 var VERCEL_APP_URLS = {
   "stay-os": "https://hotelos-stay-os.vercel.app",
   "dine-os": "https://hotelos-dine-os.vercel.app",
-  "super-admin": "https://hotelos-super-admin.vercel.app"
+  "event-os": "https://nami-event.vercel.app",
+  "inventory-os": "https://nami-inventory.vercel.app",
+  "super-admin": "https://hotelos-super-admin.vercel.app",
+  "docs": "https://nami-docs.vercel.app"
 };
 function resolveAppUrl(app) {
   if (typeof window === "undefined") {
@@ -11954,7 +11979,7 @@ var DEFAULT_HOTELOS_APPS = [
     status: "OPERATIONAL",
     port: 5174,
     url: "http://localhost:5174",
-    devCommand: "cd hotelos-stay-os && pnpm dev",
+    devCommand: "cd nami-stay && pnpm dev",
     iconBg: "linear-gradient(135deg, #007AFF 0%, #00C6FF 100%)",
     iconColor: "#007AFF",
     gradientBorder: "from-blue-500/20 via-indigo-500/20 to-sky-500/20",
@@ -11964,7 +11989,7 @@ var DEFAULT_HOTELOS_APPS = [
     badgeColor: "primary",
     shortcut: "\u23181",
     isFavorite: true,
-    docUrl: "https://docs.stay.namios.app/",
+    docUrl: "https://docs.namios.app/stay-os",
     lordIconSrc: "/icons/stay.gif"
   },
   {
@@ -11977,7 +12002,7 @@ var DEFAULT_HOTELOS_APPS = [
     status: "OPERATIONAL",
     port: 5175,
     url: "http://localhost:5175",
-    devCommand: "cd hotelos-dine-os && pnpm dev",
+    devCommand: "cd nami-dine && pnpm dev",
     iconBg: "linear-gradient(135deg, #FF6B00 0%, #FFA800 100%)",
     iconColor: "#FF6B00",
     gradientBorder: "from-rose-500/20 via-orange-500/20 to-amber-500/20",
@@ -11987,8 +12012,77 @@ var DEFAULT_HOTELOS_APPS = [
     badgeColor: "warning",
     shortcut: "\u23182",
     isFavorite: true,
-    docUrl: "https://docs.dine.namios.app/",
+    docUrl: "https://docs.namios.app/dine-os",
     lordIconSrc: "/icons/dine.gif"
+  },
+  {
+    id: "event-os",
+    name: "Event OS",
+    shortName: "Events & Banquets",
+    tagline: "Banquet Booking, Weddings & Royal Certificates",
+    description: "End-to-end banquet hall allocations, multi-course catering menus, upfront deposit folios, and royal Liquid certificates.",
+    category: "operations",
+    status: "OPERATIONAL",
+    port: 5176,
+    url: "http://localhost:5176",
+    devCommand: "cd nami-event && pnpm dev",
+    iconBg: "linear-gradient(135deg, #8B5CF6 0%, #D946EF 100%)",
+    iconColor: "#8B5CF6",
+    gradientBorder: "from-purple-500/20 via-fuchsia-500/20 to-pink-500/20",
+    icon: /* @__PURE__ */ jsxRuntime.jsx(CelebrationIcon__default.default, { sx: { fontSize: 26, color: "#FFFFFF" } }),
+    badge: "Events",
+    badgeText: "Port 5176",
+    badgeColor: "primary",
+    shortcut: "\u23183",
+    isFavorite: true,
+    docUrl: "https://docs.namios.app/event-os",
+    lordIconSrc: "/icons/event.gif"
+  },
+  {
+    id: "inventory-os",
+    name: "Inventory OS",
+    shortName: "Inventory & Stock",
+    tagline: "F&B Stock & Kitchen Recipe BOM Engine",
+    description: "Real-time stock audits, automated recipe BOM deductions, room essentials par-levels, and purchase order creation.",
+    category: "operations",
+    status: "OPERATIONAL",
+    port: 5178,
+    url: "http://localhost:5178",
+    devCommand: "cd nami-inventory && pnpm dev",
+    iconBg: "linear-gradient(135deg, #0891B2 0%, #06B6D4 100%)",
+    iconColor: "#0891B2",
+    gradientBorder: "from-cyan-500/20 via-sky-500/20 to-blue-500/20",
+    icon: /* @__PURE__ */ jsxRuntime.jsx(InventoryIcon__default.default, { sx: { fontSize: 26, color: "#FFFFFF" } }),
+    badge: "Stock",
+    badgeText: "Port 5178",
+    badgeColor: "default",
+    shortcut: "\u23184",
+    isFavorite: true,
+    docUrl: "https://docs.namios.app/inventory-os",
+    lordIconSrc: "/icons/inventory.gif"
+  },
+  {
+    id: "docs",
+    name: "Nami Docs",
+    shortName: "Docs & Cloud",
+    tagline: "Document Cloud & Developer Manuals",
+    description: "Centralized hotel document storage, guest identity cards, invoices, contracts, and platform API reference.",
+    category: "platform",
+    status: "OPERATIONAL",
+    port: 5179,
+    url: "http://localhost:5179",
+    devCommand: "cd nami-docs && pnpm dev",
+    iconBg: "linear-gradient(135deg, #6366F1 0%, #4F46E5 100%)",
+    iconColor: "#6366F1",
+    gradientBorder: "from-indigo-500/20 via-blue-500/20 to-purple-500/20",
+    icon: /* @__PURE__ */ jsxRuntime.jsx(MenuBookIcon__default.default, { sx: { fontSize: 26, color: "#FFFFFF" } }),
+    badge: "Docs",
+    badgeText: "Port 5179",
+    badgeColor: "info",
+    shortcut: "\u23185",
+    isFavorite: true,
+    docUrl: "https://docs.namios.app",
+    lordIconSrc: "/icons/admin.gif"
   },
   {
     id: "people-hr",
@@ -11998,18 +12092,18 @@ var DEFAULT_HOTELOS_APPS = [
     description: "Shift scheduling, employee attendance tracking, payroll processing, leave management, and staff performance metrics.",
     category: "operations",
     status: "OPERATIONAL",
-    port: 5176,
-    url: "http://localhost:5176",
-    devCommand: "cd hotelos-stay-os && pnpm dev",
+    port: 5177,
+    url: "http://localhost:5177",
+    devCommand: "cd nami-people && pnpm dev",
     iconBg: "linear-gradient(135deg, #9333EA 0%, #C084FC 100%)",
     iconColor: "#9333EA",
     gradientBorder: "from-purple-500/20 via-fuchsia-500/20 to-violet-500/20",
     icon: /* @__PURE__ */ jsxRuntime.jsx(PeopleIcon__default.default, { sx: { fontSize: 26, color: "#FFFFFF" } }),
     badge: "HR",
-    badgeText: "HR Module",
+    badgeText: "Staff & HR",
     badgeColor: "info",
     isFavorite: true,
-    docUrl: "https://docs.people.namios.app/",
+    docUrl: "https://docs.namios.app/people-hr",
     lordIconSrc: "/icons/people.gif"
   },
   {
@@ -12022,7 +12116,7 @@ var DEFAULT_HOTELOS_APPS = [
     status: "OPERATIONAL",
     port: 5173,
     url: "http://localhost:5173",
-    devCommand: "cd hotelos-super-admin && pnpm dev",
+    devCommand: "cd nami-admin && pnpm dev",
     iconBg: "linear-gradient(135deg, #1C1C1E 0%, #3A3A3C 100%)",
     iconColor: "#16A34A",
     gradientBorder: "from-emerald-500/20 via-teal-500/20 to-green-500/20",
@@ -12031,7 +12125,7 @@ var DEFAULT_HOTELOS_APPS = [
     badgeText: "Port 5173",
     badgeColor: "default",
     isFavorite: true,
-    docUrl: "https://docs.admin.namios.app/",
+    docUrl: "https://docs.namios.app/super-admin",
     lordIconSrc: "/icons/admin.gif"
   },
   {
@@ -12044,7 +12138,7 @@ var DEFAULT_HOTELOS_APPS = [
     status: "OPERATIONAL",
     port: 4e3,
     url: "http://localhost:4000",
-    devCommand: "cd hotel-os-be && npm run dev",
+    devCommand: "cd be/nami-be && npm run dev",
     iconBg: "linear-gradient(135deg, #00C7BE 0%, #30B0C7 100%)",
     iconColor: "#EA580C",
     gradientBorder: "from-amber-500/20 via-orange-500/20 to-red-500/20",
@@ -12053,30 +12147,8 @@ var DEFAULT_HOTELOS_APPS = [
     badgeText: "Gateway",
     badgeColor: "info",
     isFavorite: true,
-    docUrl: "https://docs.payments.namios.app/",
+    docUrl: "https://docs.namios.app/payments-os",
     lordIconSrc: "/icons/payments.gif"
-  },
-  {
-    id: "inventory-os",
-    name: "Inventory OS",
-    shortName: "Stock & POs",
-    tagline: "F&B Stock & Supplies Control",
-    description: "Real-time stock level tracking, kitchen ingredient usage, linen inventories, low-stock alerts, and purchase order creation.",
-    category: "operations",
-    status: "OPERATIONAL",
-    port: 5175,
-    url: "http://localhost:5175",
-    devCommand: "cd hotelos-dine-os && pnpm dev",
-    iconBg: "linear-gradient(135deg, #0891B2 0%, #06B6D4 100%)",
-    iconColor: "#0891B2",
-    gradientBorder: "from-cyan-500/20 via-sky-500/20 to-blue-500/20",
-    icon: /* @__PURE__ */ jsxRuntime.jsx(InventoryIcon__default.default, { sx: { fontSize: 26, color: "#FFFFFF" } }),
-    badge: "Stock",
-    badgeText: "Stock Engine",
-    badgeColor: "default",
-    isFavorite: true,
-    docUrl: "https://docs.inventory.namios.app/",
-    lordIconSrc: "/icons/inventory.gif"
   },
   {
     id: "nami-ai",
@@ -12086,15 +12158,14 @@ var DEFAULT_HOTELOS_APPS = [
     description: "AI Guest Concierge, Assistant & Smart Messaging across Guest Portals and Front Desk.",
     category: "guest_experience",
     status: "BETA",
-    port: 5176,
-    url: "http://localhost:5176",
+    url: "https://ai.namios.app",
     iconBg: "linear-gradient(135deg, #AF52DE 0%, #FF2D55 100%)",
     iconColor: "#AF52DE",
     icon: /* @__PURE__ */ jsxRuntime.jsx(AutoAwesomeIcon__default.default, { sx: { fontSize: 26, color: "#FFFFFF" } }),
     badge: "AI Beta",
     badgeText: "Beta",
     badgeColor: "info",
-    shortcut: "\u23184",
+    docUrl: "https://docs.namios.app/nami-ai",
     isFavorite: false
   },
   {
@@ -12113,7 +12184,8 @@ var DEFAULT_HOTELOS_APPS = [
     badge: "Public",
     badgeText: "Guest Web",
     badgeColor: "success",
-    isExternal: true
+    isExternal: true,
+    docUrl: "https://docs.namios.app/guest-portal"
   }
 ];
 var AppFolderMiniPreview = ({
@@ -12192,7 +12264,7 @@ var AppTile = ({
   isActive = false,
   onSelect
 }) => {
-  const [imgError, setImgError] = React19.useState(false);
+  const [imgError, setImgError] = React18.useState(false);
   const iconSrcToUse = app.lordIconSrc || app.iconSrc;
   const handleClick = () => {
     if (app.disabled) return;
@@ -12287,6 +12359,27 @@ var AppTile = ({
                     boxShadow: "0 0 4px rgba(255, 255, 255, 0.9)"
                   }
                 }
+              ),
+              app.isLocked && /* @__PURE__ */ jsxRuntime.jsx(
+                "div",
+                {
+                  title: "Subscription Upgrade Required",
+                  style: {
+                    position: "absolute",
+                    top: 3,
+                    right: 3,
+                    width: 16,
+                    height: 16,
+                    borderRadius: "50%",
+                    backgroundColor: "rgba(15, 23, 42, 0.75)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "9px",
+                    lineHeight: 1
+                  },
+                  children: "\u{1F512}"
+                }
               )
             ]
           }
@@ -12338,16 +12431,16 @@ var AppFolderModal = ({
   onClose,
   onSelectApp
 }) => {
-  const [search, setSearch] = React19.useState("");
-  const [selectedCategory, setSelectedCategory] = React19.useState("all");
-  const modalRef = React19.useRef(null);
-  React19.useEffect(() => {
+  const [search, setSearch] = React18.useState("");
+  const [selectedCategory, setSelectedCategory] = React18.useState("all");
+  const modalRef = React18.useRef(null);
+  React18.useEffect(() => {
     if (!isOpen) {
       setSearch("");
       setSelectedCategory("all");
     }
   }, [isOpen]);
-  React19.useEffect(() => {
+  React18.useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape" && isOpen) {
         onClose();
@@ -12356,14 +12449,14 @@ var AppFolderModal = ({
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose]);
-  const categories = React19.useMemo(() => {
-    const set = /* @__PURE__ */ new Set();
+  const categories = React18.useMemo(() => {
+    const set3 = /* @__PURE__ */ new Set();
     apps.forEach((a) => {
-      if (a.category) set.add(a.category);
+      if (a.category) set3.add(a.category);
     });
-    return Array.from(set);
+    return Array.from(set3);
   }, [apps]);
-  const filteredApps = React19.useMemo(() => {
+  const filteredApps = React18.useMemo(() => {
     return apps.filter((app) => {
       const matchSearch = !search.trim() || app.name.toLowerCase().includes(search.toLowerCase()) || app.description && app.description.toLowerCase().includes(search.toLowerCase());
       const matchCategory = selectedCategory === "all" || app.category === selectedCategory;
@@ -12389,7 +12482,7 @@ var AppFolderModal = ({
     }
   };
   if (typeof document === "undefined") return null;
-  return ReactDOM.createPortal(
+  return ReactDOM3.createPortal(
     /* @__PURE__ */ jsxRuntime.jsx(framerMotion.AnimatePresence, { mode: "wait", children: isOpen && /* @__PURE__ */ jsxRuntime.jsxs(
       "div",
       {
@@ -12662,6 +12755,21 @@ var isReachableUrl = (url) => {
   if (!url) return false;
   try {
     const { hostname } = new URL(url);
+    if (!hostname) return false;
+    if (typeof window !== "undefined") {
+      let currentHost = "";
+      try {
+        if (window.location.href) {
+          currentHost = new URL(window.location.href).hostname;
+        }
+      } catch {
+        currentHost = window.location.hostname || "";
+      }
+      const isCurrentHostLocal = currentHost === "localhost" || currentHost === "127.0.0.1" || currentHost.endsWith(".local");
+      if (isCurrentHostLocal) {
+        return true;
+      }
+    }
     return hostname !== "localhost" && hostname !== "127.0.0.1";
   } catch {
     return false;
@@ -12678,36 +12786,90 @@ var navigateApp = ({
   }
   const isCurrentApp = Boolean(currentAppId && app.id === currentAppId);
   if (isCurrentApp) return;
-  const targetUrl = app.url;
-  if (app.disabled || !isReachableUrl(targetUrl ?? "")) {
-    window.location.href = "/404";
+  if (app.isLocked) {
+    if (typeof window !== "undefined") {
+      const adminUrl = resolveAppUrl({ id: "super-admin" });
+      const wantsUpgrade = window.confirm(
+        `"${app.name}" is not included in your organization's current subscription.
+
+` + (app.lockReason ? `${app.lockReason}
+
+` : "") + `Would you like to open the NamiOS Admin Console to upgrade your subscription plan?`
+      );
+      if (wantsUpgrade && adminUrl) {
+        window.open(adminUrl, "_blank", "noopener,noreferrer");
+      }
+    }
     return;
   }
-  window.open(targetUrl, "_blank", "noopener,noreferrer");
+  const targetUrl = app.url;
+  if (app.disabled || !isReachableUrl(targetUrl ?? "")) {
+    if (typeof window !== "undefined") {
+      window.location.href = "/404";
+    }
+    return;
+  }
+  const ssoUrl = !app.isExternal && targetUrl ? buildSsoUrl(targetUrl) : targetUrl || "";
+  window.open(ssoUrl, "_blank", "noopener,noreferrer");
 };
 var AppLauncher = ({
   title = "NamiOS Ecosystem",
   subtitle = "Switch between NamiOS modules & portals",
   apps = DEFAULT_HOTELOS_APPS,
   currentAppId = "stay-os",
+  allowedAppIds,
   onSelectApp,
   className,
   tooltip = "NamiOS Apps"
 }) => {
-  const [isOpen, setIsOpen] = React19.useState(false);
-  const resolvedApps = React19.useMemo(() => {
-    return apps.map((app) => ({
-      ...app,
-      url: resolveAppUrl(app)
-    }));
-  }, [apps]);
-  const handleOpen = React19.useCallback(() => {
+  const [isOpen, setIsOpen] = React18.useState(false);
+  const resolvedApps = React18.useMemo(() => {
+    let allowedSet = null;
+    let isSuperAdmin = false;
+    if (allowedAppIds && allowedAppIds.length > 0) {
+      allowedSet = new Set(allowedAppIds);
+    } else if (typeof window !== "undefined") {
+      try {
+        const storedRole = window.localStorage.getItem("hotelos.user_role");
+        if (storedRole && storedRole.toLowerCase() === "super_admin") {
+          isSuperAdmin = true;
+        }
+        const storedApps = window.localStorage.getItem("hotelos.accessible_apps");
+        if (storedApps) {
+          const parsed = JSON.parse(storedApps);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            allowedSet = new Set(parsed);
+          }
+        }
+      } catch {
+      }
+    }
+    const alwaysAllowed = /* @__PURE__ */ new Set(["payments-os", "public-web", "docs"]);
+    return apps.filter((app) => {
+      if (app.id === "super-admin" && !isSuperAdmin && currentAppId !== "super-admin") {
+        return false;
+      }
+      return true;
+    }).map((app) => {
+      const isAllowed = isSuperAdmin || (allowedSet ? allowedSet.has(app.id) || alwaysAllowed.has(app.id) : true);
+      const isLocked = !isAllowed;
+      return {
+        ...app,
+        url: resolveAppUrl(app),
+        isLocked,
+        isSubscribed: isAllowed,
+        badge: isLocked ? "Locked" : app.badge,
+        badgeColor: isLocked ? "warning" : app.badgeColor
+      };
+    });
+  }, [apps, allowedAppIds, currentAppId]);
+  const handleOpen = React18.useCallback(() => {
     setIsOpen(true);
   }, []);
-  const handleClose = React19.useCallback(() => {
+  const handleClose = React18.useCallback(() => {
     setIsOpen(false);
   }, []);
-  const handleSelectApp = React19.useCallback(
+  const handleSelectApp = React18.useCallback(
     (app) => {
       const resolvedApp = {
         ...app,
@@ -12777,7 +12939,7 @@ var DashboardLayout = ({
   children
 }) => {
   const { isDesktop } = useMediaBreakpoint();
-  const [mobileOpen, setMobileOpen] = React19.useState(false);
+  const [mobileOpen, setMobileOpen] = React18.useState(false);
   const handleNavigate = (path) => {
     setMobileOpen(false);
     onNavigate(path);
@@ -12790,7 +12952,7 @@ var DashboardLayout = ({
         logo,
         actions: topBarActions,
         onMenuClick: isDesktop ? void 0 : () => {
-          setMobileOpen((open2) => !open2);
+          setMobileOpen((open) => !open);
         }
       }
     ),
@@ -13123,8 +13285,8 @@ var getAvatarBgColor = (seed) => {
   for (let i = 0; i < seed.length; i += 1) {
     hash = seed.charCodeAt(i) + ((hash << 5) - hash);
   }
-  const index3 = Math.abs(hash) % DETERMINISTIC_COLORS.length;
-  return DETERMINISTIC_COLORS[index3] ?? "#1565C0";
+  const index2 = Math.abs(hash) % DETERMINISTIC_COLORS.length;
+  return DETERMINISTIC_COLORS[index2] ?? "#1565C0";
 };
 var getAvatarColors = (seed) => {
   const textColor = getAvatarBgColor(seed);
@@ -13142,8 +13304,8 @@ var UserAvatar = ({
   fontSize,
   className
 }) => {
-  const [imageSrc, setImageSrc] = React19.useState(avatarUrl);
-  React19.useEffect(() => {
+  const [imageSrc, setImageSrc] = React18.useState(avatarUrl);
+  React18.useEffect(() => {
     if (avatarUrl) {
       setImageSrc(avatarUrl);
       return;
@@ -14203,8 +14365,8 @@ var AnimatedDoorOpen = ({
   );
 };
 function useWebGlSupport() {
-  const [supported, setSupported] = React19.useState(true);
-  React19.useEffect(() => {
+  const [supported, setSupported] = React18.useState(true);
+  React18.useEffect(() => {
     try {
       const canvas = document.createElement("canvas");
       const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl") || canvas.getContext("webgl2");
@@ -14216,7 +14378,7 @@ function useWebGlSupport() {
   return supported;
 }
 function ThreeOverviewCanvas({
-  height: height2 = 280,
+  height = 280,
   fallback,
   children,
   title,
@@ -14226,11 +14388,11 @@ function ThreeOverviewCanvas({
   const theme = styles.useTheme();
   const isDark = theme.palette.mode === "dark";
   const hasWebGl = useWebGlSupport();
-  const canvasRef = React19.useRef(null);
-  const containerRef = React19.useRef(null);
-  const [rotation, setRotation] = React19.useState({ x: 0.55, y: -0.65 });
-  const isDraggingRef = React19.useRef(false);
-  const lastPointerRef = React19.useRef({ x: 0, y: 0 });
+  const canvasRef = React18.useRef(null);
+  const containerRef = React18.useRef(null);
+  const [rotation, setRotation] = React18.useState({ x: 0.55, y: -0.65 });
+  const isDraggingRef = React18.useRef(false);
+  const lastPointerRef = React18.useRef({ x: 0, y: 0 });
   const handlePointerDown = (e) => {
     isDraggingRef.current = true;
     lastPointerRef.current = { x: e.clientX, y: e.clientY };
@@ -14249,7 +14411,7 @@ function ThreeOverviewCanvas({
   const handlePointerUp = () => {
     isDraggingRef.current = false;
   };
-  React19.useEffect(() => {
+  React18.useEffect(() => {
     if (!canvasRef.current || !hasWebGl) return;
     const canvas = canvasRef.current;
     const gl = canvas.getContext("webgl", { antialias: true, alpha: true });
@@ -14284,7 +14446,7 @@ function ThreeOverviewCanvas({
       ref: containerRef,
       sx: {
         width: "100%",
-        height: height2,
+        height,
         position: "relative",
         borderRadius: "4px",
         border: `0.5px solid ${isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(15, 23, 42, 0.08)"}`,
@@ -14329,15 +14491,15 @@ function IsometricBarOverview({
   data,
   title,
   subtitle,
-  height: height2 = 280,
+  height = 280,
   fallback
 }) {
   const theme = styles.useTheme();
   const isDark = theme.palette.mode === "dark";
-  const maxValue = React19.useMemo(() => {
+  const maxValue = React18.useMemo(() => {
     return Math.max(...data.map((d) => d.value), 1);
   }, [data]);
-  const renderScene = React19__namespace.default.useCallback(
+  const renderScene = React18__namespace.default.useCallback(
     (gl, width, heightPx, rotation) => {
       const vsSource = `
         attribute vec3 aPosition;
@@ -14591,9 +14753,9 @@ function IsometricBarOverview({
       const aspect = width / heightPx;
       const count = data.length;
       const spacing = 1.3;
-      data.forEach((item, index3) => {
+      data.forEach((item, index2) => {
         const heightNorm = Math.max(0.08, item.value / maxValue * 2.2);
-        const xPos = (index3 - count / 2 + 0.5) * spacing;
+        const xPos = (index2 - count / 2 + 0.5) * spacing;
         const cosX = Math.cos(rotation.x);
         const sinX = Math.sin(rotation.x);
         const cosY = Math.cos(rotation.y);
@@ -14631,7 +14793,7 @@ function IsometricBarOverview({
   return /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { width: "100%", position: "relative" }, children: /* @__PURE__ */ jsxRuntime.jsx(
     ThreeOverviewCanvas,
     {
-      height: height2,
+      height,
       title,
       subtitle,
       fallback,
@@ -14686,12 +14848,12 @@ function PropertyDigitalTwin({
   rooms,
   title,
   subtitle,
-  height: height2 = 300,
+  height = 300,
   fallback
 }) {
   const theme = styles.useTheme();
   const isDark = theme.palette.mode === "dark";
-  const floors = React19.useMemo(() => {
+  const floors = React18.useMemo(() => {
     const map = /* @__PURE__ */ new Map();
     rooms.forEach((r) => {
       const list = map.get(r.floor) || [];
@@ -14700,7 +14862,7 @@ function PropertyDigitalTwin({
     });
     return Array.from(map.entries()).sort(([a], [b]) => a - b);
   }, [rooms]);
-  const renderScene = React19__namespace.default.useCallback(
+  const renderScene = React18__namespace.default.useCallback(
     (gl, width, heightPx, rotation) => {
       const vsSource = `
         attribute vec3 aPosition;
@@ -14992,7 +15154,7 @@ function PropertyDigitalTwin({
   return /* @__PURE__ */ jsxRuntime.jsx(Box6__default.default, { sx: { width: "100%", position: "relative" }, children: /* @__PURE__ */ jsxRuntime.jsx(
     ThreeOverviewCanvas,
     {
-      height: height2,
+      height,
       title,
       subtitle,
       fallback,
@@ -16050,6 +16212,7 @@ exports.adjustLightness = adjustLightness;
 exports.assertNever = assertNever;
 exports.buildColorRole = buildColorRole;
 exports.buildQueryString = buildQueryString;
+exports.buildSsoUrl = buildSsoUrl;
 exports.clamp = clamp;
 exports.cn = cn;
 exports.commonKey = commonKey;
@@ -16059,6 +16222,7 @@ exports.createTheme = createTheme2;
 exports.dateRangeDays = dateRangeDays;
 exports.diffTranslationKeys = diffTranslationKeys;
 exports.differenceInDays = differenceInDays;
+exports.extractSsoContext = extractSsoContext;
 exports.flattenTranslationKeys = flattenTranslationKeys;
 exports.formatBytes = formatBytes;
 exports.forwardRef = forwardRef17;
@@ -16075,6 +16239,7 @@ exports.injectThemeTokens = injectThemeTokens;
 exports.isDefined = isDefined;
 exports.isInteractive = isInteractive;
 exports.isPwa = isPwa;
+exports.isReachableUrl = isReachableUrl;
 exports.isoDate = isoDate;
 exports.mapRange = mapRange;
 exports.navigateApp = navigateApp;

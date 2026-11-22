@@ -11,6 +11,9 @@ importers:
       '@base-ui/react':
         specifier: ^1.7.0
         version: 1.7.0(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@namios/motionui-react':
+        specifier: ^1.0.0
+        version: 1.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       i18next-browser-languagedetector:
         specifier: ^8.0.0
         version: 8.2.1
@@ -813,6 +816,12 @@ packages:
     peerDependenciesMeta:
       '@types/react':
         optional: true
+
+  '@namios/motionui-react@1.0.0':
+    resolution: {integrity: sha512-6ZP9rYN0otSuiArWgHMhTXp2qUym0ovNoJxsCtjFdRJF2oPX2qhnHjP871X0AmX3BUtbDlB8eg6jRPPtOv88Xg==}
+    peerDependencies:
+      react: '>=17.0.0'
+      react-dom: '>=17.0.0'
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -3139,6 +3148,11 @@ snapshots:
       react-is: 19.2.7
     optionalDependencies:
       '@types/react': 18.3.31
+
+  '@namios/motionui-react@1.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:

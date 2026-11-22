@@ -25,7 +25,9 @@ var SubscriptionPlanTier = {
 };
 var BillingCycle = {
   MONTHLY: "MONTHLY",
-  YEARLY: "YEARLY"
+  YEARLY: "YEARLY",
+  ANNUAL: "ANNUAL",
+  PRO_2YEAR: "PRO_2YEAR"
 };
 
 // src/types/ui.ts

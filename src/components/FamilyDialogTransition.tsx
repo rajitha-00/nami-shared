@@ -57,7 +57,7 @@ export const FamilyDialogTransition = forwardRef<HTMLDivElement, FamilyDialogTra
             }}
             style={{
               outline: 'none',
-              ...style,
+              ...(style as any),
             }}
             onAnimationStart={() => {
               if (inProp) {

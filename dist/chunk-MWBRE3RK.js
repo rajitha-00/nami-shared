@@ -1,5 +1,5 @@
-import { STORAGE_KEYS } from './chunk-3XYH3GIR.js';
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from './chunk-TSLK7DRZ.js';
+import { STORAGE_KEYS } from './chunk-3XYH3GIR.js';
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
@@ -877,5 +877,5 @@ function diffTranslationKeys(reference, candidate) {
 }
 
 export { COMMON_NAMESPACE, commonKey, diffTranslationKeys, flattenTranslationKeys, initI18n };
-//# sourceMappingURL=chunk-JAYGV7PO.js.map
-//# sourceMappingURL=chunk-JAYGV7PO.js.map
+//# sourceMappingURL=chunk-MWBRE3RK.js.map
+//# sourceMappingURL=chunk-MWBRE3RK.js.map
